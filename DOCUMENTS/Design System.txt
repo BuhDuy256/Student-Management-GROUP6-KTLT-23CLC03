@@ -1,0 +1,61 @@
+I. Login Console
+
+Student Management System
+
+Username: // Student ID or Staff ID
+Password: // 123...
+Press Enter To Continue...
+
+II. Student Menu Command
+ 
+1. View Your Profile
+2. View Your Courses
+3. Change Your Password
+4. Log out 
+
+(1) Your Profile:
+    (!) Student ID: // string
+    (!) Full Name: // string
+    (!) Gender: // Male or Female or Others
+    (!) Date Of Birth: // 00/00/2005
+    (!) Social ID: // string
+    (!) Class: //...
+Press Enter To Continue...
+
+(2) Your Courses:
+    (!) List Of Courses:
+        1. Programming Technique
+        2. Calculus 1
+        3. Physics 1
+        4. General Law
+        -1. Exit To Menu
+    (?) Choose Course (1/2/3/4/-1): //...
+        (!) Programming Technique: 
+            1. Course ID: // string
+            2. Course Name: // string
+            3. Class Name: // string 
+            4. Teacher Name: // string
+            5. Number Of Credits: // usigned short
+            6. The Maximum Students: // 50
+            7. Day Of Week: // (MON / TUE / WED / THU / FRI / SAT)
+            8. Session: (S1(07:30) / S2(09:30) / S3(13:30) / S4(15:30))
+            9. Scoreboard:
+                9.1. Total Mark: //...
+                9.2. Final Mark: //...
+                9.3. Midterm Mark: //...
+                9.4. Other Mark: //...
+        Press Enter To Continue...
+
+(3) Change Your Password:
+    (?) Enter Your Current Password: //...
+    (?) Enter Your New Password: //...
+    (?) Confirm New Password: //...
+Press Enter To Continue... 
+
+(4) 
+
+III. Staff Menu Command
+
+1.  
+
+
