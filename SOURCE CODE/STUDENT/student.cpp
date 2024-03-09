@@ -1,12 +1,15 @@
 #include "student.h"
+#include "../SYSTEM/system.h"
 
 string myID = "23127006";
 string myPassword = "123456";
+
 void pressEnterToContinue() {
   cin.ignore();
   cout << "\nPress Enter To Continue...";
   cin.get();
 }
+
 void displayHeader() {
   system("cls");
   cout << '\n';
@@ -23,6 +26,7 @@ void displayHeader() {
   cout << "+-------------------------------+";
   cout << "\n\n\n\n\n";
 }
+
 void displayLoginConsole() {
   displayHeader();
   cout << "What do you want to do?";
@@ -37,6 +41,7 @@ void displayLoginConsole() {
   if (cmd == 1)
     login();
 }
+
 void login() {
   displayHeader();
   cout << "LOG IN\n\n";
@@ -61,6 +66,7 @@ void login() {
 
   displayStudentMenu();
 }
+
 void displayStudentMenu() {
   displayHeader();
   cout << "HOME\n\n";
@@ -96,6 +102,7 @@ void displayStudentProfile() {
   pressEnterToContinue();
   displayStudentMenu();
 }
+
 void displayCourses() {
   displayHeader();
   cout << "YOUR COURSES:\n\n";
@@ -116,6 +123,7 @@ void displayCourses() {
   pressEnterToContinue();
   displayCourses();
 }
+
 void changePassword() {
   displayHeader();
   cout << "CHANGE PASSWORD\n\n";
