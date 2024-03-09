@@ -30,7 +30,7 @@ void displayHeader() {
 void displayLoginConsole() {
   displayHeader();
   cout << "What do you want to do?";
-  cout << "\n1. Login.\n-1. Exit.\n\n";
+  cout << "\n1. Log In.\n-1. Exit.\n\n";
 
   cout << "Input Your Command: ";
   int cmd;
@@ -73,7 +73,7 @@ void displayStudentMenu() {
 
   cout << "What do you want to do?";
   cout << "\n\n1. View Your Profile.\n2. View Your Courses.\n3. Change Your "
-          "Password. \n4. Log Out.\n-1. Exit.\n\n";
+    "Password. \n4. Log Out.\n-1. Exit.\n\n";
 
   cout << "Input Your Command: ";
   int cmd;
@@ -109,7 +109,7 @@ void displayCourses() {
 
   cout << "Choose Your Course:\n";
   cout << "\n1. Programming Technique.\n2. Calculus 1.\n3. Physics 1.\n4. "
-          "General Law.\n0. Back.\n-1. Exit.\n\n";
+    "General Law.\n0. Back.\n-1. Exit.\n\n";
 
   cout << "Input Your Course: ";
   int cmd;
