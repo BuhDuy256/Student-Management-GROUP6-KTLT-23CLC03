@@ -5,36 +5,36 @@ string myID = "23127006";
 string myPassword = "123456";
 
 void pressEnterToContinue() {
-  cin.ignore();
-  cout << "\nPress Enter To Continue...";
-  cin.get();
+    cin.ignore();
+    cout << "\nPress Enter To Continue...";
+    cin.get();
 }
 
 void displayHeader() {
-  system("cls");
-  cout << '\n';
-  for (int i = 0; i < 30; i++)
-    cout << " ";
-  cout << "+-------------------------------+";
-  cout << '\n';
-  for (int i = 0; i < 30; i++)
-    cout << " ";
-  cout << "|   Student Management System   |";
-  cout << '\n';
-  for (int i = 0; i < 30; i++)
-    cout << " ";
-  cout << "+-------------------------------+";
-  cout << "\n\n\n\n\n";
+    system("cls");
+    cout << '\n';
+    for (int i = 0; i < 30; i++)
+        cout << " ";
+    cout << "+-------------------------------+";
+    cout << '\n';
+    for (int i = 0; i < 30; i++)
+        cout << " ";
+    cout << "|   Student Management System   |";
+    cout << '\n';
+    for (int i = 0; i < 30; i++)
+        cout << " ";
+    cout << "+-------------------------------+";
+    cout << "\n\n\n\n\n";
 }
 
 void displayLoginConsole() {
-  displayHeader();
-  cout << "What do you want to do?";
-  cout << "\n1. Login.\n-1. Exit.\n\n";
+    displayHeader();
+    cout << "What do you want to do?";
+    cout << "\n1. Log In.\n-1. Exit.\n\n";
 
-  cout << "Input Your Command: ";
-  int cmd;
-  cin >> cmd;
+    cout << "Input Your Command: ";
+    int cmd;
+    cin >> cmd;
 
   if (cmd == -1)
     exit(0);
@@ -73,7 +73,7 @@ void displayStudentMenu() {
 
   cout << "What do you want to do?";
   cout << "\n\n1. View Your Profile.\n2. View Your Courses.\n3. Change Your "
-          "Password. \n4. Log Out.\n-1. Exit.\n\n";
+    "Password. \n4. Log Out.\n-1. Exit.\n\n";
 
   cout << "Input Your Command: ";
   int cmd;
@@ -109,7 +109,7 @@ void displayCourses() {
 
   cout << "Choose Your Course:\n";
   cout << "\n1. Programming Technique.\n2. Calculus 1.\n3. Physics 1.\n4. "
-          "General Law.\n0. Back.\n-1. Exit.\n\n";
+    "General Law.\n0. Back.\n-1. Exit.\n\n";
 
   cout << "Input Your Course: ";
   int cmd;
