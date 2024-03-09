@@ -1,6 +1,7 @@
 #include "../STUDENT/student.h"
 
-int main() {
-  displayLoginConsole();
-  return 0;
+int main()
+{
+    displayLoginConsole();
+    return 0;
 }
