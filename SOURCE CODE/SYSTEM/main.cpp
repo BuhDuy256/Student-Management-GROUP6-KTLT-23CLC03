@@ -1,3 +1,4 @@
+#include "system.h"
 #include "../STUDENT/student.h"
 
 int main()
