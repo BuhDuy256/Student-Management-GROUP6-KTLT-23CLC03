@@ -1,6 +1,4 @@
 #pragma once
-#ifndef SYSTEM_H
-#define SYSTEM_H
 
 #include <iostream>
 #include <stdlib.h>
@@ -21,5 +19,3 @@
 #include <bitset>
 
 using namespace std;
-
-#endif // SYSTEM_H
