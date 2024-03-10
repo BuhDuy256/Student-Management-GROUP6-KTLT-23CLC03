@@ -40,20 +40,26 @@ void login()
     cout << "LOG IN\n\n";
 
     cout << "(Username: 23127006)\n(Default Password: 123456)\n\n";
-    while (1)
+
+    string username, password;
+    cout << "Username: ";
+    cin >> username;
+    cout << "Password: ";
+    cin >> password;
+
+    if (username != myID)
     {
-        cout << "Username: ";
-        string username;
-        cin >> username;
-        cout << "Password: ";
-        string password;
-        cin >> password;
-        if (username == myID && myPassword == password) break;
-        else
-        {
-            if (username != myID) cout << "\nID not found\n\n";
-            else cout << "\nWRONG PASSWORD!!!\n\n";
-        }
+        cout << "\nUSERNAME NOT FOUND!!!\n";
+        pressEnterToContinue();
+        login();
+        return;
+    }
+    if (password != myPassword)
+    {
+        cout << "\nWRONG PASSWORD!!!\n";
+        pressEnterToContinue();
+        login();
+        return;
     }
 
     displayStudentMenu();
@@ -116,23 +122,27 @@ void changePassword()
     cout << "CHANGE PASSWORD\n\n";
 
     string curPassword, newPassword, confirmPassword;
-    while (1)
+
+    cout << "Current Password: ";
+    cin >> curPassword;
+    if (curPassword != myPassword)
     {
-        cout << "Current Password: ";
-        cin >> curPassword;
-        if (curPassword == myPassword) break;
-        cout << "\nWRONG PASSWORD!!!\n\n";
+        cout << "\nWRONG PASSWORD!!!\n";
+        pressEnterToContinue();
+        changePassword();
+        return;
     }
-    while (1)
+    cout << "New Password: ";
+    cin >> newPassword;
+    cout << "Confirm New Password: ";
+    cin >> confirmPassword;
+    if (newPassword != confirmPassword)
     {
-        cout << "New PassWord: ";
-        cin >> newPassword;
-        cout << "Confirm New Password: ";
-        cin >> confirmPassword;
-        if (newPassword == confirmPassword) break;
-        cout << "\nNOT MATCH!!!\n\n";
+        cout << "\nNOT MATCH!!!\n";
+        pressEnterToContinue();
+        changePassword();
+        return;
     }
-    myPassword = newPassword;
 
     cout << "\nYour Password Has Been Changed!\n";
 
