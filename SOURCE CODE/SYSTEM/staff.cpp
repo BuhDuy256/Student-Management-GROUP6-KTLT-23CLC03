@@ -34,7 +34,8 @@ void Course::updateInfor() {
                 cin >> update;
                 SessionDay = update;
             }
-            if (choice == 4) {
+            if (choice == 4)
+            {
                 cin >> update;
                 SessionTime = update;
             }
@@ -87,9 +88,12 @@ void Semester::deleteCourse() {
     showCourse();
     cout << "\nName of Course to Delete: ";
     cin >> n;
-    for (int i = 0; i < NumofSemCourse; i++) {
-        if (courses[i].Name == n) { //maychangetoLinkedList
-            for (int t = i; t < NumofSemCourse - 1; t++) {
+    for (int i = 0; i < NumofSemCourse; i++)
+    {
+        if (courses[i].Name == n)
+        { //maychangetoLinkedList
+            for (int t = i; t < NumofSemCourse - 1; t++)
+            {
                 courses[t] = courses[t + 1];
             }
             NumofSemCourse--;

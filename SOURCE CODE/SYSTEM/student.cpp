@@ -144,6 +144,7 @@ void changePassword()
         return;
     }
 
+    myPassword = newPassword;
     cout << "\nYour Password Has Been Changed!\n";
 
     pressEnterToContinue();
