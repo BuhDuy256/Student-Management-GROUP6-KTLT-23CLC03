@@ -1,5 +1,5 @@
 #include "student.h"
-#include "../SYSTEM/system.h"
+#include "system.h"
 
 string myID = "23127006";
 string myPassword = "123456";

@@ -1,5 +1,5 @@
 #include "system.h"
-#include "../STUDENT/student.cpp"
+#include "student.h"
 
 int main()
 {

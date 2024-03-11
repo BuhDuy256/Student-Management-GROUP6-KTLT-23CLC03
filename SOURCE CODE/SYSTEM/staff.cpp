@@ -1,4 +1,4 @@
-#include "../SYSTEM/system.h"
+#include "system.h"
 #include "staff.h"
 void SchoolYear::add1stStudentto1stClass() {
     //importCSVfile
