@@ -8,7 +8,7 @@ struct Student;
 
 struct Class {
     std::string ClassName;
-    int ClassSize;
+    std::string SchoolYear;
     Student* Students;
     Class* ClaNext;
     Class* ClaPrev;
@@ -53,27 +53,18 @@ struct Course {
 
 struct SchoolYear {
     std::string AcademicYear;
-    Class* Classes;
     Semester* Semesters;
     SchoolYear* syNext;
-    SchoolYear (std::string AcademicYear, SchoolYear* syNext) : 
-    AcademicYear(AcademicYear), syNext(syNext) {}
-};
-
-template<class T>
-struct Node {
-    T val;
-    Node* next;
-    Node (int val) : val(val), next(nullptr) {}
-    Node (int val, T* next) : val(val), next(next) {}
+    SchoolYear (std::string AcademicYear, SchoolYear* syNext) : AcademicYear(AcademicYear), syNext(syNext) {}
+    SchoolYear (std::string AcademicYear) : AcademicYear(AcademicYear), syNext(nullptr) {}
 };
 
 template <class T>
 struct Queue {
-    Node<T>* head, *tail;
+    T* head, *tail;
     Queue() : head(nullptr), tail(nullptr) {}
     void enQueue(T x);
-    void deQueue(T x);
+    void deQueue();
     bool isEmpty();
     T front();
 };
