@@ -60,11 +60,21 @@ struct SchoolYear {
     AcademicYear(AcademicYear), syNext(syNext) {}
 };
 
-struct SY_Stack {
-    SchoolYear* CurrYear = nullptr;
-    void syPush(std::string AcademicYear);
-    void syPop();
-    bool syIsEmpty();
-    void syDisplay();
+template<class T>
+struct Node {
+    T val;
+    Node* next;
+    Node (int val) : val(val), next(nullptr) {}
+    Node (int val, T* next) : val(val), next(next) {}
+};
+
+template <class T>
+struct Queue {
+    Node<T>* head, *tail;
+    Queue() : head(nullptr), tail(nullptr) {}
+    void enQueue(T x);
+    void deQueue(T x);
+    bool isEmpty();
+    T front();
 };
 
