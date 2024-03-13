@@ -10,6 +10,7 @@ int main () {
     importCSVClass(Classes);
     importCSVStudent(Classes);
     displayAllStudentOfClass(Classes, "23CLC03");
+    displayAllStudentOfClass(Classes, "23APCS3");
     deleteAllStudent(Classes);
     HCMUS.display();
     HCMUS.remove();

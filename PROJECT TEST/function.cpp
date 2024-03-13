@@ -89,11 +89,10 @@ void importCSVClass(Class* &Classes) {
             Classes = new Class(ClassName, SchoolYear);
             ClassTemp = Classes;
         } else {
-            Classes -> ClaNext = new Class(ClassName, SchoolYear);
-            Classes = Classes -> ClaNext;
+            ClassTemp -> ClaNext = new Class(ClassName, SchoolYear);
+            ClassTemp = ClassTemp -> ClaNext;
         }
     }
-    inF.close();
 }
 
 void displayClass(Class* Classes) {
