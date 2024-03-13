@@ -55,17 +55,19 @@ struct SchoolYear {
     std::string AcademicYear;
     Semester* Semesters;
     SchoolYear* syNext;
-    SchoolYear (std::string AcademicYear, SchoolYear* syNext) : AcademicYear(AcademicYear), syNext(syNext) {}
-    SchoolYear (std::string AcademicYear) : AcademicYear(AcademicYear), syNext(nullptr) {}
+    SchoolYear (std::string AcademicYear, SchoolYear* syNext) : AcademicYear(AcademicYear), Semesters(nullptr), syNext(syNext) {}
+    SchoolYear (std::string AcademicYear) : AcademicYear(AcademicYear), Semesters(nullptr), syNext(nullptr) {}
 };
-
-template <class T>
-struct Queue {
-    T* head, *tail;
-    Queue() : head(nullptr), tail(nullptr) {}
-    void enQueue(T x);
+struct SY_Queue {
+    SchoolYear* head, *tail;
+    SY_Queue() : head(nullptr), tail(nullptr) {}
+    void enQueue(std::string x);
     void deQueue();
     bool isEmpty();
-    T front();
+    std::string front();
+    void display();
+    void remove();
 };
+
+void importCSVSchoolYear(SY_Queue &HCMUS);
 

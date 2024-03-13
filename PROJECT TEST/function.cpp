@@ -1,42 +1,52 @@
 #include"struct.h"
+#include<fstream>
 
-template <class T>
-void Queue<T>::enQueue(T x) {
-    T* newNode = new T(x); 
-    if (tail == nullptr) { 
-        head = tail = newNode; 
+void SY_Queue::enQueue(std::string line) {
+    if (isEmpty()) {
+        head = new SchoolYear(line);
+        tail = head;
     } else {
-        tail->syNext = newNode; 
-        tail = newNode; 
+        tail -> syNext = new SchoolYear(line);
+        tail = tail -> syNext;
     }
 }
 
-template <class T>
-void Queue<T>::deQueue() {
+void SY_Queue::deQueue() {
+    if (!isEmpty()) {
+        SchoolYear* dele = head;
+        head = head -> syNext;
+        delete dele;
+    } else {
+        tail = nullptr;
+    }
+}
+
+bool SY_Queue::isEmpty() {
+    return head == nullptr;
+}
+
+std::string SY_Queue::front() {
     if (isEmpty()) {
-        std::cout << "Queue is empty. Cannot dequeue." << std::endl;
-        return;
-    }
-    T* temp = head; 
-    head = head -> syNext; 
-    delete temp; 
-    if (head == nullptr) { 
-        tail = nullptr; 
-    }
+        std::cout << "There are no School Year Data";
+        return "";
+    } 
+    return head -> AcademicYear;
 }
 
-template <class T>
-bool Queue<T>::isEmpty() {
-    return head == nullptr; 
+void SY_Queue::display() {
+    SchoolYear* curr = head;
+    while(curr) {
+        std::cout << curr -> AcademicYear << std::endl;
+        curr = curr -> syNext;
+    }   
 }
 
-template <class T>
-T Queue<T>::front() {
-    if (isEmpty()) {
-        std::cout << "Queue is empty. No front element." << std::endl;
-        return T(); 
+void SY_Queue::remove() {
+    while(head) {
+        SchoolYear* dele = head;
+        head = head -> syNext;
+        delete dele;
     }
-    return *head;
 }
 
 void Student::generatePasswordFromID() {
@@ -45,6 +55,22 @@ void Student::generatePasswordFromID() {
     } else {
         Password = "KHTN@" + StudentID;
     }
+}
+
+void importCSVSchoolYear(SY_Queue &HCMUS) {
+    std::ifstream inF ("SchoolYear.csv");
+    if (!inF.is_open()) {
+        std::cout << "Data School Year Error";
+        return;
+    }
+    std::string line;
+    while(std::getline(inF, line)) {
+        HCMUS.enQueue(line);
+    }
+    // inF.close();  
+    // HCMUS.display();
+    // HCMUS.remove();
+    // std::cout << HCMUS.isEmpty();
 }
 
 
