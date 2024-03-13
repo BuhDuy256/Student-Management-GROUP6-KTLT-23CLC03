@@ -5,13 +5,14 @@
 
 struct Course;
 struct Student;
-
+struct Semester;
+struct Course;
 struct Class {
     std::string ClassName;
     std::string SchoolYear;
-    Student* Students;
+    Student* Students = nullptr;
     Class* ClaNext;
-    Class* ClaPrev;
+    Class (std::string ClassName, std::string SchoolYear) : ClassName(ClassName), SchoolYear(SchoolYear), ClaNext(nullptr) {}
 };
 
 struct Student {
@@ -22,9 +23,8 @@ struct Student {
     std::string SocialID;
     std::string Class;
     std::string Password = "12345678";
-    Course* CourseOfStudent;
+    Course* CourseOfStudent = nullptr;
     Student* StuNext;
-    Student* StuPrev;
     void generatePasswordFromID();
 };
 
@@ -35,7 +35,6 @@ struct Semester {
     std::string StartDate;
     Course* Courses = nullptr;
     Semester* SemNext;
-    Semester* SemPrev;
 };
 
 struct Course {
@@ -46,17 +45,16 @@ struct Course {
     std::string CourseSize = "50";
     std::string DayOfWeek;
     std::string Session;
-    Student* StudentOfCourse;
+    Student* StudentOfCourse = nullptr;
     Course* CouNext;
-    Course* CouPrev;
 };
 
 struct SchoolYear {
     std::string AcademicYear;
-    Semester* Semesters;
+    Semester* Semesters = nullptr;
     SchoolYear* syNext;
     SchoolYear (std::string AcademicYear, SchoolYear* syNext) : AcademicYear(AcademicYear), Semesters(nullptr), syNext(syNext) {}
-    SchoolYear (std::string AcademicYear) : AcademicYear(AcademicYear), Semesters(nullptr), syNext(nullptr) {}
+    SchoolYear (std::string AcademicYear) : AcademicYear(AcademicYear), syNext(nullptr) {}
 };
 struct SY_Queue {
     SchoolYear* head, *tail;
@@ -70,4 +68,6 @@ struct SY_Queue {
 };
 
 void importCSVSchoolYear(SY_Queue &HCMUS);
-
+void importCSVClass(Class* &Classes);
+void displayClass(Class* Classes);
+void removeClass(Class* &Classes);

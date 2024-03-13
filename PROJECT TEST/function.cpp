@@ -1,5 +1,6 @@
 #include"struct.h"
 #include<fstream>
+#include<sstream>
 
 void SY_Queue::enQueue(std::string line) {
     if (isEmpty()) {
@@ -67,10 +68,49 @@ void importCSVSchoolYear(SY_Queue &HCMUS) {
     while(std::getline(inF, line)) {
         HCMUS.enQueue(line);
     }
-    // inF.close();  
-    // HCMUS.display();
-    // HCMUS.remove();
-    // std::cout << HCMUS.isEmpty();
+}
+
+void importCSVClass(Class* &Classes) {
+    std::ifstream inF ("ClassList.csv");
+    if (!inF.is_open()) {
+        std::cout << "Class List Data Error";
+        return;
+    }
+    std::string line;
+    while(std::getline(inF, line)) {
+        std::stringstream ss (line);
+        std::string ClassToken;
+        std::getline(ss, ClassToken, ',');
+        std::string ClassName = ClassToken;
+        std::getline(ss, ClassToken, ',');
+        std::string SchoolYear = ClassToken;
+        Class* ClassTemp = Classes;
+        if (!Classes) {
+            Classes = new Class(ClassName, SchoolYear);
+            ClassTemp = Classes;
+        } else {
+            Classes -> ClaNext = new Class(ClassName, SchoolYear);
+            Classes = Classes -> ClaNext;
+        }
+    }
+    inF.close();
+}
+
+void displayClass(Class* Classes) {
+    while(Classes) {
+        std::cout << Classes -> ClassName << " " << Classes -> SchoolYear << std::endl;
+        Classes = Classes -> ClaNext;
+    }
+}
+
+void removeClass(Class* &Classes) {
+    while(Classes) {
+        Class* dele = Classes;
+        Classes = Classes -> ClaNext;
+        delete dele;
+    }
+    if (!Classes) 
+        std::cout << "Classes is Empty";
 }
 
 
