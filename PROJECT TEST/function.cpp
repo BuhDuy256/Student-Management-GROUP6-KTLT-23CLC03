@@ -113,5 +113,82 @@ void removeClass(Class* &Classes) {
         std::cout << "Classes is Empty";
 }
 
+void AddStudentToClass(Student* &ListStudentOfClass, std::string StudentID, std::string StudentName, std::string Gender, std::string Birthday, std::string SocialID, std::string ClassOfStudent) {
+    if (!ListStudentOfClass) {
+        ListStudentOfClass = new Student(StudentID, StudentName, Gender, Birthday, SocialID, ClassOfStudent);
+        return;
+    }
+    Student* Curr = ListStudentOfClass;
+    while(Curr -> StuNext) 
+        Curr = Curr -> StuNext;
+    Curr -> StuNext = new Student(StudentID, StudentName, Gender, Birthday, SocialID, ClassOfStudent);
+}
+
+Class* FindClassWithClassName(Class* Classes, std::string ClassName) {
+    Class* Curr = Classes;
+    while(Curr && Curr -> ClassName != ClassName)
+        Curr = Curr -> ClaNext;
+    return Curr;
+}
+
+void importCSVStudent(Class* Classes) {
+    std::ifstream inF ("StudentList.csv");
+    if (!inF.is_open()) {
+        std::cout << "Student Data Error";
+        return;
+    }
+    std::string line;
+    while(std::getline(inF, line)) {
+        std::string StudentID, StudentName, Gender, Birthday, SocialID, ClassOfStudent;
+        std::stringstream ss(line);
+        std::string StudentToken;
+        std::getline(ss, StudentToken, ',');
+        StudentID = StudentToken;
+        std::getline(ss, StudentToken, ',');
+        StudentName = StudentToken;
+        std::getline(ss, StudentToken, ',');
+        Gender = StudentToken;
+        std::getline(ss, StudentToken, ',');
+        Birthday = StudentToken;
+        std::getline(ss, StudentToken, ',');
+        SocialID = StudentToken;
+        std::getline(ss, StudentToken, ',');
+        ClassOfStudent = StudentToken;
+        Class* ClassF = FindClassWithClassName(Classes, ClassOfStudent);
+        if (ClassF) {
+            Student* ListStudentOfClass = ClassF -> Students;
+            AddStudentToClass(ListStudentOfClass, StudentID, StudentName, Gender, Birthday, SocialID, ClassOfStudent);
+            ClassF -> Students = ListStudentOfClass;
+        } else {
+            std::cout << "Class not found: " << ClassOfStudent << std::endl;
+        }
+    }
+    inF.close();
+}
+
+void displayAllStudentOfClass(Class* Classes, std::string ClassName) {
+    Class* ClassF = FindClassWithClassName(Classes, ClassName);
+    Student* ListStudentOfClass = ClassF -> Students;
+    while(ListStudentOfClass) {
+        std::cout << ListStudentOfClass -> StudentID << ";" <<
+        ListStudentOfClass -> StudentName << ";" << ListStudentOfClass -> ClassOfStudent << std::endl;
+        ListStudentOfClass = ListStudentOfClass -> StuNext; 
+    }
+}   
+
+void deleteAllStudent(Class* Classes) {
+    Class* Curr = Classes;
+    while(Curr) {
+        Student* StuHead = Curr -> Students;
+        while(StuHead) {
+            Student* dele = StuHead;
+            StuHead = StuHead -> StuNext;
+            delete dele;
+        }
+        Curr -> Students = nullptr;
+        Curr = Curr -> ClaNext;
+    }
+}
+
 
 

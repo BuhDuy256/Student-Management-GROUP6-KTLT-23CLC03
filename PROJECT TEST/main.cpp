@@ -8,9 +8,12 @@ int main () {
     importCSVSchoolYear(HCMUS);
     Class* Classes = nullptr;
     importCSVClass(Classes);
+    importCSVStudent(Classes);
+    displayAllStudentOfClass(Classes, "23CLC03");
+    deleteAllStudent(Classes);
     HCMUS.display();
     HCMUS.remove();
     displayClass(Classes);
-    removeClass(Classes);
+    removeClass(Classes); 
     return 0;
 }

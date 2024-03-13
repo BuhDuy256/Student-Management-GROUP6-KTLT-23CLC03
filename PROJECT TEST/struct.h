@@ -21,10 +21,11 @@ struct Student {
     std::string Gender;
     std::string Birthday;
     std::string SocialID;
-    std::string Class;
-    std::string Password = "12345678";
+    std::string ClassOfStudent;
+    std::string Password;
     Course* CourseOfStudent = nullptr;
     Student* StuNext;
+    Student (std::string StudentID, std::string StudentName, std::string Gender, std::string Birthday, std::string SocialID, std::string ClassOfStudent) : StudentID(StudentID), StudentName(StudentName), Gender(Gender), Birthday(Birthday), SocialID(SocialID), ClassOfStudent(ClassOfStudent), StuNext(nullptr) {}
     void generatePasswordFromID();
 };
 
@@ -71,3 +72,8 @@ void importCSVSchoolYear(SY_Queue &HCMUS);
 void importCSVClass(Class* &Classes);
 void displayClass(Class* Classes);
 void removeClass(Class* &Classes);
+void AddStudentToClass(Student* &ListStudentOfClass, std::string StudentID, std::string StudentName, std::string Gender, std::string Birthday, std::string SocialID, std::string ClassOfStudent);
+Class* FindClassWithClassName(Class* Classes, std::string ClassName);
+void importCSVStudent(Class* Classes);
+void displayAllStudentOfClass(Class* Classes, std::string ClassName);
+void deleteAllStudent(Class* Classes);
