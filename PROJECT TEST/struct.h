@@ -6,7 +6,8 @@
 struct Course;
 struct Student;
 struct Semester;
-struct Course;
+struct SchoolYear;
+struct SY_Queue;
 struct Class {
     std::string ClassName;
     std::string SchoolYear;
@@ -32,10 +33,12 @@ struct Student {
 
 struct Semester {
     unsigned short SemesterNumber; //1, 2, 3
-    std::string SchoolYear;
+    // std::string SchoolYear;
     std::string StartDate;
+    std::string EndDate;
     Course* Courses = nullptr;
-    Semester* SemNext;
+    Semester(unsigned short SemesterNumber, std::string StartDate) : SemesterNumber(SemesterNumber), StartDate(StartDate) {}
+    Semester() : SemesterNumber(0), StartDate(""), EndDate(""), Courses(nullptr) {}
 };
 
 struct Course {
@@ -52,11 +55,13 @@ struct Course {
 
 struct SchoolYear {
     std::string AcademicYear;
-    Semester* Semesters = nullptr;
+    Semester Semesters[3];
     SchoolYear* syNext;
-    SchoolYear (std::string AcademicYear, SchoolYear* syNext) : AcademicYear(AcademicYear), Semesters(nullptr), syNext(syNext) {}
+    SchoolYear (std::string AcademicYear, SchoolYear* syNext) : AcademicYear(AcademicYear), syNext(syNext) {}
     SchoolYear (std::string AcademicYear) : AcademicYear(AcademicYear), syNext(nullptr) {}
+    void addSemester(unsigned short semesterNumber, std::string startDate);
 };
+
 struct SY_Queue {
     SchoolYear* head, *tail;
     SY_Queue() : head(nullptr), tail(nullptr) {}

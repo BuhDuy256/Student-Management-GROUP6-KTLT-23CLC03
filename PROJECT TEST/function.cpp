@@ -189,5 +189,17 @@ void deleteAllStudent(Class* Classes) {
     }
 }
 
+void SchoolYear::addSemester(unsigned short semesterNumber, std::string startDate) {
+    if (semesterNumber < 1 || semesterNumber > 3) {
+        std::cout << "Invalid semester number\n";
+        return;
+    }
+    if (Semesters[semesterNumber - 1]) {
+        std::cout << "Semester " << semesterNumber << " already exists\n";
+        return;
+    }
+    Semesters[semesterNumber - 1] = new Semester(semesterNumber, AcademicYear, startDate);
+}
+
 
 
