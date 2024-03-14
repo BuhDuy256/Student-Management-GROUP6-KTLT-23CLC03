@@ -123,7 +123,7 @@ void AddStudentToClass(Student* &ListStudentOfClass, std::string StudentID, std:
     while(Curr -> StuNext) 
         Curr = Curr -> StuNext;
     Curr -> StuNext = new Student(StudentID, StudentName, Gender, Birthday, SocialID, ClassOfStudent);
-}
+}đo
 
 Class* FindClassWithClassName(Class* Classes, std::string ClassName) {
     Class* Curr = Classes;
