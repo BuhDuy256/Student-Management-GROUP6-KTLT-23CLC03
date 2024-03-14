@@ -100,7 +100,7 @@ Press Enter To Continue...
 ===== Manage Classes =====
 
 1 - View List Of Classes
-2 - Create A New Classes
+2 - Create A New Class
 3 - Create More Classes
 4 - Import CSV Files Containing All Students Of A Class
 5 - View students in a class
@@ -176,7 +176,7 @@ Enter Your Command: ...
 5 - View List Of Students In A Couse
 6 - Add A Student To A Course
 7 - Import CSV Files Containing All Students Of A Course
-8 - Remove A Student From A Course
+8 - Delete A Student From A Course
 9 - Delete A Course
 
 Enter Your Command: //...

@@ -1,0 +1,55 @@
+// System function
+void importCSVSchoolYear(); 
+void importCSVClass();
+void importCSVStudent();
+
+void saveData(); // Contains many other functions
+
+void deleteAllStudents();
+void deleteAllSchoolYears();
+void deleteAllClasses();
+
+void signIn();
+void signOut();
+void changePassWordOfStudent();
+void changePassWordOfStaff();
+// STAFF
+
+// School year management function
+void createASchoolYear(); // 1
+
+// Class management function (Khong tinh feature 5)
+void createANewClass(); // 2
+void viewAllClassesInSchool(); // 15
+void viewAllClassesInASchoolYear(); // 15.2
+void deleteAClass();
+void viewAllStudentsInAClass(); // 16
+void importCSVFilesContainingAllStudentsOfAClass(); // 3, 4
+
+// Semester management function
+void createANewSemester(); // 6
+	// Course management function
+	void addACourseToASemester(); // 7 
+	void importCSVFilesContainingAllStudentsOfACourse(); // 8
+	void listOfCourse(); // 9
+	void updateCourseInformation(); // 10
+	void addAStudentToACourse(); // 11
+	void deleteAStudenFromACourse(); // 12
+	void deleteACourse(); // 13
+	void viewAllCourseInASemester(); // 17
+	void viewAllStudentsInACourse(); // 18
+
+		// Score maanagement function
+		void exportStudentsOfACourseToCSVFile(); // 19
+		void importCSVScoreBoardOfACourse(); // 20
+		void viewScoreBoardOfACourse(); // 21
+		void updateResultOfAStudent(); // 22
+		void viewScoreBoardOfAClass(); // 23 => Difficult
+
+// STUDENT
+void viewStudentProfile(); 
+void viewCoursesOfAStudent(); // 14
+void viewScoreOfAStudent(); // 24
+
+
+
