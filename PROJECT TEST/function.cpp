@@ -89,9 +89,11 @@ void importCSVClass(Class* &Classes) {
             Classes = new Class(ClassName, SchoolYear);
             ClassTemp = Classes;
         } else {
+            while(ClassTemp -> ClaNext) 
+                ClassTemp = ClassTemp -> ClaNext;
             ClassTemp -> ClaNext = new Class(ClassName, SchoolYear);
             ClassTemp = ClassTemp -> ClaNext;
-        }
+        }    
     }
 }
 
@@ -109,7 +111,7 @@ void removeClass(Class* &Classes) {
         delete dele;
     }
     if (!Classes) 
-        std::cout << "Classes is Empty";
+        std::cout << "Classes is Empty" << std::endl;
 }
 
 void AddStudentToClass(Student* &ListStudentOfClass, std::string StudentID, std::string StudentName, std::string Gender, std::string Birthday, std::string SocialID, std::string ClassOfStudent) {
@@ -194,12 +196,14 @@ void SchoolYear::addSemester(unsigned short semesterNumber, std::string startDat
         std::cout << "Invalid semester number\n";
         return;
     }
-    if (Semesters[semesterNumber - 1]) {
+    if (Semesters[semesterNumber - 1].SemesterNumber != 0) {
         std::cout << "Semester " << semesterNumber << " already exists\n";
         return;
     }
-    Semesters[semesterNumber - 1] = new Semester(semesterNumber, AcademicYear, startDate);
+    Semesters[semesterNumber - 1].SemesterNumber = semesterNumber;
+    Semesters[semesterNumber - 1].StartDate = startDate;
 }
+
 
 
 

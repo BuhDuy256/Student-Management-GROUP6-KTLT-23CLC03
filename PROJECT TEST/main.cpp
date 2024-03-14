@@ -4,25 +4,18 @@
 #include<sstream>
 #include<chrono>
 
-// FIXME:
-/*
-Cần check lại làm sao để đẩy data của các semester lên program
-Thuật toán addCourse vào các Semester của các SchoolYear 
-*/ 
-// void importCSVCourse(SY_Queue HCMUS) {
-//     std::ifstream inF ("CourseList.csv");
-//     if (!inF.is_open()) {
-//         std::cout << "Course Data Error";
-//         return;
-//     }
-//     std::string line;
-//     while(std::getline(inF, line)) {
-//         std::stringstream ss(line);
-//         std::string CourseToken;
-//         std::getline(ss, CourseToken, ',');
-//     }
-//     inF.close();
-// }
+void importCSVCourse(SY_Queue HCMUS) {
+    std::ifstream inF ("CourseList.csv");
+    if (!inF.is_open()) {
+        std::cout << "Course Data Error";
+        return;
+    }
+    std::string line;
+    while(std::getline(inF, line)) {
+
+    }
+    inF.close();
+}
 
 int main () {
     auto start = std::chrono::high_resolution_clock::now();
@@ -33,6 +26,7 @@ int main () {
     importCSVStudent(Classes);
     displayAllStudentOfClass(Classes, "23CLC03");
     displayAllStudentOfClass(Classes, "23APCS3");
+    displayAllStudentOfClass(Classes, "22CLC11");
     deleteAllStudent(Classes);
     HCMUS.display();
     HCMUS.remove();
