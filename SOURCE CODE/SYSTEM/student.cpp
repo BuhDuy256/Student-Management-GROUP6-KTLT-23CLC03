@@ -1,8 +1,8 @@
 #include "student.h"
 #include "system.h"
 
-string myID = "23127006";
-string myPassword = "123456";
+extern string myID = "23127006";
+extern string myPassword = "123456";
 
 void pressEnterToContinue()
 {
