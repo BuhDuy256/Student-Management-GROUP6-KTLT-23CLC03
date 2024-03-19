@@ -71,7 +71,7 @@ struct StudentScore { // An array
 };
 
 struct Semester {
-	unsigned short semesterNumber;
+	unsigned short semesterNumber; // whyneedthis
 	string startDate;
 	string endDate;
 	Node<Course>* Courses = nullptr;
