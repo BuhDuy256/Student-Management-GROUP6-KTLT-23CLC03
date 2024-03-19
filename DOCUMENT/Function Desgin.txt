@@ -1,52 +1,56 @@
 // System function
-void importCSVSchoolYear(); 
-void importCSVClass();
-void importCSVStudent();
+void importCSVSchoolYear(); // Duy 
+void importCSVClass(); // Duy
+void importCSVStudent(); // Duy
 
-void saveData(); // Contains many other functions
+void saveData(); // Contains many other functions // Duy
 
-void deleteAllStudents();
-void deleteAllSchoolYears();
-void deleteAllClasses();
+void deleteAllStudents(); // Duy
+void deleteAllSchoolYears(); // Duy
+void deleteAllClasses(); // Duy
 
-void signIn();
-void signOut();
-void changePassWordOfStudent();
-void changePassWordOfStaff();
+void signIn(); // Luân
+void signOut(); // Luân
+void changePassWordOfStudent(); // Luân
+void changePassWordOfStaff(); // Luân
 // STAFF
 
 // School year management function
-void createASchoolYear(); // 1
+void createASchoolYear(); // 1 // Vu
 
 // Class management function (Khong tinh feature 5)
-void createANewClass(); // 2
-void viewAllClassesInSchool(); // 15
-void viewAllClassesInASchoolYear(); // 15.2
-void deleteAClass();
-void viewAllStudentsInAClass(); // 16
-void importCSVFilesContainingAllStudentsOfAClass(); // 3, 4
+void createANewClass(); // 2 // Vu
+
+void viewAllClassesInSchool(); // 15 // Vu
+void viewAllClassesInASchoolYear(); // 15.2 // Vu
+
+void viewAllStudentsInAClass(); // 16 // Vu
+void importCSVFilesContainingAllStudentsOfAClass(); // 3, 4 // Duy
 
 // Semester management function
-void createANewSemester(); // 6
+void createANewSemester(); // 6 // Huy
 	// Course management function
-	void addACourseToASemester(); // 7 
-	void importCSVFilesContainingAllStudentsOfACourse(); // 8
-	void listOfCourse(); // 9
-	void updateCourseInformation(); // 10
-	void addAStudentToACourse(); // 11
-	void deleteAStudenFromACourse(); // 12
-	void deleteACourse(); // 13
-	void viewAllCourseInASemester(); // 17
-	void viewAllStudentsInACourse(); // 18
+	void addACourseToASemester(); // 7 // Huy
+	void importCSVFilesContainingAllStudentsOfACourse(); // 8 // Duy
+	void listOfCourse(); // 9 // Huy
+	void updateCourseInformation(); // 10 // Huy
+	void addAStudentToACourse(); // 11 // Huy
+	void deleteAStudenFromACourse(); // 12 // Huy
+	void deleteACourse(); // 13 // Huy
+
+	void viewAllCourseInASemester(); // 17 // Huy
+	void viewAllCourseInASchoolYear(); // 17.2 // Huy
+
+	void viewAllStudentsInACourse(); // 18 // Huy
 
 		// Score maanagement function
-		void exportStudentsOfACourseToCSVFile(); // 19
-		void importCSVScoreBoardOfACourse(); // 20
-		void viewScoreBoardOfACourse(); // 21
-		void updateResultOfAStudent(); // 22
-		void viewScoreBoardOfAClass(); // 23 => Difficult
-
+		void exportStudentsOfACourseToCSVFile(); // 19 // Duy
+		void importCSVScoreBoardOfACourse(); // 20 // Duy
+		void viewScoreBoardOfACourse(); // 21 // Huy
+		void updateResultOfAStudent(); // 22 // Huy
+		void viewScoreBoardOfAClass(); // 23 => Difficult // Huy (Hỏi thầy)
+ 
 // STUDENT
-void viewStudentProfile(); 
-void viewCoursesOfAStudent(); // 14
-void viewScoreOfAStudent(); // 24
+void viewStudentProfile(); // Vu
+void viewCoursesOfAStudent(); // 14 // Vu
+void viewScoreOfAStudent(); // 24 // Vu
