@@ -8,3 +8,4 @@ struct SchoolYear {
 	Semester semesters[3];
 };
 void createASchoolYear(Node<SchoolYear>* &CurYear);
+void displayAllSchoolYears(Node<SchoolYear>* CurYear);
