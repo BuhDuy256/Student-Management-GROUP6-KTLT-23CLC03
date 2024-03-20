@@ -18,7 +18,10 @@ void viewAllClassesInSchool(Node<Class>* CurClass){
     temp = temp->next;
  }
 }
-void viewAllClassesInASchoolYear(Node<Class>* CurClass,string thatyear){
+void viewAllClassesInASchoolYear(Node<Class>* CurClass){
+ string thatyear;
+ cout << "ENTER YEAR: ";
+ cin >> thatyear;
  if(CurClass == nullptr) return;
  for(int i = 0; i < 11; i++) cout << "-";
  cout << "\n";

@@ -10,4 +10,4 @@ struct Class {
 };
 void createANewClass(Node<Class>* &CurClass,string classname,Node<SchoolYear>* CurYear);
 void viewAllClassesInSchool(Node<Class>* CurClass);
-void viewAllClassesInASchoolYear(Node<Class>* CurClass,string thatyear);
+void viewAllClassesInASchoolYear(Node<Class>* CurClass);
