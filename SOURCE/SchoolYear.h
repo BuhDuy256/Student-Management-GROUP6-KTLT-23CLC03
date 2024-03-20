@@ -4,6 +4,7 @@
 #include<iostream>
 
 struct SchoolYear {
-	std::string year;	
+	std::string year;
 	Semester semesters[3];
 };
+void createASchoolYear(Node<SchoolYear>* &CurYear);
