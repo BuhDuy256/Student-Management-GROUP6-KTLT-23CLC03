@@ -18,13 +18,21 @@ void viewAllClassesInSchool(Node<Class>* CurClass){
     temp = temp->next;
  }
 }
-void viewAllClassesInASchoolYear(Node<Class>* CurClass){
- string thatyear;
- cout << "ENTER YEAR: ";
- cin >> thatyear;
+void viewAllClassesInASchoolYear(Node<Class>* CurClass,Node<SchoolYear>* CurYear){
  if(CurClass == nullptr) return;
- for(int i = 0; i < 11; i++) cout << "-";
+ displayAllSchoolYears(CurYear);
+ int choice, i = 1;
+ cout << "ENTER YOUR CHOICE: ";
+ cin >> choice;
+ if(choice == 0) return;
  cout << "\n";
+ Node<SchoolYear>* temp2 = CurYear;
+ while(i < choice){
+    temp2 = temp2->next;
+    i++;
+ }
+ string thatyear = temp2->data.year;
+ for(int i = 0; i < 11; i++) cout << "-";
  Node<Class>* temp = CurClass;
  while(temp != nullptr){
     if(temp->data.schoolYear == thatyear)
