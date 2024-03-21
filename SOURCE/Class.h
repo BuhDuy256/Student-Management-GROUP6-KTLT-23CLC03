@@ -6,7 +6,7 @@
 struct Class {
 	std::string className;
 	std::string schoolYear;
-	Student* students = nullptr;
+	Student* students = nullptr; //USE NODE HERE BECAUSE WE NEED NEXT (Node<Student>* students = nullptr)
 };
 void createANewClass(Node<Class>* &CurClass,string classname,Node<SchoolYear>* CurYear);
 void viewAllClassesInSchool(Node<Class>* CurClass);
