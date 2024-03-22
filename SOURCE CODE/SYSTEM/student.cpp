@@ -150,3 +150,54 @@ void changePassword()
     pressEnterToContinue();
     displayStudentMenu();
 }
+
+
+
+
+void Student::viewProfile(){
+ cout << "PROFILE: " << "\n";
+ cout << setfill(' ') << setw(36) << "" << setw(46) << setfill('-');
+ cout << "\n";
+ cout << setw(36) <<  setfill(' ');
+ cout << " " << "|" << setw(14) << "NAME " << setfill(' ') << "|" << setw(28) << name << setfill(' ') << "|" << "\n";
+ cout << setfill(' ') << setw(36) << "" << setw(46) << setfill('-');
+ cout << "\n";
+ cout << setw(36) <<  setfill(' ');
+ cout << " " << "|" << setw(14) << "ID " << setfill(' ') << "|" << setw(28) << ID << setfill(' ') << "|" << "\n";
+ cout << setfill(' ') << setw(36) << "" << setw(46) << setfill('-');
+ cout << "\n";
+ cout << " " << setw(36) <<  setfill(' ');
+ cout << "|" << setw(14) << "MAIN CLASS " << setfill(' ') << "|" << setw(28) << mainClass << setfill(' ') << "|" << "\n";
+ cout << setfill(' ') << setw(36) << "" << setw(46) << setfill('-');
+ cout << "\n";
+ cout << " " << setw(36) <<  setfill(' ');
+ cout << "|" << setw(14) << "BIRTHDAY " << setfill(' ') << "|" << setw(28) << birthday << setfill(' ') << "|" << "\n";
+ cout << setfill(' ') << setw(36) << "" << setw(46) << setfill('-');
+ cout << "\n";
+ cout << " " << setw(36) <<  setfill(' ');
+ cout << "|" << setw(14) << "SOCIAL ID " << setfill(' ') << "|" << setw(28) << socialID << setfill(' ') << "|" << "\n";
+ cout << setw(36) <<  setfill(' ');
+ cout << setfill(' ') << setw(36) << "" << setw(46) << setfill('-');
+ cout << "\n";
+  cout << " " << setw(36) <<  setfill(' ');
+ cout << "|" << setw(14) << "GENDER " << setfill(' ') << "|" << setw(28) << gender << setfill(' ') << "|" << "\n";
+ cout << setfill(' ') << setw(36) << "" << setw(46) << setfill('-');
+ cout << "\n";
+}
+void Student::viewCourses(){
+ Node<Node<Course>*>* show = addressCourses;
+ if(show == nullptr)
+ {
+ cout << "Student has no course\n";
+ return;
+ }
+ int i = 1;
+ cout << setfill(' ') << setw(46) << "" << setw(37) << setfill('-') << "\n";
+ while(show != nullptr){
+    cout << setw(46) <<  setfill(' ');
+    cout << " " << "|" << setw(3) << i << setfill(' ') << "|" << setw(31) << show->data->data.Name << setfill(' ') << "|" << "\n";
+    cout << setfill(' ') << setw(46) << "" << setw(37) << setfill('-') << "\n";
+    show = show->next;
+    i++;
+ }
+}
