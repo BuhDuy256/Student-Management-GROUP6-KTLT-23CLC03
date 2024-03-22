@@ -3,6 +3,7 @@
 #include "Node.h"
 #include "Course.h"
 #include <iostream>
+#include <iomanip>
 
 struct Semester {
 	unsigned short number = 0; 
