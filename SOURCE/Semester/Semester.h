@@ -13,6 +13,6 @@ struct Semester {
 	Node<Course>* coursesList = nullptr;
 
 	void addCourse(Course course);
-	bool deleteCourse(std::string ID);
+	bool deleteCourse(int index);
 	void viewCoursesList();
 };
