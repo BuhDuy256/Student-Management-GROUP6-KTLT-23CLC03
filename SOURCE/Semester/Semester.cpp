@@ -1,6 +1,6 @@
 #include "Semester.h"
 
-void Semester::viewCourses()
+void Semester::viewCoursesList()
 {
      std::cout << std::setw(10) << "ID" << std::setw(30) << "Name" << std::setw(20) << "Day" << std::setw(15) 
         << "Session" << std::setw(20) << "Class Name" << std::setw(20) << "Teacher Name" << std::endl;
@@ -19,4 +19,23 @@ void Semester::addCourse(Course course)
     Node<Course>* node = new Node<Course>(course);
     node->next = coursesList;
     coursesList = node;
+}
+
+bool Semester::deleteCourse(std::string ID)
+{
+    if (!coursesList) return false;
+    else if (coursesList->data.ID == ID)
+    {
+        Node<Course>* deleteNode = coursesList;
+        coursesList = coursesList->next;
+        delete deleteNode;
+        return true;
+    }
+    Node<Course>* node = coursesList;
+    while (node->next && node->next->data.ID != ID)
+        node = node->next;
+    if (!node) return false;
+    Node<Course>* deleteNode = node->next;
+    node->next = node->next->next;
+    delete deleteNode;
 }

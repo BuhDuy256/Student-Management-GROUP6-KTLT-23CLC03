@@ -2,6 +2,7 @@
 
 #include "Node.h"
 #include "Course.h"
+#include <string>
 #include <iostream>
 #include <iomanip>
 
@@ -12,6 +13,6 @@ struct Semester {
 	Node<Course>* coursesList = nullptr;
 
 	void addCourse(Course course);
-	void deleteCourse(Course course);
-	void viewCourses();
+	bool deleteCourse(std::string ID);
+	void viewCoursesList();
 };
