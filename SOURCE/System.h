@@ -7,7 +7,7 @@
 #include"Course.h"
 #include"Semester.h"
 #include"SchoolYear.h"
-#include"GlobalVariable.h"
+#include"GlobalVariables.h"
 #include <iostream>
 #include <stdlib.h>
 #include <fstream>
