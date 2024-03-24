@@ -1,3 +1,5 @@
-#include "system.h"
+#pragma once
+
+#include <string>
 
 extern std::string myID;
