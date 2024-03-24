@@ -10,7 +10,6 @@ struct StudentScore {
 	double other = -1;
 	double total = -1;
 	double GPA = -1;
-	StudentScore () : midTerm(0), final(0), other(0), total(0), GPA(0) {}
 };
 
 struct Course {
