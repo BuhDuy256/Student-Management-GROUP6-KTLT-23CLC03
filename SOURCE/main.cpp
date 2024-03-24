@@ -1,5 +1,4 @@
 #include"System.h"
 
-int main () {
-	
+int main() {
 }
