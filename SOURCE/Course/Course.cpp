@@ -1,5 +1,18 @@
 #include "Course.h"
 
+void Course::viewStudentsList()
+{
+    if (scoreList != nullptr) 
+    {
+        std::cout << std::left << std::setw(10) << "Index" << std::setw(15) << "Student ID" << std::setw(25) << "Student Name" << std::endl;
+        std::cout << std::setfill('-') << std::setw(50) << "-" << std::setfill(' ') << std::endl;
+
+        for (int i = 0; i < courseSize; ++i) 
+            std::cout << std::left << std::setw(10) << (i + 1) << std::setw(15) << scoreList[i].studentID << std::setw(25) << scoreList[i].studentName << std::endl;
+    } 
+    else std::cout << "No students in the course." << std::endl;
+}
+
 void Course::addStudent(std::string studentID, std::string studentName)
 {
     StudentScore* newScoreList = new StudentScore [courseSize + 1]; 
@@ -19,20 +32,6 @@ bool Course::deleteStudent(int index)
     for (int i = index - 1; i < courseSize - 1; i++) scoreList[i] = scoreList[i + 1];
     courseSize--;
     return true;
-}
-
-
-void Course::viewStudentsList()
-{
-    if (scoreList != nullptr) 
-    {
-        std::cout << std::left << std::setw(10) << "Index" << std::setw(15) << "Student ID" << std::setw(25) << "Student Name" << std::endl;
-        std::cout << std::setfill('-') << std::setw(50) << "-" << std::setfill(' ') << std::endl;
-
-        for (int i = 0; i < courseSize; ++i) 
-            std::cout << std::left << std::setw(10) << (i + 1) << std::setw(15) << scoreList[i].studentID << std::setw(25) << scoreList[i].studentName << std::endl;
-    } 
-    else std::cout << "No students in the course." << std::endl;
 }
 
 void Course::viewScoreboard()
