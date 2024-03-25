@@ -1,10 +1,11 @@
 #pragma once
 
 #include"Student.h"
+#include"Node.h"
 #include<iostream>
 
 struct Class { 
 	std::string className;
 	std::string schoolYear; 
-	Student* students = nullptr;   
+	Node<Student>* students = nullptr;   
 };
