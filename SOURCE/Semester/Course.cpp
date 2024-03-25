@@ -10,11 +10,13 @@ void Course::addStudent(std::string studentID, std::string studentName)
     
     delete [] scoreList;
     scoreList = newScoreList;
+    courseSize++;
 }
 
 bool Course::deleteStudent(int index)
 {
     if (index < 0 || index >= courseSize) return false;
     for (int i = index - 1; i < courseSize; i++) scoreList[i] = scoreList[i + 1];
+    courseSize--;
     return true;
 }
