@@ -9,3 +9,4 @@ struct SchoolYear {
 	Node<Class>* classes = nullptr;
 	Semester semesters[3];
 };
+

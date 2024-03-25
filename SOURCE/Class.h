@@ -4,7 +4,7 @@
 #include"Node.h"
 #include<iostream>
 
-struct Class { 
+struct Class {
 	std::string className;
 	std::string schoolYear; 
 	Node<Student>* students = nullptr;   
