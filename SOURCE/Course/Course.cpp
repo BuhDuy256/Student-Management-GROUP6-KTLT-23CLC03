@@ -54,3 +54,47 @@ void Course::viewScoreboard()
     } 
     else std::cout << "No students in the course." << std::endl;
 }
+
+void Course::updateStudentResult()
+{
+    // Display the the list of students
+    std::cout << "List of Students:" << std::endl;
+    viewStudentsList();
+
+    // Prompt for student index
+    int studentIndex;
+    std::cout << "Enter the index of the student you want to update: ";
+    std::cin >> studentIndex;
+
+    // Validate the input
+    if (studentIndex < 1 || studentIndex > courseSize) {
+        std::cerr << "Invalid student index." << std::endl;
+        return;
+    }
+
+    // Display a menu of score types
+    std::string scoreTypes[3] = {"Midterm", "Final", "Other"};
+    std::cout << "Select the score type to update:" << std::endl;
+    for (int i = 0; i < 3; ++i) std::cout << i + 1 << ". " << scoreTypes[i] << std::endl;
+   
+    // Prompt for the user's choice
+    int choice;
+    std::cout << "Enter the number corresponding to the score type: ";
+    std::cin >> choice;
+ 
+    // Validate the input
+    if (choice < 1 || choice > 3) {
+        std::cerr << "Invalid choice." << std::endl;
+        return;
+    }
+
+    // Prompt for the new score
+    double newScore;
+    std::cout << "Enter the new score: ";
+    std::cin >> newScore;
+
+    // Update the selected score
+    if (scoreTypes[choice - 1] == "Midterm") scoreList[studentIndex - 1].midTerm = newScore;
+    else if (scoreTypes[choice - 1] == "Final") scoreList[studentIndex - 1].final = newScore;
+    else if (scoreTypes[choice - 1] == "Other") scoreList[studentIndex - 1].other = newScore;
+}
