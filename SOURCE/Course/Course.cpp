@@ -21,7 +21,7 @@ bool Course::deleteStudent(int index)
     return true;
 }
 
-void Course::viewStudentsList()
+void Course::viewScoreboard()
 {
     if (scoreList != nullptr) 
     {
