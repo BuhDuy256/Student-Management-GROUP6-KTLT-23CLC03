@@ -9,7 +9,6 @@ struct StudentScore {
 	double final = -1;
 	double other = -1;
 	double total = -1;
-	double GPA = -1;
 };
 
 struct Course {
@@ -17,8 +16,8 @@ struct Course {
 	std::string Name;
 	std::string className;
 	std::string teacherName;
-    int courseSize = 50;
+    int courseSize = 0;
 	std::string dayOfWeek;
 	std::string session;
-	StudentScore* score = nullptr;
+	StudentScore* score = nullptr; 
 };

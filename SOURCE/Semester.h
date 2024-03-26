@@ -5,7 +5,7 @@
 #include<iostream>
 
 struct Semester {
-	unsigned short number = 0; 
+	bool isCreated = false; 
 	std::string startDate;
 	std::string endDate;
 	Node<Course>* Courses = nullptr;
