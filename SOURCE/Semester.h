@@ -2,16 +2,17 @@
 
 #include "Node.h"
 #include "Course.h"
+#include <string>
 #include <iostream>
 #include <iomanip>
 
 struct Semester {
-	bool isCreated = false; 
+	bool isCreated = false;
 	std::string startDate;
 	std::string endDate;
 	Node<Course>* coursesList = nullptr;
 
 	void addCourse(Course course);
-	void deleteCourse(Course course);
-	void viewCourses();
+	bool deleteCourse(int index);
+	void viewCoursesList();
 };
