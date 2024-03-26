@@ -1,6 +1,9 @@
 #pragma once
 
-#include<iostream>
+#include <iostream>
+#include <iomanip>
+#include <string>
+struct Student;
 
 struct StudentScore {  
 	std::string studentID;
@@ -9,6 +12,7 @@ struct StudentScore {
 	double final = -1;
 	double other = -1;
 	double total = -1;
+	double GPA = -1;
 };
 
 struct Course {
@@ -19,5 +23,15 @@ struct Course {
     int courseSize = 0;
 	std::string dayOfWeek;
 	std::string session;
-	StudentScore* score = nullptr; 
+	StudentScore* scoreList = nullptr;
+
+	void updateInformation();
+	
+	void viewStudentsList();
+	void addStudent(std::string studentID, std::string studentName);
+	bool deleteStudent(int index);
+
+	void viewScoreboard();
+	void updateStudentResult();
 };
+
