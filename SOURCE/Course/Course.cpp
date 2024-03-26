@@ -1,4 +1,57 @@
 #include "Course.h"
+#include "System.h"
+
+void Course::updateInformation()
+{
+     // Display a menu of options for information update
+    std::cout << "What information do you want to update?" << std::endl;
+    std::cout << "1. Class Name" << std::endl;
+    std::cout << "2. Teacher Name" << std::endl;
+    std::cout << "3. Day of Week" << std::endl;
+    std::cout << "4. Session" << std::endl;
+
+    int choice;
+    while (true)
+        if (getChoice(4, "Enter the number corresponding to your choice: ", choice)) break;
+
+    // Prompt for the new value based on the user's choice
+    std::string newValue;
+    switch (choice) {
+        case 1:
+            std::cout << "Enter the new Class Name: ";
+            std::getline(std::cin, newValue);
+            className = newValue;
+            break;
+        case 2:
+            std::cout << "Enter the new Teacher Name: ";
+            std::getline(std::cin, newValue);
+            teacherName = newValue;
+            break;
+        case 3:
+        {
+            std::string daysOfWeek[6] = {"MON", "TUE", "WED", "THU", "FRI", "SAT"};
+            std::cout << "Select the new day of week:\n";
+            for (int i = 0; i < 6; ++i) std::cout << i + 1 << ". " << daysOfWeek[i] << std::endl;
+            int choice;
+            while (true)
+                if (getChoice(6, "Enter the number of the new day of week: ", choice)) break;
+            dayOfWeek = dayOfWeek[choice - 1];
+            break;
+        }
+        case 4:
+        {
+            std::string sessions[4] = {"S1 (07:30)", "S2 (09:30)", "S3 (13:30)", "S4 (15:30)"};
+            std::cout << "Select the new session:\n";
+            for (int i = 0; i < 4; ++i) std::cout << i + 1 << ". " << sessions[i] << std::endl;
+            int choice;
+            while (true)
+                if (getChoice(4, "Enter the number of the new session: ", choice)) break;
+            session = sessions[choice - 1];
+            break;
+        }
+    }
+    std::cout << "Information updated successfully." << std::endl;
+}
 
 void Course::viewStudentsList()
 {
@@ -8,7 +61,10 @@ void Course::viewStudentsList()
         std::cout << std::setfill('-') << std::setw(50) << "-" << std::setfill(' ') << std::endl;
 
         for (int i = 0; i < courseSize; ++i) 
+        {
             std::cout << std::left << std::setw(10) << (i + 1) << std::setw(15) << scoreList[i].studentID << std::setw(25) << scoreList[i].studentName << std::endl;
+            std::cout << std::setfill('-') << std::setw(50) << "-" << std::setfill(' ') << std::endl;
+        }
     } 
     else std::cout << "No students in the course." << std::endl;
 }
@@ -50,6 +106,7 @@ void Course::viewScoreboard()
                 << std::setw(10) << scoreList[i].midTerm << std::setw(10) << scoreList[i].final
                 << std::setw(10) << scoreList[i].other << std::setw(10) << scoreList[i].total
                 << std::setw(10) << scoreList[i].GPA << std::endl;
+            std::cout << std::setfill('-') << std::setw(100) << "-" << std::setfill(' ') << std::endl;
         }
     } 
     else std::cout << "No students in the course." << std::endl;
@@ -63,14 +120,8 @@ void Course::updateStudentResult()
 
     // Prompt for student index
     int studentIndex;
-    std::cout << "Enter the index of the student you want to update: ";
-    std::cin >> studentIndex;
-
-    // Validate the input
-    if (studentIndex < 1 || studentIndex > courseSize) {
-        std::cerr << "Invalid student index." << std::endl;
-        return;
-    }
+    while (true)
+        if (getChoice(courseSize, "Enter the index of the student you want to update: ", studentIndex)) break;
 
     // Display a menu of score types
     std::string scoreTypes[3] = {"Midterm", "Final", "Other"};
@@ -79,14 +130,8 @@ void Course::updateStudentResult()
    
     // Prompt for the user's choice
     int choice;
-    std::cout << "Enter the number corresponding to the score type: ";
-    std::cin >> choice;
- 
-    // Validate the input
-    if (choice < 1 || choice > 3) {
-        std::cerr << "Invalid choice." << std::endl;
-        return;
-    }
+    while (true)
+        if (getChoice(3, "Enter the number corresponding to your choice: ", choice)) break;
 
     // Prompt for the new score
     double newScore;
@@ -97,4 +142,5 @@ void Course::updateStudentResult()
     if (scoreTypes[choice - 1] == "Midterm") scoreList[studentIndex - 1].midTerm = newScore;
     else if (scoreTypes[choice - 1] == "Final") scoreList[studentIndex - 1].final = newScore;
     else if (scoreTypes[choice - 1] == "Other") scoreList[studentIndex - 1].other = newScore;
+    std::cout << "Student's result updated successfully." << std::endl;
 }
