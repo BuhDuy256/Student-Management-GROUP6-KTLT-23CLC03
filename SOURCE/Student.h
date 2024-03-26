@@ -1,6 +1,5 @@
 #pragma once
 
-#include"Course.h"
 #include<iostream>
 
 struct Student {
@@ -10,9 +9,5 @@ struct Student {
 	std::string birthday;
 	std::string socialID;
 	std::string mainClass;
-	std::string password = "12345678"; 
-	Course** addressCourses = nullptr; 
-	void viewProfile();
-	void viewCourses();
-	void viewScores();
+	std::string password = "12345678";  
 };
