@@ -1,2 +1,8 @@
 Course ID,Course Name,Class name,Teacher Name,Day Of Week,Session,SchoolYear,Semester
-PHY00005,Physics 1,23CLC02,Nguyen Huu Ke,TUE,13:30,2023-2024,2
+CSC001,Basic Programming,23CLC01,Van Chi Nam,MON,13:30,2023-2024,1
+CSC001,Basic Programming,23CLC02,Van Chi Nam,MON,13:30,2023-2024,1
+CSC001,Basic Programming,23APCS01,Van Chi Nam,MON,13:30,2023-2024,1
+CSC001,Basic Programming,23APCS02,Van Chi Nam,MON,13:30,2023-2024,1
+MTH001,Math,23CLC01,Le Van Hop,FRI,13:30,2023-2024,1
+MTH001,Math,23APCS01,Le Van Hop,FRI,13:30,2023-2024,1
+PHY005,Physics 1,23CLC02,Nguyen Huu Ke,TUE,13:30,2023-2024,2
