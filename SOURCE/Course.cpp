@@ -55,14 +55,14 @@ void Course::updateInformation()
 
 void Course::viewStudentsList()
 {
-    if (scoreList != nullptr) 
+    if (score != nullptr) 
     {
         std::cout << std::left << std::setw(10) << "Index" << std::setw(15) << "Student ID" << std::setw(25) << "Student Name" << std::endl;
         std::cout << std::setfill('-') << std::setw(50) << "-" << std::setfill(' ') << std::endl;
 
         for (int i = 0; i < courseSize; ++i) 
         {
-            std::cout << std::left << std::setw(10) << (i + 1) << std::setw(15) << scoreList[i].studentID << std::setw(25) << scoreList[i].studentName << std::endl;
+            std::cout << std::left << std::setw(10) << (i + 1) << std::setw(15) << score[i].studentID << std::setw(25) << score[i].studentName << std::endl;
             std::cout << std::setfill('-') << std::setw(50) << "-" << std::setfill(' ') << std::endl;
         }
     } 
@@ -73,26 +73,26 @@ void Course::addStudent(std::string studentID, std::string studentName)
 {
     StudentScore* newScoreList = new StudentScore [courseSize + 1]; 
     for (int i = 0; i < courseSize; i++)
-        newScoreList[i] = scoreList[i];
+        newScoreList[i] = score[i];
     newScoreList[courseSize].studentID = studentID;
     newScoreList[courseSize].studentName = studentName;
     
-    delete [] scoreList;
-    scoreList = newScoreList;
+    delete [] score;
+    score = newScoreList;
     courseSize++;
 }
 
 bool Course::deleteStudent(int index)
 {
     if (index < 0 || index > courseSize) return false;
-    for (int i = index - 1; i < courseSize - 1; i++) scoreList[i] = scoreList[i + 1];
+    for (int i = index - 1; i < courseSize - 1; i++) score[i] = score[i + 1];
     courseSize--;
     return true;
 }
 
 void Course::viewScoreboard()
 {
-    if (scoreList != nullptr) 
+    if (score != nullptr) 
     {
         std::cout << std::left 
         << std::setw(10) << "Index" << std::setw(15) << "Student ID" << std::setw(25) << "Student Name" << std::setw(10) << "Midterm" 
@@ -102,10 +102,10 @@ void Course::viewScoreboard()
         for (int i = 0; i < courseSize; ++i) 
         {
             std::cout << std::left 
-                << std::setw(10) << (i + 1) << std::setw(15) << scoreList[i].studentID << std::setw(25) << scoreList[i].studentName
-                << std::setw(10) << scoreList[i].midTerm << std::setw(10) << scoreList[i].final
-                << std::setw(10) << scoreList[i].other << std::setw(10) << scoreList[i].total
-                << std::setw(10) << scoreList[i].GPA << std::endl;
+                << std::setw(10) << (i + 1) << std::setw(15) << score[i].studentID << std::setw(25) << score[i].studentName
+                << std::setw(10) << score[i].midTerm << std::setw(10) << score[i].final
+                << std::setw(10) << score[i].other << std::setw(10) << score[i].total
+                << std::setw(10) << score[i].GPA << std::endl;
             std::cout << std::setfill('-') << std::setw(100) << "-" << std::setfill(' ') << std::endl;
         }
     } 
@@ -139,8 +139,8 @@ void Course::updateStudentResult()
     std::cin >> newScore;
 
     // Update the selected score
-    if (scoreTypes[choice - 1] == "Midterm") scoreList[studentIndex - 1].midTerm = newScore;
-    else if (scoreTypes[choice - 1] == "Final") scoreList[studentIndex - 1].final = newScore;
-    else if (scoreTypes[choice - 1] == "Other") scoreList[studentIndex - 1].other = newScore;
+    if (scoreTypes[choice - 1] == "Midterm") score[studentIndex - 1].midTerm = newScore;
+    else if (scoreTypes[choice - 1] == "Final") score[studentIndex - 1].final = newScore;
+    else if (scoreTypes[choice - 1] == "Other") score[studentIndex - 1].other = newScore;
     std::cout << "Student's result updated successfully." << std::endl;
 }

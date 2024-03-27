@@ -23,7 +23,7 @@ struct Course {
     int courseSize = 0;
 	std::string dayOfWeek;
 	std::string session;
-	StudentScore* scoreList = nullptr;
+	StudentScore* score = nullptr;
 
 	void updateInformation();
 	
