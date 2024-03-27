@@ -10,3 +10,6 @@ struct Semester {
 	std::string endDate;
 	Node<Course>* Courses = nullptr;
 };
+
+void importAllSemestersCSV();
+void saveAllSemestersData();

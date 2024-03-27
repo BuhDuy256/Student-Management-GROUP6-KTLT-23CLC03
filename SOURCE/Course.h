@@ -1,6 +1,9 @@
 #pragma once
 
 #include<iostream>
+#include"Node.h"
+#include"SchoolYear.h"
+#include"GlobalVariables.h"
 
 struct StudentScore {  
 	std::string studentID;
@@ -21,3 +24,12 @@ struct Course {
 	std::string session;
 	StudentScore* score = nullptr; 
 };
+
+void importAllCoursesCSV();
+void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr);
+void importAllStudentsInAllCoursesCSV();
+void saveAllCoursesData();
+void saveScoreboardOfACourse(Node<Course>* couCurr);
+void saveAllScoreboardsData();
+void deleteAllScoreboardsData();
+void deleteAllCourseData();

@@ -1,6 +1,7 @@
 #pragma once
 
 #include<iostream>
+#include"GlobalVariables.h"
 
 struct Student {
 	std::string ID;
@@ -11,3 +12,7 @@ struct Student {
 	std::string mainClass;
 	std::string password = "12345678";  
 };
+
+void importAllStudentsCSV();
+void saveAllStudentsData();
+void deleteAllStudentsData();
