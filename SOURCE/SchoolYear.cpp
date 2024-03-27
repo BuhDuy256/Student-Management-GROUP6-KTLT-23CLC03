@@ -13,4 +13,12 @@ bool SchoolYear::createANewSemester()
     return true;
 }
 
-
+void SchoolYear::viewAllCourses()
+{
+    for (int i = 0; i < 3; i++)
+    {
+        if (!semesters[i].isCreated) break;
+        std::cout << "Semester " << i + 1 << "\n";
+        semesters[i].viewCoursesList();
+    }
+}

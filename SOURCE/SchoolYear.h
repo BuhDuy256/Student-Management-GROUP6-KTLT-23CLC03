@@ -10,5 +10,6 @@ struct SchoolYear {
 	Semester semesters[3];
 
 	bool createANewSemester();
+	void viewAllCourses();
 };
 
