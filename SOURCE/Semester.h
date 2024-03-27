@@ -10,7 +10,7 @@ struct Semester {
 	bool isCreated = false;
 	std::string startDate;
 	std::string endDate;
-	Node<Course>* coursesList = nullptr;
+	Node<Course>* Courses = nullptr;
 
 	void addCourse(Course course);
 	bool deleteCourse(int index);

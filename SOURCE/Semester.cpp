@@ -7,7 +7,7 @@ void Semester::viewCoursesList()
         << std::setw(15) << "Session" << std::setw(20) << "Class Name" << std::setw(20) << "Teacher Name" << std::endl;
     std::cout << std::setfill('-') << std::setw(125) << "-" << std::setfill(' ') << std::endl;
 
-    Node<Course>* course = coursesList;
+    Node<Course>* course = Courses;
     int index = 1;
     while (course != nullptr) {
         std::cout << std::left 
@@ -22,21 +22,21 @@ void Semester::viewCoursesList()
 void Semester::addCourse(Course course)
 {
     Node<Course>* node = new Node<Course>(course);
-    node->next = coursesList;
-    coursesList = node;
+    node->next = Courses;
+    Courses = node;
 }
 
 bool Semester::deleteCourse(int index)
 {
-    if (!coursesList) return false;
+    if (!Courses) return false;
     else if (index == 1)
     {
-        Node<Course>* deleteNode = coursesList;
-        coursesList = coursesList->next;
+        Node<Course>* deleteNode = Courses;
+        Courses = Courses->next;
         delete deleteNode;
         return true;
     }
-    Node<Course>* node = coursesList;
+    Node<Course>* node = Courses;
     for (int i = 1; i < index - 1; i++)
     {
         if (!node) return false;
