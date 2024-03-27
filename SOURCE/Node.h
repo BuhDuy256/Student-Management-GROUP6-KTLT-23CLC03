@@ -1,6 +1,7 @@
 #pragma once
 
 #include<iostream>
+#include"System.h"
 
 template<class T>
 struct Node {

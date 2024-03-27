@@ -2,11 +2,6 @@
 #include<iostream>
 #include<chrono>
 
-std::string myID;
-Semester currSem;
-Node<SchoolYear>* currYear;
-Node<Course>* currCourse;
-
 int main () {
 	// Start the timer
 	auto start = std::chrono::high_resolution_clock::now();

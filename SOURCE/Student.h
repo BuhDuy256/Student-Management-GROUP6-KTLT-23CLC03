@@ -1,7 +1,13 @@
 #pragma once
 
 #include<iostream>
-#include"GlobalVariables.h"
+#include"System.h"
+
+template<class T>
+struct Node;
+struct Student;
+struct Class;
+struct SchoolYear;
 
 struct Student {
 	std::string ID;

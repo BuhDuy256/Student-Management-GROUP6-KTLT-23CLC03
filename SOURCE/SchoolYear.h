@@ -1,9 +1,25 @@
 #pragma once
 
-#include"Semester.h"
-#include"Class.h"
+#include"System.h"
 #include<iostream>
-#include"GlobalVariables.h"
+
+template<class T>
+struct Node;
+struct Student;
+struct Class;
+struct StudentScore;
+struct Course;
+struct Staff;
+
+struct Semester {
+	bool isCreated = false; 
+	std::string startDate;
+	std::string endDate;
+	Node<Course>* Courses = nullptr;
+};
+
+void importAllSemestersCSV();
+void saveAllSemestersData();
 
 struct SchoolYear {
 	std::string year;

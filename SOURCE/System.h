@@ -5,6 +5,5 @@
 #include"Student.h"
 #include"Class.h"
 #include"Course.h"
-#include"Semester.h"
 #include"SchoolYear.h"
 #include"GlobalVariables.h"

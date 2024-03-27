@@ -1,9 +1,12 @@
 #pragma once
 
-#include"Student.h"
-#include"Node.h"
-#include"GlobalVariables.h"
+#include"System.h"
 #include<iostream>
+
+template<class T>
+struct Node;
+struct Student;
+struct SchoolYear;
 
 struct Class {
 	std::string className;
