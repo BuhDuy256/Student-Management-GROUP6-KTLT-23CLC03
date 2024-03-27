@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/git,c++,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=git,c++,visualstudiocode
 
+*.csv
+
 ### C++ ###
 # Prerequisites
 *.d
