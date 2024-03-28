@@ -3,7 +3,7 @@
 #include<sstream>
 
 void importAllClassesCSV() {
-	std::ifstream inF ("AllClasses.csv");
+	std::ifstream inF ("../CSV Files/AllClasses.csv");
 	if (!inF.is_open()) {
 		std::cout << "Can't import AllClasses.csv!";
 		return;
@@ -44,7 +44,7 @@ void importAllClassesCSV() {
 
 void saveAllClassesData() {
     Node<SchoolYear>* syCurr = currYear;
-    std::ofstream outF("AllClasses.csv", std::ofstream::out | std::ofstream::trunc);
+    std::ofstream outF("../CSV Files/AllClasses.csv", std::ofstream::out | std::ofstream::trunc);
     if (outF.is_open()) {
         outF << "Class Name,School Year\n";
         while(syCurr) {

@@ -3,7 +3,7 @@
 #include<sstream>
 
 void importAllStudentsCSV() {
-	std::ifstream inF ("AllStudents.csv");
+	std::ifstream inF ("../CSV Files/AllStudents.csv");
 	if (!inF.is_open()) {
 		std::cout << "Can't import AllStudents.csv!";
 		return;
@@ -52,7 +52,7 @@ void importAllStudentsCSV() {
 
 void saveAllStudentsData() {
     Node<SchoolYear>* syCurr = currYear;
-    std::ofstream outF("AllStudents.csv", std::ofstream::out | std::ofstream::trunc);
+    std::ofstream outF("../CSV Files/AllStudents.csv", std::ofstream::out | std::ofstream::trunc);
     if (outF.is_open()) {
         outF << "Student ID,Student Name,Gender,Birthday,Social ID,Main Class,Password\n";
         while(syCurr) {

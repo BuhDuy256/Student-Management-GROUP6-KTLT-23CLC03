@@ -3,7 +3,7 @@
 #include<sstream>
 
 void importAllCoursesCSV() {
-    std::ifstream inF("AllCourses.csv");
+    std::ifstream inF("../CSV Files/AllCourses.csv");
     if (!inF.is_open()) {
         std::cout << "Can't import AllCourses.csv!" << std::endl;
         return;
@@ -63,7 +63,7 @@ void importAllCoursesCSV() {
 }
 
 void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr) {
-    std::string fileName = couCurr -> data.ID + "_" + couCurr -> data.className + ".csv";
+    std::string fileName ="../CSV Files/List of Courses/" + couCurr -> data.ID + "_" + couCurr -> data.className + ".csv";
     std::ifstream inF(fileName);
     if (!inF.is_open()) {
         std::cout << "Can't import " << fileName << std::endl;
@@ -116,7 +116,7 @@ void importAllStudentsInAllCoursesCSV() {
 
 void saveAllCoursesData() {
     Node<SchoolYear>* syCurr = currYear;
-    std::ofstream outF("AllCourses.csv", std::ofstream::out | std::ofstream::trunc);
+    std::ofstream outF("../CSV Files/AllCourses.csv", std::ofstream::out | std::ofstream::trunc);
     if (outF.is_open()) {
         outF << "Course ID,Course Name,Class Name,Teacher Name,Day Of Week,Session,School Year,Semester\n";
         while(syCurr) {
@@ -145,7 +145,7 @@ void saveAllCoursesData() {
 }
 
 void saveScoreboardOfACourse(Node<Course>* couCurr) {
-    std::string fileName = couCurr -> data.ID + "_" + couCurr -> data.className + ".csv";
+    std::string fileName = "../CSV Files/List of Courses/" + couCurr -> data.ID + "_" + couCurr -> data.className + ".csv";
     std::ofstream outF(fileName, std::ofstream::out | std::ofstream::trunc);
     if (outF.is_open()) {
         outF << "Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark\n";

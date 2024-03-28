@@ -3,7 +3,7 @@
 #include<sstream>
 
 void importAllSchoolYearsCSV() {
-	std::ifstream inF ("AllSchoolYears.csv");
+	std::ifstream inF ("../CSV Files/AllSchoolYears.csv");
 	if (!inF.is_open()) {
 		std::cout << "Can't import AllSchoolYear.csv!";
 		return;
@@ -37,7 +37,7 @@ void reverseSchoolYearsList(Node<SchoolYear>* &syHead) {
 void saveAllSchoolYearsData() {
     reverseSchoolYearsList(currYear);
     Node<SchoolYear>* syCurr = currYear;
-    std::ofstream outF("AllSchoolYears.csv", std::ofstream::out | std::ofstream::trunc);
+    std::ofstream outF("../CSV Files/AllSchoolYears.csv", std::ofstream::out | std::ofstream::trunc);
     if (outF.is_open()) {
         outF << "School Year\n";
         while(syCurr) {
@@ -59,7 +59,7 @@ void deleteAllSchoolYearsData() {
 }
 
 void importAllSemestersCSV() {
-    std::ifstream inF("AllSemesters.csv");
+    std::ifstream inF("../CSV Files/AllSemesters.csv");
     if (!inF.is_open()) {
         std::cout << "Can't import AllSemesters.csv!" << std::endl;
         return;
@@ -93,7 +93,7 @@ void importAllSemestersCSV() {
 
 void saveAllSemestersData() {
     Node<SchoolYear>* syCurr = currYear;
-    std::ofstream outF("AllSemesters.csv", std::ofstream::out | std::ofstream::trunc);
+    std::ofstream outF("../CSV Files/AllSemesters.csv", std::ofstream::out | std::ofstream::trunc);
     if (outF.is_open()) {
         outF << "Semester,School Year,Start Date,End Date\n";
         while(syCurr) {
