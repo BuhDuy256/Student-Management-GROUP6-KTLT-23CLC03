@@ -22,3 +22,6 @@ struct Student {
 void importAllStudentsCSV();
 void saveAllStudentsData();
 void deleteAllStudentsData();
+
+std::string removeQuotesFromPath(const std::string& path);
+void importCSVStudentsOfAClass_Public();
