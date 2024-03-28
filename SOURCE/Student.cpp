@@ -148,7 +148,7 @@ void importCSVStudentsOfAClass_Public() {
                 std::string firstName, lastName;
                 std::getline(ss, firstName, ',');
                 std::getline(ss, lastName, ',');
-                newStu.name = lastName + firstName;
+                newStu.name = lastName + (firstName.empty() ? "" : " " + firstName);
                 std::getline(ss, newStu.gender, ',');
                 std::getline(ss, newStu.birthday, ',');
                 std::getline(ss, newStu.socialID, ',');
@@ -164,7 +164,7 @@ void importCSVStudentsOfAClass_Public() {
             }
             std::cout << "Import CSV successfully!" << std::endl;
         } else {
-            std::cout << "You cannot import the CSV file because this class already has students. Let's import into a class that doesn't have students yet!" << std::endl;
+            std::cout << "You cannot import the CSV file because this class already has students. Let's import into a class that doesn't have students yet! " << std::endl << "If you make a mistake in doing the import process, delete the class and recreate it." << std::endl;
         }
     }
     inF.close();
