@@ -1,6 +1,9 @@
 #include"Course.h"
 #include<fstream>
 #include<sstream>
+#include<filesystem>
+#include<algorithm>
+#include<limits>
 
 void importAllCoursesCSV() {
     std::ifstream inF("../CSV Files/AllCourses.csv");
@@ -219,5 +222,106 @@ void deleteAllCourseData() {
             }
         }
         syCurr = syCurr -> next;
+    }
+}
+
+std::string formatSchoolYear(const std::string& inputYear) {
+    std::string formattedInput = inputYear;
+    formattedInput.erase(std::remove_if(formattedInput.begin(), formattedInput.end(), ::isspace), formattedInput.end());
+
+    std::string formattedYear;
+
+    if (formattedInput.length() == 9 && formattedInput[4] == '-') {
+        formattedYear = formattedInput;
+    } else if (formattedInput.length() == 9 && formattedInput[4] != '-') {
+        formattedYear = formattedInput.substr(0, 4) + "-" + formattedInput.substr(4, 4);
+    }
+    return formattedYear;
+}
+
+void exportCSVStudentsOfACourse() {
+    std::cout << "Enter the information of the course you want to export all students to CSV Files: " << std::endl;
+    Course couEx;
+    std::string couID, couClass, couSY;
+    std::cout << "\tCourse ID: "; std::cin >> couID;
+    std::cout << "\tClass Name (Ex: 23CLC03): "; std::cin >> couClass;
+    std::cout << "\tSchool Year: "; std::cin >> couSY;
+    couSY = formatSchoolYear(couSY);
+    int couSem;
+    std::cout << "\tSemester (1 -> 3): ";
+    while (!(std::cin >> couSem) || couSem < 1 || couSem > 3) {
+        std::cout << "Invalid age. Please enter again: ";
+        std::cin.clear(); 
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+    }
+    std::string folderName;
+
+    do {
+        std::cout << "Enter the path of folder you want to export CSV: ";
+        std::getline(std::cin >> std::ws, folderName);
+        // Check if the folder exists
+        if (!std::filesystem::is_directory(folderName)) {
+            std::cout << "Invalid folder path. Please try again." << std::endl;
+            folderName = ""; // Clear folderName to loop again
+        }
+    } while (folderName.empty());
+
+    bool found = false;
+    Node<SchoolYear>* syCurr = currYear;
+    Node<Course>* couFind = nullptr;
+    while(syCurr && !found) {
+        if (syCurr -> data.year == couSY) {
+            if (syCurr -> data.semesters[couSem -1].isCreated) {
+                if (!syCurr -> data.semesters[couSem - 1].Courses) {
+                    std::cout << "This semester don't have any course data!" << std::endl;
+                    return;
+                } else {
+                    couFind = syCurr -> data.semesters[couSem - 1].Courses;
+                    while(couFind) {
+                        if (couFind -> data.ID == couID && couFind -> data.className == couClass) {
+                            std::string fileName = removeQuotesFromPath(folderName) + "/" + couID + "_" + couClass + ".csv";
+                            std::ofstream outF(fileName);
+                            if (!outF.is_open()) {
+                                std::cout << "Error creating CSV file!" << std::endl;
+                                return;
+                            }
+                            outF << "Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark\n";
+                            StudentScore* scoreArr = couFind -> data.score;
+                            for(int i = 0; i < couFind -> data.courseSize; i++) {
+                                outF << scoreArr[i].studentID << ","
+                                << scoreArr[i].studentName << ",";
+                                if (scoreArr[i].midTerm > 0)
+                                    outF << scoreArr[i].midTerm;
+                                outF << ",";
+                                if (scoreArr[i].final > 0)
+                                    outF << scoreArr[i].final;
+                                outF << ",";
+                                if (scoreArr[i].other > 0)
+                                    outF << scoreArr[i].other;
+                                outF << ",";
+                                if (scoreArr[i].total > 0)
+                                    outF << scoreArr[i].total;
+                                outF << "\n";  
+                            }
+                            outF.close();
+                            return;
+                        }
+                        if (!couFind) {
+                            std::cout << "Couldn't find Course have ID: " << couID << " and class Name" << couClass << std::endl;
+                            return;
+                        }
+                        couFind = couFind -> next;
+                    }
+                }
+            } else {
+                std::cout << "Semester hasn't been created before!" << std::endl;
+                return;
+            }
+        }
+        syCurr = syCurr -> next;
+    }
+    if (!syCurr) {
+        std::cout << "School Year Information isn't true!" << std::endl;
+        return;
     }
 }

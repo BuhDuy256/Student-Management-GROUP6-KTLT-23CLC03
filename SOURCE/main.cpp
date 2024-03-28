@@ -13,7 +13,8 @@ int main () {
 	importAllCoursesCSV();
 	importAllStudentsInAllCoursesCSV();
 
-	importCSVStudentsOfAClass_Public();
+	// importCSVStudentsOfAClass_Public();
+	exportCSVStudentsOfACourse();
 	
 	saveAllSchoolYearsData();
 	saveAllClassesData();

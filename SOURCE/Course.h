@@ -38,3 +38,6 @@ void saveScoreboardOfACourse(Node<Course>* couCurr);
 void saveAllScoreboardsData();
 void deleteAllScoreboardsData();
 void deleteAllCourseData();
+
+std::string formatSchoolYear(const std::string& inputYear);
+void exportCSVStudentsOfACourse();
