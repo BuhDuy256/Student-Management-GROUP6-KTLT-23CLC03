@@ -83,7 +83,7 @@ void Course::addStudent(std::string studentID, std::string studentName)
 }
 
 bool Course::deleteStudent(int index)
-{
+{                          //viewstudentlist_and_getChoice
     if (index < 0 || index > courseSize) return false;
     for (int i = index - 1; i < courseSize - 1; i++) score[i] = score[i + 1];
     courseSize--;
