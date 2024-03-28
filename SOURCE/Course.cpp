@@ -96,17 +96,16 @@ void Course::viewScoreboard()
     {
         std::cout << std::left 
         << std::setw(10) << "Index" << std::setw(15) << "Student ID" << std::setw(25) << "Student Name" << std::setw(10) << "Midterm" 
-        << std::setw(10) << "Final" << std::setw(10) << "Other" << std::setw(10) << "Total" << std::setw(10) << "GPA" << std::endl;
-        std::cout << std::setfill('-') << std::setw(100) << "-" << std::setfill(' ') << std::endl;            //GPA = TOTAL
+        << std::setw(10) << "Final" << std::setw(10) << "Other" << std::setw(10) << "Total" << std::endl;
+        std::cout << std::setfill('-') << std::setw(90) << "-" << std::setfill(' ') << std::endl;
 
         for (int i = 0; i < courseSize; ++i) 
         {
             std::cout << std::left 
                 << std::setw(10) << (i + 1) << std::setw(15) << score[i].studentID << std::setw(25) << score[i].studentName
                 << std::setw(10) << score[i].midTerm << std::setw(10) << score[i].final
-                << std::setw(10) << score[i].other << std::setw(10) << score[i].total
-                << std::setw(10) << score[i].GPA << std::endl;                       //GPA = TOTAL
-            std::cout << std::setfill('-') << std::setw(100) << "-" << std::setfill(' ') << std::endl;
+                << std::setw(10) << score[i].other << std::setw(10) << score[i].total << std::endl;
+            std::cout << std::setfill('-') << std::setw(90) << "-" << std::setfill(' ') << std::endl;
         }
     } 
     else std::cout << "No students in the course." << std::endl;
