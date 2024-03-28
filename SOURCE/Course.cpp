@@ -69,9 +69,9 @@ void Course::viewStudentsList()
     else std::cout << "No students in the course." << std::endl;
 }
 
-void Course::addStudent(std::string studentID, std::string studentName)
+void Course::addStudent(std::string studentID, std::string studentName)  //whereisfunctiontogetstudentIDandNamefromStaff
 {
-    StudentScore* newScoreList = new StudentScore [courseSize + 1];    //whereisfunctiontogetstudentIDandNamefromStaff
+    StudentScore* newScoreList = new StudentScore [courseSize + 1];    
     for (int i = 0; i < courseSize; i++)
         newScoreList[i] = score[i];
     newScoreList[courseSize].studentID = studentID;
