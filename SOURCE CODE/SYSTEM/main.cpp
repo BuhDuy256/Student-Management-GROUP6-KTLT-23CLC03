@@ -135,6 +135,9 @@ void chooseSem(); //checkvalid
 void chooseCourse(); //checkvalid
 void displayAllSchoolYears();
 void addSemester();
+bool checkNameValid(std::string name);
+void formalize(std::string &name);
+bool checkIDValid(std::string id);
 int main()
 {
     importAllSchoolYearsCSV();
@@ -147,6 +150,58 @@ int main()
     currSem = currYear->data.semesters[0];
     displaySignInPage();
     return 0;
+}
+bool checkNameValid(std::string name)
+{
+    for (char c : name)
+    {
+        if (!std::isalpha(c) && !isspace(c))
+        {
+            std::cerr << "Please input properly name with no special characters or digits\n";
+            return false;
+        }
+    }
+    return true;
+}
+
+bool checkIDValid(std::string id)
+{
+    for (char c : id)
+    {
+        if (!isdigit(c))
+        {
+            std::cerr << "Please input properly id with no characters other than digits\n";
+            return false;
+        }
+    }
+    return true;
+}
+
+void formalize(std::string &name)
+{
+    std::string formalizedName;
+    bool lastWasSpace = true;
+    for (char c : name)
+    {
+        if (std::isspace(c))
+        {
+            if (!lastWasSpace)
+            {
+                formalizedName += ' ';
+                lastWasSpace = true;
+            }
+        }
+        else
+        {
+            if (lastWasSpace) c = toupper(c);
+            else c = tolower(c);
+
+            formalizedName += c;
+            lastWasSpace = false;
+        }
+    }
+    name = formalizedName;
+    if (*(name.end() - 1) == ' ') name.pop_back();
 }
 void addSemester(){
 
@@ -1817,8 +1872,7 @@ void Course::updateInformation()
         }
         }
         std::cout << "Information updated successfully." << std::endl;
-    }
-
+}
 void Course::viewStudentsList()
     {
         if (score != nullptr)
@@ -1836,28 +1890,52 @@ void Course::viewStudentsList()
     }
 
 void Course::addStudent(std::string studentID, std::string studentName)
+{
+        std::string studentID, studentName;
+    while (true)
     {
-        StudentScore* newScoreList = new StudentScore[courseSize + 1];
-        for (int i = 0; i < courseSize; i++)
-            newScoreList[i] = score[i];
-        newScoreList[courseSize].studentID = studentID;
-        newScoreList[courseSize].studentName = studentName;
-
-        delete[] score;
-        score = newScoreList;
-        courseSize++;
+        std::cout << "Enter the student's ID: ";
+        std::getline(std::cin, studentID);
+        if (checkIDValid(studentID)) break;
     }
 
+    while (true)
+    {
+        std::cout << "Enter the student's name: ";
+        std::getline(std::cin, studentName);
+        if (checkNameValid(studentName)) break;
+    }
+    formalize(studentName);
+
+    StudentScore* newScoreList = new StudentScore [courseSize + 1];
+    for (int i = 0; i < courseSize; i++)
+        newScoreList[i] = score[i];
+    newScoreList[courseSize].studentID = studentID;
+    newScoreList[courseSize].studentName = studentName;
+
+    delete [] score;
+    score = newScoreList;
+    courseSize++;
+
+    std::cout << "Student is added sucessfully\n";
+}
 bool Course::deleteStudent(int index)
-    {
-        if (index < 0 || index > courseSize) return false;
-        for (int i = index - 1; i < courseSize - 1; i++) score[i] = score[i + 1];
-        courseSize--;
-        return true;
-    }
+{
+        viewStudentsList();
+    int index;
+
+    while (true)
+        if (getChoice(courseSize, "Please enter the index of the student you want to delete: ", index))
+            break;
+
+    for (int i = index - 1; i < courseSize - 1; i++) score[i] = score[i + 1];
+    courseSize--;
+
+    std::cout << "Student is deleted sucessfully\n";
+}
 
 void Course::viewScoreboard()
-    {
+{
         if (score != nullptr)
         {
             std::cout << std::left
@@ -1876,8 +1954,7 @@ void Course::viewScoreboard()
             }
         }
         else std::cout << "No students in the course." << std::endl;
-    }
-
+}
 void Course::updateStudentResult()
     {
         // Display the the list of students
@@ -1909,7 +1986,7 @@ void Course::updateStudentResult()
         else if (scoreTypes[choice - 1] == "Final") score[studentIndex - 1].final = newScore;
         else if (scoreTypes[choice - 1] == "Other") score[studentIndex - 1].other = newScore;
         std::cout << "Student's result updated successfully." << std::endl;
-    }
+}
 Node<Student>* getStudent(std::string ID)
     {
         Node<SchoolYear>* temp = currYear;
@@ -1931,7 +2008,7 @@ Node<Student>* getStudent(std::string ID)
         return nullptr;
     }
 void changePasswordStudent()
-    {
+{
         Node<Student>* curStu = getStudent(myID);
 
         std::string myPassword = curStu->data.password;
