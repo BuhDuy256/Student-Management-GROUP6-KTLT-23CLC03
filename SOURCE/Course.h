@@ -28,8 +28,6 @@ struct Course {
 	void updateInformation();
 	
 	void viewStudentsList();
-	void addStudent(std::string studentID, std::string studentName);
-	bool deleteStudent(int index);
 	void addStudent();
 	void deleteStudent();
 
