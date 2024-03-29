@@ -14,6 +14,12 @@ int main () {
 	importAllStudentsInAllCoursesCSV();
 	importAllStaffsCSV();
 
+	Node<Staff>* staCurr = currStaff;
+	while(staCurr) {
+		std::cout << staCurr -> data.ID << std::endl;
+		staCurr = staCurr -> next;
+	}
+
 	// importCSVStudentsOfAClass_Public();
 	// exportCSVStudentsOfACourse();
 	

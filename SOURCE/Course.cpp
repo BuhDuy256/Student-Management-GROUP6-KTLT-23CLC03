@@ -15,6 +15,10 @@ void importAllCoursesCSV() {
     std::getline(inF, header); 
     std::string line;
     while (std::getline(inF, line)) {
+        // Check if the line is empty or contains only whitespace
+        if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
+            break; // Stop reading if the line is empty
+        }
         std::stringstream ss(line);
         Course newCourse;
         std::getline(ss, newCourse.ID, ',');
@@ -77,6 +81,10 @@ void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr) {
     std::string line;
     int n = 0;
     while (std::getline(inF, line)) {
+        // Check if the line is empty or contains only whitespace
+        if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
+            break; // Stop reading if the line is empty
+        }
         std::stringstream ss(line);
         std::string token;
         std::getline(ss, token, ',');

@@ -1,6 +1,7 @@
 #include"SchoolYear.h"
 #include<fstream>
 #include<sstream>
+#include<algorithm>
 
 void importAllSchoolYearsCSV() {
 	std::ifstream inF ("../CSV Files/AllSchoolYears.csv");
@@ -13,6 +14,10 @@ void importAllSchoolYearsCSV() {
 	std::getline(inF, header);
 	std::string line;
 	while(std::getline(inF, line)) {
+        // Check if the line is empty or contains only whitespace
+        if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
+            break; // Stop reading if the line is empty
+        }
 		SchoolYear syNew;
 		syNew.year = line;
 		Node<SchoolYear>* syTemp = new Node<SchoolYear>(syNew, syHead);
@@ -68,6 +73,10 @@ void importAllSemestersCSV() {
     std::getline(inF, header);
     std::string line;
     while (std::getline(inF, line)) {
+        // Check if the line is empty or contains only whitespace
+        if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
+            break; // Stop reading if the line is empty
+        }
         std::stringstream ss(line);
         std::string nSemTemp, syName, startDate, endDate;
         std::getline(ss, nSemTemp, ',');

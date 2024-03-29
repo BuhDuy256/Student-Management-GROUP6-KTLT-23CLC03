@@ -1,6 +1,7 @@
 #include"Class.h"
 #include<fstream>
 #include<sstream>
+#include<algorithm>
 
 void importAllClassesCSV() {
 	std::ifstream inF ("../CSV Files/AllClasses.csv");
@@ -13,6 +14,10 @@ void importAllClassesCSV() {
 	std::getline(inF, header);
 	std::string line;
 	while(std::getline(inF, line)) {
+        // Check if the line is empty or contains only whitespace
+        if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
+            break; // Stop reading if the line is empty
+        }
 		Class newClass;
 		std::stringstream ss (line);
 		std::getline(ss, newClass.className, ',');
