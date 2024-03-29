@@ -78,6 +78,7 @@ void Course::addStudent()
         std::getline(std::cin, studentID);
         if (checkIDValid(studentID)) break;
     }
+    
     while (true)
     {
         std::cout << "Enter the student's name: ";
@@ -85,7 +86,6 @@ void Course::addStudent()
         if (checkNameValid(studentName)) break;
     }
     formalize(studentName);
-    formalize(studentID);
 
     StudentScore* newScoreList = new StudentScore [courseSize + 1];    
     for (int i = 0; i < courseSize; i++)
