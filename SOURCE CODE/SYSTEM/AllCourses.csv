@@ -1,0 +1,43 @@
+Course ID,Course Name,Class Name,Teacher Name,Day Of Week,Session,School Year,Semester
+CSC001,Introduce to Programming,21APCS01,Van Chi Nam,MON,7:30,2021-2022,1
+CSC001,Introduce to Programming,21APCS02,Van Chi Nam,TUE,9:30,2021-2022,1
+CSC001,Introduce to Programming,21CLC01,Van Chi Nam,WED,13:30,2021-2022,1
+CSC001,Introduce to Programming,21CLC02,Van Chi Nam,THU,15:30,2021-2022,1
+CSC003,Soft Skills,21APCS01,Luong Vi Minh,MON,7:30,2021-2022,1
+CSC003,Soft Skills,21APCS02,Luong Vi Minh,TUE,9:30,2021-2022,1
+CSC003,Soft Skills,21CLC01,Luong Vi Minh,WED,13:30,2021-2022,1
+CSC003,Soft Skills,21CLC02,Luong Vi Minh,THU,15:30,2021-2022,1
+MTH001,Discrete Mathematics,21APCS01,Le Van Hop,FRI,13:30,2021-2022,1
+MTH001,Discrete Mathematics,21CLC01,Le Van Hop,SAT,13:30,2021-2022,1
+CSC002,Programming Technique,21APCS01,Dinh Ba Tien,MON,7:30,2021-2022,2
+CSC002,Programming Technique,21APCS02,Ding Ba Tien,TUE,9:30,2021-2022,2
+CSC002,Programming Technique,21CLC01,Dinh Ba Tien,WED,13:30,2021-2022,2
+CSC002,Programming Technique,21CLC02,Dinh Ba Tien,THU,15:30,2021-2022,2
+CSC001,Introduce to Programming,22APCS01,Van Chi Nam,MON,7:30,2022-2023,1
+CSC001,Introduce to Programming,22APCS02,Van Chi Nam,TUE,9:30,2022-2023,1
+CSC001,Introduce to Programming,22CLC01,Van Chi Nam,WED,13:30,2022-2023,1
+CSC001,Introduce to Programming,22CLC02,Van Chi Nam,THU,15:30,2022-2023,1
+CSC003,Soft Skills,22APCS01,Luong Vi Minh,MON,7:30,2022-2023,1
+CSC003,Soft Skills,22APCS02,Luong Vi Minh,TUE,9:30,2022-2023,1
+CSC003,Soft Skills,22CLC01,Luong Vi Minh,WED,13:30,2022-2023,1
+CSC003,Soft Skills,22CLC02,Luong Vi Minh,THU,15:30,2022-2023,1
+MTH001,Discrete Mathematics,22APCS01,Le Van Hop,FRI,13:30,2022-2023,1
+MTH001,Discrete Mathematics,21CLC01,Le Van Hop,SAT,13:30,2022-2023,1
+CSC002,Programming Technique,22APCS01,Dinh Ba Tien,MON,7:30,2022-2023,2
+CSC002,Programming Technique,22APCS02,Dinh Ba Tien,TUE,9:30,2022-2023,2
+CSC002,Programming Technique,22CLC01,Dinh Ba Tien,WED,13:30,2022-2023,2
+CSC002,Programming Technique,22CLC02,Dinh Ba Tien,THU,15:30,2022-2023,2
+CSC001,Introduce to Programming,23APCS01,Van Chi Nam,MON,7:30,2023-2024,1
+CSC001,Introduce to Programming,23APCS02,Van Chi Nam,TUE,9:30,2023-2024,1
+CSC001,Introduce to Programming,23CLC01,Van Chi Nam,WED,13:30,2023-2024,1
+CSC001,Introduce to Programming,23CLC02,Van Chi Nam,THU,15:30,2023-2024,1
+CSC003,Soft Skills,23APCS01,Luong Vi Minh,MON,7:30,2023-2024,1
+CSC003,Soft Skills,23APCS02,Luong Vi Minh,TUE,9:30,2023-2024,1
+CSC003,Soft Skills,23CLC01,Luong Vi Minh,WED,13:30,2023-2024,1
+CSC003,Soft Skills,23CLC02,Luong Vi Minh,THU,15:30,2023-2024,1
+MTH001,Discrete Mathematics,23APCS01,Le Van Hop,FRI,13:30,2023-2024,1
+MTH001,Discrete Mathematics,23CLC01,Le Van Hop,SAT,13:30,2023-2024,1
+CSC002,Programming Technique,23APCS01,Dinh Ba Tien,MON,7:30,2023-2024,2
+CSC002,Programming Technique,23APCS02,Dinh Ba Tien,TUE,9:30,2023-2024,2
+CSC002,Programming Technique,23CLC01,Dinh Ba Tien,WED,13:30,2023-2024,2
+CSC002,Programming Technique,23CLC02,Dinh Ba Tien,THU,15:30,2023-2024,2
