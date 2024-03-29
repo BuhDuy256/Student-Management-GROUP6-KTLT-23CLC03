@@ -100,12 +100,19 @@ void Course::addStudent()
     std::cout << "Student is added sucessfully\n";
 }
 
-bool Course::deleteStudent(int index)
-{                          //viewstudentlist_and_getChoice
-    if (index < 0 || index > courseSize) return false;
+void Course::deleteStudent()
+{ 
+    viewStudentsList();
+    int index;
+    
+    while (true)
+        if (getChoice(courseSize, "Please enter the index of the student you want to delete: ", index))
+            break;                        
+    
     for (int i = index - 1; i < courseSize - 1; i++) score[i] = score[i + 1];
     courseSize--;
-    return true;
+    
+    std::cout << "Student is deleted sucessfully\n";
 }
 
 void Course::viewScoreboard()

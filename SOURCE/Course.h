@@ -31,6 +31,7 @@ struct Course {
 	void addStudent(std::string studentID, std::string studentName);
 	bool deleteStudent(int index);
 	void addStudent();
+	void deleteStudent();
 
 	void viewScoreboard();
 	void updateStudentResult();
