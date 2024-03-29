@@ -30,6 +30,7 @@ struct Course {
 	void viewStudentsList();
 	void addStudent(std::string studentID, std::string studentName);
 	bool deleteStudent(int index);
+	void addStudent();
 
 	void viewScoreboard();
 	void updateStudentResult();

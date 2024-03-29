@@ -69,8 +69,24 @@ void Course::viewStudentsList()
     else std::cout << "No students in the course." << std::endl;
 }
 
-void Course::addStudent(std::string studentID, std::string studentName)  //whereisfunctiontogetstudentIDandNamefromStaff
+void Course::addStudent()  
 {
+    std::string studentID, studentName;
+    while (true)
+    {
+        std::cout << "Enter the student's ID: ";
+        std::getline(std::cin, studentID);
+        if (checkIDValid(studentID)) break;
+    }
+    while (true)
+    {
+        std::cout << "Enter the student's name: ";
+        std::getline(std::cin, studentName);
+        if (checkNameValid(studentName)) break;
+    }
+    formalize(studentName);
+    formalize(studentID);
+
     StudentScore* newScoreList = new StudentScore [courseSize + 1];    
     for (int i = 0; i < courseSize; i++)
         newScoreList[i] = score[i];
@@ -80,6 +96,8 @@ void Course::addStudent(std::string studentID, std::string studentName)  //where
     delete [] score;
     score = newScoreList;
     courseSize++;
+
+    std::cout << "Student is added sucessfully\n";
 }
 
 bool Course::deleteStudent(int index)
@@ -141,5 +159,6 @@ void Course::updateStudentResult()
     if (scoreTypes[choice - 1] == "Midterm") score[studentIndex - 1].midTerm = newScore;
     else if (scoreTypes[choice - 1] == "Final") score[studentIndex - 1].final = newScore;
     else if (scoreTypes[choice - 1] == "Other") score[studentIndex - 1].other = newScore;
+    
     std::cout << "Student's result updated successfully." << std::endl;
 }
