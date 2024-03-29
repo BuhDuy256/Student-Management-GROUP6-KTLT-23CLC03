@@ -5,7 +5,7 @@
 void importAllClassesCSV() {
 	std::ifstream inF ("../CSV Files/AllClasses.csv");
 	if (!inF.is_open()) {
-		std::cout << "Can't import AllClasses.csv!";
+		std::cout << "Could't import AllClasses.csv!";
 		return;
 	}
 	Node<SchoolYear>* syHead = currYear;

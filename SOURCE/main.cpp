@@ -12,9 +12,10 @@ int main () {
 	importAllSemestersCSV();
 	importAllCoursesCSV();
 	importAllStudentsInAllCoursesCSV();
+	importAllStaffsCSV();
 
 	// importCSVStudentsOfAClass_Public();
-	exportCSVStudentsOfACourse();
+	// exportCSVStudentsOfACourse();
 	
 	saveAllSchoolYearsData();
 	saveAllClassesData();
@@ -22,11 +23,13 @@ int main () {
 	saveAllSemestersData();
 	saveAllCoursesData();
 	saveAllScoreboardsData();
+	saveAllStaffsData();
 
 	deleteAllStudentsData();
 	deleteAllClassesData();
 	deleteAllScoreboardsData();
 	deleteAllCourseData();
+	deleteAllStaffData();
 
 	auto end = std::chrono::high_resolution_clock::now();
 	// Calculate the duration
