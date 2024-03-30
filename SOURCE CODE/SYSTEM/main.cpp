@@ -19,6 +19,8 @@ struct StudentScore
     double final = -1;
     double other = -1;
     double total = -1;
+    //double GPA = -1;
+    StudentScore() : midTerm(0), final(0), other(0), total(0) {}
 };
 struct Course
 {
@@ -79,9 +81,9 @@ Node<Staff>* currStaff = nullptr;
 Node<Course>* currCourse = nullptr;
 bool getChoice(int numberofChoices, std::string prompt, int& choice);
 Node<Student>* getStudent(std::string myID);
-void viewAllClassesInASchoolYear(); //chosenyear (checkvalid)
-void viewAllClassesInSchool(); //latestyear
-void viewAllStudentsInAClass(); //while...toinput
+void viewAllClassesInASchoolYear();
+void viewAllClassesInSchool();
+void viewAllStudentsInAClass();
 void viewCourses(std::string myID);
 void viewProfile(std::string myID);
 void viewScores(std::string myID);
@@ -113,13 +115,13 @@ bool Exist(bool* check, Node<Course>* checkexist, Node<std::string>* TempCourse,
 int countUniqueTempCourses2(Node<std::string>* TempCourses, bool* check);
 int countUniqueTempCourses(Node<std::string>* TempCourses);
 Node<Class>* ChooseClass(std::string choice);
-void createANewClass(); //latestyear
-void createASchoolYear(); //needchange,automatically_add,currSem = semesters[0] new year
+void createANewClass();
+void createASchoolYear();
 void signIn();
 void displaySignInPage();
 void changePasswordStudent();
 std::string shorterCourseName(std::string CourseName);
-void viewScoreBoardOfAClass(); //i = 4,printboard
+void viewScoreBoardOfAClass();
 void printHorizontalLine(int totalWidth);
 void displayStaffHomePage();
 void SpecialStaffHomePage();
@@ -130,14 +132,10 @@ void saveAllStaffsData();
 void importAllStaffsCSV();
 Node<Staff>* getStaff(std::string ID);
 void changePasswordStaff();
-void chooseYear(); //checkvalid
-void chooseSem(); //checkvalid
-void chooseCourse(); //checkvalid
-void displayAllSchoolYears();
-void addSemester();
-bool checkNameValid(std::string name);
-void formalize(std::string &name);
-bool checkIDValid(std::string id);
+void chooseYear();
+void chooseSem();
+void chooseCourse();
+void createNewSem();
 int main()
 {
     importAllSchoolYearsCSV();
@@ -151,60 +149,32 @@ int main()
     displaySignInPage();
     return 0;
 }
-bool checkNameValid(std::string name)
-{
-    for (char c : name)
+void createNewSem() {
+    if (currYear == nullptr)
     {
-        if (!std::isalpha(c) && !isspace(c))
+        std::cout << "No School Year\n";
+        return;
+    }
+    if (currYear->data.semesters[2].isCreated)
+    {
+        std::cout << "Please create a new school year\n";
+        return;
+    }
+    else
+    {
+        if (currYear->data.semesters[1].isCreated)
         {
-            std::cerr << "Please input properly name with no special characters or digits\n";
-            return false;
+            currYear->data.semesters[2].isCreated = true;
+            currSem = currYear->data.semesters[2];
+            return;
+        }
+        if(currYear->data.semesters[0].isCreated)
+        {
+            currYear->data.semesters[1].isCreated = true;
+            currSem = currYear->data.semesters[1];
+            return;
         }
     }
-    return true;
-}
-
-bool checkIDValid(std::string id)
-{
-    for (char c : id)
-    {
-        if (!isdigit(c))
-        {
-            std::cerr << "Please input properly id with no characters other than digits\n";
-            return false;
-        }
-    }
-    return true;
-}
-
-void formalize(std::string &name)
-{
-    std::string formalizedName;
-    bool lastWasSpace = true;
-    for (char c : name)
-    {
-        if (std::isspace(c))
-        {
-            if (!lastWasSpace)
-            {
-                formalizedName += ' ';
-                lastWasSpace = true;
-            }
-        }
-        else
-        {
-            if (lastWasSpace) c = toupper(c);
-            else c = tolower(c);
-
-            formalizedName += c;
-            lastWasSpace = false;
-        }
-    }
-    name = formalizedName;
-    if (*(name.end() - 1) == ' ') name.pop_back();
-}
-void addSemester(){
-
 }
 void chooseYear(){
     displayAllSchoolYears();
@@ -242,7 +212,6 @@ void changePasswordStaff(){
     Node<Staff>* currStaff2 = getStaff(myID);
     if (currStaff2 == nullptr) return;
     std::string myPassword = currStaff2->data.password;
-
     system("cls");
 
     std::string curPass, newPass, confirmPass;
@@ -849,8 +818,6 @@ void signIn()
         system("cls");
         displayStudentHomePage();
     }
-
-
 }
 void displayAllSchoolYears()
     {
@@ -956,7 +923,7 @@ void viewProfile(std::string ID)
     }
 
 void viewAllClassesInSchool()
-{
+    {
         if (currYear == nullptr) // replace curr year with latest year
         {
             std::cout << "No school year\n";
@@ -976,12 +943,13 @@ void viewAllClassesInSchool()
             }
             showyear = showyear->next;
         }
-}
+    }
+
 void viewAllClassesInASchoolYear()
-{
+    {
         if (chosenYear == nullptr) //replacewithchosenyear
         {
-            std::cout << "Please choose year!\n";
+            std::cout << "No schoolyear\n";
             return;
         }
         Node<Class>* temp = chosenYear->data.classes;
@@ -1000,8 +968,9 @@ void viewAllClassesInASchoolYear()
         }
         std::cout << "\n";
 }
+
 void viewAllStudentsInAClass()
-{
+    {
         viewAllClassesInSchool();
         std::cout << "ENTER CLASS NAME: ";
         std::string choice;
@@ -1022,11 +991,6 @@ void viewAllStudentsInAClass()
             }
             tempcurrYear = tempcurrYear->next;
         }
-        if(CurClass == nullptr)
-        {
-            std::cout << "Invalid class!\n";
-            return;
-        }
         Node<Student>* Stu = CurClass->data.students;
         if (Stu == nullptr)
         {
@@ -1044,7 +1008,7 @@ void viewAllStudentsInAClass()
             i++;
             Stu = Stu->next;
         }
-}
+    }
 
 void viewCourses(std::string ID)
     {
@@ -1075,7 +1039,7 @@ void viewCourses(std::string ID)
     }
 
 void viewScores(std::string ID)
-{
+    {
         Node<Course>* showscore = currSem.Courses;
         if (showscore == nullptr)
         {
@@ -1100,16 +1064,63 @@ void viewScores(std::string ID)
         }
     }
 void createASchoolYear() //noinput
-    {
-        SchoolYear newy;
-        std::cout << "ENTER CURRENT YEAR: ";
-        std::cin >> newy.year;
-        // check valid
-        Node<SchoolYear>* NewYear = new Node<SchoolYear>(newy, currYear);
-        currYear = NewYear;
-    }
-void createANewClass()
 {
+    int index = 0;
+    while (currYear->data.year[index] != '-') index++;
+    std::string part1 = currYear->data.year.substr(0, index);
+    std::string part2 = currYear->data.year.substr(index + 1, currYear->data.year.size());
+    int cnt1 = 1, cnt2 = 1, leftover = 1, number1 = 0, number2 = 0, par1index = part1.size() - 1, par2index = part2.size() - 1;
+    while (par1index >= 0)
+    {
+        if ((part1[par1index] - '0') + leftover >= 10)
+        {
+            number1 += 0;
+            leftover = 1;
+            cnt1 *= 10;
+        }
+        else
+        {
+            number1 += (part1[par1index] - '0' + leftover) * cnt1;
+            cnt1 *= 10;
+            leftover = 0;
+        }
+        par1index--;
+    }
+    if (leftover == 1)
+    {
+        number1 += 1 * cnt1;
+    }
+    leftover = 1;
+    while (par2index >= 0)
+    {
+        if ((part2[par2index] - '0') + leftover >= 10)
+        {
+            number2 += 0;
+            leftover = 1;
+            cnt2 *= 10;
+        }
+        else
+        {
+            number2 += (part2[par2index] - '0' + leftover) * cnt2;
+            cnt2 *= 10;
+            leftover = 0;
+        }
+        par2index--;
+    }
+    if (leftover == 1)
+    {
+        number2 += 1 * cnt2;
+        leftover = 0;
+    }
+    SchoolYear newyear;
+    newyear.year = std::to_string(number1) + '-' + std::to_string(number2);
+    Node<SchoolYear>* newYear = new Node<SchoolYear>(newyear, currYear);
+    currYear = newYear;
+    currSem = currYear->data.semesters[0];
+    std::cout << "Create New School Year Successfully!\n";
+}
+void createANewClass()
+    {
         if (currYear == nullptr)
         {
             std::cout << "No schoolyear\n";
@@ -1121,7 +1132,7 @@ void createANewClass()
         newclass.schoolYear = currYear->data.year;
         Node<Class>* NewClass = new Node<Class>(newclass, currYear->data.classes);
         currYear->data.classes = NewClass;
-}
+    }
 
 Node<Class>* ChooseClass(std::string choice) {
         Node<SchoolYear>* tempcurrYear = currYear;
@@ -1872,7 +1883,8 @@ void Course::updateInformation()
         }
         }
         std::cout << "Information updated successfully." << std::endl;
-}
+    }
+
 void Course::viewStudentsList()
     {
         if (score != nullptr)
@@ -1890,52 +1902,28 @@ void Course::viewStudentsList()
     }
 
 void Course::addStudent(std::string studentID, std::string studentName)
-{
-        std::string studentID, studentName;
-    while (true)
     {
-        std::cout << "Enter the student's ID: ";
-        std::getline(std::cin, studentID);
-        if (checkIDValid(studentID)) break;
+        StudentScore* newScoreList = new StudentScore[courseSize + 1];
+        for (int i = 0; i < courseSize; i++)
+            newScoreList[i] = score[i];
+        newScoreList[courseSize].studentID = studentID;
+        newScoreList[courseSize].studentName = studentName;
+
+        delete[] score;
+        score = newScoreList;
+        courseSize++;
     }
 
-    while (true)
-    {
-        std::cout << "Enter the student's name: ";
-        std::getline(std::cin, studentName);
-        if (checkNameValid(studentName)) break;
-    }
-    formalize(studentName);
-
-    StudentScore* newScoreList = new StudentScore [courseSize + 1];
-    for (int i = 0; i < courseSize; i++)
-        newScoreList[i] = score[i];
-    newScoreList[courseSize].studentID = studentID;
-    newScoreList[courseSize].studentName = studentName;
-
-    delete [] score;
-    score = newScoreList;
-    courseSize++;
-
-    std::cout << "Student is added sucessfully\n";
-}
 bool Course::deleteStudent(int index)
-{
-        viewStudentsList();
-    int index;
-
-    while (true)
-        if (getChoice(courseSize, "Please enter the index of the student you want to delete: ", index))
-            break;
-
-    for (int i = index - 1; i < courseSize - 1; i++) score[i] = score[i + 1];
-    courseSize--;
-
-    std::cout << "Student is deleted sucessfully\n";
-}
+    {
+        if (index < 0 || index > courseSize) return false;
+        for (int i = index - 1; i < courseSize - 1; i++) score[i] = score[i + 1];
+        courseSize--;
+        return true;
+    }
 
 void Course::viewScoreboard()
-{
+    {
         if (score != nullptr)
         {
             std::cout << std::left
@@ -1954,7 +1942,8 @@ void Course::viewScoreboard()
             }
         }
         else std::cout << "No students in the course." << std::endl;
-}
+    }
+
 void Course::updateStudentResult()
     {
         // Display the the list of students
@@ -1986,7 +1975,7 @@ void Course::updateStudentResult()
         else if (scoreTypes[choice - 1] == "Final") score[studentIndex - 1].final = newScore;
         else if (scoreTypes[choice - 1] == "Other") score[studentIndex - 1].other = newScore;
         std::cout << "Student's result updated successfully." << std::endl;
-}
+    }
 Node<Student>* getStudent(std::string ID)
     {
         Node<SchoolYear>* temp = currYear;
@@ -2008,7 +1997,7 @@ Node<Student>* getStudent(std::string ID)
         return nullptr;
     }
 void changePasswordStudent()
-{
+    {
         Node<Student>* curStu = getStudent(myID);
 
         std::string myPassword = curStu->data.password;
@@ -2045,6 +2034,5 @@ void changePasswordStudent()
 
         std::cout << "Your Password Has Been Changed!!!";
         system("pause");
-        system("cls");
         displayStudentHomePage();
 }
