@@ -14,6 +14,8 @@
 #include<algorithm>
 #include<filesystem>
 #include<limits>
+#include<cstdlib> 
+#include<unistd.h>
 
 void importData();
 void saveData();
@@ -27,3 +29,4 @@ void signInPage();
 
 void studentHomePage();
 void executeCommand_StudentHomePage(int choice);
+void viewStudentCourses();

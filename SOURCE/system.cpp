@@ -8,6 +8,8 @@ void importData() {
 	importAllCoursesCSV();
 	importAllStudentsInAllCoursesCSV();
 	importAllStaffsCSV();
+
+	findCurrSem();
 }
 
 void saveData() {
@@ -82,6 +84,9 @@ void startPage()
 	}
 	else if (cmd == -1)
 	{
+		std::cout << "Exiting..." << std::endl;
+		sleep(1);
+		system("cls");
 		exit(0);
 	}
 	else
@@ -142,30 +147,69 @@ void studentHomePage() {
 			continue;
 		}
 		else {
-			executeCommand_StudentHomePage(choice);
+			if (choice == 1)
+			{
+				viewStudentProfile();
+				system("pause");
+				system("cls");
+				studentHomePage();
+			}
+			else if (choice == 2)
+			{
+				viewStudentCourses();
+				system("pause");
+				system("cls");
+				studentHomePage();
+			}
+			else if (choice == 3)
+			{
+				// viewScores(myID);
+				// system("pause");
+				// system("cls");
+				// displayHomePage();
+			}
+			else if (choice == 4)
+			{
+				// changePasswordStudent();
+				// system("pause");
+				// system("cls");
+				// displayHomePage();
+			}
+			else if (choice == -1)
+			{
+				std::cout << "Exiting..." << std::endl;
+				sleep(1);
+				system("cls");
+				exit(0);
+			}
 		}
 	}
 }
 
-void executeCommand_StudentHomePage(int choice) {
-	switch (choice) {
-	case 1:
-		// Function 
-		return;
-	case 2:
-		// Function
-		return;
-	case 3:
-		// Function
-		return;
-	case 4:
-		// Function
-		return;
-	case -1:
-		exit(0);
-		return;
-	default:
-		// Don't do anything
-		return;
+void viewStudentCourses()
+{
+	std::cout << "[2]. Your couse in this semester: " << std::endl;
+	std::cout << "+---------+----------------+--------------------------------+----------------+------------------------+-------------+----------------+\n";
+	std::cout << "| No      | Course ID      | Course Name                    | Class Name     | Teacher Name           | Day of Week | Session        |\n";
+	std::cout << "+---------+----------------+--------------------------------+----------------+------------------------+-------------+----------------+\n";
+
+	Node<Course>* couCurr = currSem.Courses;
+	int no = 0;
+	while (couCurr) {
+		bool check = false;
+		for (int i = 0; i < couCurr->data.courseSize; i++) {
+			if (couCurr->data.score[i].studentID == currStudent->data.ID) {
+				no++;
+				check = true;
+			}
+		}
+		if (check) {
+			std::cout << "| " << std::left << std::setw(8) << no << "| " << std::left << std::setw(15) << couCurr->data.ID << "| " << std::left << std::setw(31) << couCurr->data.Name << "| "
+				<< std::left << std::setw(15) << couCurr->data.className << "| " << std::left << std::setw(23) << couCurr->data.teacherName << "| "
+				<< std::left << std::setw(12) << couCurr->data.dayOfWeek << "| " << std::left << std::setw(15) << couCurr->data.session << "|\n";
+		}
+		couCurr = couCurr->next;
 	}
+
+	std::cout << "+---------+----------------+--------------------------------+----------------+------------------------+-------------+----------------+\n";
 }

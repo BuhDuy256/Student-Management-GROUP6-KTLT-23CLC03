@@ -181,3 +181,36 @@ void importCSVStudentsOfAClass_Public() {
     inF.close();
 }
 
+void viewStudentProfile()
+{	
+	system("cls");
+    Student a = currStudent->data;
+    std::cout << "[1] Your Profile: " << "\n";
+    std::cout << std::setfill(' ') << std::setw(36) << "" << std::setw(46) << std::setfill('-');
+    std::cout << "\n";
+    std::cout << std::setw(36) << std::setfill(' ');
+    std::cout << " " << "|" << std::setw(14) << "Name " << std::setfill(' ') << "|" << std::setw(28) << a.name << std::setfill(' ') << "|" << "\n";
+    std::cout << std::setfill(' ') << std::setw(36) << "" << std::setw(46) << std::setfill('-');
+    std::cout << "\n";
+    std::cout << std::setw(36) << std::setfill(' ');
+    std::cout << " " << "|" << std::setw(14) << "Student ID " << std::setfill(' ') << "|" << std::setw(28) << a.ID << std::setfill(' ') << "|" << "\n";
+    std::cout << std::setfill(' ') << std::setw(36) << "" << std::setw(46) << std::setfill('-');
+    std::cout << "\n";
+    std::cout << " " << std::setw(36) << std::setfill(' ');
+    std::cout << "|" << std::setw(14) << "Your Class " << std::setfill(' ') << "|" << std::setw(28) << a.mainClass << std::setfill(' ') << "|" << "\n";
+    std::cout << std::setfill(' ') << std::setw(36) << "" << std::setw(46) << std::setfill('-');
+    std::cout << "\n";
+    std::cout << " " << std::setw(36) << std::setfill(' ');
+    std::cout << "|" << std::setw(14) << "Birthday " << std::setfill(' ') << "|" << std::setw(28) << a.birthday << std::setfill(' ') << "|" << "\n";
+    std::cout << std::setfill(' ') << std::setw(36) << "" << std::setw(46) << std::setfill('-');
+    std::cout << "\n";
+    std::cout << " " << std::setw(36) << std::setfill(' ');
+    std::cout << "|" << std::setw(14) << "Social ID " << std::setfill(' ') << "|" << std::setw(28) << a.socialID << std::setfill(' ') << "|" << "\n";
+    std::cout << std::setw(36) << std::setfill(' ');
+    std::cout << std::setfill(' ') << std::setw(36) << "" << std::setw(46) << std::setfill('-');
+    std::cout << "\n";
+    std::cout << " " << std::setw(36) << std::setfill(' ');
+    std::cout << "|" << std::setw(14) << "Gender " << std::setfill(' ') << "|" << std::setw(28) << a.gender << std::setfill(' ') << "|" << "\n";
+    std::cout << std::setfill(' ') << std::setw(36) << "" << std::setw(46) << std::setfill('-');
+    std::cout << "\n";
+}

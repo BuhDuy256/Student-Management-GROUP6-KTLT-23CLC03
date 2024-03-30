@@ -16,7 +16,7 @@ extern Node<Student>* currStudent;
 extern Node<SchoolYear>* latestSYear;
 extern int latestSem;
 extern Node<SchoolYear>* currSYear;
-extern int currSem;
+extern Semester currSem;
 extern Node<Staff>* listStaff;
 extern Node<Staff>* currStaff;
 

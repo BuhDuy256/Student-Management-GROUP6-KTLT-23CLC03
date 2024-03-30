@@ -30,3 +30,4 @@ void importAllSchoolYearsCSV();
 void reverseSchoolYearsList(Node<SchoolYear>*& syHead);
 void saveAllSchoolYearsData();
 void deleteAllSchoolYearsData();
+void findCurrSem();
