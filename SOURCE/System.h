@@ -7,3 +7,23 @@
 #include"Course.h"
 #include"SchoolYear.h"
 #include"GlobalVariables.h"
+
+#include<iostream>
+#include<fstream>
+#include<sstream>
+#include<algorithm>
+#include<filesystem>
+#include<limits>
+
+void importData();
+void saveData();
+void deleteData();
+
+void startPage();
+int getUser(std::string userID, std::string userPassowrd);
+void signInPage();
+
+// Student
+
+void studentHomePage();
+void executeCommand_StudentHomePage(int choice);

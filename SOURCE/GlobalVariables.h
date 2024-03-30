@@ -1,7 +1,6 @@
 #pragma once
 
 #include"System.h"
-#include<iostream>
 
 template<class T>
 struct Node;
@@ -13,8 +12,11 @@ struct Semester;
 struct SchoolYear;
 struct Staff;
 
-extern std::string myID;
-extern Semester currSem;
-extern Node<SchoolYear>* currYear;
-extern Node<Course>* currCourse;
+extern Node<Student>* currStudent;
+extern Node<SchoolYear>* latestSYear;
+extern int latestSem;
+extern Node<SchoolYear>* currSYear;
+extern int currSem;
+extern Node<Staff>* listStaff;
 extern Node<Staff>* currStaff;
+

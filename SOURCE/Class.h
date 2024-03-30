@@ -1,7 +1,6 @@
 #pragma once
 
 #include"System.h"
-#include<iostream>
 
 template<class T>
 struct Node;
@@ -10,8 +9,8 @@ struct SchoolYear;
 
 struct Class {
 	std::string className;
-	std::string schoolYear; 
-	Node<Student>* students = nullptr;   
+	std::string schoolYear;
+	Node<Student>* students = nullptr;
 };
 
 void importAllClassesCSV();

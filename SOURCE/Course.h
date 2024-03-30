@@ -10,7 +10,7 @@ struct Class;
 struct SchoolYear;
 struct Staff;
 
-struct StudentScore {  
+struct StudentScore {
 	std::string studentID;
 	std::string studentName;
 	double midTerm = -1;
@@ -20,14 +20,14 @@ struct StudentScore {
 };
 
 struct Course {
-	std::string ID; 
+	std::string ID;
 	std::string Name;
 	std::string className;
 	std::string teacherName;
-    int courseSize = 0;
+	int courseSize = 0;
 	std::string dayOfWeek;
 	std::string session;
-	StudentScore* score = nullptr; 
+	StudentScore* score = nullptr;
 };
 
 void importAllCoursesCSV();

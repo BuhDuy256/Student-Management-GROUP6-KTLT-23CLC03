@@ -1,7 +1,6 @@
 #pragma once
 
 #include"System.h"
-#include<iostream>
 
 template<class T>
 struct Node;
@@ -12,7 +11,7 @@ struct Course;
 struct Staff;
 
 struct Semester {
-	bool isCreated = false; 
+	bool isCreated = false;
 	std::string startDate;
 	std::string endDate;
 	Node<Course>* Courses = nullptr;
@@ -28,6 +27,6 @@ struct SchoolYear {
 };
 
 void importAllSchoolYearsCSV();
-void reverseSchoolYearsList(Node<SchoolYear>* &syHead);
+void reverseSchoolYearsList(Node<SchoolYear>*& syHead);
 void saveAllSchoolYearsData();
 void deleteAllSchoolYearsData();

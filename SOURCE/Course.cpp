@@ -1,18 +1,13 @@
 #include"Course.h"
-#include<fstream>
-#include<sstream>
-#include<filesystem>
-#include<algorithm>
-#include<limits>
 
 void importAllCoursesCSV() {
     std::ifstream inF("../CSV Files/AllCourses.csv");
     if (!inF.is_open()) {
-        std::cout << "Can't import AllCourses.csv!" << std::endl;
+        std::cout << "Couldn't import AllCourses.csv!" << std::endl;
         return;
     }
     std::string header;
-    std::getline(inF, header); 
+    std::getline(inF, header);
     std::string line;
     while (std::getline(inF, line)) {
         // Check if the line is empty or contains only whitespace
@@ -33,7 +28,7 @@ void importAllCoursesCSV() {
         int couSem = 0;
         std::stringstream(couSemTemp) >> couSem;
         // std::cout << couSemTemp << " | " << couSY << "\n"; 
-        Node<SchoolYear>* syCurr = currYear;
+        Node<SchoolYear>* syCurr = latestSYear;
         bool found = false;
         while (syCurr && !found) {
             if (syCurr->data.year == couSY) {
@@ -47,7 +42,8 @@ void importAllCoursesCSV() {
                     if (!couHead) {
                         syCurr->data.semesters[couSem - 1].Courses = new Node<Course>(newCourse);
                         syCurr->data.semesters[couSem - 1].Courses->data.score = new StudentScore[100];
-                    } else {
+                    }
+                    else {
                         Node<Course>* couCurr = couHead;
                         while (couCurr->next) {
                             couCurr = couCurr->next;
@@ -55,7 +51,8 @@ void importAllCoursesCSV() {
                         couCurr->next = new Node<Course>(newCourse);
                         couCurr->next->data.score = new StudentScore[100];
                     }
-                } else {
+                }
+                else {
                     std::cout << "Error: Invalid semester number for year " << couSY << ": " << couSem << std::endl;
                     break;
                 }
@@ -66,14 +63,14 @@ void importAllCoursesCSV() {
             std::cout << "Error: Year not found: " << couSY << std::endl;
         }
     }
-    inF.close(); 
+    inF.close();
 }
 
 void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr) {
-    std::string fileName ="../CSV Files/List of Courses/" + couCurr -> data.ID + "_" + couCurr -> data.className + ".csv";
+    std::string fileName = "../CSV Files/List of Courses/" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
     std::ifstream inF(fileName);
     if (!inF.is_open()) {
-        std::cout << "Can't import " << fileName << std::endl;
+        std::cout << "Couldn't import " << fileName << std::endl;
         return;
     }
     std::string header;
@@ -88,82 +85,83 @@ void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr) {
         std::stringstream ss(line);
         std::string token;
         std::getline(ss, token, ',');
-        couCurr -> data.score[n].studentID = token;
+        couCurr->data.score[n].studentID = token;
         std::getline(ss, token, ',');
-        couCurr -> data.score[n].studentName = token;
-        std::getline(ss, token, ',');
-        if (!token.empty())
-            couCurr -> data.score[n].midTerm = std::stod(token);
+        couCurr->data.score[n].studentName = token;
         std::getline(ss, token, ',');
         if (!token.empty())
-            couCurr -> data.score[n].final = std::stod(token);
+            couCurr->data.score[n].midTerm = std::stod(token);
         std::getline(ss, token, ',');
         if (!token.empty())
-            couCurr -> data.score[n].other = std::stod(token);
+            couCurr->data.score[n].final = std::stod(token);
         std::getline(ss, token, ',');
         if (!token.empty())
-            couCurr -> data.score[n].total = std::stod(token);
+            couCurr->data.score[n].other = std::stod(token);
+        std::getline(ss, token, ',');
+        if (!token.empty())
+            couCurr->data.score[n].total = std::stod(token);
         n++;
     }
-    couCurr -> data.courseSize = n;
+    couCurr->data.courseSize = n;
     inF.close();
 }
 
 void importAllStudentsInAllCoursesCSV() {
-	Node<SchoolYear>* syHead = currYear;
-	while(syHead) {
-		for (int i = 0; i < 3; i++) {
-			if (syHead -> data.semesters[i].isCreated) {
-				Node<Course>* couCurr = syHead -> data.semesters[i].Courses;
-				while(couCurr) {
-					importContainingStudentsEnrolledInCourse(couCurr);
-					couCurr = couCurr -> next;
-				}
-			}
-		}
-		syHead = syHead -> next;
-	}
+    Node<SchoolYear>* syHead = latestSYear;
+    while (syHead) {
+        for (int i = 0; i < 3; i++) {
+            if (syHead->data.semesters[i].isCreated) {
+                Node<Course>* couCurr = syHead->data.semesters[i].Courses;
+                while (couCurr) {
+                    importContainingStudentsEnrolledInCourse(couCurr);
+                    couCurr = couCurr->next;
+                }
+            }
+        }
+        syHead = syHead->next;
+    }
 }
 
 void saveAllCoursesData() {
-    Node<SchoolYear>* syCurr = currYear;
+    Node<SchoolYear>* syCurr = latestSYear;
     std::ofstream outF("../CSV Files/AllCourses.csv", std::ofstream::out | std::ofstream::trunc);
     if (outF.is_open()) {
         outF << "Course ID,Course Name,Class Name,Teacher Name,Day Of Week,Session,School Year,Semester\n";
-        while(syCurr) {
-            for(int i = 0; i < 3; i++) {
-                if (syCurr -> data.semesters[i].isCreated) {
-                    Node<Course>* couCurr = syCurr -> data.semesters[i].Courses;
-                    while(couCurr) {
-                        outF << couCurr -> data.ID << ","
-                        << couCurr -> data.Name << ","
-                        << couCurr -> data.className << ","
-                        << couCurr -> data.teacherName << ","
-                        << couCurr -> data.dayOfWeek << ","
-                        << couCurr -> data.session << ","
-                        << syCurr -> data.year << ","
-                        << i + 1 << "\n";
-                        couCurr = couCurr -> next;
+        while (syCurr) {
+            for (int i = 0; i < 3; i++) {
+                if (syCurr->data.semesters[i].isCreated) {
+                    Node<Course>* couCurr = syCurr->data.semesters[i].Courses;
+                    while (couCurr) {
+                        outF << couCurr->data.ID << ","
+                            << couCurr->data.Name << ","
+                            << couCurr->data.className << ","
+                            << couCurr->data.teacherName << ","
+                            << couCurr->data.dayOfWeek << ","
+                            << couCurr->data.session << ","
+                            << syCurr->data.year << ","
+                            << i + 1 << "\n";
+                        couCurr = couCurr->next;
                     }
                 }
             }
-            syCurr = syCurr -> next;
-        } 
-    } else {
+            syCurr = syCurr->next;
+        }
+    }
+    else {
         std::cout << "Could't open AllCourses.csv to save Data." << std::endl;
     }
     outF.close();
 }
 
 void saveScoreboardOfACourse(Node<Course>* couCurr) {
-    std::string fileName = "../CSV Files/List of Courses/" + couCurr -> data.ID + "_" + couCurr -> data.className + ".csv";
+    std::string fileName = "../CSV Files/List of Courses/" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
     std::ofstream outF(fileName, std::ofstream::out | std::ofstream::trunc);
     if (outF.is_open()) {
         outF << "Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark\n";
-        StudentScore* scoreArr = couCurr -> data.score;
-        for(int i = 0; i < couCurr -> data.courseSize; i++) {
+        StudentScore* scoreArr = couCurr->data.score;
+        for (int i = 0; i < couCurr->data.courseSize; i++) {
             outF << scoreArr[i].studentID << ","
-            << scoreArr[i].studentName << ",";
+                << scoreArr[i].studentName << ",";
             if (scoreArr[i].midTerm > 0)
                 outF << scoreArr[i].midTerm;
             outF << ",";
@@ -175,61 +173,62 @@ void saveScoreboardOfACourse(Node<Course>* couCurr) {
             outF << ",";
             if (scoreArr[i].total > 0)
                 outF << scoreArr[i].total;
-            outF << "\n";  
+            outF << "\n";
         }
-    } else {
+    }
+    else {
         std::cout << "Could't open " << fileName << " to save Data." << std::endl;
     }
     outF.close();
 }
 
 void saveAllScoreboardsData() {
-    Node<SchoolYear>* syCurr = currYear;
-    while(syCurr) {
-        for(int i = 0; i < 3; i++) {
-            if (syCurr -> data.semesters[i].isCreated) {
-                Node<Course>* couCurr = syCurr -> data.semesters[i].Courses;
-                while(couCurr) {
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr) {
+        for (int i = 0; i < 3; i++) {
+            if (syCurr->data.semesters[i].isCreated) {
+                Node<Course>* couCurr = syCurr->data.semesters[i].Courses;
+                while (couCurr) {
                     saveScoreboardOfACourse(couCurr);
-                    couCurr = couCurr -> next;
+                    couCurr = couCurr->next;
                 }
             }
         }
-        syCurr = syCurr -> next;
-    } 
+        syCurr = syCurr->next;
+    }
 }
 
 void deleteAllScoreboardsData() {
-    Node<SchoolYear>* syCurr = currYear;
-    while(syCurr) {
-        for(int i = 0; i < 3; i++) {
-            if (syCurr -> data.semesters[i].isCreated) {
-                Node<Course>* couCurr = syCurr -> data.semesters[i].Courses;
-                while(couCurr) {
-                    couCurr -> data.courseSize = 0;
-                    delete []couCurr -> data.score;
-                    couCurr = couCurr -> next;
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr) {
+        for (int i = 0; i < 3; i++) {
+            if (syCurr->data.semesters[i].isCreated) {
+                Node<Course>* couCurr = syCurr->data.semesters[i].Courses;
+                while (couCurr) {
+                    couCurr->data.courseSize = 0;
+                    delete[]couCurr->data.score;
+                    couCurr = couCurr->next;
                 }
             }
         }
-        syCurr = syCurr -> next;
-    } 
+        syCurr = syCurr->next;
+    }
 }
 
 void deleteAllCourseData() {
-    Node<SchoolYear>* syCurr = currYear;
-    while(syCurr) {
-        for(int i = 0; i < 3; i++) {
-            if (syCurr -> data.semesters[i].isCreated) {
-                Node<Course>* couCurr = syCurr -> data.semesters[i].Courses;
-                while(couCurr) {
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr) {
+        for (int i = 0; i < 3; i++) {
+            if (syCurr->data.semesters[i].isCreated) {
+                Node<Course>* couCurr = syCurr->data.semesters[i].Courses;
+                while (couCurr) {
                     Node<Course>* temp = couCurr;
-                    couCurr = couCurr -> next;
+                    couCurr = couCurr->next;
                     delete temp;
                 }
             }
         }
-        syCurr = syCurr -> next;
+        syCurr = syCurr->next;
     }
 }
 
@@ -241,7 +240,8 @@ std::string formatSchoolYear(const std::string& inputYear) {
 
     if (formattedInput.length() == 9 && formattedInput[4] == '-') {
         formattedYear = formattedInput;
-    } else if (formattedInput.length() == 9 && formattedInput[4] != '-') {
+    }
+    else if (formattedInput.length() == 9 && formattedInput[4] != '-') {
         formattedYear = formattedInput.substr(0, 4) + "-" + formattedInput.substr(4, 4);
     }
     return formattedYear;
@@ -259,8 +259,8 @@ void exportCSVStudentsOfACourse() {
     std::cout << "\tSemester (1 -> 3): ";
     while (!(std::cin >> couSem) || couSem < 1 || couSem > 3) {
         std::cout << "Invalid age. Please enter again: ";
-        std::cin.clear(); 
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
     std::string folderName;
 
@@ -275,18 +275,19 @@ void exportCSVStudentsOfACourse() {
     } while (folderName.empty());
 
     bool found = false;
-    Node<SchoolYear>* syCurr = currYear;
+    Node<SchoolYear>* syCurr = latestSYear;
     Node<Course>* couFind = nullptr;
-    while(syCurr && !found) {
-        if (syCurr -> data.year == couSY) {
-            if (syCurr -> data.semesters[couSem -1].isCreated) {
-                if (!syCurr -> data.semesters[couSem - 1].Courses) {
+    while (syCurr && !found) {
+        if (syCurr->data.year == couSY) {
+            if (syCurr->data.semesters[couSem - 1].isCreated) {
+                if (!syCurr->data.semesters[couSem - 1].Courses) {
                     std::cout << "This semester don't have any course data!" << std::endl;
                     return;
-                } else {
-                    couFind = syCurr -> data.semesters[couSem - 1].Courses;
-                    while(couFind) {
-                        if (couFind -> data.ID == couID && couFind -> data.className == couClass) {
+                }
+                else {
+                    couFind = syCurr->data.semesters[couSem - 1].Courses;
+                    while (couFind) {
+                        if (couFind->data.ID == couID && couFind->data.className == couClass) {
                             std::string fileName = removeQuotesFromPath(folderName) + "/" + couID + "_" + couClass + ".csv";
                             std::ofstream outF(fileName);
                             if (!outF.is_open()) {
@@ -294,10 +295,10 @@ void exportCSVStudentsOfACourse() {
                                 return;
                             }
                             outF << "Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark\n";
-                            StudentScore* scoreArr = couFind -> data.score;
-                            for(int i = 0; i < couFind -> data.courseSize; i++) {
+                            StudentScore* scoreArr = couFind->data.score;
+                            for (int i = 0; i < couFind->data.courseSize; i++) {
                                 outF << scoreArr[i].studentID << ","
-                                << scoreArr[i].studentName << ",";
+                                    << scoreArr[i].studentName << ",";
                                 if (scoreArr[i].midTerm > 0)
                                     outF << scoreArr[i].midTerm;
                                 outF << ",";
@@ -309,7 +310,7 @@ void exportCSVStudentsOfACourse() {
                                 outF << ",";
                                 if (scoreArr[i].total > 0)
                                     outF << scoreArr[i].total;
-                                outF << "\n";  
+                                outF << "\n";
                             }
                             outF.close();
                             return;
@@ -318,15 +319,16 @@ void exportCSVStudentsOfACourse() {
                             std::cout << "Couldn't find Course have ID: " << couID << " and class Name" << couClass << std::endl;
                             return;
                         }
-                        couFind = couFind -> next;
+                        couFind = couFind->next;
                     }
                 }
-            } else {
+            }
+            else {
                 std::cout << "Semester hasn't been created before!" << std::endl;
                 return;
             }
         }
-        syCurr = syCurr -> next;
+        syCurr = syCurr->next;
     }
     if (!syCurr) {
         std::cout << "School Year Information isn't true!" << std::endl;

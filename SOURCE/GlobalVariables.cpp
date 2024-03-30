@@ -1,7 +1,9 @@
 #include "GlobalVariables.h"
 
-std::string myID = "";
-Semester currSem;
-Node<SchoolYear>* currYear;
-Node<Course>* currCourse;
-Node<Staff>* currStaff;
+Node<Student>* currStudent = nullptr;
+Node<SchoolYear>* latestSYear;
+int latestSem;
+Node<SchoolYear>* currSYear;
+int currSem;
+Node<Staff>* listStaff;
+Node<Staff>* currStaff = nullptr;
