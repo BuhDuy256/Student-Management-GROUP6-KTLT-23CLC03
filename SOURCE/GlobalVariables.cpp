@@ -1,9 +1,11 @@
 #include "GlobalVariables.h"
 
 Node<Student>* currStudent = nullptr;
-Node<SchoolYear>* latestSYear;
-int latestSem;
-Node<SchoolYear>* currSYear;
+Node<SchoolYear>* latestSYear = nullptr;
+Semester latestSem;
+int lastSemNumber;
+Node<SchoolYear>* currSYear = nullptr;
 Semester currSem;
-Node<Staff>* listStaff;
+int currSemNumber;
+Node<Staff>* listStaff = nullptr;
 Node<Staff>* currStaff = nullptr;

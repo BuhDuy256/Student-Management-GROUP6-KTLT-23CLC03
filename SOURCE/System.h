@@ -29,3 +29,4 @@ void signInPage();
 // Student
 
 void studentHomePage();
+void staffHomePage();

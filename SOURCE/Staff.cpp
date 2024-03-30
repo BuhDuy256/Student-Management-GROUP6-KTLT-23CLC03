@@ -70,3 +70,56 @@ void deleteAllStaffData() {
     }
     listStaff = nullptr;
 }
+
+void viewStaffProfile() {
+	system("cls");
+	Staff a = currStaff->data;
+	std::cout << "[1]. View your Profile" << std::endl;
+	std::cout << "\t+--------------------+--------------------------------+\n";
+	std::cout << "\t| " << std::left << std::setw(19) << "Staff Name" << "| " << std::setw(31) << a.name << "|\n";
+	std::cout << "\t+--------------------+--------------------------------+\n";
+	std::cout << "\t| " << std::left << std::setw(19) << "Staff ID" << "| " << std::setw(31) << a.ID << "|\n";
+	std::cout << "\t+--------------------+--------------------------------+\n";
+	std::cout << "\t| " << std::left << std::setw(19) << "Gender" << "| " << std::setw(31) << a.gender << "|\n";
+	std::cout << "\t+--------------------+--------------------------------+\n";
+	std::cout << "\t| " << std::left << std::setw(19) << "Birthday" << "| " << std::setw(31) << a.birthday << "|\n";
+	std::cout << "\t+--------------------+--------------------------------+\n";
+	std::cout << "\t| " << std::left << std::setw(19) << "Social ID" << "| " << std::setw(31) << a.socialID << "|\n";
+	std::cout << "\t+--------------------+--------------------------------+\n";
+	system("pause");
+}
+
+void changeStaffPassword() {
+	system("cls");
+	std::cout << "[4]. Change password:" << std::endl;
+	std::string oldPassword, newPassword, confirmPassword;
+	std::cout << "\tEnter your old password: ";
+	std::cin >> oldPassword;
+
+	std::cout << "\tEnter your new password: ";
+	std::cin >> newPassword;
+
+	std::cout << "\tConfirm your new password: ";
+	std::cin >> confirmPassword;
+
+	bool verifyPassword = false;
+	if (oldPassword == currStaff->data.password) {
+		verifyPassword = true;
+	}
+
+	if (!verifyPassword) {
+		std::cout << "Your old password is incorrect!" << std::endl;
+		system("pause");
+		return;
+	}
+
+	if (newPassword != confirmPassword) {
+		std::cout << "Your new passwords do not match. Please try again!" << std::endl;
+		system("pause");
+		return;
+	}
+
+	currStaff->data.password = newPassword;
+	std::cout << "Password changed successfully." << std::endl;
+	system("pause");
+}

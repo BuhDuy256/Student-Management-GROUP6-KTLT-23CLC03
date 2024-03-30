@@ -122,18 +122,19 @@ void saveAllSemestersData() {
 }
 
 void findCurrSem() {
-	Node<SchoolYear>* syCurr = latestSYear;
-	bool found = false;
-	while (syCurr && !found) {
-		for (int i = 2; i >= 0; i--) {
-			if (syCurr->data.semesters[i].isCreated) {
-				found = true;
-				currSem = syCurr->data.semesters[i];
-				break;
-			}
-		}
-		syCurr = syCurr->next;
-	}
+    Node<SchoolYear>* syCurr = latestSYear;
+    bool found = false;
+    while (syCurr && !found) {
+        for (int i = 2; i >= 0; i--) {
+            if (syCurr->data.semesters[i].isCreated) {
+                found = true;
+                latestSem = currSem = syCurr->data.semesters[i];
+                lastSemNumber = currSemNumber = i + 1;
+                break;
+            }
+        }
+        syCurr = syCurr->next;
+    }
 }
 
 

@@ -15,3 +15,6 @@ struct Staff {
 void importAllStaffsCSV();
 void saveAllStaffsData();
 void deleteAllStaffData();
+
+void viewStaffProfile();
+void changeStaffPassword();

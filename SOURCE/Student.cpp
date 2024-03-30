@@ -140,7 +140,7 @@ void viewStudentCourses()
 	system("cls");
 	std::cout << "[2]. Your couse in this semester: " << std::endl;
 
-	Node<Course>* couCurr = currSem.Courses;
+	Node<Course>* couCurr = latestSem.Courses;
 	if (!couCurr) {
 		std::cout << "You don't have any course!" << std::endl;
 		return;
@@ -176,7 +176,7 @@ void viewStudentScoresInCurrentSem()
 	system("cls");
 	std::cout << "[3]. Your scoreboard in this semester: " << std::endl;
 
-	Node<Course>* couCurr = currSem.Courses;
+	Node<Course>* couCurr = latestSem.Courses;
 	if (!couCurr) {
 		std::cout << "You don't have any course!" << std::endl;
 		return;

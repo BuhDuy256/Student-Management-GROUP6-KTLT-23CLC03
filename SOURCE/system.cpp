@@ -121,7 +121,7 @@ void signInPage() {
 	}
 	std::cout << "(!) Log in successfully." << std::endl;
 	if (userType == 1) {
-		// Handle user type 1
+		staffHomePage();
 	}
 	else if (userType == 2) {
 		studentHomePage();
@@ -172,11 +172,59 @@ void studentHomePage() {
 			else if (choice == -1)
 			{
 				std::cout << "Exiting..." << std::endl;
-				saveData();
-				deleteData();
 				sleep(1);
-				system("cls");
-				exit(0);
+				startPage();
+			}
+		}
+	}
+}
+
+void staffHomePage() {
+	while (true) {
+		system("cls");
+		std::cout << "Menu:" << std::endl;
+		std::cout << "\t1. View your profile\n"
+			<< "\t2. Class Management\n"
+			<< "\t3. Course Management\n"
+			<< "\t4. Change Password\n"
+			<< "\t-1.Exit\n\n";
+		int choice;
+		std::cout << "Enter your command (1/2/3/4/-1): ";
+		std::cin >> choice;
+
+		if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != -1)) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input. Please enter a valid integer (1/2/3/4/-1)." << std::endl;
+			system("pause");
+			continue;
+		}
+		else {
+			if (choice == 1)
+			{
+				viewStaffProfile();
+				staffHomePage();
+			}
+			else if (choice == 2)
+			{
+
+				staffHomePage();
+			}
+			else if (choice == 3)
+			{
+
+				staffHomePage();
+			}
+			else if (choice == 4)
+			{
+				changeStaffPassword();
+				staffHomePage();
+			}
+			else if (choice == -1)
+			{
+				std::cout << "Exiting..." << std::endl;
+				sleep(1);
+				startPage();
 			}
 		}
 	}
