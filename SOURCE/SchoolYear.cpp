@@ -1,5 +1,20 @@
 #include"SchoolYear.h"
 
+std::string formatSchoolYear(const std::string& inputYear) {
+    std::string formattedInput = inputYear;
+    formattedInput.erase(std::remove_if(formattedInput.begin(), formattedInput.end(), ::isspace), formattedInput.end());
+
+    std::string formattedYear;
+
+    if (formattedInput.length() == 9 && formattedInput[4] == '-') {
+        formattedYear = formattedInput;
+    }
+    else if (formattedInput.length() == 9 && formattedInput[4] != '-') {
+        formattedYear = formattedInput.substr(0, 4) + "-" + formattedInput.substr(4, 4);
+    }
+    return formattedYear;
+}
+
 void importAllSchoolYearsCSV() {
     std::ifstream inF("../CSV Files/AllSchoolYears.csv");
     if (!inF.is_open()) {
@@ -20,7 +35,7 @@ void importAllSchoolYearsCSV() {
         Node<SchoolYear>* syTemp = new Node<SchoolYear>(syNew, syHead);
         syHead = syTemp;
     }
-    latestSYear = syHead;
+    latestSYear = currSYear = syHead;
     inF.close();
 }
 
@@ -137,4 +152,49 @@ void findCurrSem() {
     }
 }
 
+std::string getNextSchoolYear(const std::string& currentYear) {
+	int startYear = std::stoi(currentYear.substr(0, 4));
+	int endYear = std::stoi(currentYear.substr(5, 4));
+
+	return std::to_string(startYear + 1) + "-" + std::to_string(endYear + 1);
+}
+
+void createANewSchoolYear()
+{
+	system("cls");
+	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	std::cout << "[1]. Create the newest School Year " << std::endl;
+	if (lastSemNumber != 3) {
+		std::cout << "This is not the last semester of the latest school year created on the system, you cannot create a new school year!" << std::endl;
+		system("pause");
+		staffCommandMenu();
+	}
+	else {
+		std::string nextSYear = getNextSchoolYear(latestSYear->data.year);
+		std::cout << "The new school year is " << nextSYear << "." << std::endl;
+		std::cout << "Are you sure you want to create a new school year (Y/N)? ";
+		char choice;
+		if (choice == 'Y' || choice == 'y') {
+			SchoolYear newYear;
+			newYear.year = nextSYear;
+			Node<SchoolYear>* syHead = new Node<SchoolYear>(newYear, latestSYear);
+			latestSYear = currSYear = syHead;
+			lastSemNumber = currSemNumber = 0;
+			std::cout << "Created new School Year succesfully!" << std::endl
+				<< "Please create a new semester so you can execute commands!" << std::endl;
+			system("pause");
+			staffCommandMenu();
+		}
+		else if (choice == 'N' || choice == 'n') {
+			std::cout << "Create a new academic year failed.";
+			system("pause");
+			staffCommandMenu();
+		}
+		else {
+			std::cout << "Invalid choice" << std::endl;
+			system("pause");
+			staffCommandMenu();
+		}
+	}
+}
 

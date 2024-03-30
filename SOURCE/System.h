@@ -29,4 +29,8 @@ void signInPage();
 // Student
 
 void studentHomePage();
+
+// Staff
+
 void staffHomePage();
+void staffCommandMenu();

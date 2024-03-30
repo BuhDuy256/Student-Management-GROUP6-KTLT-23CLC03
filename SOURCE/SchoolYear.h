@@ -31,3 +31,5 @@ void reverseSchoolYearsList(Node<SchoolYear>*& syHead);
 void saveAllSchoolYearsData();
 void deleteAllSchoolYearsData();
 void findCurrSem();
+std::string getNextSchoolYear(const std::string& currentYear);
+void createANewSchoolYear();

@@ -79,7 +79,6 @@ void startPage()
 
 	if (cmd == 1)
 	{
-		system("cls");
 		signInPage();
 	}
 	else if (cmd == -1)
@@ -100,6 +99,7 @@ void startPage()
 }
 
 void signInPage() {
+	system("cls");
 	// 1: User is Staff
 	// 2: User is Student
 	int userType = -1;
@@ -183,10 +183,9 @@ void staffHomePage() {
 	while (true) {
 		system("cls");
 		std::cout << "Menu:" << std::endl;
-		std::cout << "\t1. View your profile\n"
-			<< "\t2. Class Management\n"
-			<< "\t3. Course Management\n"
-			<< "\t4. Change Password\n"
+		std::cout << "\t1. View Profile\n"
+			<< "\t2. Command Menu\n"
+			<< "\t3. Change Password\n"
 			<< "\t-1.Exit\n\n";
 		int choice;
 		std::cout << "Enter your command (1/2/3/4/-1): ";
@@ -195,7 +194,7 @@ void staffHomePage() {
 		if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != -1)) {
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "Invalid input. Please enter a valid integer (1/2/3/4/-1)." << std::endl;
+			std::cout << "Invalid input. Please enter a valid integer (1/2/3/-1)." << std::endl;
 			system("pause");
 			continue;
 		}
@@ -207,15 +206,10 @@ void staffHomePage() {
 			}
 			else if (choice == 2)
 			{
-
+				staffCommandMenu();
 				staffHomePage();
 			}
 			else if (choice == 3)
-			{
-
-				staffHomePage();
-			}
-			else if (choice == 4)
 			{
 				changeStaffPassword();
 				staffHomePage();
@@ -225,6 +219,62 @@ void staffHomePage() {
 				std::cout << "Exiting..." << std::endl;
 				sleep(1);
 				startPage();
+			}
+		}
+	}
+}
+
+void staffCommandMenu() {
+	while (true) {
+		system("cls");
+		std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+		std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+		std::cout << "Menu:" << std::endl;
+		std::cout << "\t1.Create a newest School Year\n";
+		std::cout << "\t2.Create a newest Semester\n";
+		std::cout << "\t3.Change current Semester - School Year\n";
+		std::cout << "\t4.Classes Management\n";
+		std::cout << "\t5.Courses Management\n";
+		std::cout << "\t6.Back\n";
+		int choice;
+		std::cout << "Enter your command (1/2/3/4/5/-1): ";
+		std::cin >> choice;
+
+		if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6)) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input. Please enter a valid integer (1/2/3/4/5/6)." << std::endl;
+			system("pause");
+			continue;
+		}
+		else {
+			if (choice == 1)
+			{
+				createANewSchoolYear();
+				staffCommandMenu();
+			}
+			else if (choice == 2)
+			{
+				staffCommandMenu();
+			}
+			else if (choice == 3)
+			{
+
+				staffCommandMenu();
+			}
+			else if (choice == 4)
+			{
+
+				staffCommandMenu();
+			}
+			else if (choice == 5)
+			{
+
+				staffCommandMenu();
+			}
+			else if (choice == 6)
+			{
+				staffHomePage();
 			}
 		}
 	}

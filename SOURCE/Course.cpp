@@ -232,21 +232,6 @@ void deleteAllCourseData() {
     }
 }
 
-std::string formatSchoolYear(const std::string& inputYear) {
-    std::string formattedInput = inputYear;
-    formattedInput.erase(std::remove_if(formattedInput.begin(), formattedInput.end(), ::isspace), formattedInput.end());
-
-    std::string formattedYear;
-
-    if (formattedInput.length() == 9 && formattedInput[4] == '-') {
-        formattedYear = formattedInput;
-    }
-    else if (formattedInput.length() == 9 && formattedInput[4] != '-') {
-        formattedYear = formattedInput.substr(0, 4) + "-" + formattedInput.substr(4, 4);
-    }
-    return formattedYear;
-}
-
 void exportCSVStudentsOfACourse() {
     std::cout << "Enter the information of the course you want to export all students to CSV Files: " << std::endl;
     Course couEx;
