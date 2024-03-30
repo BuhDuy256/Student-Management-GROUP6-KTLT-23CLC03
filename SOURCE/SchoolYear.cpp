@@ -181,12 +181,12 @@ void createANewSchoolYear()
 			latestSYear = currSYear = syHead;
 			lastSemNumber = currSemNumber = 0;
 			std::cout << "Created new School Year succesfully!" << std::endl
-				<< "Please create a new semester so you can execute commands!" << std::endl;
+				<< "Let's create a new first semester so you can execute commands!" << std::endl;
 			system("pause");
 			staffCommandMenu();
 		}
 		else if (choice == 'N' || choice == 'n') {
-			std::cout << "Create a new academic year failed.";
+			std::cout << "Create a new school year failed.";
 			system("pause");
 			staffCommandMenu();
 		}

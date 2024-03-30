@@ -92,7 +92,9 @@ void startPage()
 	}
 	else
 	{
-		std::cout << "\n(!) Invalid input" << std::endl;
+		std::cout << "\nInvalid input!" << std::endl;
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		system("pause");
 		startPage();
 	}
@@ -152,22 +154,18 @@ void studentHomePage() {
 			if (choice == 1)
 			{
 				viewStudentProfile();
-				studentHomePage();
 			}
 			else if (choice == 2)
 			{
 				viewStudentCourses();
-				studentHomePage();
 			}
 			else if (choice == 3)
 			{
 				viewStudentScoresInCurrentSem();
-				studentHomePage();
 			}
 			else if (choice == 4)
 			{
 				changeStudentPassword();
-				studentHomePage();
 			}
 			else if (choice == -1)
 			{
@@ -202,17 +200,14 @@ void staffHomePage() {
 			if (choice == 1)
 			{
 				viewStaffProfile();
-				staffHomePage();
 			}
 			else if (choice == 2)
 			{
 				staffCommandMenu();
-				staffHomePage();
 			}
 			else if (choice == 3)
 			{
 				changeStaffPassword();
-				staffHomePage();
 			}
 			else if (choice == -1)
 			{
@@ -251,31 +246,74 @@ void staffCommandMenu() {
 			if (choice == 1)
 			{
 				createANewSchoolYear();
-				staffCommandMenu();
 			}
 			else if (choice == 2)
 			{
-				staffCommandMenu();
+				createANewSemester();
 			}
 			else if (choice == 3)
 			{
-
-				staffCommandMenu();
+				//...
 			}
 			else if (choice == 4)
 			{
-
-				staffCommandMenu();
+				//...
 			}
 			else if (choice == 5)
 			{
-
-				staffCommandMenu();
+				//...
 			}
 			else if (choice == 6)
 			{
 				staffHomePage();
 			}
+		}
+	}
+}
+
+void createANewSemester() {
+	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	if (lastSemNumber >= 3) {
+		std::cout << "You cannot create any more semesters during the school year"
+			<< std::endl
+			<< "Please let's create a new school year" << std::endl;
+		system("pause");
+		staffCommandMenu();
+	}
+	else {
+		std::cout << "The newest semester you can create is " << lastSemNumber + 1 << " of school year " << latestSYear->data.year << std::endl;
+		std::cout << "Are you sure you want to create a new school year (Y/N)? ";
+		char choice;
+		std::cin >> choice;
+		if (choice == 'Y' || choice == 'y') {
+			std::string startDate;
+			std::cout << "\tEnter start date (Ex:01/05/2023): ";
+			std::cin >> startDate;
+
+			std::string endDate;
+			std::cout << "\tEnter end date (Ex:02/05/2023): ";
+			std::cin >> endDate;
+
+			//TODO: Check valid
+
+			latestSYear->data.semesters[lastSemNumber].isCreated = true;
+			latestSYear->data.semesters[lastSemNumber].startDate = startDate;
+			latestSYear->data.semesters[lastSemNumber].endDate = endDate;
+			latestSem = currSem = latestSYear->data.semesters[lastSemNumber];
+			lastSemNumber++;
+			currSemNumber = lastSemNumber;
+			system("pause");
+			staffCommandMenu();
+		}
+		else if (choice == 'N' || choice == 'n') {
+			std::cout << "Create a new semester failed.";
+			system("pause");
+			staffCommandMenu();
+		}
+		else {
+			std::cout << "Invalid choice!" << std::endl;
+			system("pause");
+			staffCommandMenu();
 		}
 	}
 }

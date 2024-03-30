@@ -34,3 +34,5 @@ void studentHomePage();
 
 void staffHomePage();
 void staffCommandMenu();
+
+void createANewSemester();
