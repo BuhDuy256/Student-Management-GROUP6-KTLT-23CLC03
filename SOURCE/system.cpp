@@ -119,7 +119,7 @@ void signInPage() {
 	if (userType == -1) {
 		std::cout << "(!) Username or Password is incorrect. Please try again." << std::endl;
 		system("pause");
-		startPage();
+		startPage(); //signInpage();
 	}
 	std::cout << "(!) Log in successfully." << std::endl;
 	if (userType == 1) {
