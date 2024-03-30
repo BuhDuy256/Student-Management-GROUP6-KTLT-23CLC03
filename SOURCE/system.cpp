@@ -117,7 +117,7 @@ void signInPage() {
 	if (userType == -1) {
 		std::cout << "(!) Username or Password is incorrect. Please try again." << std::endl;
 		system("pause");
-		startPage();
+		startPage(); //signInpage();
 	}
 	std::cout << "(!) Log in successfully." << std::endl;
 	if (userType == 1) {
@@ -176,7 +176,7 @@ void studentHomePage() {
 				deleteData();
 				sleep(1);
 				system("cls");
-				exit(0);   //callsigninpage
+				exit(0);   //signInpage();
 			}
 		}
 	}
