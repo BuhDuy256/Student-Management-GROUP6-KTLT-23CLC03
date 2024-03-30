@@ -168,6 +168,7 @@ void createANewSchoolYear()
 		std::cout << "This is not the last semester of the latest school year created on the system, you cannot create a new school year!" << std::endl;
 		system("pause");
 		staffCommandMenu();
+		//return;
 	}
 	else {
 		std::string nextSYear = getNextSchoolYear(latestSYear->data.year);
@@ -184,16 +185,19 @@ void createANewSchoolYear()
 				<< "Let's create a new first semester so you can execute commands!" << std::endl;
 			system("pause");
 			staffCommandMenu();
+			//return;
 		}
 		else if (choice == 'N' || choice == 'n') {
 			std::cout << "Create a new school year failed."; //No need
 			system("pause");
-			staffCommandMenu();
+			staffCommandMenu(); 
+			//return;
 		}
 		else {
 			std::cout << "Invalid choice" << std::endl;
 			system("pause");
 			staffCommandMenu();
+			//return;
 		}
 	}
 }
