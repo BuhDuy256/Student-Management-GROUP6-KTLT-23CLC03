@@ -100,87 +100,6 @@ void deleteAllStudentsData() {
     }
 }
 
-std::string removeQuotesFromPath(const std::string& path) {
-    std::string cleanedPath = path;
-    if (cleanedPath.size() >= 2 && cleanedPath.front() == '"' && cleanedPath.back() == '"') {
-        cleanedPath = cleanedPath.substr(1, cleanedPath.size() - 2);
-    }
-    return cleanedPath;
-}
-
-void importCSVStudentsOfAClass_Public() {
-    std::string className;
-    std::cout << "Enter the class you want to import CSV (Ex: 23CLC03): ";
-    std::cin >> className;
-    std::string fileName;
-    std::cout << "Enter the path of the CSV file (You can drag it into the program): ";
-    std::getline(std::cin >> std::ws, fileName);
-    fileName = removeQuotesFromPath(fileName);
-    std::ifstream inF(fileName);
-    if (!inF.is_open()) {
-        std::cout << "Error path!" << std::endl;
-        return;
-    }
-    Node<SchoolYear>* syHead = latestSYear;
-    std::string header;
-    std::getline(inF, header);
-    std::string line;
-    Node<SchoolYear>* syCurr = syHead;
-    Node<Class>* claCurr = nullptr;
-    bool found = false;
-    while (syCurr && !found) {
-        claCurr = syCurr->data.classes;
-        while (claCurr && !found) {
-            if (claCurr->data.className == className) {
-                found = true;
-                break;
-            }
-            claCurr = claCurr->next;
-        }
-        syCurr = syCurr->next;
-    }
-    if (!found) {
-        std::cout << "Class " << className << " couldn't be found. You should create new Class to import!" << std::endl;
-    }
-    else {
-        if (!claCurr->data.students) {
-            while (std::getline(inF, line)) {
-                // Check if the line is empty or contains only whitespace
-                if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
-                    break; // Stop reading if the line is empty
-                }
-                Student newStu;
-                std::stringstream ss(line);
-                std::string NO;
-                std::getline(ss, NO, ',');
-                std::getline(ss, newStu.ID, ',');
-                std::string firstName, lastName;
-                std::getline(ss, firstName, ',');
-                std::getline(ss, lastName, ',');
-                newStu.name = lastName + (firstName.empty() ? "" : " " + firstName);
-                std::getline(ss, newStu.gender, ',');
-                std::getline(ss, newStu.birthday, ',');
-                std::getline(ss, newStu.socialID, ',');
-                newStu.mainClass = className;
-                if (!claCurr->data.students) {
-                    claCurr->data.students = new Node<Student>(newStu);
-                }
-                else {
-                    Node<Student>* stuCurr = claCurr->data.students;
-                    while (stuCurr->next)
-                        stuCurr = stuCurr->next;
-                    stuCurr->next = new Node<Student>(newStu);
-                }
-            }
-            std::cout << "Import CSV successfully!" << std::endl;
-        }
-        else {
-            std::cout << "You cannot import the CSV file because this class already has students. Let's import into a class that doesn't have students yet! " << std::endl << "If you make a mistake in doing the import process, delete the class and recreate it." << std::endl;
-        }
-    }
-    inF.close();
-}
-
 void viewStudentProfile()
 {	
 	system("cls");
@@ -213,4 +132,112 @@ void viewStudentProfile()
     std::cout << "|" << std::setw(14) << "Gender " << std::setfill(' ') << "|" << std::setw(28) << a.gender << std::setfill(' ') << "|" << "\n";
     std::cout << std::setfill(' ') << std::setw(36) << "" << std::setw(46) << std::setfill('-');
     std::cout << "\n";
+    system("pause");
+}
+
+void viewStudentCourses()
+{
+	system("cls");
+	std::cout << "[2]. Your couse in this semester: " << std::endl;
+
+	Node<Course>* couCurr = currSem.Courses;
+	if (!couCurr) {
+		std::cout << "You don't have any course!" << std::endl;
+		return;
+	}
+
+	std::cout << "\t+---------+----------------+--------------------------------+----------------+------------------------+-------------+----------------+\n";
+	std::cout << "\t| No      | Course ID      | Course Name                    | Class Name     | Teacher Name           | Day of Week | Session        |\n";
+	std::cout << "\t+---------+----------------+--------------------------------+----------------+------------------------+-------------+----------------+\n";
+
+	int no = 0;
+	while (couCurr) {
+		bool check = false;
+		for (int i = 0; i < couCurr->data.courseSize; i++) {
+			if (couCurr->data.score[i].studentID == currStudent->data.ID) {
+				no++;
+				check = true;
+			}
+		}
+		if (check) {
+			std::cout << "\t| " << std::left << std::setw(8) << no << "| " << std::left << std::setw(15) << couCurr->data.ID << "| " << std::left << std::setw(31) << couCurr->data.Name << "| "
+				<< std::left << std::setw(15) << couCurr->data.className << "| " << std::left << std::setw(23) << couCurr->data.teacherName << "| "
+				<< std::left << std::setw(12) << couCurr->data.dayOfWeek << "| " << std::left << std::setw(15) << couCurr->data.session << "|\n";
+		}
+		couCurr = couCurr->next;
+	}
+
+	std::cout << "\t+---------+----------------+--------------------------------+----------------+------------------------+-------------+----------------+\n";
+	system("pause");
+}
+
+void viewStudentScoresInCurrentSem()
+{
+	system("cls");
+	std::cout << "[3]. Your scoreboard in this semester: " << std::endl;
+
+	Node<Course>* couCurr = currSem.Courses;
+	if (!couCurr) {
+		std::cout << "You don't have any course!" << std::endl;
+		return;
+	}
+
+	std::cout << "\t+---------+----------------+--------------------------------+------------+------------+------------+------------+\n";
+	std::cout << "\t| No      | Couse ID       | Course Name                    | Midterm    | Final      | Other      | Total      |\n";
+	std::cout << "\t+---------+----------------+--------------------------------+------------+------------+------------+------------+\n";
+
+	int no = 0;
+	while (couCurr) {
+		for (int i = 0; i < couCurr->data.courseSize; i++) {
+			if (couCurr->data.score[i].studentID == currStudent->data.ID) {
+				no++;
+				std::cout << "\t| " << std::left << std::setw(8) << no << "| "
+					<< std::left << std::setw(15) << couCurr->data.ID << "| "
+					<< std::left << std::setw(31) << couCurr->data.Name << "| "
+					<< std::left << std::setw(11) << std::fixed << std::setprecision(2) << couCurr->data.score[i].midTerm << "| "
+					<< std::left << std::setw(11) << std::fixed << std::setprecision(2) << couCurr->data.score[i].final << "| "
+					<< std::left << std::setw(11) << std::fixed << std::setprecision(2) << couCurr->data.score[i].other << "| "
+					<< std::left << std::setw(11) << std::fixed << std::setprecision(2) << couCurr->data.score[i].total << "|\n";
+			}
+		}
+		couCurr = couCurr->next;
+	}
+
+	std::cout << "\t+---------+----------------+--------------------------------+------------+------------+------------+------------+\n";
+	system("pause");
+}
+
+void changeStudentPassword() {
+	system("cls");
+	std::cout << "[4]. Change password:" << std::endl;
+    std::string oldPassword, newPassword, confirmPassword;
+    std::cout << "\tEnter your old password: ";
+    std::cin >> oldPassword;
+
+    std::cout << "\tEnter your new password: ";
+    std::cin >> newPassword;
+
+    std::cout << "\tConfirm your new password: ";
+    std::cin >> confirmPassword;
+
+    bool verifyPassword = false;
+    if (oldPassword == currStudent->data.password) {
+        verifyPassword = true;
+    }
+
+    if (!verifyPassword) {
+        std::cout << "Your old password is incorrect!" << std::endl;
+        system("pause");
+        return;
+    }
+
+    if (newPassword != confirmPassword) {
+        std::cout << "Your new passwords do not match. Please try again!" << std::endl;
+        system("pause");
+        return;
+    }
+
+    currStudent->data.password = newPassword;
+    std::cout << "Password changed successfully." << std::endl;
+	system("pause");
 }

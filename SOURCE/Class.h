@@ -17,3 +17,5 @@ void importAllClassesCSV();
 void saveAllClassesData();
 void deleteAllClassesData();
 
+std::string removeQuotesFromPath(const std::string& path);
+void importCSVStudentsOfAClass_Public();

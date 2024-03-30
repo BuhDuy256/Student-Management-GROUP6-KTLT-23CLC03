@@ -16,6 +16,7 @@
 #include<limits>
 #include<cstdlib> 
 #include<unistd.h>
+#include<iomanip>
 
 void importData();
 void saveData();
@@ -28,5 +29,3 @@ void signInPage();
 // Student
 
 void studentHomePage();
-void executeCommand_StudentHomePage(int choice);
-void viewStudentCourses();
