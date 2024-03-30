@@ -176,7 +176,7 @@ void studentHomePage() {
 				deleteData();
 				sleep(1);
 				system("cls");
-				exit(0);
+				exit(0);   //callsigninpage
 			}
 		}
 	}
