@@ -173,20 +173,20 @@ void createANewSchoolYear()
 		std::string nextSYear = getNextSchoolYear(latestSYear->data.year);
 		std::cout << "The new school year is " << nextSYear << "." << std::endl;
 		std::cout << "Are you sure you want to create a new school year (Y/N)? ";
-		char choice;
+		char choice; //std::cin >> choice;
 		if (choice == 'Y' || choice == 'y') {
 			SchoolYear newYear;
 			newYear.year = nextSYear;
 			Node<SchoolYear>* syHead = new Node<SchoolYear>(newYear, latestSYear);
 			latestSYear = currSYear = syHead;
-			lastSemNumber = currSemNumber = 0;
+			lastSemNumber = currSemNumber = 0; 
 			std::cout << "Created new School Year succesfully!" << std::endl
 				<< "Let's create a new first semester so you can execute commands!" << std::endl;
 			system("pause");
 			staffCommandMenu();
 		}
 		else if (choice == 'N' || choice == 'n') {
-			std::cout << "Create a new school year failed.";
+			std::cout << "Create a new school year failed."; //No need
 			system("pause");
 			staffCommandMenu();
 		}
