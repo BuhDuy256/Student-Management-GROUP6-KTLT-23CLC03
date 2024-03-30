@@ -227,17 +227,17 @@ void changeStudentPassword() {
 
     if (!verifyPassword) {
         std::cout << "Your old password is incorrect!" << std::endl;
-        system("pause");
+        system("pause");  //call_function_before_return
         return;
     }
 
     if (newPassword != confirmPassword) {
         std::cout << "Your new passwords do not match. Please try again!" << std::endl;
-        system("pause");
+        system("pause"); //call_function_before_return
         return;
     }
 
     currStudent->data.password = newPassword;
     std::cout << "Password changed successfully." << std::endl;
-	system("pause");
+	system("pause");  //call_student_homepage
 }
