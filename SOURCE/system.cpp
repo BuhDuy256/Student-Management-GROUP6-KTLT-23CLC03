@@ -320,7 +320,7 @@ void classManagementPage() {
 				}
 				else if (choice == 6)
 				{
-					// 6.View list of classes in system
+					viewListOfClassesInSystem();
 				}
 				else if (choice == 7)
 				{

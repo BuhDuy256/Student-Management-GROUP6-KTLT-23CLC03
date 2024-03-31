@@ -303,3 +303,25 @@ void displayTableOfClassesInCurrentSemester(int& no) {
 	}
 	std::cout << "\t+---------+--------------------+\n";
 }
+
+void viewListOfClassesInSystem() {
+	system("cls");
+	std::cout << "[6]. View list of classes in system" << std::endl;
+	int no = 0;
+	std::cout << "\t+---------+--------------------+\n";
+	std::cout << "\t| No      | Class              |\n";
+	std::cout << "\t+---------+--------------------+\n";
+	Node<SchoolYear>* syCurr = currSYear;
+	while(syCurr) {
+		Node<Class>* claCurr = syCurr->data.classes;
+		while (claCurr) {
+			no++;
+			std::cout << std::left << "\t| " << std::setw(8) << no << "| " << std::setw(19) << claCurr->data.className << "|\n";
+			claCurr = claCurr->next;
+		}
+		syCurr = syCurr->next;
+	}
+	std::cout << "\t+---------+--------------------+\n";
+	system("pause");
+	classManagementPage();
+}
