@@ -223,6 +223,11 @@ void createANewClassInCurrentSYear() {
         }
     }
     // TODO: 23APCS03 should be added right behind 23APCS02
+    if (checkClassExist(newClass.className)) {
+        std::cout << "Class is existed in current school year" << std::endl;
+        system("pause");
+        classManagementPage();
+    }
     newClass.schoolYear = currSYear->data.year;
     Node<Class>* claHead = new Node<Class>(newClass, currSYear->data.classes);
     currSYear->data.classes = claHead;
