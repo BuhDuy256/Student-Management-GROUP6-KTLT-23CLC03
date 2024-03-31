@@ -116,7 +116,8 @@ void importCSVStudentsOfAClass_Public() {
     std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
     std::cout << "[2]. Import CSV containing all students in a class (in current semester)" << std::endl;
 
-    // TODO: Display a table of classes empty or not
+    int no1 = 0;
+    displayTableOfClassesInCurrentSemester(no1);
 
     std::string className;
     std::cout << "Enter the class you want to import CSV: ";
@@ -198,6 +199,9 @@ void importCSVStudentsOfAClass_Public() {
         }
     }
     inF.close();
+    system("pause");
+    classManagementPage();
+    return;
 }
 
 void createANewClassInCurrentSYear() {
@@ -224,6 +228,7 @@ void createANewClassInCurrentSYear() {
         std::cout << "Class is existed in current school year" << std::endl;
         system("pause");
         classManagementPage();
+        return;
     }
     newClass.schoolYear = currSYear->data.year;
     Node<Class>* claHead = new Node<Class>(newClass, currSYear->data.classes);
@@ -231,6 +236,7 @@ void createANewClassInCurrentSYear() {
     std::cout << "Class was added successfully" << std::endl;
     system("pause");
     classManagementPage();
+    return;
 }
 
 void viewListOfStudentsInAClass() {
@@ -279,6 +285,7 @@ void viewListOfStudentsInAClass() {
     }
     system("pause");
     classManagementPage();
+    return;
 }
 
 void viewListOfClassesInCurrentSemeter() {
@@ -288,6 +295,7 @@ void viewListOfClassesInCurrentSemeter() {
     displayTableOfClassesInCurrentSemester(no);
     system("pause");
     classManagementPage();
+    return;
 }
 
 void displayTableOfClassesInCurrentSemester(int& no) {
@@ -325,4 +333,5 @@ void viewListOfClassesInSystem() {
     std::cout << "\t+---------+--------------------+--------------------+\n";
     system("pause");
     classManagementPage();
+    return;
 }

@@ -170,8 +170,11 @@ void studentHomePage() {
 			else if (choice == -1)
 			{
 				std::cout << "Exiting..." << std::endl;
+				saveData();
+				deleteData();
 				sleep(1);
 				startPage();
+				return;
 			}
 		}
 	}
@@ -213,7 +216,10 @@ void staffHomePage() {
 			{
 				std::cout << "Exiting..." << std::endl;
 				sleep(1);
+				saveData();
+				deleteData();
 				startPage();
+				return;
 			}
 		}
 	}
@@ -266,6 +272,7 @@ void staffCommandMenu() {
 			else if (choice == 6)
 			{
 				staffHomePage();
+				return;
 			}
 		}
 	}
@@ -333,6 +340,7 @@ void classManagementPage() {
 			std::cout << "There are no semesters in the current school year, let's create a new semester so you can use the commands" << std::endl;
 			system("pause");
 			staffCommandMenu();
+			return;
 		}
 	}
 }
