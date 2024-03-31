@@ -28,6 +28,8 @@ struct Course {
 	int courseSize = 0;
 	std::string dayOfWeek;
 	std::string session;
+	std::string couSY;	
+	int couSem;
 	StudentScore* score = nullptr;
 };
 

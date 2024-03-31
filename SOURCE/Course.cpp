@@ -25,26 +25,25 @@ void importAllCoursesCSV() {
         std::stringstream(nCreditStr) >> newCourse.nCredits;
         std::getline(ss, newCourse.dayOfWeek, ',');
         std::getline(ss, newCourse.session, ',');
-        std::string couSY, couSemTemp;
-        std::getline(ss, couSY, ',');
+        std::string couSemTemp;
+        std::getline(ss, newCourse.couSY, ',');
         std::getline(ss, couSemTemp, ',');
-        int couSem = 0;
-        std::stringstream(couSemTemp) >> couSem;
+        std::stringstream(couSemTemp) >> newCourse.couSem;
         // std::cout << couSemTemp << " | " << couSY << "\n"; 
         Node<SchoolYear>* syCurr = latestSYear;
         bool found = false;
         while (syCurr && !found) {
-            if (syCurr->data.year == couSY) {
-                if (couSem > 0 && couSem <= 3) {
+            if (syCurr->data.year == newCourse.couSY) {
+                if (newCourse.couSem > 0 && newCourse.couSem <= 3) {
                     found = true;
-                    if (!syCurr->data.semesters[couSem - 1].isCreated) {
-                        std::cout << "Error: Semester not created for year " << couSY << " and semester " << couSem << std::endl;
+                    if (!syCurr->data.semesters[newCourse.couSem - 1].isCreated) {
+                        std::cout << "Error: Semester not created for year " << newCourse.couSY << " and semester " << newCourse.couSem << std::endl;
                         break;
                     }
-                    Node<Course>* couHead = syCurr->data.semesters[couSem - 1].Courses;
+                    Node<Course>* couHead = syCurr->data.semesters[newCourse.couSem - 1].Courses;
                     if (!couHead) {
-                        syCurr->data.semesters[couSem - 1].Courses = new Node<Course>(newCourse);
-                        syCurr->data.semesters[couSem - 1].Courses->data.score = new StudentScore[100];
+                        syCurr->data.semesters[newCourse.couSem - 1].Courses = new Node<Course>(newCourse);
+                        syCurr->data.semesters[newCourse.couSem - 1].Courses->data.score = new StudentScore[100];
                     }
                     else {
                         Node<Course>* couCurr = couHead;
@@ -56,14 +55,14 @@ void importAllCoursesCSV() {
                     }
                 }
                 else {
-                    std::cout << "Error: Invalid semester number for year " << couSY << ": " << couSem << std::endl;
+                    std::cout << "Error: Invalid semester number for year " << newCourse.couSY << ": " << newCourse.couSem << std::endl;
                     break;
                 }
             }
             syCurr = syCurr->next;
         }
         if (!found) {
-            std::cout << "Error: Year not found: " << couSY << std::endl;
+            std::cout << "Error: Year not found: " << newCourse.couSY << std::endl;
         }
     }
     inF.close();
@@ -142,8 +141,8 @@ void saveAllCoursesData() {
                             << couCurr->data.nCredits << ","
                             << couCurr->data.dayOfWeek << ","
                             << couCurr->data.session << ","
-                            << syCurr->data.year << ","
-                            << i + 1 << "\n";
+                            << syCurr->data.year << "," // couSY
+                            << i + 1 << "\n"; // couSem
                         couCurr = couCurr->next;
                     }
                 }
