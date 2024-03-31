@@ -34,5 +34,4 @@ void studentHomePage();
 
 void staffHomePage();
 void staffCommandMenu();
-
-void changeCurrentSemesterSchoolYear();
+void classManagementPage();

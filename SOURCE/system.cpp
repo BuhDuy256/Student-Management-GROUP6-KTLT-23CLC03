@@ -186,10 +186,10 @@ void staffHomePage() {
 			<< "\t3. Change Password\n"
 			<< "\t-1.Exit\n\n";
 		int choice;
-		std::cout << "Enter your command (1/2/3/4/-1): ";
+		std::cout << "Enter your command (1/2/3/-1): ";
 		std::cin >> choice;
 
-		if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != -1)) {
+		if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != -1)) {
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "Invalid input. Please enter a valid integer (1/2/3/-1)." << std::endl;
@@ -228,11 +228,11 @@ void staffCommandMenu() {
 		std::cout << "\t1.Create a newest School Year\n";
 		std::cout << "\t2.Create a newest Semester\n";
 		std::cout << "\t3.Change current Semester - School Year\n";
-		std::cout << "\t4.Classes Management\n";
-		std::cout << "\t5.Courses Management\n";
+		std::cout << "\t4.Class Management\n";
+		std::cout << "\t5.Course Management\n";
 		std::cout << "\t6.Back\n";
 		int choice;
-		std::cout << "Enter your command (1/2/3/4/5/-1): ";
+		std::cout << "Enter your command (1/2/3/4/5/6): ";
 		std::cin >> choice;
 
 		if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6)) {
@@ -257,7 +257,7 @@ void staffCommandMenu() {
 			}
 			else if (choice == 4)
 			{
-				// 4. Classes Management
+				classManagementPage();
 			}
 			else if (choice == 5)
 			{
@@ -271,73 +271,68 @@ void staffCommandMenu() {
 	}
 }
 
-void changeCurrentSemesterSchoolYear() {
-	system("cls");
-	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-	Node<SchoolYear>* syCurr = latestSYear;
-	std::cout << "All semesters in the system:" << std::endl;
-	// Display table Semester - School Year
-	int no = 0;
-	std::cout << "\t+---------+------------+--------------------+\n";
-	std::cout << "\t|No       | Semester   | School Year        |\n";
-	std::cout << "\t+---------+------------+--------------------+\n";
-	while (syCurr)
-	{
-		for (int i = 2; i >= 0; i--)
-		{
-			if (syCurr->data.semesters[i].isCreated)
-			{
-				no++;
-				std::cout << "\t| " << std::setw(8) << std::left << no << "| " << std::setw(11) << i + 1 << "| " << std::setw(19) << syCurr->data.year << "|" << std::endl;
-			}
-		}
-		syCurr = syCurr->next;
-	}
-	std::cout << "\t+---------+------------+--------------------+\n";
-
-	std::cout << "Enter the sequence number corresponding to the semester you want to change (";
-	for (int i = 1; i < no; i++) {
-		std::cout << i << "/";
-	}
-	std::cout << no << "): ";
-
-	int choice;
+void classManagementPage() {
 	while (true) {
-		std::cin >> choice;
-		if (choice < 1 || choice > no)
-		{
-			std::cout << "Invalid input. Please enter a number between 1 and " << no << ": ";
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		system("cls");
+		std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+		std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+		if (currSemNumber != 0) {
+			std::cout << "Menu command of Class Management:" << std::endl;
+			std::cout << "\t1.Create a new class (in current semester)\n";
+			std::cout << "\t2.Import CSV containing all students in a class (in current semester)\n";
+			std::cout << "\t3.View list of students in a class (in current semester)\n";
+			std::cout << "\t4.View scoreboard of a class (in current semester)\n";
+			std::cout << "\t5.View list of classes (in current semester)\n";
+			std::cout << "\t6.View list of classes in system\n";
+			std::cout << "\t7.Back\n";
+			int choice;
+			std::cout << "Enter your command (1/2/3/4/5/6/7): ";
+			std::cin >> choice;
+
+			if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6 && choice != 7)) {
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				std::cout << "Invalid input. Please enter a valid integer (1/2/3/4/5/6/7)." << std::endl;
+				system("pause");
+				continue;
+			}
+			else {
+				if (choice == 1)
+				{
+					// 1.Create a new class
+				}
+				else if (choice == 2)
+				{
+					// 2.Import CSV containing all students in a class\n";
+				}
+				else if (choice == 3)
+				{
+					// 3.View list of students in a class
+				}
+				else if (choice == 4)
+				{
+					// 4.View scoreboard of a class
+				}
+				else if (choice == 5)
+				{
+					// 5.View list of classes in current semester
+				}
+				else if (choice == 6)
+				{
+					// 6.View list of classes in system
+				}
+				else if (choice == 7)
+				{
+					staffCommandMenu();
+				}
+			}
 		}
 		else
 		{
-			int count = 0;
-			bool stopLoop = false;
-			syCurr = latestSYear;
-			while (syCurr && !stopLoop)
-			{
-				for (int i = 2; i >= 0; i--)
-				{
-					if (syCurr->data.semesters[i].isCreated)
-					{
-						count++;
-						if (count == choice)
-						{
-							currSemNumber = i + 1;
-							currSem = syCurr->data.semesters[i];
-							currSYear = syCurr;
-							stopLoop = true;
-							break;
-						}
-					}
-				}
-				syCurr = syCurr->next;
-			}
-			break;
+			std::cout << "There are no semesters in the current school year, let's create a new semester so you can use the commands" << std::endl;
+			system("pause");
+			staffCommandMenu();
 		}
 	}
-	system("pause");
-	staffCommandMenu();
 }
+

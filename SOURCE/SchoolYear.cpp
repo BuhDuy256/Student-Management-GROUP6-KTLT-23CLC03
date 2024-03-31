@@ -206,8 +206,7 @@ void createANewSemester() {
 			<< "Please let's create a new school year" << std::endl;
 		system("pause");
 		staffCommandMenu();
-	}
-	else {
+	} else {
 		std::cout << "The newest semester you can create is " << lastSemNumber + 1 << " of school year " << latestSYear->data.year << std::endl;
 		std::cout << "Are you sure you want to create a new school year (Y/N)? ";
 		char choice;
@@ -243,4 +242,68 @@ void createANewSemester() {
 			staffCommandMenu();
 		}
 	}
+}
+
+void changeCurrentSemesterSchoolYear() {
+	system("cls");
+	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	Node<SchoolYear>* syCurr = latestSYear;
+	std::cout << "All semesters in the system:" << std::endl;
+	// Display table Semester - School Year
+	int no = 0;
+	std::cout << "\t+---------+------------+--------------------+\n";
+	std::cout << "\t|No       | Semester   | School Year        |\n";
+	std::cout << "\t+---------+------------+--------------------+\n";
+	while (syCurr)
+	{
+		for (int i = 2; i >= 0; i--)
+		{
+			if (syCurr->data.semesters[i].isCreated)
+			{
+				no++;
+				std::cout << "\t| " << std::setw(8) << std::left << no << "| " << std::setw(11) << i + 1 << "| " << std::setw(19) << syCurr->data.year << "|" << std::endl;
+			}
+		}
+		syCurr = syCurr->next;
+	}
+	std::cout << "\t+---------+------------+--------------------+\n";
+
+	std::cout << "Enter the sequence number corresponding to the semester you want to change (";
+	for (int i = 1; i < no; i++) {
+		std::cout << i << "/";
+	}
+	std::cout << no << "): ";
+
+	int choice;
+	while (true) {
+		std::cin >> choice;
+		if (choice < 1 || choice > no) {
+			std::cout << "Invalid input. Please enter a number between 1 and " << no << ": ";
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		} else {
+			int count = 0;
+			bool stopLoop = false;
+			syCurr = latestSYear;
+			while (syCurr && !stopLoop) {
+				for (int i = 2; i >= 0; i--) {
+					if (syCurr->data.semesters[i].isCreated) {
+						count++;
+						if (count == choice) {
+							currSemNumber = i + 1;
+							currSem = syCurr->data.semesters[i];
+							currSYear = syCurr;
+							stopLoop = true;
+							break;
+						}
+					}
+				}
+				syCurr = syCurr->next;
+			}
+			break;
+		}
+	}
+	system("pause");
+	staffCommandMenu();
 }
