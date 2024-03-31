@@ -100,6 +100,16 @@ bool checkClassExist(std::string className) {
     return isExisted;
 }
 
+bool isValidClassName(std::string className) {
+    bool isValid = false;
+    // Check format ddXXXXdd
+    std::regex pattern("\\d{2}[A-Z]{1,4}\\d{2}");
+    if (std::regex_match(className, pattern) && className.substr(0, 2) == currSYear->data.year.substr(2, 2) && checkClassExist(className)) {
+        isValid = true;
+    }
+    return isValid;
+}
+
 void importCSVStudentsOfAClass_Public() {
     system("cls");
     std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
@@ -111,24 +121,11 @@ void importCSVStudentsOfAClass_Public() {
     std::string className;
     std::cout << "Enter the class you want to import CSV: ";
     std::cin >> className;
-    bool isValid = false;
-    // Check format ddXXXXdd
-    std::regex pattern("\\d{2}[A-Z]{1,4}\\d{2}");
-    if (std::regex_match(className, pattern) && className.substr(0, 2) == currSYear->data.year.substr(2, 2)) {
-        isValid = true;
-    }
-    if (!isValid) {
-        std::cout << "Invalid class name format or does not match the current school year. You cann't import CSV." << std::endl;
+    if (!isValidClassName(className)) {
+        std::cout << "Class is not existed in current school year" << std::endl;
         system("pause");
         classManagementPage();
         return;
-    }
-    if (isValid) {
-        if (!checkClassExist(className)) {
-            std::cout << "Class is not existed in current school year" << std::endl;
-            system("pause");
-            classManagementPage();
-        }
     }
 
     std::string fileName;
@@ -234,4 +231,75 @@ void createANewClassInCurrentSYear() {
     std::cout << "Class was added successfully" << std::endl;
     system("pause");
     classManagementPage();
+}
+
+void viewListOfStudentsInAClass() {
+	system("cls");
+	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	std::cout << "[2]. Import CSV containing all students in a class (in current school year)" << std::endl;
+
+	int no1 = 0;
+	displayTableOfClassesInCurrentSemester(no1);
+
+	int choice;
+	std::cout << "Enter your choice (between 1 and " << no1 << "): ";
+	while (true) {
+		std::cin >> choice;
+		if (choice < 1 || choice > no1) {
+			std::cout << "Invalid input. Please enter a number between 1 and " << no1 << ": ";
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		} else {
+			int count = 0;
+			Node<Class>* claCurr = currSYear->data.classes;
+			std::cout << "\t+--------+------------+--------------------+--------+------------+----------------+\n";
+			std::cout << "\t| No     | Student ID | Full Name          | Gender | Birthday   | Social ID      |\n";
+			std::cout << "\t+--------+------------+--------------------+--------+------------+----------------+\n";
+			while (claCurr) {
+				count++;
+				if (count == choice) {
+					Node<Student>* currStu = claCurr->data.students;
+					int no2 = 0;
+					while(currStu) {
+						no2++;
+						std::cout << "\t| " << std::left << std::setw(7) << no2 << "| " << std::left << std::setw(11) << currStu->data.ID << "| " 
+								<< std::left << std::setw(19) << currStu->data.name << "| " << std::left << std::setw(7) << currStu->data.gender << "| " 
+								<< std::left << std::setw(11) << currStu->data.birthday << "| " << std::left << std::setw(15) << currStu->data.socialID << "|" << std::endl;
+						currStu = currStu->next;
+					}
+					break;
+				}
+				claCurr = claCurr->next;
+			}
+			std::cout << "\t+--------+------------+--------------------+--------+------------+----------------+\n" << std::endl;
+			break;
+		}
+	}
+	system("pause");
+	classManagementPage();
+}
+
+void viewListOfClassesInCurrentSemeter() {
+	system("cls");
+	std::cout << "[5]. View list of classes (in current school year)" << std::endl;
+	int no = 0;
+	displayTableOfClassesInCurrentSemester(no);
+	system("pause");
+	classManagementPage();
+}
+
+void displayTableOfClassesInCurrentSemester(int& no) {
+	// Use to call to another fucntion
+	no = 0;
+	Node<Class>* claCurr = currSYear->data.classes;
+	std::cout << "\t+---------+--------------------+\n";
+	std::cout << "\t| No      | Class              |\n";
+	std::cout << "\t+---------+--------------------+\n";
+	while (claCurr) {
+		no++;
+		std::cout << std::left << "\t| " << std::setw(8) << no << "| " << std::setw(19) << claCurr->data.className << "|\n";
+		claCurr = claCurr->next;
+	}
+	std::cout << "\t+---------+--------------------+\n";
 }

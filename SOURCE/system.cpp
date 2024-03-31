@@ -280,9 +280,9 @@ void classManagementPage() {
 			std::cout << "Menu command of Class Management:" << std::endl;
 			std::cout << "\t1.Create a new class (in current school year)\n";
 			std::cout << "\t2.Import CSV containing all students in a class (in current semester)\n";
-			std::cout << "\t3.View list of students in a class (in current semester)\n";
-			std::cout << "\t4.View scoreboard of a class (in current semester)\n";
-			std::cout << "\t5.View list of classes (in current semester)\n";
+			std::cout << "\t3.View list of students in a class (in current school year)\n";
+			std::cout << "\t4.View scoreboard of a class (in current school year)\n";
+			std::cout << "\t5.View list of classes (in current school year)\n";
 			std::cout << "\t6.View list of classes in system\n";
 			std::cout << "\t7.Back\n";
 			int choice;
@@ -307,15 +307,16 @@ void classManagementPage() {
 				}
 				else if (choice == 3)
 				{
-					// 3.View list of students in a class
+					viewListOfStudentsInAClass();
 				}
 				else if (choice == 4)
 				{
+					// TODO: 
 					// 4.View scoreboard of a class
 				}
 				else if (choice == 5)
 				{
-					// 5.View list of classes in current semester
+					viewListOfClassesInCurrentSemeter();
 				}
 				else if (choice == 6)
 				{
@@ -335,4 +336,5 @@ void classManagementPage() {
 		}
 	}
 }
+
 
