@@ -303,7 +303,7 @@ void classManagementPage() {
 				}
 				else if (choice == 2)
 				{
-					// 2.Import CSV containing all students in a class\n";
+					importCSVStudentsOfAClass_Public();
 				}
 				else if (choice == 3)
 				{

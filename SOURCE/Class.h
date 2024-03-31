@@ -18,5 +18,6 @@ void saveAllClassesData();
 void deleteAllClassesData();
 
 std::string removeQuotesFromPath(const std::string& path);
+bool checkClassExist(std::string className);
 void importCSVStudentsOfAClass_Public();
 void createANewClassInCurrentSYear();
