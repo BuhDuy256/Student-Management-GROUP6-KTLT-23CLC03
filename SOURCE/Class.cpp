@@ -242,9 +242,10 @@ void viewScoreBoardOfAClass() {
         else std::cout << std::setw(5) << std::right << gpa / numofactivecourses << "|"; //fix
         double prevtotal = 0, prevnumofacticour = 0;
         previous(prevtotal, prevnumofacticour, StuScore, ChosenClass,StudentUniqueCourses);
-        //fix
-        std::cout << std::setw(10) << std::right << (prevtotal + gpa) / (prevnumofacticour + numofactivecourses) << "|\n";
-        std::cout << std::setfill('-') << std::setw(totalWidth) << "\n";
+        if(prevnumofacticour == 0 &&  numofactivecourses == 0) std::cout << std::setw(10) << std::setfill(' ') << "|\n";
+        else std::cout << std::setw(10) << std::right << (prevtotal + gpa) / (prevnumofacticour + numofactivecourses) << "|\n";
+        
+	std::cout << std::setfill('-') << std::setw(totalWidth) << "\n";
         StuScore = StuScore->next;
     }
     delete[] check;
