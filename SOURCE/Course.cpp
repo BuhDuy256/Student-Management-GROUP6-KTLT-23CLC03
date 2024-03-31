@@ -20,6 +20,9 @@ void importAllCoursesCSV() {
         std::getline(ss, newCourse.Name, ',');
         std::getline(ss, newCourse.className, ',');
         std::getline(ss, newCourse.teacherName, ',');
+        std::string nCreditStr;
+        std::getline(ss, nCreditStr, ',');
+        std::stringstream(nCreditStr) >> newCourse.nCredits;
         std::getline(ss, newCourse.dayOfWeek, ',');
         std::getline(ss, newCourse.session, ',');
         std::string couSY, couSemTemp;
@@ -126,7 +129,7 @@ void saveAllCoursesData() {
     Node<SchoolYear>* syCurr = latestSYear;
     std::ofstream outF("../CSV Files/AllCourses.csv", std::ofstream::out | std::ofstream::trunc);
     if (outF.is_open()) {
-        outF << "Course ID,Course Name,Class Name,Teacher Name,Day Of Week,Session,School Year,Semester\n";
+        outF << "Course ID,Course Name,Class Name,Teacher Name,Number Of Credits,Day Of Week,Session,School Year,Semester\n";
         while (syCurr) {
             for (int i = 0; i < 3; i++) {
                 if (syCurr->data.semesters[i].isCreated) {
@@ -136,6 +139,7 @@ void saveAllCoursesData() {
                             << couCurr->data.Name << ","
                             << couCurr->data.className << ","
                             << couCurr->data.teacherName << ","
+                            << couCurr->data.nCredits << ","
                             << couCurr->data.dayOfWeek << ","
                             << couCurr->data.session << ","
                             << syCurr->data.year << ","

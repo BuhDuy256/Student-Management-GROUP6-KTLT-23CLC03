@@ -24,6 +24,7 @@ struct Course {
 	std::string Name;
 	std::string className;
 	std::string teacherName;
+	int nCredits = 0;
 	int courseSize = 0;
 	std::string dayOfWeek;
 	std::string session;
