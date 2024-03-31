@@ -158,3 +158,30 @@ void importCSVStudentsOfAClass_Public() {
     }
     inF.close();
 }
+
+void createANewClassInCurrentSYear() {
+	system("cls");
+	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	std::cout << "[1]. Create a new class (in current school year)" << std::endl;
+	Class newClass;
+	bool isValid = false;
+	while (!isValid) {
+		std::cout << "\tEnter new class name: ";
+		std::cin >> newClass.className;
+		// Check format ddXXXXdd
+		std::regex pattern("\\d{2}[A-Z]{1,4}\\d{2}");
+		if (std::regex_match(newClass.className, pattern) && newClass.className.substr(0, 2) == currSYear->data.year.substr(2, 2)) {
+			isValid = true;
+		}
+		else {
+			std::cout << "Invalid class name format or does not match the current school year. Please enter again." << std::endl;
+		}
+	}
+	newClass.schoolYear = currSYear->data.year;
+	Node<Class>* claHead = new Node<Class>(newClass, currSYear->data.classes);
+	currSYear->data.classes = claHead;
+	std::cout << "Class was added successfully" << std::endl;
+	system("pause");
+	classManagementPage();
+}

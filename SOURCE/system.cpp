@@ -278,7 +278,7 @@ void classManagementPage() {
 		std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
 		if (currSemNumber != 0) {
 			std::cout << "Menu command of Class Management:" << std::endl;
-			std::cout << "\t1.Create a new class (in current semester)\n";
+			std::cout << "\t1.Create a new class (in current school year)\n";
 			std::cout << "\t2.Import CSV containing all students in a class (in current semester)\n";
 			std::cout << "\t3.View list of students in a class (in current semester)\n";
 			std::cout << "\t4.View scoreboard of a class (in current semester)\n";
@@ -299,7 +299,7 @@ void classManagementPage() {
 			else {
 				if (choice == 1)
 				{
-					// 1.Create a new class
+					createANewClassInCurrentSYear();
 				}
 				else if (choice == 2)
 				{

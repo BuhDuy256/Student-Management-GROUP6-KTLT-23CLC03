@@ -17,6 +17,7 @@
 #include<cstdlib> 
 #include<unistd.h>
 #include<iomanip>
+#include<regex>
 
 void importData();
 void saveData();
@@ -35,3 +36,5 @@ void studentHomePage();
 void staffHomePage();
 void staffCommandMenu();
 void classManagementPage();
+
+void createANewClassInCurrentSYear();
