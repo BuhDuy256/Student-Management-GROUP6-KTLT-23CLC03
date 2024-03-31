@@ -36,3 +36,4 @@ void studentHomePage();
 void staffHomePage();
 void staffCommandMenu();
 void classManagementPage();
+void courseManagementPage();

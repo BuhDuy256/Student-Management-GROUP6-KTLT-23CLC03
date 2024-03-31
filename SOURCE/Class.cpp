@@ -260,9 +260,9 @@ void viewListOfStudentsInAClass() {
         else {
             int count = 0;
             Node<Class>* claCurr = currSYear->data.classes;
-            std::cout << "\t+--------+------------+--------------------+--------+------------+----------------+\n";
-            std::cout << "\t| No     | Student ID | Full Name          | Gender | Birthday   | Social ID      |\n";
-            std::cout << "\t+--------+------------+--------------------+--------+------------+----------------+\n";
+            std::cout << "\t+--------+------------+------------------------------+--------+------------+----------------+\n";
+            std::cout << "\t| No     | Student ID | Full Name                    | Gender | Birthday   | Social ID      |\n";
+            std::cout << "\t+--------+------------+------------------------------+--------+------------+----------------+\n";
             while (claCurr) {
                 count++;
                 if (count == choice) {
@@ -271,7 +271,7 @@ void viewListOfStudentsInAClass() {
                     while (currStu) {
                         no2++;
                         std::cout << "\t| " << std::left << std::setw(7) << no2 << "| " << std::left << std::setw(11) << currStu->data.ID << "| "
-                            << std::left << std::setw(19) << currStu->data.name << "| " << std::left << std::setw(7) << currStu->data.gender << "| "
+                            << std::left << std::setw(29) << currStu->data.name << "| " << std::left << std::setw(7) << currStu->data.gender << "| "
                             << std::left << std::setw(11) << currStu->data.birthday << "| " << std::left << std::setw(15) << currStu->data.socialID << "|" << std::endl;
                         currStu = currStu->next;
                     }
@@ -279,7 +279,7 @@ void viewListOfStudentsInAClass() {
                 }
                 claCurr = claCurr->next;
             }
-            std::cout << "\t+--------+------------+--------------------+--------+------------+----------------+\n" << std::endl;
+            std::cout << "\t+--------+------------+------------------------------+--------+------------+----------------+\n";
             break;
         }
     }

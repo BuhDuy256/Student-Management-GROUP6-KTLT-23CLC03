@@ -230,7 +230,7 @@ void staffCommandMenu() {
 		system("cls");
 		std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
 		std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-		std::cout << "Menu:" << std::endl;
+		std::cout << "Menu:\n";
 		std::cout << "\t1.Create a newest School Year\n";
 		std::cout << "\t2.Create a newest Semester\n";
 		std::cout << "\t3.Change current Semester - School Year\n";
@@ -267,7 +267,7 @@ void staffCommandMenu() {
 			}
 			else if (choice == 5)
 			{
-				// 5.Courses Management
+				courseManagementPage();
 			}
 			else if (choice == 6)
 			{
@@ -284,7 +284,7 @@ void classManagementPage() {
 		std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
 		std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
 		if (currSemNumber != 0) {
-			std::cout << "Menu command of Class Management:" << std::endl;
+			std::cout << "Menu command of Class Management:\n";
 			std::cout << "\t1.Create a new class (in current school year)\n";
 			std::cout << "\t2.Import CSV containing all students in a class (in current semester)\n";
 			std::cout << "\t3.View list of students in a class (in current school year)\n";
@@ -338,6 +338,96 @@ void classManagementPage() {
 		else
 		{
 			std::cout << "There are no semesters in the current school year, let's create a new semester so you can use the commands" << std::endl;
+			system("pause");
+			staffCommandMenu();
+			return;
+		}
+	}
+}
+
+void courseManagementPage() {
+	while (true) {
+		system("cls");
+		std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+		std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+		if (currSemNumber != 0) {
+			std::cout << "Menu command of Course Management:\n"; 
+			std::cout << "\t1.Add a course to current semester\n";
+			std::cout << "\t2.Update information of a course\n";
+			std::cout << "\t3.Delete a course in current semester\n";
+			std::cout << "\t4.Add a student to a course\n";
+			std::cout << "\t5.Remove a student from a course\n";
+			std::cout << "\t6.Upload a CSV file containing a list of students enrolled in a course\n";
+			std::cout << "\t7.Export a list of students in a course to a CSV file\n";
+			std::cout << "\t8.View list of courses (in current semester)\n";
+			std::cout << "\t9.View list of students in a course (in current semester)\n";
+			std::cout << "\t10.View scoreboard of a course\n";
+			std::cout << "\t11.Update a student's result of a course\n";
+			std::cout << "\t12.Back\n";
+			int choice;
+			std::cout << "Enter your command (1/2/3/4/5/6/7/8/9/10/11/12): ";
+			std::cin >> choice;
+
+			if (std::cin.fail() || (choice < 1 || choice > 12)) {
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				std::cout << "Invalid input. Please enter a valid integer between 1 and 12." << std::endl;
+				system("pause");
+				continue;
+			}
+			else {
+				if (choice == 1)
+				{
+					// Add a course to current semester
+				}
+				else if (choice == 2)
+				{
+					// Update information of a course
+				}
+				else if (choice == 3)
+				{
+					// Delete a course in current semester
+				}
+				else if (choice == 4)
+				{
+					// Add a student to a course
+				}
+				else if (choice == 5)
+				{
+					// Remove a student from a course
+				}
+				else if (choice == 6)
+				{
+					// Upload a CSV file containing a list of students enrolled in a course
+				}
+				else if (choice == 7)
+				{
+					// Export a list of students in a course to a CSV file
+				}
+				else if (choice == 8)
+				{
+					// View list of courses (in current semester)
+				}
+				else if (choice == 9)
+				{
+					// View list of students in a course (in current semester)
+				}
+				else if (choice == 10)
+				{
+					// View scoreboard of a course
+				}
+				else if (choice == 11) {
+					// Update a student's result of a course
+				}
+				else if (choice == 12)
+				{
+					staffCommandMenu();
+					return;
+				}
+			}
+		}
+		else {
+			std::cout << "There are no semesters in the current school year. Let's create a new semester so you can use the commands." << std::endl;
 			system("pause");
 			staffCommandMenu();
 			return;
