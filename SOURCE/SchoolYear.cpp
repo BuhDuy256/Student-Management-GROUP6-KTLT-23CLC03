@@ -174,6 +174,7 @@ void createANewSchoolYear()
 		std::cout << "The new school year is " << nextSYear << "." << std::endl;
 		std::cout << "Are you sure you want to create a new school year (Y/N)? ";
 		char choice;
+		std::cin >> choice;
 		if (choice == 'Y' || choice == 'y') {
 			SchoolYear newYear;
 			newYear.year = nextSYear;
