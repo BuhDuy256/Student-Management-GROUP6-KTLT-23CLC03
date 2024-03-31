@@ -332,6 +332,7 @@ void classManagementPage() {
 				else if (choice == 7)
 				{
 					staffCommandMenu();
+					return;
 				}
 			}
 		}
@@ -433,6 +434,14 @@ void courseManagementPage() {
 			return;
 		}
 	}
+}
+
+void updateInformationOfACourse() {
+	system("cls");
+    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	std::cout << "[2]. Update information of a course:\n";
+
 }
 
 
