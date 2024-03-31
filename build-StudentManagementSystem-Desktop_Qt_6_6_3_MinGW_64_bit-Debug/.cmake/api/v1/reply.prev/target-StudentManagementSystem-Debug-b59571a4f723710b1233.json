@@ -372,11 +372,11 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "StudentManagementSystem_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
-		{
 			"backtrace" : 0,
 			"id" : "StudentManagementSystem_autogen::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "StudentManagementSystem_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "StudentManagementSystem::@6890427a1f51a3e7e1df",

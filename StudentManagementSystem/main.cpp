@@ -1,9 +1,4 @@
-#include "mainwindow.h"
-
-#include <QApplication>
-#include <QtWidgets>
-#include <QFontDatabase>
-#include <QFont>
+#include "system.h"
 
 int main(int argc, char *argv[])
 {

@@ -73,6 +73,14 @@ build CMakeFiles/StudentManagementSystem.dir/mainwindow.cpp.obj: CXX_COMPILER__S
   OBJECT_DIR = CMakeFiles\StudentManagementSystem.dir
   OBJECT_FILE_DIR = CMakeFiles\StudentManagementSystem.dir
 
+build CMakeFiles/StudentManagementSystem.dir/system.cpp.obj: CXX_COMPILER__StudentManagementSystem_unscanned_Debug D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/system.cpp || cmake_object_order_depends_target_StudentManagementSystem
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\StudentManagementSystem.dir\system.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -ID:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/include -isystem D:/Qt/6.6.3/mingw_64/include/QtCore -isystem D:/Qt/6.6.3/mingw_64/include -isystem D:/Qt/6.6.3/mingw_64/mkspecs/win32-g++ -isystem D:/Qt/6.6.3/mingw_64/include/QtWidgets -isystem D:/Qt/6.6.3/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\StudentManagementSystem.dir
+  OBJECT_FILE_DIR = CMakeFiles\StudentManagementSystem.dir
+
 build CMakeFiles/StudentManagementSystem.dir/StudentManagementSystem_autogen/EWIEGA46WW/qrc_resourses.cpp.obj: CXX_COMPILER__StudentManagementSystem_unscanned_Debug D$:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/EWIEGA46WW/qrc_resourses.cpp || cmake_object_order_depends_target_StudentManagementSystem
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\StudentManagementSystem.dir\StudentManagementSystem_autogen\EWIEGA46WW\qrc_resourses.cpp.obj.d
@@ -89,7 +97,7 @@ build CMakeFiles/StudentManagementSystem.dir/StudentManagementSystem_autogen/EWI
 #############################################
 # Link the executable StudentManagementSystem.exe
 
-build StudentManagementSystem.exe: CXX_EXECUTABLE_LINKER__StudentManagementSystem_Debug CMakeFiles/StudentManagementSystem.dir/StudentManagementSystem_autogen/mocs_compilation.cpp.obj CMakeFiles/StudentManagementSystem.dir/main.cpp.obj CMakeFiles/StudentManagementSystem.dir/mainwindow.cpp.obj CMakeFiles/StudentManagementSystem.dir/StudentManagementSystem_autogen/EWIEGA46WW/qrc_resourses.cpp.obj | D$:/Qt/6.6.3/mingw_64/lib/libQt6Widgets.a D$:/Qt/6.6.3/mingw_64/lib/libQt6Gui.a D$:/Qt/6.6.3/mingw_64/lib/libQt6Core.a D$:/Qt/6.6.3/mingw_64/lib/libQt6EntryPoint.a || StudentManagementSystem_autogen StudentManagementSystem_autogen_timestamp_deps
+build StudentManagementSystem.exe: CXX_EXECUTABLE_LINKER__StudentManagementSystem_Debug CMakeFiles/StudentManagementSystem.dir/StudentManagementSystem_autogen/mocs_compilation.cpp.obj CMakeFiles/StudentManagementSystem.dir/main.cpp.obj CMakeFiles/StudentManagementSystem.dir/mainwindow.cpp.obj CMakeFiles/StudentManagementSystem.dir/system.cpp.obj CMakeFiles/StudentManagementSystem.dir/StudentManagementSystem_autogen/EWIEGA46WW/qrc_resourses.cpp.obj | D$:/Qt/6.6.3/mingw_64/lib/libQt6Widgets.a D$:/Qt/6.6.3/mingw_64/lib/libQt6Gui.a D$:/Qt/6.6.3/mingw_64/lib/libQt6Core.a D$:/Qt/6.6.3/mingw_64/lib/libQt6EntryPoint.a || StudentManagementSystem_autogen StudentManagementSystem_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = D:/Qt/6.6.3/mingw_64/lib/libQt6Widgets.a  D:/Qt/6.6.3/mingw_64/lib/libQt6Gui.a  D:/Qt/6.6.3/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  D:/Qt/6.6.3/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -192,7 +200,7 @@ build StudentManagementSystem_autogen/timestamp StudentManagementSystem_autogen/
 #############################################
 # Custom command for StudentManagementSystem_autogen\EWIEGA46WW\qrc_resourses.cpp
 
-build StudentManagementSystem_autogen/EWIEGA46WW/qrc_resourses.cpp | ${cmake_ninja_workdir}StudentManagementSystem_autogen/EWIEGA46WW/qrc_resourses.cpp: CUSTOM_COMMAND D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/resourses.qrc CMakeFiles/StudentManagementSystem_autogen.dir/AutoRcc_resourses_EWIEGA46WW_Info.json D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/AllCourses.csv D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/AllStudents.csv D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/AllSemesters.csv D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/AllClasses.csv D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/AllSchoolYears.csv D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/MinecraftRegular-Bmg3.ttf D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/MinecraftBold-nMK1.otf D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/MinecraftTen-VGORe.ttf D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/Lovely$ Minecraft$ Hd$ Wallpaper$ 1920x1080.jpg D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/Minecraft$ HD$ world.jpg D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/button.png D$:/Qt/6.6.3/mingw_64/./bin/rcc.exe || StudentManagementSystem_autogen StudentManagementSystem_autogen_timestamp_deps
+build StudentManagementSystem_autogen/EWIEGA46WW/qrc_resourses.cpp | ${cmake_ninja_workdir}StudentManagementSystem_autogen/EWIEGA46WW/qrc_resourses.cpp: CUSTOM_COMMAND D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/resourses.qrc CMakeFiles/StudentManagementSystem_autogen.dir/AutoRcc_resourses_EWIEGA46WW_Info.json D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/AllCourses.csv D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/AllStudents.csv D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/AllSemesters.csv D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/AllClasses.csv D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/AllSchoolYears.csv D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/AllStaffs.csv D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/MinecraftRegular-Bmg3.ttf D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/MinecraftBold-nMK1.otf D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/MinecraftTen-VGORe.ttf D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/Lovely$ Minecraft$ Hd$ Wallpaper$ 1920x1080.jpg D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/Minecraft$ HD$ world.jpg D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/button.png D$:/Qt/6.6.3/mingw_64/./bin/rcc.exe || StudentManagementSystem_autogen StudentManagementSystem_autogen_timestamp_deps
   COMMAND = cmd.exe /C "cd /D D:\Coding\GROUP6_23CLC03\build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug && D:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/StudentManagementSystem_autogen.dir/AutoRcc_resourses_EWIEGA46WW_Info.json Debug"
   DESC = Automatic RCC for resourses.qrc
   restat = 1
@@ -201,7 +209,7 @@ build StudentManagementSystem_autogen/EWIEGA46WW/qrc_resourses.cpp | ${cmake_nin
 #############################################
 # Phony custom command for CMakeFiles\StudentManagementSystem_autogen_timestamp_deps
 
-build CMakeFiles/StudentManagementSystem_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/StudentManagementSystem_autogen_timestamp_deps: phony D$:/Qt/6.6.3/mingw_64/./bin/uic.exe D$:/Qt/6.6.3/mingw_64/./bin/moc.exe D$:/Qt/6.6.3/mingw_64/lib/libQt6Core.a D$:/Qt/6.6.3/mingw_64/lib/libQt6Widgets.a
+build CMakeFiles/StudentManagementSystem_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/StudentManagementSystem_autogen_timestamp_deps: phony D$:/Qt/6.6.3/mingw_64/./bin/uic.exe D$:/Qt/6.6.3/mingw_64/./bin/moc.exe D$:/Qt/6.6.3/mingw_64/lib/libQt6Widgets.a D$:/Qt/6.6.3/mingw_64/lib/libQt6Core.a
 
 
 #############################################

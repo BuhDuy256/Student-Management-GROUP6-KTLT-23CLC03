@@ -15,5 +15,6 @@
         <file>AllSchoolYears.csv</file>
         <file>AllSemesters.csv</file>
         <file>AllStudents.csv</file>
+        <file>AllStaffs.csv</file>
     </qresource>
 </RCC>

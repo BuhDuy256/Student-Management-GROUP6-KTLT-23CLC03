@@ -1,11 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include "system.h"
 #include <QApplication>
 #include <QtWidgets>
 #include <QFontDatabase>
 #include <QFont>
+#include <QMainWindow>
 #include <QMessageBox>
 
 QT_BEGIN_NAMESPACE

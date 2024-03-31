@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-9cd2afee67e3731056cf.json",
+					"jsonFile" : "directory-.-Debug-ca858928961b09598fda.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "StudentManagementSystem::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-StudentManagementSystem-Debug-f327eadd9f9eefdbacdc.json",
+					"jsonFile" : "target-StudentManagementSystem-Debug-ae62548ea9a0559aa35c.json",
 					"name" : "StudentManagementSystem",
 					"projectIndex" : 0
 				},
