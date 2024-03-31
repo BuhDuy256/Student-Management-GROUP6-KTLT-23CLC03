@@ -169,7 +169,7 @@ void viewScoreBoardOfAClass() {
         print = print->next;
     }
     std::cout << "\n\n";
-    const int totalWidth = 31 + 11 + NumofClassCourses * 9  + 6 + 11; //fix
+    const int totalWidth = 30 + 11 + NumofClassCourses * 9  + 6 + 11; //fix
     std::cout << "+----------------------------+----------+"; //fix
     for (int i = 0; i < NumofClassCourses; i++) std::cout << "--------+"; //fix
     std::cout << "-----+----------+";
@@ -191,7 +191,7 @@ void viewScoreBoardOfAClass() {
         std::cout << std::setfill(' ') << std::setw(8) << courseID << "|"; //fix
         makeFirstRow = makeFirstRow->next;
     }
-    std::cout << std::setw(11) << std::setfill(' ') << " GPA| " << std::setw(11) << "OVERALLGPA|" << "\n";
+    std::cout << " GPA| " << "OVERALLGPA|";
     std::cout << "\n";
     std::cout << std::setfill('-') << std::setw(totalWidth) << "\n";
     
@@ -220,12 +220,12 @@ void viewScoreBoardOfAClass() {
                             std::string newStuCourses = check->data.Name;
                             Node<std::string>* newStuCours = new Node<std::string>(newStuCourses, StudentUniqueCourses);
                             StudentUniqueCourses = newStuCours;
-                            if (check->data.score[i].total != -1)
+                            if (check->data.score[i].total != (-1) * 1.0)
                             {
                                 gpa += check->data.score[i].total;
                                 numofactivecourses++;
                             }                                                              //fix
-                            if (check->data.score[i].final != -1) std::cout << std::setw(8) << check->data.score[i].final << std::setfill(' ') << "|";
+                            if (check->data.score[i].final != (-1) * 1.0) std::cout << std::setw(8) << check->data.score[i].final << std::setfill(' ') << "|";
                             else std::cout << std::setw(8) << std::setfill(' ') << "|";
                             score = true;
                             break;
@@ -388,7 +388,7 @@ void previous(double& previoussum, double& previousnumofacticour, Node<Student>*
                         std::string newCours = tempCours->data.Name;
                         Node<std::string>* newStuCour = new Node<std::string>(newCours, StuUniqueCours);
                         StuUniqueCours = newStuCour;
-                        if (tempCours->data.score[i].total != -1)
+                        if (tempCours->data.score[i].total != (-1) * 1.0)
                         {
                             prevsum += tempCours->data.score[i].total;
                             preacticour++;
@@ -418,7 +418,7 @@ void previous(double& previoussum, double& previousnumofacticour, Node<Student>*
                     std::string newCours = tempCours->data.Name;
                     Node<std::string>* newStuCour = new Node<std::string>(newCours, StuUniqueCours);
                     StuUniqueCours = newStuCour;
-                    if (tempCours->data.score[i].total != -1)
+                    if (tempCours->data.score[i].total != (-1) * 1.0)
                     {
                         prevsum += tempCours->data.score[i].total;
                         preacticour++;
@@ -461,7 +461,7 @@ void previous(double& previoussum, double& previousnumofacticour, Node<Student>*
                         std::string newCours = tempCour->data.Name;
                         Node<std::string>* newStuCour = new Node<std::string>(newCours, StuUniqueCours);
                         StuUniqueCours = newStuCour;
-                        if (tempCour->data.score[i].total != -1)
+                        if (tempCour->data.score[i].total != (-1) * 1.0)
                         {
                             prevsum += tempCour->data.score[i].total;
                             preacticour++;
