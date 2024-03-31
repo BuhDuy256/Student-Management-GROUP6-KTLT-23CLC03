@@ -44,21 +44,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "StudentManagementSystem::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-StudentManagementSystem-Debug-ddef24220c9a23699e6a.json",
+					"jsonFile" : "target-StudentManagementSystem-Debug-f327eadd9f9eefdbacdc.json",
 					"name" : "StudentManagementSystem",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "StudentManagementSystem_autogen::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-StudentManagementSystem_autogen-Debug-c4a4592f1b8367d03d1e.json",
+					"jsonFile" : "target-StudentManagementSystem_autogen-Debug-d8a5b26022692642ed58.json",
 					"name" : "StudentManagementSystem_autogen",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "StudentManagementSystem_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-StudentManagementSystem_autogen_timestamp_deps-Debug-7df02f885e6c33d01b1f.json",
+					"jsonFile" : "target-StudentManagementSystem_autogen_timestamp_deps-Debug-c9231b94482115357fa5.json",
 					"name" : "StudentManagementSystem_autogen_timestamp_deps",
 					"projectIndex" : 0
 				}
@@ -68,8 +68,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug",
-		"source" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/StudentManagementSystem"
+		"build" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug",
+		"source" : "D:/Coding/GROUP6_23CLC03/StudentManagementSystem"
 	},
 	"version" : 
 	{

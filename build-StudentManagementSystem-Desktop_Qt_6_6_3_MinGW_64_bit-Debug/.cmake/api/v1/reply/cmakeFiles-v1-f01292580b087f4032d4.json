@@ -6,11 +6,11 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake"
+			"path" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake"
 		},
 		{
 			"isGenerated" : true,
-			"path" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeSystem.cmake"
+			"path" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeSystem.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -24,7 +24,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeCXXCompiler.cmake"
+			"path" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -88,7 +88,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeRCCompiler.cmake"
+			"path" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeRCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -1040,8 +1040,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug",
-		"source" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/StudentManagementSystem"
+		"build" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug",
+		"source" : "D:/Coding/GROUP6_23CLC03/StudentManagementSystem"
 	},
 	"version" : 
 	{

@@ -9,4 +9,11 @@
         <file>button.png</file>
         <file>Lovely Minecraft Hd Wallpaper 1920x1080.jpg</file>
     </qresource>
+    <qresource prefix="/CSV Files">
+        <file>AllClasses.csv</file>
+        <file>AllCourses.csv</file>
+        <file>AllSchoolYears.csv</file>
+        <file>AllSemesters.csv</file>
+        <file>AllStudents.csv</file>
+    </qresource>
 </RCC>

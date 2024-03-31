@@ -1,4 +1,4 @@
-# Install script for directory: D:/Coding/C++/Programming Technique/GROUP6_23CLC03/StudentManagementSystem
+# Install script for directory: D:/Coding/GROUP6_23CLC03/StudentManagementSystem
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem.exe")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem.exe")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/StudentManagementSystem.exe" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/StudentManagementSystem.exe")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -55,5 +55,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

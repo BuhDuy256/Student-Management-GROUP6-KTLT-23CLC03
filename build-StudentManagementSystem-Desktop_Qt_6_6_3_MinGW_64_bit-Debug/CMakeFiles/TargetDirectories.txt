@@ -1,9 +1,9 @@
-D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/StudentManagementSystem.dir
-D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
-D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
-D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
-D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/install.dir
-D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
-D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
-D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/StudentManagementSystem_autogen_timestamp_deps.dir
-D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/StudentManagementSystem_autogen.dir
+D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/StudentManagementSystem.dir
+D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/install.dir
+D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/StudentManagementSystem_autogen_timestamp_deps.dir
+D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/StudentManagementSystem_autogen.dir

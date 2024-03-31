@@ -1,17 +1,17 @@
 {
-	"BUILD_DIR" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen",
-	"CMAKE_BINARY_DIR" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug",
-	"CMAKE_CURRENT_SOURCE_DIR" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/StudentManagementSystem",
+	"BUILD_DIR" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen",
+	"CMAKE_BINARY_DIR" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/Coding/GROUP6_23CLC03/StudentManagementSystem",
 	"CMAKE_EXECUTABLE" : "D:/Qt/Tools/CMake_64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"D:/Coding/C++/Programming Technique/GROUP6_23CLC03/StudentManagementSystem/CMakeLists.txt",
-		"D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake",
-		"D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeSystem.cmake",
+		"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/CMakeLists.txt",
+		"D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake",
+		"D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeSystem.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake",
-		"D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeCXXCompiler.cmake",
+		"D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeCXXCompiler.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake",
@@ -24,7 +24,7 @@
 		"D:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake",
-		"D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeRCCompiler.cmake",
+		"D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeRCCompiler.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/CMakeRCInformation.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
@@ -248,23 +248,23 @@
 		"D:/Qt/6.6.3/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginTargets-relwithdebinfo.cmake",
 		"D:/Qt/6.6.3/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginAdditionalTargetInfo.cmake",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/GNUInstallDirs.cmake",
-		"D:/Coding/C++/Programming Technique/GROUP6_23CLC03/StudentManagementSystem/resourses.qrc"
+		"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/resourses.qrc"
 	],
-	"CMAKE_SOURCE_DIR" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/StudentManagementSystem",
-	"DEP_FILE" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/deps",
+	"CMAKE_SOURCE_DIR" : "D:/Coding/GROUP6_23CLC03/StudentManagementSystem",
+	"DEP_FILE" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "StudentManagementSystem_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"D:/Coding/C++/Programming Technique/GROUP6_23CLC03/StudentManagementSystem/mainwindow.h",
+			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/include",
-	"MOC_COMPILATION_FILE" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/include",
+	"MOC_COMPILATION_FILE" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"MINGW_HAS_SECURE_API=1",
@@ -319,26 +319,26 @@
 		"-c",
 		"D:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 4,
-	"PARSE_CACHE_FILE" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/StudentManagementSystem_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/StudentManagementSystem_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "D:/Qt/6.6.3/mingw_64/./bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "D:/Qt/6.6.3/mingw_64/./bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 6,
-	"SETTINGS_FILE" : "D:/Coding/C++/Programming Technique/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/StudentManagementSystem_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/StudentManagementSystem_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"D:/Coding/C++/Programming Technique/GROUP6_23CLC03/StudentManagementSystem/main.cpp",
+			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/main.cpp",
 			"MU",
 			null
 		],
 		[
-			"D:/Coding/C++/Programming Technique/GROUP6_23CLC03/StudentManagementSystem/mainwindow.cpp",
+			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/mainwindow.cpp",
 			"MU",
 			null
 		]

@@ -41,7 +41,7 @@ color: black;
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="0">
+    <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="styleSheet">
        <string notr="true">#page{
@@ -389,44 +389,20 @@ background-color: transparent;
        </layout>
       </widget>
       <widget class="QWidget" name="student_homepage">
-       <widget class="QToolBox" name="toolBox">
+       <widget class="QWidget" name="widget_2" native="true">
         <property name="geometry">
          <rect>
-          <x>240</x>
-          <y>220</y>
-          <width>83</width>
-          <height>153</height>
+          <x>0</x>
+          <y>0</y>
+          <width>1171</width>
+          <height>81</height>
          </rect>
         </property>
-        <property name="currentIndex">
-         <number>0</number>
+        <property name="styleSheet">
+         <string notr="true">#widget_2{
+	background-color: rgb(255, 255, 255);
+}</string>
         </property>
-        <widget class="QWidget" name="page_2">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>83</width>
-           <height>83</height>
-          </rect>
-         </property>
-         <attribute name="label">
-          <string>Page 1</string>
-         </attribute>
-        </widget>
-        <widget class="QWidget" name="page_3">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>98</width>
-           <height>28</height>
-          </rect>
-         </property>
-         <attribute name="label">
-          <string>Page 2</string>
-         </attribute>
-        </widget>
        </widget>
       </widget>
      </widget>

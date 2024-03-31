@@ -23,7 +23,6 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBox>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -55,9 +54,7 @@ public:
     QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer_2;
     QWidget *student_homepage;
-    QToolBox *toolBox;
-    QWidget *page_2;
-    QWidget *page_3;
+    QWidget *widget_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -270,20 +267,15 @@ public:
         stackedWidget->addWidget(page);
         student_homepage = new QWidget();
         student_homepage->setObjectName("student_homepage");
-        toolBox = new QToolBox(student_homepage);
-        toolBox->setObjectName("toolBox");
-        toolBox->setGeometry(QRect(240, 220, 83, 153));
-        page_2 = new QWidget();
-        page_2->setObjectName("page_2");
-        page_2->setGeometry(QRect(0, 0, 83, 83));
-        toolBox->addItem(page_2, QString::fromUtf8("Page 1"));
-        page_3 = new QWidget();
-        page_3->setObjectName("page_3");
-        page_3->setGeometry(QRect(0, 0, 98, 28));
-        toolBox->addItem(page_3, QString::fromUtf8("Page 2"));
+        widget_2 = new QWidget(student_homepage);
+        widget_2->setObjectName("widget_2");
+        widget_2->setGeometry(QRect(0, 0, 1171, 81));
+        widget_2->setStyleSheet(QString::fromUtf8("#widget_2{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"}"));
         stackedWidget->addWidget(student_homepage);
 
-        gridLayout->addWidget(stackedWidget, 1, 0, 1, 1);
+        gridLayout->addWidget(stackedWidget, 0, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -297,7 +289,6 @@ public:
         retranslateUi(MainWindow);
 
         stackedWidget->setCurrentIndex(1);
-        toolBox->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -313,8 +304,6 @@ public:
         checkBox->setText(QCoreApplication::translate("MainWindow", "Show Password", nullptr));
         button_signin->setText(QCoreApplication::translate("MainWindow", "Sign In", nullptr));
         button_exit->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
-        toolBox->setItemText(toolBox->indexOf(page_2), QCoreApplication::translate("MainWindow", "Page 1", nullptr));
-        toolBox->setItemText(toolBox->indexOf(page_3), QCoreApplication::translate("MainWindow", "Page 2", nullptr));
     } // retranslateUi
 
 };
