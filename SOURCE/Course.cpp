@@ -323,3 +323,144 @@ void exportCSVStudentsOfACourse() {
         return;
     }
 }
+
+void displayTableListOfCoursesInCurrSem(int& no) {
+    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
+    std::cout << "\t| No     | Course ID  | Course Name                  | Class Name | Teacher Name            | Credits | Size | Day | Session |\n";
+    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
+    no = 0;
+    Node<Course>* couCurr = currSem.Courses;
+    while (couCurr) {
+        no++;
+        std::cout << "\t| " << std::left << std::setw(7) << no
+            << "| " << std::left << std::setw(11) << couCurr->data.ID
+            << "| " << std::left << std::setw(29) << couCurr->data.Name
+            << "| " << std::left << std::setw(11) << couCurr->data.className
+            << "| " << std::left << std::setw(24) << couCurr->data.teacherName
+            << "| " << std::left << std::setw(8) << couCurr->data.nCredits
+            << "| " << std::left << std::setw(5) << couCurr->data.courseSize
+            << "| " << std::left << std::setw(4) << couCurr->data.dayOfWeek
+            << "| " << std::left << std::setw(8) << couCurr->data.session
+            << "|" << std::endl;
+        couCurr = couCurr->next;
+    }
+    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
+}
+
+void viewListOfCoursesInCurrSem() {
+    system("cls");
+    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+    std::cout << "[8]. List of courses in current semester:\n";
+    int no = 0;
+    displayTableListOfCoursesInCurrSem(no);
+    system("pause");
+    courseManagementPage();
+    return;
+}
+
+void addACourseInCurrSem() {
+    system("cls");
+    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+    std::cout << "[1]. Add a course in current semester:\n";
+    Course newCourse;
+    std::cout << "Enter course ID: ";
+    std::cin >> newCourse.ID;
+    std::cout << "Enter course name: ";
+    std::cin.ignore();
+    std::getline(std::cin, newCourse.Name);
+    std::cout << "Enter class name: ";
+    std::cin >> newCourse.className;
+    std::cout << "Enter teacher name: ";
+    std::cin.ignore();
+    std::getline(std::cin, newCourse.teacherName);
+    std::cout << "Enter number of credits: ";
+    while (!(std::cin >> newCourse.nCredits) || newCourse.nCredits < 2 || newCourse.nCredits > 4) {
+        std::cout << "Invalid number of credits. The number of credits of a course should be between 2 and 4. Please enter again: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    std::cout << "Enter course size: ";
+    while (!(std::cin >> newCourse.courseSize) || newCourse.courseSize < 0 || newCourse.courseSize > 100) {
+        std::cout << "Invalid course size. The course size should be between 0 and 100. Please enter again: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    std::cout << "Day of week:\n";
+    std::cout << "\t1. MON\n";
+    std::cout << "\t2. TUE\n";
+    std::cout << "\t3. WED\n";
+    std::cout << "\t4. THU\n";
+    std::cout << "\t5. FRI\n";
+    std::cout << "\t6. SAT\n";
+    int day;
+    std::cout << "Enter day of week (1-6): ";
+    while (true) {
+        std::cin >> day;
+        if (day >= 1 && day <= 6) {
+            if (day == 1) {
+                newCourse.dayOfWeek = "MON";
+            }
+            else if (day == 2) {
+                newCourse.dayOfWeek = "TUE";
+            }
+            else if (day == 3) {
+                newCourse.dayOfWeek = "WED";
+            }
+            else if (day == 4) {
+                newCourse.dayOfWeek = "THU";
+            }
+            else if (day == 5) {
+                newCourse.dayOfWeek = "FRI";
+            }
+            else if (day == 6) {
+                newCourse.dayOfWeek = "SAT";
+            }
+            break;
+        }
+        else {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid choice. Please enter again (1-6): ";
+        }
+    }
+    std::cout << "All sessions:\n";
+    std::cout << "\t1. S1 (07:30)\n";
+    std::cout << "\t2. S2 (09:30)\n";
+    std::cout << "\t3. S3 (13:30)\n";
+    std::cout << "\t4. S4 (15:30)\n";
+    int session;
+    std::cout << "Enter session (1-4): ";
+    while (true) {
+        std::cin >> session;
+        if (day >= 1 && day <= 4) {
+            if (session == 1) {
+                newCourse.session = "07:30";
+            }
+            else if (session == 2) {
+                newCourse.session = "09:30";
+            }
+            else if (session == 3) {
+                newCourse.session = "13:30";
+            }
+            else if (session == 4) {
+                newCourse.session = "15:30";
+            }
+            break;
+        }
+        else {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid choice. Please enter again (1-4): ";
+        }
+    }
+    newCourse.couSY = currSYear->data.year;
+    newCourse.couSem = currSemNumber;
+    Node<Course>* newCourseNode = new Node<Course>(newCourse, currSem.Courses);
+    currSem.Courses = newCourseNode;
+    std::cout << "Course added successfully." << std::endl;
+    system("pause");
+    courseManagementPage();
+    return;
+}

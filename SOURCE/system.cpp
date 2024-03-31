@@ -351,7 +351,7 @@ void courseManagementPage() {
 		std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
 		std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
 		if (currSemNumber != 0) {
-			std::cout << "Menu command of Course Management:\n"; 
+			std::cout << "Menu command of Course Management:\n";
 			std::cout << "\t1.Add a course to current semester\n";
 			std::cout << "\t2.Update information of a course\n";
 			std::cout << "\t3.Delete a course in current semester\n";
@@ -378,7 +378,7 @@ void courseManagementPage() {
 			else {
 				if (choice == 1)
 				{
-					// Add a course to current semester
+					addACourseInCurrSem();
 				}
 				else if (choice == 2)
 				{
@@ -406,11 +406,11 @@ void courseManagementPage() {
 				}
 				else if (choice == 8)
 				{
-					// View list of courses (in current semester)
+					viewListOfCoursesInCurrSem();
 				}
 				else if (choice == 9)
 				{
-					// View list of students in a course (in current semester)
+					// View list Student in a course
 				}
 				else if (choice == 10)
 				{
