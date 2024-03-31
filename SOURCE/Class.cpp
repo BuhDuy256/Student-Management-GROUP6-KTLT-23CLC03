@@ -249,7 +249,7 @@ void viewListOfStudentsInAClass() {
     displayTableOfClassesInCurrentSemester(no1);
 
     int choice;
-    std::cout << "Enter your choice (between 1 and " << no1 << "): ";
+    std::cout << "Enter the class (between 1 and " << no1 << "): ";
     while (true) {
         std::cin >> choice;
         if (choice < 1 || choice > no1) {

@@ -23,10 +23,13 @@ void importData();
 void saveData();
 void deleteData();
 
-void startPage();
+void formalize(std::string &name);
+bool checkNameValid(std::string name);
+bool checkIDValid(std::string id);
 int getUser(std::string userID, std::string userPassowrd);
-void signInPage();
 
+void startPage();
+void signInPage();
 // Student
 
 void studentHomePage();
@@ -37,3 +40,7 @@ void staffHomePage();
 void staffCommandMenu();
 void classManagementPage();
 void courseManagementPage();
+
+void viewScoreboardOfACourse();
+void displayTableScoreboardOfACourse(Node<Course>* couCurr);
+

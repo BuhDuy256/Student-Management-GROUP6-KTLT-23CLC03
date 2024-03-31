@@ -47,3 +47,7 @@ void exportCSVStudentsOfACourse();
 void addACourseInCurrSem();
 void displayTableListOfCoursesInCurrSem(int &no);
 void viewListOfCoursesInCurrSem();
+void updateInformationOfACoursePage();
+void updateInformationOfACourse(int choice);
+void deleteACourseInCurrSem();
+void addStudentToACourse();

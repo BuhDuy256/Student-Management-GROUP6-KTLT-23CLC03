@@ -30,6 +30,59 @@ void deleteData() {
 	deleteAllStaffData();
 }
 
+void formalize(std::string& name)
+{
+	std::string formalizedName;
+	bool lastWasSpace = true;
+	for (char c : name)
+	{
+		if (std::isspace(c))
+		{
+			if (!lastWasSpace)
+			{
+				formalizedName += ' ';
+				lastWasSpace = true;
+			}
+		}
+		else
+		{
+			if (lastWasSpace) c = toupper(c);
+			else c = tolower(c);
+
+			formalizedName += c;
+			lastWasSpace = false;
+		}
+	}
+	name = formalizedName;
+	if (*(name.end() - 1) == ' ') name.pop_back();
+}
+
+bool checkNameValid(std::string name)
+{
+	for (char c : name)
+	{
+		if (!std::isalpha(c) && !isspace(c))
+		{
+			std::cerr << "Please input properly name with no special characters or digits\n";
+			return false;
+		}
+	}
+	return true;
+}
+
+bool checkIDValid(std::string id)
+{
+	for (char c : id)
+	{
+		if (!isdigit(c))
+		{
+			std::cerr << "Please input properly id with no characters other than digits\n";
+			return false;
+		}
+	}
+	return true;
+}
+
 int getUser(std::string userID, std::string userPassword) {
 	int userType = -1;
 
@@ -122,6 +175,7 @@ void signInPage() {
 		startPage(); //signInpage();
 	}
 	std::cout << "(!) Log in successfully." << std::endl;
+	system("pause");
 	if (userType == 1) {
 		staffHomePage();
 	}
@@ -170,8 +224,6 @@ void studentHomePage() {
 			else if (choice == -1)
 			{
 				std::cout << "Exiting..." << std::endl;
-				saveData();
-				deleteData();
 				sleep(1);
 				startPage();
 				return;
@@ -216,8 +268,6 @@ void staffHomePage() {
 			{
 				std::cout << "Exiting..." << std::endl;
 				sleep(1);
-				saveData();
-				deleteData();
 				startPage();
 				return;
 			}
@@ -354,7 +404,7 @@ void courseManagementPage() {
 		if (currSemNumber != 0) {
 			std::cout << "Menu command of Course Management:\n";
 			std::cout << "\t1.Add a course to current semester\n";
-			std::cout << "\t2.Update information of a course\n";
+			std::cout << "\t2.Update information of a course (Don't Use, need to fix more)\n";
 			std::cout << "\t3.Delete a course in current semester\n";
 			std::cout << "\t4.Add a student to a course\n";
 			std::cout << "\t5.Remove a student from a course\n";
@@ -383,15 +433,15 @@ void courseManagementPage() {
 				}
 				else if (choice == 2)
 				{
-					// Update information of a course
+					// updateInformationOfACoursePage();
 				}
 				else if (choice == 3)
 				{
-					// Delete a course in current semester
+					deleteACourseInCurrSem();
 				}
 				else if (choice == 4)
 				{
-					// Add a student to a course
+					addStudentToACourse();
 				}
 				else if (choice == 5)
 				{
@@ -403,7 +453,7 @@ void courseManagementPage() {
 				}
 				else if (choice == 7)
 				{
-					// Export a list of students in a course to a CSV file
+					exportCSVStudentsOfACourse();
 				}
 				else if (choice == 8)
 				{
@@ -415,7 +465,7 @@ void courseManagementPage() {
 				}
 				else if (choice == 10)
 				{
-					// View scoreboard of a course
+					viewScoreboardOfACourse();
 				}
 				else if (choice == 11) {
 					// Update a student's result of a course
@@ -435,13 +485,3 @@ void courseManagementPage() {
 		}
 	}
 }
-
-void updateInformationOfACourse() {
-	system("cls");
-    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-	std::cout << "[2]. Update information of a course:\n";
-
-}
-
-
