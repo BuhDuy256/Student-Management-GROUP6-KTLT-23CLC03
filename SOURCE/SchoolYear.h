@@ -33,3 +33,4 @@ void deleteAllSchoolYearsData();
 void findCurrSem();
 std::string getNextSchoolYear(const std::string& currentYear);
 void createANewSchoolYear();
+void createANewSemester();

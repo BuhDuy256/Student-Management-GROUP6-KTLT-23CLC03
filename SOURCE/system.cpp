@@ -253,15 +253,15 @@ void staffCommandMenu() {
 			}
 			else if (choice == 3)
 			{
-				//...
+				changeCurrentSemesterSchoolYear();
 			}
 			else if (choice == 4)
 			{
-				//...
+				// 4. Classes Management
 			}
 			else if (choice == 5)
 			{
-				//...
+				// 5.Courses Management
 			}
 			else if (choice == 6)
 			{
@@ -271,49 +271,73 @@ void staffCommandMenu() {
 	}
 }
 
-void createANewSemester() {
+void changeCurrentSemesterSchoolYear() {
+	system("cls");
 	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-	if (lastSemNumber >= 3) {
-		std::cout << "You cannot create any more semesters during the school year"
-			<< std::endl
-			<< "Please let's create a new school year" << std::endl;
-		system("pause");
-		staffCommandMenu();
+	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	Node<SchoolYear>* syCurr = latestSYear;
+	std::cout << "All semesters in the system:" << std::endl;
+	// Display table Semester - School Year
+	int no = 0;
+	std::cout << "\t+---------+------------+--------------------+\n";
+	std::cout << "\t|No       | Semester   | School Year        |\n";
+	std::cout << "\t+---------+------------+--------------------+\n";
+	while (syCurr)
+	{
+		for (int i = 2; i >= 0; i--)
+		{
+			if (syCurr->data.semesters[i].isCreated)
+			{
+				no++;
+				std::cout << "\t| " << std::setw(8) << std::left << no << "| " << std::setw(11) << i + 1 << "| " << std::setw(19) << syCurr->data.year << "|" << std::endl;
+			}
+		}
+		syCurr = syCurr->next;
 	}
-	else {
-		std::cout << "The newest semester you can create is " << lastSemNumber + 1 << " of school year " << latestSYear->data.year << std::endl;
-		std::cout << "Are you sure you want to create a new school year (Y/N)? ";
-		char choice;
+	std::cout << "\t+---------+------------+--------------------+\n";
+
+	std::cout << "Enter the sequence number corresponding to the semester you want to change (";
+	for (int i = 1; i < no; i++) {
+		std::cout << i << "/";
+	}
+	std::cout << no << "): ";
+
+	int choice;
+	while (true) {
 		std::cin >> choice;
-		if (choice == 'Y' || choice == 'y') {
-			std::string startDate;
-			std::cout << "\tEnter start date (Ex:01/05/2023): ";
-			std::cin >> startDate;
-
-			std::string endDate;
-			std::cout << "\tEnter end date (Ex:02/05/2023): ";
-			std::cin >> endDate;
-
-			//TODO: Check valid
-
-			latestSYear->data.semesters[lastSemNumber].isCreated = true;
-			latestSYear->data.semesters[lastSemNumber].startDate = startDate;
-			latestSYear->data.semesters[lastSemNumber].endDate = endDate;
-			latestSem = currSem = latestSYear->data.semesters[lastSemNumber];
-			lastSemNumber++;
-			currSemNumber = lastSemNumber;
-			system("pause");
-			staffCommandMenu();
+		if (choice < 1 || choice > no)
+		{
+			std::cout << "Invalid input. Please enter a number between 1 and " << no << ": ";
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
-		else if (choice == 'N' || choice == 'n') {
-			std::cout << "Create a new semester failed.";
-			system("pause");
-			staffCommandMenu();
-		}
-		else {
-			std::cout << "Invalid choice!" << std::endl;
-			system("pause");
-			staffCommandMenu();
+		else
+		{
+			int count = 0;
+			bool stopLoop = false;
+			syCurr = latestSYear;
+			while (syCurr && !stopLoop)
+			{
+				for (int i = 2; i >= 0; i--)
+				{
+					if (syCurr->data.semesters[i].isCreated)
+					{
+						count++;
+						if (count == choice)
+						{
+							currSemNumber = i + 1;
+							currSem = syCurr->data.semesters[i];
+							currSYear = syCurr;
+							stopLoop = true;
+							break;
+						}
+					}
+				}
+				syCurr = syCurr->next;
+			}
+			break;
 		}
 	}
+	system("pause");
+	staffCommandMenu();
 }
