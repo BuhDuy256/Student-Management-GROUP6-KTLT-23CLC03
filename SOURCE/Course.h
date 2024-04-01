@@ -3,12 +3,13 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include "Student.h"
 struct Student;
 
 struct StudentScore {  
 	std::string studentID;
 	std::string studentName;
-	double midTerm = -1;
+	double midterm = -1;
 	double final = -1;
 	double other = -1;
 	double total = -1;
@@ -17,10 +18,10 @@ struct StudentScore {
 
 struct Course {
 	std::string ID; 
-	std::string Name;
+	std::string name;
 	std::string className;
 	std::string teacherName;
-    int courseSize = 0;
+  int courseSize = 0;
 	std::string dayOfWeek;
 	std::string session;
 	StudentScore* score = nullptr;
@@ -34,4 +35,3 @@ struct Course {
 	void viewScoreboard();
 	void updateStudentResult();
 };
-

@@ -8,5 +8,7 @@ struct SchoolYear {
 	std::string year;
 	Node<Class>* classes = nullptr;
 	Semester semesters[3];
+
+	void createSemester();
 };
 
