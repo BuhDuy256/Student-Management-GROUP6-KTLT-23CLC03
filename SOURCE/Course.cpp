@@ -578,7 +578,13 @@ void viewScoreboardOfACourse() {
             while (couCurr) {
                 count++;
                 if (count == choice) {
+                    system("cls");
+                    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+                    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+                    std::cout << "List of students in course " << couCurr->data.ID << " - " << couCurr->data.Name << " - " << couCurr->data.className << ":\n";
                     displayTableScoreboardOfACourse(couCurr);
+                    system("pause");
+                    courseManagementPage();
                     break;
                 }
                 couCurr = couCurr->next;
@@ -596,10 +602,6 @@ std::string doubleToString(double value) {
 }
 
 void displayTableScoreboardOfACourse(Node<Course>* couCurr) {
-    system("cls");
-    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-    std::cout << "List of students in course " << couCurr->data.ID << " - " << couCurr->data.Name << " - " << couCurr->data.className << ":\n";
     std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
     std::cout << "\t| NO     | Student ID | Student Name                 | Midterm  | Final    | Others   | Total    |" << std::endl;
     std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
@@ -613,92 +615,127 @@ void displayTableScoreboardOfACourse(Node<Course>* couCurr) {
             << "| " << std::setw(9) << std::left << (couCurr->data.score[i].total > 0 ? doubleToString(couCurr->data.score[i].total) : "")
             << "|" << std::endl;
     }
-    std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;\
-        system("pause");
-    courseManagementPage();
+    std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
     return;
 }
 
 void removeAStudentFromACoursePage() {
-	system("cls");
-	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-	std::cout << "[5]. Remove student from a course\n";
-	std::cout << "List of courses in current semester:" << std::endl;
-	int no;
-	displayTableListOfCoursesInCurrSem(no);
-	std::cout << "Enter the course you want to remove students (1 to " << no << "): ";
-	int choice;
-	while (true) {
-		std::cin >> choice;
-		if (std::cin.fail() || choice < 1 || choice > no) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
-		}
-		else {
-			int count = 0;
-			Node<Course>* couCurr = currSem.Courses;
-			while(couCurr) {
-				count++;
-				if (count == choice) {
-					removeAStudentFromACourse(couCurr);
-					return;
-				}
-				couCurr = couCurr->next;
-			}
-		}
-	}
+    system("cls");
+    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+    std::cout << "[5]. Remove student from a course\n";
+    std::cout << "List of courses in current semester:" << std::endl;
+    int no;
+    displayTableListOfCoursesInCurrSem(no);
+    std::cout << "Enter the course you want to remove students (1 to " << no << "): ";
+    int choice;
+    while (true) {
+        std::cin >> choice;
+        if (std::cin.fail() || choice < 1 || choice > no) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
+        }
+        else {
+            int count = 0;
+            Node<Course>* couCurr = currSem.Courses;
+            while (couCurr) {
+                count++;
+                if (count == choice) {
+                    removeAStudentFromACourse(couCurr);
+                    return;
+                }
+                couCurr = couCurr->next;
+            }
+        }
+    }
 }
 
 void displayTableStudentsInACourse(Node<Course>* couCurr) {
-	std::cout << "\t+--------+------------+------------------------------+\n";
-	std::cout << "\t| NO     | Student ID | Student Name                 |\n";
-	std::cout << "\t+--------+------------+------------------------------+\n";
+    std::cout << "\t+--------+------------+------------------------------+\n";
+    std::cout << "\t| NO     | Student ID | Student Name                 |\n";
+    std::cout << "\t+--------+------------+------------------------------+\n";
 
-	for(int i = 0; i < couCurr->data.courseSize; i++) {
-		std::cout << "\t| " << std::setw(7) << std::left << i + 1
+    for (int i = 0; i < couCurr->data.courseSize; i++) {
+        std::cout << "\t| " << std::setw(7) << std::left << i + 1
             << "| " << std::setw(11) << std::left << couCurr->data.score[i].studentID
             << "| " << std::setw(29) << std::left << couCurr->data.score[i].studentName
             << "|\n";
-	}
-	std::cout << "\t+--------+------------+------------------------------+\n";
-	return;
+    }
+    std::cout << "\t+--------+------------+------------------------------+\n";
+    return;
 }
 
 void removeAStudentFromACourse(Node<Course>* couCurr) {
-	system("cls");
-	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-	std::cout << "List of courses in current semester:" << std::endl;
-	displayTableStudentsInACourse(couCurr);
+    system("cls");
+    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+    std::cout << "List of courses in current semester:" << std::endl;
+    displayTableStudentsInACourse(couCurr);
     std::cout << "Enter the student you want to remove (between 1 and " << couCurr->data.courseSize << "): ";
-	int choice;
-	while (true) {
-		std::cin >> choice;
-		if (std::cin.fail() || choice < 1 || choice > couCurr->data.courseSize) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "Invalid input. Please enter a valid integer between 1 and " << couCurr->data.courseSize << ": ";
-		}
-		else {
-			for(int i = choice - 1; i < couCurr->data.courseSize - 1; i++) {
-				couCurr->data.score[i] = couCurr->data.score[i + 1];
-			}
-			couCurr->data.courseSize--;
-			std::cout << "Remove student successfully!\n";
-			system("pause");
-			courseManagementPage();
-			return;
-		}
-	}
+    int choice;
+    while (true) {
+        std::cin >> choice;
+        if (std::cin.fail() || choice < 1 || choice > couCurr->data.courseSize) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input. Please enter a valid integer between 1 and " << couCurr->data.courseSize << ": ";
+        }
+        else {
+            for (int i = choice - 1; i < couCurr->data.courseSize - 1; i++) {
+                couCurr->data.score[i] = couCurr->data.score[i + 1];
+            }
+            couCurr->data.courseSize--;
+            std::cout << "Remove student successfully!\n";
+            system("pause");
+            courseManagementPage();
+            return;
+        }
+    }
 }
 
 void viewListStudentInACourse() {
+    system("cls");
+    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+    std::cout << "[9]. View list of student in a course\n";
+    int no;
+    displayTableListOfCoursesInCurrSem(no);
+    std::cout << "Enter the course you want to view student (between 1 and " << no << "): ";
+    int choice;
+    while (true) {
+        std::cin >> choice;
+        if (std::cin.fail() || choice < 1 || choice > no) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
+        }
+        else {
+            Node<Course>* couCurr = currSem.Courses;
+            int count = 0;
+            while (couCurr) {
+                count++;
+                if (count == choice) {
+                    system("cls");
+                    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+                    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+                    std::cout << "List of students in course: " << couCurr->data.ID << " - " << couCurr->data.Name << "\n";
+                    displayTableStudentsInACourse(couCurr);
+                    system("pause");
+                    courseManagementPage();
+                    return;
+                }
+                couCurr = couCurr->next;
+            }
+        }
+    }
+}
+
+void updateAStudentResultOfACoursePage() {
 	system("cls");
 	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
 	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-	std::cout << "[9]. View list of student in a course\n";
+	std::cout << "[11]. Update a student's result of a course\n";
 	int no;
 	displayTableListOfCoursesInCurrSem(no);
 	std::cout << "Enter the course you want to view student (between 1 and " << no << "): ";
@@ -716,17 +753,134 @@ void viewListStudentInACourse() {
 			while (couCurr) {
 				count++;
 				if (count == choice) {
-					system("cls");
-					std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-					std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-					std::cout << "List of students in course: " << couCurr->data.ID << " - " << couCurr->data.Name << "\n";
-					displayTableStudentsInACourse(couCurr);
-					system("pause");
-					courseManagementPage();
+					chooseStudentToUpateResult(couCurr);
 					return;
 				}
 				couCurr = couCurr->next;
 			}
 		}
+	}
+}
+
+void chooseStudentToUpateResult(Node<Course>* couCurr) {
+	system("cls");
+	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	std::cout << "List of students in course " << couCurr->data.ID << " - " << couCurr->data.Name << " - " << couCurr->data.className << ":\n";
+	displayTableScoreboardOfACourse(couCurr);
+	std::cout << "Enter the student you want to update result (between 1 and " << couCurr->data.courseSize << "): ";
+	int choice;
+	while (true) {
+		std::cin >> choice;
+		if (std::cin.fail() || choice < 1 || choice > couCurr->data.courseSize) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input. Please enter a valid integer between 1 and " << couCurr->data.courseSize << ": ";
+		}
+		else {
+			updateStudentResult(couCurr, choice);
+			return;
+		}
+	}
+}
+
+void updateStudentResult(Node<Course>* couCurr, int idx) {
+	system("cls");
+	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	currStuScore = &couCurr->data.score[idx - 1];
+	std::cout << "Study Result of student " << currStuScore->studentID << " - " << currStuScore->studentName << " in course " << couCurr->data.Name << std::endl;
+	std::cout << "\tMid-term: " << currStuScore->midTerm << std::endl;
+	std::cout << "\tFinal: " << currStuScore->final << std::endl;
+	std::cout << "\tOther: " << currStuScore->other << std::endl;
+	std::cout << "\tTotal: " << currStuScore->total << std::endl;
+	std::cout << "Enter the score you want to update: " << std::endl;
+	std::cout << "\t1. Mid-term score" << std::endl;
+	std::cout << "\t2. Final score" << std::endl;
+	std::cout << "\t3. Other score" << std::endl;
+	std::cout << "\t4. Total score" << std::endl;
+	std::cout << "\t-1. Exit" << std::endl;
+	int choice;
+	std::cout << "Enter your command (1/2/3/4/-1): ";
+	std::cin >> choice;
+	if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != -1)) {
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Invalid input. Please enter a valid integer (1/2/3/4/-1)." << std::endl;
+		system("pause");
+		updateStudentResult(couCurr, idx);
+	}
+	else {
+		if (choice == 1) {
+			std::cout << "Enter new midterm score: ";
+			while (true) {
+				double newScore;
+				std::cin >> newScore;
+				if (std::cin.fail() || newScore < 0 || newScore > 10) {
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+					std::cout << "Invalid input. Please enter a valid double: " << std::endl;
+				}
+				else {
+					currStuScore->midTerm = newScore;
+					break;
+				}
+			}
+		}
+		else if (choice == 2) {
+			std::cout << "Enter new final score: ";
+			while (true) {
+				double newScore;
+				std::cin >> newScore;
+				if (std::cin.fail() || newScore < 0 || newScore > 10) {
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+					std::cout << "Invalid input. Please enter a valid double: " << std::endl;
+				}
+				else {
+					currStuScore->final = newScore;
+					break;
+				}
+			}
+		}
+		else if (choice == 3) {
+			std::cout << "Enter new others score: ";
+			while (true) {
+				double newScore;
+				std::cin >> newScore;
+				if (std::cin.fail() || newScore < 0 || newScore > 10) {
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+					std::cout << "Invalid input. Please enter a valid double: " << std::endl;
+				}
+				else {
+					currStuScore->other = newScore;
+					break;
+				}
+			}
+		}
+		else if (choice == 4) {
+			std::cout << "Eneter new total score: ";
+			while (true) {
+				double newScore;
+				std::cin >> newScore;
+				if (std::cin.fail() || newScore < 0 || newScore > 4) {
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+					std::cout << "Invalid input. Please enter a valid double: " << std::endl;
+				}
+				else {
+					currStuScore->total = newScore;
+					break;
+				}
+			}
+		}
+		else if (choice == -1) {
+			courseManagementPage();
+			return;
+		}
+		std::cout << "Update successfully." << std::endl;
+		system("pause");
+		updateStudentResult(couCurr, idx);
 	}
 }

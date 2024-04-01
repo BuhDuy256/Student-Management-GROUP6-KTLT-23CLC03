@@ -58,3 +58,6 @@ void viewListStudentInACourse();
 void displayTableScoreboardOfACourse(Node<Course>* couCurr);
 void viewScoreboardOfACourse();
 void displayTableStudentsInACourse(Node<Course>* couCurr);
+void updateAStudentResultOfACoursePage();
+void chooseStudentToUpateResult(Node<Course>* couCurr);
+void updateStudentResult(Node<Course>* couCurr, int idx);

@@ -453,7 +453,6 @@ void courseManagementPage() {
 				}
 				else if (choice == 7)
 				{
-					//
 					// exportCSVStudentsOfACourse();
 				}
 				else if (choice == 8)
@@ -469,7 +468,7 @@ void courseManagementPage() {
 					viewScoreboardOfACourse();
 				}
 				else if (choice == 11) {
-					// Update a student's result of a course
+					updateAStudentResultOfACoursePage();
 				}
 				else if (choice == 12)
 				{
@@ -486,3 +485,5 @@ void courseManagementPage() {
 		}
 	}
 }
+
+
