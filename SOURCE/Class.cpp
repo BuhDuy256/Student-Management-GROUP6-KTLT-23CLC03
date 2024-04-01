@@ -193,7 +193,7 @@ void viewScoreBoardOfAClass() {
     }
     std::cout << " GPA| " << "OVERALLGPA|";
     std::cout << "\n";
-    std::cout << std::setfill('-') << std::setw(totalWidth) << "\n";
+    std::cout << std::setfill('-') << std::setw(totalWidth) << "" << "\n";
     
 
     Node<Student>* StuScore = ChosenClass->data.students;
@@ -245,7 +245,7 @@ void viewScoreBoardOfAClass() {
         if(prevnumofacticour == 0 &&  numofactivecourses == 0) std::cout << std::left << std::setfill(' ') << std::setw(10) << "|\n";
         else std::cout << std::left << std::setfill(' ') << std::setw(10) << (prevtotal + gpa) / (prevnumofacticour + numofactivecourses) << "|\n";
         
-	std::cout << std::setfill('-') << std::setw(totalWidth) << "\n";
+	std::cout << std::setfill('-') << std::setw(totalWidth) << "" << "\n";
         StuScore = StuScore->next;
 	index++;
     }
