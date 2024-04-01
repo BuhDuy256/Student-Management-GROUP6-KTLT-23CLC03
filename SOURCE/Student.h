@@ -19,11 +19,6 @@ struct Student {
 	std::string password = "12345678";
 };
 
-void importAllStudentsCSV();
-void saveAllStudentsData();
-void deleteAllStudentsData();
-
-// Menu: 
 void viewStudentProfile();
 void viewStudentCourses();
 void viewStudentScoresInCurrentSem();

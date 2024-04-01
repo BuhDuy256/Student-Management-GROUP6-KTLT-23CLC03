@@ -28,40 +28,28 @@ struct Course {
 	int courseSize = 0;
 	std::string dayOfWeek;
 	std::string session;
-	std::string couSY;	
+	std::string couSY;
 	int couSem;
 	StudentScore* score = nullptr;
+	void viewStudentsList();
+	void deleteStudent();
+	void viewScoreboard();
+	void addStudent();
+	void updateInformation();
 };
 
-std::string doubleToString(double value);
-std::string removeQuotesFromPath(const std::string& path);
-void importAllCoursesCSV();
-void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr);
-void importAllStudentsInAllCoursesCSV();
-void saveAllCoursesData();
-void saveScoreboardOfACourse(Node<Course>* couCurr);
-void saveAllScoreboardsData();
-void deleteAllScoreboardsData();
-void deleteAllCourseData();
-
-void addACourseInCurrSem();
-// void updateInformationOfACoursePage();
-// void updateInformationOfACourse(int choice);
-void deleteACourseInCurrSem();
-void addStudentToACourse();
-void removeAStudentFromACoursePage();
-void removeAStudentFromACourse(Node<Course>* couCurr);
-void displayTableListOfCoursesInCurrSem(int &no);
-void exportCSVStudentsOfACourse();
-void viewListOfCoursesInCurrSem();
-void viewListStudentInACourse();
-void displayTableScoreboardOfACourse(Node<Course>* couCurr);
-void viewScoreboardOfACourse();
-void displayTableStudentsInACourse(Node<Course>* couCurr);
-void updateAStudentResultOfACoursePage();
-void chooseStudentToUpateResult(Node<Course>* couCurr);
-void updateStudentResult(Node<Course>* couCurr, int idx);
-
-bool ends_with(const std::string& str, const std::string& suffix);
+void addACourseInCurrSem(); // 1
+void updateInformationOfACourse(); // 2
+void deleteACourseInCurrSem(); // 3
+void addStudentToACourse(); // 4
+void removeAStudentFromACourse(); // 5
 void importOutsideCSVStudentsInCourse(Node<Course>* couCurr, std::string fileName);
-void uploadCSVFileContainingAListOfStudentsOfACourse();
+void uploadCSVFileContainingAListOfStudentsOfACourse(); // 6
+void exportCSVStudentsOfACourse(); // 7
+void viewListOfCoursesInCurrSem(); // 8
+void viewListStudentInACourse(); // 9
+void viewScoreboardOfACourse(); // 10
+void chooseStudentToUpdateResult(Node<Course>* couCurr);
+void updateAStudentResultOfACourse(); // 11
+
+

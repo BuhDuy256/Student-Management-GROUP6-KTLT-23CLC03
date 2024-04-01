@@ -1,116 +1,49 @@
 #include"SchoolYear.h"
 
-std::string formatSchoolYear(const std::string& inputYear) {
-	std::string formattedInput = inputYear;
-	formattedInput.erase(std::remove_if(formattedInput.begin(), formattedInput.end(), ::isspace), formattedInput.end());
-
-	std::string formattedYear;
-
-	if (formattedInput.length() == 9 && formattedInput[4] == '-') {
-		formattedYear = formattedInput;
-	}
-	else if (formattedInput.length() == 9 && formattedInput[4] != '-') {
-		formattedYear = formattedInput.substr(0, 4) + "-" + formattedInput.substr(4, 4);
-	}
-	return formattedYear;
+void Semester::viewCoursesList(int &no) {
+    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
+    std::cout << "\t| No     | Course ID  | Course Name                  | Class Name | Teacher Name            | Credits | Size | Day | Session |\n";
+    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
+    no = 0;
+    Node<Course>* couCurr = Courses;
+    while (couCurr) {
+        no++;
+        std::cout << "\t| " << std::left << std::setw(7) << no
+            << "| " << std::left << std::setw(11) << couCurr->data.ID
+            << "| " << std::left << std::setw(29) << couCurr->data.Name
+            << "| " << std::left << std::setw(11) << couCurr->data.className
+            << "| " << std::left << std::setw(24) << couCurr->data.teacherName
+            << "| " << std::left << std::setw(8) << couCurr->data.nCredits
+            << "| " << std::left << std::setw(5) << couCurr->data.courseSize
+            << "| " << std::left << std::setw(4) << couCurr->data.dayOfWeek
+            << "| " << std::left << std::setw(8) << couCurr->data.session
+            << "|" << std::endl;
+        couCurr = couCurr->next;
+    }
+    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
 }
 
-void importAllSchoolYearsCSV() {
-	std::ifstream inF("../CSV Files/AllSchoolYears.csv");
-	if (!inF.is_open()) {
-		std::cout << "Can't import AllSchoolYear.csv!";
-		return;
-	}
-	Node<SchoolYear>* syHead = nullptr;
-	std::string header;
-	std::getline(inF, header);
-	std::string line;
-	while (std::getline(inF, line)) {
-		// Check if the line is empty or contains only whitespace
-		if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
-			break; // Stop reading if the line is empty
-		}
-		SchoolYear syNew;
-		syNew.year = line;
-		Node<SchoolYear>* syTemp = new Node<SchoolYear>(syNew, syHead);
-		syHead = syTemp;
-	}
-	latestSYear = currSYear = syHead;
-	inF.close();
-}
-
-void reverseSchoolYearsList(Node<SchoolYear>*& syHead) {
-	Node<SchoolYear>* syPrev = nullptr, * syNext = nullptr;
-	Node<SchoolYear>* syCurr = syHead;
-	while (syCurr) {
-		syNext = syCurr->next;
-		syCurr->next = syPrev;
-		syPrev = syCurr;
-		syCurr = syNext;
-	}
-	syHead = syPrev;
-}
-
-void saveAllSchoolYearsData() {
-	reverseSchoolYearsList(latestSYear);
-	Node<SchoolYear>* syCurr = latestSYear;
-	std::ofstream outF("../CSV Files/AllSchoolYears.csv", std::ofstream::out | std::ofstream::trunc);
-	if (outF.is_open()) {
-		outF << "School Year\n";
-		while (syCurr) {
-			outF << syCurr->data.year << "\n";
-			syCurr = syCurr->next;
-		}
-	}
-	else {
-		std::cout << "Could't open AllSchoolYears.csv to save Data." << std::endl;
-	}
-	outF.close();
-}
-
-void deleteAllSchoolYearsData() {
-	while (latestSYear) {
-		Node<SchoolYear>* temp = latestSYear;
-		latestSYear = latestSYear->next;
-		delete temp;
-	}
-}
-
-void importAllSemestersCSV() {
-	std::ifstream inF("../CSV Files/AllSemesters.csv");
-	if (!inF.is_open()) {
-		std::cout << "Can't import AllSemesters.csv!" << std::endl;
-		return;
-	}
-	std::string header;
-	std::getline(inF, header);
-	std::string line;
-	while (std::getline(inF, line)) {
-		// Check if the line is empty or contains only whitespace
-		if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
-			break; // Stop reading if the line is empty
-		}
-		std::stringstream ss(line);
-		std::string nSemTemp, syName, startDate, endDate;
-		std::getline(ss, nSemTemp, ',');
-		std::getline(ss, syName, ',');
-		std::getline(ss, startDate, ',');
-		std::getline(ss, endDate, ',');
-		Node<SchoolYear>* syCurr = latestSYear;
-		while (syCurr) {
-			if (syCurr->data.year == syName) {
-				int nSem = 0;
-				std::istringstream(nSemTemp) >> nSem;
-				// std::cout << nSem;
-				syCurr->data.semesters[nSem - 1].isCreated = true;
-				syCurr->data.semesters[nSem - 1].startDate = startDate;
-				syCurr->data.semesters[nSem - 1].endDate = endDate;
-				break;
-			}
-			syCurr = syCurr->next;
-		}
-	}
-	inF.close();
+bool Semester::deleteCourse(int index)
+{
+    if (!Courses) return false;
+    else if (index == 1)
+    {
+        Node<Course>* deleteNode = Courses;
+        Courses = Courses->next;
+        delete deleteNode;
+        return true;
+    }
+    Node<Course>* node = Courses;
+    for (int i = 1; i < index - 1; i++)
+    {
+        if (!node) return false;
+        node = node->next;
+    }
+    
+    Node<Course>* deleteNode = node->next;
+    node->next = node->next->next;
+    delete deleteNode;
+	return true;
 }
 
 void saveAllSemestersData() {
@@ -134,29 +67,6 @@ void saveAllSemestersData() {
 		std::cout << "Could't open AllSemesters.csv to save Data." << std::endl;
 	}
 	outF.close();
-}
-
-void findCurrSem() {
-	Node<SchoolYear>* syCurr = latestSYear;
-	bool found = false;
-	while (syCurr && !found) {
-		for (int i = 2; i >= 0; i--) {
-			if (syCurr->data.semesters[i].isCreated) {
-				found = true;
-				latestSem = currSem = syCurr->data.semesters[i];
-				lastSemNumber = currSemNumber = i + 1;
-				break;
-			}
-		}
-		syCurr = syCurr->next;
-	}
-}
-
-std::string getNextSchoolYear(const std::string& currentYear) {
-	int startYear = std::stoi(currentYear.substr(0, 4));
-	int endYear = std::stoi(currentYear.substr(5, 4));
-
-	return std::to_string(startYear + 1) + "-" + std::to_string(endYear + 1);
 }
 
 void createANewSchoolYear()
@@ -204,7 +114,7 @@ void createANewSchoolYear()
 }
 
 void createANewSemester() {
-	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	menuCommandHeader();
 	if (lastSemNumber >= 3) {
 		std::cout << "You cannot create any more semesters during the school year"
 			<< std::endl
@@ -254,9 +164,7 @@ void createANewSemester() {
 }
 
 void changeCurrentSemesterSchoolYear() {
-	system("cls");
-	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	menuCommandHeader();
 	Node<SchoolYear>* syCurr = latestSYear;
 	std::cout << "All semesters in the system:" << std::endl;
 	// Display table Semester - School Year

@@ -1,111 +1,8 @@
 #include"Class.h"
 
-void importAllClassesCSV() {
-    std::ifstream inF("../CSV Files/AllClasses.csv");
-    if (!inF.is_open()) {
-        std::cout << "Could't import AllClasses.csv!";
-        return;
-    }
-    Node<SchoolYear>* syHead = latestSYear;
-    std::string header;
-    std::getline(inF, header);
-    std::string line;
-    while (std::getline(inF, line)) {
-        // Check if the line is empty or contains only whitespace
-        if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
-            break; // Stop reading if the line is empty
-        }
-        Class newClass;
-        std::stringstream ss(line);
-        std::getline(ss, newClass.className, ',');
-        std::getline(ss, newClass.schoolYear, ',');
-        Node<SchoolYear>* syCurr = syHead;
-        bool found = false;
-        while (syCurr && !found) {
-            if (syCurr->data.year == newClass.schoolYear) {
-                found = true;
-                if (!syCurr->data.classes) {
-                    syCurr->data.classes = new Node<Class>(newClass);
-                }
-                else {
-                    Node<Class>* claCurr = syCurr->data.classes;
-                    while (claCurr->next) {
-                        claCurr = claCurr->next;
-                    }
-                    claCurr->next = new Node<Class>(newClass);
-                }
-                break;
-            }
-            syCurr = syCurr->next;
-        }
-        if (!found) {
-            std::cout << "Couldn't find the school year corresponding to " << newClass.className << std::endl;
-        }
-    }
-    inF.close();
-}
-
-void saveAllClassesData() {
-    Node<SchoolYear>* syCurr = latestSYear;
-    std::ofstream outF("../CSV Files/AllClasses.csv", std::ofstream::out | std::ofstream::trunc);
-    if (outF.is_open()) {
-        outF << "Class Name,School Year\n";
-        while (syCurr) {
-            Node<Class>* claCurr = syCurr->data.classes;
-            while (claCurr) {
-                outF << claCurr->data.className << "," << claCurr->data.schoolYear << "\n";
-                claCurr = claCurr->next;
-            }
-            syCurr = syCurr->next;
-        }
-    }
-    else {
-        std::cout << "Could't open AllClasses.csv to save Data." << std::endl;
-    }
-    outF.close();
-}
-
-void deleteAllClassesData() {
-    Node<SchoolYear>* syCurr = latestSYear;
-    while (syCurr) {
-        Node<Class>* claCurr = syCurr->data.classes;
-        while (claCurr) {
-            Node<Class>* temp = claCurr;
-            claCurr = claCurr->next;
-            delete temp;
-        }
-        syCurr = syCurr->next;
-    }
-}
-
-bool checkClassExist(std::string className) {
-    Node<SchoolYear>* syCurr = currSYear;
-    Node<Class>* claCurr = syCurr->data.classes;
-    bool isExisted = false;
-    while (claCurr) {
-        if (claCurr->data.className == className) {
-            isExisted = true;
-            break;
-        }
-        claCurr = claCurr->next;
-    }
-    return isExisted;
-}
-
-bool isValidClassName(std::string className) {
-    bool isValid = false;
-    // Check format ddXXXXdd
-    std::regex pattern("\\d{2}[A-Z]{1,4}\\d{2}");
-    if (std::regex_match(className, pattern) && className.substr(0, 2) == currSYear->data.year.substr(2, 2) && checkClassExist(className)) {
-        isValid = true;
-    }
-    return isValid;
-}
 
 void importCSVStudentsOfAClass_Public() {
-    system("cls");
-    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+    menuCommandHeader();
     std::cout << "[2]. Import CSV containing all students in a class (in current semester)" << std::endl;
 
     int no1 = 0;
@@ -197,9 +94,7 @@ void importCSVStudentsOfAClass_Public() {
 }
 
 void createANewClassInCurrentSYear() {
-    system("cls");
-    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+    menuCommandHeader();
     std::cout << "[1]. Create a new class (in current school year)" << std::endl;
     Class newClass;
     bool isValid = false;
@@ -232,9 +127,7 @@ void createANewClassInCurrentSYear() {
 }
 
 void viewListOfStudentsInAClass() {
-    system("cls");
-    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+    menuCommandHeader();
     std::cout << "[2]. Import CSV containing all students in a class (in current school year)" << std::endl;
 
     int no1 = 0;
