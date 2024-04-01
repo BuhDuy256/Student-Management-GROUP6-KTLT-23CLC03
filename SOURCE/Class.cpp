@@ -169,7 +169,7 @@ void viewScoreBoardOfAClass() {
         print = print->next;
     }
     std::cout << "\n\n";
-    const int totalWidth = 30 + 11 + 4 + NumofClassCourses * 9  + 6 + 8 + 4; 
+    const int totalWidth = 30 + 11 + 4 + NumofClassCourses * 9  + 6 + 11 + 4; 
     std::cout << "+----+-----------+------------------------------+"; 
     for (int i = 0; i < NumofClassCourses; i++) std::cout << "--------+"; 
     std::cout << "-----+-------+";
@@ -242,8 +242,8 @@ void viewScoreBoardOfAClass() {
         else std::cout << std::left << std::setfill(' ') << std::setw(5)  << gpa / numofactivecourses << "|"; 
         double prevtotal = 0, prevnumofacticour = 0;
         previous(prevtotal, prevnumofacticour, StuScore, ChosenClass,StudentUniqueCourses);
-        if(prevnumofacticour == 0 &&  numofactivecourses == 0) std::cout << std::left << std::setfill(' ') << std::setw(7) << "|\n";
-        else std::cout << std::left << std::setfill(' ') << std::setw(7) << (prevtotal + gpa) / (prevnumofacticour + numofactivecourses) << "|\n";
+        if(prevnumofacticour == 0 &&  numofactivecourses == 0) std::cout << std::left << std::setfill(' ') << std::setw(10) << "|\n";
+        else std::cout << std::left << std::setfill(' ') << std::setw(10) << (prevtotal + gpa) / (prevnumofacticour + numofactivecourses) << "|\n";
         
 	std::cout << std::setfill('-') << std::setw(totalWidth) << "\n";
         StuScore = StuScore->next;
