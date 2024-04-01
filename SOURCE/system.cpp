@@ -462,7 +462,7 @@ void courseManagementPage() {
 				}
 				else if (choice == 9)
 				{
-					// View list Student in a course
+					viewListStudentInACourse();
 				}
 				else if (choice == 10)
 				{

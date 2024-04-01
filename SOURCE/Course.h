@@ -54,6 +54,7 @@ void removeAStudentFromACoursePage();
 void removeAStudentFromACourse(Node<Course>* couCurr);
 void displayTableListOfCoursesInCurrSem(int &no);
 void viewListOfCoursesInCurrSem();
+void viewListStudentInACourse();
 void displayTableScoreboardOfACourse(Node<Course>* couCurr);
 void viewScoreboardOfACourse();
 void displayTableStudentsInACourse(Node<Course>* couCurr);

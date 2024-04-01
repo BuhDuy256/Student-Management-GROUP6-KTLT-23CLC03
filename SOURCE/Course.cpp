@@ -663,7 +663,6 @@ void displayTableStudentsInACourse(Node<Course>* couCurr) {
             << "|\n";
 	}
 	std::cout << "\t+--------+------------+------------------------------+\n";
-	std::cout << "Enter the student you want to remove (between 1 and " << couCurr->data.courseSize << "): ";
 	return;
 }
 
@@ -673,6 +672,7 @@ void removeAStudentFromACourse(Node<Course>* couCurr) {
 	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
 	std::cout << "List of courses in current semester:" << std::endl;
 	displayTableStudentsInACourse(couCurr);
+    std::cout << "Enter the student you want to remove (between 1 and " << couCurr->data.courseSize << "): ";
 	int choice;
 	while (true) {
 		std::cin >> choice;
@@ -690,6 +690,43 @@ void removeAStudentFromACourse(Node<Course>* couCurr) {
 			system("pause");
 			courseManagementPage();
 			return;
+		}
+	}
+}
+
+void viewListStudentInACourse() {
+	system("cls");
+	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	std::cout << "[9]. View list of student in a course\n";
+	int no;
+	displayTableListOfCoursesInCurrSem(no);
+	std::cout << "Enter the course you want to view student (between 1 and " << no << "): ";
+	int choice;
+	while (true) {
+		std::cin >> choice;
+		if (std::cin.fail() || choice < 1 || choice > no) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
+		}
+		else {
+			Node<Course>* couCurr = currSem.Courses;
+			int count = 0;
+			while (couCurr) {
+				count++;
+				if (count == choice) {
+					system("cls");
+					std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+					std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+					std::cout << "List of students in course: " << couCurr->data.ID << " - " << couCurr->data.Name << "\n";
+					displayTableStudentsInACourse(couCurr);
+					system("pause");
+					courseManagementPage();
+					return;
+				}
+				couCurr = couCurr->next;
+			}
 		}
 	}
 }
