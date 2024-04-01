@@ -3,10 +3,8 @@
 
 #include <QString>
 #include <QDebug>
-#include <QAbstractListModel>
-#include <QListView>
-#include <QStringList>
-#include <QStringListModel>
+#include <QTableView>
+#include <QStandardItemModel>
 
 #include "textedit.h"
 
