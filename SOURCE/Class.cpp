@@ -98,14 +98,14 @@ void viewScoreBoardOfAClass();
 void viewScoreBoardOfAClass() {
     system("cls");
     viewAllClassesInSchool();
-    std::string choice;
-    std::cout << "ENTER ClASS: ";
+    int choice;
+    std::cout << "ENTER NUMBER CORRESPONDING TO YOUR CHOICE (integer): ";
     std::cin >> choice;
 
     Node<Class>* ChosenClass = ChooseClass(choice);
     if (ChosenClass == nullptr)
     {
-        std::cout << "Invalid class!\n";
+        std::cout << "Invalid choice!\n";
         system("pause");
         viewScoreBoardOfAClass();
         return;
@@ -173,7 +173,7 @@ void viewScoreBoardOfAClass() {
     std::cout << "+----+-----------+------------------------------+"; 
     for (int i = 0; i < NumofClassCourses; i++) std::cout << "--------+"; 
     std::cout << "-----+-------+";
-    std::cout << std::left << "\n|" << std::setfill(' ') << std::setw(4) << "NO" << "|" << std::setfill(' ') << std::setw(11) << "Student ID" << "|" << std::setfill(' ') << std::setw(30) << "Student Name" << "|" << "\n";
+    std::cout << std::left << "\n|" << std::setfill(' ') << std::setw(4) << "NO" << "|" << std::setfill(' ') << std::setw(11) << "Student ID" << "|" << std::setfill(' ') << std::setw(30) << "Student Name" << "|";
 
     Node<std::string>* makeFirstRow = ClassCourses;
     while (makeFirstRow != nullptr) {
@@ -343,17 +343,19 @@ Node<std::string>* ClassCourse(Node<std::string>* TempCourses, bool* check) {
     }
     return Cour;
 }
-Node<Class>* ChooseClass(std::string choice) {
+Node<Class>* ChooseClass(int choice) {
     Node<SchoolYear>* tempcurrYear = latestSYear;
+    int index = 1;
     while (tempcurrYear != nullptr)
     {
         Node<Class>* tempclass = tempcurrYear->data.classes;
         while (tempclass != nullptr)
         {
-            if (tempclass->data.className == choice)
+            if (index == choice)
             {
                 return tempclass;
             }
+	    index++;
             tempclass = tempclass->next;
         }
         tempcurrYear = tempcurrYear->next;
