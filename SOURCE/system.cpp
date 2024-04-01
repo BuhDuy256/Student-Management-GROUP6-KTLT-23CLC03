@@ -369,7 +369,7 @@ void classManagementPage() {
 				else if (choice == 4)
 				{
 					// FIXME: fix Format table to be more beautiful
-					viewScoreBoardOfAClass();
+					// viewScoreBoardOfAClass();
 				}
 				else if (choice == 5)
 				{
