@@ -172,7 +172,7 @@ void viewScoreBoardOfAClass() {
     const int totalWidth = 30 + 11 + 4 + NumofClassCourses * 9  + 6 + 11 + 4; 
     std::cout << "+----+-----------+------------------------------+"; 
     for (int i = 0; i < NumofClassCourses; i++) std::cout << "--------+"; 
-    std::cout << "-----+-------+";
+    std::cout << "-----+----------+";
     std::cout << std::left << "\n|" << std::setfill(' ') << std::setw(4) << "NO" << "|" << std::setfill(' ') << std::setw(11) << "Student ID" << "|" << std::setfill(' ') << std::setw(30) << "Student Name" << "|";
 
     Node<std::string>* makeFirstRow = ClassCourses;
@@ -191,7 +191,7 @@ void viewScoreBoardOfAClass() {
         std::cout << std::left << std::setfill(' ') << std::setw(8) << courseID << "|";
         makeFirstRow = makeFirstRow->next;
     }
-    std::cout << " GPA| " << "OVERALLGPA|";
+    std::cout << "GPA  |" << "OVERALLGPA|";
     std::cout << "\n";
     std::cout << std::setfill('-') << std::setw(totalWidth) << "" << "\n";
     
@@ -225,8 +225,8 @@ void viewScoreBoardOfAClass() {
                                 gpa += check->data.score[i].total;
                                 numofactivecourses++;
                             }                                                              
-                            if (check->data.score[i].final != (-1) * 1.0) std::cout << std::left << std::setw(8) << check->data.score[i].final << std::setfill(' ') << "|";
-                            else std::cout << std::left << std::setw(8) << std::setfill(' ') << "|";
+                            if (check->data.score[i].final != (-1) * 1.0) std::cout << std::left << std::setfill(' ') << std::setw(8) << check->data.score[i].final << "|";
+                            else std::cout << std::setfill(' ') << std::setw(8) << "|";
                             score = true;
                             break;
                         }
@@ -235,14 +235,14 @@ void viewScoreBoardOfAClass() {
                 if (score) break;
                 check = check->next;
             }
-            if (check == nullptr) std::cout << std::setw(8) << std::setfill(' ') << "|"; 
+            if (check == nullptr) std::cout << std::setfill(' ') << std::setw(8) << "|"; 
             tmp2 = tmp2->next;
         }
-        if (numofactivecourses == 0 || gpa == 0) std::cout << std::left << std::setfill(' ') << std::setw(5) << "|"; 
+        if (numofactivecourses == 0 || gpa == 0) std::cout << std::setfill(' ') << std::setw(5) << "|"; 
         else std::cout << std::left << std::setfill(' ') << std::setw(5)  << gpa / numofactivecourses << "|"; 
         double prevtotal = 0, prevnumofacticour = 0;
         previous(prevtotal, prevnumofacticour, StuScore, ChosenClass,StudentUniqueCourses);
-        if(prevnumofacticour == 0 &&  numofactivecourses == 0) std::cout << std::left << std::setfill(' ') << std::setw(10) << "|\n";
+        if(prevnumofacticour == 0 &&  numofactivecourses == 0) std::cout << std::setfill(' ') << std::setw(10) << "|\n";
         else std::cout << std::left << std::setfill(' ') << std::setw(10) << (prevtotal + gpa) / (prevnumofacticour + numofactivecourses) << "|\n";
         
 	std::cout << std::setfill('-') << std::setw(totalWidth) << "" << "\n";
