@@ -34,6 +34,7 @@ struct Course {
 };
 
 std::string doubleToString(double value);
+std::string removeQuotesFromPath(const std::string& path);
 void importAllCoursesCSV();
 void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr);
 void importAllStudentsInAllCoursesCSV();
@@ -43,8 +44,6 @@ void saveAllScoreboardsData();
 void deleteAllScoreboardsData();
 void deleteAllCourseData();
 
-std::string formatSchoolYear(const std::string& inputYear);
-void exportCSVStudentsOfACourse();
 void addACourseInCurrSem();
 // void updateInformationOfACoursePage();
 // void updateInformationOfACourse(int choice);

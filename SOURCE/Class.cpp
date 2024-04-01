@@ -78,14 +78,6 @@ void deleteAllClassesData() {
     }
 }
 
-std::string removeQuotesFromPath(const std::string& path) {
-    std::string cleanedPath = path;
-    if (cleanedPath.size() >= 2 && cleanedPath.front() == '"' && cleanedPath.back() == '"') {
-        cleanedPath = cleanedPath.substr(1, cleanedPath.size() - 2);
-    }
-    return cleanedPath;
-}
-
 bool checkClassExist(std::string className) {
     Node<SchoolYear>* syCurr = currSYear;
     Node<Class>* claCurr = syCurr->data.classes;

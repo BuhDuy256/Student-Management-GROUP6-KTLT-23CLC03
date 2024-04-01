@@ -453,7 +453,7 @@ void courseManagementPage() {
 				}
 				else if (choice == 7)
 				{
-					// exportCSVStudentsOfACourse();
+					exportCSVStudentsOfACourse();
 				}
 				else if (choice == 8)
 				{
@@ -486,4 +486,70 @@ void courseManagementPage() {
 	}
 }
 
-
+void exportCSVStudentsOfACourse() {
+	system("cls");
+	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	std::cout << "[11]. Update a student's result of a course\n";
+	int no;
+	displayTableListOfCoursesInCurrSem(no);
+	std::cout << "Enter the course you want to view student (between 1 and " << no << "): ";
+	int choice;
+	while (true) {
+		std::cin >> choice;
+		if (std::cin.fail() || choice < 1 || choice > no) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
+		}
+		else {
+			Node<Course>* couCurr = currSem.Courses;
+			int count = 0;
+			while (couCurr) {
+				count++;
+				if (count == choice) {
+					std::string folderName;
+					do {
+						std::cout << "Enter the path of folder you want to export CSV: ";
+						std::getline(std::cin >> std::ws, folderName);
+						// Check if the path is neither a directory nor a regular file
+						if (!std::filesystem::is_directory(folderName) && !std::filesystem::is_regular_file(folderName)) {
+							std::cout << "Invalid path. Please enter a folder or a file path." << std::endl;
+							folderName = ""; // Clear folderName to loop again
+						}
+					} while (folderName.empty());
+					std::string fileName = removeQuotesFromPath(folderName) + "/" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
+					std::ofstream outF(fileName);
+					if (!outF.is_open()) {
+						std::cout << "Error creating CSV file!" << std::endl;
+						return;
+					}
+					outF << "Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark\n";
+					StudentScore* scoreArr = couCurr->data.score;
+					for (int i = 0; i < couCurr->data.courseSize; i++) {
+						outF << scoreArr[i].studentID << ","
+							<< scoreArr[i].studentName << ",";
+						if (scoreArr[i].midTerm > 0)
+							outF << scoreArr[i].midTerm;
+						outF << ",";
+						if (scoreArr[i].final > 0)
+							outF << scoreArr[i].final;
+						outF << ",";
+						if (scoreArr[i].other > 0)
+							outF << scoreArr[i].other;
+						outF << ",";
+						if (scoreArr[i].total > 0)
+							outF << scoreArr[i].total;
+						outF << "\n";
+					}
+					outF.close();
+					std::cout << "Exported successfully!" << std::endl;
+					system("pause");
+					courseManagementPage();
+					return;
+				}
+				couCurr = couCurr->next;
+			}
+		}
+	}
+}

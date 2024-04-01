@@ -41,3 +41,6 @@ void staffCommandMenu();
 void classManagementPage();
 void courseManagementPage();
 
+void exportCSVStudentsOfACourse();
+
+
