@@ -25,6 +25,25 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         resourses.qrc
         system.h system.cpp
+        Class.h
+        Course.h
+
+        Node.h
+        SchoolYear.h
+        Staff.h
+        Student.h
+        Class.cpp
+        Course.cpp
+
+        SchoolYear.cpp
+        Staff.cpp
+        Student.cpp
+        GlobalVariables.h
+        GlobalVariables.cpp
+
+
+
+
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET StudentManagementSystem APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

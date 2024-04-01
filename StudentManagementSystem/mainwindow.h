@@ -35,6 +35,26 @@ private slots:
 
     void on_button_exit_clicked();
 
+    void on_button_StuSignOut_clicked();
+
+    void on_button_AdSignOut_clicked();
+
+    void on_button_StuChangePassword_clicked();
+
+    void on_button_StuHome_clicked();
+
+    void on_button_back_clicked();
+
+    void on_stackedWidget_2_currentChanged(int arg1);
+
+    void on_button_confirm_clicked();
+
+    void on_checkBox_2_stateChanged(int arg1);
+
+    void on_button_StuMyProfile_clicked();
+
+    void on_button_StuMyCourses_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

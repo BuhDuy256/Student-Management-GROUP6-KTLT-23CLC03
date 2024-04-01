@@ -8,6 +8,8 @@
         <file>Minecraft HD world.jpg</file>
         <file>button.png</file>
         <file>Lovely Minecraft Hd Wallpaper 1920x1080.jpg</file>
+        <file>Iapn6B.webp</file>
+        <file>OIP.jpg</file>
     </qresource>
     <qresource prefix="/CSV Files">
         <file>AllClasses.csv</file>
@@ -16,5 +18,47 @@
         <file>AllSemesters.csv</file>
         <file>AllStudents.csv</file>
         <file>AllStaffs.csv</file>
+        <file>CSC001_21APCS01.csv</file>
+        <file>CSC001_21APCS02.csv</file>
+        <file>CSC001_21CLC01.csv</file>
+        <file>CSC001_21CLC02.csv</file>
+        <file>CSC001_22APCS01.csv</file>
+        <file>CSC001_22APCS02.csv</file>
+        <file>CSC001_22CLC01.csv</file>
+        <file>CSC001_22CLC02.csv</file>
+        <file>CSC001_23APCS01.csv</file>
+        <file>CSC001_23APCS02.csv</file>
+        <file>CSC001_23CLC01.csv</file>
+        <file>CSC001_23CLC02.csv</file>
+        <file>CSC002_21APCS01.csv</file>
+        <file>CSC002_21APCS02.csv</file>
+        <file>CSC002_21CLC01.csv</file>
+        <file>CSC002_21CLC02.csv</file>
+        <file>CSC002_22APCS01.csv</file>
+        <file>CSC002_22APCS02.csv</file>
+        <file>CSC002_22CLC01.csv</file>
+        <file>CSC002_22CLC02.csv</file>
+        <file>CSC002_23APCS01.csv</file>
+        <file>CSC002_23APCS02.csv</file>
+        <file>CSC002_23CLC01.csv</file>
+        <file>CSC002_23CLC02.csv</file>
+        <file>CSC003_21APCS01.csv</file>
+        <file>CSC003_21APCS02.csv</file>
+        <file>CSC003_21CLC01.csv</file>
+        <file>CSC003_21CLC02.csv</file>
+        <file>CSC003_22APCS01.csv</file>
+        <file>CSC003_22APCS02.csv</file>
+        <file>CSC003_22CLC01.csv</file>
+        <file>CSC003_22CLC02.csv</file>
+        <file>CSC003_23APCS01.csv</file>
+        <file>CSC003_23APCS02.csv</file>
+        <file>CSC003_23CLC01.csv</file>
+        <file>CSC003_23CLC02.csv</file>
+        <file>MTH001_21APCS01.csv</file>
+        <file>MTH001_21CLC01.csv</file>
+        <file>MTH001_22APCS01.csv</file>
+        <file>MTH001_22CLC01.csv</file>
+        <file>MTH001_23APCS01.csv</file>
+        <file>MTH001_23CLC01.csv</file>
     </qresource>
 </RCC>
