@@ -12,6 +12,7 @@
 #include<fstream>
 #include<sstream>
 #include<algorithm>
+#include<string>
 #include<filesystem>
 #include<limits>
 #include<cstdlib> 
@@ -40,7 +41,5 @@ void staffHomePage();
 void staffCommandMenu();
 void classManagementPage();
 void courseManagementPage();
-
-void exportCSVStudentsOfACourse();
 
 

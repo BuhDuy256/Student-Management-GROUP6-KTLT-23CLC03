@@ -52,6 +52,7 @@ void addStudentToACourse();
 void removeAStudentFromACoursePage();
 void removeAStudentFromACourse(Node<Course>* couCurr);
 void displayTableListOfCoursesInCurrSem(int &no);
+void exportCSVStudentsOfACourse();
 void viewListOfCoursesInCurrSem();
 void viewListStudentInACourse();
 void displayTableScoreboardOfACourse(Node<Course>* couCurr);
@@ -60,3 +61,7 @@ void displayTableStudentsInACourse(Node<Course>* couCurr);
 void updateAStudentResultOfACoursePage();
 void chooseStudentToUpateResult(Node<Course>* couCurr);
 void updateStudentResult(Node<Course>* couCurr, int idx);
+
+bool ends_with(const std::string& str, const std::string& suffix);
+void importOutsideCSVStudentsInCourse(Node<Course>* couCurr, std::string fileName);
+void uploadCSVFileContainingAListOfStudentsOfACourse();

@@ -657,7 +657,7 @@ void updateAStudentResultOfACoursePage() {
 	std::cout << "[11]. Update a student's result of a course\n";
 	int no;
 	displayTableListOfCoursesInCurrSem(no);
-	std::cout << "Enter the course you want to view student (between 1 and " << no << "): ";
+	std::cout << "Enter the course number (between 1 and " << no << "): ";
 	int choice;
 	while (true) {
 		std::cin >> choice;
@@ -801,5 +801,169 @@ void updateStudentResult(Node<Course>* couCurr, int idx) {
 		std::cout << "Update successfully." << std::endl;
 		system("pause");
 		updateStudentResult(couCurr, idx);
+	}
+}
+
+void exportCSVStudentsOfACourse() {
+	system("cls");
+	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	std::cout << "[11]. Update a student's result of a course\n";
+	int no;
+	displayTableListOfCoursesInCurrSem(no);
+	std::cout << "Enter the course you want to view student (between 1 and " << no << "): ";
+	int choice;
+	while (true) {
+		std::cin >> choice;
+		if (std::cin.fail() || choice < 1 || choice > no) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
+		}
+		else {
+			Node<Course>* couCurr = currSem.Courses;
+			int count = 0;
+			while (couCurr) {
+				count++;
+				if (count == choice) {
+					std::string folderName;
+                    while(true) {
+                        std::cout << "Enter the path of folder you want to export CSV: ";
+						std::getline(std::cin >> std::ws, folderName);
+                        if ((!std::filesystem::is_directory(folderName) && !std::filesystem::is_regular_file(folderName)) ||folderName.empty()) {
+							std::cout << "Invalid path. Please enter a folder path." << std::endl;
+							folderName = ""; // Clear folderName to loop again
+                            continue;
+						}
+                        break;
+                    }
+					std::string fileName = removeQuotesFromPath(folderName) + "/" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
+					std::ofstream outF(fileName);
+					if (!outF.is_open()) {
+						std::cout << "Error creating CSV file!" << std::endl;
+						return;
+					}
+					outF << "Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark\n";
+					StudentScore* scoreArr = couCurr->data.score;
+					for (int i = 0; i < couCurr->data.courseSize; i++) {
+						outF << scoreArr[i].studentID << ","
+							<< scoreArr[i].studentName << ",";
+						if (scoreArr[i].midTerm > 0)
+							outF << scoreArr[i].midTerm;
+						outF << ",";
+						if (scoreArr[i].final > 0)
+							outF << scoreArr[i].final;
+						outF << ",";
+						if (scoreArr[i].other > 0)
+							outF << scoreArr[i].other;
+						outF << ",";
+						if (scoreArr[i].total > 0)
+							outF << scoreArr[i].total;
+						outF << "\n";
+					}
+					outF.close();
+					std::cout << "Exported successfully!" << std::endl;
+					system("pause");
+					courseManagementPage();
+					return;
+				}
+				couCurr = couCurr->next;
+			}
+		}
+	}
+}
+
+bool ends_with(const std::string& str, const std::string& suffix) {
+	if (str.size() < suffix.size()) return false;
+	return std::equal(suffix.rbegin(), suffix.rend(), str.rbegin());
+}
+
+void importOutsideCSVStudentsInCourse(Node<Course>* couCurr, std::string fileName) {
+	std::ifstream inF(fileName);
+	if (!inF.is_open()) {
+		std::cout << "Couldn't import " << fileName << std::endl;
+		return;
+	}
+	std::string header;
+	std::getline(inF, header);
+	std::string line;
+	int n = 0;
+	while (std::getline(inF, line)) {
+		// Check if the line is empty or contains only whitespace
+		if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
+			break; // Stop reading if the line is empty
+		}
+		std::stringstream ss(line);
+		std::string token;
+		bool idRead = false;
+		bool nameRead = false;
+		while (std::getline(ss, token, ',')) {
+			if (std::all_of(token.begin(), token.end(), ::isdigit)) {
+				continue;
+			}
+			if (!idRead) {
+				couCurr->data.score[n].studentID = token;
+				idRead = true;
+			}
+			else if (!nameRead) {
+				couCurr->data.score[n].studentName = token;
+				nameRead = true;
+				n++;
+			}
+			if (idRead && nameRead) {
+				break;
+			}
+		}
+	}
+	couCurr->data.courseSize = n;
+	inF.close();
+}
+
+void uploadCSVFileContainingAListOfStudentsOfACourse() {
+	system("cls");
+	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	std::cout << "[6]. Upload a CSV file containing a list of students enrolled in a course\n";
+	int no;
+	displayTableListOfCoursesInCurrSem(no);
+	std::cout << "Enter the course number: ";
+	std::cout << "Enter the course number (between 1 and " << no << "): ";
+	int choice;
+	while (true) {
+		std::cin >> choice;
+		if (std::cin.fail() || choice < 1 || choice > no) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
+		}
+		else {
+			Node<Course>* couCurr = currSem.Courses;
+			int count = 0;
+			while (couCurr) {
+				count++;
+				if (count == choice) {
+					if (couCurr->data.score == nullptr) {
+						std::string fileName;
+						std::cout << "Enter the path of the CSV file (You can drag it into the program): ";
+						while (true) {
+							std::cin >> fileName;
+							if (std::filesystem::is_regular_file(fileName) && ends_with(fileName, ".csv")) {
+								break;
+							}
+							std::cout << "Invalid CSV file path." << std::endl;
+						}
+						importOutsideCSVStudentsInCourse(couCurr, fileName);
+						std::cout << "Imported successfully." << std::endl;
+					}
+					else {
+						std::cout << "This course already has students enrolled." << std::endl;
+					}
+					system("pause");
+					courseManagementPage();
+					return;
+				}
+				couCurr = couCurr->next;
+			}
+		}
 	}
 }
