@@ -515,7 +515,7 @@ void addStudentToACourse() {
     std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
     int no;
     displayTableListOfCoursesInCurrSem(no);
-    std::cout << "Enter the course you want to add students to (1 to " << no << "): ";
+    std::cout << "Enter the course you want to add students (1 to " << no << "): ";
     int choice;
     while (true) {
         std::cin >> choice;
@@ -617,4 +617,79 @@ void displayTableScoreboardOfACourse(Node<Course>* couCurr) {
         system("pause");
     courseManagementPage();
     return;
+}
+
+void removeAStudentFromACoursePage() {
+	system("cls");
+	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	std::cout << "[5]. Remove student from a course\n";
+	std::cout << "List of courses in current semester:" << std::endl;
+	int no;
+	displayTableListOfCoursesInCurrSem(no);
+	std::cout << "Enter the course you want to remove students (1 to " << no << "): ";
+	int choice;
+	while (true) {
+		std::cin >> choice;
+		if (std::cin.fail() || choice < 1 || choice > no) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
+		}
+		else {
+			int count = 0;
+			Node<Course>* couCurr = currSem.Courses;
+			while(couCurr) {
+				count++;
+				if (count == choice) {
+					removeAStudentFromACourse(couCurr);
+					return;
+				}
+				couCurr = couCurr->next;
+			}
+		}
+	}
+}
+
+void displayTableStudentsInACourse(Node<Course>* couCurr) {
+	std::cout << "\t+--------+------------+------------------------------+\n";
+	std::cout << "\t| NO     | Student ID | Student Name                 |\n";
+	std::cout << "\t+--------+------------+------------------------------+\n";
+
+	for(int i = 0; i < couCurr->data.courseSize; i++) {
+		std::cout << "\t| " << std::setw(7) << std::left << i + 1
+            << "| " << std::setw(11) << std::left << couCurr->data.score[i].studentID
+            << "| " << std::setw(29) << std::left << couCurr->data.score[i].studentName
+            << "|\n";
+	}
+	std::cout << "\t+--------+------------+------------------------------+\n";
+	std::cout << "Enter the student you want to remove (between 1 and " << couCurr->data.courseSize << "): ";
+	return;
+}
+
+void removeAStudentFromACourse(Node<Course>* couCurr) {
+	system("cls");
+	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	std::cout << "List of courses in current semester:" << std::endl;
+	displayTableStudentsInACourse(couCurr);
+	int choice;
+	while (true) {
+		std::cin >> choice;
+		if (std::cin.fail() || choice < 1 || choice > couCurr->data.courseSize) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input. Please enter a valid integer between 1 and " << couCurr->data.courseSize << ": ";
+		}
+		else {
+			for(int i = choice - 1; i < couCurr->data.courseSize - 1; i++) {
+				couCurr->data.score[i] = couCurr->data.score[i + 1];
+			}
+			couCurr->data.courseSize--;
+			std::cout << "Remove student successfully!\n";
+			system("pause");
+			courseManagementPage();
+			return;
+		}
+	}
 }

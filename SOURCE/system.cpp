@@ -445,7 +445,7 @@ void courseManagementPage() {
 				}
 				else if (choice == 5)
 				{
-					// Remove a student from a course
+					removeAStudentFromACoursePage();
 				}
 				else if (choice == 6)
 				{
@@ -453,7 +453,8 @@ void courseManagementPage() {
 				}
 				else if (choice == 7)
 				{
-					exportCSVStudentsOfACourse();
+					//
+					// exportCSVStudentsOfACourse();
 				}
 				else if (choice == 8)
 				{

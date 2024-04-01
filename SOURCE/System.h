@@ -41,6 +41,3 @@ void staffCommandMenu();
 void classManagementPage();
 void courseManagementPage();
 
-void viewScoreboardOfACourse();
-void displayTableScoreboardOfACourse(Node<Course>* couCurr);
-
