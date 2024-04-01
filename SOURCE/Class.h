@@ -17,5 +17,12 @@ void importAllClassesCSV();
 void saveAllClassesData();
 void deleteAllClassesData();
 
-std::string removeQuotesFromPath(const std::string& path);
+bool checkClassExist(std::string className);
+bool isValidClassName(std::string className);
+
 void importCSVStudentsOfAClass_Public();
+void createANewClassInCurrentSYear();
+void viewListOfStudentsInAClass();
+void displayTableOfClassesInCurrentSemester(int &no); // no is the number of classes to reuse in another function
+void viewListOfClassesInCurrentSemeter();
+void viewListOfClassesInSystem();

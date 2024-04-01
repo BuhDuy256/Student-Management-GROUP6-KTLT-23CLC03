@@ -30,6 +30,59 @@ void deleteData() {
 	deleteAllStaffData();
 }
 
+void formalize(std::string& name)
+{
+	std::string formalizedName;
+	bool lastWasSpace = true;
+	for (char c : name)
+	{
+		if (std::isspace(c))
+		{
+			if (!lastWasSpace)
+			{
+				formalizedName += ' ';
+				lastWasSpace = true;
+			}
+		}
+		else
+		{
+			if (lastWasSpace) c = toupper(c);
+			else c = tolower(c);
+
+			formalizedName += c;
+			lastWasSpace = false;
+		}
+	}
+	name = formalizedName;
+	if (*(name.end() - 1) == ' ') name.pop_back();
+}
+
+bool checkNameValid(std::string name)
+{
+	for (char c : name)
+	{
+		if (!std::isalpha(c) && !isspace(c))
+		{
+			std::cerr << "Please input properly name with no special characters or digits\n";
+			return false;
+		}
+	}
+	return true;
+}
+
+bool checkIDValid(std::string id)
+{
+	for (char c : id)
+	{
+		if (!isdigit(c))
+		{
+			std::cerr << "Please input properly id with no characters other than digits\n";
+			return false;
+		}
+	}
+	return true;
+}
+
 int getUser(std::string userID, std::string userPassword) {
 	int userType = -1;
 
@@ -122,6 +175,7 @@ void signInPage() {
 		startPage(); //signInpage();
 	}
 	std::cout << "(!) Log in successfully." << std::endl;
+	system("pause");
 	if (userType == 1) {
 		staffHomePage();
 	}
@@ -172,6 +226,7 @@ void studentHomePage() {
 				std::cout << "Exiting..." << std::endl;
 				sleep(1);
 				startPage();
+				return;
 			}
 		}
 	}
@@ -186,10 +241,10 @@ void staffHomePage() {
 			<< "\t3. Change Password\n"
 			<< "\t-1.Exit\n\n";
 		int choice;
-		std::cout << "Enter your command (1/2/3/4/-1): ";
+		std::cout << "Enter your command (1/2/3/-1): ";
 		std::cin >> choice;
 
-		if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != -1)) {
+		if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != -1)) {
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "Invalid input. Please enter a valid integer (1/2/3/-1)." << std::endl;
@@ -214,6 +269,7 @@ void staffHomePage() {
 				std::cout << "Exiting..." << std::endl;
 				sleep(1);
 				startPage();
+				return;
 			}
 		}
 	}
@@ -224,15 +280,15 @@ void staffCommandMenu() {
 		system("cls");
 		std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
 		std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-		std::cout << "Menu:" << std::endl;
+		std::cout << "Menu:\n";
 		std::cout << "\t1.Create a newest School Year\n";
 		std::cout << "\t2.Create a newest Semester\n";
 		std::cout << "\t3.Change current Semester - School Year\n";
-		std::cout << "\t4.Classes Management\n";
-		std::cout << "\t5.Courses Management\n";
+		std::cout << "\t4.Class Management\n";
+		std::cout << "\t5.Course Management\n";
 		std::cout << "\t6.Back\n";
 		int choice;
-		std::cout << "Enter your command (1/2/3/4/5/-1): ";
+		std::cout << "Enter your command (1/2/3/4/5/6): ";
 		std::cin >> choice;
 
 		if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6)) {
@@ -253,67 +309,247 @@ void staffCommandMenu() {
 			}
 			else if (choice == 3)
 			{
-				//...
+				changeCurrentSemesterSchoolYear();
 			}
 			else if (choice == 4)
 			{
-				//...
+				classManagementPage();
 			}
 			else if (choice == 5)
 			{
-				//...
+				courseManagementPage();
 			}
 			else if (choice == 6)
 			{
 				staffHomePage();
+				return;
 			}
 		}
 	}
 }
 
-void createANewSemester() {
-	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-	if (lastSemNumber >= 3) {
-		std::cout << "You cannot create any more semesters during the school year"
-			<< std::endl
-			<< "Please let's create a new school year" << std::endl;
-		system("pause");
-		staffCommandMenu();
-	}
-	else {
-		std::cout << "The newest semester you can create is " << lastSemNumber + 1 << " of school year " << latestSYear->data.year << std::endl;
-		std::cout << "Are you sure you want to create a new school year (Y/N)? ";
-		char choice;
-		std::cin >> choice;
-		if (choice == 'Y' || choice == 'y') {
-			std::string startDate;
-			std::cout << "\tEnter start date (Ex:01/05/2023): ";
-			std::cin >> startDate;
+void classManagementPage() {
+	while (true) {
+		system("cls");
+		std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+		std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+		if (currSemNumber != 0) {
+			std::cout << "Menu command of Class Management:\n";
+			std::cout << "\t1.Create a new class (in current school year)\n";
+			std::cout << "\t2.Import CSV containing all students in a class (in current semester)\n";
+			std::cout << "\t3.View list of students in a class (in current school year)\n";
+			std::cout << "\t4.View scoreboard of a class (in current school year)\n";
+			std::cout << "\t5.View list of classes (in current school year)\n";
+			std::cout << "\t6.View list of classes in system\n";
+			std::cout << "\t7.Back\n";
+			int choice;
+			std::cout << "Enter your command (1/2/3/4/5/6/7): ";
+			std::cin >> choice;
 
-			std::string endDate;
-			std::cout << "\tEnter end date (Ex:02/05/2023): ";
-			std::cin >> endDate;
-
-			//TODO: Check valid
-
-			latestSYear->data.semesters[lastSemNumber].isCreated = true;
-			latestSYear->data.semesters[lastSemNumber].startDate = startDate;
-			latestSYear->data.semesters[lastSemNumber].endDate = endDate;
-			latestSem = currSem = latestSYear->data.semesters[lastSemNumber];
-			lastSemNumber++;
-			currSemNumber = lastSemNumber;
-			system("pause");
-			staffCommandMenu();
+			if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6 && choice != 7)) {
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				std::cout << "Invalid input. Please enter a valid integer (1/2/3/4/5/6/7)." << std::endl;
+				system("pause");
+				continue;
+			}
+			else {
+				if (choice == 1)
+				{
+					createANewClassInCurrentSYear();
+				}
+				else if (choice == 2)
+				{
+					importCSVStudentsOfAClass_Public();
+				}
+				else if (choice == 3)
+				{
+					viewListOfStudentsInAClass();
+				}
+				else if (choice == 4)
+				{
+					// FIXME: fix Format table to be more beautiful
+					// viewScoreBoardOfAClass();
+				}
+				else if (choice == 5)
+				{
+					viewListOfClassesInCurrentSemeter();
+				}
+				else if (choice == 6)
+				{
+					viewListOfClassesInSystem();
+				}
+				else if (choice == 7)
+				{
+					staffCommandMenu();
+					return;
+				}
+			}
 		}
-		else if (choice == 'N' || choice == 'n') {
-			std::cout << "Create a new semester failed.";
+		else
+		{
+			std::cout << "There are no semesters in the current school year, let's create a new semester so you can use the commands" << std::endl;
 			system("pause");
 			staffCommandMenu();
+			return;
+		}
+	}
+}
+
+void courseManagementPage() {
+	while (true) {
+		system("cls");
+		std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+		std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+		if (currSemNumber != 0) {
+			std::cout << "Menu command of Course Management:\n";
+			std::cout << "\t1.Add a course to current semester\n";
+			std::cout << "\t2.Update information of a course (Don't Use, need to fix more)\n";
+			std::cout << "\t3.Delete a course in current semester\n";
+			std::cout << "\t4.Add a student to a course\n";
+			std::cout << "\t5.Remove a student from a course\n";
+			std::cout << "\t6.Upload a CSV file containing a list of students enrolled in a course\n";
+			std::cout << "\t7.Export a list of students in a course to a CSV file\n";
+			std::cout << "\t8.View list of courses (in current semester)\n";
+			std::cout << "\t9.View list of students in a course (in current semester)\n";
+			std::cout << "\t10.View scoreboard of a course\n";
+			std::cout << "\t11.Update a student's result of a course\n";
+			std::cout << "\t12.Back\n";
+			int choice;
+			std::cout << "Enter your command (1/2/3/4/5/6/7/8/9/10/11/12): ";
+			std::cin >> choice;
+
+			if (std::cin.fail() || (choice < 1 || choice > 12)) {
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				std::cout << "Invalid input. Please enter a valid integer between 1 and 12." << std::endl;
+				system("pause");
+				continue;
+			}
+			else {
+				if (choice == 1)
+				{
+					addACourseInCurrSem();
+				}
+				else if (choice == 2)
+				{
+					// updateInformationOfACoursePage();
+				}
+				else if (choice == 3)
+				{
+					deleteACourseInCurrSem();
+				}
+				else if (choice == 4)
+				{
+					addStudentToACourse();
+				}
+				else if (choice == 5)
+				{
+					removeAStudentFromACoursePage();
+				}
+				else if (choice == 6)
+				{
+					// Upload a CSV file containing a list of students enrolled in a course
+				}
+				else if (choice == 7)
+				{
+					exportCSVStudentsOfACourse();
+				}
+				else if (choice == 8)
+				{
+					viewListOfCoursesInCurrSem();
+				}
+				else if (choice == 9)
+				{
+					viewListStudentInACourse();
+				}
+				else if (choice == 10)
+				{
+					viewScoreboardOfACourse();
+				}
+				else if (choice == 11) {
+					updateAStudentResultOfACoursePage();
+				}
+				else if (choice == 12)
+				{
+					staffCommandMenu();
+					return;
+				}
+			}
 		}
 		else {
-			std::cout << "Invalid choice!" << std::endl;
+			std::cout << "There are no semesters in the current school year. Let's create a new semester so you can use the commands." << std::endl;
 			system("pause");
 			staffCommandMenu();
+			return;
+		}
+	}
+}
+
+void exportCSVStudentsOfACourse() {
+	system("cls");
+	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+	std::cout << "[11]. Update a student's result of a course\n";
+	int no;
+	displayTableListOfCoursesInCurrSem(no);
+	std::cout << "Enter the course you want to view student (between 1 and " << no << "): ";
+	int choice;
+	while (true) {
+		std::cin >> choice;
+		if (std::cin.fail() || choice < 1 || choice > no) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
+		}
+		else {
+			Node<Course>* couCurr = currSem.Courses;
+			int count = 0;
+			while (couCurr) {
+				count++;
+				if (count == choice) {
+					std::string folderName;
+					do {
+						std::cout << "Enter the path of folder you want to export CSV: ";
+						std::getline(std::cin >> std::ws, folderName);
+						// Check if the path is neither a directory nor a regular file
+						if (!std::filesystem::is_directory(folderName) && !std::filesystem::is_regular_file(folderName)) {
+							std::cout << "Invalid path. Please enter a folder or a file path." << std::endl;
+							folderName = ""; // Clear folderName to loop again
+						}
+					} while (folderName.empty());
+					std::string fileName = removeQuotesFromPath(folderName) + "/" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
+					std::ofstream outF(fileName);
+					if (!outF.is_open()) {
+						std::cout << "Error creating CSV file!" << std::endl;
+						return;
+					}
+					outF << "Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark\n";
+					StudentScore* scoreArr = couCurr->data.score;
+					for (int i = 0; i < couCurr->data.courseSize; i++) {
+						outF << scoreArr[i].studentID << ","
+							<< scoreArr[i].studentName << ",";
+						if (scoreArr[i].midTerm > 0)
+							outF << scoreArr[i].midTerm;
+						outF << ",";
+						if (scoreArr[i].final > 0)
+							outF << scoreArr[i].final;
+						outF << ",";
+						if (scoreArr[i].other > 0)
+							outF << scoreArr[i].other;
+						outF << ",";
+						if (scoreArr[i].total > 0)
+							outF << scoreArr[i].total;
+						outF << "\n";
+					}
+					outF.close();
+					std::cout << "Exported successfully!" << std::endl;
+					system("pause");
+					courseManagementPage();
+					return;
+				}
+				couCurr = couCurr->next;
+			}
 		}
 	}
 }

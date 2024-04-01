@@ -120,6 +120,7 @@ void viewStudentProfile()
     std::cout << "\t+--------------------+--------------------------------+\n";
     system("pause");
     studentHomePage();
+    return;
 }
 
 void viewStudentCourses()
@@ -153,6 +154,7 @@ void viewStudentCourses()
     std::cout << "\t+---------+----------------+--------------------------------+----------------+------------------------+-------------+----------------+\n";
     system("pause");
     studentHomePage();
+    return;
 }
 
 void viewStudentScoresInCurrentSem()
@@ -192,6 +194,7 @@ void viewStudentScoresInCurrentSem()
     std::cout << "\t+---------+----------------+--------------------------------+------------+------------+------------+------------+\n";
     system("pause");
     studentHomePage();
+    return;
 }
 
 void changeStudentPassword() {
@@ -230,4 +233,5 @@ void changeStudentPassword() {
     std::cout << "Password changed successfully." << std::endl;
     system("pause");
     studentHomePage();
+    return;
 }
