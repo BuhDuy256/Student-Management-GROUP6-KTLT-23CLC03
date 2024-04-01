@@ -557,67 +557,64 @@ void addStudentToACourse() {
 }
 
 void viewScoreboardOfACourse() {
-	system("cls");
-	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-	std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-	std::cout << "List of courses in current semester:\n";
-	int no;
-	displayTableListOfCoursesInCurrSem(no);
-	std::cout << "Enter the course you want to view scoreboard (1 to " << no << "): ";
-	int choice;
-	while (true) {
-		std::cin >> choice;
-		if (std::cin.fail() || choice < 1 || choice > no) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
-		}
-		else {
-			int count = 0;
-			Node<Course>* couCurr = currSem.Courses;
-			while (couCurr) {
-				count++;
-				if (count == choice) {
-					displayTableScoreboardOfACourse(couCurr);
-					break;
-				}
-				couCurr = couCurr->next;
-			}
-			break;
-		}
-	}
+    system("cls");
+    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+    std::cout << "List of courses in current semester:\n";
+    int no;
+    displayTableListOfCoursesInCurrSem(no);
+    std::cout << "Enter the course you want to view scoreboard (1 to " << no << "): ";
+    int choice;
+    while (true) {
+        std::cin >> choice;
+        if (std::cin.fail() || choice < 1 || choice > no) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
+        }
+        else {
+            int count = 0;
+            Node<Course>* couCurr = currSem.Courses;
+            while (couCurr) {
+                count++;
+                if (count == choice) {
+                    displayTableScoreboardOfACourse(couCurr);
+                    break;
+                }
+                couCurr = couCurr->next;
+            }
+            break;
+        }
+    }
 
+}
+
+std::string doubleToString(double value) {
+    std::ostringstream oss;
+    oss << value;
+    return oss.str();
 }
 
 void displayTableScoreboardOfACourse(Node<Course>* couCurr) {
     system("cls");
     std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
     std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-    std::cout << "List of students in course " << couCurr->data.ID << " - " << couCurr->data.Name << " - "  << couCurr->data.className << ":\n";
+    std::cout << "List of students in course " << couCurr->data.ID << " - " << couCurr->data.Name << " - " << couCurr->data.className << ":\n";
     std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
-    std::cout << "\t| NO     | Student ID | Student Name                 | Midterm  | Endterm  | Others   | GPA      |" << std::endl;
+    std::cout << "\t| NO     | Student ID | Student Name                 | Midterm  | Final    | Others   | Total    |" << std::endl;
     std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
-
-    for(int i = 0; i < couCurr->data.courseSize; i++) {
-        std::string studentID = couCurr->data.score[i].studentID;
-        std::string studentName = couCurr->data.score[i].studentName;
-        std::string midterm = (couCurr->data.score[i].midTerm >= 0) ? std::to_string(couCurr->data.score[i].midTerm) : "";
-        std::string endterm = (couCurr->data.score[i].final >= 0) ? std::to_string(couCurr->data.score[i].final) : "";
-        std::string others = (couCurr->data.score[i].other >= 0) ? std::to_string(couCurr->data.score[i].other) : "";
-        std::string GPA = (couCurr->data.score[i].total >= 0) ? std::to_string(couCurr->data.score[i].total) : "";
-
+    for (int i = 0; i < couCurr->data.courseSize; i++) {
         std::cout << "\t| " << std::setw(7) << std::left << i + 1
-                  << "| " << std::setw(11) << std::left << studentID
-                  << "| " << std::setw(29) << std::left << studentName
-                  << "| " << std::setw(9) << std::left << midterm
-                  << "| " << std::setw(9) << std::left << endterm
-                  << "| " << std::setw(9) << std::left << others
-                  << "| " << std::setw(9) << std::left << GPA
-                  << "|" << std::endl;
+            << "| " << std::setw(11) << std::left << couCurr->data.score[i].studentID
+            << "| " << std::setw(29) << std::left << couCurr->data.score[i].studentName
+            << "| " << std::setw(9) << std::left << (couCurr->data.score[i].midTerm > 0 ? doubleToString(couCurr->data.score[i].midTerm) : "")
+            << "| " << std::setw(9) << std::left << (couCurr->data.score[i].final > 0 ? doubleToString(couCurr->data.score[i].final) : "")
+            << "| " << std::setw(9) << std::left << (couCurr->data.score[i].other > 0 ? doubleToString(couCurr->data.score[i].other) : "")
+            << "| " << std::setw(9) << std::left << (couCurr->data.score[i].total > 0 ? doubleToString(couCurr->data.score[i].total) : "")
+            << "|" << std::endl;
     }
-
-    std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
-	system("pause");
-	courseManagementPage();
-	return;
+    std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;\
+        system("pause");
+    courseManagementPage();
+    return;
 }

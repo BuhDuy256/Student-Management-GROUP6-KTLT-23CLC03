@@ -33,6 +33,7 @@ struct Course {
 	StudentScore* score = nullptr;
 };
 
+std::string doubleToString(double value);
 void importAllCoursesCSV();
 void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr);
 void importAllStudentsInAllCoursesCSV();

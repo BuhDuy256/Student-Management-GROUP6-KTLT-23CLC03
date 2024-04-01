@@ -7,6 +7,7 @@
 #include"Course.h"
 #include"SchoolYear.h"
 #include"GlobalVariables.h"
+#include"viewScoreboardClass.h"
 
 #include<iostream>
 #include<fstream>

@@ -368,8 +368,8 @@ void classManagementPage() {
 				}
 				else if (choice == 4)
 				{
-					// TODO: 
-					// 4.View scoreboard of a class
+					// FIXME: fix Format table to be more beautiful
+					viewScoreBoardOfAClass();
 				}
 				else if (choice == 5)
 				{
