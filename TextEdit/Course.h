@@ -2,12 +2,12 @@
 #define COURSE_H
 
 #include <QString>
+#include <QObject>
 #include <QDebug>
 #include <QTableView>
 #include <QStandardItemModel>
 
 #include "textedit.h"
-
 
 struct StudentScore {
     std::string studentID;
