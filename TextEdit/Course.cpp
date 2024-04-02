@@ -80,7 +80,7 @@ void Course::deleteStudent(Ui::TextEdit *ui)
     {
         int selectedRow = selectedIndexes.first().row();
 
-        for (int i = selectedRow; i < courseSize - 1; i++) score[i] = score[i - 1];
+        for (int i = selectedRow; i < courseSize - 1; i++) score[i] = score[i + 1];
         model->removeRow(selectedRow);
         courseSize--;
     }
