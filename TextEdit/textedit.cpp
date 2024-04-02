@@ -25,3 +25,10 @@ void TextEdit::on_pushButton_clicked()
     qDebug() << "Student added";
 }
 
+
+
+void TextEdit::on_pushButton_2_clicked()
+{
+    course.deleteStudent(ui);
+}
+

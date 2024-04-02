@@ -19,7 +19,7 @@ struct StudentScore {
     double GPA = -1;
 };
 
-class Course
+class Course : public QObject
 {
 private:
     std::string ID;
@@ -31,13 +31,18 @@ private:
     std::string session;
     StudentScore* score = nullptr;
 
+    QStandardItemModel *model;
+
 public:
+    Course(QObject *parent = nullptr);
+    ~Course();
+
     void updateInformation();
 
     void viewStudentsList(Ui::TextEdit *ui);
 
     void addStudent(Ui::TextEdit *ui);
-    void deleteStudent();
+    void deleteStudent(Ui::TextEdit *ui);
 
     void viewScoreboard();
     void updateStudentResult();
