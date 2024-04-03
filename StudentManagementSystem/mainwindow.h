@@ -55,6 +55,24 @@ private slots:
 
     void on_button_StuMyCourses_clicked();
 
+    void on_button_back_2_clicked();
+
+    void on_stackedWidget_3_currentChanged(int arg1);
+
+    void on_button_AdMyProfile_clicked();
+
+    void on_button_AdChangePassword_clicked();
+
+    void on_button_AdHome_clicked();
+
+    void on_button_confirm_2_clicked();
+
+    void on_checkBox_3_stateChanged(int arg1);
+
+    void on_button_back_3_clicked();
+
+    void on_button_back_4_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

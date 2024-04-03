@@ -57,11 +57,20 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "on_button_confirm_clicked",
     "on_checkBox_2_stateChanged",
     "on_button_StuMyProfile_clicked",
-    "on_button_StuMyCourses_clicked"
+    "on_button_StuMyCourses_clicked",
+    "on_button_back_2_clicked",
+    "on_stackedWidget_3_currentChanged",
+    "on_button_AdMyProfile_clicked",
+    "on_button_AdChangePassword_clicked",
+    "on_button_AdHome_clicked",
+    "on_button_confirm_2_clicked",
+    "on_checkBox_3_stateChanged",
+    "on_button_back_3_clicked",
+    "on_button_back_4_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[36];
+    uint offsetsAndSizes[54];
     char stringdata0[11];
     char stringdata1[25];
     char stringdata2[1];
@@ -80,6 +89,15 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata15[27];
     char stringdata16[31];
     char stringdata17[31];
+    char stringdata18[25];
+    char stringdata19[34];
+    char stringdata20[30];
+    char stringdata21[35];
+    char stringdata22[25];
+    char stringdata23[28];
+    char stringdata24[27];
+    char stringdata25[25];
+    char stringdata26[25];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -102,7 +120,16 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(318, 25),  // "on_button_confirm_clicked"
         QT_MOC_LITERAL(344, 26),  // "on_checkBox_2_stateChanged"
         QT_MOC_LITERAL(371, 30),  // "on_button_StuMyProfile_clicked"
-        QT_MOC_LITERAL(402, 30)   // "on_button_StuMyCourses_clicked"
+        QT_MOC_LITERAL(402, 30),  // "on_button_StuMyCourses_clicked"
+        QT_MOC_LITERAL(433, 24),  // "on_button_back_2_clicked"
+        QT_MOC_LITERAL(458, 33),  // "on_stackedWidget_3_currentCha..."
+        QT_MOC_LITERAL(492, 29),  // "on_button_AdMyProfile_clicked"
+        QT_MOC_LITERAL(522, 34),  // "on_button_AdChangePassword_cl..."
+        QT_MOC_LITERAL(557, 24),  // "on_button_AdHome_clicked"
+        QT_MOC_LITERAL(582, 27),  // "on_button_confirm_2_clicked"
+        QT_MOC_LITERAL(610, 26),  // "on_checkBox_3_stateChanged"
+        QT_MOC_LITERAL(637, 24),  // "on_button_back_3_clicked"
+        QT_MOC_LITERAL(662, 24)   // "on_button_back_4_clicked"
     },
     "MainWindow",
     "on_checkBox_stateChanged",
@@ -121,7 +148,16 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "on_button_confirm_clicked",
     "on_checkBox_2_stateChanged",
     "on_button_StuMyProfile_clicked",
-    "on_button_StuMyCourses_clicked"
+    "on_button_StuMyCourses_clicked",
+    "on_button_back_2_clicked",
+    "on_stackedWidget_3_currentChanged",
+    "on_button_AdMyProfile_clicked",
+    "on_button_AdChangePassword_clicked",
+    "on_button_AdHome_clicked",
+    "on_button_confirm_2_clicked",
+    "on_checkBox_3_stateChanged",
+    "on_button_back_3_clicked",
+    "on_button_back_4_clicked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -133,7 +169,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      15,   14, // methods
+      24,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -141,21 +177,30 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  104,    2, 0x08,    1 /* Private */,
-       4,    0,  107,    2, 0x08,    3 /* Private */,
-       5,    1,  108,    2, 0x08,    4 /* Private */,
-       6,    1,  111,    2, 0x08,    6 /* Private */,
-       7,    0,  114,    2, 0x08,    8 /* Private */,
-       8,    0,  115,    2, 0x08,    9 /* Private */,
-       9,    0,  116,    2, 0x08,   10 /* Private */,
-      10,    0,  117,    2, 0x08,   11 /* Private */,
-      11,    0,  118,    2, 0x08,   12 /* Private */,
-      12,    0,  119,    2, 0x08,   13 /* Private */,
-      13,    1,  120,    2, 0x08,   14 /* Private */,
-      14,    0,  123,    2, 0x08,   16 /* Private */,
-      15,    1,  124,    2, 0x08,   17 /* Private */,
-      16,    0,  127,    2, 0x08,   19 /* Private */,
-      17,    0,  128,    2, 0x08,   20 /* Private */,
+       1,    1,  158,    2, 0x08,    1 /* Private */,
+       4,    0,  161,    2, 0x08,    3 /* Private */,
+       5,    1,  162,    2, 0x08,    4 /* Private */,
+       6,    1,  165,    2, 0x08,    6 /* Private */,
+       7,    0,  168,    2, 0x08,    8 /* Private */,
+       8,    0,  169,    2, 0x08,    9 /* Private */,
+       9,    0,  170,    2, 0x08,   10 /* Private */,
+      10,    0,  171,    2, 0x08,   11 /* Private */,
+      11,    0,  172,    2, 0x08,   12 /* Private */,
+      12,    0,  173,    2, 0x08,   13 /* Private */,
+      13,    1,  174,    2, 0x08,   14 /* Private */,
+      14,    0,  177,    2, 0x08,   16 /* Private */,
+      15,    1,  178,    2, 0x08,   17 /* Private */,
+      16,    0,  181,    2, 0x08,   19 /* Private */,
+      17,    0,  182,    2, 0x08,   20 /* Private */,
+      18,    0,  183,    2, 0x08,   21 /* Private */,
+      19,    1,  184,    2, 0x08,   22 /* Private */,
+      20,    0,  187,    2, 0x08,   24 /* Private */,
+      21,    0,  188,    2, 0x08,   25 /* Private */,
+      22,    0,  189,    2, 0x08,   26 /* Private */,
+      23,    0,  190,    2, 0x08,   27 /* Private */,
+      24,    1,  191,    2, 0x08,   28 /* Private */,
+      25,    0,  194,    2, 0x08,   30 /* Private */,
+      26,    0,  195,    2, 0x08,   31 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -169,6 +214,15 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void,
@@ -220,6 +274,26 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'on_button_StuMyProfile_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_button_StuMyCourses_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_button_back_2_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_stackedWidget_3_currentChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_button_AdMyProfile_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_button_AdChangePassword_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_button_AdHome_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_button_confirm_2_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_checkBox_3_stateChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_button_back_3_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_button_back_4_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -246,6 +320,15 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 12: _t->on_checkBox_2_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 13: _t->on_button_StuMyProfile_clicked(); break;
         case 14: _t->on_button_StuMyCourses_clicked(); break;
+        case 15: _t->on_button_back_2_clicked(); break;
+        case 16: _t->on_stackedWidget_3_currentChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 17: _t->on_button_AdMyProfile_clicked(); break;
+        case 18: _t->on_button_AdChangePassword_clicked(); break;
+        case 19: _t->on_button_AdHome_clicked(); break;
+        case 20: _t->on_button_confirm_2_clicked(); break;
+        case 21: _t->on_checkBox_3_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 22: _t->on_button_back_3_clicked(); break;
+        case 23: _t->on_button_back_4_clicked(); break;
         default: ;
         }
     }
@@ -270,13 +353,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 15)
+        if (_id < 24)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
+        _id -= 24;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 15)
+        if (_id < 24)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 15;
+        _id -= 24;
     }
     return _id;
 }

@@ -8,12 +8,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
 
-    QFontDatabase::addApplicationFont(":/MinecraftRegular-Bmg3.ttf");
-    QFont minecraftFont("Minecraft");
+    int fontId = QFontDatabase::addApplicationFont(":/font/MinecraftRegular-Bmg3.ttf");
+    QString fontName = QFontDatabase::applicationFontFamilies(fontId).at(0);
+    QFont minecraftFont(fontName);
 
     minecraftFont.setPointSize(12);
     ui->checkBox->setFont(minecraftFont);
     ui->checkBox_2->setFont(minecraftFont);
+    ui->checkBox_3->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(14);
@@ -29,7 +31,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->button_AdChangePassword->setFont(minecraftFont);
     ui->button_AdSignOut->setFont(minecraftFont);
     ui->button_confirm->setFont(minecraftFont);
+    ui->button_confirm_2->setFont(minecraftFont);
     ui->button_back->setFont(minecraftFont);
+    ui->button_back_2->setFont(minecraftFont);
+    ui->button_back_3->setFont(minecraftFont);
+    ui->button_back_4->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(18);
@@ -38,26 +44,59 @@ MainWindow::MainWindow(QWidget *parent)
     ui->txtCurPass->setFont(minecraftFont);
     ui->txtNewPass->setFont(minecraftFont);
     ui->txtConfirmPass->setFont(minecraftFont);
-    minecraftFont.setBold(1);
+    ui->txt_StuID->setFont(minecraftFont);
+    ui->txt_StuName->setFont(minecraftFont);
+    ui->txt_StuGender->setFont(minecraftFont);
+    ui->txt_StuBirthday->setFont(minecraftFont);
+    ui->txt_StuClass->setFont(minecraftFont);
+    ui->txt_StuSocialID->setFont(minecraftFont);
+    ui->txtCurPass_2->setFont(minecraftFont);
+    ui->txtNewPass_2->setFont(minecraftFont);
+    ui->txtConfirmPass_2->setFont(minecraftFont);
+    ui->txt_AdID->setFont(minecraftFont);
+    ui->txt_AdName->setFont(minecraftFont);
+    ui->txt_AdGender->setFont(minecraftFont);
+    ui->txt_AdBirthday->setFont(minecraftFont);
+    ui->txt_AdSocialID->setFont(minecraftFont);
+    minecraftFont.setBold(1);  // Bold Region
     ui->name->setFont(minecraftFont);
+    ui->name_2->setFont(minecraftFont);
     ui->lb_curPass->setFont(minecraftFont);
     ui->lb_newPass->setFont(minecraftFont);
     ui->lb_confirmPass->setFont(minecraftFont);
-    minecraftFont.setBold(0);
+    ui->lb_StuID->setFont(minecraftFont);
+    ui->lb_StuName->setFont(minecraftFont);
+    ui->lb_StuGender->setFont(minecraftFont);
+    ui->lb_StuBirthday->setFont(minecraftFont);
+    ui->lb_StuMainClass->setFont(minecraftFont);
+    ui->lb_StuSocialID->setFont(minecraftFont);
+    ui->lb_curPass_2->setFont(minecraftFont);
+    ui->lb_newPass_2->setFont(minecraftFont);
+    ui->lb_confirmPass_2->setFont(minecraftFont);
+    ui->lb_AdID->setFont(minecraftFont);
+    ui->lb_AdName->setFont(minecraftFont);
+    ui->lb_AdGender->setFont(minecraftFont);
+    ui->lb_AdBirthday->setFont(minecraftFont);
+    ui->lb_AdSocialID->setFont(minecraftFont);
+    minecraftFont.setBold(0); //End Bold Region
 
 
     minecraftFont.setPointSize(22);
-    minecraftFont.setBold(1);
+    minecraftFont.setBold(1); // Bold Region
     ui->lb_username->setFont(minecraftFont);
     ui->lb_password->setFont(minecraftFont);
-    minecraftFont.setBold(0);
+    minecraftFont.setBold(0); //End Bold Region
 
 
     minecraftFont.setPointSize(36);
-    minecraftFont.setBold(1);
+    minecraftFont.setBold(1); // Bold Region
     ui->lb_signin->setFont(minecraftFont);
     ui->lb_changePass->setFont(minecraftFont);
-    minecraftFont.setBold(0);
+    ui->lb_MyProfile->setFont(minecraftFont);
+    ui->lb_changePass_2->setFont(minecraftFont);
+    ui->lb_MyProfile_2->setFont(minecraftFont);
+    minecraftFont.setBold(0); //End Bold Region
+
 }
 
 MainWindow::~MainWindow()
@@ -103,6 +142,7 @@ void MainWindow::on_button_signin_clicked()
         ui->name_2->setText(QString::fromStdString("Hi, " + firstName));
 
         ui->stackedWidget->setCurrentIndex(2);
+        ui->stackedWidget_3->setCurrentIndex(0);
     }
     else if (id == 2)
     {
@@ -159,6 +199,12 @@ void MainWindow::on_button_StuHome_clicked()
 
 void MainWindow::on_button_StuMyProfile_clicked()
 {
+    ui->txt_StuID->setText(QString::fromStdString("   " + currStudent->data.ID));
+    ui->txt_StuName->setText(QString::fromStdString("   " + currStudent->data.name));
+    ui->txt_StuGender->setText(QString::fromStdString("   " + currStudent->data.gender));
+    ui->txt_StuBirthday->setText(QString::fromStdString("   " + currStudent->data.birthday));
+    ui->txt_StuClass->setText(QString::fromStdString("   " + currStudent->data.mainClass));
+    ui->txt_StuSocialID->setText(QString::fromStdString("   " + currStudent->data.socialID));
     ui->stackedWidget_2->setCurrentIndex(1);
 }
 
@@ -194,6 +240,17 @@ void MainWindow::on_stackedWidget_2_currentChanged(int arg1)
     else ui->button_StuChangePassword->setStyleSheet("color: white; :hover{color: black;}");
 }
 
+void MainWindow::on_stackedWidget_3_currentChanged(int arg1)
+{
+    if (ui->stackedWidget_3->currentIndex() == 0) ui->button_AdHome->setStyleSheet("color: lightgreen;");
+    else ui->button_AdHome->setStyleSheet("color: white; :hover{color: black;}");
+
+    if (ui->stackedWidget_3->currentIndex() == 1) ui->button_AdMyProfile->setStyleSheet("color: lightgreen;");
+    else ui->button_AdMyProfile->setStyleSheet("color: white; :hover{color: black;}");
+
+    if (ui->stackedWidget_3->currentIndex() == 2) ui->button_AdChangePassword->setStyleSheet("color: lightgreen;");
+    else ui->button_AdChangePassword->setStyleSheet("color: white; :hover{color: black;}");
+}
 
 void MainWindow::on_button_confirm_clicked()
 {
@@ -244,5 +301,98 @@ void MainWindow::on_checkBox_2_stateChanged(int arg1)
         ui->txtNewPass->setEchoMode(QLineEdit::Password);
         ui->txtConfirmPass->setEchoMode(QLineEdit::Password);
     }
+}
+
+
+void MainWindow::on_button_back_2_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_button_AdMyProfile_clicked()
+{
+    ui->txt_AdID->setText(QString::fromStdString("   " + currStaff->data.ID));
+    ui->txt_AdName->setText(QString::fromStdString("   " + currStaff->data.name));
+    ui->txt_AdGender->setText(QString::fromStdString("   " + currStaff->data.gender));
+    ui->txt_AdBirthday->setText(QString::fromStdString("   " + currStaff->data.birthday));
+    ui->txt_AdSocialID->setText(QString::fromStdString("   " + currStaff->data.socialID));
+    ui->stackedWidget_3->setCurrentIndex(1);
+}
+
+
+void MainWindow::on_button_AdChangePassword_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(2);
+}
+
+
+void MainWindow::on_button_AdHome_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_button_confirm_2_clicked()
+{
+    // changeAdminPassword();
+    std::string oldPassword, newPassword, confirmPassword;
+
+    oldPassword = ui->txtCurPass_2->text().toStdString();
+    newPassword = ui->txtNewPass_2->text().toStdString();
+    confirmPassword = ui->txtConfirmPass_2->text().toStdString();
+
+    bool verifyPassword = false;
+    if (oldPassword == currStaff->data.password) {
+        verifyPassword = true;
+    }
+
+    if (!verifyPassword) {
+        // std::cout << "Your old password is incorrect!" << std::endl;
+        MessageBox("Fail", "Current Password Is Incorrect!");
+        return;
+    }
+
+    if (newPassword != confirmPassword) {
+        // std::cout << "Your new passwords do not match. Please try again!" << std::endl;
+        MessageBox("Fail", "New Password Not Matched!");
+        return;
+    }
+
+    QMessageBox::information(nullptr, "Success", "Password Changed!", QMessageBox::Ok);
+    ui->txtCurPass_2->setText("");
+    ui->txtNewPass_2->setText("");
+    ui->txtConfirmPass_2->setText("");
+
+    currStaff->data.password = newPassword;
+}
+
+
+void MainWindow::on_checkBox_3_stateChanged(int arg1)
+{
+    if (ui->checkBox_3->isChecked())
+    {
+        ui->txtCurPass_2->setEchoMode(QLineEdit::Normal);
+        ui->txtNewPass_2->setEchoMode(QLineEdit::Normal);
+        ui->txtConfirmPass_2->setEchoMode(QLineEdit::Normal);
+    }
+    else
+    {
+        ui->txtCurPass_2->setEchoMode(QLineEdit::Password);
+        ui->txtNewPass_2->setEchoMode(QLineEdit::Password);
+        ui->txtConfirmPass_2->setEchoMode(QLineEdit::Password);
+    }
+}
+
+
+void MainWindow::on_button_back_3_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_button_back_4_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(0);
 }
 

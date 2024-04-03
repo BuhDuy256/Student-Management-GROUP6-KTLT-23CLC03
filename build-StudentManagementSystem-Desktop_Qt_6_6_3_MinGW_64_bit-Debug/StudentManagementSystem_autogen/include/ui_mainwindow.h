@@ -67,6 +67,21 @@ public:
     QWidget *StuHome;
     QLabel *lb_welcome;
     QWidget *StuProfile;
+    QGridLayout *gridLayout_6;
+    QLineEdit *txt_StuGender;
+    QLabel *lb_StuSocialID;
+    QLabel *lb_StuBirthday;
+    QLabel *lb_StuMainClass;
+    QLabel *lb_StuGender;
+    QLineEdit *txt_StuName;
+    QPushButton *button_back_2;
+    QLineEdit *txt_StuID;
+    QLineEdit *txt_StuBirthday;
+    QLabel *lb_StuName;
+    QLabel *lb_StuID;
+    QLineEdit *txt_StuSocialID;
+    QLineEdit *txt_StuClass;
+    QLabel *lb_MyProfile;
     QWidget *StuCourse;
     QWidget *StuChangePassword;
     QGridLayout *gridLayout_5;
@@ -91,15 +106,41 @@ public:
     QPushButton *button_AdChangePassword;
     QPushButton *button_AdSignOut;
     QStackedWidget *stackedWidget_3;
-    QWidget *page_5;
-    QWidget *page_6;
+    QWidget *AdHome;
+    QLabel *lb_welcome_2;
+    QWidget *AdProfile;
+    QGridLayout *gridLayout_8;
+    QLabel *lb_AdID;
+    QLineEdit *txt_AdID;
+    QLabel *lb_AdName;
+    QLineEdit *txt_AdName;
+    QLabel *lb_AdGender;
+    QLineEdit *txt_AdGender;
+    QLabel *lb_AdBirthday;
+    QLineEdit *txt_AdBirthday;
+    QLabel *lb_AdSocialID;
+    QLineEdit *txt_AdSocialID;
+    QPushButton *button_back_4;
+    QLabel *lb_MyProfile_2;
+    QWidget *AdChangePass;
+    QGridLayout *gridLayout_7;
+    QLabel *lb_changePass_2;
+    QLabel *lb_curPass_2;
+    QLineEdit *txtCurPass_2;
+    QLabel *lb_newPass_2;
+    QLineEdit *txtNewPass_2;
+    QLabel *lb_confirmPass_2;
+    QLineEdit *txtConfirmPass_2;
+    QCheckBox *checkBox_3;
+    QPushButton *button_confirm_2;
+    QPushButton *button_back_3;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1190, 713);
+        MainWindow->resize(1184, 715);
         MainWindow->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "	border-image: url(:/background/button.png);\n"
 "	color: white;\n"
@@ -422,7 +463,44 @@ public:
 "\n"
 "#StuChangePassword{\n"
 "	background-color: rgba(0, 0, 0, 96);\n"
-"}"));
+"}\n"
+"\n"
+"#StuProfile{\n"
+"	background-color: rgba(0, 0, 0, 96);\n"
+"}\n"
+"\n"
+"#lb_StuID{\n"
+"	color: white;\n"
+"}\n"
+"\n"
+"#lb_StuName{\n"
+"	color: white;\n"
+"}\n"
+"\n"
+"#lb_StuGender{\n"
+"	color: white;\n"
+"}\n"
+"\n"
+"#lb_StuBirthday{\n"
+"	color: white;\n"
+"}\n"
+"\n"
+"#lb_StuMainClass{\n"
+"	color: white;\n"
+"}\n"
+"\n"
+"#lb_StuSocialID{\n"
+"	color: white;\n"
+"}\n"
+"\n"
+"#lb_MyProfile{\n"
+"	color:rgb(151, 255, 168);\n"
+"}\n"
+"\n"
+"#StuCourse{\n"
+"background-color: rgba(0, 0, 0, 96);\n"
+"}\n"
+""));
         StuHome = new QWidget();
         StuHome->setObjectName("StuHome");
         lb_welcome = new QLabel(StuHome);
@@ -438,6 +516,145 @@ public:
         stackedWidget_2->addWidget(StuHome);
         StuProfile = new QWidget();
         StuProfile->setObjectName("StuProfile");
+        gridLayout_6 = new QGridLayout(StuProfile);
+        gridLayout_6->setObjectName("gridLayout_6");
+        gridLayout_6->setHorizontalSpacing(20);
+        gridLayout_6->setVerticalSpacing(15);
+        gridLayout_6->setContentsMargins(65, -1, 65, 50);
+        txt_StuGender = new QLineEdit(StuProfile);
+        txt_StuGender->setObjectName("txt_StuGender");
+        txt_StuGender->setMinimumSize(QSize(0, 50));
+        txt_StuGender->setMaximumSize(QSize(612, 50));
+        QFont font8;
+        font8.setPointSize(18);
+        txt_StuGender->setFont(font8);
+        txt_StuGender->setReadOnly(true);
+
+        gridLayout_6->addWidget(txt_StuGender, 3, 1, 1, 1);
+
+        lb_StuSocialID = new QLabel(StuProfile);
+        lb_StuSocialID->setObjectName("lb_StuSocialID");
+        lb_StuSocialID->setFont(font8);
+        lb_StuSocialID->setStyleSheet(QString::fromUtf8("#label{\n"
+"	color: white;\n"
+"}\n"
+""));
+
+        gridLayout_6->addWidget(lb_StuSocialID, 6, 0, 1, 1, Qt::AlignRight);
+
+        lb_StuBirthday = new QLabel(StuProfile);
+        lb_StuBirthday->setObjectName("lb_StuBirthday");
+        lb_StuBirthday->setFont(font8);
+        lb_StuBirthday->setStyleSheet(QString::fromUtf8("#label{\n"
+"	color: white;\n"
+"}\n"
+""));
+
+        gridLayout_6->addWidget(lb_StuBirthday, 4, 0, 1, 1, Qt::AlignRight);
+
+        lb_StuMainClass = new QLabel(StuProfile);
+        lb_StuMainClass->setObjectName("lb_StuMainClass");
+        lb_StuMainClass->setFont(font8);
+        lb_StuMainClass->setStyleSheet(QString::fromUtf8("#label{\n"
+"	color: white;\n"
+"}\n"
+""));
+
+        gridLayout_6->addWidget(lb_StuMainClass, 5, 0, 1, 1, Qt::AlignRight);
+
+        lb_StuGender = new QLabel(StuProfile);
+        lb_StuGender->setObjectName("lb_StuGender");
+        lb_StuGender->setFont(font8);
+        lb_StuGender->setStyleSheet(QString::fromUtf8("#label{\n"
+"	color: white;\n"
+"}\n"
+""));
+
+        gridLayout_6->addWidget(lb_StuGender, 3, 0, 1, 1, Qt::AlignRight);
+
+        txt_StuName = new QLineEdit(StuProfile);
+        txt_StuName->setObjectName("txt_StuName");
+        txt_StuName->setMinimumSize(QSize(0, 50));
+        txt_StuName->setMaximumSize(QSize(612, 50));
+        txt_StuName->setFont(font8);
+        txt_StuName->setReadOnly(true);
+
+        gridLayout_6->addWidget(txt_StuName, 2, 1, 1, 1);
+
+        button_back_2 = new QPushButton(StuProfile);
+        button_back_2->setObjectName("button_back_2");
+        button_back_2->setMinimumSize(QSize(200, 65));
+        button_back_2->setMaximumSize(QSize(200, 65));
+        button_back_2->setFont(font4);
+
+        gridLayout_6->addWidget(button_back_2, 7, 1, 1, 1, Qt::AlignRight);
+
+        txt_StuID = new QLineEdit(StuProfile);
+        txt_StuID->setObjectName("txt_StuID");
+        txt_StuID->setMinimumSize(QSize(0, 50));
+        txt_StuID->setMaximumSize(QSize(612, 50));
+        txt_StuID->setFont(font8);
+        txt_StuID->setReadOnly(true);
+
+        gridLayout_6->addWidget(txt_StuID, 1, 1, 1, 1);
+
+        txt_StuBirthday = new QLineEdit(StuProfile);
+        txt_StuBirthday->setObjectName("txt_StuBirthday");
+        txt_StuBirthday->setMinimumSize(QSize(0, 50));
+        txt_StuBirthday->setMaximumSize(QSize(612, 50));
+        txt_StuBirthday->setFont(font8);
+        txt_StuBirthday->setReadOnly(true);
+
+        gridLayout_6->addWidget(txt_StuBirthday, 4, 1, 1, 1);
+
+        lb_StuName = new QLabel(StuProfile);
+        lb_StuName->setObjectName("lb_StuName");
+        lb_StuName->setFont(font8);
+        lb_StuName->setStyleSheet(QString::fromUtf8("#label{\n"
+"	color: white;\n"
+"}\n"
+""));
+
+        gridLayout_6->addWidget(lb_StuName, 2, 0, 1, 1, Qt::AlignRight);
+
+        lb_StuID = new QLabel(StuProfile);
+        lb_StuID->setObjectName("lb_StuID");
+        lb_StuID->setFont(font8);
+        lb_StuID->setStyleSheet(QString::fromUtf8("#label{\n"
+"	color: white;\n"
+"}\n"
+""));
+
+        gridLayout_6->addWidget(lb_StuID, 1, 0, 1, 1, Qt::AlignRight);
+
+        txt_StuSocialID = new QLineEdit(StuProfile);
+        txt_StuSocialID->setObjectName("txt_StuSocialID");
+        txt_StuSocialID->setMinimumSize(QSize(0, 50));
+        txt_StuSocialID->setMaximumSize(QSize(612, 50));
+        txt_StuSocialID->setFont(font8);
+        txt_StuSocialID->setReadOnly(true);
+
+        gridLayout_6->addWidget(txt_StuSocialID, 6, 1, 1, 1);
+
+        txt_StuClass = new QLineEdit(StuProfile);
+        txt_StuClass->setObjectName("txt_StuClass");
+        txt_StuClass->setMinimumSize(QSize(0, 50));
+        txt_StuClass->setMaximumSize(QSize(612, 50));
+        txt_StuClass->setFont(font8);
+        txt_StuClass->setReadOnly(true);
+
+        gridLayout_6->addWidget(txt_StuClass, 5, 1, 1, 1);
+
+        lb_MyProfile = new QLabel(StuProfile);
+        lb_MyProfile->setObjectName("lb_MyProfile");
+        QFont font9;
+        font9.setPointSize(36);
+        lb_MyProfile->setFont(font9);
+        lb_MyProfile->setStyleSheet(QString::fromUtf8(""));
+        lb_MyProfile->setAlignment(Qt::AlignCenter);
+
+        gridLayout_6->addWidget(lb_MyProfile, 0, 0, 1, 2);
+
         stackedWidget_2->addWidget(StuProfile);
         StuCourse = new QWidget();
         StuCourse->setObjectName("StuCourse");
@@ -449,8 +666,6 @@ public:
         gridLayout_5->setContentsMargins(65, -1, 65, -1);
         lb_confirmPass = new QLabel(StuChangePassword);
         lb_confirmPass->setObjectName("lb_confirmPass");
-        QFont font8;
-        font8.setPointSize(18);
         lb_confirmPass->setFont(font8);
         lb_confirmPass->setStyleSheet(QString::fromUtf8("#lb_confirmPass{\n"
 "	color:white;\n"
@@ -487,11 +702,9 @@ public:
         lb_changePass = new QLabel(StuChangePassword);
         lb_changePass->setObjectName("lb_changePass");
         lb_changePass->setMaximumSize(QSize(16777215, 85));
-        QFont font9;
-        font9.setPointSize(36);
         lb_changePass->setFont(font9);
         lb_changePass->setStyleSheet(QString::fromUtf8("#lb_changePass{\n"
-"	color:white;\n"
+"	color:rgb(151, 255, 168);\n"
 "}"));
         lb_changePass->setAlignment(Qt::AlignCenter);
 
@@ -625,15 +838,277 @@ public:
 
         stackedWidget_3 = new QStackedWidget(admin_homepage);
         stackedWidget_3->setObjectName("stackedWidget_3");
-        stackedWidget_3->setStyleSheet(QString::fromUtf8("#page_5{\n"
+        stackedWidget_3->setStyleSheet(QString::fromUtf8("#AdHome{\n"
 "	background-color: rgba(0, 0, 0, 0);\n"
+"}\n"
+"#AdProfile{\n"
+"	background-color: rgba(0, 0, 0, 96);\n"
+"}\n"
+"#AdChangePass{\n"
+"	background-color: rgba(0, 0, 0, 96);\n"
+"}\n"
+"\n"
+"#lb_welcome_2{\n"
+"	color:white;\n"
+"}\n"
+"#lb_changePass_2{\n"
+"	color:rgb(151, 255, 168);\n"
+"}\n"
+"#lb_MyProfile_2{\n"
+"	color:rgb(151, 255, 168);\n"
+"}\n"
+"\n"
+"#lb_AdID{\n"
+"	color: white;\n"
+"}\n"
+"\n"
+"#lb_AdName{\n"
+"	color: white;\n"
+"}\n"
+"\n"
+"#lb_AdGender{\n"
+"	color: white;\n"
+"}\n"
+"\n"
+"#lb_AdBirthday{\n"
+"	color: white;\n"
+"}\n"
+"\n"
+"#lb_AdSocialID{\n"
+"	color: white;\n"
+"}\n"
+""));
+        AdHome = new QWidget();
+        AdHome->setObjectName("AdHome");
+        lb_welcome_2 = new QLabel(AdHome);
+        lb_welcome_2->setObjectName("lb_welcome_2");
+        lb_welcome_2->setGeometry(QRect(250, 30, 381, 141));
+        lb_welcome_2->setFont(font7);
+        lb_welcome_2->setAlignment(Qt::AlignCenter);
+        stackedWidget_3->addWidget(AdHome);
+        AdProfile = new QWidget();
+        AdProfile->setObjectName("AdProfile");
+        gridLayout_8 = new QGridLayout(AdProfile);
+        gridLayout_8->setObjectName("gridLayout_8");
+        gridLayout_8->setHorizontalSpacing(20);
+        gridLayout_8->setVerticalSpacing(26);
+        gridLayout_8->setContentsMargins(65, -1, 65, 50);
+        lb_AdID = new QLabel(AdProfile);
+        lb_AdID->setObjectName("lb_AdID");
+        lb_AdID->setFont(font8);
+        lb_AdID->setStyleSheet(QString::fromUtf8("#label{\n"
+"	color: white;\n"
+"}\n"
+""));
+
+        gridLayout_8->addWidget(lb_AdID, 1, 0, 1, 1, Qt::AlignRight);
+
+        txt_AdID = new QLineEdit(AdProfile);
+        txt_AdID->setObjectName("txt_AdID");
+        QSizePolicy sizePolicy3(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Fixed);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(txt_AdID->sizePolicy().hasHeightForWidth());
+        txt_AdID->setSizePolicy(sizePolicy3);
+        txt_AdID->setMinimumSize(QSize(586, 50));
+        txt_AdID->setMaximumSize(QSize(612, 50));
+        txt_AdID->setFont(font8);
+        txt_AdID->setReadOnly(true);
+
+        gridLayout_8->addWidget(txt_AdID, 1, 1, 1, 2);
+
+        lb_AdName = new QLabel(AdProfile);
+        lb_AdName->setObjectName("lb_AdName");
+        lb_AdName->setFont(font8);
+        lb_AdName->setStyleSheet(QString::fromUtf8("#label{\n"
+"	color: white;\n"
+"}\n"
+""));
+
+        gridLayout_8->addWidget(lb_AdName, 2, 0, 1, 1, Qt::AlignRight);
+
+        txt_AdName = new QLineEdit(AdProfile);
+        txt_AdName->setObjectName("txt_AdName");
+        txt_AdName->setMinimumSize(QSize(0, 50));
+        txt_AdName->setMaximumSize(QSize(612, 50));
+        txt_AdName->setFont(font8);
+        txt_AdName->setReadOnly(true);
+
+        gridLayout_8->addWidget(txt_AdName, 2, 1, 1, 2);
+
+        lb_AdGender = new QLabel(AdProfile);
+        lb_AdGender->setObjectName("lb_AdGender");
+        lb_AdGender->setFont(font8);
+        lb_AdGender->setStyleSheet(QString::fromUtf8("#label{\n"
+"	color: white;\n"
+"}\n"
+""));
+
+        gridLayout_8->addWidget(lb_AdGender, 3, 0, 1, 1, Qt::AlignRight);
+
+        txt_AdGender = new QLineEdit(AdProfile);
+        txt_AdGender->setObjectName("txt_AdGender");
+        txt_AdGender->setMinimumSize(QSize(0, 50));
+        txt_AdGender->setMaximumSize(QSize(612, 50));
+        txt_AdGender->setFont(font8);
+        txt_AdGender->setReadOnly(true);
+
+        gridLayout_8->addWidget(txt_AdGender, 3, 1, 1, 2);
+
+        lb_AdBirthday = new QLabel(AdProfile);
+        lb_AdBirthday->setObjectName("lb_AdBirthday");
+        lb_AdBirthday->setFont(font8);
+        lb_AdBirthday->setStyleSheet(QString::fromUtf8("#label{\n"
+"	color: white;\n"
+"}\n"
+""));
+
+        gridLayout_8->addWidget(lb_AdBirthday, 4, 0, 1, 1, Qt::AlignRight);
+
+        txt_AdBirthday = new QLineEdit(AdProfile);
+        txt_AdBirthday->setObjectName("txt_AdBirthday");
+        txt_AdBirthday->setMinimumSize(QSize(0, 50));
+        txt_AdBirthday->setMaximumSize(QSize(612, 50));
+        txt_AdBirthday->setFont(font8);
+        txt_AdBirthday->setReadOnly(true);
+
+        gridLayout_8->addWidget(txt_AdBirthday, 4, 1, 1, 2);
+
+        lb_AdSocialID = new QLabel(AdProfile);
+        lb_AdSocialID->setObjectName("lb_AdSocialID");
+        lb_AdSocialID->setFont(font8);
+        lb_AdSocialID->setStyleSheet(QString::fromUtf8("#label{\n"
+"	color: white;\n"
+"}\n"
+""));
+
+        gridLayout_8->addWidget(lb_AdSocialID, 5, 0, 1, 1, Qt::AlignRight);
+
+        txt_AdSocialID = new QLineEdit(AdProfile);
+        txt_AdSocialID->setObjectName("txt_AdSocialID");
+        txt_AdSocialID->setMinimumSize(QSize(0, 50));
+        txt_AdSocialID->setMaximumSize(QSize(612, 50));
+        txt_AdSocialID->setFont(font8);
+        txt_AdSocialID->setReadOnly(true);
+
+        gridLayout_8->addWidget(txt_AdSocialID, 5, 1, 1, 2);
+
+        button_back_4 = new QPushButton(AdProfile);
+        button_back_4->setObjectName("button_back_4");
+        button_back_4->setMinimumSize(QSize(200, 65));
+        button_back_4->setMaximumSize(QSize(200, 65));
+        button_back_4->setFont(font4);
+
+        gridLayout_8->addWidget(button_back_4, 6, 2, 1, 1);
+
+        lb_MyProfile_2 = new QLabel(AdProfile);
+        lb_MyProfile_2->setObjectName("lb_MyProfile_2");
+        lb_MyProfile_2->setFont(font9);
+        lb_MyProfile_2->setStyleSheet(QString::fromUtf8(""));
+        lb_MyProfile_2->setAlignment(Qt::AlignCenter);
+
+        gridLayout_8->addWidget(lb_MyProfile_2, 0, 0, 1, 3);
+
+        stackedWidget_3->addWidget(AdProfile);
+        AdChangePass = new QWidget();
+        AdChangePass->setObjectName("AdChangePass");
+        gridLayout_7 = new QGridLayout(AdChangePass);
+        gridLayout_7->setObjectName("gridLayout_7");
+        gridLayout_7->setContentsMargins(65, -1, 65, -1);
+        lb_changePass_2 = new QLabel(AdChangePass);
+        lb_changePass_2->setObjectName("lb_changePass_2");
+        lb_changePass_2->setMaximumSize(QSize(16777215, 85));
+        lb_changePass_2->setFont(font9);
+        lb_changePass_2->setStyleSheet(QString::fromUtf8("#lb_changePass_2{\n"
+"	color:rgb(151, 255, 168);\n"
 "}"));
-        page_5 = new QWidget();
-        page_5->setObjectName("page_5");
-        stackedWidget_3->addWidget(page_5);
-        page_6 = new QWidget();
-        page_6->setObjectName("page_6");
-        stackedWidget_3->addWidget(page_6);
+        lb_changePass_2->setAlignment(Qt::AlignCenter);
+
+        gridLayout_7->addWidget(lb_changePass_2, 0, 0, 1, 2);
+
+        lb_curPass_2 = new QLabel(AdChangePass);
+        lb_curPass_2->setObjectName("lb_curPass_2");
+        lb_curPass_2->setFont(font8);
+        lb_curPass_2->setStyleSheet(QString::fromUtf8("#lb_curPass_2{\n"
+"	color:white;\n"
+"}"));
+        lb_curPass_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout_7->addWidget(lb_curPass_2, 1, 0, 1, 1);
+
+        txtCurPass_2 = new QLineEdit(AdChangePass);
+        txtCurPass_2->setObjectName("txtCurPass_2");
+        txtCurPass_2->setMinimumSize(QSize(0, 50));
+        txtCurPass_2->setMaximumSize(QSize(612, 50));
+        txtCurPass_2->setFont(font8);
+        txtCurPass_2->setEchoMode(QLineEdit::Password);
+
+        gridLayout_7->addWidget(txtCurPass_2, 1, 1, 1, 1);
+
+        lb_newPass_2 = new QLabel(AdChangePass);
+        lb_newPass_2->setObjectName("lb_newPass_2");
+        lb_newPass_2->setFont(font8);
+        lb_newPass_2->setStyleSheet(QString::fromUtf8("#lb_newPass_2{\n"
+"	color:white;\n"
+"}"));
+        lb_newPass_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout_7->addWidget(lb_newPass_2, 2, 0, 1, 1);
+
+        txtNewPass_2 = new QLineEdit(AdChangePass);
+        txtNewPass_2->setObjectName("txtNewPass_2");
+        txtNewPass_2->setMinimumSize(QSize(0, 50));
+        txtNewPass_2->setMaximumSize(QSize(612, 50));
+        txtNewPass_2->setFont(font8);
+        txtNewPass_2->setEchoMode(QLineEdit::Password);
+
+        gridLayout_7->addWidget(txtNewPass_2, 2, 1, 1, 1);
+
+        lb_confirmPass_2 = new QLabel(AdChangePass);
+        lb_confirmPass_2->setObjectName("lb_confirmPass_2");
+        lb_confirmPass_2->setFont(font8);
+        lb_confirmPass_2->setStyleSheet(QString::fromUtf8("#lb_confirmPass_2{\n"
+"	color:white;\n"
+"}"));
+        lb_confirmPass_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout_7->addWidget(lb_confirmPass_2, 3, 0, 1, 1);
+
+        txtConfirmPass_2 = new QLineEdit(AdChangePass);
+        txtConfirmPass_2->setObjectName("txtConfirmPass_2");
+        txtConfirmPass_2->setMinimumSize(QSize(0, 50));
+        txtConfirmPass_2->setMaximumSize(QSize(612, 50));
+        txtConfirmPass_2->setFont(font8);
+        txtConfirmPass_2->setEchoMode(QLineEdit::Password);
+
+        gridLayout_7->addWidget(txtConfirmPass_2, 3, 1, 1, 1);
+
+        checkBox_3 = new QCheckBox(AdChangePass);
+        checkBox_3->setObjectName("checkBox_3");
+        checkBox_3->setFont(font6);
+        checkBox_3->setStyleSheet(QString::fromUtf8("#checkBox_3{\n"
+"	color: white;\n"
+"}"));
+
+        gridLayout_7->addWidget(checkBox_3, 4, 1, 1, 1);
+
+        button_confirm_2 = new QPushButton(AdChangePass);
+        button_confirm_2->setObjectName("button_confirm_2");
+        button_confirm_2->setMinimumSize(QSize(200, 65));
+        button_confirm_2->setMaximumSize(QSize(200, 65));
+        button_confirm_2->setFont(font4);
+
+        gridLayout_7->addWidget(button_confirm_2, 5, 0, 1, 1);
+
+        button_back_3 = new QPushButton(AdChangePass);
+        button_back_3->setObjectName("button_back_3");
+        button_back_3->setMinimumSize(QSize(200, 65));
+        button_back_3->setMaximumSize(QSize(200, 65));
+        button_back_3->setFont(font4);
+
+        gridLayout_7->addWidget(button_back_3, 5, 1, 1, 1, Qt::AlignRight);
+
+        stackedWidget_3->addWidget(AdChangePass);
 
         gridLayout_4->addWidget(stackedWidget_3, 0, 1, 1, 1);
 
@@ -651,8 +1126,8 @@ public:
         retranslateUi(MainWindow);
 
         stackedWidget->setCurrentIndex(1);
-        stackedWidget_2->setCurrentIndex(3);
-        stackedWidget_3->setCurrentIndex(1);
+        stackedWidget_2->setCurrentIndex(2);
+        stackedWidget_3->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -676,6 +1151,14 @@ public:
         button_StuChangePassword->setText(QCoreApplication::translate("MainWindow", "CHANGE PASSWORD", nullptr));
         button_StuSignOut->setText(QCoreApplication::translate("MainWindow", "SIGN OUT", nullptr));
         lb_welcome->setText(QCoreApplication::translate("MainWindow", "WELCOME", nullptr));
+        lb_StuSocialID->setText(QCoreApplication::translate("MainWindow", "Social ID:   ", nullptr));
+        lb_StuBirthday->setText(QCoreApplication::translate("MainWindow", "Birthday:   ", nullptr));
+        lb_StuMainClass->setText(QCoreApplication::translate("MainWindow", "Class:   ", nullptr));
+        lb_StuGender->setText(QCoreApplication::translate("MainWindow", "Gender:   ", nullptr));
+        button_back_2->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
+        lb_StuName->setText(QCoreApplication::translate("MainWindow", "Name:   ", nullptr));
+        lb_StuID->setText(QCoreApplication::translate("MainWindow", "Student ID:   ", nullptr));
+        lb_MyProfile->setText(QCoreApplication::translate("MainWindow", "My Profile", nullptr));
         lb_confirmPass->setText(QCoreApplication::translate("MainWindow", "Confirm Password:", nullptr));
         button_back->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         button_confirm->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
@@ -690,6 +1173,22 @@ public:
         button_AdMyProfile->setText(QCoreApplication::translate("MainWindow", "MY PROFILE", nullptr));
         button_AdChangePassword->setText(QCoreApplication::translate("MainWindow", "CHANGE PASSWORD", nullptr));
         button_AdSignOut->setText(QCoreApplication::translate("MainWindow", "SIGN OUT", nullptr));
+        lb_welcome_2->setText(QCoreApplication::translate("MainWindow", "Welcome", nullptr));
+        lb_AdID->setText(QCoreApplication::translate("MainWindow", "Staff ID:   ", nullptr));
+        lb_AdName->setText(QCoreApplication::translate("MainWindow", "Name:   ", nullptr));
+        lb_AdGender->setText(QCoreApplication::translate("MainWindow", "Gender:   ", nullptr));
+        lb_AdBirthday->setText(QCoreApplication::translate("MainWindow", "Birthday:   ", nullptr));
+        lb_AdSocialID->setText(QCoreApplication::translate("MainWindow", "Social ID:   ", nullptr));
+        button_back_4->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
+        lb_MyProfile_2->setText(QCoreApplication::translate("MainWindow", "My Profile", nullptr));
+        lb_changePass_2->setText(QCoreApplication::translate("MainWindow", "Change Password", nullptr));
+        lb_curPass_2->setText(QCoreApplication::translate("MainWindow", "Current Password:", nullptr));
+        txtCurPass_2->setText(QString());
+        lb_newPass_2->setText(QCoreApplication::translate("MainWindow", "New Password:", nullptr));
+        lb_confirmPass_2->setText(QCoreApplication::translate("MainWindow", "Confirm Password:", nullptr));
+        checkBox_3->setText(QCoreApplication::translate("MainWindow", "Show Password", nullptr));
+        button_confirm_2->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
+        button_back_3->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
     } // retranslateUi
 
 };
