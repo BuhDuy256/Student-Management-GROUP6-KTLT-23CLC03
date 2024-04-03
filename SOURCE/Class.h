@@ -13,13 +13,6 @@ struct Class {
 	Node<Student>* students = nullptr;
 };
 
-void importAllClassesCSV();
-void saveAllClassesData();
-void deleteAllClassesData();
-
-bool checkClassExist(std::string className);
-bool isValidClassName(std::string className);
-
 void importCSVStudentsOfAClass_Public();
 void createANewClassInCurrentSYear();
 void viewListOfStudentsInAClass();

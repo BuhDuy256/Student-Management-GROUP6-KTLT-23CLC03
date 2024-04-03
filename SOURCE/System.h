@@ -7,11 +7,14 @@
 #include"Course.h"
 #include"SchoolYear.h"
 #include"GlobalVariables.h"
+#include"Sub.h"
+#include"Data.h"
 
 #include<iostream>
 #include<fstream>
 #include<sstream>
 #include<algorithm>
+#include<string>
 #include<filesystem>
 #include<limits>
 #include<cstdlib> 
@@ -19,17 +22,9 @@
 #include<iomanip>
 #include<regex>
 
-void importData();
-void saveData();
-void deleteData();
-
-void formalize(std::string& name);
-bool checkNameValid(std::string name);
-bool checkIDValid(std::string id);
-int getUser(std::string userID, std::string userPassowrd);
-
 void startPage();
 void signInPage();
+
 // Student
 
 void studentHomePage();
@@ -40,7 +35,5 @@ void staffHomePage();
 void staffCommandMenu();
 void classManagementPage();
 void courseManagementPage();
-
-void exportCSVStudentsOfACourse();
 
 
