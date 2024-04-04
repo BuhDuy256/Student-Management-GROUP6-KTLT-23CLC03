@@ -3,30 +3,26 @@
 void startPage()
 {
 	system("cls");
-	std::cout << "\t1. Sign In\n\t-1. Exit\n\n(?) Input your command: ";
+	std::cout << "\t1. Sign In\n\t-1. Exit\n\n(?) Input your command(1/-1): ";
 	int cmd;
-	std::cin >> cmd;
 
+	while (!(std::cin >> cmd) || (cmd != 1 && cmd != -1)) {
+		std::cout << "\n(X) Invalid input!. Please enter again: ";
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
 	if (cmd == 1)
 	{
 		signInPage();
 	}
 	else if (cmd == -1)
 	{
-		std::cout << "Exiting..." << std::endl;
+		std::cout << "(!) Exiting..." << std::endl;
 		saveData();
 		deleteData();
 		sleep(1);
 		system("cls");
 		exit(0);
-	}
-	else
-	{
-		std::cout << "\nInvalid input!" << std::endl;
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		system("pause");
-		startPage();
 	}
 }
 
@@ -35,23 +31,22 @@ void signInPage() {
 	// 1: User is Staff
 	// 2: User is Student
 	int userType = -1;
-	std::cout << "[1] Sign in\n\n";
+	std::cout << "[1]. Sign in\n\n";
 	std::string userID;
-	std::cout << "\tUsername: ";
+	std::cout << "\t(?) Username: ";
 	std::cin >> userID;
 
 	std::string userPassword;
-	std::cout << "\tPassword: ";
+	std::cout << "\t(?) Password: ";
 	std::cin >> userPassword;
 
 	userType = getUser(userID, userPassword);
-	std::cout << std::endl;
 	if (userType == -1) {
-		std::cout << "(!) Username or Password is incorrect. Please try again." << std::endl;
+		std::cout << "\n(!) Username or Password is incorrect. Please try again." << std::endl;
 		system("pause");
 		startPage(); //signInpage();
 	}
-	std::cout << "(!) Log in successfully." << std::endl;
+	std::cout << "\n(!) Log in successfully." << std::endl;
 	userMode = userType;
 	system("pause");
 	if (userType == 1) {
@@ -63,296 +58,232 @@ void signInPage() {
 }
 
 void studentHomePage() {
-	while (true) {
-		menuCommandHeader();
-		std::cout << "Menu:\n\n";
-		std::cout << "\t1. View profile\n"
-			<< "\t2. View all courses in current semester\n"
-			<< "\t3. View scoreboard in current semester\n"
-			<< "\t4. Change semester\n"
-			<< "\t5. Change password\n"
-			<< "\t-1.Exit\n\n";
-		int choice;
-		std::cout << "Enter your command (1/2/3/4/5/-1): ";
-		std::cin >> choice;
+	menuCommandHeader();
+	std::cout << "Menu:\n\n";
+	std::cout << "\t1. View profile\n"
+		<< "\t2. View all courses in current semester\n"
+		<< "\t3. View scoreboard in current semester\n"
+		<< "\t4. Change semester\n"
+		<< "\t5. Change password\n"
+		<< "\t-1. Exit\n\n";
+	int choice;
+	std::cout << "(?) Enter your command (1/2/3/4/5/-1): ";
 
-		if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != -1)) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "Invalid input. Please enter a valid integer (1/2/3/4/-1)." << std::endl;
-			system("pause");
-			continue;
-		}
-		else {
-			if (choice == 1) {
-				viewStudentProfile();
-			}
-			else if (choice == 2) {
-				viewStudentCourses();
-			}
-			else if (choice == 3) {
-				viewStudentScoresInCurrentSem();
-			}
-			else if (choice == 4) {
-				changeCurrentSemesterSchoolYear();
-			}
-			else if (choice == 5) {
-				changeStudentPassword();
-			}
-			else if (choice == -1) {
-				std::cout << "Exiting..." << std::endl;
-				sleep(1);
-				startPage();
-				return;
-			}
-		}
+	while (!(std::cin >> choice) || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != -1)) {
+		std::cout << "(X) Invalid input. Please enter again: ";
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
+	if (choice == 1) {
+		viewStudentProfile();
+	}
+	else if (choice == 2) {
+		viewStudentCourses();
+	}
+	else if (choice == 3) {
+		viewStudentScoresInCurrentSem();
+	}
+	else if (choice == 4) {
+		changeCurrentSemesterSchoolYear();
+	}
+	else if (choice == 5) {
+		changeStudentPassword();
+	}
+	else if (choice == -1) {
+		std::cout << "(!) Exiting..." << std::endl;
+		sleep(1);
+		startPage();
+		return;
 	}
 }
 
 void staffHomePage() {
-	while (true) {
-		system("cls");
-		std::cout << "Menu:" << std::endl;
-		std::cout << "\t1. View Profile\n"
-			<< "\t2. Command Menu\n"
-			<< "\t3. Change Password\n"
-			<< "\t-1.Exit\n\n";
-		int choice;
-		std::cout << "Enter your command (1/2/3/-1): ";
-		std::cin >> choice;
+	system("cls");
+	std::cout << "Menu:\n\n";
+	std::cout << "\t1. View Profile\n"
+		<< "\t2. Command Menu\n"
+		<< "\t3. Change Password\n"
+		<< "\t-1.Exit\n";
+	int choice;
+	std::cout << "\n(?) Enter your command (1/2/3/-1): ";
 
-		if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != -1)) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "Invalid input. Please enter a valid integer (1/2/3/-1)." << std::endl;
-			system("pause");
-			continue;
-		}
-		else {
-			if (choice == 1)
-			{
-				viewStaffProfile();
-			}
-			else if (choice == 2)
-			{
-				staffCommandMenu();
-			}
-			else if (choice == 3)
-			{
-				changeStaffPassword();
-			}
-			else if (choice == -1)
-			{
-				std::cout << "Exiting..." << std::endl;
-				sleep(1);
-				startPage();
-				return;
-			}
-		}
+	while (!(std::cin >> choice) || (choice != 1 && choice != 2 && choice != 3 && choice != -1)) {
+		std::cout << "(X) Invalid input. Please enter again: ";
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
+	if (choice == 1) {
+		viewStaffProfile();
+	}
+	else if (choice == 2) {
+		staffCommandMenu();
+	}
+	else if (choice == 3) {
+		changeStaffPassword();
+	}
+	else if (choice == -1) {
+		std::cout << "(!) Exiting..." << std::endl;
+		sleep(1);
+		startPage();
+		return;
 	}
 }
 
 void staffCommandMenu() {
-	while (true) {
-		menuCommandHeader();
-		std::cout << "Menu:\n";
-		std::cout << "\t1.Create a newest School Year\n";
-		std::cout << "\t2.Create a newest Semester\n";
-		std::cout << "\t3.Change current Semester - School Year\n";
-		std::cout << "\t4.Class Management\n";
-		std::cout << "\t5.Course Management\n";
-		std::cout << "\t6.Back\n";
-		int choice;
-		std::cout << "Enter your command (1/2/3/4/5/6): ";
-		std::cin >> choice;
+	menuCommandHeader();
+	std::cout << "Menu:\n\n";
+	std::cout << "\t1. Create a newest School Year\n";
+	std::cout << "\t2. Create a newest Semester\n";
+	std::cout << "\t3. Change current Semester - School Year\n";
+	std::cout << "\t4. Class Management\n";
+	std::cout << "\t5. Course Management\n";
+	std::cout << "\t0. Back\n";
+	int choice;
+	std::cout << "\n(?) Enter your command (1/2/3/4/5/0): ";
 
-		if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6)) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "Invalid input. Please enter a valid integer (1/2/3/4/5/6)." << std::endl;
-			system("pause");
-			continue;
-		}
-		else {
-			if (choice == 1)
-			{
-				createANewSchoolYear();
-			}
-			else if (choice == 2)
-			{
-				createANewSemester();
-			}
-			else if (choice == 3)
-			{
-				changeCurrentSemesterSchoolYear();
-			}
-			else if (choice == 4)
-			{
-				classManagementPage();
-			}
-			else if (choice == 5)
-			{
-				courseManagementPage();
-			}
-			else if (choice == 6)
-			{
-				staffHomePage();
-				return;
-			}
-		}
+	while (!(std::cin >> choice) || (choice < 0 || choice > 5)) {
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "(X) Invalid input. Please enter again: ";
+	}
+	if (choice == 1) {
+		createANewSchoolYear();
+	}
+	else if (choice == 2) {
+		createANewSemester();
+	}
+	else if (choice == 3) {
+		changeCurrentSemesterSchoolYear();
+	}
+	else if (choice == 4) {
+		classManagementPage();
+	}
+	else if (choice == 5) {
+		courseManagementPage();
+	}
+	else if (choice == 0) {
+		staffHomePage();
+		return;
 	}
 }
 
 void classManagementPage() {
-	while (true) {
-		menuCommandHeader();
-		if (currSemNumber != 0) {
-			std::cout << "Menu command of Class Management:\n";
-			std::cout << "\t1.Create a new class (in current school year)\n";
-			std::cout << "\t2.Import CSV containing all students in a class (in current semester)\n";
-			std::cout << "\t3.View list of students in a class (in current school year)\n";
-			std::cout << "\t4.View scoreboard of a class (in current school year)\n";
-			std::cout << "\t5.View list of classes (in current school year)\n";
-			std::cout << "\t6.View list of classes in system\n";
-			std::cout << "\t7.Back\n";
-			int choice;
-			std::cout << "Enter your command (1/2/3/4/5/6/7): ";
-			std::cin >> choice;
+	menuCommandHeader();
+	if (currSemNumber != 0) {
+		std::cout << "[4]. Class Management:\n\n";
+		std::cout << "\t1. Create and add a new class (in current school year)\n";
+		std::cout << "\t2. Import CSV containing all students in a class (in current semester)\n";
+		std::cout << "\t3. View list of students in a class (in current school year)\n";
+		std::cout << "\t4. View scoreboard of a class (in current school year)\n";
+		std::cout << "\t5. View list of classes (in current school year)\n";
+		std::cout << "\t6. View list of classes (in system)\n";
+		std::cout << "\t0. Back\n";
+		int choice;
+		std::cout << "\n(?) Enter your command (1/2/3/4/5/6/0): ";
 
-			if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6 && choice != 7)) {
-				std::cin.clear();
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-				std::cout << "Invalid input. Please enter a valid integer (1/2/3/4/5/6/7)." << std::endl;
-				system("pause");
-				continue;
-			}
-			else {
-				if (choice == 1)
-				{
-					createANewClassInCurrentSYear();
-				}
-				else if (choice == 2)
-				{
-					importCSVStudentsOfAClass_Public();
-				}
-				else if (choice == 3)
-				{
-					viewListOfStudentsInAClass();
-				}
-				else if (choice == 4)
-				{
-					// FIXME: fix Format table to be more beautiful
-					// viewScoreBoardOfAClass();
-				}
-				else if (choice == 5)
-				{
-					viewListOfClassesInCurrentSemeter();
-				}
-				else if (choice == 6)
-				{
-					viewListOfClassesInSystem();
-				}
-				else if (choice == 7)
-				{
-					staffCommandMenu();
-					return;
-				}
-			}
+		while (!(std::cin >> choice) || (choice < 0 || choice > 6)) {
+			std::cout << "(X) Invalid input. Please enter again: ";
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
-		else
-		{
-			std::cout << "There are no semesters in the current school year, let's create a new semester so you can use the commands" << std::endl;
-			system("pause");
+		if (choice == 1) {
+			createANewClassInCurrentSYear();
+		}
+		else if (choice == 2) {
+			importCSVStudentsOfAClass_Public();
+		}
+		else if (choice == 3) {
+			viewListOfStudentsInAClass();
+		}
+		else if (choice == 4) {
+			// FIXME: fix Format table to be more beautiful
+			// viewScoreBoardOfAClass();
+		}
+		else if (choice == 5) {
+			viewListOfClassesInCurrentSemeter();
+		}
+		else if (choice == 6) {
+			viewListOfClassesInSystem();
+		}
+		else if (choice == 0) {
 			staffCommandMenu();
 			return;
 		}
 	}
+	else {
+		std::cout << "\n(X) There are no semesters in the current school year, let's create a new semester so you can use the commands" << std::endl;
+		system("pause");
+		staffCommandMenu();
+		return;
+	}
 }
 
 void courseManagementPage() {
-	while (true) {
-		menuCommandHeader();
-		if (currSemNumber != 0) {
-			std::cout << "Menu command of Course Management:\n";
-			std::cout << "\t1.Add a course to current semester\n";
-			std::cout << "\t2.Update information of a course\n";
-			std::cout << "\t3.Delete a course in current semester\n";
-			std::cout << "\t4.Add a student to a course\n";
-			std::cout << "\t5.Remove a student from a course\n";
-			std::cout << "\t6.Upload a CSV file containing a list of students enrolled in a course\n";
-			std::cout << "\t7.Export a list of students in a course to a CSV file\n";
-			std::cout << "\t8.View list of courses (in current semester)\n";
-			std::cout << "\t9.View list of students in a course (in current semester)\n";
-			std::cout << "\t10.View scoreboard of a course\n";
-			std::cout << "\t11.Update a student's result of a course\n";
-			std::cout << "\t12.Back\n";
-			int choice;
-			std::cout << "Enter your command (1/2/3/4/5/6/7/8/9/10/11/12): ";
-			std::cin >> choice;
+	menuCommandHeader();
+	if (currSemNumber != 0) {
+		std::cout << "[5]. Course Management:\n\n";
+		std::cout << "\t1. Add a course to current semester\n";
+		std::cout << "\t2. Update information of a course\n";
+		std::cout << "\t3. Delete a course in current semester\n";
+		std::cout << "\t4. Add a student to a course\n";
+		std::cout << "\t5. Remove a student from a course\n";
+		std::cout << "\t6. Upload a CSV file containing a list of students enrolled in a course\n";
+		std::cout << "\t7. Export a list of students in a course to a CSV file\n";
+		std::cout << "\t8. View list of courses (in current semester)\n";
+		std::cout << "\t9. View list of students in a course (in current semester)\n";
+		std::cout << "\t10. View scoreboard of a course\n";
+		std::cout << "\t11. Update a student's result of a course\n";
+		std::cout << "\t0. Back\n";
+		int choice;
+		std::cout << "\n(?) Enter your command (1/2/3/4/5/6/7/8/9/10/11/0): ";
 
-			if (std::cin.fail() || (choice < 1 || choice > 12)) {
-				std::cin.clear();
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-				std::cout << "Invalid input. Please enter a valid integer between 1 and 12." << std::endl;
-				system("pause");
-				continue;
-			}
-			else {
-				if (choice == 1)
-				{
-					addACourseInCurrSem();
-				}
-				else if (choice == 2)
-				{
-					updateInformationOfACourse();
-				}
-				else if (choice == 3)
-				{
-					deleteACourseInCurrSem();
-				}
-				else if (choice == 4)
-				{
-					addStudentToACourse();
-				}
-				else if (choice == 5)
-				{
-					removeAStudentFromACourse();
-				}
-				else if (choice == 6)
-				{
-					uploadCSVFileContainingAListOfStudentsOfACourse();
-				}
-				else if (choice == 7)
-				{
-					exportCSVStudentsOfACourse();
-				}
-				else if (choice == 8)
-				{
-					viewListOfCoursesInCurrSem();
-				}
-				else if (choice == 9)
-				{
-					viewListStudentInACourse();
-				}
-				else if (choice == 10)
-				{
-					viewScoreboardOfACourse();
-				}
-				else if (choice == 11) {
-					updateAStudentResultOfACourse();
-				}
-				else if (choice == 12)
-				{
-					staffCommandMenu();
-					return;
-				}
-			}
+		while (!(std::cin >> choice) || (choice < 0 || choice > 11)) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "(X) Invalid input. Please enter a valid integer between 1 and 12." << std::endl;
 		}
-		else {
-			std::cout << "There are no semesters in the current school year. Let's create a new semester so you can use the commands." << std::endl;
-			system("pause");
+		if (choice == 1) {
+			addACourseInCurrSem();
+		}
+		else if (choice == 2) {
+			updateInformationOfACourse();
+		}
+		else if (choice == 3) {
+			deleteACourseInCurrSem();
+		}
+		else if (choice == 4) {
+			addStudentToACourse();
+		}
+		else if (choice == 5) {
+			removeAStudentFromACourse();
+		}
+		else if (choice == 6) {
+			uploadCSVFileContainingAListOfStudentsOfACourse();
+		}
+		else if (choice == 7) {
+			exportCSVStudentsOfACourse();
+		}
+		else if (choice == 8) {
+			viewListOfCoursesInCurrSem();
+		}
+		else if (choice == 9) {
+			viewListStudentInACourse();
+		}
+		else if (choice == 10) {
+			viewScoreboardOfACourse();
+		}
+		else if (choice == 11) {
+			updateAStudentResultOfACourse();
+		}
+		else if (choice == 0) {
 			staffCommandMenu();
 			return;
 		}
+	}
+	else {
+		std::cout << "\n(X) There are no semesters in the current school year. Let's create a new semester so you can use the commands." << std::endl;
+		system("pause");
+		staffCommandMenu();
+		return;
 	}
 }

@@ -204,7 +204,7 @@ void viewListOfClassesInSystem() {
     std::cout << "\t+---------+--------------------+--------------------+\n";
     std::cout << "\t| No      | Class              | School Year        |\n";
     std::cout << "\t+---------+--------------------+--------------------+\n";
-    Node<SchoolYear>* syCurr = currSYear;
+    Node<SchoolYear>* syCurr = latestSYear;
     while (syCurr) {
         Node<Class>* claCurr = syCurr->data.classes;
         while (claCurr) {
