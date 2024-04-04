@@ -83,6 +83,7 @@ void createANewSchoolYear()
 		std::cout << "The new school year is " << nextSYear << "." << std::endl;
 		std::cout << "Are you sure you want to create a new school year (Y/N)? ";
 		char choice;
+		std::cin >> choice;
 		if (choice == 'Y' || choice == 'y') {
 			SchoolYear newYear;
 			newYear.year = nextSYear;
@@ -93,15 +94,18 @@ void createANewSchoolYear()
 				<< "Let's create a new first semester so you can execute commands!" << std::endl;
 			system("pause");
 			staffCommandMenu();
+			return;
 		}
 		else if (choice == 'N' || choice == 'n') {
 			system("pause");
 			staffCommandMenu();
+			return;
 		}
 		else {
 			std::cout << "Invalid choice" << std::endl;
 			system("pause");
 			staffCommandMenu();
+			return;
 		}
 	}
 }
