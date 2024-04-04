@@ -74,39 +74,41 @@ void createANewSchoolYear()
 	menuCommandHeader();
 	std::cout << "[1]. Create the newest School Year " << std::endl;
 	if (lastSemNumber != 3) {
-		std::cout << "This is not the last semester of the latest school year created on the system, you cannot create a new school year!" << std::endl;
+		std::cout << "\n(X) You cannot create a new school year as this is not the last semester of the latest school year on the system." << std::endl;
 		system("pause");
 		staffCommandMenu();
+		return;
 	}
 	else {
 		std::string nextSYear = getNextSchoolYear(latestSYear->data.year);
-		std::cout << "The new school year is " << nextSYear << "." << std::endl;
-		std::cout << "Are you sure you want to create a new school year (Y/N)? ";
+		std::cout << "\nThe new school year will be " << nextSYear << "." << std::endl;
+		std::cout << "(?) Are you sure you want to create a new school year (Y/N)? ";
+
 		char choice;
-		std::cin >> choice;
-		if (choice == 'Y' || choice == 'y') {
-			SchoolYear newYear;
-			newYear.year = nextSYear;
-			Node<SchoolYear>* syHead = new Node<SchoolYear>(newYear, latestSYear);
-			latestSYear = currSYear = syHead;
-			lastSemNumber = currSemNumber = 0;
-			std::cout << "Created new School Year succesfully!" << std::endl
-				<< "Let's create a new first semester so you can execute commands!" << std::endl;
-			system("pause");
-			staffCommandMenu();
-			return;
-		}
-		else if (choice == 'N' || choice == 'n') {
-			system("pause");
-			staffCommandMenu();
-			return;
-		}
-		else {
-			std::cout << "Invalid choice" << std::endl;
-			system("pause");
-			staffCommandMenu();
-			return;
-		}
+		do {
+			std::cin >> choice;
+			if (choice == 'Y' || choice == 'y') {
+				SchoolYear newYear;
+				newYear.year = nextSYear;
+				Node<SchoolYear>* syHead = new Node<SchoolYear>(newYear, latestSYear);
+				latestSYear = currSYear = syHead;
+				lastSemNumber = currSemNumber = 0;
+				std::cout << "\n(!) Successfully created new School Year!" << std::endl
+					<< "(*) Let's create a new first semester so you can execute commands." << std::endl;
+				system("pause");
+				staffCommandMenu();
+				return;
+			}
+			else if (choice == 'N' || choice == 'n') {
+				std::cout << "(X) Canceled creating new school year." << std::endl;
+				system("pause");
+				staffCommandMenu();
+				return;
+			}
+			else {
+				std::cout << "(X) Invalid choice. Please enter again: ";
+			}
+		} while (true);
 	}
 }
 
