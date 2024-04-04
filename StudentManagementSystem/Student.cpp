@@ -14,7 +14,6 @@ void importAllStudentsCSV() {
     // }
     Node<SchoolYear>* syHead = latestSYear;
     QString header = fin.readLine();
-    std::string line;
 
     while (!fin.atEnd())
     {

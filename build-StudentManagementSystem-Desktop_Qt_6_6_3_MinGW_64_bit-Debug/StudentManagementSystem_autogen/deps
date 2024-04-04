@@ -430,6 +430,8 @@ StudentManagementSystem_autogen/timestamp: \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QMainWindow \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QMessageBox \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QScrollerProperties \
+	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QTableWidget \
+	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QTableWidgetItem \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QtWidgets \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QtWidgetsDepends \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/qabstractbutton.h \

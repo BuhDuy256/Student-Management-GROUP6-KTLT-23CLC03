@@ -685,6 +685,10 @@ background-color: transparent;
 #StuCourse{
 background-color: rgba(0, 0, 0, 96);
 }
+
+#lb_MyCourses{
+	color:rgb(151, 255, 168);
+}
 </string>
           </property>
           <property name="currentIndex">
@@ -1031,7 +1035,85 @@ background-color: rgba(0, 0, 0, 96);
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="StuCourse"/>
+          <widget class="QWidget" name="StuCourse">
+           <widget class="QLabel" name="lb_MyCourses">
+            <property name="geometry">
+             <rect>
+              <x>60</x>
+              <y>10</y>
+              <width>777</width>
+              <height>129</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>36</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>My Courses</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QTableWidget" name="tableWidget">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>200</y>
+              <width>861</width>
+              <height>371</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="sortingEnabled">
+             <bool>false</bool>
+            </property>
+            <column>
+             <property name="text">
+              <string>No</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Course ID</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Course Name</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Class Name</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Tearcher Name</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Day Of Week</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Session</string>
+             </property>
+            </column>
+           </widget>
+          </widget>
           <widget class="QWidget" name="StuChangePassword">
            <layout class="QGridLayout" name="gridLayout_5">
             <property name="leftMargin">

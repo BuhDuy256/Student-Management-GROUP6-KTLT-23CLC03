@@ -14,7 +14,6 @@ void importAllStaffsCSV() {
     QTextStream fin(&file);
 
     QString header = fin.readLine();
-    std::string line;
     while (!fin.atEnd()) {
         QString Line = fin.readLine();
         std::string line = Line.toStdString();

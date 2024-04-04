@@ -8,6 +8,8 @@
 #include <QFont>
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QTableWidget>
+#include <QTableWidgetItem>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

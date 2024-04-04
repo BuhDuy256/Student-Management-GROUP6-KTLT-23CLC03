@@ -257,7 +257,7 @@ build StudentManagementSystem_autogen/EWIEGA46WW/qrc_resourses.cpp | ${cmake_nin
 #############################################
 # Phony custom command for CMakeFiles\StudentManagementSystem_autogen_timestamp_deps
 
-build CMakeFiles/StudentManagementSystem_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/StudentManagementSystem_autogen_timestamp_deps: phony D$:/Qt/6.6.3/mingw_64/./bin/uic.exe D$:/Qt/6.6.3/mingw_64/./bin/moc.exe D$:/Qt/6.6.3/mingw_64/lib/libQt6Core.a D$:/Qt/6.6.3/mingw_64/lib/libQt6Widgets.a
+build CMakeFiles/StudentManagementSystem_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/StudentManagementSystem_autogen_timestamp_deps: phony D$:/Qt/6.6.3/mingw_64/lib/libQt6Core.a D$:/Qt/6.6.3/mingw_64/./bin/moc.exe D$:/Qt/6.6.3/mingw_64/./bin/uic.exe D$:/Qt/6.6.3/mingw_64/lib/libQt6Widgets.a
 
 
 #############################################

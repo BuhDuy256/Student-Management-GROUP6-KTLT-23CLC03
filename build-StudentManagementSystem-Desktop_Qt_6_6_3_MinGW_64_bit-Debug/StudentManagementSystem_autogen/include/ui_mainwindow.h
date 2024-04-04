@@ -15,6 +15,7 @@
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -22,6 +23,7 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -83,6 +85,8 @@ public:
     QLineEdit *txt_StuClass;
     QLabel *lb_MyProfile;
     QWidget *StuCourse;
+    QLabel *lb_MyCourses;
+    QTableWidget *tableWidget;
     QWidget *StuChangePassword;
     QGridLayout *gridLayout_5;
     QLabel *lb_confirmPass;
@@ -500,6 +504,10 @@ public:
 "#StuCourse{\n"
 "background-color: rgba(0, 0, 0, 96);\n"
 "}\n"
+"\n"
+"#lb_MyCourses{\n"
+"	color:rgb(151, 255, 168);\n"
+"}\n"
 ""));
         StuHome = new QWidget();
         StuHome->setObjectName("StuHome");
@@ -658,6 +666,34 @@ public:
         stackedWidget_2->addWidget(StuProfile);
         StuCourse = new QWidget();
         StuCourse->setObjectName("StuCourse");
+        lb_MyCourses = new QLabel(StuCourse);
+        lb_MyCourses->setObjectName("lb_MyCourses");
+        lb_MyCourses->setGeometry(QRect(60, 10, 777, 129));
+        lb_MyCourses->setFont(font9);
+        lb_MyCourses->setStyleSheet(QString::fromUtf8(""));
+        lb_MyCourses->setAlignment(Qt::AlignCenter);
+        tableWidget = new QTableWidget(StuCourse);
+        if (tableWidget->columnCount() < 7)
+            tableWidget->setColumnCount(7);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(4, __qtablewidgetitem4);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(5, __qtablewidgetitem5);
+        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(6, __qtablewidgetitem6);
+        tableWidget->setObjectName("tableWidget");
+        tableWidget->setGeometry(QRect(20, 200, 861, 371));
+        QFont font10;
+        font10.setPointSize(9);
+        tableWidget->setFont(font10);
         stackedWidget_2->addWidget(StuCourse);
         StuChangePassword = new QWidget();
         StuChangePassword->setObjectName("StuChangePassword");
@@ -1159,6 +1195,21 @@ public:
         lb_StuName->setText(QCoreApplication::translate("MainWindow", "Name:   ", nullptr));
         lb_StuID->setText(QCoreApplication::translate("MainWindow", "Student ID:   ", nullptr));
         lb_MyProfile->setText(QCoreApplication::translate("MainWindow", "My Profile", nullptr));
+        lb_MyCourses->setText(QCoreApplication::translate("MainWindow", "My Courses", nullptr));
+        QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "No", nullptr));
+        QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "Course ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Course Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Class Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem4 = tableWidget->horizontalHeaderItem(4);
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("MainWindow", "Tearcher Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem5 = tableWidget->horizontalHeaderItem(5);
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "Day Of Week", nullptr));
+        QTableWidgetItem *___qtablewidgetitem6 = tableWidget->horizontalHeaderItem(6);
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "Session", nullptr));
         lb_confirmPass->setText(QCoreApplication::translate("MainWindow", "Confirm Password:", nullptr));
         button_back->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         button_confirm->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));

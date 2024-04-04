@@ -210,6 +210,34 @@ void MainWindow::on_button_StuMyProfile_clicked()
 
 void MainWindow::on_button_StuMyCourses_clicked()
 {
+    Node<Course>* couCurr = latestSem.Courses;
+
+    ui->tableWidget->setRowCount(1);
+    int no = 0;
+    while (couCurr) {
+        bool check = false;
+        for (int i = 0; i < couCurr->data.courseSize; i++) {
+            if (couCurr->data.score[i].studentID == currStudent->data.ID) {
+                no++;
+                check = true;
+            }
+        }
+        if (check) {
+            ui->tableWidget->insertRow(1);
+            ui->tableWidget->setItem(no - 1, 0, new QTableWidgetItem(QString::number(no)));
+            ui->tableWidget->setItem(no - 1, 1, new QTableWidgetItem(QString::fromStdString(couCurr->data.ID)));
+            ui->tableWidget->setItem(no - 1, 2, new QTableWidgetItem(QString::fromStdString(couCurr->data.Name)));
+            ui->tableWidget->setItem(no - 1, 3, new QTableWidgetItem(QString::fromStdString(couCurr->data.className)));
+            ui->tableWidget->setItem(no - 1, 4, new QTableWidgetItem(QString::fromStdString(couCurr->data.teacherName)));
+            ui->tableWidget->setItem(no - 1, 5, new QTableWidgetItem(QString::fromStdString(couCurr->data.dayOfWeek)));
+            ui->tableWidget->setItem(no - 1, 6, new QTableWidgetItem(QString::fromStdString(couCurr->data.session)));
+            // std::cout << "\t| " << std::left << std::setw(8) << no << "| " << std::left << std::setw(15) << couCurr->data.ID << "| " << std::left << std::setw(31) << couCurr->data.Name << "| "
+            //           << std::left << std::setw(15) << couCurr->data.className << "| " << std::left << std::setw(23) << couCurr->data.teacherName << "| "
+            //           << std::left << std::setw(12) << couCurr->data.dayOfWeek << "| " << std::left << std::setw(15) << couCurr->data.session << "|\n";
+        }
+        couCurr = couCurr->next;
+    }
+
     ui->stackedWidget_2->setCurrentIndex(2);
 }
 
