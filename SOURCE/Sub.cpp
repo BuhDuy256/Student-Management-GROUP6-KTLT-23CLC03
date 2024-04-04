@@ -1,36 +1,36 @@
 #include"Sub.h"
 
 void importData() {
-	importAllSchoolYearsCSV();
-	importAllClassesCSV();
-	importAllStudentsCSV();
-	importAllSemestersCSV();
-	importAllCoursesCSV();
-	importAllStudentsInAllCoursesCSV();
-	importAllStaffsCSV();
+    importAllSchoolYearsCSV();
+    importAllClassesCSV();
+    importAllStudentsCSV();
+    importAllSemestersCSV();
+    importAllCoursesCSV();
+    importAllStudentsInAllCoursesCSV();
+    importAllStaffsCSV();
 
-	findCurrSem();
+    findCurrSem();
 }
 
 void saveData() {
-	saveAllSchoolYearsData();
-	saveAllClassesData();
-	saveAllStudentsData();
-	saveAllSemestersData();
-	saveAllCoursesData();
-	saveAllScoreboardsData();
-	saveAllStaffsData();
+    saveAllSchoolYearsData();
+    saveAllClassesData();
+    saveAllStudentsData();
+    saveAllSemestersData();
+    saveAllCoursesData();
+    saveAllScoreboardsData();
+    saveAllStaffsData();
 }
 
 void deleteData() {
-	deleteAllStudentsData();
-	deleteAllClassesData();
-	deleteAllScoreboardsData();
-	deleteAllCourseData();
-	deleteAllStaffData();
+    deleteAllStudentsData();
+    deleteAllClassesData();
+    deleteAllScoreboardsData();
+    deleteAllCourseData();
+    deleteAllStaffData();
 }
 
-bool getChoice(int numberOfChoices, std::string prompt, int &choice)
+bool getChoice(int numberOfChoices, std::string prompt, int& choice)
 {
     std::cin.ignore();
     std::cout << prompt;
@@ -42,14 +42,14 @@ bool getChoice(int numberOfChoices, std::string prompt, int &choice)
         std::cout << "Please choose valid choice between " << 1 << " and " << numberOfChoices << std::endl;
         return false;
     }
-    
+
     choice = line[0] - '0';
     return true;
 }
 
 bool checkNameValid(std::string name)
-{   
-    for (char c : name) 
+{
+    for (char c : name)
     {
         if (!std::isalpha(c) && !isspace(c))
         {
@@ -62,7 +62,7 @@ bool checkNameValid(std::string name)
 
 bool checkIDValid(std::string id)
 {
-    for (char c : id) 
+    for (char c : id)
     {
         if (!isdigit(c))
         {
@@ -73,21 +73,21 @@ bool checkIDValid(std::string id)
     return true;
 }
 
-void formalize(std::string &name)
+void formalize(std::string& name)
 {
     std::string formalizedName;
     bool lastWasSpace = true;
-    for (char c : name) 
+    for (char c : name)
     {
-        if (std::isspace(c)) 
+        if (std::isspace(c))
         {
-            if (!lastWasSpace) 
+            if (!lastWasSpace)
             {
                 formalizedName += ' ';
                 lastWasSpace = true;
             }
-        } 
-        else 
+        }
+        else
         {
             if (lastWasSpace) c = toupper(c);
             else c = tolower(c);
@@ -115,59 +115,59 @@ std::string removeQuotesFromPath(const std::string& path) {
 }
 
 int getUser(std::string userID, std::string userPassword) {
-	int userType = -1;
+    int userType = -1;
 
-	Node<Staff>* staffCurr = listStaff;
-	while (staffCurr) {
-		if (staffCurr->data.ID == userID && staffCurr->data.password == userPassword) {
-			currStaff = staffCurr;
-			userType = 1;
-			break;
-		}
-		staffCurr = staffCurr->next;
-	}
+    Node<Staff>* staffCurr = listStaff;
+    while (staffCurr) {
+        if (staffCurr->data.ID == userID && staffCurr->data.password == userPassword) {
+            currStaff = staffCurr;
+            userType = 1;
+            break;
+        }
+        staffCurr = staffCurr->next;
+    }
 
-	if (userType == -1) {
-		Node<SchoolYear>* syCurr = latestSYear;
-		while (syCurr) {
-			Node<Class>* classCurr = syCurr->data.classes;
-			while (classCurr) {
-				Node<Student>* studentCurr = classCurr->data.students;
-				while (studentCurr) {
-					if (studentCurr->data.ID == userID && studentCurr->data.password == userPassword) {
-						currStudent = studentCurr;
-						userType = 2;
-						break;
-					}
-					studentCurr = studentCurr->next;
-				}
-				if (userType == 2)
-					break;
-				classCurr = classCurr->next;
-			}
-			if (userType == 2)
-				break;
-			syCurr = syCurr->next;
-		}
-	}
+    if (userType == -1) {
+        Node<SchoolYear>* syCurr = latestSYear;
+        while (syCurr) {
+            Node<Class>* classCurr = syCurr->data.classes;
+            while (classCurr) {
+                Node<Student>* studentCurr = classCurr->data.students;
+                while (studentCurr) {
+                    if (studentCurr->data.ID == userID && studentCurr->data.password == userPassword) {
+                        currStudent = studentCurr;
+                        userType = 2;
+                        break;
+                    }
+                    studentCurr = studentCurr->next;
+                }
+                if (userType == 2)
+                    break;
+                classCurr = classCurr->next;
+            }
+            if (userType == 2)
+                break;
+            syCurr = syCurr->next;
+        }
+    }
 
-	return userType;
+    return userType;
 }
 
 void findCurrSem() {
-	Node<SchoolYear>* syCurr = latestSYear;
-	bool found = false;
-	while (syCurr && !found) {
-		for (int i = 2; i >= 0; i--) {
-			if (syCurr->data.semesters[i].isCreated) {
-				found = true;
-				latestSem = currSem = syCurr->data.semesters[i];
-				lastSemNumber = currSemNumber = i + 1;
-				break;
-			}
-		}
-		syCurr = syCurr->next;
-	}
+    Node<SchoolYear>* syCurr = latestSYear;
+    bool found = false;
+    while (syCurr && !found) {
+        for (int i = 2; i >= 0; i--) {
+            if (syCurr->data.semesters[i].isCreated) {
+                found = true;
+                latestSem = currSem = syCurr->data.semesters[i];
+                lastSemNumber = currSemNumber = i + 1;
+                break;
+            }
+        }
+        syCurr = syCurr->next;
+    }
 }
 
 bool checkClassExist(std::string className) {
@@ -200,14 +200,69 @@ bool ends_with(const std::string& str, const std::string& suffix) {
 }
 
 std::string getNextSchoolYear(const std::string& currentYear) {
-	int startYear = std::stoi(currentYear.substr(0, 4));
-	int endYear = std::stoi(currentYear.substr(5, 4));
+    int startYear = std::stoi(currentYear.substr(0, 4));
+    int endYear = std::stoi(currentYear.substr(5, 4));
 
-	return std::to_string(startYear + 1) + "-" + std::to_string(endYear + 1);
+    return std::to_string(startYear + 1) + "-" + std::to_string(endYear + 1);
 }
 
 void menuCommandHeader() {
     system("cls");
     std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
     std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+}
+
+bool isValidDateFormat(const std::string& date) {
+    if (date.size() != 10) // Check if the string has the correct length
+        return false;
+
+    for (int i = 0; i < 10; ++i) {
+        if (i == 2 || i == 5) {
+            if (date[i] != '/') // Check if slashes are at the correct positions
+                return false;
+        }
+        else {
+            if (!std::isdigit(date[i])) { // Check if other characters are digits
+                std::cout << "Invalid character in date: " << date[i] << std::endl;
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+int dateToInt(std::string date) {
+    if (!isValidDateFormat(date)) {
+        throw std::invalid_argument("Invalid date format");
+    }
+
+    int Y = std::stoi(date.substr(6, 4));
+    int M = std::stoi(date.substr(3, 2));
+    int D = std::stoi(date.substr(0, 2));
+
+    int dateRes = 0;
+    for (int y = 1971; y < Y; ++y) dateRes += isLeapYear(y) ? 366 : 365;
+    for (int m = 1; m < M; ++m) dateRes += daysInMonth(m, Y);
+    return dateRes + D;
+}
+
+bool isLeapYear(int year) {
+    return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+}
+
+int daysInMonth(int month, int year) {
+    if (month == 2) {
+        return isLeapYear(year) ? 29 : 28;
+    }
+    else if (month == 4 || month == 6 || month == 9 || month == 11) {
+        return 30;
+    }
+    else {
+        return 31;
+    }
+}
+
+int daysBetweenDates(const std::string& date1, const std::string& date2) {
+    return abs(dateToInt(date2) - dateToInt(date1));
 }

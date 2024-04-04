@@ -130,8 +130,8 @@ void staffHomePage() {
 void staffCommandMenu() {
 	menuCommandHeader();
 	std::cout << "Menu:\n\n";
-	std::cout << "\t1. Create a newest School Year\n";
-	std::cout << "\t2. Create a newest Semester\n";
+	std::cout << "\t1. Create a new School Year\n";
+	std::cout << "\t2. Create a new Semester\n";
 	std::cout << "\t3. Change current Semester - School Year\n";
 	std::cout << "\t4. Class Management\n";
 	std::cout << "\t5. Course Management\n";

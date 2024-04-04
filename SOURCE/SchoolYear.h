@@ -31,3 +31,4 @@ void deleteAllSchoolYearsData();
 void createANewSchoolYear();
 void createANewSemester();
 void changeCurrentSemesterSchoolYear();
+void displayTableOfAllSemesters(int& no);
