@@ -2,7 +2,7 @@
 
 void viewStudentProfile()
 {
-    system("cls");
+    menuCommandHeader();
     Student a = currStudent->data;
     std::cout << "[1] Your Profile: " << "\n";
     std::cout << "\t+--------------------+--------------------------------+\n";
@@ -25,10 +25,10 @@ void viewStudentProfile()
 
 void viewStudentCourses()
 {
-    system("cls");
+    menuCommandHeader();
     std::cout << "[2]. Your couse in this semester: " << std::endl;
 
-    Node<Course>* couCurr = latestSem.Courses;
+    Node<Course>* couCurr = currSem.Courses;
 
     std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
     std::cout << "\t| No     | Course ID  | Course Name                  | Class Name | Teacher Name            | Credits | Size | Day | Session |\n";
@@ -66,7 +66,7 @@ void viewStudentCourses()
 
 void viewStudentScoresInCurrentSem()
 {
-    system("cls");
+    menuCommandHeader();
     std::cout << "[3]. Your scoreboard in this semester: " << std::endl;
 
     Node<Course>* couCurr = latestSem.Courses;

@@ -63,18 +63,19 @@ void signInPage() {
 
 void studentHomePage() {
 	while (true) {
-		system("cls");
+		menuCommandHeader();
 		std::cout << "Menu:" << std::endl;
 		std::cout << "\t1. View your profile\n"
 			<< "\t2. View your courses in current semester\n"
-			<< "\t3. View scoreboard\n"
-			<< "\t4. Change Password\n"
+			<< "\t3. View scoreboard in current semester\n"
+			<< "\t4. Change current semester\n"
+			<< "\t5. Change Password\n"
 			<< "\t-1.Exit\n\n";
 		int choice;
-		std::cout << "Enter your command (1/2/3/4/-1): ";
+		std::cout << "Enter your command (1/2/3/4/5/-1): ";
 		std::cin >> choice;
 
-		if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != -1)) {
+		if (std::cin.fail() || (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != -1)) {
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "Invalid input. Please enter a valid integer (1/2/3/4/-1)." << std::endl;
@@ -82,24 +83,22 @@ void studentHomePage() {
 			continue;
 		}
 		else {
-			if (choice == 1)
-			{
+			if (choice == 1) {
 				viewStudentProfile();
 			}
-			else if (choice == 2)
-			{
+			else if (choice == 2) {
 				viewStudentCourses();
 			}
-			else if (choice == 3)
-			{
+			else if (choice == 3) {
 				viewStudentScoresInCurrentSem();
 			}
-			else if (choice == 4)
-			{
+			else if (choice == 4) {
+				changeCurrentSemesterSchoolYear();
+			}
+			else if (choice == 5) {
 				changeStudentPassword();
 			}
-			else if (choice == -1)
-			{
+			else if (choice == -1) {
 				std::cout << "Exiting..." << std::endl;
 				sleep(1);
 				startPage();

@@ -23,4 +23,5 @@ extern Node<Staff>* listStaff;
 extern Node<Staff>* currStaff;
 extern Node<Course>* currCourse;
 extern StudentScore* currStuScore;
+extern unsigned short userMode; // Update feature change Semester and SchoolYear (Student can change semester)
 
