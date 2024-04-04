@@ -75,7 +75,7 @@ void viewStaffProfile() {
     system("cls");
     Staff a = currStaff->data;
     std::cout << "[1]. View your Profile" << std::endl;
-    std::cout << "\t+--------------------+--------------------------------+\n";
+    std::cout << "\n\t+--------------------+--------------------------------+\n";
     std::cout << "\t| " << std::left << std::setw(19) << "Staff Name" << "| " << std::setw(31) << a.name << "|\n";
     std::cout << "\t+--------------------+--------------------------------+\n";
     std::cout << "\t| " << std::left << std::setw(19) << "Staff ID" << "| " << std::setw(31) << a.ID << "|\n";
@@ -85,22 +85,23 @@ void viewStaffProfile() {
     std::cout << "\t| " << std::left << std::setw(19) << "Birthday" << "| " << std::setw(31) << a.birthday << "|\n";
     std::cout << "\t+--------------------+--------------------------------+\n";
     std::cout << "\t| " << std::left << std::setw(19) << "Social ID" << "| " << std::setw(31) << a.socialID << "|\n";
-    std::cout << "\t+--------------------+--------------------------------+\n";
+    std::cout << "\t+--------------------+--------------------------------+\n\n";
     system("pause");
     staffHomePage();
+    return;
 }
 
 void changeStaffPassword() {
     system("cls");
-    std::cout << "[4]. Change password:" << std::endl;
+    std::cout << "[4]. Change password" << std::endl;
     std::string oldPassword, newPassword, confirmPassword;
-    std::cout << "\tEnter your old password: ";
+    std::cout << "\n\t(?) Enter old password: ";
     std::cin >> oldPassword;
 
-    std::cout << "\tEnter your new password: ";
+    std::cout << "\t(?) Enter new password: ";
     std::cin >> newPassword;
 
-    std::cout << "\tConfirm your new password: ";
+    std::cout << "\t(?) Enter again to confirm: ";
     std::cin >> confirmPassword;
 
     bool verifyPassword = false;
@@ -109,21 +110,21 @@ void changeStaffPassword() {
     }
 
     if (!verifyPassword) {
-        std::cout << "Your old password is incorrect!" << std::endl;
+        std::cout << "\n(X) Your old password is incorrect!" << std::endl;
         system("pause");
         staffHomePage();
         return;
     }
 
     if (newPassword != confirmPassword) {
-        std::cout << "Your new passwords do not match. Please try again!" << std::endl;
+        std::cout << "\n(X) Your new passwords do not match. Please try again!" << std::endl;
         system("pause");
         staffHomePage();
         return;
     }
 
     currStaff->data.password = newPassword;
-    std::cout << "Password changed successfully." << std::endl;
+    std::cout << "\n(!) Password changed successfully." << std::endl;
     system("pause");
     staffHomePage();
 }

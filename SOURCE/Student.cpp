@@ -108,13 +108,13 @@ void changeStudentPassword() {
     system("cls");
     std::cout << "[4]. Change password:" << std::endl;
     std::string oldPassword, newPassword, confirmPassword;
-    std::cout << "\n\t(?) Enter your old password: ";
+    std::cout << "\n\t(?) Enter old password: ";
     std::cin >> oldPassword;
 
-    std::cout << "\t(?) Enter your new password: ";
+    std::cout << "\t(?) Enter new password: ";
     std::cin >> newPassword;
 
-    std::cout << "\t(?) Confirm your new password: ";
+    std::cout << "\t(?) Enter again to confirm: ";
     std::cin >> confirmPassword;
 
     bool verifyPassword = false;
