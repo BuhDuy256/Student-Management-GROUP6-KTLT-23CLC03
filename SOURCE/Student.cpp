@@ -69,7 +69,7 @@ void viewStudentScoresInCurrentSem()
     menuCommandHeader();
     std::cout << "[3]. Your scoreboard in this semester: " << std::endl;
 
-    Node<Course>* couCurr = latestSem.Courses;
+    Node<Course>* couCurr = currSem.Courses;
     if (!couCurr) {
         std::cout << "You don't have any course!" << std::endl;
         system("pause");
@@ -89,10 +89,10 @@ void viewStudentScoresInCurrentSem()
                 std::cout << "\t| " << std::left << std::setw(8) << no << "| "
                     << std::left << std::setw(15) << couCurr->data.ID << "| "
                     << std::left << std::setw(31) << couCurr->data.Name << "| "
-                    << std::left << std::setw(11) << std::fixed << std::setprecision(2) << couCurr->data.score[i].midTerm << "| "
-                    << std::left << std::setw(11) << std::fixed << std::setprecision(2) << couCurr->data.score[i].final << "| "
-                    << std::left << std::setw(11) << std::fixed << std::setprecision(2) << couCurr->data.score[i].other << "| "
-                    << std::left << std::setw(11) << std::fixed << std::setprecision(2) << couCurr->data.score[i].total << "|\n";
+                    << std::left << std::setw(11) << std::fixed << std::setprecision(2) << (couCurr->data.score[i].midTerm > 0 ? doubleToString(couCurr->data.score[i].midTerm) : "") << "| "
+                    << std::left << std::setw(11) << std::fixed << std::setprecision(2) << (couCurr->data.score[i].final > 0 ? doubleToString(couCurr->data.score[i].final) : "") << "| "
+                    << std::left << std::setw(11) << std::fixed << std::setprecision(2) << (couCurr->data.score[i].other > 0 ? doubleToString(couCurr->data.score[i].other) : "") << "| "
+                    << std::left << std::setw(11) << std::fixed << std::setprecision(2) << (couCurr->data.score[i].total > 0 ? doubleToString(couCurr->data.score[i].total) : "") << "|\n";
             }
         }
         couCurr = couCurr->next;

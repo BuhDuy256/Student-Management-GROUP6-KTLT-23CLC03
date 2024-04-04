@@ -52,6 +52,7 @@ void signInPage() {
 		startPage(); //signInpage();
 	}
 	std::cout << "(!) Log in successfully." << std::endl;
+	userMode = userType;
 	system("pause");
 	if (userType == 1) {
 		staffHomePage();

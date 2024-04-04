@@ -1,48 +1,48 @@
 #include"SchoolYear.h"
 
-void Semester::viewCoursesList(int &no) {
-    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
-    std::cout << "\t| No     | Course ID  | Course Name                  | Class Name | Teacher Name            | Credits | Size | Day | Session |\n";
-    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
-    no = 0;
-    Node<Course>* couCurr = Courses;
-    while (couCurr) {
-        no++;
-        std::cout << "\t| " << std::left << std::setw(7) << no
-            << "| " << std::left << std::setw(11) << couCurr->data.ID
-            << "| " << std::left << std::setw(29) << couCurr->data.Name
-            << "| " << std::left << std::setw(11) << couCurr->data.className
-            << "| " << std::left << std::setw(24) << couCurr->data.teacherName
-            << "| " << std::left << std::setw(8) << couCurr->data.nCredits
-            << "| " << std::left << std::setw(5) << couCurr->data.courseSize
-            << "| " << std::left << std::setw(4) << couCurr->data.dayOfWeek
-            << "| " << std::left << std::setw(8) << couCurr->data.session
-            << "|" << std::endl;
-        couCurr = couCurr->next;
-    }
-    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
+void Semester::viewCoursesList(int& no) {
+	std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
+	std::cout << "\t| No     | Course ID  | Course Name                  | Class Name | Teacher Name            | Credits | Size | Day | Session |\n";
+	std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
+	no = 0;
+	Node<Course>* couCurr = Courses;
+	while (couCurr) {
+		no++;
+		std::cout << "\t| " << std::left << std::setw(7) << no
+			<< "| " << std::left << std::setw(11) << couCurr->data.ID
+			<< "| " << std::left << std::setw(29) << couCurr->data.Name
+			<< "| " << std::left << std::setw(11) << couCurr->data.className
+			<< "| " << std::left << std::setw(24) << couCurr->data.teacherName
+			<< "| " << std::left << std::setw(8) << couCurr->data.nCredits
+			<< "| " << std::left << std::setw(5) << couCurr->data.courseSize
+			<< "| " << std::left << std::setw(4) << couCurr->data.dayOfWeek
+			<< "| " << std::left << std::setw(8) << couCurr->data.session
+			<< "|" << std::endl;
+		couCurr = couCurr->next;
+	}
+	std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
 }
 
 bool Semester::deleteCourse(int index)
 {
-    if (!Courses) return false;
-    else if (index == 1)
-    {
-        Node<Course>* deleteNode = Courses;
-        Courses = Courses->next;
-        delete deleteNode;
-        return true;
-    }
-    Node<Course>* node = Courses;
-    for (int i = 1; i < index - 1; i++)
-    {
-        if (!node) return false;
-        node = node->next;
-    }
-    
-    Node<Course>* deleteNode = node->next;
-    node->next = node->next->next;
-    delete deleteNode;
+	if (!Courses) return false;
+	else if (index == 1)
+	{
+		Node<Course>* deleteNode = Courses;
+		Courses = Courses->next;
+		delete deleteNode;
+		return true;
+	}
+	Node<Course>* node = Courses;
+	for (int i = 1; i < index - 1; i++)
+	{
+		if (!node) return false;
+		node = node->next;
+	}
+
+	Node<Course>* deleteNode = node->next;
+	node->next = node->next->next;
+	delete deleteNode;
 	return true;
 }
 
@@ -88,7 +88,7 @@ void createANewSchoolYear()
 			newYear.year = nextSYear;
 			Node<SchoolYear>* syHead = new Node<SchoolYear>(newYear, latestSYear);
 			latestSYear = currSYear = syHead;
-			lastSemNumber = currSemNumber = 0; 
+			lastSemNumber = currSemNumber = 0;
 			std::cout << "Created new School Year succesfully!" << std::endl
 				<< "Let's create a new first semester so you can execute commands!" << std::endl;
 			system("pause");
@@ -216,6 +216,11 @@ void changeCurrentSemesterSchoolYear() {
 		}
 	}
 	system("pause");
-	staffCommandMenu();
+	if (userMode == 1) {
+		staffCommandMenu();
+	}
+	else if (userMode == 2) {
+		studentHomePage();
+	}
 	return;
 }
