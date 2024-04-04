@@ -22,6 +22,12 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_btn_addCourse_clicked();
+
+    void on_btn_addStudent_clicked();
+
+    void on_btn_deleteStudent_clicked();
+
 private:
     Ui::TextEdit *ui;
 };

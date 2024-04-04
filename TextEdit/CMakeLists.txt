@@ -25,6 +25,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         Course.h
         Course.cpp
+        Semester.h
+        Semester.cpp
+        Node.h
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET TextEdit APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

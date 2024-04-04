@@ -22,6 +22,9 @@ struct StudentScore {
 class Course : public QObject
 {
 private:
+    QStandardItemModel *model;
+
+public:
     std::string ID;
     std::string Name;
     std::string className;
@@ -31,9 +34,6 @@ private:
     std::string session;
     StudentScore* score = nullptr;
 
-    QStandardItemModel *model;
-
-public:
     Course(QObject *parent = nullptr);
     ~Course();
 
