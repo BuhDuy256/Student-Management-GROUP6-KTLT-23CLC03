@@ -11,12 +11,10 @@ void startPage()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-	if (cmd == 1)
-	{
+	if (cmd == 1) {
 		signInPage();
 	}
-	else if (cmd == -1)
-	{
+	else if (cmd == -1) {
 		std::cout << "(!) Exiting..." << std::endl;
 		saveData();
 		deleteData();

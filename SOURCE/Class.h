@@ -18,4 +18,5 @@ void createANewClassInCurrentSYear();
 void viewListOfStudentsInAClass();
 void displayTableOfClassesInCurrentSemester(int &no); // no is the number of classes to reuse in another function
 void viewListOfClassesInCurrentSemeter();
+void displayTableOfClassesInSystem(int &no);
 void viewListOfClassesInSystem();

@@ -197,10 +197,7 @@ void displayTableOfClassesInCurrentSemester(int& no) {
     std::cout << "\t+---------+--------------------+\n";
 }
 
-void viewListOfClassesInSystem() {
-    system("cls");
-    std::cout << "[6]. View list of classes in system" << std::endl;
-    int no = 0;
+void displayTableOfClassesInSystem(int &no) {
     std::cout << "\t+---------+--------------------+--------------------+\n";
     std::cout << "\t| No      | Class              | School Year        |\n";
     std::cout << "\t+---------+--------------------+--------------------+\n";
@@ -215,6 +212,13 @@ void viewListOfClassesInSystem() {
         syCurr = syCurr->next;
     }
     std::cout << "\t+---------+--------------------+--------------------+\n";
+}
+
+void viewListOfClassesInSystem() {
+    system("cls");
+    std::cout << "[6]. View list of classes in system" << std::endl;
+    int no = 0;
+    displayTableOfClassesInSystem(no);
     system("pause");
     classManagementPage();
     return;
