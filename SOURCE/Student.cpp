@@ -30,9 +30,9 @@ void viewStudentCourses()
 
     Node<Course>* couCurr = latestSem.Courses;
 
-    std::cout << "\t+---------+----------------+--------------------------------+----------------+------------------------+-------------+----------------+\n";
-    std::cout << "\t| No      | Course ID      | Course Name                    | Class Name     | Teacher Name           | Day of Week | Session        |\n";
-    std::cout << "\t+---------+----------------+--------------------------------+----------------+------------------------+-------------+----------------+\n";
+    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
+    std::cout << "\t| No     | Course ID  | Course Name                  | Class Name | Teacher Name            | Credits | Size | Day | Session |\n";
+    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
 
     int no = 0;
     while (couCurr) {
@@ -44,14 +44,21 @@ void viewStudentCourses()
             }
         }
         if (check) {
-            std::cout << "\t| " << std::left << std::setw(8) << no << "| " << std::left << std::setw(15) << couCurr->data.ID << "| " << std::left << std::setw(31) << couCurr->data.Name << "| "
-                << std::left << std::setw(15) << couCurr->data.className << "| " << std::left << std::setw(23) << couCurr->data.teacherName << "| "
-                << std::left << std::setw(12) << couCurr->data.dayOfWeek << "| " << std::left << std::setw(15) << couCurr->data.session << "|\n";
+            std::cout << "\t| " << std::left << std::setw(7) << no
+            << "| " << std::left << std::setw(11) << couCurr->data.ID
+            << "| " << std::left << std::setw(29) << couCurr->data.Name
+            << "| " << std::left << std::setw(11) << couCurr->data.className
+            << "| " << std::left << std::setw(24) << couCurr->data.teacherName
+            << "| " << std::left << std::setw(8) << couCurr->data.nCredits
+            << "| " << std::left << std::setw(5) << couCurr->data.courseSize
+            << "| " << std::left << std::setw(4) << couCurr->data.dayOfWeek
+            << "| " << std::left << std::setw(8) << couCurr->data.session
+            << "|" << std::endl;
         }
         couCurr = couCurr->next;
     }
 
-    std::cout << "\t+---------+----------------+--------------------------------+----------------+------------------------+-------------+----------------+\n";
+    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
     system("pause");
     studentHomePage();
     return;

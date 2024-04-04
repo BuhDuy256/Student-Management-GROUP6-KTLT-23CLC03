@@ -1,6 +1,5 @@
 #include"Class.h"
 
-
 void importCSVStudentsOfAClass_Public() {
     menuCommandHeader();
     std::cout << "[2]. Import CSV containing all students in a class (in current semester)" << std::endl;

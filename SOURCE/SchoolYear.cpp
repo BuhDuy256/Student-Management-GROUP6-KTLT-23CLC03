@@ -71,8 +71,7 @@ void saveAllSemestersData() {
 
 void createANewSchoolYear()
 {
-	system("cls");
-	std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
+	menuCommandHeader();
 	std::cout << "[1]. Create the newest School Year " << std::endl;
 	if (lastSemNumber != 3) {
 		std::cout << "This is not the last semester of the latest school year created on the system, you cannot create a new school year!" << std::endl;
@@ -96,7 +95,6 @@ void createANewSchoolYear()
 			staffCommandMenu();
 		}
 		else if (choice == 'N' || choice == 'n') {
-			std::cout << "Create a new school year failed."; //No need
 			system("pause");
 			staffCommandMenu();
 		}
