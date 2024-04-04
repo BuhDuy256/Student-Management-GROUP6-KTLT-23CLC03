@@ -159,10 +159,10 @@ void createANewSemester() {
 void changeCurrentSemesterSchoolYear() {
 	menuCommandHeader();
 	Node<SchoolYear>* syCurr = latestSYear;
-	std::cout << "All semesters in the system:" << std::endl;
+	std::cout << "[3]. All semesters in system:" << std::endl;
 	// Display table Semester - School Year
 	int no = 0;
-	std::cout << "\t+---------+------------+--------------------+\n";
+	std::cout << "\n\t+---------+------------+--------------------+\n";
 	std::cout << "\t|No       | Semester   | School Year        |\n";
 	std::cout << "\t+---------+------------+--------------------+\n";
 	while (syCurr)
@@ -177,19 +177,15 @@ void changeCurrentSemesterSchoolYear() {
 		}
 		syCurr = syCurr->next;
 	}
-	std::cout << "\t+---------+------------+--------------------+\n";
+	std::cout << "\t+---------+------------+--------------------+\n\n";
 
-	std::cout << "Enter the sequence number corresponding to the semester you want to change (";
-	for (int i = 1; i < no; i++) {
-		std::cout << i << "/";
-	}
-	std::cout << no << "): ";
+	std::cout << "(?) Enter the number of the semester you want to change (1-" << no << "): ";
 
 	int choice;
 	while (true) {
 		std::cin >> choice;
 		if (choice < 1 || choice > no) {
-			std::cout << "Invalid input. Please enter a number between 1 and " << no << ": ";
+			std::cout << "(X) Invalid input. Please enter a number between 1 and " << no << ": ";
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
@@ -222,5 +218,4 @@ void changeCurrentSemesterSchoolYear() {
 	else if (userMode == 2) {
 		studentHomePage();
 	}
-	return;
 }

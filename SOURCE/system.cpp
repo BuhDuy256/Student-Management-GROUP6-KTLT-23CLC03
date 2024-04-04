@@ -3,7 +3,7 @@
 void startPage()
 {
 	system("cls");
-	std::cout << "[1] Sign In.\n[-1] Exit.\n\nInput your command: ";
+	std::cout << "\t1. Sign In\n\t-1. Exit\n\n(?) Input your command: ";
 	int cmd;
 	std::cin >> cmd;
 
@@ -35,13 +35,13 @@ void signInPage() {
 	// 1: User is Staff
 	// 2: User is Student
 	int userType = -1;
-	std::cout << "[1] Sign in" << std::endl;
+	std::cout << "[1] Sign in\n\n";
 	std::string userID;
-	std::cout << "Username: ";
+	std::cout << "\tUsername: ";
 	std::cin >> userID;
 
 	std::string userPassword;
-	std::cout << "Password: ";
+	std::cout << "\tPassword: ";
 	std::cin >> userPassword;
 
 	userType = getUser(userID, userPassword);
@@ -65,12 +65,12 @@ void signInPage() {
 void studentHomePage() {
 	while (true) {
 		menuCommandHeader();
-		std::cout << "Menu:" << std::endl;
-		std::cout << "\t1. View your profile\n"
-			<< "\t2. View your courses in current semester\n"
+		std::cout << "Menu:\n\n";
+		std::cout << "\t1. View profile\n"
+			<< "\t2. View all courses in current semester\n"
 			<< "\t3. View scoreboard in current semester\n"
-			<< "\t4. Change current semester\n"
-			<< "\t5. Change Password\n"
+			<< "\t4. Change semester\n"
+			<< "\t5. Change password\n"
 			<< "\t-1.Exit\n\n";
 		int choice;
 		std::cout << "Enter your command (1/2/3/4/5/-1): ";
