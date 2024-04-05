@@ -10,7 +10,7 @@ void importCSVStudentsOfAClass_Public() {
     std::string className;
     std::cout << "Enter the class you want to import CSV: ";
     std::cin >> className;
-    if (!isValidClassName(className)) {
+    if (!isValidClassName(className, currSYear->data.year)) {
         std::cout << "Class is not existed in current school year" << std::endl;
         system("pause");
         classManagementPage();
@@ -94,24 +94,17 @@ void importCSVStudentsOfAClass_Public() {
 
 void createANewClassInCurrentSYear() {
     menuCommandHeader();
-    std::cout << "[1]. Create a new class (in current school year)" << std::endl;
+    std::cout << "[1]. Create a new class of first-year students" << std::endl;
     Class newClass;
-    bool isValid = false;
-    while (!isValid) {
-        std::cout << "\tEnter new class name: ";
-        std::cin >> newClass.className;
-        // Check format ddXXXXdd
-        std::regex pattern("\\d{2}[A-Z]{1,4}\\d{2}");
-        if (std::regex_match(newClass.className, pattern) && newClass.className.substr(0, 2) == currSYear->data.year.substr(2, 2)) {
-            isValid = true;
-        }
-        else {
-            std::cout << "Invalid class name format or does not match the current school year. Please enter again." << std::endl;
-        }
+    std::cout << "\n\t(?) Enter the class name (Format: dd/U[2,4]/dd. 'dd': two consecutive digits, 'U[2,4]': 2-4 uppercase letter): ";
+    while (!(std::cin >> newClass.className) || !isValidClassName(newClass.className, currSYear->data.year)) {
+        std::cout << "(X) Invalid input. Please enter again (Ex: 23APCS01): ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-    // TODO: 23APCS03 should be added right behind 23APCS02
-    if (checkClassExist(newClass.className)) {
-        std::cout << "Class is existed in current school year" << std::endl;
+    // FIXME: 23APCS03 should be added right behind 23APCS02
+    if (isClassExisted(newClass.className)) {
+        std::cout << "\n(X) Class is existed in current school year" << std::endl;
         system("pause");
         classManagementPage();
         return;
@@ -119,7 +112,7 @@ void createANewClassInCurrentSYear() {
     newClass.schoolYear = currSYear->data.year;
     Node<Class>* claHead = new Node<Class>(newClass, currSYear->data.classes);
     currSYear->data.classes = claHead;
-    std::cout << "Class was added successfully" << std::endl;
+    std::cout << "\n(!) Class was added successfully" << std::endl;
     system("pause");
     classManagementPage();
     return;
@@ -197,7 +190,7 @@ void displayTableOfClassesInCurrentSemester(int& no) {
     std::cout << "\t+---------+--------------------+\n";
 }
 
-void displayTableOfClassesInSystem(int &no) {
+void displayTableOfClassesInSystem(int& no) {
     std::cout << "\t+---------+--------------------+--------------------+\n";
     std::cout << "\t| No      | Class              | School Year        |\n";
     std::cout << "\t+---------+--------------------+--------------------+\n";

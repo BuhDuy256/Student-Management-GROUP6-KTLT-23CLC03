@@ -169,8 +169,8 @@ void classManagementPage() {
 	menuCommandHeader();
 	if (currSemNumber != 0) {
 		std::cout << "[4]. Class Management:\n\n";
-		std::cout << "\t1. Create and add a new class (in current school year)\n";
-		std::cout << "\t2. Import CSV containing all students in a class (in current semester)\n";
+		std::cout << "\t1. Create a new class of first-year students (in current school year)\n";
+		std::cout << "\t2. Import CSV containing all students in a class (in current school year)\n";
 		std::cout << "\t3. View list of students in a class (in current school year)\n";
 		std::cout << "\t4. View scoreboard of a class (in current school year)\n";
 		std::cout << "\t5. View list of classes (in current school year)\n";
