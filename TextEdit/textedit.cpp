@@ -36,7 +36,6 @@ void TextEdit::on_btn_addStudent_clicked()
     qDebug() << "Student added";
 }
 
-
 void TextEdit::on_btn_deleteStudent_clicked()
 {
     course.deleteStudent(ui);
