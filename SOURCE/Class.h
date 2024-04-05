@@ -19,5 +19,7 @@ void importCSVStudentsOfAFirstYearClassPage();
 void displayTableOfFirstYearClasses(int &no); // no is the number of classes to reuse in another function
 void viewListOfStudentsInAFirstYearClass();
 void viewListOfFirstYearClasses();
+void displayTableOfClassesStudyingInCurrentSemester(int &no);
+void viewListOfClassesStudyingInCurrentSemester();
 void displayTableOfClassesInSystem(int &no);
 void viewListOfClassesInSystem();

@@ -101,7 +101,7 @@ void staffHomePage() {
 	std::cout << "\t1. View Profile\n"
 		<< "\t2. Command Menu\n"
 		<< "\t3. Change Password\n"
-		<< "\t-1.Exit\n";
+		<< "\t-1. Exit\n";
 	int choice;
 	std::cout << "\n(?) Enter your command (1/2/3/-1): ";
 
@@ -173,7 +173,7 @@ void classManagementPage() {
 		std::cout << "\t2. Import CSV containing all students in a class (in current school year)\n";
 		std::cout << "\t3. View list of students of first-year classes (in current school year)\n";
 		std::cout << "\t4. View list of first-year classes\n";
-		std::cout << "\t5. View list of undergraduate classes (up to the current year)\n";
+		std::cout << "\t5. View list of classes studying (until current semester)\n";
 		std::cout << "\t6. View list of classes (in system)\n";
 		std::cout << "\t7. View scoreboard of a class (in current school year)\n";
 		std::cout << "\t0. Back\n";
@@ -198,7 +198,7 @@ void classManagementPage() {
 			viewListOfFirstYearClasses();
 		}
 		else if (choice == 5) {
-			// View list of undergraduate classes (up to the current year)
+			viewListOfClassesStudyingInCurrentSemester();
 		}
 		else if (choice == 6) {
 			viewListOfClassesInSystem();

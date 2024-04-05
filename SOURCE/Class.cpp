@@ -204,6 +204,38 @@ void viewListOfFirstYearClasses() {
     return;
 }
 
+void displayTableOfClassesStudyingInCurrentSemester(int& no) {
+    // Use to call to another fucntion
+    Node<SchoolYear>* syCurrr = currSYear;
+    int limits = 0;
+    no = 0;
+    std::cout << "\t+---------+--------------------+\n";
+    std::cout << "\t| No      | Class              |\n";
+    std::cout << "\t+---------+--------------------+\n";
+    while (syCurrr != nullptr && limits != 4) {
+        Node<Class>* claCurr = syCurrr->data.classes;
+        while (claCurr) {
+            no++;
+            std::cout << std::left << "\t| " << std::setw(8) << no << "| " << std::setw(19) << claCurr->data.className << "|\n";
+            claCurr = claCurr->next;
+        }
+        syCurrr = syCurrr->next;
+        limits++;
+    }
+    std::cout << "\t+---------+--------------------+\n";
+}
+
+void viewListOfClassesStudyingInCurrentSemester() {
+    menuCommandHeader();
+    std::cout << "[5]. View list of classes studying in current semester\n" << std::endl;
+    int no = 0;
+    displayTableOfClassesStudyingInCurrentSemester(no);
+    std::cout << std::endl;
+    system("pause");
+    classManagementPage();
+    return;
+}
+
 void displayTableOfClassesInSystem(int& no) {
     std::cout << "\t+---------+--------------------+--------------------+\n";
     std::cout << "\t| No      | Class              | School Year        |\n";
