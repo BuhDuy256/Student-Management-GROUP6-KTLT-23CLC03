@@ -692,7 +692,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="StuHome">
            <widget class="QLabel" name="lb_welcome">
@@ -1009,6 +1009,9 @@ background-color: rgba(0, 0, 0, 96);
                <font>
                 <pointsize>18</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255)</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
