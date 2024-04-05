@@ -5,11 +5,16 @@
 void importData();
 void saveData();
 void deleteData();
-bool getChoice(int numberOfChoices, std::string prompt, int& choice);
+
+void getChoiceInt(int startChoiceNum, int endChoiceNum, std::string prompt, int& choice);
+
 bool isValidClassName(const std::string& className, const std::string& currentYear);
-bool checkNameValid(std::string name);
+bool isValidCouOrStuName(const std::string& name);
+bool isCourseIDValid(const std::string& courseID);
+bool isValidID(std::string id);
+bool notExistclassNameOfCourse(const std::string& courseID, const std::string& className, const std::string& currentYear);
+
 void formalize(std::string& name);
-bool checkIDValid(std::string id);
 std::string doubleToString(double value);
 std::string removeQuotesFromPath(const std::string& path);
 int getUser(std::string userID, std::string userPassowrd);

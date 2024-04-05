@@ -158,7 +158,7 @@ void createANewSemester() {
 			std::cin >> startDate;
 
 			if (!isValidDateFormat(startDate)) {
-				std::cout << "Invalid date format. Please enter in format dd/mm/yyyy.";
+				std::cout << "Invalid date format. Please enter in format dd/mm/yyyy: ";
 				continue;
 			}
 			int diff = daysBetweenDates(startDate, latestSem.endDate);

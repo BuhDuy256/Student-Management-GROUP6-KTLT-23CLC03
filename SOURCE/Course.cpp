@@ -2,7 +2,7 @@
 
 void Course::viewStudentsList() {
     std::cout << "\t+--------+------------+------------------------------+\n";
-    std::cout << "\t| NO     | Student ID | Student Name                 |\n";
+    std::cout << "\t| No     | Student ID | Student Name                 |\n";
     std::cout << "\t+--------+------------+------------------------------+\n";
 
     for (int i = 0; i < courseSize; i++) {
@@ -19,7 +19,7 @@ void Course::deleteStudent() {
     viewStudentsList();
     int index;
 
-    while(true) {
+    while (true) {
         std::cout << "Enter the student number you want to delete: ";
         std::cin >> index;
         if (index < 1 || index > courseSize) {
@@ -60,13 +60,13 @@ void Course::addStudent()
         std::cout << "\tEnter the student's ID: ";
         std::cin.ignore();
         std::getline(std::cin, studentScore.studentID);
-        if (checkIDValid(studentScore.studentID)) break;
+        if (isValidID(studentScore.studentID)) break;
     }
     while (true) {
         std::cout << "\tEnter the student's name: ";
         std::cin.ignore();
         std::getline(std::cin, studentScore.studentName);
-        if (checkNameValid(studentScore.studentName)) break;
+        if (isValidCouOrStuName(studentScore.studentName)) break;
     }
     formalize(studentScore.studentName);
     score[courseSize] = studentScore;
@@ -77,102 +77,144 @@ void Course::addStudent()
 
 void Course::updateInformation()
 {
-    // Display a menu of options for information update
-    std::cout << "What information do you want to update?" << std::endl;
-    std::cout << "1. Class Name" << std::endl;
-    std::cout << "2. Teacher Name" << std::endl;
-    std::cout << "3. Day of Week" << std::endl;
-    std::cout << "4. Session" << std::endl;
+    // // Display a menu of options for information update
+    // std::cout << "What information do you want to update?" << std::endl;
+    // std::cout << "1. Class Name" << std::endl;
+    // std::cout << "2. Teacher Name" << std::endl;
+    // std::cout << "3. Day of Week" << std::endl;
+    // std::cout << "4. Session" << std::endl;
 
-    int choice;
-    while (true)
-        if (getChoice(4, "Enter the number corresponding to your choice: ", choice)) break;
+    // int choice;
+    // while (true)
+    //     if (getChoice(4, "Enter the number corresponding to your choice: ", choice)) break;
 
-    // Prompt for the new value based on the user's choice
-    std::string newValue;
-    switch (choice) {
-    case 1:
-        // FIXME: New class shouldn't be the same as the old one
-        std::cout << "Enter the new Class Name: ";
-        std::getline(std::cin, newValue);
-        className = newValue;
-        break;
-    case 2:
-        std::cout << "Enter the new Teacher Name: ";
-        std::getline(std::cin, newValue);
-        teacherName = newValue;
-        break;
-    case 3:
-    {
-        std::string daysOfWeek[6] = { "MON", "TUE", "WED", "THU", "FRI", "SAT" };
-        std::cout << "Select the new day of week:\n";
-        for (int i = 0; i < 6; ++i) std::cout << i + 1 << ". " << daysOfWeek[i] << std::endl;
-        int choice;
-        while (true)
-            if (getChoice(6, "Enter the number of the new day of week: ", choice)) break;
-        dayOfWeek = dayOfWeek[choice - 1];
-        break;
-    }
-    case 4:
-    {
-        std::string sessions[4] = { "S1 (07:30)", "S2 (09:30)", "S3 (13:30)", "S4 (15:30)" };
-        std::cout << "Select the new session:\n";
-        for (int i = 0; i < 4; ++i) std::cout << i + 1 << ". " << sessions[i] << std::endl;
-        int choice;
-        while (true)
-            if (getChoice(4, "Enter the number of the new session: ", choice)) break;
-        session = sessions[choice - 1];
-        break;
-    }
-    }
-    std::cout << "Information updated successfully." << std::endl;
+    // // Prompt for the new value based on the user's choice
+    // std::string newValue;
+    // switch (choice) {
+    // case 1:
+    //     // FIXME: New class shouldn't be the same as the old one
+    //     std::cout << "Enter the new Class Name: ";
+    //     std::getline(std::cin, newValue);
+    //     className = newValue;
+    //     break;
+    // case 2:
+    //     std::cout << "Enter the new Teacher Name: ";
+    //     std::getline(std::cin, newValue);
+    //     teacherName = newValue;
+    //     break;
+    // case 3:
+    // {
+    //     std::string daysOfWeek[6] = { "MON", "TUE", "WED", "THU", "FRI", "SAT" };
+    //     std::cout << "Select the new day of week:\n";
+    //     for (int i = 0; i < 6; ++i) std::cout << i + 1 << ". " << daysOfWeek[i] << std::endl;
+    //     int choice;
+    //     while (true)
+    //         if (getChoice(6, "Enter the number of the new day of week: ", choice)) break;
+    //     dayOfWeek = dayOfWeek[choice - 1];
+    //     break;
+    // }
+    // case 4:
+    // {
+    //     std::string sessions[4] = { "S1 (07:30)", "S2 (09:30)", "S3 (13:30)", "S4 (15:30)" };
+    //     std::cout << "Select the new session:\n";
+    //     for (int i = 0; i < 4; ++i) std::cout << i + 1 << ". " << sessions[i] << std::endl;
+    //     int choice;
+    //     while (true)
+    //         if (getChoice(4, "Enter the number of the new session: ", choice)) break;
+    //     session = sessions[choice - 1];
+    //     break;
+    // }
+    // }
+    // std::cout << "Information updated successfully." << std::endl;
 }
 
 void addACourseInCurrSem() {
     menuCommandHeader();
     std::cout << "[1]. Add a course in current semester:\n";
     Course newCourse;
-    std::cout << "Enter course ID: ";
-    std::cin >> newCourse.ID;
-    std::cout << "Enter course name: ";
-    std::cin.ignore();
-    std::getline(std::cin, newCourse.Name);
-    std::cout << "Enter class name: ";
-    std::cin >> newCourse.className;
-    std::cout << "Enter teacher name: ";
-    std::cin.ignore();
-    std::getline(std::cin, newCourse.teacherName);
-    std::cout << "Enter number of credits: ";
+    std::cout << "\n\t(?) Enter course ID: ";
+    while (true) {
+        std::cin >> newCourse.ID;
+        if (isCourseIDValid(newCourse.ID)) {
+            break;
+        }
+        else {
+            std::cout << "\t(X) Invalid course ID. Please try again: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+    std::cout << "\t(?) Enter course name: ";
+    while (true) {
+        std::cin.ignore();
+        std::getline(std::cin, newCourse.Name);
+        if (isValidCouOrStuName(newCourse.Name)) {
+            break;
+        }
+        else {
+            std::cout << "\t(X) Invalid course name. Please try again: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+    std::cout << "\t(?) Enter the class name (Format: dd/U[2,4]/dd. 'dd': two consecutive digits, 'U[2,4]': 2-4 uppercase letter): ";
+    while (true) {
+        std::cin >> newCourse.className;
+        if (!isValidClassName(newCourse.className, currSYear->data.year)) {
+            std::cout << "\t(X) Invalid class name. Please try again: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
+        if (!notExistclassNameOfCourse(newCourse.ID, newCourse.className, currSYear->data.year)) {
+            std::cout << "\t(X) The class name already exists. Please try again: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }  
+        break;
+    }
+    std::cout << "\t(?) Enter teacher name: ";
+    while (true) {
+        std::cin.ignore();
+        std::getline(std::cin, newCourse.teacherName);
+        if (isValidCouOrStuName(newCourse.teacherName)) {
+            break;
+        }
+        else {
+            std::cout << "\t(X) Invalid teacher name. Please try again: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+    std::cout << "\t(?) Enter number of credits: ";
     while (!(std::cin >> newCourse.nCredits) || newCourse.nCredits < 2 || newCourse.nCredits > 4) {
         std::cout << "Invalid number of credits. The number of credits of a course should be between 2 and 4. Please enter again: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-    std::cout << "Enter course size: ";
-    while (!(std::cin >> newCourse.courseSize) || newCourse.courseSize < 0 || newCourse.courseSize > 100) {
-        std::cout << "Invalid course size. The course size should be between 0 and 100. Please enter again: ";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    }
+
     std::string daysOfWeek[6] = { "MON", "TUE", "WED", "THU", "FRI", "SAT" };
-    std::cout << "Select the new day of week:\n";
-    for (int i = 0; i < 6; ++i) std::cout << i + 1 << ". " << daysOfWeek[i] << std::endl;
+    std::cout << "\t(*) Select the new day of week:\n";
+    for (int i = 0; i < 6; ++i)
+        std::cout << "\t\t" << i + 1 << ". " << daysOfWeek[i] << std::endl;
     int choice;
-    while (true)
-        if (getChoice(6, "Enter the number of the new day of week: ", choice)) break;
+    getChoiceInt(1, 6, "\t(?) Enter the number of the new day of week: ", choice);
     newCourse.dayOfWeek = daysOfWeek[choice - 1];
-    std::string sessions[4] = { "S1 (07:30)", "S2 (09:30)", "S3 (13:30)", "S4 (15:30)" };
-    std::cout << "Select the new session:\n";
-    for (int i = 0; i < 4; ++i) std::cout << i + 1 << ". " << sessions[i] << std::endl;
+
+    std::string sessions[4] = { "07:30", "09:30", "13:30", "15:30" };
+    std::cout << "\t(*) Select the new session:\n";
+    for (int i = 0; i < 4; ++i)
+        std::cout << "\t\t" << i + 1 << ". " << sessions[i] << std::endl;
     // int choice;
-    while (true)
-        if (getChoice(4, "Enter the number of the new session: ", choice)) break;
+    getChoiceInt(1, 4, "\t(?) Enter the number of the new session: ", choice);
     newCourse.session = sessions[choice - 1];
+
     newCourse.couSY = currSYear->data.year;
     newCourse.couSem = currSemNumber;
     Node<Course>* newCourseNode = new Node<Course>(newCourse, currSem.Courses);
     currSem.Courses = newCourseNode;
-    std::cout << "Course added successfully." << std::endl;
+    std::cout << "(!) Course added successfully." << std::endl;
     system("pause");
     courseManagementPage();
     return;
@@ -364,8 +406,8 @@ void chooseStudentToUpdateResult(Node<Course>* couCurr) {
 
         // Prompt for the user's choice
         int choice;
-        while (true)
-            if (getChoice(3, "Enter the number corresponding to your choice: ", choice)) break;
+        // while (true)
+        //     if (getChoice(3, "Enter the number corresponding to your choice: ", choice)) break;
 
         // Prompt for the new score
         double newScore;
@@ -383,7 +425,8 @@ void chooseStudentToUpdateResult(Node<Course>* couCurr) {
         std::cin >> updateChoice;
         if (updateChoice == 'N' || updateChoice == 'n') {
             updateMore = false;
-        } else {
+        }
+        else {
             chooseStudentToUpdateResult(couCurr);
             return;
         }

@@ -30,21 +30,15 @@ void deleteData() {
     deleteAllStaffData();
 }
 
-bool getChoice(int numberOfChoices, std::string prompt, int& choice)
+void getChoiceInt(int startChoiceNum, int endChoiceNum, std::string prompt, int& choice)
 {
-    std::cin.ignore();
     std::cout << prompt;
-    std::string line;
-    std::getline(std::cin, line);
-
-    if (line.length() > 1 || !isdigit(line[0]) || line[0] < '1' || line[0] > numberOfChoices + '0')
-    {
-        std::cout << "Please choose valid choice between " << 1 << " and " << numberOfChoices << std::endl;
-        return false;
+    choice = startChoiceNum - 1; // Initialize choice to an invalid value
+    while(!(std::cin >> choice) || choice < startChoiceNum || choice > endChoiceNum) {
+        std::cout << "\t(X) Invalid input. Please try again: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-
-    choice = line[0] - '0';
-    return true;
 }
 
 bool isValidClassName(const std::string& className, const std::string& currentYear) {
@@ -94,28 +88,42 @@ bool isValidClassName(const std::string& className, const std::string& currentYe
     return false;
 }
 
-bool checkNameValid(std::string name)
-{
-    for (char c : name)
-    {
-        if (!std::isalpha(c) && !isspace(c))
-        {
-            std::cerr << "Please input properly name with no special characters or digits\n";
+bool isValidCouOrStuName(const std::string& name) {
+    // Regular expression to match valid names
+    std::regex pattern("^[A-Za-z]+(?:[ -][A-Za-z]+)*$");
+    
+    // Check if the name matches the pattern
+    return std::regex_match(name, pattern);
+}
+
+bool isCourseIDValid(const std::string& courseID) {
+    for (char c : courseID) {
+        if (c == ' ') {
+            return false; // Space found, invalid ID
+        }
+    }
+    return true; // No space found, valid ID
+}
+
+bool isValidID(std::string id) {
+    for (char c : id) {
+        if (!isdigit(c)) {
             return false;
         }
     }
     return true;
 }
 
-bool checkIDValid(std::string id)
-{
-    for (char c : id)
-    {
-        if (!isdigit(c))
-        {
-            std::cerr << "Please input properly id with no characters other than digits\n";
+bool notExistclassNameOfCourse(const std::string& courseID, const std::string& className, const std::string& currentYear) {
+    if (!isValidClassName(className, currentYear)) {
+        return false;
+    }
+    Node<Course>* couCurr = currSem.Courses;
+    while(couCurr) {
+        if (couCurr->data.ID == courseID && couCurr->data.className == className) {
             return false;
         }
+        couCurr = couCurr->next;
     }
     return true;
 }

@@ -5,10 +5,16 @@ void createANewClassInCurrentSYear() {
     std::cout << "[1]. Create a new class of first-year students" << std::endl;
     Class newClass;
     std::cout << "\n\t(?) Enter the class name (Format: dd/U[2,4]/dd. 'dd': two consecutive digits, 'U[2,4]': 2-4 uppercase letter): ";
-    while (!(std::cin >> newClass.className) || !isValidClassName(newClass.className, currSYear->data.year)) {
-        std::cout << "(X) Invalid input. Please enter again (Ex: 23APCS01): ";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    while (true) {
+        std::cin >> newClass.className;
+        if (isValidClassName(newClass.className, currSYear->data.year)) {
+            break;
+        }
+        else {
+            std::cout << "(X) Invalid input. Please enter again (Ex: 23APCS01): ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
     }
     // FIXME: 23APCS03 should be added right behind 23APCS02
     if (isClassExisted(newClass.className)) {
