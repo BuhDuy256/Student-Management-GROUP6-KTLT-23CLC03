@@ -439,7 +439,7 @@ background-color: transparent;
        </layout>
       </widget>
       <widget class="QWidget" name="student_homepage">
-       <layout class="QGridLayout" name="gridLayout_3" columnstretch="5,0">
+       <layout class="QGridLayout" name="gridLayout_3" columnstretch="5,19">
         <property name="leftMargin">
          <number>15</number>
         </property>
@@ -516,7 +516,7 @@ background-color: transparent;
              </property>
             </widget>
            </item>
-           <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+           <item>
             <widget class="QPushButton" name="button_StuHome">
              <property name="minimumSize">
               <size>
@@ -1099,77 +1099,35 @@ background-color: rgba(0, 0, 0, 96);
              <property name="text">
               <string>No</string>
              </property>
-             <property name="font">
-              <font>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
-             </property>
             </column>
             <column>
              <property name="text">
               <string>Course ID</string>
-             </property>
-             <property name="font">
-              <font>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
              </property>
             </column>
             <column>
              <property name="text">
               <string>Course Name</string>
              </property>
-             <property name="font">
-              <font>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
-             </property>
             </column>
             <column>
              <property name="text">
               <string>Class Name</string>
-             </property>
-             <property name="font">
-              <font>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
              </property>
             </column>
             <column>
              <property name="text">
               <string>Tearcher Name</string>
              </property>
-             <property name="font">
-              <font>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
-             </property>
             </column>
             <column>
              <property name="text">
               <string>Day Of Week</string>
              </property>
-             <property name="font">
-              <font>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
-             </property>
             </column>
             <column>
              <property name="text">
               <string>Session</string>
-             </property>
-             <property name="font">
-              <font>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
              </property>
             </column>
            </widget>
@@ -1395,13 +1353,12 @@ background-color: rgba(0, 0, 0, 96);
              <widget class="QCheckBox" name="checkBox_2">
               <property name="font">
                <font>
-                <pointsize>-1</pointsize>
+                <pointsize>12</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">#checkBox_2{
 	color: white;
-	font-size: 16px;
 }</string>
               </property>
               <property name="text">
@@ -1642,7 +1599,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -1727,9 +1684,6 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -1771,9 +1725,6 @@ background-color: rgba(0, 0, 0, 96);
                <font>
                 <pointsize>18</pointsize>
                </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -1817,9 +1768,6 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -1862,9 +1810,6 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -1906,9 +1851,6 @@ background-color: rgba(0, 0, 0, 96);
                <font>
                 <pointsize>18</pointsize>
                </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -2032,9 +1974,6 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
               <property name="text">
                <string/>
               </property>
@@ -2126,9 +2065,6 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
               </property>
@@ -2138,13 +2074,12 @@ background-color: rgba(0, 0, 0, 96);
              <widget class="QCheckBox" name="checkBox_3">
               <property name="font">
                <font>
-                <pointsize>-1</pointsize>
+                <pointsize>12</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">#checkBox_3{
 	color: white;
-	font-size: 16px;
 }</string>
               </property>
               <property name="text">
