@@ -98,7 +98,7 @@ bool isValidCouOrStuName(const std::string& name) {
 
 bool isCourseIDValid(const std::string& courseID) {
     for (char c : courseID) {
-        if (c == ' ') {
+        if (c == ' ' || islower(c)) {
             return false; // Space found, invalid ID
         }
     }

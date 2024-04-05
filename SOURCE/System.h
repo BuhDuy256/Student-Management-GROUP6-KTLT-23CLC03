@@ -22,6 +22,7 @@
 #include<iomanip>
 #include<regex>
 #include<ctime>
+#include<stdio.h>
 
 void startPage();
 void signInPage();
