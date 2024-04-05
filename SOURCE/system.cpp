@@ -188,7 +188,7 @@ void classManagementPage() {
 			createANewClassInCurrentSYear();
 		}
 		else if (choice == 2) {
-			importCSVStudentsOfAClass_Public();
+			importCSVStudentsOfAClassPage();
 		}
 		else if (choice == 3) {
 			viewListOfStudentsInAClass();
@@ -198,7 +198,7 @@ void classManagementPage() {
 			// viewScoreBoardOfAClass();
 		}
 		else if (choice == 5) {
-			viewListOfClassesInCurrentSemeter();
+			viewListOfClassesInCurrentSYear();
 		}
 		else if (choice == 6) {
 			viewListOfClassesInSystem();

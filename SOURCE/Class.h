@@ -13,10 +13,11 @@ struct Class {
 	Node<Student>* students = nullptr;
 };
 
-void importCSVStudentsOfAClass_Public();
 void createANewClassInCurrentSYear();
+void importCSVStudentsOfAClass(Node<Class>* claCurr);
+void importCSVStudentsOfAClassPage();
 void viewListOfStudentsInAClass();
 void displayTableOfClassesInCurrentSYear(int &no); // no is the number of classes to reuse in another function
-void viewListOfClassesInCurrentSemeter();
+void viewListOfClassesInCurrentSYear();
 void displayTableOfClassesInSystem(int &no);
 void viewListOfClassesInSystem();

@@ -26,96 +26,107 @@ void createANewClassInCurrentSYear() {
     return;
 }
 
-void importCSVStudentsOfAClass_Public() {
+void importCSVStudentsOfAClass(Node<Class>* claCurr) {
+    std::string fileName;
+    std::cout << "\t(?) Enter the path of the CSV file (You can drag it into the program): ";
+    std::getline(std::cin >> std::ws, fileName);
+    fileName = removeQuotesFromPath(fileName);
+
+    // Check if the file exists
+    if (!std::filesystem::exists(fileName)) {
+        std::cout << "(X) Error: File does not exist!" << std::endl;
+        system("pause");
+        classManagementPage();
+        return;
+    }
+
+    // Check if the file has a .csv extension
+    if (fileName.substr(fileName.find_last_of(".") + 1) != "csv") {
+        std::cout << "(X) Invalid file format. Please provide a .csv file." << std::endl;
+        system("pause");
+        classManagementPage();
+        return;
+    }
+
+    // Open the file
+    std::ifstream inF(fileName);
+
+    if (!claCurr->data.students) {
+        // Pass the header
+        std::string header;
+        std::getline(inF, header);
+
+        std::string line;
+        while (std::getline(inF, line)) {
+            // Check if the line is empty or contains only whitespace
+            if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
+                break; // Stop reading if the line is empty
+            }
+            Student newStu;
+            std::stringstream ss(line);
+            std::string NO; std::getline(ss, NO, ','); // don't use
+            std::getline(ss, newStu.ID, ',');
+            std::string firstName, lastName;
+            std::getline(ss, firstName, ',');
+            std::getline(ss, lastName, ',');
+            newStu.name = lastName + (firstName.empty() ? "" : " " + firstName);
+            std::getline(ss, newStu.gender, ',');
+            std::getline(ss, newStu.birthday, ',');
+            std::getline(ss, newStu.socialID, ',');
+            newStu.mainClass = claCurr->data.className;
+            if (!claCurr->data.students) {
+                claCurr->data.students = new Node<Student>(newStu);
+            }
+            else {
+                Node<Student>* stuCurr = claCurr->data.students;
+                while (stuCurr->next)
+                    stuCurr = stuCurr->next;
+                stuCurr->next = new Node<Student>(newStu);
+            }
+        }
+        std::cout << "\n(!) Import CSV successfully!" << std::endl;
+    }
+    else {
+        std::cout << "\n(X) You cannot import the CSV file because this class already has students. Let's import into a class that doesn't have students yet! " << std::endl << "(X) If you make a mistake in doing the import process, delete the class and recreate it." << std::endl;
+    }
+    system("pause");
+    classManagementPage();
+    return;
+}
+
+void importCSVStudentsOfAClassPage() {
     menuCommandHeader();
-    std::cout << "[2]. Import CSV file containing all students for a first-year class (in current school year)" << std::endl;
+    std::cout << "[2]. Import CSV file containing all students for a first-year class (in current school year)\n" << std::endl;
 
     int no1 = 0;
     displayTableOfClassesInCurrentSYear(no1);
 
-    std::string className;
-    std::cout << "Enter the class you want to import CSV: ";
-    std::cin >> className;
-    if (!isValidClassName(className, currSYear->data.year)) {
-        std::cout << "Class is not existed in current school year" << std::endl;
-        system("pause");
+    int choice;
+    std::cout << "\n\t(*) Enter '0' to return to the previous menu.\n"
+        "\t(?) Enter the class number (0-" << no1 << "): ";
+    while (!(std::cin >> choice) || choice < 0 || choice > no1) {
+        std::cout << "\t(X) Invalid input. Please enter again: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    if (choice == 0) {
         classManagementPage();
         return;
     }
-
-    std::string fileName;
-    std::cout << "Enter the path of the CSV file (You can drag it into the program): ";
-    std::getline(std::cin >> std::ws, fileName);
-    fileName = removeQuotesFromPath(fileName);
-    std::ifstream inF(fileName);
-    if (!std::filesystem::exists(fileName)) {
-        std::cout << "Error path!" << std::endl;
-        system("pause");
-        classManagementPage();
-        return;
-    }
-
-    Node<SchoolYear>* syHead = latestSYear;
-    std::string header;
-    std::getline(inF, header);
-    std::string line;
-    Node<SchoolYear>* syCurr = syHead;
-    Node<Class>* claCurr = nullptr;
-    bool found = false;
-    while (syCurr && !found) {
-        claCurr = syCurr->data.classes;
-        while (claCurr && !found) {
-            if (claCurr->data.className == className) {
-                found = true;
-                break;
+    Node<SchoolYear>* syHead = currSYear;
+    int count = 0;
+    while (syHead) {
+        Node<Class>* claHead = syHead->data.classes;
+        while (claHead) {
+            count++;
+            if (count == choice) {
+                importCSVStudentsOfAClass(claHead);
+                return;
             }
-            claCurr = claCurr->next;
+            claHead = claHead->next;
         }
-        syCurr = syCurr->next;
+        syHead = syHead->next;
     }
-    if (!found) {
-        std::cout << "Class " << className << " couldn't be found. You should create new Class to import!" << std::endl;
-    }
-    else {
-        if (!claCurr->data.students) {
-            while (std::getline(inF, line)) {
-                // Check if the line is empty or contains only whitespace
-                if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
-                    break; // Stop reading if the line is empty
-                }
-                Student newStu;
-                std::stringstream ss(line);
-                std::string NO;
-                std::getline(ss, NO, ',');
-                std::getline(ss, newStu.ID, ',');
-                std::string firstName, lastName;
-                std::getline(ss, firstName, ',');
-                std::getline(ss, lastName, ',');
-                newStu.name = lastName + (firstName.empty() ? "" : " " + firstName);
-                std::getline(ss, newStu.gender, ',');
-                std::getline(ss, newStu.birthday, ',');
-                std::getline(ss, newStu.socialID, ',');
-                newStu.mainClass = className;
-                if (!claCurr->data.students) {
-                    claCurr->data.students = new Node<Student>(newStu);
-                }
-                else {
-                    Node<Student>* stuCurr = claCurr->data.students;
-                    while (stuCurr->next)
-                        stuCurr = stuCurr->next;
-                    stuCurr->next = new Node<Student>(newStu);
-                }
-            }
-            std::cout << "Import CSV successfully!" << std::endl;
-        }
-        else {
-            std::cout << "You cannot import the CSV file because this class already has students. Let's import into a class that doesn't have students yet! " << std::endl << "If you make a mistake in doing the import process, delete the class and recreate it." << std::endl;
-        }
-    }
-    inF.close();
-    system("pause");
-    classManagementPage();
-    return;
 }
 
 void viewListOfStudentsInAClass() {
