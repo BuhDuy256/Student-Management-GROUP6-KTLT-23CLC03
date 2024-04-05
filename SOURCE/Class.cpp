@@ -90,18 +90,23 @@ Node<std::string>* ClassCourse(Node<std::string>* TempCourses, bool* check);
 Node<Class>* ChooseClass(int choice);
 void previous(double& previoussum, double& previousnumofacticour, Node<Student>* StuScore, Node<Class>* ChosenClass,Node<std::string>* StuUniqueCours);
 
+
+
 //class.h:
 void viewScoreBoardOfAClass();
-
+void displayTableOfClassesStudyingInCurrentSemester(int &no); //copy
 
 //class.cpp
-void viewScoreBoardOfAClass() {
+void viewScoreBoardOfAClass() { //copyallfunc
     system("cls");
-    viewAllClassesInSchool();
+    int no;
+    displayTableOfClassesStudyingInCurrentSemester(no);
+    
+   /*  //checkvalid
     int choice;
-    std::cout << "ENTER NUMBER CORRESPONDING TO YOUR CHOICE (integer): ";
+    std::cout << "Enter Number Corresponding To Desired Class (1 - " << no << "):";
     std::cin >> choice;
-
+   */
     Node<Class>* ChosenClass = ChooseClass(choice);
     if (ChosenClass == nullptr)
     {
@@ -226,7 +231,7 @@ void viewScoreBoardOfAClass() {
                                 numofactivecourses++;
                             }                                                              
                             if (check->data.score[i].final != (-1) * 1.0) std::cout << std::left << std::setfill(' ') << std::setw(8) << check->data.score[i].final << "|";
-                            else std::cout << std::setfill(' ') << std::setw(8) << "|";
+                            else std::cout << std::setw(8) << " " << "|";
                             score = true;
                             break;
                         }
@@ -238,17 +243,18 @@ void viewScoreBoardOfAClass() {
             if (check == nullptr) std::cout << std::setfill(' ') << std::setw(8) << "|"; 
             tmp2 = tmp2->next;
         }
-        if (numofactivecourses == 0 || gpa == 0) std::cout << std::setfill(' ') << std::setw(5) << "|"; 
+        if (numofactivecourses == 0 || gpa == 0) std::cout << std::setw(5) << " " << "|"; 
         else std::cout << std::left << std::setfill(' ') << std::setw(5)  << gpa / numofactivecourses << "|"; 
         double prevtotal = 0, prevnumofacticour = 0;
         previous(prevtotal, prevnumofacticour, StuScore, ChosenClass,StudentUniqueCourses);
-        if(prevnumofacticour == 0 &&  numofactivecourses == 0) std::cout << std::setfill(' ') << std::setw(10) << "|\n";
+        if(prevnumofacticour == 0 &&  numofactivecourses == 0) std::cout << std::setw(10) << " " << "|\n";
         else std::cout << std::left << std::setfill(' ') << std::setw(10) << (prevtotal + gpa) / (prevnumofacticour + numofactivecourses) << "|\n";
         
-	std::cout << std::setfill('-') << std::setw(totalWidth) << "" << "\n";
-        StuScore = StuScore->next;
+	std::cout << "" <<std::setfill('-') << std::setw(totalWidth) << "" << "\n";
+    StuScore = StuScore->next;
 	index++;
     }
+    std::cout << std::setfill(' ');
     delete[] check;
     Node<std::string>* deleteTempCourses = TempCourses;
     while (deleteTempCourses != nullptr)
@@ -265,9 +271,29 @@ void viewScoreBoardOfAClass() {
         delete temp;
     }
     system("pause");
-    //callpreviouspage
+    classManagementPage();
+    return;
 }
 
+void displayTableOfClassesStudyingInCurrentSemester(int &no) { //copyallfunc
+    // Use to call to another fucntion
+    Node<SchoolYear>* syCurrr = currSYear;
+    int limits = 0,no = 0;
+    std::cout << "\t+---------+--------------------+\n";
+    std::cout << "\t| No      | Class              |\n";
+    std::cout << "\t+---------+--------------------+\n";
+    while(syCurrr != nullptr && limits != 4){
+        Node<Class>* claCurr = syCurrr->data.classes;
+    while (claCurr) {
+        no++;
+        std::cout << std::left << "\t| " << std::setw(8) << no << "| " << std::setw(19) << claCurr->data.className << "|\n";
+        claCurr = claCurr->next;
+    }
+    syCurrr = syCurrr->next;
+    limits++;
+    }
+    std::cout << "\t+---------+--------------------+\n";
+}
 
 
 
@@ -343,8 +369,8 @@ Node<std::string>* ClassCourse(Node<std::string>* TempCourses, bool* check) {
     }
     return Cour;
 }
-Node<Class>* ChooseClass(int choice) {
-    Node<SchoolYear>* tempcurrYear = latestSYear;
+Node<Class>* ChooseClass(int choice) {  //copyallfunc
+    Node<SchoolYear>* tempcurrYear = currSYear;
     int index = 1;
     while (tempcurrYear != nullptr)
     {
