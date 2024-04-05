@@ -1,11 +1,37 @@
 #include"Class.h"
 
+void createANewClassInCurrentSYear() {
+    menuCommandHeader();
+    std::cout << "[1]. Create a new class of first-year students" << std::endl;
+    Class newClass;
+    std::cout << "\n\t(?) Enter the class name (Format: dd/U[2,4]/dd. 'dd': two consecutive digits, 'U[2,4]': 2-4 uppercase letter): ";
+    while (!(std::cin >> newClass.className) || !isValidClassName(newClass.className, currSYear->data.year)) {
+        std::cout << "(X) Invalid input. Please enter again (Ex: 23APCS01): ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    // FIXME: 23APCS03 should be added right behind 23APCS02
+    if (isClassExisted(newClass.className)) {
+        std::cout << "\n(X) Class is existed in current school year" << std::endl;
+        system("pause");
+        classManagementPage();
+        return;
+    }
+    newClass.schoolYear = currSYear->data.year;
+    Node<Class>* claHead = new Node<Class>(newClass, currSYear->data.classes);
+    currSYear->data.classes = claHead;
+    std::cout << "\n(!) Class was added successfully" << std::endl;
+    system("pause");
+    classManagementPage();
+    return;
+}
+
 void importCSVStudentsOfAClass_Public() {
     menuCommandHeader();
-    std::cout << "[2]. Import CSV containing all students in a class (in current semester)" << std::endl;
+    std::cout << "[2]. Import CSV file containing all students for a first-year class (in current school year)" << std::endl;
 
     int no1 = 0;
-    displayTableOfClassesInCurrentSemester(no1);
+    displayTableOfClassesInCurrentSYear(no1);
 
     std::string className;
     std::cout << "Enter the class you want to import CSV: ";
@@ -92,38 +118,12 @@ void importCSVStudentsOfAClass_Public() {
     return;
 }
 
-void createANewClassInCurrentSYear() {
-    menuCommandHeader();
-    std::cout << "[1]. Create a new class of first-year students" << std::endl;
-    Class newClass;
-    std::cout << "\n\t(?) Enter the class name (Format: dd/U[2,4]/dd. 'dd': two consecutive digits, 'U[2,4]': 2-4 uppercase letter): ";
-    while (!(std::cin >> newClass.className) || !isValidClassName(newClass.className, currSYear->data.year)) {
-        std::cout << "(X) Invalid input. Please enter again (Ex: 23APCS01): ";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    }
-    // FIXME: 23APCS03 should be added right behind 23APCS02
-    if (isClassExisted(newClass.className)) {
-        std::cout << "\n(X) Class is existed in current school year" << std::endl;
-        system("pause");
-        classManagementPage();
-        return;
-    }
-    newClass.schoolYear = currSYear->data.year;
-    Node<Class>* claHead = new Node<Class>(newClass, currSYear->data.classes);
-    currSYear->data.classes = claHead;
-    std::cout << "\n(!) Class was added successfully" << std::endl;
-    system("pause");
-    classManagementPage();
-    return;
-}
-
 void viewListOfStudentsInAClass() {
     menuCommandHeader();
     std::cout << "[2]. Import CSV containing all students in a class (in current school year)" << std::endl;
 
     int no1 = 0;
-    displayTableOfClassesInCurrentSemester(no1);
+    displayTableOfClassesInCurrentSYear(no1);
 
     int choice;
     std::cout << "Enter the class (between 1 and " << no1 << "): ";
@@ -165,17 +165,17 @@ void viewListOfStudentsInAClass() {
     return;
 }
 
-void viewListOfClassesInCurrentSemeter() {
+void viewListOfClassesInCurrentSYear() {
     system("cls");
     std::cout << "[5]. View list of classes (in current school year)" << std::endl;
     int no = 0;
-    displayTableOfClassesInCurrentSemester(no);
+    displayTableOfClassesInCurrentSYear(no);
     system("pause");
     classManagementPage();
     return;
 }
 
-void displayTableOfClassesInCurrentSemester(int& no) {
+void displayTableOfClassesInCurrentSYear(int& no) {
     // Use to call to another fucntion
     no = 0;
     Node<Class>* claCurr = currSYear->data.classes;
