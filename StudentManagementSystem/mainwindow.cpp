@@ -377,13 +377,13 @@ void MainWindow::on_button_confirm_2_clicked()
 
     if (!verifyPassword) {
         // std::cout << "Your old password is incorrect!" << std::endl;
-        MessageBox("Fail", "Current Password Is Incorrect!");
+        QMessageBox::warning(nullptr, "Fail", "Current Password Is Incorrect!");
         return;
     }
 
     if (newPassword != confirmPassword) {
         // std::cout << "Your new passwords do not match. Please try again!" << std::endl;
-        MessageBox("Fail", "New Password Not Matched!");
+        QMessageBox::warning(nullptr, "Fail", "New Password Not Matched!");
         return;
     }
 
