@@ -274,21 +274,36 @@ void addACourseInCurrSem() {
     return;
 }
 
-void viewListOfCoursesInCurrSem() {
+void updateInformationOfACourse() {
     menuCommandHeader();
-    std::cout << "[8]. List of courses in current semester:\n";
+    std::cout << "[2]. Update information of a course\n";
     int no;
     currSem.viewCoursesList(no);
-    system("pause");
-    courseManagementPage();
-    return;
+    int choice;
+    std::cout << "\t(*) Enter '0' to return to the course management page\n";
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    Node<Course>* couCurr = currSem.Courses;
+    int count = 0;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            couCurr->data.updateInformation();
+            return;
+        }
+        couCurr = couCurr->next;
+    }
 }
 
 void deleteACourseInCurrSem() {
     menuCommandHeader();
+    std::cout << "[3]. Delete a course in current semester\n\n";
     int no;
     currSem.viewCoursesList(no);
-    std::cout << "Enter the course number you want to delete: ";
+    std::cout << "\n\t(?) Enter the course number you want to delete: ";
     int choice;
     while (true) {
         std::cin >> choice;
@@ -302,6 +317,17 @@ void deleteACourseInCurrSem() {
             break;
         }
     }
+    std::cout << "\t(!) Course deleted successfully.\n";
+    system("pause");
+    courseManagementPage();
+    return;
+}
+
+void viewListOfCoursesInCurrSem() {
+    menuCommandHeader();
+    std::cout << "[8]. List of courses in current semester:\n";
+    int no;
+    currSem.viewCoursesList(no);
     system("pause");
     courseManagementPage();
     return;
@@ -340,30 +366,6 @@ void addStudentToACourse() {
                 couCurr = couCurr->next;
             }
         }
-    }
-}
-
-void updateInformationOfACourse() {
-    menuCommandHeader();
-    std::cout << "[2]. Update information of a course\n";
-    int no;
-    currSem.viewCoursesList(no);
-    int choice;
-    std::cout << "\t(*) Enter '0' to return to the course management page\n";
-    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
-    if (choice == 0) {
-        courseManagementPage();
-        return;
-    }
-    Node<Course>* couCurr = currSem.Courses;
-    int count = 0;
-    while (couCurr) {
-        count++;
-        if (count == choice) {
-            couCurr->data.updateInformation();
-            return;
-        }
-        couCurr = couCurr->next;
     }
 }
 
