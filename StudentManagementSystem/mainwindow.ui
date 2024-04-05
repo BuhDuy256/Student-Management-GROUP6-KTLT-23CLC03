@@ -516,7 +516,7 @@ background-color: transparent;
              </property>
             </widget>
            </item>
-           <item>
+           <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
             <widget class="QPushButton" name="button_StuHome">
              <property name="minimumSize">
               <size>
