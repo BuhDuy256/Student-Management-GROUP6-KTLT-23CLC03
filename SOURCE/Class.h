@@ -15,9 +15,9 @@ struct Class {
 
 void createANewClassInCurrentSYear();
 void importCSVStudentsOfAClass(Node<Class>* claCurr);
-void importCSVStudentsOfAClassPage();
-void viewListOfStudentsInAClass();
-void displayTableOfClassesInCurrentSYear(int &no); // no is the number of classes to reuse in another function
-void viewListOfClassesInCurrentSYear();
+void importCSVStudentsOfAFirstYearClassPage();
+void displayTableOfFirstYearClasses(int &no); // no is the number of classes to reuse in another function
+void viewListOfStudentsInAFirstYearClass();
+void viewListOfFirstYearClasses();
 void displayTableOfClassesInSystem(int &no);
 void viewListOfClassesInSystem();

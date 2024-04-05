@@ -171,10 +171,11 @@ void classManagementPage() {
 		std::cout << "[4]. Class Management:\n\n";
 		std::cout << "\t1. Create a new class of first-year students (in current school year)\n";
 		std::cout << "\t2. Import CSV containing all students in a class (in current school year)\n";
-		std::cout << "\t3. View list of students in a class (in current school year)\n";
-		std::cout << "\t4. View scoreboard of a class (in current school year)\n";
-		std::cout << "\t5. View list of classes (in current school year)\n";
+		std::cout << "\t3. View list of students of first-year classes (in current school year)\n";
+		std::cout << "\t4. View list of first-year classes\n";
+		std::cout << "\t5. View list of undergraduate classes (up to the current year)\n";
 		std::cout << "\t6. View list of classes (in system)\n";
+		std::cout << "\t7. View scoreboard of a class (in current school year)\n";
 		std::cout << "\t0. Back\n";
 		int choice;
 		std::cout << "\n(?) Enter your command (1/2/3/4/5/6/0): ";
@@ -188,20 +189,23 @@ void classManagementPage() {
 			createANewClassInCurrentSYear();
 		}
 		else if (choice == 2) {
-			importCSVStudentsOfAClassPage();
+			importCSVStudentsOfAFirstYearClassPage();
 		}
 		else if (choice == 3) {
-			viewListOfStudentsInAClass();
+			viewListOfStudentsInAFirstYearClass();
 		}
 		else if (choice == 4) {
-			// FIXME: fix Format table to be more beautiful
-			// viewScoreBoardOfAClass();
+			viewListOfFirstYearClasses();
 		}
 		else if (choice == 5) {
-			viewListOfClassesInCurrentSYear();
+			// View list of undergraduate classes (up to the current year)
 		}
 		else if (choice == 6) {
 			viewListOfClassesInSystem();
+		}
+		else if (choice == 7) {
+			// FIXME: fix Format table to be more beautiful
+			// viewScoreBoardOfAClass();
 		}
 		else if (choice == 0) {
 			staffCommandMenu();
