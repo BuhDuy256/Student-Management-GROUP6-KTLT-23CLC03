@@ -16,23 +16,39 @@ void Course::viewStudentsList() {
 
 void Course::deleteStudent() {
     menuCommandHeader();
+    std::cout << "[5]. Remove student from a course\n\n";
+    if (courseSize == 0) {
+        std::cout << "\t(!) There is no student in this course. You cannot continue to delete students from a course\n\n";
+        system("pause");
+        courseManagementPage();
+        return;
+    }
     viewStudentsList();
     int index;
+    getChoiceInt(1, courseSize, "\t(?) Enter the student number you want to delete: ", index);
 
-    while (true) {
-        std::cout << "Enter the student number you want to delete: ";
-        std::cin >> index;
-        if (index < 1 || index > courseSize) {
-            std::cout << "Invalid student number. Please enter a valid integer between 1 and " << courseSize << ".\n";
-            continue;
-        }
-        break;
+    char confirm = getYesNo("\t(?) Are you sure you want to remove this student? (Y/N): ");
+    if (confirm == 'N' || confirm == 'n') {
+        std::cout << "\t(!) Cancel deleting student.\n";
+        system("pause");
+        courseManagementPage();
+        return;
     }
+    else if (confirm == 'Y' || confirm == 'y') {
+        for (int i = index - 1; i < courseSize - 1; i++) score[i] = score[i + 1];
+        courseSize--;
 
-    for (int i = index - 1; i < courseSize - 1; i++) score[i] = score[i + 1];
-    courseSize--;
-
-    std::cout << "Student is deleted sucessfully\n";
+        std::cout << "\n\t(!) Student is deleted sucessfully\n";
+        char confirm = getYesNo("\t(?) Do you want to remove more students from course " + ID + " - " + Name + "? (Y/N): ");
+        if (confirm == 'Y' || confirm == 'y') {
+            deleteStudent();
+            return;
+        }
+        else if (confirm == 'N' || confirm == 'n') {
+            courseManagementPage();
+            return;
+        }
+    }
 }
 
 void Course::viewScoreboard() {
@@ -313,9 +329,15 @@ void addACourseInCurrSem() {
         syCurr = syCurr->next;
     }
     std::cout << "\t(!) Course added successfully." << std::endl;
-    system("pause");
-    courseManagementPage();
-    return;
+    char confirm2 = getYesNo("\t(?) Do you want to continue adding courses to the current semester? (Y/N): ");
+    if (confirm2 == 'Y' || confirm2 == 'y') {
+        addACourseInCurrSem();
+        return;
+    }
+    else if (confirm2 == 'N' || confirm2 == 'n') {
+        courseManagementPage();
+        return;
+    }
 }
 
 void updateInformationOfACourse() {
@@ -345,6 +367,12 @@ void updateInformationOfACourse() {
 void deleteACourseInCurrSem() {
     menuCommandHeader();
     std::cout << "[3]. Delete a course in current semester\n\n";
+    if (currSem.Courses == nullptr) {
+        std::cout << "\t(!) There is no course in this semester.\n";
+        system("pause");
+        courseManagementPage();
+        return;
+    }
     int no;
     currSem.viewCoursesList(no);
     std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
@@ -441,6 +469,31 @@ void addStudentToACourse() {
     }
 }
 
+void removeAStudentFromACourse() {
+    menuCommandHeader();
+    std::cout << "[5]. Remove student from a course\n";
+    int no;
+    currSem.viewCoursesList(no);
+    int choice;
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    int count = 0;
+    Node<Course>* couCurr = currSem.Courses;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            std::cout << "[5]. Remove student from a course\n";
+            couCurr->data.deleteStudent();
+            return;
+        }
+        couCurr = couCurr->next;
+    }
+}
+
 void viewListOfCoursesInCurrSem() {
     menuCommandHeader();
     std::cout << "[8]. List of courses in current semester:\n";
@@ -483,37 +536,6 @@ void viewScoreboardOfACourse() {
         }
     }
 
-}
-
-void removeAStudentFromACourse() {
-    menuCommandHeader();
-    std::cout << "[5]. Remove student from a course\n";
-    std::cout << "List of courses in current semester:" << std::endl;
-    int no;
-    currSem.viewCoursesList(no);
-    std::cout << "Enter the course number you want to remove students: ";
-    int choice;
-    while (true) {
-        std::cin >> choice;
-        if (std::cin.fail() || choice < 1 || choice > no) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
-        }
-        else {
-            int count = 0;
-            Node<Course>* couCurr = currSem.Courses;
-            while (couCurr) {
-                count++;
-                if (count == choice) {
-                    std::cout << "[5]. Remove student from a course\n";
-                    couCurr->data.deleteStudent();
-                    return;
-                }
-                couCurr = couCurr->next;
-            }
-        }
-    }
 }
 
 void viewListStudentInACourse() {
