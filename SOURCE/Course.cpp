@@ -331,6 +331,7 @@ void deleteACourseInCurrSem() {
         return;
     }
     Node<Course>* couCurr = currSem.Courses;
+    Node<Course>* couPrev = nullptr;
     int count = 0;
     while (couCurr) {
         count++;
@@ -357,15 +358,12 @@ void deleteACourseInCurrSem() {
             }
             else {
                 delete[] couCurr->data.score;
-                Node<Course>* temp = currSem.Courses;
-                while (temp->next != couCurr) {
-                    temp = temp->next;
-                }
-                temp->next = couCurr->next;
+                couPrev->next = couCurr->next;
                 delete couCurr;
             }
             break;
         }
+        couPrev = couCurr;
         couCurr = couCurr->next;
     }
     std::cout << "\t(!) Course deleted successfully.\n";
