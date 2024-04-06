@@ -1,6 +1,8 @@
 #include"Course.h"
 
 void Course::viewStudentsList() {
+    menuCommandHeader();
+    std::cout << "[9] List of students in course " << ID << " - " << Name << " - " << className << ":\n\n";
     std::cout << "\t+--------+------------+------------------------------+\n";
     std::cout << "\t| No     | Student ID | Student Name                 |\n";
     std::cout << "\t+--------+------------+------------------------------+\n";
@@ -11,7 +13,10 @@ void Course::viewStudentsList() {
             << "| " << std::setw(29) << std::left << score[i].studentName
             << "|\n";
     }
-    std::cout << "\t+--------+------------+------------------------------+\n";
+    std::cout << "\t+--------+------------+------------------------------+\n\n";
+    system("pause");
+    courseManagementPage();
+    return;
 }
 
 void Course::deleteStudent() {
@@ -52,6 +57,8 @@ void Course::deleteStudent() {
 }
 
 void Course::viewScoreboard() {
+    menuCommandHeader();
+    std::cout << "[10]. List of students in course " << ID << " - " << Name << " - " << className << ":\n\n";
     std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
     std::cout << "\t| NO     | Student ID | Student Name                 | Midterm  | Final    | Others   | Total    |" << std::endl;
     std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
@@ -66,6 +73,9 @@ void Course::viewScoreboard() {
             << "|" << std::endl;
     }
     std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
+    std::cout << std::endl;
+    system("pause");
+    courseManagementPage();
     return;
 }
 
@@ -504,9 +514,10 @@ void removeAStudentFromACourse() {
 
 void viewListOfCoursesInCurrSem() {
     menuCommandHeader();
-    std::cout << "[8]. List of courses in current semester:\n";
+    std::cout << "[8]. List of courses in current semester:\n\n";
     int no;
     currSem.viewCoursesList(no);
+    std::cout << std::endl;
     system("pause");
     courseManagementPage();
     return;
@@ -514,66 +525,50 @@ void viewListOfCoursesInCurrSem() {
 
 void viewScoreboardOfACourse() {
     menuCommandHeader();
+    std::cout << "[10]. View scoreboard of a course\n\n";
     int no;
     currSem.viewCoursesList(no);
-    std::cout << "Enter the course number you want to view scoreboard (1 to " << no << "): ";
     int choice;
-    while (true) {
-        std::cin >> choice;
-        if (std::cin.fail() || choice < 1 || choice > no) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
-        }
-        else {
-            int count = 0;
-            Node<Course>* couCurr = currSem.Courses;
-            while (couCurr) {
-                count++;
-                if (count == choice) {
-                    menuCommandHeader();
-                    std::cout << "List of students in course " << couCurr->data.ID << " - " << couCurr->data.Name << " - " << couCurr->data.className << ":\n";
-                    couCurr->data.viewScoreboard();
-                    system("pause");
-                    courseManagementPage();
-                    break;
-                }
-                couCurr = couCurr->next;
-            }
-            break;
-        }
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
+    getChoiceInt(0, no, "\t(?) Enter the course you want to view scoreboard (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
     }
-
+    int count = 0;
+    Node<Course>* couCurr = currSem.Courses;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            couCurr->data.viewScoreboard();
+            std::cout << std::endl;
+            return;
+        }
+        couCurr = couCurr->next;
+    }
 }
 
 void viewListStudentInACourse() {
     menuCommandHeader();
+    std::cout << "[9]. View list of students in a course\n\n";
     int no;
     currSem.viewCoursesList(no);
-    std::cout << "Enter the course you want to view student (between 1 and " << no << "): ";
     int choice;
-    while (true) {
-        std::cin >> choice;
-        if (std::cin.fail() || choice < 1 || choice > no) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    Node<Course>* couCurr = currSem.Courses;
+    int count = 0;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            couCurr->data.viewStudentsList();
+            return;
         }
-        else {
-            Node<Course>* couCurr = currSem.Courses;
-            int count = 0;
-            while (couCurr) {
-                count++;
-                if (count == choice) {
-                    menuCommandHeader();
-                    couCurr->data.viewStudentsList();
-                    system("pause");
-                    courseManagementPage();
-                    return;
-                }
-                couCurr = couCurr->next;
-            }
-        }
+        couCurr = couCurr->next;
     }
 }
 
