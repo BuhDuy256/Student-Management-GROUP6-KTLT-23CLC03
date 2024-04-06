@@ -312,4 +312,15 @@ int daysInMonth(int month, int year) {
 
 int daysBetweenDates(const std::string& date1, const std::string& date2) {
     return abs(dateToInt(date2) - dateToInt(date1));
+} 
+
+char getYesNo(std::string prompt) {
+    char confirm;
+    std::cout << prompt;
+    while(!(std::cin >> confirm) || (confirm != 'Y' && confirm != 'y' && confirm != 'N' && confirm != 'n')) {
+        std::cout << "\t(X) Invalid input. Please enter again: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    return confirm;
 }

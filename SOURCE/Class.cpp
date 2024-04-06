@@ -23,13 +23,9 @@ void createANewClassInCurrentSYear() {
         classManagementPage();
         return;
     }
-    char confirm;
-    std::cout << "\n\t(?) Do you want to add this class? (Y/N): "; //consider_adding_do_you_want_to_create_more_class (Y/N)
-    while(!(std::cin >> confirm) || (confirm != 'Y' && confirm != 'y' && confirm != 'N' && confirm != 'n')) {
-        std::cout << "\t(X) Invalid input. Please enter again: ";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    }
+
+    char confirm = getYesNo("\t(?) Do you want to add this class? (Y/N): ");
+
     if (confirm == 'N' || confirm == 'n') {
         std::cout << "\n(X) Cancelled creating a new class" << std::endl;
         system("pause");
@@ -39,10 +35,18 @@ void createANewClassInCurrentSYear() {
     newClass.schoolYear = currSYear->data.year;
     Node<Class>* claHead = new Node<Class>(newClass, currSYear->data.classes);
     currSYear->data.classes = claHead;
-    std::cout << "\n(!) Class was added successfully" << std::endl;
-    system("pause");
-    classManagementPage();
-    return;
+    std::cout << "\n\t(!) Class was added successfully" << std::endl;
+
+    confirm = getYesNo("\n\t(?) Do you want to continue adding classes? (Y/N): ");
+    if (confirm == 'N' || confirm == 'n') {
+        std::cout << "\n(!) You have finished adding classes" << std::endl;
+        system("pause");
+        classManagementPage();
+        return;
+    } else if (confirm == 'Y' || confirm == 'y') {
+        createANewClassInCurrentSYear();
+        return;
+    }
 }
 
 void importCSVStudentsOfAClass(Node<Class>* claCurr) {

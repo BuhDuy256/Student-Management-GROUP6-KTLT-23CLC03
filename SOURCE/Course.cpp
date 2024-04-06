@@ -175,29 +175,16 @@ void Course::updateInformation()
         session = sessions[choice - 1];
     }
     std::cout << "\t(!) Course information updated successfully." << std::endl;
-    std::cout << "\t(?) Do you want to continue updating course " << ID << " - " << Name << " information? (Y/N): ";
-    char choice2;
-    do {
-        std::cin >> choice2;
-        if (std::cin.fail()) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "\t(X) Invalid input. Please enter again: ";
-        }
-        else {
-            if (choice2 == 'Y' || choice2 == 'y') {
-                updateInformation();
-                return;
-            }
-            else if (choice2 == 'N' || choice2 == 'n') {
-                break;
-            }
-            else {
-                std::cout << "\t(X) Invalid input. Please enter again: ";
-            }
-        }
-    } while (true);
-    courseManagementPage();
+    
+    char confirm = getYesNo("\t(?) Do you want to continue updating course " + ID + " - " + Name + " information? (Y/N): ");
+    if (confirm == 'Y' || confirm == 'y') {
+        updateInformation();
+        return;
+    }
+    else {
+        courseManagementPage();
+        return;
+    }
 }
 
 void addACourseInCurrSem() {
@@ -281,13 +268,9 @@ void addACourseInCurrSem() {
     newCourse.session = sessions[choice - 1];
     newCourse.couSY = currSYear->data.year;
     newCourse.couSem = currSemNumber;
-    char confirm;
-    std::cout << "\t(?) Are you sure you want to add this course? (Y/N): ";
-    while (!(std::cin >> confirm) || (confirm != 'Y' && confirm != 'y' && confirm != 'N' && confirm != 'n')) {
-        std::cout << "\t(X) Invalid input. Please enter again: ";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    }
+
+    char confirm = getYesNo("\t(?) Are you sure you want to add this course? (Y/N): ");
+
     if (confirm == 'N' || confirm == 'n') {
         std::cout << "\t(!) Cancel adding course.\n";
         system("pause");
@@ -338,13 +321,9 @@ void deleteACourseInCurrSem() {
         courseManagementPage();
         return;
     }
-    std::cout << "\t(?) If you delete it you will lose all course information. Are you sure you want to delete? (Y/N): ";
-    char confirm;
-    while(!(std::cin >> confirm) || (confirm != 'Y' && confirm != 'y' && confirm != 'N' && confirm != 'n')) {
-        std::cout << "\t(X) Invalid input. Please enter again: ";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    }
+
+    char confirm = getYesNo("\t(?) If you delete it you will lose all course information. Are you sure you want to delete? (Y/N): ");
+
     if (confirm == 'N' || confirm == 'n') {
         std::cout << "\t(!) Cancel deleting course.\n";
         system("pause");
