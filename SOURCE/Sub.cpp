@@ -106,6 +106,9 @@ bool isCourseIDValid(const std::string& courseID) {
 }
 
 bool isValidID(std::string id) {
+    if (id.size() != 8) {
+        return false;
+    }
     for (char c : id) {
         if (!isdigit(c)) {
             return false;

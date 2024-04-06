@@ -242,7 +242,7 @@ void courseManagementPage() {
 		while (!(std::cin >> choice) || (choice < 0 || choice > 11)) {
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "(X) Invalid input. Please enter a valid integer between 1 and 12." << std::endl;
+			std::cout << "(X) Invalid input. Please enter again: ";
 		}
 		if (choice == 1) {
 			addACourseInCurrSem();

@@ -55,12 +55,20 @@ void Course::viewScoreboard() {
 
 void Course::addStudent()
 {
+    menuCommandHeader();
+    std::cout << "[4]. Add student to a course\n\n";
+    viewStudentsList();
+    std::cout << std::endl;
     StudentScore studentScore;
-    std::cout << "\t(?) Enter the student's ID: ";
-    while (!(std::cin >> studentScore.studentID) || !isValidID(studentScore.studentID)) {
-        std::cout << "\t(X) Invalid student ID. Please try again: ";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cout << "\t(?) Enter the student's ID (8 digits): ";
+    while (true) {
+        std::cin >> studentScore.studentID;
+        if (isValidID(studentScore.studentID)) {
+            break;
+        }
+        else {
+            std::cout << "\t(X) Invalid student ID. Please try again: ";
+        }
     }
 
     std::cout << "\t(?) Enter the student's name: ";
@@ -77,7 +85,15 @@ void Course::addStudent()
     for (int i = 0; i < courseSize; i++) {
         if (studentScore.studentID == score[i].studentID) {
             std::cout << "\n\t(X) The student is already in the course.\n";
-            return;
+            char confirm = getYesNo("\t(?) Do you want to add more students to course " + ID + " - " + Name + "? (Y/N): ");
+            if (confirm == 'Y' || confirm == 'y') {
+                addStudent();
+                return;
+            }
+            else if (confirm == 'N' || confirm == 'n') {
+                courseManagementPage();
+                return;
+            }
         }
     }
     formalize(studentScore.studentName);
@@ -85,7 +101,15 @@ void Course::addStudent()
     courseSize++;
 
     std::cout << "\n\t(!) Student is added sucessfully...\n";
-    return;
+    char confirm = getYesNo("\t(?) Do you want to add more students to course " + ID + " - " + Name + "? (Y/N): ");
+    if (confirm == 'Y' || confirm == 'y') {
+        addStudent();
+        return;
+    }
+    else if (confirm == 'N' || confirm == 'n') {
+        courseManagementPage();
+        return;
+    }
 }
 
 void Course::updateInformation()
@@ -175,7 +199,7 @@ void Course::updateInformation()
         session = sessions[choice - 1];
     }
     std::cout << "\t(!) Course information updated successfully." << std::endl;
-    
+
     char confirm = getYesNo("\t(?) Do you want to continue updating course " + ID + " - " + Name + " information? (Y/N): ");
     if (confirm == 'Y' || confirm == 'y') {
         updateInformation();
@@ -277,9 +301,18 @@ void addACourseInCurrSem() {
         courseManagementPage();
         return;
     }
-    Node<Course>* newCourseNode = new Node<Course>(newCourse, currSem.Courses);
-    currSem.Courses = newCourseNode;
-    std::cout << "(!) Course added successfully." << std::endl;
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr) {
+        if (syCurr->data.year == currSYear->data.year) {
+            Node<Course>* temp = syCurr->data.semesters[currSemNumber - 1].Courses;
+            syCurr->data.semesters[currSemNumber - 1].Courses = new Node<Course>(newCourse, temp);
+            syCurr->data.semesters[currSemNumber - 1].Courses->data.score = new StudentScore[100];
+            currSem = syCurr->data.semesters[currSemNumber - 1];
+            break;
+        }
+        syCurr = syCurr->next;
+    }
+    std::cout << "\t(!) Course added successfully." << std::endl;
     system("pause");
     courseManagementPage();
     return;
@@ -379,28 +412,32 @@ void addStudentToACourse() {
     currSem.viewCoursesList(no);
     int choice;
     std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
-    std::cout << "\t(?) Enter the course number you want to add students (1-" << no << "): ";
+    std::cout << "\t(?) Enter the course number you want to add students (0-" << no << "): ";
     while (!(std::cin >> choice) || choice < 0 || choice > no) {
-        std::cout << "Invalid input. Please enter a again:";
+        std::cout << "\t(X) Invalid input. Please enter a again:";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
     int count;
-    Node<Course>* couCurr = currSem.Courses;
-    bool isAdded = false;
-    while (couCurr) {
-        count++;
-        if (count == choice) {
-            menuCommandHeader();
-            std::cout << "[4]. Add student to a course\n\n";
-            couCurr->data.viewStudentsList();
-            std::cout << std::endl;
-            couCurr->data.addStudent();
-            system("pause");
-            courseManagementPage();
-            return;
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr) {
+        if (syCurr->data.year == currSYear->data.year) {
+            Node<Course>* couCurr = syCurr->data.semesters[currSemNumber - 1].Courses;
+            count = 0;
+            while (couCurr) {
+                count++;
+                if (count == choice) {
+                    couCurr->data.addStudent();
+                    return;
+                }
+                couCurr = couCurr->next;
+            }
         }
-        couCurr = couCurr->next;
+        syCurr = syCurr->next;
     }
 }
 
