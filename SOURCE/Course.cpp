@@ -56,23 +56,36 @@ void Course::viewScoreboard() {
 void Course::addStudent()
 {
     StudentScore studentScore;
-    while (true) {
-        std::cout << "\tEnter the student's ID: ";
-        std::cin.ignore();
-        std::getline(std::cin, studentScore.studentID);
-        if (isValidID(studentScore.studentID)) break;
+    std::cout << "\t(?) Enter the student's ID: ";
+    while (!(std::cin >> studentScore.studentID) || !isValidID(studentScore.studentID)) {
+        std::cout << "\t(X) Invalid student ID. Please try again: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
+
+    std::cout << "\t(?) Enter the student's name: ";
+    std::cin.ignore();
     while (true) {
-        std::cout << "\tEnter the student's name: ";
-        std::cin.ignore();
         std::getline(std::cin, studentScore.studentName);
-        if (isValidCouOrStuName(studentScore.studentName)) break;
+        if (isValidCouOrStuName(studentScore.studentName)) {
+            break;
+        }
+        else {
+            std::cout << "\t(X) Invalid student name. Please try again: ";
+        }
+    }
+    for (int i = 0; i < courseSize; i++) {
+        if (studentScore.studentID == score[i].studentID) {
+            std::cout << "\n\t(X) The student is already in the course.\n";
+            return;
+        }
     }
     formalize(studentScore.studentName);
     score[courseSize] = studentScore;
     courseSize++;
 
-    std::cout << "Student is added sucessfully...\n";
+    std::cout << "\n\t(!) Student is added sucessfully...\n";
+    return;
 }
 
 void Course::updateInformation()
@@ -132,6 +145,7 @@ void Course::updateInformation()
                 std::cout << "\t\t(X) Invalid teacher name. Please try again: ";
             }
         }
+        formalize(newTeacherName);
         teacherName = newTeacherName;
     }
     else if (choice == 3) {
@@ -161,7 +175,7 @@ void Course::updateInformation()
         session = sessions[choice - 1];
     }
     std::cout << "\t(!) Course information updated successfully." << std::endl;
-    std::cout << "\t(?) Do you want to continue updating course " << ID << " - " << Name << " information (Y/N)? ";
+    std::cout << "\t(?) Do you want to continue updating course " << ID << " - " << Name << " information? (Y/N): ";
     char choice2;
     do {
         std::cin >> choice2;
@@ -213,6 +227,7 @@ void addACourseInCurrSem() {
             std::cout << "\t(X) Invalid course name. Please try again: ";
         }
     }
+    formalize(newCourse.Name);
     std::cout << "\t(?) Enter the class name (Format: dd/U[2,4]/dd. 'dd': two consecutive digits, 'U[2,4]': 2-4 uppercase letter): ";
     while (true) {
         std::cin >> newCourse.className;
@@ -241,6 +256,7 @@ void addACourseInCurrSem() {
             std::cout << "\t(X) Invalid teacher name. Please try again: ";
         }
     }
+    formalize(newCourse.teacherName);
     std::cout << "\t(?) Enter number of credits (2-4): ";
     while (!(std::cin >> newCourse.nCredits) || newCourse.nCredits < 2 || newCourse.nCredits > 4) {
         std::cout << "\t(X) Invalid number of credits. Please enter again: ";
@@ -263,9 +279,21 @@ void addACourseInCurrSem() {
     // int choice;
     getChoiceInt(1, 4, "\t(?) Enter the number of the new session: ", choice);
     newCourse.session = sessions[choice - 1];
-
     newCourse.couSY = currSYear->data.year;
     newCourse.couSem = currSemNumber;
+    char confirm;
+    std::cout << "\t(?) Are you sure you want to add this course? (Y/N): ";
+    while (!(std::cin >> confirm) || (confirm != 'Y' && confirm != 'y' && confirm != 'N' && confirm != 'n')) {
+        std::cout << "\t(X) Invalid input. Please enter again: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    if (confirm == 'N' || confirm == 'n') {
+        std::cout << "\t(!) Cancel adding course.\n";
+        system("pause");
+        courseManagementPage();
+        return;
+    }
     Node<Course>* newCourseNode = new Node<Course>(newCourse, currSem.Courses);
     currSem.Courses = newCourseNode;
     std::cout << "(!) Course added successfully." << std::endl;
@@ -303,24 +331,72 @@ void deleteACourseInCurrSem() {
     std::cout << "[3]. Delete a course in current semester\n\n";
     int no;
     currSem.viewCoursesList(no);
-    std::cout << "\n\t(?) Enter the course number you want to delete: ";
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
     int choice;
-    while (true) {
-        std::cin >> choice;
-        if (std::cin.fail() || choice < 1 || choice > no) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
-        }
-        else {
-            currSem.deleteCourse(choice);
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    std::cout << "\t(?) If you delete it you will lose all course information. Are you sure you want to delete? (Y/N): ";
+    char confirm;
+    while(!(std::cin >> confirm) || (confirm != 'Y' && confirm != 'y' && confirm != 'N' && confirm != 'n')) {
+        std::cout << "\t(X) Invalid input. Please enter again: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    if (confirm == 'N' || confirm == 'n') {
+        std::cout << "\t(!) Cancel deleting course.\n";
+        system("pause");
+        courseManagementPage();
+        return;
+    }
+    Node<Course>* couCurr = currSem.Courses;
+    int count = 0;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            currSem.deleteACourse(couCurr);
             break;
         }
+        couCurr = couCurr->next;
     }
     std::cout << "\t(!) Course deleted successfully.\n";
     system("pause");
     courseManagementPage();
     return;
+}
+
+void addStudentToACourse() {
+    menuCommandHeader();
+    std::cout << "[4]. Add student to a course\n\n";
+    int no;
+    currSem.viewCoursesList(no);
+    int choice;
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
+    std::cout << "\t(?) Enter the course number you want to add students (1-" << no << "): ";
+    while (!(std::cin >> choice) || choice < 0 || choice > no) {
+        std::cout << "Invalid input. Please enter a again:";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    int count;
+    Node<Course>* couCurr = currSem.Courses;
+    bool isAdded = false;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            menuCommandHeader();
+            std::cout << "[4]. Add student to a course\n\n";
+            couCurr->data.viewStudentsList();
+            std::cout << std::endl;
+            couCurr->data.addStudent();
+            system("pause");
+            courseManagementPage();
+            return;
+        }
+        couCurr = couCurr->next;
+    }
 }
 
 void viewListOfCoursesInCurrSem() {
@@ -331,42 +407,6 @@ void viewListOfCoursesInCurrSem() {
     system("pause");
     courseManagementPage();
     return;
-}
-
-void addStudentToACourse() {
-    menuCommandHeader();
-    std::cout << "[4]. Add student to a course\n";
-    int no;
-    currSem.viewCoursesList(no);
-    int choice;
-    std::cout << "Enter the course number you want to add students (1 to " << no << "): ";
-    while (true) {
-        std::cin >> choice;
-        if (std::cin.fail() || choice < 1 || choice > no) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
-        }
-        else {
-            int count;
-            Node<Course>* couCurr = currSem.Courses;
-            bool isAdded = false;
-            while (couCurr) {
-                count++;
-                if (count == choice) {
-                    system("cls");
-                    menuCommandHeader();
-                    std::cout << "[4]. Add student to a course\n";
-                    couCurr->data.viewStudentsList();
-                    couCurr->data.addStudent();
-                    system("pause");
-                    courseManagementPage();
-                    return;
-                }
-                couCurr = couCurr->next;
-            }
-        }
-    }
 }
 
 void viewScoreboardOfACourse() {

@@ -34,7 +34,7 @@ void getChoiceInt(int startChoiceNum, int endChoiceNum, std::string prompt, int&
 {
     std::cout << prompt;
     choice = startChoiceNum - 1; // Initialize choice to an invalid value
-    while(!(std::cin >> choice) || choice < startChoiceNum || choice > endChoiceNum) {
+    while (!(std::cin >> choice) || choice < startChoiceNum || choice > endChoiceNum) {
         std::cout << "\t(X) Invalid input. Please try again: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -91,7 +91,7 @@ bool isValidClassName(const std::string& className, const std::string& currentYe
 bool isValidCouOrStuName(const std::string& name) {
     // Regular expression to match valid names
     std::regex pattern("^[A-Za-z]+(?:[ -][A-Za-z]+)*$");
-    
+
     // Check if the name matches the pattern
     return std::regex_match(name, pattern);
 }
@@ -119,7 +119,7 @@ bool notExistclassNameOfCourse(const std::string& courseID, const std::string& c
         return false;
     }
     Node<Course>* couCurr = currSem.Courses;
-    while(couCurr) {
+    while (couCurr) {
         if (couCurr->data.ID == courseID && couCurr->data.className == className) {
             return false;
         }
@@ -132,20 +132,22 @@ void formalize(std::string& name)
 {
     std::string formalizedName;
     bool lastWasSpace = true;
-    for (char c : name)
-    {
-        if (std::isspace(c))
-        {
-            if (!lastWasSpace)
-            {
+    bool firstChar = true;
+    for (char c : name) {
+        if (std::isspace(c)) {
+            if (!lastWasSpace) {
                 formalizedName += ' ';
                 lastWasSpace = true;
             }
         }
-        else
-        {
-            if (lastWasSpace) c = toupper(c);
-            else c = tolower(c);
+        else {
+            if (lastWasSpace || firstChar) {
+                c = toupper(c);
+                firstChar = false;
+            }
+            else {
+                c = tolower(c);
+            }
 
             formalizedName += c;
             lastWasSpace = false;
