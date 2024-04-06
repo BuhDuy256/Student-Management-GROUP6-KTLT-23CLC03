@@ -676,7 +676,7 @@ void exportCSVStudentsOfACourse() {
             std::string folderName;
             std::cin.ignore();
             while (true) {
-                std::cout << "\t(?) Enter the path of folder you want to export CSV (You can drag the folder in): ";
+                std::cout << "\t(?) Enter the path of folder (You can drag the folder in - Not drive \"C:\\\"): ";
                 std::getline(std::cin >> std::ws, folderName);
                 folderName = removeQuotesFromPath(folderName);
                 if (!std::filesystem::is_directory(folderName) || folderName.empty()) {
@@ -723,7 +723,7 @@ void exportCSVStudentsOfACourse() {
                 outF << "\n";
             }
             outF.close();
-            std::cout << "Exported successfully!" << std::endl;
+            std::cout << "\t(!) Exported successfully!" << std::endl;
             system("pause");
             courseManagementPage();
             return;
