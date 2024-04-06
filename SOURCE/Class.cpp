@@ -23,6 +23,19 @@ void createANewClassInCurrentSYear() {
         classManagementPage();
         return;
     }
+    char confirm;
+    std::cout << "\n\t(?) Do you want to add this class? (Y/N): ";
+    while(!(std::cin >> confirm) || (confirm != 'Y' && confirm != 'y' && confirm != 'N' && confirm != 'n')) {
+        std::cout << "\t(X) Invalid input. Please enter again: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    if (confirm == 'N' || confirm == 'n') {
+        std::cout << "\n(X) Cancelled creating a new class" << std::endl;
+        system("pause");
+        classManagementPage();
+        return;
+    }
     newClass.schoolYear = currSYear->data.year;
     Node<Class>* claHead = new Node<Class>(newClass, currSYear->data.classes);
     currSYear->data.classes = claHead;
