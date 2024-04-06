@@ -24,7 +24,7 @@ void createANewClassInCurrentSYear() {
         return;
     }
     char confirm;
-    std::cout << "\n\t(?) Do you want to add this class? (Y/N): ";
+    std::cout << "\n\t(?) Do you want to add this class? (Y/N): "; //consider_adding_do_you_want_to_create_more_class (Y/N)
     while(!(std::cin >> confirm) || (confirm != 'Y' && confirm != 'y' && confirm != 'N' && confirm != 'n')) {
         std::cout << "\t(X) Invalid input. Please enter again: ";
         std::cin.clear();
