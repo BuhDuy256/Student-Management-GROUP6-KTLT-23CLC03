@@ -75,6 +75,14 @@ void Course::addStudent()
     std::cout << "[4]. Add student to a course\n\n";
     viewStudentsList();
     std::cout << std::endl;
+
+    if(courseSize == 100) {
+        std::cout << "\t(X)  The number of students in the course exceeds the limit of 100 students. You cannot add more students to this course.\n";
+        system("pause");
+        courseManagementPage();
+        return;
+    }
+
     StudentScore studentScore;
     std::cout << "\t(?) Enter the student's ID (8 digits): ";
     while (true) {
@@ -714,10 +722,32 @@ void exportCSVStudentsOfACourse() {
     }
 }
 
-void importOutsideCSVStudentsInCourse(Node<Course>* couCurr, std::string fileName) {
+void importOutsideCSVStudentsInCourse(Node<Course>* couCurr) {
+    std::string fileName;
+    std::cin.ignore();
+    while (true) {
+        std::cout << "\t(?) Enter the path of the CSV file (You can drag it into the program): ";
+        std::getline(std::cin >> std::ws, fileName);
+        if (std::filesystem::is_regular_file(fileName) && ends_with(fileName, ".csv")) {
+            break;
+        }
+        std::cout << "\t(X) Invalid CSV file path." << std::endl;
+        char confirm = getYesNo("\t(?) Do you want to try again? (Y/N): ");
+        if (confirm == 'N' || confirm == 'n') {
+            courseManagementPage();
+            return;
+        }
+    }
+    char confirm = getYesNo("\t(?) Are you sure you want to import this CSV file? (Y/N): ");
+    if (confirm == 'N' || confirm == 'n') {
+        courseManagementPage();
+        return;
+    }
     std::ifstream inF(fileName);
     if (!inF.is_open()) {
-        std::cout << "Couldn't import " << fileName << std::endl;
+        std::cout << "\t(X) Couldn't import " << fileName << std::endl;
+        system("pause");
+        courseManagementPage();
         return;
     }
     std::string header;
@@ -725,78 +755,58 @@ void importOutsideCSVStudentsInCourse(Node<Course>* couCurr, std::string fileNam
     std::string line;
     int n = 0;
     while (std::getline(inF, line)) {
+        if (n == 100) {
+            std::cout << "\t(X) The number of students in the course exceeds the limit of 100 students." << std::endl;
+            break;
+        }
         // Check if the line is empty or contains only whitespace
         if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
             break; // Stop reading if the line is empty
         }
         std::stringstream ss(line);
         std::string token;
-        bool idRead = false;
-        bool nameRead = false;
-        while (std::getline(ss, token, ',')) {
-            if (std::all_of(token.begin(), token.end(), ::isdigit)) {
-                continue;
-            }
-            if (!idRead) {
-                couCurr->data.score[n].studentID = token;
-                idRead = true;
-            }
-            else if (!nameRead) {
-                couCurr->data.score[n].studentName = token;
-                nameRead = true;
-                n++;
-            }
-            if (idRead && nameRead) {
-                break;
-            }
-        }
+        std::getline(ss, token, ',');
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].studentID = token;
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].studentName = token;
+        n++;
     }
     couCurr->data.courseSize = n;
     inF.close();
+    std::cout << "\t(X) Imported successfully." << std::endl;
 }
 
 void uploadCSVFileContainingAListOfStudentsOfACourse() {
     menuCommandHeader();
+    std::cout << "[6]. Upload a CSV file containing a list of students of a course\n\n";
     int no;
     currSem.viewCoursesList(no);
-    std::cout << "Enter the course number: ";
-    std::cout << "Enter the course number (between 1 and " << no << "): ";
+    std::cout << "\n\t(*) Your CSV file must have the format:" << std::endl;
+    std::cout << "\t\t1. The header line has the format: No,Student ID,Student Name" << std::endl;
+    std::cout << "\t\t2. No is the serial number of each student, student ID must have 8 digits, student Name has no format." << std::endl;
+    std::cout << "\t(*) Enter '0' to return to the course management page\n";
     int choice;
-    while (true) {
-        std::cin >> choice;
-        if (std::cin.fail() || choice < 1 || choice > no) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
-        }
-        else {
-            Node<Course>* couCurr = currSem.Courses;
-            int count = 0;
-            while (couCurr) {
-                count++;
-                if (count == choice) {
-                    if (couCurr->data.score == nullptr) {
-                        std::string fileName;
-                        std::cout << "Enter the path of the CSV file (You can drag it into the program): ";
-                        while (true) {
-                            std::cin >> fileName;
-                            if (std::filesystem::is_regular_file(fileName) && ends_with(fileName, ".csv")) {
-                                break;
-                            }
-                            std::cout << "Invalid CSV file path." << std::endl;
-                        }
-                        importOutsideCSVStudentsInCourse(couCurr, fileName);
-                        std::cout << "Imported successfully." << std::endl;
-                    }
-                    else {
-                        std::cout << "This course already has students enrolled." << std::endl;
-                    }
-                    system("pause");
-                    courseManagementPage();
-                    return;
-                }
-                couCurr = couCurr->next;
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    int count = 0;
+    Node<Course>* couCurr = currSem.Courses;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            if (couCurr->data.score == nullptr) {
+                importOutsideCSVStudentsInCourse(couCurr);
             }
+            else {
+                std::cout << "\t(X) This course already has students enrolled." << std::endl;
+            }
+            system("pause");
+            courseManagementPage();
+            return;
         }
+        couCurr = couCurr->next;
     }
 }
