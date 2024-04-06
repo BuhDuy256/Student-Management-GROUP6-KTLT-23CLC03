@@ -1,8 +1,6 @@
 #include"Course.h"
 
 void Course::viewStudentsList() {
-    menuCommandHeader();
-    std::cout << "[9] List of students in course " << ID << " - " << Name << " - " << className << ":\n\n";
     std::cout << "\t+--------+------------+------------------------------+\n";
     std::cout << "\t| No     | Student ID | Student Name                 |\n";
     std::cout << "\t+--------+------------+------------------------------+\n";
@@ -13,10 +11,7 @@ void Course::viewStudentsList() {
             << "| " << std::setw(29) << std::left << score[i].studentName
             << "|\n";
     }
-    std::cout << "\t+--------+------------+------------------------------+\n\n";
-    system("pause");
-    courseManagementPage();
-    return;
+    std::cout << "\t+--------+------------+------------------------------+\n";
 }
 
 void Course::deleteStudent() {
@@ -57,8 +52,6 @@ void Course::deleteStudent() {
 }
 
 void Course::viewScoreboard() {
-    menuCommandHeader();
-    std::cout << "[10]. List of students in course " << ID << " - " << Name << " - " << className << ":\n\n";
     std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
     std::cout << "\t| NO     | Student ID | Student Name                 | Midterm  | Final    | Others   | Total    |" << std::endl;
     std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
@@ -73,10 +66,6 @@ void Course::viewScoreboard() {
             << "|" << std::endl;
     }
     std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
-    std::cout << std::endl;
-    system("pause");
-    courseManagementPage();
-    return;
 }
 
 void Course::addStudent()
@@ -540,8 +529,12 @@ void viewScoreboardOfACourse() {
     while (couCurr) {
         count++;
         if (count == choice) {
+            menuCommandHeader();
+            std::cout << "[10]. Scoreboard of course " << couCurr->data.ID << " - " << couCurr->data.Name << " - " << couCurr->data.className << ":\n\n";
             couCurr->data.viewScoreboard();
             std::cout << std::endl;
+            system("pause");
+            courseManagementPage();
             return;
         }
         couCurr = couCurr->next;
@@ -565,7 +558,13 @@ void viewListStudentInACourse() {
     while (couCurr) {
         count++;
         if (count == choice) {
+            menuCommandHeader();
+            std::cout << "[9] List of students in course " << couCurr->data.ID << " - " << couCurr->data.Name << " - " << couCurr->data.className << ":\n\n";
             couCurr->data.viewStudentsList();
+            std::cout << "\n";
+            system("pause");
+            courseManagementPage();
+            return;
             return;
         }
         couCurr = couCurr->next;
@@ -574,8 +573,9 @@ void viewListStudentInACourse() {
 
 void chooseStudentToUpdateResult(Node<Course>* couCurr) {
     menuCommandHeader();
+    std::cout << "[11]. Update a student's result of course " << couCurr->data.ID << " - " << couCurr->data.Name << " - " << couCurr->data.className << "\n\n";
     couCurr->data.viewScoreboard();
-    std::cout << "Enter the student you want to update result (between 1 and " << couCurr->data.courseSize << "): ";
+    std::cout << "\n(?) Enter the student you want to update result (between 1 and " << couCurr->data.courseSize << "): ";
     int studentIndex;
     while (true) {
         std::cin >> studentIndex;
@@ -627,27 +627,21 @@ void updateAStudentResultOfACourse() {
     menuCommandHeader();
     int no;
     currSem.viewCoursesList(no);
-    std::cout << "Enter the course number (between 1 and " << no << "): ";
     int choice;
-    while (true) {
-        std::cin >> choice;
-        if (std::cin.fail() || choice < 1 || choice > no) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    Node<Course>* couCurr = currSem.Courses;
+    int count = 0;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            chooseStudentToUpdateResult(couCurr);
+            return;
         }
-        else {
-            Node<Course>* couCurr = currSem.Courses;
-            int count = 0;
-            while (couCurr) {
-                count++;
-                if (count == choice) {
-                    chooseStudentToUpdateResult(couCurr);
-                    return;
-                }
-                couCurr = couCurr->next;
-            }
-        }
+        couCurr = couCurr->next;
     }
 }
 
