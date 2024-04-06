@@ -335,7 +335,35 @@ void deleteACourseInCurrSem() {
     while (couCurr) {
         count++;
         if (count == choice) {
-            currSem.deleteACourse(couCurr);
+            std::string fileName = "../CSV Files/List of Courses/" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
+            std::ifstream fileStream(fileName);
+            if (fileStream.is_open()) {
+                fileStream.close();
+                std::remove(fileName.c_str());
+            }
+            if (couCurr == currSem.Courses) {
+                Node<SchoolYear>* syCurr = latestSYear; // find the school year that contains the current semester
+                while (syCurr) {
+                    if (syCurr->data.year == currSYear->data.year) {
+                        Node<Course>* temp = syCurr->data.semesters[currSemNumber - 1].Courses;
+                        delete[] temp->data.score;
+                        syCurr->data.semesters[currSemNumber - 1].Courses = temp->next;
+                        delete temp;
+                        currSem = syCurr->data.semesters[currSemNumber - 1];
+                        break;
+                    }
+                    syCurr = syCurr->next;
+                }
+            }
+            else {
+                delete[] couCurr->data.score;
+                Node<Course>* temp = currSem.Courses;
+                while (temp->next != couCurr) {
+                    temp = temp->next;
+                }
+                temp->next = couCurr->next;
+                delete couCurr;
+            }
             break;
         }
         couCurr = couCurr->next;

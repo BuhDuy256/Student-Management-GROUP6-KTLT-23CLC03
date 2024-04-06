@@ -16,7 +16,6 @@ struct Semester {
 	std::string endDate;
 	Node<Course>* Courses = nullptr;
 	void viewCoursesList(int &no);
-	void deleteACourse(Node<Course>* course);
 };
 
 struct SchoolYear {

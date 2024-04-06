@@ -23,28 +23,6 @@ void Semester::viewCoursesList(int& no) {
 	std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
 }
 
-void Semester::deleteACourse(Node<Course>* couCurr) { // couCurr is alway valid and not null
-	std::string fileName = "../CSV Files/List of Courses/" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
-	std::ifstream fileStream(fileName);
-	if (fileStream.is_open()) {
-		fileStream.close();
-		std::remove(fileName.c_str());
-	}
-	delete[] couCurr->data.score;
-	if (couCurr == currSem.Courses) {
-		currSem.Courses = currSem.Courses->next;
-		delete couCurr;
-	}
-	else {
-		Node<Course>* temp = currSem.Courses;
-		while (temp->next != couCurr) {
-			temp = temp->next;
-		}
-		temp->next = couCurr->next;
-		delete couCurr;
-	}
-}
-
 void saveAllSemestersData() {
 	Node<SchoolYear>* syCurr = latestSYear;
 	std::ofstream outF("../CSV Files/AllSemesters.csv", std::ofstream::out | std::ofstream::trunc);
