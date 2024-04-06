@@ -575,59 +575,64 @@ void chooseStudentToUpdateResult(Node<Course>* couCurr) {
     menuCommandHeader();
     std::cout << "[11]. Update a student's result of course " << couCurr->data.ID << " - " << couCurr->data.Name << " - " << couCurr->data.className << "\n\n";
     couCurr->data.viewScoreboard();
-    std::cout << "\n(?) Enter the student you want to update result (between 1 and " << couCurr->data.courseSize << "): ";
     int studentIndex;
-    while (true) {
-        std::cin >> studentIndex;
-        if (studentIndex < 1 || studentIndex > couCurr->data.courseSize) {
-            std::cout << "Invalid student number. Please enter a valid integer between 1 and " << couCurr->data.courseSize << ".\n";
-            continue;
-        }
-        break;
-    }
-    std::string scoreTypes[3] = { "Midterm", "Final", "Other" };
-    bool updateMore = true;
-    while (updateMore) {
-        std::cout << "Select the score type to update:" << std::endl;
-        for (int i = 0; i < 3; ++i) std::cout << i + 1 << ". " << scoreTypes[i] << std::endl;
-
-        // Prompt for the user's choice
-        int choice;
-        // while (true)
-        //     if (getChoice(3, "Enter the number corresponding to your choice: ", choice)) break;
-
-        // Prompt for the new score
-        double newScore;
-        std::cout << "Enter the new score: ";
+    getChoiceInt(1, couCurr->data.courseSize, "\n\t(?) Enter the student number you want to update: ", studentIndex);
+    std::string scoreTypes[4] = { "Midterm", "Final", "Other", "Total" };
+    std::cout << "\t(*) Select the score type to update:" << std::endl;
+    for (int i = 0; i < 4; ++i) std::cout << "\t\t" << i + 1 << ". " << scoreTypes[i] << std::endl;
+    int choice;
+    getChoiceInt(1, 4, "\t(?) Enter the number of the score type you want to update (1/2/3/4): ", choice);
+    double newScore;
+    std::cout << "\t(?) Enter the new score: ";
+    do {
         std::cin >> newScore;
-
-        // Update the selected score
-        if (scoreTypes[choice - 1] == "Midterm") couCurr->data.score[studentIndex - 1].midTerm = newScore;
-        else if (scoreTypes[choice - 1] == "Final") couCurr->data.score[studentIndex - 1].final = newScore;
-        else if (scoreTypes[choice - 1] == "Other") couCurr->data.score[studentIndex - 1].other = newScore;
-
-        std::cout << "Student's result updated successfully." << std::endl;
-        std::cout << "Do you want to update more scores? (Y/N): ";
-        char updateChoice;
-        std::cin >> updateChoice;
-        if (updateChoice == 'N' || updateChoice == 'n') {
-            updateMore = false;
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "\t(!) Please enter a valid number: ";
+        } else if (newScore < 0 || newScore > 10) {
+            std::cout << "\t(!) Score must be between 0 and 10. Please enter again: ";
+        } else {
+            break;
         }
-        else {
+    } while (true);
+    char confirm = getYesNo("\t(?) Are you sure you want to update this score? (Y/N): ");
+    if (confirm == 'N' || confirm == 'n') {
+        std::cout << "\t(!) Cancel updating score.\n";
+        char confirm2 = getYesNo("\t(?) Do you want update again? (Y/N): ");
+        if (confirm2 == 'N' || confirm2 == 'n') {
+            system("pause");
+            courseManagementPage();
+            return;
+        }
+        else if (confirm2 == 'Y' || confirm2 == 'y') {
             chooseStudentToUpdateResult(couCurr);
             return;
         }
     }
-    system("pause");
-    courseManagementPage();
-    return;
+    if (scoreTypes[choice - 1] == "Midterm") couCurr->data.score[studentIndex - 1].midTerm = newScore;
+    else if (scoreTypes[choice - 1] == "Final") couCurr->data.score[studentIndex - 1].final = newScore;
+    else if (scoreTypes[choice - 1] == "Other") couCurr->data.score[studentIndex - 1].other = newScore;
+    else if (scoreTypes[choice - 1] == "Total") couCurr->data.score[studentIndex - 1].total = newScore;
+    std::cout << "\n\t(!) Student's result updated successfully." << std::endl;
+    char confirm2 = getYesNo("\t(?) Do you want to update more scores? (Y/N): ");
+    if (confirm2 == 'N' || confirm2 == 'n') {
+        courseManagementPage();
+        return;
+    }
+    else if (confirm2 == 'Y' || confirm2 == 'y') {
+        chooseStudentToUpdateResult(couCurr);
+        return;
+    }
 }
 
 void updateAStudentResultOfACourse() {
     menuCommandHeader();
+    std::cout << "[11]. Update a student's result of a course\n\n";
     int no;
     currSem.viewCoursesList(no);
     int choice;
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
     getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
     if (choice == 0) {
         courseManagementPage();
