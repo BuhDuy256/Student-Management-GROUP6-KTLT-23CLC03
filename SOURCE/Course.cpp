@@ -818,6 +818,7 @@ void importOutsideCSVStudentsInCourse(Node<Course>* couCurr) {
         courseManagementPage();
         return;
     }
+    fileName = removeQuotesFromPath(fileName);
     std::ifstream inF(fileName);
     if (!inF.is_open()) {
         std::cout << "\t(X) Couldn't import " << fileName << std::endl;
@@ -917,6 +918,7 @@ void uploadCSVScoreboardOfACourse(Node<Course>* couCurr) {
         courseManagementPage();
         return;
     }
+    fileName = removeQuotesFromPath(fileName);
     std::ifstream inF(fileName);
     if (!inF.is_open()) {
         std::cout << "\t(X) Couldn't import " << fileName << std::endl;

@@ -2,7 +2,13 @@
 
 void createANewClassInCurrentSYear() {
     menuCommandHeader();
-    std::cout << "[1]. Create a new class of first-year students" << std::endl;
+    std::cout << "[1]. Create a new class of first-year students\n\n";
+    if (!currSYear) {
+        std::cout << "(X) There is no school year in the system." << std::endl;
+    } else {
+        int no;
+        displayTableOfFirstYearClasses(no);
+    }
     Class newClass;
     std::cout << "\n\t(?) Enter the class name (Format: dd/U[2,4]/dd. 'dd': two consecutive digits, 'U[2,4]': 2-4 uppercase letter): ";
     while (true) {
@@ -16,12 +22,17 @@ void createANewClassInCurrentSYear() {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
-    // FIXME: 23APCS03 should be added right behind 23APCS02
     if (isClassExisted(newClass.className)) {
         std::cout << "\n\t(X) Class is existed in current school year" << std::endl;
-        system("pause");
-        classManagementPage();
-        return;
+        char confirm = getYesNo("\n\t(?) Do you want to try again? (Y/N): ");
+        if (confirm == 'Y' || confirm == 'y') {
+            createANewClassInCurrentSYear();
+            return;
+        }
+        else {
+            classManagementPage();
+            return;
+        }
     }
 
     char confirm = getYesNo("\t(?) Do you want to add this class? (Y/N): ");
