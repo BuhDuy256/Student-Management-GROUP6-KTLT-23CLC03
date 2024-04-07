@@ -44,7 +44,7 @@ void updateInformationOfACourse();
 void deleteACourseInCurrSem(); 
 void addStudentToACourse(); 
 void removeAStudentFromACourse(); 
-void importOutsideCSVStudentsInCourse(Node<Course>* couCurr, std::string fileName);
+void importOutsideCSVStudentsInCourse(Node<Course>* couCurr);
 void uploadCSVFileContainingAListOfStudentsOfACourse(); 
 void exportCSVStudentsOfACourse(); 
 void uploadCSVScoreboardOfACourse(Node<Course>* couCurr);
