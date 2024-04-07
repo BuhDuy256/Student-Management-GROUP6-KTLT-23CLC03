@@ -101,6 +101,9 @@ void importAllCoursesCSV() {
         std::string nCreditStr;
         std::getline(ss, nCreditStr, ',');
         std::stringstream(nCreditStr) >> newCourse.nCredits;
+        std::string maxStudentsStr;
+        std::getline(ss, maxStudentsStr, ',');
+        std::stringstream(maxStudentsStr) >> newCourse.maxStudents;
         std::getline(ss, newCourse.dayOfWeek, ',');
         std::getline(ss, newCourse.session, ',');
         std::string couSemTemp;
@@ -121,7 +124,7 @@ void importAllCoursesCSV() {
                     Node<Course>* couHead = syCurr->data.semesters[newCourse.couSem - 1].Courses;
                     if (!couHead) {
                         syCurr->data.semesters[newCourse.couSem - 1].Courses = new Node<Course>(newCourse);
-                        syCurr->data.semesters[newCourse.couSem - 1].Courses->data.score = new StudentScore[100];
+                        syCurr->data.semesters[newCourse.couSem - 1].Courses->data.score = new StudentScore[newCourse.maxStudents];
                     }
                     else {
                         Node<Course>* couCurr = couHead;
@@ -129,7 +132,7 @@ void importAllCoursesCSV() {
                             couCurr = couCurr->next;
                         }
                         couCurr->next = new Node<Course>(newCourse);
-                        couCurr->next->data.score = new StudentScore[100];
+                        couCurr->next->data.score = new StudentScore[newCourse.maxStudents];
                     }
                 }
                 else {

@@ -75,8 +75,8 @@ void Course::addStudent()
     viewStudentsList();
     std::cout << std::endl;
 
-    if (courseSize == 100) {
-        std::cout << "\t(X)  The number of students in the course exceeds the limit of 100 students. You cannot add more students to this course.\n";
+    if (courseSize + 1 > maxStudents) {
+        std::cout << "\t(X)  The number of students in the course exceeds the limit of " << maxStudents << ". You cannot add more students to this course.\n";
         system("pause");
         courseManagementPage();
         return;
@@ -86,7 +86,7 @@ void Course::addStudent()
     std::cout << "\t(?) Enter the student's ID (8 digits): ";
     while (true) {
         std::cin >> studentScore.studentID;
-        if (isValidID(studentScore.studentID)) {
+        if (isValidStudentID(studentScore.studentID)) {
             break;
         }
         else {
@@ -105,25 +105,23 @@ void Course::addStudent()
             std::cout << "\t(X) Invalid student name. Please try again: ";
         }
     }
+    formalize(studentScore.studentName);
+    bool isExist = false;
     for (int i = 0; i < courseSize; i++) {
         if (studentScore.studentID == score[i].studentID) {
-            std::cout << "\n\t(X) The student is already in the course.\n";
-            char confirm = getYesNo("\t(?) Do you want to add more students to course " + ID + " - " + Name + "? (Y/N): ");
-            if (confirm == 'Y' || confirm == 'y') {
-                addStudent();
-                return;
-            }
-            else if (confirm == 'N' || confirm == 'n') {
-                courseManagementPage();
-                return;
-            }
+            isExist = true;
+            break;
         }
     }
-    formalize(studentScore.studentName);
-    score[courseSize] = studentScore;
-    courseSize++;
-
-    std::cout << "\n\t(!) Student is added sucessfully...\n";
+    if (!isExist) {
+        formalize(studentScore.studentName);
+        score[courseSize] = studentScore;
+        courseSize++;
+        std::cout << "\n\t(!) Student is added sucessfully.\n";
+    }
+    else {
+        std::cout << "\n\t(X) The student ID is already in the course.\n";
+    }
     char confirm = getYesNo("\t(?) Do you want to add more students to course " + ID + " - " + Name + "? (Y/N): ");
     if (confirm == 'Y' || confirm == 'y') {
         addStudent();
@@ -142,13 +140,19 @@ void Course::updateInformation()
     std::cout << "\n\t1. Class Name: " << className << std::endl;
     std::cout << "\t2. Teacher Name: " << teacherName << std::endl;
     std::cout << "\t3. Number of Credits: " << nCredits << std::endl;
-    std::cout << "\t4. Day of Week: " << dayOfWeek << std::endl;
-    std::cout << "\t5. Session: " << session << "\n\n";
+    std::cout << "\t4. Maximum number of students: " << maxStudents << "\n";
+    std::cout << "\t5. Day of Week: " << dayOfWeek << std::endl;
+    std::cout << "\t6. Session: " << session << "\n\n";
     int choice;
-    getChoiceInt(1, 5, "\t(?) Enter the number corresponding to the information you want to update: ", choice);
+    getChoiceInt(1, 6, "\t(?) Enter the number corresponding to the information you want to update: ", choice);
     // Prompt for the new value based on the user's choice
+    std::string newClassName;
+    std::string newTeacherName;
+    int newNCredits;
+    int newMaxStudents;
+    std::string newDayOfWeek;
+    std::string newSession;
     if (choice == 1) {
-        std::string newClassName;
         std::cout << "\t\t(?) Enter the class name (Format: dd/U[2,4]/dd. 'dd': two consecutive digits, 'U[2,4]': 2-4 uppercase letter): ";
         while (true) {
             std::cin >> newClassName;
@@ -169,18 +173,8 @@ void Course::updateInformation()
             }
             break;
         }
-        if (newClassName != className) {
-            std::string fileName = "../CSV Files/List of Courses/" + ID + "_" + className + ".csv";
-            std::ifstream fileStream(fileName);
-            if (fileStream.is_open()) {
-                fileStream.close();
-                std::remove(fileName.c_str());
-            }
-            className = newClassName;
-        }
     }
     else if (choice == 2) {
-        std::string newTeacherName;
         std::cout << "\t\t(?) Enter teacher name: ";
         std::cin.ignore();
         while (true) {
@@ -192,35 +186,91 @@ void Course::updateInformation()
                 std::cout << "\t\t(X) Invalid teacher name. Please try again: ";
             }
         }
-        formalize(newTeacherName);
-        teacherName = newTeacherName;
     }
     else if (choice == 3) {
         std::cout << "\t\t(?) Enter number of credits (2-4): ";
-        while (!(std::cin >> nCredits) || nCredits < 2 || nCredits > 4) {
+        while (!(std::cin >> newNCredits) || newNCredits < 2 || newNCredits > 4) {
             std::cout << "\t\t(X) Invalid number of credits. Please enter again: ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
     else if (choice == 4) {
+        std::cout << "\t\t(?) Enter the maximum number of students in the course: ";
+        while (!(std::cin >> newMaxStudents) || newMaxStudents < 1 || newMaxStudents < courseSize) {
+            if (newMaxStudents < courseSize) {
+                std::cout << "\t\t(X) The maximum number of students must be greater than or equal to the number of students in the course. Please enter again: ";
+            }
+            else if (newMaxStudents < 1) {
+                std::cout << "\t\t(X) Invalid input. Please enter a positive integer: ";
+            }
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+    else if (choice == 5) {
         std::string daysOfWeek[6] = { "MON", "TUE", "WED", "THU", "FRI", "SAT" };
         std::cout << "\t(*) Select the new day of week:\n";
         for (int i = 0; i < 6; ++i)
             std::cout << "\t\t" << i + 1 << ". " << daysOfWeek[i] << std::endl;
         int choice;
         getChoiceInt(1, 6, "\t\t(?) Enter the number of the new day of week: ", choice);
-        dayOfWeek = daysOfWeek[choice - 1];
+        newDayOfWeek = daysOfWeek[choice - 1];
     }
-    else if (choice == 5) {
+    else if (choice == 6) {
         std::string sessions[4] = { "07:30", "09:30", "13:30", "15:30" };
         std::cout << "\t(*) Select the new session:\n";
         for (int i = 0; i < 4; ++i)
             std::cout << "\t\t" << i + 1 << ". " << sessions[i] << std::endl;
         int choice;
         getChoiceInt(1, 4, "\t\t(?) Enter the number of the new session: ", choice);
-        session = sessions[choice - 1];
+        newSession = sessions[choice - 1];
     }
+    char confirm = getYesNo("\t(?) Are you sure you want to update this information? (Y/N): ");
+    if (confirm == 'N' || confirm == 'n') {
+        std::cout << "\t(!) Cancel updating course information.\n";
+        system("pause");
+        courseManagementPage();
+        return;
+    }
+    else if (confirm == 'Y' || confirm == 'y') {
+        if (choice == 1) {
+            if (newClassName != className) {
+                std::string fileName = "../CSV Files/List of Courses/" + ID + "_" + className + ".csv";
+                std::ifstream fileStream(fileName);
+                if (fileStream.is_open()) {
+                    fileStream.close();
+                    std::remove(fileName.c_str());
+                }
+                className = newClassName;
+            }
+        }
+        else if (choice == 2) {
+            formalize(newTeacherName);
+            teacherName = newTeacherName;
+        }
+        else if (choice == 3) {
+            nCredits = newNCredits;
+        }
+        else if (choice == 4) {
+            if (newMaxStudents >= courseSize) {
+                StudentScore* temp = new StudentScore[newMaxStudents];
+                for (int i = 0; i < courseSize; i++) {
+                    temp[i] = score[i];
+                }
+                delete[] score;
+                score = temp;
+                maxStudents = newMaxStudents;
+            }
+        }
+        else if (choice == 5) {
+            dayOfWeek = newDayOfWeek;
+        }
+        else if (choice == 6) {
+            session = newSession;
+        }
+    }
+
     std::cout << "\t(!) Course information updated successfully." << std::endl;
 
     char confirm = getYesNo("\t(?) Do you want to continue updating course " + ID + " - " + Name + " information? (Y/N): ");
@@ -241,7 +291,7 @@ void addACourseInCurrSem() {
     std::cout << "\n\t(?) Enter course ID: ";
     while (true) {
         std::cin >> newCourse.ID;
-        if (isCourseIDValid(newCourse.ID)) {
+        if (isValidCourseID(newCourse.ID)) {
             break;
         }
         else {
@@ -296,6 +346,19 @@ void addACourseInCurrSem() {
         std::cout << "\t(X) Invalid number of credits. Please enter again: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+
+    char confirm = getYesNo("\t(?) The default maximum number of students in a course is 50. Do you want to change it? (Y/N): ");
+    if (confirm == 'Y' || confirm == 'y') {
+        std::cout << "\t(?) Enter the maximum number of students in the course: ";
+        while (!(std::cin >> newCourse.maxStudents) || newCourse.maxStudents < 1) {
+            std::cout << "\t(X) Invalid input. Please enter a positive integer: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+    else {
+        newCourse.maxStudents = 50;
     }
 
     std::string daysOfWeek[6] = { "MON", "TUE", "WED", "THU", "FRI", "SAT" };
@@ -590,9 +653,11 @@ void chooseStudentToUpdateResult(Node<Course>* couCurr) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cout << "\t(!) Please enter a valid number: ";
-        } else if (newScore < 0 || newScore > 10) {
+        }
+        else if (newScore < 0 || newScore > 10) {
             std::cout << "\t(!) Score must be between 0 and 10. Please enter again: ";
-        } else {
+        }
+        else {
             break;
         }
     } while (true);
@@ -758,9 +823,11 @@ void importOutsideCSVStudentsInCourse(Node<Course>* couCurr) {
     std::getline(inF, header);
     std::string line;
     int n = 0;
+    bool success = true;
     while (std::getline(inF, line)) {
-        if (n == 100) {
-            std::cout << "\t(X) The number of students in the course exceeds the limit of 100 students." << std::endl;
+        if (n == couCurr->data.maxStudents) {
+            std::cout << "\t(X) The number of students in the course exceeds the limit of " << couCurr->data.maxStudents << " students." << std::endl;
+            success = false;
             break;
         }
         // Check if the line is empty or contains only whitespace
@@ -776,9 +843,17 @@ void importOutsideCSVStudentsInCourse(Node<Course>* couCurr) {
         couCurr->data.score[n].studentName = token;
         n++;
     }
-    couCurr->data.courseSize = n;
+    if (!success) {
+        delete[] couCurr->data.score;
+        couCurr->data.score = nullptr;
+        std::cout << "\t(X) Import failed. Imported students are removed. If you want to import more students, resize the course and try again." << std::endl;
+    }
+    else {
+        couCurr->data.courseSize = n;
+        inF.close();
+        std::cout << "\t(X) Imported successfully." << std::endl;
+    }
     inF.close();
-    std::cout << "\t(X) Imported successfully." << std::endl;
 }
 
 void uploadCSVFileContainingAListOfStudentsOfACourse() {

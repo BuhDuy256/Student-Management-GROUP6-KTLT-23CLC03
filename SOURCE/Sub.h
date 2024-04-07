@@ -10,8 +10,8 @@ void getChoiceInt(int startChoiceNum, int endChoiceNum, std::string prompt, int&
 
 bool isValidClassName(const std::string& className, const std::string& currentYear);
 bool isValidCouOrStuName(const std::string& name);
-bool isCourseIDValid(const std::string& courseID);
-bool isValidID(std::string id);
+bool isValidCourseID(const std::string& courseID);
+bool isValidStudentID(std::string id);
 bool notExistclassNameOfCourse(const std::string& courseID, const std::string& className, const std::string& currentYear);
 
 void formalize(std::string& name);

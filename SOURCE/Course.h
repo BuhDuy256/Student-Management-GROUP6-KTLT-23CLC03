@@ -26,6 +26,7 @@ struct Course {
 	std::string teacherName;
 	int nCredits = 0;
 	int courseSize = 0;
+	int maxStudents = 0;
 	std::string dayOfWeek;
 	std::string session;
 	std::string couSY;
@@ -38,18 +39,18 @@ struct Course {
 	void updateInformation();
 };
 
-void addACourseInCurrSem(); // 1
-void updateInformationOfACourse(); // 2
-void deleteACourseInCurrSem(); // 3
-void addStudentToACourse(); // 4
-void removeAStudentFromACourse(); // 5
+void addACourseInCurrSem(); 
+void updateInformationOfACourse(); 
+void deleteACourseInCurrSem(); 
+void addStudentToACourse(); 
+void removeAStudentFromACourse(); 
 void importOutsideCSVStudentsInCourse(Node<Course>* couCurr, std::string fileName);
-void uploadCSVFileContainingAListOfStudentsOfACourse(); // 6
-void exportCSVStudentsOfACourse(); // 7
-void viewListOfCoursesInCurrSem(); // 8
-void viewListStudentInACourse(); // 9
-void viewScoreboardOfACourse(); // 10
+void uploadCSVFileContainingAListOfStudentsOfACourse(); 
+void exportCSVStudentsOfACourse(); 
+void viewListOfCoursesInCurrSem(); 
+void viewListStudentInACourse(); 
+void viewScoreboardOfACourse(); 
 void chooseStudentToUpdateResult(Node<Course>* couCurr);
-void updateAStudentResultOfACourse(); // 11
+void updateAStudentResultOfACourse(); 
 
 

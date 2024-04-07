@@ -90,13 +90,13 @@ bool isValidClassName(const std::string& className, const std::string& currentYe
 
 bool isValidCouOrStuName(const std::string& name) {
     // Regular expression to match valid names
-    std::regex pattern("^[A-Za-z]+(?:[ -][A-Za-z]+)*$");
+    std::regex pattern("^[A-Za-z]+(?:[ ][A-Za-z]+)*$");
 
     // Check if the name matches the pattern
     return std::regex_match(name, pattern);
 }
 
-bool isCourseIDValid(const std::string& courseID) {
+bool isValidCourseID(const std::string& courseID) {
     for (char c : courseID) {
         if (c == ' ' || islower(c)) {
             return false; // Space found, invalid ID
@@ -105,7 +105,7 @@ bool isCourseIDValid(const std::string& courseID) {
     return true; // No space found, valid ID
 }
 
-bool isValidID(std::string id) {
+bool isValidStudentID(std::string id) {
     if (id.size() != 8) {
         return false;
     }
