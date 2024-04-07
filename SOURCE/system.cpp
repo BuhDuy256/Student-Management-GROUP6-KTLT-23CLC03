@@ -204,8 +204,7 @@ void classManagementPage() {
 			viewListOfClassesInSystemPage();
 		}
 		else if (choice == 7) {
-			// FIXME: fix Format table to be more beautiful
-			// viewScoreBoardOfAClass();
+			viewScoreboardOfAClass();
 		}
 		else if (choice == 0) {
 			staffCommandMenu();

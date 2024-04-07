@@ -8,6 +8,7 @@ struct Node;
 struct Student;
 struct Class;
 struct SchoolYear;
+struct Course;
 
 struct Student {
 	std::string ID;
@@ -17,6 +18,7 @@ struct Student {
 	std::string socialID;
 	std::string mainClass;
 	std::string password = "12345678";
+	Node<Node<Course>*>* courseScores = nullptr;
 };
 
 void viewStudentProfile();

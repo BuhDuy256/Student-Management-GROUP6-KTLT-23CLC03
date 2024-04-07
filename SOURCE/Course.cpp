@@ -14,7 +14,7 @@ void Course::viewStudentsList() {
     std::cout << "\t+--------+------------+------------------------------+\n";
 }
 
-void Course::deleteStudent() {
+void Course::deleteStudent(Node<Course>*& courseAddress) {
     menuCommandHeader();
     std::cout << "[5]. Remove student from a course\n\n";
     if (courseSize == 0) {
@@ -37,11 +37,11 @@ void Course::deleteStudent() {
     else if (confirm == 'Y' || confirm == 'y') {
         for (int i = index - 1; i < courseSize - 1; i++) score[i] = score[i + 1];
         courseSize--;
-
+        deleteCourseAddressOfAStudent(score[index - 1].studentID, courseAddress);
         std::cout << "\n\t(!) Student is deleted sucessfully\n";
         char confirm = getYesNo("\t(?) Do you want to remove more students from course " + ID + " - " + Name + "? (Y/N): ");
         if (confirm == 'Y' || confirm == 'y') {
-            deleteStudent();
+            deleteStudent(courseAddress);
             return;
         }
         else if (confirm == 'N' || confirm == 'n') {
@@ -68,7 +68,7 @@ void Course::viewScoreboard() {
     std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
 }
 
-void Course::addStudent()
+void Course::addStudent(Node<Course>*& courseAddress)
 {
     menuCommandHeader();
     std::cout << "[4]. Add student to a course\n\n";
@@ -117,6 +117,7 @@ void Course::addStudent()
         formalize(studentScore.studentName);
         score[courseSize] = studentScore;
         courseSize++;
+        findStudentAndAddCourse(studentScore.studentID, courseAddress);
         std::cout << "\n\t(!) Student is added sucessfully.\n";
     }
     else {
@@ -124,7 +125,7 @@ void Course::addStudent()
     }
     char confirm = getYesNo("\t(?) Do you want to add more students to course " + ID + " - " + Name + "? (Y/N): ");
     if (confirm == 'Y' || confirm == 'y') {
-        addStudent();
+        addStudent(courseAddress);
         return;
     }
     else if (confirm == 'N' || confirm == 'n') {
@@ -535,7 +536,7 @@ void addStudentToACourse() {
             while (couCurr) {
                 count++;
                 if (count == choice) {
-                    couCurr->data.addStudent();
+                    couCurr->data.addStudent(couCurr);
                     return;
                 }
                 couCurr = couCurr->next;
@@ -558,15 +559,20 @@ void removeAStudentFromACourse() {
         return;
     }
     int count = 0;
-    Node<Course>* couCurr = currSem.Courses;
-    while (couCurr) {
-        count++;
-        if (count == choice) {
-            std::cout << "[5]. Remove student from a course\n";
-            couCurr->data.deleteStudent();
-            return;
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr) {
+        if (syCurr->data.year == currSYear->data.year) {
+            Node<Course>* couCurr = syCurr->data.semesters[currSemNumber - 1].Courses;
+            while (couCurr) {
+                count++;
+                if (count == choice) {
+                    couCurr->data.deleteStudent(couCurr);
+                    return;
+                }
+                couCurr = couCurr->next;
+            }
         }
-        couCurr = couCurr->next;
+        syCurr = syCurr->next;
     }
 }
 
@@ -796,7 +802,7 @@ void exportCSVStudentsOfACourse() {
     }
 }
 
-void importOutsideCSVStudentsInCourse(Node<Course>* couCurr) {
+void importOutsideCSVStudentsInCourse(Node<Course>*& couCurr) {
     std::string fileName;
     std::cin.ignore();
     while (true) {
@@ -856,6 +862,9 @@ void importOutsideCSVStudentsInCourse(Node<Course>* couCurr) {
     }
     else {
         couCurr->data.courseSize = n;
+        for(int i = 0; i < couCurr->data.courseSize; i++) {
+            findStudentAndAddCourse(couCurr->data.score[i].studentID, couCurr);
+        }
         inF.close();
         std::cout << "\t(!) Imported successfully." << std::endl;
     }
@@ -876,23 +885,24 @@ void uploadCSVFileContainingAListOfStudentsOfACourse() {
     if (choice == 0) {
         courseManagementPage();
         return;
-    }
-    int count = 0;
-    Node<Course>* couCurr = currSem.Courses;
-    while (couCurr) {
-        count++;
-        if (count == choice) {
-            if (couCurr->data.score == nullptr) {
-                importOutsideCSVStudentsInCourse(couCurr);
+        ;
+        int count = 0;
+        Node<Course>* couCurr = currSem.Courses;
+        while (couCurr) {
+            count++;
+            if (count == choice) {
+                if (couCurr->data.score == nullptr) {
+                    importOutsideCSVStudentsInCourse(couCurr);
+                }
+                else {
+                    std::cout << "\t(X) This course already has students enrolled." << std::endl;
+                }
+                system("pause");
+                courseManagementPage();
+                return;
             }
-            else {
-                std::cout << "\t(X) This course already has students enrolled." << std::endl;
-            }
-            system("pause");
-            courseManagementPage();
-            return;
+            couCurr = couCurr->next;
         }
-        couCurr = couCurr->next;
     }
 }
 
@@ -919,6 +929,7 @@ void uploadCSVScoreboardOfACourse(Node<Course>* couCurr) {
         return;
     }
     std::ifstream inF(fileName);
+
     if (!inF.is_open()) {
         std::cout << "\t(X) Couldn't import " << fileName << std::endl;
         system("pause");

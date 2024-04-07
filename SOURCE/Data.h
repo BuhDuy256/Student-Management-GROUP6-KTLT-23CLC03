@@ -3,7 +3,7 @@
 void importAllSchoolYearsCSV();
 void importAllClassesCSV();
 void importAllStudentsCSV();
-void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr);
+void importContainingStudentsEnrolledInCourse(Node<Course>*& couCurr);
 void importAllSemestersCSV();
 void importAllCoursesCSV();
 void importAllStudentsInAllCoursesCSV();

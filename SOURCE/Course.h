@@ -33,9 +33,9 @@ struct Course {
 	int couSem;
 	StudentScore* score = nullptr;
 	void viewStudentsList();
-	void deleteStudent();
+	void deleteStudent(Node<Course>*& courseAddress);
 	void viewScoreboard();
-	void addStudent();
+	void addStudent(Node<Course>*& courseAddress);
 	void updateInformation();
 };
 
@@ -44,7 +44,7 @@ void updateInformationOfACourse();
 void deleteACourseInCurrSem(); 
 void addStudentToACourse(); 
 void removeAStudentFromACourse(); 
-void importOutsideCSVStudentsInCourse(Node<Course>* couCurr, std::string fileName);
+void importOutsideCSVStudentsInCourse(Node<Course>*& couCurr);
 void uploadCSVFileContainingAListOfStudentsOfACourse(); 
 void exportCSVStudentsOfACourse(); 
 void uploadCSVScoreboardOfACourse(Node<Course>* couCurr);

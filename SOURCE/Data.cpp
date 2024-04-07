@@ -149,7 +149,7 @@ void importAllCoursesCSV() {
     inF.close();
 }
 
-void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr) {
+void importContainingStudentsEnrolledInCourse(Node<Course>*& couCurr) {
     std::string fileName = "../CSV Files/List of Courses/" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
     std::ifstream inF(fileName);
     if (!inF.is_open()) {
@@ -183,6 +183,7 @@ void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr) {
         std::getline(ss, token, ',');
         if (!token.empty())
             couCurr->data.score[n].total = std::stod(token);
+        findStudentAndAddCourse(couCurr->data.score[n].studentID, couCurr);
         n++;
     }
     couCurr->data.courseSize = n;
@@ -505,6 +506,12 @@ void deleteAllStudentsData() {
         while (claCurr) {
             Node<Student>* stuCurr = claCurr->data.students;
             while (stuCurr) {
+                Node<Node<Course>*>* scoreCurr = stuCurr->data.courseScores;
+                while (scoreCurr) {
+                    Node<Node<Course>*>* temp = scoreCurr;
+                    scoreCurr = scoreCurr->next;
+                    delete temp;
+                }
                 Node<Student>* temp = stuCurr;
                 stuCurr = stuCurr->next;
                 delete temp;
