@@ -769,22 +769,21 @@ void exportCSVStudentsOfACourse() {
                 courseManagementPage();
                 return;
             }
-            outF << "Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark\n";
+            outF << "No,Student ID,Student Full Name,Total Mark,Final Mark,Midterm Mark,Other Mark\n";
             StudentScore* scoreArr = couCurr->data.score;
             for (int i = 0; i < couCurr->data.courseSize; i++) {
-                outF << scoreArr[i].studentID << ","
-                    << scoreArr[i].studentName << ",";
+                outF << i + 1 << "," << scoreArr[i].studentID << "," << scoreArr[i].studentName << ",";
                 if (scoreArr[i].midTerm > 0)
-                    outF << scoreArr[i].midTerm;
+                    outF << scoreArr[i].total;
                 outF << ",";
                 if (scoreArr[i].final > 0)
                     outF << scoreArr[i].final;
                 outF << ",";
                 if (scoreArr[i].other > 0)
-                    outF << scoreArr[i].other;
+                    outF << scoreArr[i].midTerm;
                 outF << ",";
                 if (scoreArr[i].total > 0)
-                    outF << scoreArr[i].total;
+                    outF << scoreArr[i].other;
                 outF << "\n";
             }
             outF.close();
