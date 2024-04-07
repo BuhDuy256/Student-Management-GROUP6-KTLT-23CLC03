@@ -251,7 +251,8 @@ void viewScoreBoardOfAClass() { //copyallfunc
         else std::cout << std::left << std::setfill(' ') << std::setw(10) << (prevtotal + gpa) / (prevnumofacticour + numofactivecourses) << "|\n";
         
 	std::cout << "" <<std::setfill('-') << std::setw(totalWidth) << "" << "\n";
-    StuScore = StuScore->next;
+        std::cout << std::setfill(' ');
+	StuScore = StuScore->next;
 	index++;
     }
     std::cout << std::setfill(' ');
