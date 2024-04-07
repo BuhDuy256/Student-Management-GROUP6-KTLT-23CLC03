@@ -1,43 +1,313 @@
-Course ID,Course Name,Class Name,Teacher Name,Day Of Week,Session,School Year,Semester
-CSC001,Introduce to Programming,21APCS01,Van Chi Nam,MON,07:30,2021-2022,1
-CSC001,Introduce to Programming,21APCS02,Van Chi Nam,TUE,09:30,2021-2022,1
-CSC001,Introduce to Programming,21CLC01,Van Chi Nam,WED,13:30,2021-2022,1
-CSC001,Introduce to Programming,21CLC02,Van Chi Nam,THU,15:30,2021-2022,1
-CSC003,Soft Skills,21APCS01,Luong Vi Minh,MON,07:30,2021-2022,1
-CSC003,Soft Skills,21APCS02,Luong Vi Minh,TUE,09:30,2021-2022,1
-CSC003,Soft Skills,21CLC01,Luong Vi Minh,WED,13:30,2021-2022,1
-CSC003,Soft Skills,21CLC02,Luong Vi Minh,THU,15:30,2021-2022,1
-MTH001,Discrete Mathematics,21APCS01,Le Van Hop,FRI,13:30,2021-2022,1
-MTH001,Discrete Mathematics,21CLC01,Le Van Hop,SAT,13:30,2021-2022,1
-CSC002,Programming Technique,21APCS01,Dinh Ba Tien,MON,07:30,2021-2022,2
-CSC002,Programming Technique,21APCS02,Ding Ba Tien,TUE,09:30,2021-2022,2
-CSC002,Programming Technique,21CLC01,Dinh Ba Tien,WED,13:30,2021-2022,2
-CSC002,Programming Technique,21CLC02,Dinh Ba Tien,THU,15:30,2021-2022,2
-CSC001,Introduce to Programming,22APCS01,Van Chi Nam,MON,07:30,2022-2023,1
-CSC001,Introduce to Programming,22APCS02,Van Chi Nam,TUE,09:30,2022-2023,1
-CSC001,Introduce to Programming,22CLC01,Van Chi Nam,WED,13:30,2022-2023,1
-CSC001,Introduce to Programming,22CLC02,Van Chi Nam,THU,15:30,2022-2023,1
-CSC003,Soft Skills,22APCS01,Luong Vi Minh,MON,07:30,2022-2023,1
-CSC003,Soft Skills,22APCS02,Luong Vi Minh,TUE,09:30,2022-2023,1
-CSC003,Soft Skills,22CLC01,Luong Vi Minh,WED,13:30,2022-2023,1
-CSC003,Soft Skills,22CLC02,Luong Vi Minh,THU,15:30,2022-2023,1
-MTH001,Discrete Mathematics,22APCS01,Le Van Hop,FRI,13:30,2022-2023,1
-MTH001,Discrete Mathematics,21CLC01,Le Van Hop,SAT,13:30,2022-2023,1
-CSC002,Programming Technique,22APCS01,Dinh Ba Tien,MON,07:30,2022-2023,2
-CSC002,Programming Technique,22APCS02,Dinh Ba Tien,TUE,09:30,2022-2023,2
-CSC002,Programming Technique,22CLC01,Dinh Ba Tien,WED,13:30,2022-2023,2
-CSC002,Programming Technique,22CLC02,Dinh Ba Tien,THU,15:30,2022-2023,2
-CSC001,Introduce to Programming,23APCS01,Van Chi Nam,MON,07:30,2023-2024,1
-CSC001,Introduce to Programming,23APCS02,Van Chi Nam,TUE,09:30,2023-2024,1
-CSC001,Introduce to Programming,23CLC01,Van Chi Nam,WED,13:30,2023-2024,1
-CSC001,Introduce to Programming,23CLC02,Van Chi Nam,THU,15:30,2023-2024,1
-CSC003,Soft Skills,23APCS01,Luong Vi Minh,MON,07:30,2023-2024,1
-CSC003,Soft Skills,23APCS02,Luong Vi Minh,TUE,09:30,2023-2024,1
-CSC003,Soft Skills,23CLC01,Luong Vi Minh,WED,13:30,2023-2024,1
-CSC003,Soft Skills,23CLC02,Luong Vi Minh,THU,15:30,2023-2024,1
-MTH001,Discrete Mathematics,23APCS01,Le Van Hop,FRI,13:30,2023-2024,1
-MTH001,Discrete Mathematics,23CLC01,Le Van Hop,SAT,13:30,2023-2024,1
-CSC002,Programming Technique,23APCS01,Dinh Ba Tien,MON,07:30,2023-2024,2
-CSC002,Programming Technique,23APCS02,Dinh Ba Tien,TUE,09:30,2023-2024,2
-CSC002,Programming Technique,23CLC01,Dinh Ba Tien,WED,13:30,2023-2024,2
-CSC002,Programming Technique,23CLC02,Dinh Ba Tien,THU,15:30,2023-2024,2
+Course ID,Course Name,Class Name,Teacher Name,Number Of Credits,Day Of Week,Session,School Year,Semester,Max Size
+ITP001,Introduce to Programming,20CLC01,Van Chi Nam,4,MON,7:30,2020-2021,1,50
+ITP001,Introduce to Programming,20CLC02,Van Chi Nam,4,TUE,9:30,2020-2021,1,50
+ITP001,Introduce to Programming,20CLC03,Van Chi Nam,4,WED,13:30,2020-2021,1,50
+SSS001,Soft Skills,20CLC01,Luong Vi Minh,4,THU,15:30,2020-2021,1,50
+SSS001,Soft Skills,20CLC02,Luong Vi Minh,4,MON,7:30,2020-2021,1,50
+SSS001,Soft Skills,20CLC03,Luong Vi Minh,4,TUE,9:30,2020-2021,1,50
+MTH001,Discrete Mathematics,20CLC01,Le Van Hop,4,WED,13:30,2020-2021,1,50
+MTH001,Discrete Mathematics,20CLC02,Le Van Hop,4,THU,15:30,2020-2021,1,50
+MTH001,Discrete Mathematics,20CLC03,Le Van Hop,4,FRI,13:30,2020-2021,1,50
+ITI001,Introduce to IT,20CLC01,Huynh Thuy Bao Tran,4,MON,7:30,2020-2021,1,50
+ITI001,Introduce to IT,20CLC02,Huynh Thuy Bao Tran,4,TUE,9:30,2020-2021,1,50
+ITI001,Introduce to IT,20CLC03,Huynh Thuy Bao Tran,4,WED,13:30,2020-2021,1,50
+PTQ001,Programming Technique,20CLC01,Dinh Ba Tien,4,WED,13:30,2020-2021,2,50
+PTQ001,Programming Technique,20CLC02,Dinh Ba Tien,4,MON,9:30,2020-2021,2,50
+PTQ001,Programming Technique,20CLC03,Dinh Ba Tien,4,FRI,15:30,2020-2021,2,50
+CAL001,Calculus 1,20CLC01,Ly Kim Ha,4,TUE,9:30,2020-2021,2,50
+CAL001,Calculus 2,20CLC02,Ly Kim Ha,4,MON,15:30,2020-2021,2,50
+CAL001,Calculus 3,20CLC03,Ly Kim Ha,4,THU,7:30,2020-2021,2,50
+GLW001,General Law,20CLC01,Duong Kim The Nguyen,4,FRI,9:30,2020-2021,2,50
+GLW001,General Law,21CLC02,Duong Kim The Nguyen,4,MON,7:30,2020-2021,2,50
+GLW001,General Law,20CLC03,Duong Kim The Nguyen,4,WED,11:30,2020-2021,2,50
+PHY001,Physics 1,20CLC01,Nguyen Huu Ke,4,TUE,11:30,2020-2021,2,50
+PHY001,Physics 2,20CLC02,Nguyen Huu Ke,4,MON,13:30,2020-2021,2,50
+PHY001,Physics 3,20CLC03,Nguyen Huu Ke,4,THU,11:30,2020-2021,2,50
+CAC002,Calculus 2,20CLC01,Le Thi Tuyet Nhung,4,WED,13:30,2020-2021,3,50
+CAC002,Calculus 2,20CLC02,Le Thi Tuyet Nhung,4,MON,9:30,2020-2021,3,50
+CAC002,Calculus 2,20CLC03,Le Thi Tuyet Nhung,4,FRI,15:30,2020-2021,3,50
+DSA010,Data Structure and Algorithm,20CLC01,Bui Huy Thong,4,TUE,9:30,2020-2021,3,50
+DSA010,Data Structure and Algorithm,20CLC02,Bui Huy Thong,4,MON,15:30,2020-2021,3,50
+DSA010,Data Structure and Algorithm,20CLC03,Bui Huy Thong,4,THU,7:30,2020-2021,3,50
+CNK012,Computer Network,20CLC01,Truong Thi Thao Nhi,4,FRI,9:30,2020-2021,3,50
+CNK012,Computer Network,20CLC02,Truong Thi Thao Nhi,4,MON,7:30,2020-2021,3,50
+CNK012,Computer Network,20CLC03,Truong Thi Thao Nhi,4,WED,11:30,2020-2021,3,50
+PLP030,Philosophy,20CLC01,Vu Van Vu,4,TUE,11:30,2020-2021,3,50
+PLP030,Philosophy,20CLC02,Vu Van Vu,4,MON,13:30,2020-2021,3,50
+PLP030,Philosophy,20CLC03,Vu Van Vu,4,THU,11:30,2020-2021,3,50
+CST001,Computer System,20CLC01,Tran Nguyen Khai Luan,4,MON,7:30,2021-2022,1,50
+CST001,Computer System,20CLC02,Tran Nguyen Khai Luan,4,TUE,9:30,2021-2022,1,50
+CST001,Computer System,20CLC03,Tran Nguyen Khai Luan,4,WED,13:30,2021-2022,1,50
+OOP102,Object Oriented Programming,20CLC01,Nguyen Bao Duy,4,THU,15:30,2021-2022,1,50
+OOP102,Object Oriented Programming,20CLC02,Nguyen Bao Duy,4,MON,7:30,2021-2022,1,50
+OOP102,Object Oriented Programming,20CLC03,Nguyen Bao Duy,4,TUE,9:30,2021-2022,1,50
+PEN003,Physical Education 1,20CLC01,Tran Cam Huy,4,WED,13:30,2021-2022,1,50
+PEN003,Physical Education 2,20CLC02,Tran Cam Huy,4,THU,15:30,2021-2022,1,50
+PEN003,Physical Education 3,20CLC03,Tran Cam Huy,4,FRI,13:30,2021-2022,1,50
+CMS001,Combinational Mathematics,20CLC01,Chung Thuy Linh,4,MON,7:30,2021-2022,1,50
+CMS001,Combinational Mathematics,20CLC02,Chung Thuy Linh,4,TUE,9:30,2021-2022,1,50
+CMS001,Combinational Mathematics,20CLC03,Chung Thuy Linh,4,WED,13:30,2021-2022,1,50
+SSL045,Science Socialism,20CLC01,Dao Anh Tuan,4,WED,13:30,2021-2022,2,50
+SSL045,Science Socialism,20CLC02,Dao Anh Tuan,4,MON,9:30,2021-2022,2,50
+SSL045,Science Socialism,20CLC03,Dao Anh Tuan,4,FRI,15:30,2021-2022,2,50
+DTB001,Database,20CLC01,Truong Phuoc Loc,4,TUE,9:30,2021-2022,2,50
+DTB001,Database,20CLC02,Truong Phuoc Loc,4,MON,15:30,2021-2022,2,50
+DTB001,Database,20CLC03,Truong Phuoc Loc,4,THU,7:30,2021-2022,2,50
+BAI123,Basic of Artificial Intelligence,20CLC01,Do Nguyen Kha,4,FRI,9:30,2021-2022,2,50
+BAI123,Basic of Artificial Intelligence,20CLC02,Do Nguyen Kha,4,MON,7:30,2021-2022,2,50
+BAI123,Basic of Artificial Intelligence,20CLC03,Do Nguyen Kha,4,WED,11:30,2021-2022,2,50
+OST099,Operating System,20CLC01,Tran Nhat Tien,4,TUE,11:30,2021-2022,2,50
+OST099,Operating System,20CLC02,Tran Nhat Tien,4,MON,13:30,2021-2022,2,50
+OST099,Operating System,20CLC03,Tran Nhat Tien,4,THU,11:30,2021-2022,2,50
+LAB005,Linear Algebra,20CLC01,Nguyen Thi Minh Phuc,4,WED,13:30,2021-2022,3,50
+LAB005,Linear Algebra,20CLC02,Nguyen Thi Minh Phuc,4,MON,9:30,2021-2022,3,50
+LAB005,Linear Algebra,20CLC03,Nguyen Thi Minh Phuc,4,FRI,15:30,2021-2022,3,50
+PML017,Political Economy Marx - Lenin,20CLC01,Le Thi Anh Thao,4,TUE,9:30,2021-2022,3,50
+PML017,Political Economy Marx - Lenin,20CLC02,Le Thi Anh Thao,4,MON,15:30,2021-2022,3,50
+PML017,Political Economy Marx - Lenin,20CLC03,Le Thi Anh Thao,4,THU,7:30,2021-2022,3,50
+VHR105,Vietnam History,20CLC01,Dang Tran Nha Van,4,FRI,9:30,2021-2022,3,50
+VHR105,Vietnam History,20CLC02,Dang Tran Nha Van,4,MON,7:30,2021-2022,3,50
+VHR105,Vietnam History,20CLC03,Dang Tran Nha Van,4,WED,11:30,2021-2022,3,50
+ISE111,Introduce to Software Engineering,20CLC01,Dang Hoai Thuong,4,TUE,11:30,2021-2022,3,50
+ISE111,Introduce to Software Engineering,20CLC02,Dang Hoai Thuong,4,MON,13:30,2021-2022,3,50
+ISE111,Introduce to Software Engineering,20CLC03,Dang Hoai Thuong,4,THU,11:30,2021-2022,3,50
+ADB010,Advanced Database,20CLC01,Nguyen Thanh Luan,4,MON,7:30,2022-2023,1,50
+ADB010,Advanced Database,20CLC02,Nguyen Thanh Luan,4,TUE,9:30,2022-2023,1,50
+ADB010,Advanced Database,20CLC03,Nguyen Thanh Luan,4,WED,13:30,2022-2023,1,50
+PDS001,Programming for Data Science,20CLC01,Nguyen Thanh Tien,4,THU,15:30,2022-2023,1,50
+PDS001,Programming for Data Science,20CLC02,Nguyen Thanh Tien,4,MON,7:30,2022-2023,1,50
+PDS001,Programming for Data Science,20CLC03,Nguyen Thanh Tien,4,TUE,9:30,2022-2023,1,50
+ACN102,Advanced Computer Network,20CLC01,Tran Trong Hieu,4,WED,13:30,2022-2023,1,50
+ACN102,Advanced Computer Network,20CLC02,Tran Trong Hieu,4,THU,15:30,2022-2023,1,50
+ACN102,Advanced Computer Network,20CLC03,Tran Trong Hieu,4,FRI,13:30,2022-2023,1,50
+IML540,Introduce to Machine Learning,20CLC01,Nguyen Hai Dang,4,MON,7:30,2022-2023,1,50
+IML540,Introduce to Machine Learning,20CLC02,Nguyen Hai Dang,4,TUE,9:30,2022-2023,1,50
+IML540,Introduce to Machine Learning,20CLC03,Nguyen Hai Dang,4,WED,13:30,2022-2023,1,50
+IBD999,Introduce to Big Data,20CLC01,Tran Gia Huy,4,WED,13:30,2022-2023,2,50
+IBD999,Introduce to Big Data,20CLC02,Tran Gia Huy,4,MON,9:30,2022-2023,2,50
+IBD999,Introduce to Big Data,20CLC03,Tran Gia Huy,4,FRI,15:30,2022-2023,2,50
+ISB235,Information System For Business,20CLC01,Le Van Hung,4,TUE,9:30,2022-2023,2,50
+ISB235,Information System For Business,20CLC02,Le Van Hung,4,MON,15:30,2022-2023,2,50
+ISB235,Information System For Business,20CLC03,Le Van Hung,4,THU,7:30,2022-2023,2,50
+ADI006,Analysis and Design For Information System,20CLC01,Le Minh Khanh,4,FRI,9:30,2022-2023,2,50
+ADI006,Analysis and Design For Information System,20CLC02,Le Minh Khanh,4,MON,7:30,2022-2023,2,50
+ADI006,Analysis and Design For Information System,20CLC03,Le Minh Khanh,4,WED,11:30,2022-2023,2,50
+ACS111,Analysis and Control Software Requests,20CLC01,Nguyen Viet Anh,4,TUE,11:30,2022-2023,2,50
+ACS111,Analysis and Control Software Requests,20CLC02,Nguyen Viet Anh,4,MON,13:30,2022-2023,2,50
+ACS111,Analysis and Control Software Requests,20CLC03,Nguyen Viet Anh,4,THU,11:30,2022-2023,2,50
+MSW222,Mobile Software,20CLC01,Phan Van Thien,4,WED,13:30,2022-2023,3,50
+MSW222,Mobile Software,20CLC02,Phan Van Thien,4,MON,9:30,2022-2023,3,50
+MSW222,Mobile Software,20CLC03,Phan Van Thien,4,FRI,15:30,2022-2023,3,50
+CSY777,Computer Security,20CLC01,Do Huynh Quang Huy,4,TUE,9:30,2022-2023,3,50
+CSY777,Computer Security,20CLC02,Do Huynh Quang Huy,4,MON,15:30,2022-2023,3,50
+CSY777,Computer Security,20CLC03,Do Huynh Quang Huy,4,THU,7:30,2022-2023,3,50
+TCN456,Telecommunication,20CLC01,Nguyen Thanh Thien Phuc,4,FRI,9:30,2022-2023,3,50
+TCN456,Telecommunication,20CLC02,Nguyen Thanh Thien Phuc,4,MON,7:30,2022-2023,3,50
+TCN456,Telecommunication,20CLC03,Nguyen Thanh Thien Phuc,4,WED,11:30,2022-2023,3,50
+SET789,Software Testing,20CLC01,Huynh Hoang Tuan,4,TUE,11:30,2022-2023,3,50
+SET789,Software Testing,20CLC02,Huynh Hoang Tuan,4,MON,13:30,2022-2023,3,50
+SET789,Software Testing,20CLC03,Huynh Hoang Tuan,4,THU,11:30,2022-2023,3,50
+ADA888,Analyze and Design Algorithm,20CLC01,Le Thanh Nhat,4,MON,7:30,2023-2024,1,50
+ADA888,Analyze and Design Algorithm,20CLC02,Le Thanh Nhat,4,TUE,9:30,2023-2024,1,50
+ADA888,Analyze and Design Algorithm,20CLC03,Le Thanh Nhat,4,WED,13:30,2023-2024,1,50
+RLI112,Reallife Internship,20CLC01,Nguyen Ngoc Hoa,4,THU,15:30,2023-2024,1,50
+RLI112,Reallife Internship,20CLC02,Nguyen Ngoc Hoa,4,MON,7:30,2023-2024,1,50
+RLI112,Reallife Internship,20CLC03,Nguyen Ngoc Hoa,4,TUE,9:30,2023-2024,1,50
+UID123,User Interface Design,20CLC01,Le Anh Duy,4,WED,13:30,2023-2024,1,50
+UID123,User Interface Design,20CLC02,Le Anh Duy,4,THU,15:30,2023-2024,1,50
+UID123,User Interface Design,20CLC03,Le Anh Duy,4,FRI,13:30,2023-2024,1,50
+JPM444,Java Programming,20CLC01,Tran Chi Cao,4,MON,7:30,2023-2024,1,50
+JPM444,Java Programming,20CLC02,Tran Chi Cao,4,TUE,9:30,2023-2024,1,50
+JPM444,Java Programming,20CLC03,Tran Chi Cao,4,WED,13:30,2023-2024,1,50
+AWD555,Advanced Web Development,20CLC01,Tran Gia Bao,4,WED,13:30,2023-2024,2,50
+AWD555,Advanced Web Development,20CLC02,Tran Gia Bao,4,MON,9:30,2023-2024,2,50
+AWD555,Advanced Web Development,20CLC03,Tran Gia Bao,4,FRI,15:30,2023-2024,2,50
+BCN070,Blockchain,20CLC01,Nguyen Phuong Anh,4,TUE,9:30,2023-2024,2,50
+BCN070,Blockchain,20CLC02,Nguyen Phuong Anh,4,MON,15:30,2023-2024,2,50
+BCN070,Blockchain,20CLC03,Nguyen Phuong Anh,4,THU,7:30,2023-2024,2,50
+NLP089,Natural Language Processing,20CLC01,Vo Nu Ngan Ha,4,FRI,9:30,2023-2024,2,50
+NLP089,Natural Language Processing,20CLC02,Vo Nu Ngan Ha,4,MON,7:30,2023-2024,2,50
+NLP089,Natural Language Processing,20CLC03,Vo Nu Ngan Ha,4,WED,11:30,2023-2024,2,50
+ITO117,Introduce to Encryption,20CLC01,Truong Quoc Cuong,4,TUE,11:30,2023-2024,2,50
+ITO117,Introduce to Encryption,20CLC02,Truong Quoc Cuong,4,MON,13:30,2023-2024,2,50
+ITO117,Introduce to Encryption,20CLC03,Truong Quoc Cuong,4,THU,11:30,2023-2024,2,50
+ITP001,Introduce to Programming,21CLC01,Van Chi Nam,4,MON,7:30,2021-2022,1,50
+ITP001,Introduce to Programming,21CLC02,Van Chi Nam,4,TUE,9:30,2021-2022,1,50
+ITP001,Introduce to Programming,21CLC03,Van Chi Nam,4,WED,13:30,2021-2022,1,50
+SSS001,Soft Skills,21CLC01,Thong Lai Bang,4,THU,15:30,2021-2022,1,50
+SSS001,Soft Skills,21CLC02,Thong Lai Bang,4,MON,7:30,2021-2022,1,50
+SSS001,Soft Skills,21CLC03,Thong Lai Bang,4,TUE,9:30,2021-2022,1,50
+MTH001,Discrete Mathematics,21CLC01,Le Van Hop,4,WED,13:30,2021-2022,1,50
+MTH001,Discrete Mathematics,21CLC02,Le Van Hop,4,THU,15:30,2021-2022,1,50
+MTH001,Discrete Mathematics,21CLC03,Le Van Hop,4,FRI,13:30,2021-2022,1,50
+ITI001,Introduce to IT,21CLC01,Huynh Thuy Bao Tran,4,MON,7:30,2021-2022,1,50
+ITI001,Introduce to IT,21CLC02,Huynh Thuy Bao Tran,4,TUE,9:30,2021-2022,1,50
+ITI001,Introduce to IT,21CLC03,Huynh Thuy Bao Tran,4,WED,13:30,2021-2022,1,50
+PTQ001,Programming Technique,21CLC01,Dinh Ba Tien,4,WED,13:30,2021-2022,2,50
+PTQ001,Programming Technique,21CLC02,Dinh Ba Tien,4,MON,9:30,2021-2022,2,50
+PTQ001,Programming Technique,21CLC03,Dinh Ba Tien,4,FRI,15:30,2021-2022,2,50
+CAL001,Calculus 1,21CLC01,Ly Kim Ha,4,TUE,9:30,2021-2022,2,50
+CAL001,Calculus 2,21CLC02,Ly Kim Ha,4,MON,15:30,2021-2022,2,50
+CAL001,Calculus 3,21CLC03,Ly Kim Ha,4,THU,7:30,2021-2022,2,50
+GLW001,General Law,21CLC01,Ngo Duc Vi,4,FRI,9:30,2021-2022,2,50
+GLW001,General Law,21CLC02,Ngo Duc Vi,4,MON,7:30,2021-2022,2,50
+GLW001,General Law,21CLC03,Ngo Duc Vi,4,WED,11:30,2021-2022,2,50
+PHY001,Physics 1,21CLC01,Bui Xuan Dat,4,TUE,11:30,2021-2022,2,50
+PHY001,Physics 2,21CLC02,Bui Xuan Dat,4,MON,13:30,2021-2022,2,50
+PHY001,Physics 3,21CLC03,Bui Xuan Dat,4,THU,11:30,2021-2022,2,50
+CAC002,Calculus 2,21CLC01,Ngo Yen Nhi,4,WED,13:30,2021-2022,3,50
+CAC002,Calculus 2,21CLC02,Ngo Yen Nhi,4,MON,9:30,2021-2022,3,50
+CAC002,Calculus 2,21CLC03,Ngo Yen Nhi,4,FRI,15:30,2021-2022,3,50
+DSA010,Data Structure and Algorithm,21CLC01,Ngo The Dat,4,TUE,9:30,2021-2022,3,50
+DSA010,Data Structure and Algorithm,21CLC02,Ngo The Dat,4,MON,15:30,2021-2022,3,50
+DSA010,Data Structure and Algorithm,21CLC03,Ngo The Dat,4,THU,7:30,2021-2022,3,50
+CNK012,Computer Network,21CLC01,Truong Thi Thao Nhi,4,FRI,9:30,2021-2022,3,50
+CNK012,Computer Network,21CLC02,Truong Thi Thao Nhi,4,MON,7:30,2021-2022,3,50
+CNK012,Computer Network,21CLC03,Truong Thi Thao Nhi,4,WED,11:30,2021-2022,3,50
+PLP030,Philosophy,21CLC01,Vo Thi Thanh Ha,4,TUE,11:30,2021-2022,3,50
+PLP030,Philosophy,21CLC02,Vo Thi Thanh Ha,4,MON,13:30,2021-2022,3,50
+PLP030,Philosophy,21CLC03,Vo Thi Thanh Ha,4,THU,11:30,2021-2022,3,50
+CST001,Computer System,21CLC01,Trinh Tran Phuong Tuan,4,MON,7:30,2022-2023,1,50
+CST001,Computer System,21CLC02,Trinh Tran Phuong Tuan,4,TUE,9:30,2022-2023,1,50
+CST001,Computer System,21CLC03,Trinh Tran Phuong Tuan,4,WED,13:30,2022-2023,1,50
+OOP102,Object Oriented Programming,21CLC01,Luu Ngo Quoc Bao,4,THU,15:30,2022-2023,1,50
+OOP102,Object Oriented Programming,21CLC02,Luu Ngo Quoc Bao,4,MON,7:30,2022-2023,1,50
+OOP102,Object Oriented Programming,21CLC03,Luu Ngo Quoc Bao,4,TUE,9:30,2022-2023,1,50
+PEN003,Physical Education 1,21CLC01,Luu Huy Minh Quang,4,WED,13:30,2022-2023,1,50
+PEN003,Physical Education 2,21CLC02,Luu Huy Minh Quang,4,THU,15:30,2022-2023,1,50
+PEN003,Physical Education 3,21CLC03,Luu Huy Minh Quang,4,FRI,13:30,2022-2023,1,50
+CMS001,Combinational Mathematics,21CLC01,Vo Nguyen Duy Khanh,4,MON,7:30,2022-2023,1,50
+CMS001,Combinational Mathematics,21CLC02,Vo Nguyen Duy Khanh,4,TUE,9:30,2022-2023,1,50
+CMS001,Combinational Mathematics,21CLC03,Vo Nguyen Duy Khanh,4,WED,13:30,2022-2023,1,50
+SSL045,Science Socialism,21CLC01,Nguyen Hoang Phong,4,WED,13:30,2022-2023,2,50
+SSL045,Science Socialism,21CLC02,Nguyen Hoang Phong,4,MON,9:30,2022-2023,2,50
+SSL045,Science Socialism,21CLC03,Nguyen Hoang Phong,4,FRI,15:30,2022-2023,2,50
+DTB001,Database,21CLC01,Huynh Ngoc Kim Chi,4,TUE,9:30,2022-2023,2,50
+DTB001,Database,21CLC02,Huynh Ngoc Kim Chi,4,MON,15:30,2022-2023,2,50
+DTB001,Database,21CLC03,Huynh Ngoc Kim Chi,4,THU,7:30,2022-2023,2,50
+BAI123,Basic of Artificial Intelligence,21CLC01,Do Nguyen Kha,4,FRI,9:30,2022-2023,2,50
+BAI123,Basic of Artificial Intelligence,21CLC02,Do Nguyen Kha,4,MON,7:30,2022-2023,2,50
+BAI123,Basic of Artificial Intelligence,21CLC03,Do Nguyen Kha,4,WED,11:30,2022-2023,2,50
+OST099,Operating System,21CLC01,Chung Huyen Trang,4,TUE,11:30,2022-2023,2,50
+OST099,Operating System,21CLC02,Chung Huyen Trang,4,MON,13:30,2022-2023,2,50
+OST099,Operating System,21CLC03,Chung Huyen Trang,4,THU,11:30,2022-2023,2,50
+LAB005,Linear Algebra,21CLC01,Nguyen Ngoc Khanh Linh,4,WED,13:30,2022-2023,3,50
+LAB005,Linear Algebra,21CLC02,Nguyen Ngoc Khanh Linh,4,MON,9:30,2022-2023,3,50
+LAB005,Linear Algebra,21CLC03,Nguyen Ngoc Khanh Linh,4,FRI,15:30,2022-2023,3,50
+PML017,Political Economy Marx - Lenin,21CLC01,Le Thi Anh Thao,4,TUE,9:30,2022-2023,3,50
+PML017,Political Economy Marx - Lenin,21CLC02,Le Thi Anh Thao,4,MON,15:30,2022-2023,3,50
+PML017,Political Economy Marx - Lenin,21CLC03,Le Thi Anh Thao,4,THU,7:30,2022-2023,3,50
+VHR105,Vietnam History,21CLC01,Nguyen Thanh Van,4,FRI,9:30,2022-2023,3,50
+VHR105,Vietnam History,21CLC02,Nguyen Thanh Van,4,MON,7:30,2022-2023,3,50
+VHR105,Vietnam History,21CLC03,Nguyen Thanh Van,4,WED,11:30,2022-2023,3,50
+ISE111,Introduce to Software Engineering,21CLC01,Dang Hoai Thuong,4,TUE,11:30,2022-2023,3,50
+ISE111,Introduce to Software Engineering,21CLC02,Dang Hoai Thuong,4,MON,13:30,2022-2023,3,50
+ISE111,Introduce to Software Engineering,21CLC03,Dang Hoai Thuong,4,THU,11:30,2022-2023,3,50
+ADB010,Advanced Database,21CLC01,Nguyen Thu Thao,4,MON,7:30,2023-2024,1,50
+ADB010,Advanced Database,21CLC02,Nguyen Thu Thao,4,TUE,9:30,2023-2024,1,50
+ADB010,Advanced Database,21CLC03,Nguyen Thu Thao,4,WED,13:30,2023-2024,1,50
+PDS001,Programming for Data Science,21CLC01,Nguyen Anh Vu,4,THU,15:30,2023-2024,1,50
+PDS001,Programming for Data Science,21CLC02,Nguyen Anh Vu,4,MON,7:30,2023-2024,1,50
+PDS001,Programming for Data Science,21CLC03,Nguyen Anh Vu,4,TUE,9:30,2023-2024,1,50
+ACN102,Advanced Computer Network,21CLC01,Tran Trong Hieu,4,WED,13:30,2023-2024,1,50
+ACN102,Advanced Computer Network,21CLC02,Tran Trong Hieu,4,THU,15:30,2023-2024,1,50
+ACN102,Advanced Computer Network,21CLC03,Tran Trong Hieu,4,FRI,13:30,2023-2024,1,50
+IML540,Introduce to Machine Learning,21CLC01,Chu Quoc Anh Minh,4,MON,7:30,2023-2024,1,50
+IML540,Introduce to Machine Learning,21CLC02,Chu Quoc Anh Minh,4,TUE,9:30,2023-2024,1,50
+IML540,Introduce to Machine Learning,21CLC03,Chu Quoc Anh Minh,4,WED,13:30,2023-2024,1,50
+IBD999,Introduce to Big Data,21CLC01,Tran Gia Huy,4,WED,13:30,2023-2024,2,50
+IBD999,Introduce to Big Data,21CLC02,Tran Gia Huy,4,MON,9:30,2023-2024,2,50
+IBD999,Introduce to Big Data,21CLC03,Tran Gia Huy,4,FRI,15:30,2023-2024,2,50
+ISB235,Information System For Business,21CLC01,Nguyen Phuc Bao Kha,4,TUE,9:30,2023-2024,2,50
+ISB235,Information System For Business,21CLC02,Nguyen Phuc Bao Kha,4,MON,15:30,2023-2024,2,50
+ISB235,Information System For Business,21CLC03,Nguyen Phuc Bao Kha,4,THU,7:30,2023-2024,2,50
+ADI006,Analysis and Design For Information System,21CLC01,Le Minh Khanh,4,FRI,9:30,2023-2024,2,50
+ADI006,Analysis and Design For Information System,21CLC02,Le Minh Khanh,4,MON,7:30,2023-2024,2,50
+ADI006,Analysis and Design For Information System,21CLC03,Le Minh Khanh,4,WED,11:30,2023-2024,2,50
+ACS111,Analysis and Control Software Requests,21CLC01,Nguyen Viet Anh,4,TUE,11:30,2023-2024,2,50
+ACS111,Analysis and Control Software Requests,21CLC02,Nguyen Viet Anh,4,MON,13:30,2023-2024,2,50
+ACS111,Analysis and Control Software Requests,21CLC03,Nguyen Viet Anh,4,THU,11:30,2023-2024,2,50
+ITP001,Introduce to Programming,22CLC01,Van Chi Nam,4,MON,7:30,2022-2023,1,50
+ITP001,Introduce to Programming,22CLC02,Van Chi Nam,4,TUE,9:30,2022-2023,1,50
+ITP001,Introduce to Programming,22CLC03,Van Chi Nam,4,WED,13:30,2022-2023,1,50
+SSS001,Soft Skills,22CLC01,Tran Gia Linh,4,THU,15:30,2022-2023,1,50
+SSS001,Soft Skills,22CLC02,Tran Gia Linh,4,MON,7:30,2022-2023,1,50
+SSS001,Soft Skills,22CLC03,Tran Gia Linh,4,TUE,9:30,2022-2023,1,50
+MTH001,Discrete Mathematics,22CLC01,Nguyen Kim Ngan,4,WED,13:30,2022-2023,1,50
+MTH001,Discrete Mathematics,22CLC02,Nguyen Kim Ngan,4,THU,15:30,2022-2023,1,50
+MTH001,Discrete Mathematics,22CLC03,Nguyen Kim Ngan,4,FRI,13:30,2022-2023,1,50
+ITI001,Introduce to IT,22CLC01,Tran Ngoc Tu Uyen,4,MON,7:30,2022-2023,1,50
+ITI001,Introduce to IT,22CLC02,Tran Ngoc Tu Uyen,4,TUE,9:30,2022-2023,1,50
+ITI001,Introduce to IT,22CLC03,Tran Ngoc Tu Uyen,4,WED,13:30,2022-2023,1,50
+PTQ001,Programming Technique,22CLC01,Nguyen Vu Tam Nhu,4,WED,13:30,2022-2023,2,50
+PTQ001,Programming Technique,22CLC02,Nguyen Vu Tam Nhu,4,MON,9:30,2022-2023,2,50
+PTQ001,Programming Technique,22CLC03,Nguyen Vu Tam Nhu,4,FRI,15:30,2022-2023,2,50
+CAL001,Calculus 1,22CLC01,Vu Ngoc Anh,4,TUE,9:30,2022-2023,2,50
+CAL001,Calculus 2,22CLC02,Vu Ngoc Anh,4,MON,15:30,2022-2023,2,50
+CAL001,Calculus 3,22CLC03,Vu Ngoc Anh,4,THU,7:30,2022-2023,2,50
+GLW001,General Law,22CLC01,Le Tuan Loc,4,FRI,9:30,2022-2023,2,50
+GLW001,General Law,22CLC02,Le Tuan Loc,4,MON,7:30,2022-2023,2,50
+GLW001,General Law,22CLC03,Le Tuan Loc,4,WED,11:30,2022-2023,2,50
+PHY001,Physics 1,22CLC01,Nguyen Thuy Trang,4,TUE,11:30,2022-2023,2,50
+PHY001,Physics 2,22CLC02,Nguyen Thuy Trang,4,MON,13:30,2022-2023,2,50
+PHY001,Physics 3,22CLC03,Nguyen Thuy Trang,4,THU,11:30,2022-2023,2,50
+CAC002,Calculus 2,22CLC01,Dang Truong Nguyen,4,WED,13:30,2022-2023,3,50
+CAC002,Calculus 2,22CLC02,Dang Truong Nguyen,4,MON,9:30,2022-2023,3,50
+CAC002,Calculus 2,22CLC03,Dang Truong Nguyen,4,FRI,15:30,2022-2023,3,50
+DSA010,Data Structure and Algorithm,22CLC01,Dinh Van Hoang,4,TUE,9:30,2022-2023,3,50
+DSA010,Data Structure and Algorithm,22CLC02,Dinh Van Hoang,4,MON,15:30,2022-2023,3,50
+DSA010,Data Structure and Algorithm,22CLC03,Dinh Van Hoang,4,THU,7:30,2022-2023,3,50
+CNK012,Computer Network,22CLC01,Truong Thi Thao Nhi,4,FRI,9:30,2022-2023,3,50
+CNK012,Computer Network,22CLC02,Truong Thi Thao Nhi,4,MON,7:30,2022-2023,3,50
+CNK012,Computer Network,22CLC03,Truong Thi Thao Nhi,4,WED,11:30,2022-2023,3,50
+PLP030,Philosophy,22CLC01,Nguyen Quang Hai,4,TUE,11:30,2022-2023,3,50
+PLP030,Philosophy,22CLC02,Nguyen Quang Hai,4,MON,13:30,2022-2023,3,50
+PLP030,Philosophy,22CLC03,Nguyen Quang Hai,4,THU,11:30,2022-2023,3,50
+CST001,Computer System,22CLC01,Le Bao Khanh,4,MON,7:30,2023-2024,1,50
+CST001,Computer System,22CLC02,Le Bao Khanh,4,TUE,9:30,2023-2024,1,50
+CST001,Computer System,22CLC03,Le Bao Khanh,4,WED,13:30,2023-2024,1,50
+OOP102,Object Oriented Programming,22CLC01,Nguyen Khoa Nam,4,THU,15:30,2023-2024,1,50
+OOP102,Object Oriented Programming,22CLC02,Nguyen Khoa Nam,4,MON,7:30,2023-2024,1,50
+OOP102,Object Oriented Programming,22CLC03,Nguyen Khoa Nam,4,TUE,9:30,2023-2024,1,50
+PEN003,Physical Education 1,22CLC01,Nguyen Quynh Ly,4,WED,13:30,2023-2024,1,50
+PEN003,Physical Education 2,22CLC02,Nguyen Quynh Ly,4,THU,15:30,2023-2024,1,50
+PEN003,Physical Education 3,22CLC03,Nguyen Quynh Ly,4,FRI,13:30,2023-2024,1,50
+CMS001,Combinational Mathematics,22CLC01,Chung Thuy Linh,4,MON,7:30,2023-2024,1,50
+CMS001,Combinational Mathematics,22CLC02,Chung Thuy Linh,4,TUE,9:30,2023-2024,1,50
+CMS001,Combinational Mathematics,22CLC03,Chung Thuy Linh,4,WED,13:30,2023-2024,1,50
+SSL045,Science Socialism,22CLC01,Pham Thi Thao Nguyen,4,WED,13:30,2023-2024,2,50
+SSL045,Science Socialism,22CLC02,Pham Thi Thao Nguyen,4,MON,9:30,2023-2024,2,50
+SSL045,Science Socialism,22CLC03,Pham Thi Thao Nguyen,4,FRI,15:30,2023-2024,2,50
+DTB001,Database,22CLC01,Truong Phuoc Loc,4,TUE,9:30,2023-2024,2,50
+DTB001,Database,22CLC02,Truong Phuoc Loc,4,MON,15:30,2023-2024,2,50
+DTB001,Database,22CLC03,Truong Phuoc Loc,4,THU,7:30,2023-2024,2,50
+BAI123,Basic of Artificial Intelligence,22CLC01,Do Nguyen Kha,4,FRI,9:30,2023-2024,2,50
+BAI123,Basic of Artificial Intelligence,22CLC02,Do Nguyen Kha,4,MON,7:30,2023-2024,2,50
+BAI123,Basic of Artificial Intelligence,22CLC03,Do Nguyen Kha,4,WED,11:30,2023-2024,2,50
+OST099,Operating System,22CLC01,Tran Nguyen Minh Thu,4,TUE,11:30,2023-2024,2,50
+OST099,Operating System,22CLC02,Tran Nguyen Minh Thu,4,MON,13:30,2023-2024,2,50
+OST099,Operating System,22CLC03,Tran Nguyen Minh Thu,4,THU,11:30,2023-2024,2,50
+ITP001,Introduce to Programming,23CLC01,Nguyen Thi Thu Thuy,4,MON,7:30,2023-2024,1,50
+ITP001,Introduce to Programming,23CLC02,Nguyen Thi Thu Thuy,4,TUE,9:30,2023-2024,1,50
+ITP001,Introduce to Programming,23CLC03,Nguyen Thi Thu Thuy,4,WED,13:30,2023-2024,1,50
+SSS001,Soft Skills,23CLC01,Nguyen Thi Thuy Linh,4,THU,15:30,2023-2024,1,50
+SSS001,Soft Skills,23CLC02,Nguyen Thi Thuy Linh,4,MON,7:30,2023-2024,1,50
+SSS001,Soft Skills,23CLC03,Nguyen Thi Thuy Linh,4,TUE,9:30,2023-2024,1,50
+MTH001,Discrete Mathematics,23CLC01,Ngo Thi Thuy Diem,4,WED,13:30,2023-2024,1,50
+MTH001,Discrete Mathematics,23CLC02,Ngo Thi Thuy Diem,4,THU,15:30,2023-2024,1,50
+MTH001,Discrete Mathematics,23CLC03,Ngo Thi Thuy Diem,4,FRI,13:30,2023-2024,1,50
+ITI001,Introduce to IT,23CLC01,Tran Ngoc Tu Uyen,4,MON,7:30,2023-2024,1,50
+ITI001,Introduce to IT,23CLC02,Tran Ngoc Tu Uyen,4,TUE,9:30,2023-2024,1,50
+ITI001,Introduce to IT,23CLC03,Tran Ngoc Tu Uyen,4,WED,13:30,2023-2024,1,50
+PTQ001,Programming Technique,23CLC01,Dinh Ba Tien,4,WED,13:30,2023-2024,2,50
+PTQ001,Programming Technique,23CLC02,Dinh Ba Tien,4,MON,9:30,2023-2024,2,50
+PTQ001,Programming Technique,23CLC03,Dinh Ba Tien,4,FRI,15:30,2023-2024,2,50
+CAL001,Calculus 1,23CLC01,Vu Ngoc Anh,4,TUE,9:30,2023-2024,2,50
+CAL001,Calculus 2,23CLC02,Vu Ngoc Anh,4,MON,15:30,2023-2024,2,50
+CAL001,Calculus 3,23CLC03,Vu Ngoc Anh,4,THU,7:30,2023-2024,2,50
+GLW001,General Law,23CLC01,Ngo Bao Tram,4,FRI,9:30,2023-2024,2,50
+GLW001,General Law,23CLC02,Ngo Bao Tram,4,MON,7:30,2023-2024,2,50
+GLW001,General Law,23CLC03,Ngo Bao Tram,4,WED,11:30,2023-2024,2,50
+PHY001,Physics 1,23CLC01,Tran Hai,4,TUE,11:30,2023-2024,2,50
+PHY001,Physics 2,23CLC02,Tran Hai,4,MON,13:30,2023-2024,2,50
+PHY001,Physics 3,23CLC03,Tran Hai,4,THU,11:30,2023-2024,2,50
