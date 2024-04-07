@@ -201,28 +201,34 @@ void add1stStudentsTo1styearClassPage() {
 
 void importCSVStudentsOfAClass(Node<Class>* claCurr) {
     std::string fileName;
-    std::cout << "\t(?) Enter the path of the CSV file (You can drag it into the program): ";
-    std::getline(std::cin >> std::ws, fileName);
-    fileName = removeQuotesFromPath(fileName);
-
-    // Check if the file exists
-    if (!std::filesystem::exists(fileName)) {
-        std::cout << "(X) Error: File does not exist!" << std::endl;
-        system("pause");
-        classManagementPage();
+    std::cin.ignore();
+    while (true) {
+        std::cout << "\t(?) Enter the path of the CSV file (You can drag it into the program): ";
+        std::getline(std::cin >> std::ws, fileName);
+        fileName = removeQuotesFromPath(fileName);
+        if (std::filesystem::is_regular_file(fileName) && ends_with(fileName, ".csv")) {
+            break;
+        }
+        std::cout << "\t(X) Invalid CSV file path." << std::endl;
+        char confirm = getYesNo("\t(?) Do you want to try again? (Y/N): ");
+        if (confirm == 'N' || confirm == 'n') {
+            courseManagementPage();
+            return;
+        }
+    }
+    char confirm = getYesNo("\t(?) Are you sure you want to import this CSV file? (Y/N): ");
+    if (confirm == 'N' || confirm == 'n') {
+        courseManagementPage();
         return;
     }
 
-    // Check if the file has a .csv extension
-    if (fileName.substr(fileName.find_last_of(".") + 1) != "csv") {
-        std::cout << "(X) Invalid file format. Please provide a .csv file." << std::endl;
-        system("pause");
-        classManagementPage();
-        return;
-    }
-
-    // Open the file
     std::ifstream inF(fileName);
+    if (!inF.is_open()) {
+        std::cout << "\n(X) Cannot open the file. Please check the file path and try again." << std::endl;
+        system("pause");
+        classManagementPage();
+        return;
+    }
 
     if (!claCurr->data.students) {
         // Pass the header
@@ -262,6 +268,7 @@ void importCSVStudentsOfAClass(Node<Class>* claCurr) {
     else {
         std::cout << "\n(X) You cannot import the CSV file because this class already has students. Let's import into a class that doesn't have students yet! " << std::endl << "(X) If you make a mistake in doing the import process, delete the class and recreate it." << std::endl;
     }
+    inF.close();
     system("pause");
     classManagementPage();
     return;

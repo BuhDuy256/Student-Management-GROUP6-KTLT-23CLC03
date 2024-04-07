@@ -802,6 +802,7 @@ void importOutsideCSVStudentsInCourse(Node<Course>* couCurr) {
     while (true) {
         std::cout << "\t(?) Enter the path of the CSV file (You can drag it into the program): ";
         std::getline(std::cin >> std::ws, fileName);
+        fileName = removeQuotesFromPath(fileName);
         if (std::filesystem::is_regular_file(fileName) && ends_with(fileName, ".csv")) {
             break;
         }
@@ -817,7 +818,6 @@ void importOutsideCSVStudentsInCourse(Node<Course>* couCurr) {
         courseManagementPage();
         return;
     }
-    fileName = removeQuotesFromPath(fileName);
     std::ifstream inF(fileName);
     if (!inF.is_open()) {
         std::cout << "\t(X) Couldn't import " << fileName << std::endl;
@@ -857,7 +857,7 @@ void importOutsideCSVStudentsInCourse(Node<Course>* couCurr) {
     else {
         couCurr->data.courseSize = n;
         inF.close();
-        std::cout << "\t(X) Imported successfully." << std::endl;
+        std::cout << "\t(!) Imported successfully." << std::endl;
     }
     inF.close();
 }
@@ -902,6 +902,7 @@ void uploadCSVScoreboardOfACourse(Node<Course>* couCurr) {
     while (true) {
         std::cout << "\t(?) Enter the path of the CSV file (You can drag it into the program): ";
         std::getline(std::cin >> std::ws, fileName);
+        fileName = removeQuotesFromPath(fileName);
         if (std::filesystem::is_regular_file(fileName) && ends_with(fileName, ".csv")) {
             break;
         }
@@ -917,7 +918,6 @@ void uploadCSVScoreboardOfACourse(Node<Course>* couCurr) {
         courseManagementPage();
         return;
     }
-    fileName = removeQuotesFromPath(fileName);
     std::ifstream inF(fileName);
     if (!inF.is_open()) {
         std::cout << "\t(X) Couldn't import " << fileName << std::endl;
