@@ -170,9 +170,9 @@ void classManagementPage() {
 	if (currSemNumber != 0) {
 		std::cout << "[4]. Class Management:\n\n";
 		std::cout << "\t1. Create a new class of first-year students (in current school year)\n";
-		std::cout << "\t2. Import CSV containing all students in a class (in current school year)\n";
-		std::cout << "\t3. View list of students of first-year classes (in current school year)\n";
-		std::cout << "\t4. View list of first-year classes\n";
+		std::cout << "\t2. Add new 1st year students to 1st-year classes (in current school year).\n";
+		std::cout << "\t3. Import CSV containing all students in a class (in current school year)\n";
+		std::cout << "\t4. View list of students in a class (in system)\n";
 		std::cout << "\t5. View list of classes studying (until current semester)\n";
 		std::cout << "\t6. View list of classes (in system)\n";
 		std::cout << "\t7. View scoreboard of a class (in current school year)\n";
@@ -189,19 +189,19 @@ void classManagementPage() {
 			createANewClassInCurrentSYear();
 		}
 		else if (choice == 2) {
-			importCSVStudentsOfAFirstYearClassPage();
+			add1stStudentsTo1styearClassPage();
 		}
 		else if (choice == 3) {
-			viewListOfStudentsInAFirstYearClass();
+			importCSVStudentsOfAFirstYearClassPage();
 		}
 		else if (choice == 4) {
-			viewListOfFirstYearClasses();
+			viewListOfStudentsInAClassPage();
 		}
 		else if (choice == 5) {
-			viewListOfClassesStudyingInCurrentSemester();
+			viewListOfClassesStudyingInCurrentSemesterPage();
 		}
 		else if (choice == 6) {
-			viewListOfClassesInSystem();
+			viewListOfClassesInSystemPage();
 		}
 		else if (choice == 7) {
 			// FIXME: fix Format table to be more beautiful

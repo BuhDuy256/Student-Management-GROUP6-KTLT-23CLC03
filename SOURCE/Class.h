@@ -14,12 +14,14 @@ struct Class {
 };
 
 void createANewClassInCurrentSYear();
+void displayTableOfFirstYearClasses(int &no);
+void add1stStudentsTo1stClass(Node<Class>* claCurr);
+void add1stStudentsTo1styearClassPage();
 void importCSVStudentsOfAClass(Node<Class>* claCurr);
-void importCSVStudentsOfAFirstYearClassPage();
-void displayTableOfFirstYearClasses(int &no); // no is the number of classes to reuse in another function
-void viewListOfStudentsInAFirstYearClass();
-void viewListOfFirstYearClasses();
+void importCSVStudentsOfAFirstYearClassPage();	
+void displayTableOfStudentsInAClass(Node<Class>* claCurr, int &no);
+void viewListOfStudentsInAClassPage();
 void displayTableOfClassesStudyingInCurrentSemester(int &no);
-void viewListOfClassesStudyingInCurrentSemester();
+void viewListOfClassesStudyingInCurrentSemesterPage();
 void displayTableOfClassesInSystem(int &no);
-void viewListOfClassesInSystem();
+void viewListOfClassesInSystemPage();

@@ -43,9 +43,143 @@ void createANewClassInCurrentSYear() {
         system("pause");
         classManagementPage();
         return;
-    } else if (confirm == 'Y' || confirm == 'y') {
+    }
+    else if (confirm == 'Y' || confirm == 'y') {
         createANewClassInCurrentSYear();
         return;
+    }
+}
+
+void displayTableOfFirstYearClasses(int& no) {
+    // Use to call to another fucntion
+    no = 0;
+    Node<Class>* claCurr = currSYear->data.classes;
+    std::cout << "\t+---------+--------------------+\n";
+    std::cout << "\t| No      | Class              |\n";
+    std::cout << "\t+---------+--------------------+\n";
+    while (claCurr) {
+        no++;
+        std::cout << std::left << "\t| " << std::setw(8) << no << "| " << std::setw(19) << claCurr->data.className << "|\n";
+        claCurr = claCurr->next;
+    }
+    std::cout << "\t+---------+--------------------+\n";
+}
+
+
+
+void add1stStudentsTo1stClass(Node<Class>* claCurr) {
+    menuCommandHeader();
+    std::cout << "[2]. Add new 1st year students to 1st-year class " << claCurr->data.className << "\n\n";
+    int no;
+    displayTableOfStudentsInAClass(claCurr, no);
+    std::string newStudentID;
+    std::string newStudentName;
+    std::string newStudentGender;
+    std::string newStudentBirthday;
+    std::string newStudentSocialID;
+    std::cout << "\n\t(?) Enter the student ID (8 digits): ";
+    while (true) {
+        std::cin >> newStudentID;
+        if (isValidStudentID(newStudentID)) {
+            break;
+        }
+        else {
+            std::cout << "\t(X) Invalid student ID. Please try again: ";
+        }
+    }
+    std::cout << "\t(?) Enter the student's full name: ";
+    std::cin.ignore();
+    while (true) {
+        std::getline(std::cin, newStudentName);
+        if (isValidCouOrStuName(newStudentName)) {
+            break;
+        }
+        else {
+            std::cout << "\t(X) Invalid student name. Please try again: ";
+        }
+    }
+    formalize(newStudentName);
+
+    int choice1;
+    std::string gender[2] = { "Male", "Female" };
+    std::cout << "\t(*) Select the student gender:\n";
+    std::cout << "\t\t1. Male\n";
+    std::cout << "\t\t2. Female\n";
+    getChoiceInt(1, 2, "\t(?) Enter the number of the student gender (1-2): ", choice1);
+    newStudentGender = gender[choice1 - 1];
+
+    std::cout << "\t(?) Enter the student's birthday (Format: dd/mm/yyyy): "; 
+    while (true) {
+        std::cin >> newStudentBirthday;
+        if (isValidDateFormat(newStudentBirthday)) {
+            break;
+        }
+        else {
+            std::cout << "\t(X) Invalid date. Please try again: ";
+        }
+    }
+    
+    std::cout << "\t(?) Enter the student's social ID (12 digits): ";
+    while (true) {
+        std::cin >> newStudentSocialID;
+        if (newStudentSocialID.length() == 12) {
+            break;
+        }
+        else {
+            std::cout << "\t(X) Invalid social ID. Please try again: ";
+        }
+    }
+
+    char confirm = getYesNo("\n\t(?) Do you want to add this student? (Y/N): ");
+    if (confirm == 'N' || confirm == 'n') {
+        std::cout << "\n(X) Cancelled adding a new student" << std::endl;
+        system("pause");
+        classManagementPage();
+        return;
+    }
+    Student newStudent;
+    newStudent.ID = newStudentID;
+    newStudent.name = newStudentName;
+    newStudent.gender = newStudentGender;
+    newStudent.birthday = newStudentBirthday;
+    newStudent.socialID = newStudentSocialID;
+    newStudent.mainClass = claCurr->data.className;
+    if (!claCurr->data.students) {
+        claCurr->data.students = new Node<Student>(newStudent);
+    }
+    else {
+        Node<Student>* stuCurr = claCurr->data.students;
+        while (stuCurr->next)
+            stuCurr = stuCurr->next;
+        stuCurr->next = new Node<Student>(newStudent);
+    }
+    std::cout << "\n\t(!) Student was added successfully" << std::endl;
+    system("pause");
+    classManagementPage();
+    return;
+}
+
+void add1stStudentsTo1styearClassPage() {
+    menuCommandHeader();
+    std::cout << "[2]. Add new 1st year students to 1st-year classes\n" << std::endl;
+    int no1;
+    displayTableOfFirstYearClasses(no1);
+    int choice;
+    std::cout << "\n\t(*) Enter '0' to return to the previous menu.\n";
+    getChoiceInt(0, no1, "\t(?) Enter the class number (0-" + std::to_string(no1) + "): ", choice);
+    if (choice == 0) {
+        classManagementPage();
+        return;
+    }
+    Node<Class>* claCurr = currSYear->data.classes;
+    int count = 0;
+    while (claCurr) {
+        count++;
+        if (count == choice) {
+            add1stStudentsTo1stClass(claCurr);
+            return;
+        }
+        claCurr = claCurr->next;
     }
 }
 
@@ -119,7 +253,7 @@ void importCSVStudentsOfAClass(Node<Class>* claCurr) {
 
 void importCSVStudentsOfAFirstYearClassPage() {
     menuCommandHeader();
-    std::cout << "[2]. Import CSV file containing all students for a first-year class (in current school year)\n" << std::endl;
+    std::cout << "[3]. Import CSV file containing all students for a first-year class (in current school year)\n" << std::endl;
 
     int no1 = 0;
     displayTableOfFirstYearClasses(no1);
@@ -152,76 +286,55 @@ void importCSVStudentsOfAFirstYearClassPage() {
     }
 }
 
-void displayTableOfFirstYearClasses(int& no) {
-    // Use to call to another fucntion
+void displayTableOfStudentsInAClass(Node<Class>* claCurr, int& no) {
+    std::cout << "\t+--------+------------+------------------------------+--------+------------+----------------+\n";
+    std::cout << "\t| No     | Student ID | Full Name                    | Gender | Birthday   | Social ID      |\n";
+    std::cout << "\t+--------+------------+------------------------------+--------+------------+----------------+\n";
+    Node<Student>* currStu = claCurr->data.students;
     no = 0;
-    Node<Class>* claCurr = currSYear->data.classes;
-    std::cout << "\t+---------+--------------------+\n";
-    std::cout << "\t| No      | Class              |\n";
-    std::cout << "\t+---------+--------------------+\n";
-    while (claCurr) {
+    while (currStu) {
         no++;
-        std::cout << std::left << "\t| " << std::setw(8) << no << "| " << std::setw(19) << claCurr->data.className << "|\n";
-        claCurr = claCurr->next;
+        std::cout << "\t| " << std::left << std::setw(7) << no << "| " << std::left << std::setw(11) << currStu->data.ID << "| "
+            << std::left << std::setw(29) << currStu->data.name << "| " << std::left << std::setw(7) << currStu->data.gender << "| "
+            << std::left << std::setw(11) << currStu->data.birthday << "| " << std::left << std::setw(15) << currStu->data.socialID << "|" << std::endl;
+        currStu = currStu->next;
     }
-    std::cout << "\t+---------+--------------------+\n";
+    std::cout << "\t+--------+------------+------------------------------+--------+------------+----------------+\n";
 }
 
-void viewListOfStudentsInAFirstYearClass() {
+void viewListOfStudentsInAClassPage() {
     menuCommandHeader();
-    std::cout << "[3]. View list of students of first-year classes\n" << std::endl;
+    std::cout << "[4]. View list of students of first-year classes\n" << std::endl;
 
     int no1 = 0;
-    displayTableOfFirstYearClasses(no1);
-
+    displayTableOfClassesInSystem(no1);
     int choice;
-    std::cout << "\n\t(?) Enter the class (1-" << no1 << "): ";
-    while (true) {
-        std::cin >> choice;
-        if (choice < 1 || choice > no1) {
-            std::cout << "\t(X) Invalid input. Please enter again: ";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        }
-        else {
-            int count = 0;
-            Node<Class>* claCurr = currSYear->data.classes;
-            menuCommandHeader();
-            while (claCurr) {
-                count++;
-                if (count == choice) {
-                    std::cout << "List of students of class " << claCurr->data.className << ":\n";
-                    std::cout << "\n\t+--------+------------+------------------------------+--------+------------+----------------+\n";
-                    std::cout << "\t| No     | Student ID | Full Name                    | Gender | Birthday   | Social ID      |\n";
-                    std::cout << "\t+--------+------------+------------------------------+--------+------------+----------------+\n";
-                    Node<Student>* currStu = claCurr->data.students;
-                    int no2 = 0;
-                    while (currStu) {
-                        no2++;
-                        std::cout << "\t| " << std::left << std::setw(7) << no2 << "| " << std::left << std::setw(11) << currStu->data.ID << "| "
-                            << std::left << std::setw(29) << currStu->data.name << "| " << std::left << std::setw(7) << currStu->data.gender << "| "
-                            << std::left << std::setw(11) << currStu->data.birthday << "| " << std::left << std::setw(15) << currStu->data.socialID << "|" << std::endl;
-                        currStu = currStu->next;
-                    }
-                    std::cout << "\t+--------+------------+------------------------------+--------+------------+----------------+\n\n";
-                    break;
-                }
-                claCurr = claCurr->next;
-            }
-            break;
-        }
+    std::cout << "\n\t(*) Enter '0' to return to the previous menu.\n";
+    getChoiceInt(0, no1, "\t(?) Enter the class number (0-" + std::to_string(no1) + "): ", choice);
+    if (choice == 0) {
+        classManagementPage();
+        return;
     }
-    system("pause");
-    classManagementPage();
-    return;
-}
-
-void viewListOfFirstYearClasses() {
-    menuCommandHeader();
-    std::cout << "[4]. View list of first-year classes (in current school year)\n" << std::endl;
-    int no = 0;
-    displayTableOfFirstYearClasses(no);
-    std::cout << std::endl;
+    int count = 0;
+    Node<SchoolYear>* syCurr = latestSYear;
+    bool found = false;
+    while (syCurr && !found) {
+        Node<Class>* claCurr = syCurr->data.classes;
+        while (claCurr) {
+            count++;
+            if (count == choice) {
+                int no2 = 0;
+                found = false;
+                menuCommandHeader();
+                std::cout << "[4]. List of students of class " << claCurr->data.className << ":\n\n";
+                displayTableOfStudentsInAClass(claCurr, no2);
+                std::cout << std::endl;
+                break;
+            }
+            claCurr = claCurr->next;
+        }
+        syCurr = syCurr->next;
+    }
     system("pause");
     classManagementPage();
     return;
@@ -248,7 +361,7 @@ void displayTableOfClassesStudyingInCurrentSemester(int& no) {
     std::cout << "\t+---------+--------------------+\n";
 }
 
-void viewListOfClassesStudyingInCurrentSemester() {
+void viewListOfClassesStudyingInCurrentSemesterPage() {
     menuCommandHeader();
     std::cout << "[5]. View list of classes studying in current semester\n" << std::endl;
     int no = 0;
@@ -276,7 +389,7 @@ void displayTableOfClassesInSystem(int& no) {
     std::cout << "\t+---------+--------------------+--------------------+\n";
 }
 
-void viewListOfClassesInSystem() {
+void viewListOfClassesInSystemPage() {
     menuCommandHeader();
     std::cout << "[6]. View list of classes in system\n" << std::endl;
     int no = 0;
