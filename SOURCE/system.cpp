@@ -178,9 +178,9 @@ void classManagementPage() {
 		std::cout << "\t7. View scoreboard of a class (in current school year)\n";
 		std::cout << "\t0. Back\n";
 		int choice;
-		std::cout << "\n(?) Enter your command (1/2/3/4/5/6/0): ";
+		std::cout << "\n(?) Enter your command (1/2/3/4/5/6/7/0): ";
 
-		while (!(std::cin >> choice) || (choice < 0 || choice > 6)) {
+		while (!(std::cin >> choice) || (choice < 0 || choice > 7)) {
 			std::cout << "(X) Invalid input. Please enter again: ";
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -238,9 +238,9 @@ void courseManagementPage() {
 		std::cout << "\t12. Update a student's result of a course\n";
 		std::cout << "\t0. Back\n";
 		int choice;
-		std::cout << "\n(?) Enter your command (1/2/3/4/5/6/7/8/9/10/11/0): ";
+		std::cout << "\n(?) Enter your command (1/2/3/4/5/6/7/8/9/10/11/12/0): ";
 
-		while (!(std::cin >> choice) || (choice < 0 || choice > 11)) {
+		while (!(std::cin >> choice) || (choice < 0 || choice > 12)) {
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "(X) Invalid input. Please enter again: ";
