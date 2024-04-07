@@ -273,8 +273,8 @@ void Course::updateInformation()
 
     std::cout << "\t(!) Course information updated successfully." << std::endl;
 
-    char confirm = getYesNo("\t(?) Do you want to continue updating course " + ID + " - " + Name + " information? (Y/N): ");
-    if (confirm == 'Y' || confirm == 'y') {
+    char confirm2 = getYesNo("\t(?) Do you want to continue updating course " + ID + " - " + Name + " information? (Y/N): ");
+    if (confirm2 == 'Y' || confirm2 == 'y') {
         updateInformation();
         return;
     }
@@ -379,9 +379,9 @@ void addACourseInCurrSem() {
     newCourse.couSY = currSYear->data.year;
     newCourse.couSem = currSemNumber;
 
-    char confirm = getYesNo("\t(?) Are you sure you want to add this course? (Y/N): ");
+    char confirm2 = getYesNo("\t(?) Are you sure you want to add this course? (Y/N): ");
 
-    if (confirm == 'N' || confirm == 'n') {
+    if (confirm2 == 'N' || confirm2 == 'n') {
         std::cout << "\t(!) Cancel adding course.\n";
         system("pause");
         courseManagementPage();
@@ -399,12 +399,12 @@ void addACourseInCurrSem() {
         syCurr = syCurr->next;
     }
     std::cout << "\t(!) Course added successfully." << std::endl;
-    char confirm2 = getYesNo("\t(?) Do you want to continue adding courses to the current semester? (Y/N): ");
-    if (confirm2 == 'Y' || confirm2 == 'y') {
+    char confirm3 = getYesNo("\t(?) Do you want to continue adding courses to the current semester? (Y/N): ");
+    if (confirm3 == 'Y' || confirm3 == 'y') {
         addACourseInCurrSem();
         return;
     }
-    else if (confirm2 == 'N' || confirm2 == 'n') {
+    else if (confirm3 == 'N' || confirm3 == 'n') {
         courseManagementPage();
         return;
     }
