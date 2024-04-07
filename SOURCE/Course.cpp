@@ -392,7 +392,7 @@ void addACourseInCurrSem() {
         if (syCurr->data.year == currSYear->data.year) {
             Node<Course>* temp = syCurr->data.semesters[currSemNumber - 1].Courses;
             syCurr->data.semesters[currSemNumber - 1].Courses = new Node<Course>(newCourse, temp);
-            syCurr->data.semesters[currSemNumber - 1].Courses->data.score = new StudentScore[100];
+            syCurr->data.semesters[currSemNumber - 1].Courses->data.score = new StudentScore[newCourse.maxStudents];
             currSem = syCurr->data.semesters[currSemNumber - 1];
             break;
         }
@@ -422,15 +422,21 @@ void updateInformationOfACourse() {
         courseManagementPage();
         return;
     }
-    Node<Course>* couCurr = currSem.Courses;
-    int count = 0;
-    while (couCurr) {
-        count++;
-        if (count == choice) {
-            couCurr->data.updateInformation();
-            return;
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr) {
+        if (syCurr->data.year == currSYear->data.year) {
+            Node<Course>* couCurr = syCurr->data.semesters[currSemNumber - 1].Courses;
+            int count = 0;
+            while (couCurr) {
+                count++;
+                if (count == choice) {
+                    couCurr->data.updateInformation();
+                    return;
+                }
+                couCurr = couCurr->next;
+            }
         }
-        couCurr = couCurr->next;
+        syCurr = syCurr->next;
     }
 }
 

@@ -1,9 +1,9 @@
 #include"SchoolYear.h"
 
 void Semester::viewCoursesList(int& no) {
-	std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
-	std::cout << "\t| No     | Course ID  | Course Name                  | Class Name | Teacher Name            | Credits | Size | Day | Session |\n";
-	std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
+	std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+------+-----+---------+\n";
+	std::cout << "\t| No     | Course ID  | Course Name                  | Class Name | Teacher Name            | Credits | Size | Max  | Day | Session |\n";
+	std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+------+-----+---------+\n";
 	no = 0;
 	Node<Course>* couCurr = Courses;
 	while (couCurr) {
@@ -15,12 +15,13 @@ void Semester::viewCoursesList(int& no) {
 			<< "| " << std::left << std::setw(24) << couCurr->data.teacherName
 			<< "| " << std::left << std::setw(8) << couCurr->data.nCredits
 			<< "| " << std::left << std::setw(5) << couCurr->data.courseSize
+			<< "| " << std::left << std::setw(5) << couCurr->data.maxStudents
 			<< "| " << std::left << std::setw(4) << couCurr->data.dayOfWeek
 			<< "| " << std::left << std::setw(8) << couCurr->data.session
 			<< "|" << std::endl;
 		couCurr = couCurr->next;
 	}
-	std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
+	std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+------+-----+---------+\n";
 }
 
 void saveAllSemestersData() {
