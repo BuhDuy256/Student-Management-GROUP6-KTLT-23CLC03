@@ -18,7 +18,7 @@ void createANewClassInCurrentSYear() {
     }
     // FIXME: 23APCS03 should be added right behind 23APCS02
     if (isClassExisted(newClass.className)) {
-        std::cout << "\n(X) Class is existed in current school year" << std::endl;
+        std::cout << "\n\t(X) Class is existed in current school year" << std::endl;
         system("pause");
         classManagementPage();
         return;
@@ -39,7 +39,7 @@ void createANewClassInCurrentSYear() {
 
     confirm = getYesNo("\n\t(?) Do you want to continue adding classes? (Y/N): ");
     if (confirm == 'N' || confirm == 'n') {
-        std::cout << "\n(!) You have finished adding classes" << std::endl;
+        std::cout << "\n\t(!) You have finished adding classes" << std::endl;
         system("pause");
         classManagementPage();
         return;
@@ -154,6 +154,10 @@ void add1stStudentsTo1stClass(Node<Class>* claCurr) {
         stuCurr->next = new Node<Student>(newStudent);
     }
     std::cout << "\n\t(!) Student was added successfully" << std::endl;
+    if (getYesNo("\n\t(?) Do you want to add another student? (Y/N): ") == 'Y') {
+        add1stStudentsTo1stClass(claCurr);
+        return;
+    }
     system("pause");
     classManagementPage();
     return;
