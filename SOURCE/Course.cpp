@@ -895,3 +895,103 @@ void uploadCSVFileContainingAListOfStudentsOfACourse() {
         couCurr = couCurr->next;
     }
 }
+
+void uploadCSVScoreboardOfACourse(Node<Course>* couCurr) {
+    std::string fileName;
+    std::cin.ignore();
+    while (true) {
+        std::cout << "\t(?) Enter the path of the CSV file (You can drag it into the program): ";
+        std::getline(std::cin >> std::ws, fileName);
+        if (std::filesystem::is_regular_file(fileName) && ends_with(fileName, ".csv")) {
+            break;
+        }
+        std::cout << "\t(X) Invalid CSV file path." << std::endl;
+        char confirm = getYesNo("\t(?) Do you want to try again? (Y/N): ");
+        if (confirm == 'N' || confirm == 'n') {
+            courseManagementPage();
+            return;
+        }
+    }
+    char confirm = getYesNo("\t(?) Are you sure you want to import this CSV file? (Y/N): ");
+    if (confirm == 'N' || confirm == 'n') {
+        courseManagementPage();
+        return;
+    }
+    std::ifstream inF(fileName);
+    if (!inF.is_open()) {
+        std::cout << "\t(X) Couldn't import " << fileName << std::endl;
+        system("pause");
+        courseManagementPage();
+        return;
+    }
+    std::string header;
+    std::getline(inF, header);
+    std::string line;
+    int n = 0;
+    bool success = true;
+    while (std::getline(inF, line)) {
+        if (n == couCurr->data.maxStudents) {
+            std::cout << "\t(X) The number of students in the course exceeds the limit of " << couCurr->data.maxStudents << " students." << std::endl;
+            success = false;
+            break;
+        }
+        // Check if the line is empty or contains only whitespace
+        if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
+            break; // Stop reading if the line is empty
+        }
+        std::stringstream ss(line);
+        std::string token;
+        std::getline(ss, token, ',');
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].studentID = token;
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].studentName = token;
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].total = std::stod(token);
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].final = std::stod(token);
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].midTerm = std::stod(token);
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].other = std::stod(token);
+        n++;
+    }
+    if (!success) {
+        delete[] couCurr->data.score;
+        couCurr->data.score = nullptr;
+        std::cout << "\t(X) Import failed. Imported students are removed. If you want to import more students, resize the course and try again." << std::endl;
+    }
+    else {
+        couCurr->data.courseSize = n;
+        inF.close();
+        std::cout << "\t(X) Imported successfully." << std::endl;
+    }
+    inF.close();
+    system("pause");
+    courseManagementPage();
+    return;
+}
+
+void importScoreboardOfACourse() {
+    menuCommandHeader();
+    std::cout << "[8]. Import the scoreboard of a course\n\n";
+    int no;
+    currSem.viewCoursesList(no);
+    int choice;
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    int count = 0;
+    Node<Course>* couCurr = currSem.Courses;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            uploadCSVScoreboardOfACourse(couCurr);
+            return;
+        }
+        couCurr = couCurr->next;
+    }
+}

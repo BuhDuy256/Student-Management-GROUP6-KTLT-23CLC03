@@ -47,6 +47,8 @@ void removeAStudentFromACourse();
 void importOutsideCSVStudentsInCourse(Node<Course>* couCurr, std::string fileName);
 void uploadCSVFileContainingAListOfStudentsOfACourse(); 
 void exportCSVStudentsOfACourse(); 
+void uploadCSVScoreboardOfACourse(Node<Course>* couCurr);
+void importScoreboardOfACourse();
 void viewListOfCoursesInCurrSem(); 
 void viewListStudentInACourse(); 
 void viewScoreboardOfACourse(); 

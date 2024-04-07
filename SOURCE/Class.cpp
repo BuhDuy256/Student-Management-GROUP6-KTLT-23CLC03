@@ -154,7 +154,8 @@ void add1stStudentsTo1stClass(Node<Class>* claCurr) {
         stuCurr->next = new Node<Student>(newStudent);
     }
     std::cout << "\n\t(!) Student was added successfully" << std::endl;
-    if (getYesNo("\n\t(?) Do you want to add another student? (Y/N): ") == 'Y') {
+    char confirm2 = getYesNo("\n\t(?) Do you want to continue adding students? (Y/N): ");
+    if (confirm2 == 'Y' || confirm2 == 'y') {
         add1stStudentsTo1stClass(claCurr);
         return;
     }

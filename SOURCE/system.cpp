@@ -231,10 +231,11 @@ void courseManagementPage() {
 		std::cout << "\t5. Remove a student from a course\n";
 		std::cout << "\t6. Upload a CSV file containing a list of students enrolled in a course\n";
 		std::cout << "\t7. Export a list of students in a course to a CSV file\n";
-		std::cout << "\t8. View list of courses (in current semester)\n";
-		std::cout << "\t9. View list of students in a course (in current semester)\n";
-		std::cout << "\t10. View scoreboard of a course\n";
-		std::cout << "\t11. Update a student's result of a course\n";
+		std::cout << "\t8. Import a scoreboard of a course (in curremt semester)\n";
+		std::cout << "\t9. View list of courses (in current semester)\n";
+		std::cout << "\t10. View list of students in a course (in current semester)\n";
+		std::cout << "\t11. View scoreboard of a course\n";
+		std::cout << "\t12. Update a student's result of a course\n";
 		std::cout << "\t0. Back\n";
 		int choice;
 		std::cout << "\n(?) Enter your command (1/2/3/4/5/6/7/8/9/10/11/0): ";
@@ -266,15 +267,18 @@ void courseManagementPage() {
 			exportCSVStudentsOfACourse();
 		}
 		else if (choice == 8) {
-			viewListOfCoursesInCurrSem();
+			importScoreboardOfACourse();
 		}
 		else if (choice == 9) {
-			viewListStudentInACourse();
+			viewListOfCoursesInCurrSem();
 		}
 		else if (choice == 10) {
-			viewScoreboardOfACourse();
+			viewListStudentInACourse();
 		}
 		else if (choice == 11) {
+			viewScoreboardOfACourse();
+		}
+		else if (choice == 12) {
 			updateAStudentResultOfACourse();
 		}
 		else if (choice == 0) {
