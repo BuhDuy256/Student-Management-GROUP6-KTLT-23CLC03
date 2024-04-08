@@ -1,51 +1,51 @@
 Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark
-21127184,Le Thi Hong,9,8.1,7.2,8.2
-21127429,Tran Van Huy,6.6,8.3,7.1,7.5
-21127736,Hoang Thi Thu Trang,8.7,9.6,8.3,9.1
-21127198,Trinh Van Anh,7.2,9.9,8.3,8.7
-21127458,Ngo Thi Thu Thao,6.6,9.5,9.8,8.6
-21127789,Huynh Van Huy,8.6,7.2,6.9,7.6
-21127187,Ho Thi Thu Ha,9.3,8.3,8.4,8.7
-21127437,Truong Van Hieu,8.6,9.3,8.7,9
-21127758,Le Thi Bich Ngoc,8.1,7,8.9,7.7
-21127162,Vo Van Hieu,8.6,8.7,7.8,8.5
-21127485,Bui Thi Thuy Linh,6.9,8.7,9,8.2
-21127798,Phan Van Nam,9.3,7.5,8.1,8.2
-21127153,Tran Thi Thu Huong,8.1,8.2,7.8,8.1
-21127435,Vo Van Trung,6.8,7.4,7.7,7.3
-21127789,Nguyen Thi Thu Hang,7.2,7.4,9.8,7.7
-21127178,Pham Van Nam,7.2,6.9,6.4,6.9
-21127423,Do Thi Lan,8.7,8.4,9.4,8.7
-21127775,Luu Van Anh,9.6,6.9,7.7,7.9
-21127189,Dinh Thi Kim Anh,6.9,6.5,6.7,6.7
-21127447,Nguyen Van Anh,7.4,9.9,9.2,9
-21127748,Le Thi Hong,8,9.3,8.7,8.8
-21127163,Tran Van Huy,6.9,6.6,9,7.1
-21127484,Hoang Thi Thu Trang,9.8,7.3,9.3,8.5
-21127783,Trinh Van Anh,9.6,8.4,7.3,8.6
-21127174,Ngo Thi Thu Thao,6.6,9.9,8.1,8.5
-21127424,Huynh Van Huy,8.4,6.8,8.3,7.6
-21127791,Ho Thi Thu Ha,8,8.8,8.6,8.5
-21127192,Truong Van Hieu,7.2,6.4,10,7.3
-21127487,Le Thi Bich Ngoc,7.8,9.1,8.7,8.6
-21127798,Vo Van Hieu,8,8.7,9.1,8.5
-21127153,Bui Thi Thuy Linh,6.6,7.4,8.3,7.3
-21127482,Phan Van Nam,10,8.8,7,8.9
-21127741,Tran Thi Thu Huong,9,7.1,8.7,8
-21127168,Vo Van Trung,6.7,8.6,9,8
-21127454,Nguyen Thi Thu Hang,7.9,9.2,9.8,8.9
-21127796,Pham Van Nam,8.9,7.7,9.6,8.4
-21127193,Do Thi Lan,9.3,7.8,9.9,8.7
-21127448,Luu Van Anh,6.6,6.5,8.1,6.8
-21127795,Dinh Thi Kim Anh,6.9,8.6,7.7,7.9
-21127139,Nguyen Van Anh,9,9.6,7.4,9
-21127476,Le Thi Hong,6.9,9.2,8.6,8.3
-21127798,Tran Van Huy,9.3,10,8.6,9.5
-21127189,Hoang Thi Thu Trang,7.4,7,6.5,7
+21127180,Le Thi Hong,9,8.1,7.2,8.2
+21127561,Tran Van Huy,6.6,8.3,7.1,7.5
+21127877,Hoang Thi Thu Trang,8.7,9.6,8.3,9.1
+21127712,Trinh Van Anh,7.2,9.9,8.3,8.7
+21127564,Ngo Thi Thu Thao,6.6,9.5,9.8,8.6
+21127851,Huynh Van Huy,8.6,7.2,6.9,7.6
+21127399,Ho Thi Thu Ha,9.3,8.3,8.4,8.7
+21127166,Truong Van Hieu,8.6,9.3,8.7,9
+21127829,Le Thi Bich Ngoc,8.1,7,8.9,7.7
+21127339,Vo Van Hieu,8.6,8.7,7.8,8.5
+21127888,Bui Thi Thuy Linh,6.9,8.7,9,8.2
+21127121,Phan Van Nam,9.3,7.5,8.1,8.2
+21127366,Tran Thi Thu Huong,8.1,8.2,7.8,8.1
+21127269,Vo Van Trung,6.8,7.4,7.7,7.3
+21127548,Nguyen Thi Thu Hang,7.2,7.4,9.8,7.7
+21127795,Pham Van Nam,7.2,6.9,6.4,6.9
+21127467,Do Thi Lan,8.7,8.4,9.4,8.7
+21127652,Luu Van Anh,9.6,6.9,7.7,7.9
+21127218,Dinh Thi Kim Anh,6.9,6.5,6.7,6.7
+21127254,Nguyen Van Anh,7.4,9.9,9.2,9
+21127839,Le Thi Hong,8,9.3,8.7,8.8
+21127153,Tran Van Huy,6.9,6.6,9,7.1
+21127524,Hoang Thi Thu Trang,9.8,7.3,9.3,8.5
+21127947,Trinh Van Anh,9.6,8.4,7.3,8.6
+21127393,Ngo Thi Thu Thao,6.6,9.9,8.1,8.5
+21127769,Huynh Van Huy,8.4,6.8,8.3,7.6
+21127627,Ho Thi Thu Ha,8,8.8,8.6,8.5
+21127896,Truong Van Hieu,7.2,6.4,10,7.3
+21127294,Le Thi Bich Ngoc,7.8,9.1,8.7,8.6
+21127921,Vo Van Hieu,8,8.7,9.1,8.5
+21127273,Bui Thi Thuy Linh,6.6,7.4,8.3,7.3
+21127129,Phan Van Nam,10,8.8,7,8.9
+21127643,Tran Thi Thu Huong,9,7.1,8.7,8
+21127614,Vo Van Trung,6.7,8.6,9,8
+21127682,Nguyen Thi Thu Hang,7.9,9.2,9.8,8.9
+21127964,Pham Van Nam,8.9,7.7,9.6,8.4
+21127808,Do Thi Lan,9.3,7.8,9.9,8.7
+21127847,Luu Van Anh,6.6,6.5,8.1,6.8
+21127985,Dinh Thi Kim Anh,6.9,8.6,7.7,7.9
+21127908,Nguyen Van Anh,9,9.6,7.4,9
+21127692,Le Thi Hong,6.9,9.2,8.6,8.3
+21127687,Tran Van Huy,9.3,10,8.6,9.5
+21127259,Hoang Thi Thu Trang,7.4,7,6.5,7
 21127481,Trinh Van Anh,9.5,7.8,9.4,8.6
-21127738,Ngo Thi Thu Thao,6.6,8,9.6,7.8
-21127165,Huynh Van Huy,6.9,6.4,8.1,6.9
-21127496,Ho Thi Thu Ha,7.2,6.5,8.7,7.1
-21127765,Truong Van Hieu,9.3,8.3,6.8,8.4
-21127197,Le Thi Bich Ngoc,6.7,8.9,8.4,8.1
-21127478,Vo Van Hieu,9.5,8.6,8,8.8
+21127823,Ngo Thi Thu Thao,6.6,8,9.6,7.8
+21127405,Huynh Van Huy,6.9,6.4,8.1,6.9
+21127581,Ho Thi Thu Ha,7.2,6.5,8.7,7.1
+21127318,Truong Van Hieu,9.3,8.3,6.8,8.4
+21127378,Le Thi Bich Ngoc,6.7,8.9,8.4,8.1
+21127536,Vo Van Hieu,9.5,8.6,8,8.8

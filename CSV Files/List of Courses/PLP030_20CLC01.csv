@@ -1,51 +1,51 @@
 Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark
-20127158,Nguyen Van Bao,6.5,6.9,8.4,7
-20127417,Pham Thanh Huong,6.9,7.1,8.6,7.3
-20127734,Vo Quang Hieu,6.4,6.5,7.7,6.7
-20127149,Bui Thi Lan,7.4,8.1,8.2,7.9
-20127491,Phan Huy Hoang,8.1,9.5,9.8,9.1
-20127779,Tran Ngoc Anh,7.8,7.4,8.9,7.8
-20127139,Vo Thi Mai,8.7,8,6.5,8
-20127483,Nguyen Hoang Nam,7.9,8.5,8.8,8.3
-20127768,Pham Thi Dieu Linh,8,9.2,8.4,8.7
-20127171,Do Van Hieu,9.6,7.4,9.6,8.5
-20127464,Luu Thi Hien,7.7,8.1,6.6,7.7
-20127797,Dinh Van Hoa,7.4,9.1,8.8,8.5
-20127152,Nguyen Thi Kim Anh,6.4,9.8,9.1,8.6
-20127439,Le Minh Hung,7.4,7.8,6.8,7.5
-20127712,Tran Van Phuc,8.1,9.9,8.4,9.1
-20127183,Hoang Thi Huong,9.9,7.1,7.4,8.1
-20127457,Trinh Van Hien,7.3,6.7,6.7,6.9
-20127738,Ngo Thi Ngoc Tram,7.5,9,9.6,8.6
-20127197,Huynh Van Minh,7.4,7.1,6.5,7.1
-20127478,Ho Thi Mai,9.9,6.7,9.1,8.2
-20127743,Truong Van Hung,9.8,9.5,8.9,9.5
-20127186,Le Thi Ha,6.6,9.9,6.7,8.3
-20127462,Vo Van Huy,7.6,9,9.8,8.7
-20127751,Bui Thi Thanh Huong,8.7,7.7,7.3,8
-20127176,Phan Van Trung,8.9,9.8,8.8,9.3
-20127424,Tran Thi Kim Ngan,8.6,9.1,9.7,9
-20127784,Vo Van Thanh,7.5,9,8.8,8.5
-20127163,Nguyen Thi Thu Ha,8.1,7.7,6.8,7.7
-20127496,Pham Van Son,8.1,6.7,6.8,7.2
-20127757,Do Thi Bich Ngoc,7.7,8.1,10,8.3
-20127154,Luu Van Hien,6.5,9,7,7.8
-20127418,Dinh Thi Thanh Huyen,9.2,9.8,9.3,9.5
-20127719,Nguyen Van Hoang,8.4,9.6,7.3,8.8
-20127135,Le Thi Thuy Trang,7.5,6.5,6.8,6.9
-20127426,Tran Van Hieu,8.7,6.8,9.3,7.8
-20127718,Hoang Thi Thu Ha,8.1,9.2,8.1,8.7
-20127184,Trinh Van Hung,7.5,9.3,6.8,8.3
-20127494,Ngo Thi Thu Trang,7.7,6.8,9.3,7.5
-20127736,Huynh Van Hieu,8.2,10,8.5,9.2
-20127165,Ho Thi Thanh Thao,7.4,9.7,6.4,8.4
-20127432,Truong Van Huy,9.1,9.3,7,8.8
-20127714,Le Thi Huong,9.3,8.3,8.9,8.7
-20127136,Vo Van Anh,6.6,8.1,9.9,7.9
-20127486,Bui Thi Hoa,9.3,7.9,9.4,8.6
-20127763,Phan Van Quan,6.8,9.9,6.8,8.3
-20127142,Tran Thi Thanh Thao,7.7,8.3,7.6,8
-20127476,Vo Van Minh,7.6,9.7,7.1,8.6
-20127727,Nguyen Thi Thanh Huong,6.5,8,7.4,7.4
-20127147,Pham Van Hieu,7.1,8.1,6.9,7.6
-20127467,Do Thi Thu Huong,7.9,7.5,7.5,7.6
+20127100,Nguyen Van Bao,6.5,6.9,8.4,7
+20127433,Pham Thanh Huong,6.9,7.1,8.6,7.3
+20127424,Vo Quang Hieu,6.4,6.5,7.7,6.7
+20127182,Bui Thi Lan,7.4,8.1,8.2,7.9
+20127857,Phan Huy Hoang,8.1,9.5,9.8,9.1
+20127943,Tran Ngoc Anh,7.8,7.4,8.9,7.8
+20127369,Vo Thi Mai,8.7,8,6.5,8
+20127762,Nguyen Hoang Nam,7.9,8.5,8.8,8.3
+20127519,Pham Thi Dieu Linh,8,9.2,8.4,8.7
+20127710,Do Van Hieu,9.6,7.4,9.6,8.5
+20127955,Luu Thi Hien,7.7,8.1,6.6,7.7
+20127226,Dinh Van Hoa,7.4,9.1,8.8,8.5
+20127511,Nguyen Thi Kim Anh,6.4,9.8,9.1,8.6
+20127899,Le Minh Hung,7.4,7.8,6.8,7.5
+20127814,Tran Van Phuc,8.1,9.9,8.4,9.1
+20127552,Hoang Thi Huong,9.9,7.1,7.4,8.1
+20127915,Trinh Van Hien,7.3,6.7,6.7,6.9
+20127984,Ngo Thi Ngoc Tram,7.5,9,9.6,8.6
+20127390,Huynh Van Minh,7.4,7.1,6.5,7.1
+20127441,Ho Thi Mai,9.9,6.7,9.1,8.2
+20127407,Truong Van Hung,9.8,9.5,8.9,9.5
+20127651,Le Thi Ha,6.6,9.9,6.7,8.3
+20127864,Vo Van Huy,7.6,9,9.8,8.7
+20127447,Bui Thi Thanh Huong,8.7,7.7,7.3,8
+20127341,Phan Van Trung,8.9,9.8,8.8,9.3
+20127906,Tran Thi Kim Ngan,8.6,9.1,9.7,9
+20127501,Vo Van Thanh,7.5,9,8.8,8.5
+20127677,Nguyen Thi Thu Ha,8.1,7.7,6.8,7.7
+20127980,Pham Van Son,8.1,6.7,6.8,7.2
+20127327,Do Thi Bich Ngoc,7.7,8.1,10,8.3
+20127795,Luu Van Hien,6.5,9,7,7.8
+20127842,Dinh Thi Thanh Huyen,9.2,9.8,9.3,9.5
+20127999,Nguyen Van Hoang,8.4,9.6,7.3,8.8
+20127657,Le Thi Thuy Trang,7.5,6.5,6.8,6.9
+20127938,Tran Van Hieu,8.7,6.8,9.3,7.8
+20127618,Hoang Thi Thu Ha,8.1,9.2,8.1,8.7
+20127323,Trinh Van Hung,7.5,9.3,6.8,8.3
+20127403,Ngo Thi Thu Trang,7.7,6.8,9.3,7.5
+20127716,Huynh Van Hieu,8.2,10,8.5,9.2
+20127858,Ho Thi Thanh Thao,7.4,9.7,6.4,8.4
+20127384,Truong Van Huy,9.1,9.3,7,8.8
+20127363,Le Thi Huong,9.3,8.3,8.9,8.7
+20127498,Vo Van Anh,6.6,8.1,9.9,7.9
+20127494,Bui Thi Hoa,9.3,7.9,9.4,8.6
+20127945,Phan Van Quan,6.8,9.9,6.8,8.3
+20127730,Tran Thi Thanh Thao,7.7,8.3,7.6,8
+20127650,Vo Van Minh,7.6,9.7,7.1,8.6
+20127320,Nguyen Thi Thanh Huong,6.5,8,7.4,7.4
+20127603,Pham Van Hieu,7.1,8.1,6.9,7.6
+20127810,Do Thi Thu Huong,7.9,7.5,7.5,7.6

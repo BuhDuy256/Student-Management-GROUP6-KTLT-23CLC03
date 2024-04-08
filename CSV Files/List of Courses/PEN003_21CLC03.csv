@@ -1,51 +1,51 @@
 Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark
-21127317,Nguyen Thi Thanh Huong,7.4,8,10,8.1
-21127682,Pham Van Hieu,7.7,7.8,9.1,8
-21127938,Do Thi Thu Huong,8.9,7.2,6.8,7.7
-21127324,Luu Van Hoang,7.6,8.1,6.9,7.7
-21127674,Dinh Thi Ngoc Anh,7.1,7.7,8.2,7.6
-21127943,Nguyen Van Hieu,6.6,7.6,7.1,7.2
-21127381,Le Thi Thuy Trang,7.1,8.3,9.5,8.1
-21127663,Tran Van Hieu,7.7,7.1,8.3,7.5
-21127954,Hoang Thi Thu Ha,7.4,9.9,7.1,8.6
-21127368,Trinh Van Hung,7.2,7.2,9.3,7.5
-21127647,Ngo Thi Thu Trang,10,7.5,6.8,8.2
-21127975,Huynh Van Hieu,8.5,6.4,8,7.4
-21127319,Ho Thi Thanh Thao,6.5,8.3,9.5,7.9
-21127671,Truong Van Huy,8.9,9.9,6.5,9
-21127942,Le Thi Huong,9.1,8.7,6.8,8.5
-21127365,Vo Van Anh,8.1,9.4,7.4,8.6
-21127689,Bui Thi Hoa,7.5,8.9,9.7,8.6
-21127962,Phan Van Quan,7.2,9.9,6.8,8.5
-21127359,Tran Thi Thanh Thao,9.9,7.1,7.6,8.1
-21127632,Vo Van Minh,9,6.8,6.9,7.5
-21127994,Nguyen Thi Thanh Huong,9.3,9.7,9,9.5
-21127396,Pham Van Hieu,8.9,9.2,8.7,9
-21127697,Do Thi Thu Huong,8.3,8.7,8.3,8.5
-21127964,Luu Van Hoang,7.7,8,8.4,8
-21127351,Dinh Thi Ngoc Anh,6.9,7,9.4,7.4
-21127682,Nguyen Van Hieu,6.5,7.7,9.9,7.7
-21127957,Le Thi Thuy Trang,9.5,9.6,6.4,9
-21127374,Tran Van Hieu,8,9.8,9.8,9.2
-21127621,Hoang Thi Thu Ha,7.9,8,7.8,7.9
-21127963,Trinh Van Hung,9.4,9.2,6.7,8.8
-21127397,Ngo Thi Thu Trang,9.3,8.7,8.5,8.9
-21127678,Huynh Van Hieu,6.6,9.6,6.4,8.1
-21127982,Ho Thi Thanh Thao,7.7,8.7,8.7,8.4
-21127398,Truong Van Huy,8.2,9.6,6.6,8.6
-21127643,Le Thi Huong,6.9,7.8,6.6,7.3
-21127967,Vo Van Anh,9,8.7,9.6,8.9
-21127378,Bui Thi Hoa,8.3,8.7,8,8.5
-21127679,Phan Van Quan,9,9.3,6.4,8.7
-21127967,Tran Thi Thanh Thao,7.6,7,6.7,7.2
-21127385,Vo Van Minh,9.1,10,7.2,9.2
-21127657,Nguyen Thi Thanh Huong,8.9,8.9,8.6,8.8
-21127954,Pham Van Hieu,7.5,6.6,8.8,7.3
-21127349,Do Thi Thu Huong,7.9,8.9,8.6,8.5
-21127697,Luu Van Hoang,8.1,9.3,6.4,8.4
-21127921,Dinh Thi Ngoc Anh,6.6,10,8.9,8.7
-21127381,Nguyen Van Hieu,7.9,7.4,7.4,7.6
-21127684,Le Thi Thuy Trang,7.4,8.8,6.5,8
-21127937,Tran Van Hieu,9.2,9.6,6.7,9
-21127345,Hoang Thi Thu Ha,8.9,9.3,7.6,8.9
-21127689,Trinh Van Hung,7,10,7.7,8.6
+21127889,Nguyen Thi Thanh Huong,7.4,8,10,8.1
+21127210,Pham Van Hieu,7.7,7.8,9.1,8
+21127365,Do Thi Thu Huong,8.9,7.2,6.8,7.7
+21127743,Luu Van Hoang,7.6,8.1,6.9,7.7
+21127894,Dinh Thi Ngoc Anh,7.1,7.7,8.2,7.6
+21127872,Nguyen Van Hieu,6.6,7.6,7.1,7.2
+21127438,Le Thi Thuy Trang,7.1,8.3,9.5,8.1
+21127415,Tran Van Hieu,7.7,7.1,8.3,7.5
+21127538,Hoang Thi Thu Ha,7.4,9.9,7.1,8.6
+21127715,Trinh Van Hung,7.2,7.2,9.3,7.5
+21127567,Ngo Thi Thu Trang,10,7.5,6.8,8.2
+21127187,Huynh Van Hieu,8.5,6.4,8,7.4
+21127873,Ho Thi Thanh Thao,6.5,8.3,9.5,7.9
+21127293,Truong Van Huy,8.9,9.9,6.5,9
+21127868,Le Thi Huong,9.1,8.7,6.8,8.5
+21127270,Vo Van Anh,8.1,9.4,7.4,8.6
+21127276,Bui Thi Hoa,7.5,8.9,9.7,8.6
+21127807,Phan Van Quan,7.2,9.9,6.8,8.5
+21127975,Tran Thi Thanh Thao,9.9,7.1,7.6,8.1
+21127325,Vo Van Minh,9,6.8,6.9,7.5
+21127879,Nguyen Thi Thanh Huong,9.3,9.7,9,9.5
+21127241,Pham Van Hieu,8.9,9.2,8.7,9
+21127987,Do Thi Thu Huong,8.3,8.7,8.3,8.5
+21127499,Luu Van Hoang,7.7,8,8.4,8
+21127463,Dinh Thi Ngoc Anh,6.9,7,9.4,7.4
+21127494,Nguyen Van Hieu,6.5,7.7,9.9,7.7
+21127389,Le Thi Thuy Trang,9.5,9.6,6.4,9
+21127556,Tran Van Hieu,8,9.8,9.8,9.2
+21127562,Hoang Thi Thu Ha,7.9,8,7.8,7.9
+21127860,Trinh Van Hung,9.4,9.2,6.7,8.8
+21127812,Ngo Thi Thu Trang,9.3,8.7,8.5,8.9
+21127710,Huynh Van Hieu,6.6,9.6,6.4,8.1
+21127970,Ho Thi Thanh Thao,7.7,8.7,8.7,8.4
+21127830,Truong Van Huy,8.2,9.6,6.6,8.6
+21127178,Le Thi Huong,6.9,7.8,6.6,7.3
+21127225,Vo Van Anh,9,8.7,9.6,8.9
+21127120,Bui Thi Hoa,8.3,8.7,8,8.5
+21127189,Phan Van Quan,9,9.3,6.4,8.7
+21127206,Tran Thi Thanh Thao,7.6,7,6.7,7.2
+21127490,Vo Van Minh,9.1,10,7.2,9.2
+21127529,Nguyen Thi Thanh Huong,8.9,8.9,8.6,8.8
+21127836,Pham Van Hieu,7.5,6.6,8.8,7.3
+21127278,Do Thi Thu Huong,7.9,8.9,8.6,8.5
+21127130,Luu Van Hoang,8.1,9.3,6.4,8.4
+21127190,Dinh Thi Ngoc Anh,6.6,10,8.9,8.7
+21127803,Nguyen Van Hieu,7.9,7.4,7.4,7.6
+21127283,Le Thi Thuy Trang,7.4,8.8,6.5,8
+21127412,Tran Van Hieu,9.2,9.6,6.7,9
+21127793,Hoang Thi Thu Ha,8.9,9.3,7.6,8.9
+21127156,Trinh Van Hung,7,10,7.7,8.6
