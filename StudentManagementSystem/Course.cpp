@@ -1,632 +1,998 @@
 #include"Course.h"
 
-void importAllCoursesCSV() {
-    QFile file(":/CSV Files/AllCourses.csv");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "Failed to open file:" << file.errorString();
+void Course::viewStudentsList() {
+    std::cout << "\t+--------+------------+------------------------------+\n";
+    std::cout << "\t| No     | Student ID | Student Name                 |\n";
+    std::cout << "\t+--------+------------+------------------------------+\n";
+
+    for (int i = 0; i < courseSize; i++) {
+        std::cout << "\t| " << std::setw(7) << std::left << (i + 1)
+                  << "| " << std::setw(11) << std::left << score[i].studentID
+                  << "| " << std::setw(29) << std::left << score[i].studentName
+                  << "|\n";
+    }
+    std::cout << "\t+--------+------------+------------------------------+\n";
+}
+
+void Course::deleteStudent() {
+    menuCommandHeader();
+    std::cout << "[5]. Remove student from a course\n\n";
+    if (courseSize == 0) {
+        std::cout << "\t(!) There is no student in this course. You cannot continue to delete students from a course\n\n";
+        system("pause");
+        courseManagementPage();
         return;
     }
-    QTextStream fin(&file);
-    QString header = fin.readLine();
-    while (!fin.atEnd()) {
-        QString Line = fin.readLine();
-        std::string line = Line.toStdString();
-        std::stringstream ss(line);
-        // Check if the line is empty or contains only whitespace
-        if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
-            break; // Stop reading if the line is empty
-        }
-        Course newCourse;
-        std::getline(ss, newCourse.ID, ',');
-        std::getline(ss, newCourse.Name, ',');
-        std::getline(ss, newCourse.className, ',');
-        std::getline(ss, newCourse.teacherName, ',');
-        std::string nCreditStr;
-        std::getline(ss, nCreditStr, ',');
-        std::stringstream(nCreditStr) >> newCourse.nCredits;
-        std::getline(ss, newCourse.dayOfWeek, ',');
-        std::getline(ss, newCourse.session, ',');
-        std::string couSemTemp;
-        std::getline(ss, newCourse.couSY, ',');
-        std::getline(ss, couSemTemp, ',');
-        std::stringstream(couSemTemp) >> newCourse.couSem;
-        // std::cout << couSemTemp << " | " << couSY << "\n";
-        Node<SchoolYear>* syCurr = latestSYear;
-        bool found = false;
-        while (syCurr && !found) {
-            if (syCurr->data.year == newCourse.couSY) {
-                if (newCourse.couSem > 0 && newCourse.couSem <= 3) {
-                    found = true;
-                    if (!syCurr->data.semesters[newCourse.couSem - 1].isCreated) {
-                        std::cout << "Error: Semester not created for year " << newCourse.couSY << " and semester " << newCourse.couSem << std::endl;
-                        break;
-                    }
-                    Node<Course>* couHead = syCurr->data.semesters[newCourse.couSem - 1].Courses;
-                    if (!couHead) {
-                        syCurr->data.semesters[newCourse.couSem - 1].Courses = new Node<Course>(newCourse);
-                        syCurr->data.semesters[newCourse.couSem - 1].Courses->data.score = new StudentScore[100];
-                    }
-                    else {
-                        Node<Course>* couCurr = couHead;
-                        while (couCurr->next) {
-                            couCurr = couCurr->next;
-                        }
-                        couCurr->next = new Node<Course>(newCourse);
-                        couCurr->next->data.score = new StudentScore[100];
-                    }
-                }
-                else {
-                    std::cout << "Error: Invalid semester number for year " << newCourse.couSY << ": " << newCourse.couSem << std::endl;
-                    break;
-                }
-            }
-            syCurr = syCurr->next;
-        }
-        if (!found) {
-            std::cout << "Error: Year not found: " << newCourse.couSY << std::endl;
-        }
-    }
-    file.close();
-}
+    viewStudentsList();
+    int index;
+    getChoiceInt(1, courseSize, "\t(?) Enter the student number you want to delete: ", index);
 
-void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr) {
-    // std::string fileName = "../CSV Files/List of Courses/" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
-    std::string fileName = ":/CSV Files/" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
-    // std::ifstream inF(fileName);
-    // if (!inF.is_open()) {
-    //     std::cout << "Couldn't import " << fileName << std::endl;
-    //     return;
-    // }
-    // std::string header;
-    // std::getline(inF, header);
-    // std::string line;
-    QFile file(":/CSV Files/AllSchoolYears.csv");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "Failed to open file:" << file.errorString();
+    char confirm = getYesNo("\t(?) Are you sure you want to remove this student? (Y/N): ");
+    if (confirm == 'N' || confirm == 'n') {
+        std::cout << "\t(!) Cancel deleting student.\n";
+        system("pause");
+        courseManagementPage();
         return;
     }
-    QTextStream fin(&file);
-    QString header = fin.readLine();
-    std::string line;
-    int n = 0;
-    while (!fin.atEnd()) {
-        QString Line = fin.readLine();
-        std::string line = Line.toStdString();
-        std::stringstream ss(line);
-        // Check if the line is empty or contains only whitespace
-        if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
-            break; // Stop reading if the line is empty
-        }
-        std::string token;
-        std::getline(ss, token, ',');
-        couCurr->data.score[n].studentID = token;
-        std::getline(ss, token, ',');
-        couCurr->data.score[n].studentName = token;
-        std::getline(ss, token, ',');
-        if (!token.empty())
-            couCurr->data.score[n].midTerm = std::stod(token);
-        std::getline(ss, token, ',');
-        if (!token.empty())
-            couCurr->data.score[n].final = std::stod(token);
-        std::getline(ss, token, ',');
-        if (!token.empty())
-            couCurr->data.score[n].other = std::stod(token);
-        std::getline(ss, token, ',');
-        if (!token.empty())
-            couCurr->data.score[n].total = std::stod(token);
-        n++;
-    }
-    couCurr->data.courseSize = n;
-    file.close();
-}
+    else if (confirm == 'Y' || confirm == 'y') {
+        for (int i = index - 1; i < courseSize - 1; i++) score[i] = score[i + 1];
+        courseSize--;
 
-void importAllStudentsInAllCoursesCSV() {
-    Node<SchoolYear>* syHead = latestSYear;
-    while (syHead) {
-        for (int i = 0; i < 3; i++) {
-            if (syHead->data.semesters[i].isCreated) {
-                Node<Course>* couCurr = syHead->data.semesters[i].Courses;
-                while (couCurr) {
-                    importContainingStudentsEnrolledInCourse(couCurr);
-                    couCurr = couCurr->next;
-                }
-            }
+        std::cout << "\n\t(!) Student is deleted sucessfully\n";
+        char confirm = getYesNo("\t(?) Do you want to remove more students from course " + ID + " - " + Name + "? (Y/N): ");
+        if (confirm == 'Y' || confirm == 'y') {
+            deleteStudent();
+            return;
         }
-        syHead = syHead->next;
+        else if (confirm == 'N' || confirm == 'n') {
+            courseManagementPage();
+            return;
+        }
     }
 }
 
-void saveAllCoursesData() {
-    Node<SchoolYear>* syCurr = latestSYear;
-    std::ofstream outF("../CSV Files/AllCourses.csv", std::ofstream::out | std::ofstream::trunc);
-    if (outF.is_open()) {
-        outF << "Course ID,Course Name,Class Name,Teacher Name,Number Of Credits,Day Of Week,Session,School Year,Semester\n";
-        while (syCurr) {
-            for (int i = 0; i < 3; i++) {
-                if (syCurr->data.semesters[i].isCreated) {
-                    Node<Course>* couCurr = syCurr->data.semesters[i].Courses;
-                    while (couCurr) {
-                        outF << couCurr->data.ID << ","
-                             << couCurr->data.Name << ","
-                             << couCurr->data.className << ","
-                             << couCurr->data.teacherName << ","
-                             << couCurr->data.nCredits << ","
-                             << couCurr->data.dayOfWeek << ","
-                             << couCurr->data.session << ","
-                             << syCurr->data.year << "," // couSY
-                             << i + 1 << "\n"; // couSem
-                        couCurr = couCurr->next;
-                    }
-                }
-            }
-            syCurr = syCurr->next;
+void Course::viewScoreboard() {
+    std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
+    std::cout << "\t| NO     | Student ID | Student Name                 | Midterm  | Final    | Others   | Total    |" << std::endl;
+    std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
+    for (int i = 0; i < courseSize; i++) {
+        std::cout << "\t| " << std::setw(7) << std::left << i + 1
+                  << "| " << std::setw(11) << std::left << score[i].studentID
+                  << "| " << std::setw(29) << std::left << score[i].studentName
+                  << "| " << std::setw(9) << std::left << (score[i].midTerm > 0 ? doubleToString(score[i].midTerm) : "")
+                  << "| " << std::setw(9) << std::left << (score[i].final > 0 ? doubleToString(score[i].final) : "")
+                  << "| " << std::setw(9) << std::left << (score[i].other > 0 ? doubleToString(score[i].other) : "")
+                  << "| " << std::setw(9) << std::left << (score[i].total > 0 ? doubleToString(score[i].total) : "")
+                  << "|" << std::endl;
+    }
+    std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
+}
+
+void Course::addStudent()
+{
+    menuCommandHeader();
+    std::cout << "[4]. Add student to a course\n\n";
+    viewStudentsList();
+    std::cout << std::endl;
+
+    if (courseSize + 1 > maxStudents) {
+        std::cout << "\t(X)  The number of students in the course exceeds the limit of " << maxStudents << ". You cannot add more students to this course.\n";
+        system("pause");
+        courseManagementPage();
+        return;
+    }
+
+    StudentScore studentScore;
+    std::cout << "\t(?) Enter the student's ID (8 digits): ";
+    while (true) {
+        std::cin >> studentScore.studentID;
+        if (isValidStudentID(studentScore.studentID)) {
+            break;
         }
+        else {
+            std::cout << "\t(X) Invalid student ID. Please try again: ";
+        }
+    }
+
+    std::cout << "\t(?) Enter the student's name: ";
+    std::cin.ignore();
+    while (true) {
+        std::getline(std::cin, studentScore.studentName);
+        if (isValidCouOrStuName(studentScore.studentName)) {
+            break;
+        }
+        else {
+            std::cout << "\t(X) Invalid student name. Please try again: ";
+        }
+    }
+    formalize(studentScore.studentName);
+    bool isExist = false;
+    for (int i = 0; i < courseSize; i++) {
+        if (studentScore.studentID == score[i].studentID) {
+            isExist = true;
+            break;
+        }
+    }
+    if (!isExist) {
+        formalize(studentScore.studentName);
+        score[courseSize] = studentScore;
+        courseSize++;
+        std::cout << "\n\t(!) Student is added sucessfully.\n";
     }
     else {
-        std::cout << "Could't open AllCourses.csv to save Data." << std::endl;
+        std::cout << "\n\t(X) The student ID is already in the course.\n";
     }
-    outF.close();
+    char confirm = getYesNo("\t(?) Do you want to add more students to course " + ID + " - " + Name + "? (Y/N): ");
+    if (confirm == 'Y' || confirm == 'y') {
+        addStudent();
+        return;
+    }
+    else if (confirm == 'N' || confirm == 'n') {
+        courseManagementPage();
+        return;
+    }
 }
 
-void saveScoreboardOfACourse(Node<Course>* couCurr) {
-    std::string fileName = "../CSV Files/List of Courses/" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
-    std::ofstream outF(fileName, std::ofstream::out | std::ofstream::trunc);
-    if (outF.is_open()) {
-        outF << "Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark\n";
-        StudentScore* scoreArr = couCurr->data.score;
-        for (int i = 0; i < couCurr->data.courseSize; i++) {
-            outF << scoreArr[i].studentID << ","
-                 << scoreArr[i].studentName << ",";
-            if (scoreArr[i].midTerm > 0)
-                outF << scoreArr[i].midTerm;
-            outF << ",";
-            if (scoreArr[i].final > 0)
-                outF << scoreArr[i].final;
-            outF << ",";
-            if (scoreArr[i].other > 0)
-                outF << scoreArr[i].other;
-            outF << ",";
-            if (scoreArr[i].total > 0)
-                outF << scoreArr[i].total;
-            outF << "\n";
-        }
-    }
-    else {
-        std::cout << "Could't open " << fileName << " to save Data." << std::endl;
-    }
-    outF.close();
-}
-
-void saveAllScoreboardsData() {
-    Node<SchoolYear>* syCurr = latestSYear;
-    while (syCurr) {
-        for (int i = 0; i < 3; i++) {
-            if (syCurr->data.semesters[i].isCreated) {
-                Node<Course>* couCurr = syCurr->data.semesters[i].Courses;
-                while (couCurr) {
-                    saveScoreboardOfACourse(couCurr);
-                    couCurr = couCurr->next;
-                }
+void Course::updateInformation()
+{
+    menuCommandHeader();
+    std::cout << "Update information of course " << ID << " - " << Name << std::endl;
+    std::cout << "\n\t1. Class Name: " << className << std::endl;
+    std::cout << "\t2. Teacher Name: " << teacherName << std::endl;
+    std::cout << "\t3. Number of Credits: " << nCredits << std::endl;
+    std::cout << "\t4. Maximum number of students: " << maxStudents << "\n";
+    std::cout << "\t5. Day of Week: " << dayOfWeek << std::endl;
+    std::cout << "\t6. Session: " << session << "\n\n";
+    int choice;
+    getChoiceInt(1, 6, "\t(?) Enter the number corresponding to the information you want to update: ", choice);
+    // Prompt for the new value based on the user's choice
+    std::string newClassName;
+    std::string newTeacherName;
+    int newNCredits;
+    int newMaxStudents;
+    std::string newDayOfWeek;
+    std::string newSession;
+    if (choice == 1) {
+        std::cout << "\t\t(?) Enter the class name (Format: dd/U[2,4]/dd. 'dd': two consecutive digits, 'U[2,4]': 2-4 uppercase letter): ";
+        while (true) {
+            std::cin >> newClassName;
+            if (newClassName == className) {
+                break;
             }
-        }
-        syCurr = syCurr->next;
-    }
-}
-
-void deleteAllScoreboardsData() {
-    Node<SchoolYear>* syCurr = latestSYear;
-    while (syCurr) {
-        for (int i = 0; i < 3; i++) {
-            if (syCurr->data.semesters[i].isCreated) {
-                Node<Course>* couCurr = syCurr->data.semesters[i].Courses;
-                while (couCurr) {
-                    couCurr->data.courseSize = 0;
-                    delete[]couCurr->data.score;
-                    couCurr = couCurr->next;
-                }
+            if (!isValidClassName(newClassName, currSYear->data.year)) {
+                std::cout << "\t\t(X) Invalid class name. Please try again: ";
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                continue;
             }
-        }
-        syCurr = syCurr->next;
-    }
-}
-
-void deleteAllCourseData() {
-    Node<SchoolYear>* syCurr = latestSYear;
-    while (syCurr) {
-        for (int i = 0; i < 3; i++) {
-            if (syCurr->data.semesters[i].isCreated) {
-                Node<Course>* couCurr = syCurr->data.semesters[i].Courses;
-                while (couCurr) {
-                    Node<Course>* temp = couCurr;
-                    couCurr = couCurr->next;
-                    delete temp;
-                }
+            if (!notExistclassNameOfCourse(ID, newClassName, currSYear->data.year)) {
+                std::cout << "\t\t(X) The class name already exists. Please try again: ";
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                continue;
             }
+            break;
         }
-        syCurr = syCurr->next;
     }
-}
-
-void exportCSVStudentsOfACourse() {
-    std::cout << "Enter the information of the course you want to export all students to CSV Files: " << std::endl;
-    Course couEx;
-    std::string couID, couClass, couSY;
-    std::cout << "\tCourse ID: "; std::cin >> couID;
-    std::cout << "\tClass Name (Ex: 23CLC03): "; std::cin >> couClass;
-    std::cout << "\tSchool Year: "; std::cin >> couSY;
-    couSY = formatSchoolYear(couSY);
-    int couSem;
-    std::cout << "\tSemester (1 -> 3): ";
-    while (!(std::cin >> couSem) || couSem < 1 || couSem > 3) {
-        std::cout << "Invalid age. Please enter again: ";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    }
-    std::string folderName;
-
-    do {
-        std::cout << "Enter the path of folder you want to export CSV: ";
-        std::getline(std::cin >> std::ws, folderName);
-        // Check if the folder exists
-        if (!std::filesystem::is_directory(folderName)) {
-            std::cout << "Invalid folder path. Please try again." << std::endl;
-            folderName = ""; // Clear folderName to loop again
-        }
-    } while (folderName.empty());
-
-    bool found = false;
-    Node<SchoolYear>* syCurr = latestSYear;
-    Node<Course>* couFind = nullptr;
-    while (syCurr && !found) {
-        if (syCurr->data.year == couSY) {
-            if (syCurr->data.semesters[couSem - 1].isCreated) {
-                if (!syCurr->data.semesters[couSem - 1].Courses) {
-                    std::cout << "This semester don't have any course data!" << std::endl;
-                    return;
-                }
-                else {
-                    couFind = syCurr->data.semesters[couSem - 1].Courses;
-                    while (couFind) {
-                        if (couFind->data.ID == couID && couFind->data.className == couClass) {
-                            std::string fileName = removeQuotesFromPath(folderName) + "/" + couID + "_" + couClass + ".csv";
-                            std::ofstream outF(fileName);
-                            if (!outF.is_open()) {
-                                std::cout << "Error creating CSV file!" << std::endl;
-                                return;
-                            }
-                            outF << "Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark\n";
-                            StudentScore* scoreArr = couFind->data.score;
-                            for (int i = 0; i < couFind->data.courseSize; i++) {
-                                outF << scoreArr[i].studentID << ","
-                                     << scoreArr[i].studentName << ",";
-                                if (scoreArr[i].midTerm > 0)
-                                    outF << scoreArr[i].midTerm;
-                                outF << ",";
-                                if (scoreArr[i].final > 0)
-                                    outF << scoreArr[i].final;
-                                outF << ",";
-                                if (scoreArr[i].other > 0)
-                                    outF << scoreArr[i].other;
-                                outF << ",";
-                                if (scoreArr[i].total > 0)
-                                    outF << scoreArr[i].total;
-                                outF << "\n";
-                            }
-                            outF.close();
-                            return;
-                        }
-                        if (!couFind) {
-                            std::cout << "Couldn't find Course have ID: " << couID << " and class Name" << couClass << std::endl;
-                            return;
-                        }
-                        couFind = couFind->next;
-                    }
-                }
+    else if (choice == 2) {
+        std::cout << "\t\t(?) Enter teacher name: ";
+        std::cin.ignore();
+        while (true) {
+            std::getline(std::cin, newTeacherName);
+            if (isValidCouOrStuName(newTeacherName)) {
+                break;
             }
             else {
-                std::cout << "Semester hasn't been created before!" << std::endl;
-                return;
+                std::cout << "\t\t(X) Invalid teacher name. Please try again: ";
             }
         }
-        syCurr = syCurr->next;
     }
-    if (!syCurr) {
-        std::cout << "School Year Information isn't true!" << std::endl;
+    else if (choice == 3) {
+        std::cout << "\t\t(?) Enter number of credits (2-4): ";
+        while (!(std::cin >> newNCredits) || newNCredits < 2 || newNCredits > 4) {
+            std::cout << "\t\t(X) Invalid number of credits. Please enter again: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+    else if (choice == 4) {
+        std::cout << "\t\t(?) Enter the maximum number of students in the course: ";
+        while (!(std::cin >> newMaxStudents) || newMaxStudents < 1 || newMaxStudents < courseSize) {
+            if (newMaxStudents < courseSize) {
+                std::cout << "\t\t(X) The maximum number of students must be greater than or equal to the number of students in the course. Please enter again: ";
+            }
+            else if (newMaxStudents < 1) {
+                std::cout << "\t\t(X) Invalid input. Please enter a positive integer: ";
+            }
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+    else if (choice == 5) {
+        std::string daysOfWeek[6] = { "MON", "TUE", "WED", "THU", "FRI", "SAT" };
+        std::cout << "\t(*) Select the new day of week:\n";
+        for (int i = 0; i < 6; ++i)
+            std::cout << "\t\t" << i + 1 << ". " << daysOfWeek[i] << std::endl;
+        int choice;
+        getChoiceInt(1, 6, "\t\t(?) Enter the number of the new day of week: ", choice);
+        newDayOfWeek = daysOfWeek[choice - 1];
+    }
+    else if (choice == 6) {
+        std::string sessions[4] = { "07:30", "09:30", "13:30", "15:30" };
+        std::cout << "\t(*) Select the new session:\n";
+        for (int i = 0; i < 4; ++i)
+            std::cout << "\t\t" << i + 1 << ". " << sessions[i] << std::endl;
+        int choice;
+        getChoiceInt(1, 4, "\t\t(?) Enter the number of the new session: ", choice);
+        newSession = sessions[choice - 1];
+    }
+    char confirm = getYesNo("\t(?) Are you sure you want to update this information? (Y/N): ");
+    if (confirm == 'N' || confirm == 'n') {
+        std::cout << "\t(!) Cancel updating course information.\n";
+        system("pause");
+        courseManagementPage();
         return;
     }
-}
-
-void displayTableListOfCoursesInCurrSem(int& no) {
-    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
-    std::cout << "\t| No     | Course ID  | Course Name                  | Class Name | Teacher Name            | Credits | Size | Day | Session |\n";
-    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
-    no = 0;
-    Node<Course>* couCurr = currSem.Courses;
-    while (couCurr) {
-        no++;
-        std::cout << "\t| " << std::left << std::setw(7) << no
-                  << "| " << std::left << std::setw(11) << couCurr->data.ID
-                  << "| " << std::left << std::setw(29) << couCurr->data.Name
-                  << "| " << std::left << std::setw(11) << couCurr->data.className
-                  << "| " << std::left << std::setw(24) << couCurr->data.teacherName
-                  << "| " << std::left << std::setw(8) << couCurr->data.nCredits
-                  << "| " << std::left << std::setw(5) << couCurr->data.courseSize
-                  << "| " << std::left << std::setw(4) << couCurr->data.dayOfWeek
-                  << "| " << std::left << std::setw(8) << couCurr->data.session
-                  << "|" << std::endl;
-        couCurr = couCurr->next;
+    else if (confirm == 'Y' || confirm == 'y') {
+        if (choice == 1) {
+            if (newClassName != className) {
+                std::string fileName = "../CSV Files/List of Courses/" + ID + "_" + className + ".csv";
+                std::ifstream fileStream(fileName);
+                if (fileStream.is_open()) {
+                    fileStream.close();
+                    std::remove(fileName.c_str());
+                }
+                className = newClassName;
+            }
+        }
+        else if (choice == 2) {
+            formalize(newTeacherName);
+            teacherName = newTeacherName;
+        }
+        else if (choice == 3) {
+            nCredits = newNCredits;
+        }
+        else if (choice == 4) {
+            if (newMaxStudents >= courseSize) {
+                StudentScore* temp = new StudentScore[newMaxStudents];
+                for (int i = 0; i < courseSize; i++) {
+                    temp[i] = score[i];
+                }
+                delete[] score;
+                score = temp;
+                maxStudents = newMaxStudents;
+            }
+        }
+        else if (choice == 5) {
+            dayOfWeek = newDayOfWeek;
+        }
+        else if (choice == 6) {
+            session = newSession;
+        }
     }
-    std::cout << "\t+--------+------------+------------------------------+------------+-------------------------+---------+------+-----+---------+\n";
-}
 
-void viewListOfCoursesInCurrSem() {
-    system("cls");
-    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-    std::cout << "[8]. List of courses in current semester:\n";
-    int no = 0;
-    displayTableListOfCoursesInCurrSem(no);
-    system("pause");
-    courseManagementPage();
-    return;
+    std::cout << "\t(!) Course information updated successfully." << std::endl;
+
+    char confirm2 = getYesNo("\t(?) Do you want to continue updating course " + ID + " - " + Name + " information? (Y/N): ");
+    if (confirm2 == 'Y' || confirm2 == 'y') {
+        updateInformation();
+        return;
+    }
+    else {
+        courseManagementPage();
+        return;
+    }
 }
 
 void addACourseInCurrSem() {
-    system("cls");
-    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+    menuCommandHeader();
     std::cout << "[1]. Add a course in current semester:\n";
     Course newCourse;
-    std::cout << "Enter course ID: ";
-    std::cin >> newCourse.ID;
-    std::cout << "Enter course name: ";
+    std::cout << "\n\t(?) Enter course ID: ";
+    while (true) {
+        std::cin >> newCourse.ID;
+        if (isValidCourseID(newCourse.ID)) {
+            break;
+        }
+        else {
+            std::cout << "\t(X) Invalid course ID. Please try again: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+    std::cout << "\t(?) Enter course name: ";
     std::cin.ignore();
-    std::getline(std::cin, newCourse.Name);
-    std::cout << "Enter class name: ";
-    std::cin >> newCourse.className;
-    std::cout << "Enter teacher name: ";
+    while (true) {
+        std::getline(std::cin, newCourse.Name);
+        if (isValidCouOrStuName(newCourse.Name)) {
+            break;
+        }
+        else {
+            std::cout << "\t(X) Invalid course name. Please try again: ";
+        }
+    }
+    formalize(newCourse.Name);
+    std::cout << "\t(?) Enter the class name (Format: dd/U[2,4]/dd. 'dd': two consecutive digits, 'U[2,4]': 2-4 uppercase letter): ";
+    while (true) {
+        std::cin >> newCourse.className;
+        if (!isValidClassName(newCourse.className, currSYear->data.year)) {
+            std::cout << "\t(X) Invalid class name. Please try again: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
+        if (!notExistclassNameOfCourse(newCourse.ID, newCourse.className, currSYear->data.year)) {
+            std::cout << "\t(X) The class name already exists. Please try again: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
+        break;
+    }
+    std::cout << "\t(?) Enter teacher name: ";
     std::cin.ignore();
-    std::getline(std::cin, newCourse.teacherName);
-    std::cout << "Enter number of credits: ";
+    while (true) {
+        std::getline(std::cin, newCourse.teacherName);
+        if (isValidCouOrStuName(newCourse.teacherName)) {
+            break;
+        }
+        else {
+            std::cout << "\t(X) Invalid teacher name. Please try again: ";
+        }
+    }
+    formalize(newCourse.teacherName);
+    std::cout << "\t(?) Enter number of credits (2-4): ";
     while (!(std::cin >> newCourse.nCredits) || newCourse.nCredits < 2 || newCourse.nCredits > 4) {
-        std::cout << "Invalid number of credits. The number of credits of a course should be between 2 and 4. Please enter again: ";
+        std::cout << "\t(X) Invalid number of credits. Please enter again: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-    std::cout << "Enter course size: ";
-    while (!(std::cin >> newCourse.courseSize) || newCourse.courseSize < 0 || newCourse.courseSize > 100) {
-        std::cout << "Invalid course size. The course size should be between 0 and 100. Please enter again: ";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    }
-    std::cout << "Day of week:\n";
-    std::cout << "\t1. MON\n";
-    std::cout << "\t2. TUE\n";
-    std::cout << "\t3. WED\n";
-    std::cout << "\t4. THU\n";
-    std::cout << "\t5. FRI\n";
-    std::cout << "\t6. SAT\n";
-    int day;
-    std::cout << "Enter day of week (1-6): ";
-    while (true) {
-        std::cin >> day;
-        if (day >= 1 && day <= 6) {
-            if (day == 1) {
-                newCourse.dayOfWeek = "MON";
-            }
-            else if (day == 2) {
-                newCourse.dayOfWeek = "TUE";
-            }
-            else if (day == 3) {
-                newCourse.dayOfWeek = "WED";
-            }
-            else if (day == 4) {
-                newCourse.dayOfWeek = "THU";
-            }
-            else if (day == 5) {
-                newCourse.dayOfWeek = "FRI";
-            }
-            else if (day == 6) {
-                newCourse.dayOfWeek = "SAT";
-            }
-            break;
-        }
-        else {
+
+    char confirm = getYesNo("\t(?) The default maximum number of students in a course is 50. Do you want to change it? (Y/N): ");
+    if (confirm == 'Y' || confirm == 'y') {
+        std::cout << "\t(?) Enter the maximum number of students in the course: ";
+        while (!(std::cin >> newCourse.maxStudents) || newCourse.maxStudents < 1) {
+            std::cout << "\t(X) Invalid input. Please enter a positive integer: ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid choice. Please enter again (1-6): ";
         }
     }
-    std::cout << "All sessions:\n";
-    std::cout << "\t1. S1 (07:30)\n";
-    std::cout << "\t2. S2 (09:30)\n";
-    std::cout << "\t3. S3 (13:30)\n";
-    std::cout << "\t4. S4 (15:30)\n";
-    int session;
-    std::cout << "Enter session (1-4): ";
-    while (true) {
-        std::cin >> session;
-        if (session >= 1 && session <= 4) {
-            if (session == 1) {
-                newCourse.session = "07:30";
-            }
-            else if (session == 2) {
-                newCourse.session = "09:30";
-            }
-            else if (session == 3) {
-                newCourse.session = "13:30";
-            }
-            else if (session == 4) {
-                newCourse.session = "15:30";
-            }
-            break;
-        }
-        else {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid choice. Please enter again (1-4): ";
-        }
+    else {
+        newCourse.maxStudents = 50;
     }
+
+    std::string daysOfWeek[6] = { "MON", "TUE", "WED", "THU", "FRI", "SAT" };
+    std::cout << "\t(*) Select the new day of week:\n";
+    for (int i = 0; i < 6; ++i)
+        std::cout << "\t\t" << i + 1 << ". " << daysOfWeek[i] << std::endl;
+    int choice;
+    getChoiceInt(1, 6, "\t(?) Enter the number of the new day of week: ", choice);
+    newCourse.dayOfWeek = daysOfWeek[choice - 1];
+
+    std::string sessions[4] = { "07:30", "09:30", "13:30", "15:30" };
+    std::cout << "\t(*) Select the new session:\n";
+    for (int i = 0; i < 4; ++i)
+        std::cout << "\t\t" << i + 1 << ". " << sessions[i] << std::endl;
+    // int choice;
+    getChoiceInt(1, 4, "\t(?) Enter the number of the new session: ", choice);
+    newCourse.session = sessions[choice - 1];
     newCourse.couSY = currSYear->data.year;
     newCourse.couSem = currSemNumber;
-    Node<Course>* newCourseNode = new Node<Course>(newCourse, currSem.Courses);
-    currSem.Courses = newCourseNode;
-    std::cout << "Course added successfully." << std::endl;
-    system("pause");
-    courseManagementPage();
-    return;
+
+    char confirm2 = getYesNo("\t(?) Are you sure you want to add this course? (Y/N): ");
+
+    if (confirm2 == 'N' || confirm2 == 'n') {
+        std::cout << "\t(!) Cancel adding course.\n";
+        system("pause");
+        courseManagementPage();
+        return;
+    }
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr) {
+        if (syCurr->data.year == currSYear->data.year) {
+            Node<Course>* temp = syCurr->data.semesters[currSemNumber - 1].Courses;
+            syCurr->data.semesters[currSemNumber - 1].Courses = new Node<Course>(newCourse, temp);
+            syCurr->data.semesters[currSemNumber - 1].Courses->data.score = new StudentScore[newCourse.maxStudents];
+            currSem = syCurr->data.semesters[currSemNumber - 1];
+            break;
+        }
+        syCurr = syCurr->next;
+    }
+    std::cout << "\t(!) Course added successfully." << std::endl;
+    char confirm3 = getYesNo("\t(?) Do you want to continue adding courses to the current semester? (Y/N): ");
+    if (confirm3 == 'Y' || confirm3 == 'y') {
+        addACourseInCurrSem();
+        return;
+    }
+    else if (confirm3 == 'N' || confirm3 == 'n') {
+        courseManagementPage();
+        return;
+    }
 }
 
-void deleteACourseInCurrSem() {
-    system("cls");
-    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-    std::cout << "List of courses in current semester:\n";
-    int no = 0;
-    displayTableListOfCoursesInCurrSem(no);
-    std::cout << "Enter the course you want to delete (1 to " << no << "): ";
+void updateInformationOfACourse() {
+    menuCommandHeader();
+    std::cout << "[2]. Update information of a course\n";
+    int no;
+    currSem.viewCoursesList(no);
     int choice;
-    while (true) {
-        std::cin >> choice;
-        if (std::cin.fail() || choice < 1 || choice > no) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
-        }
-        else {
+    std::cout << "\t(*) Enter '0' to return to the course management page\n";
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr) {
+        if (syCurr->data.year == currSYear->data.year) {
+            Node<Course>* couCurr = syCurr->data.semesters[currSemNumber - 1].Courses;
             int count = 0;
-            Node<Course>* couCurr = currSem.Courses;
-            Node<Course>* couPrev = nullptr;
             while (couCurr) {
                 count++;
                 if (count == choice) {
-                    if (couPrev) {
-                        couPrev->next = couCurr->next;
-                    }
-                    else {
-                        currSem.Courses = couCurr->next;
-                    }
-                    delete couCurr;
-                    std::cout << "Course deleted successfully." << std::endl;
-                    break;
+                    couCurr->data.updateInformation();
+                    return;
                 }
-                couPrev = couCurr;
                 couCurr = couCurr->next;
+            }
+        }
+        syCurr = syCurr->next;
+    }
+}
+
+void deleteACourseInCurrSem() {
+    menuCommandHeader();
+    std::cout << "[3]. Delete a course in current semester\n\n";
+    if (currSem.Courses == nullptr) {
+        std::cout << "\t(!) There is no course in this semester.\n";
+        system("pause");
+        courseManagementPage();
+        return;
+    }
+    int no;
+    currSem.viewCoursesList(no);
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
+    int choice;
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+
+    char confirm = getYesNo("\t(?) If you delete it you will lose all course information. Are you sure you want to delete? (Y/N): ");
+
+    if (confirm == 'N' || confirm == 'n') {
+        std::cout << "\t(!) Cancel deleting course.\n";
+        system("pause");
+        courseManagementPage();
+        return;
+    }
+    Node<Course>* couCurr = currSem.Courses;
+    Node<Course>* couPrev = nullptr;
+    int count = 0;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            std::string fileName = "../CSV Files/List of Courses/" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
+            std::ifstream fileStream(fileName);
+            if (fileStream.is_open()) {
+                fileStream.close();
+                std::remove(fileName.c_str());
+            }
+            if (couCurr == currSem.Courses) {
+                Node<SchoolYear>* syCurr = latestSYear; // find the school year that contains the current semester
+                while (syCurr) {
+                    if (syCurr->data.year == currSYear->data.year) {
+                        Node<Course>* temp = syCurr->data.semesters[currSemNumber - 1].Courses;
+                        delete[] temp->data.score;
+                        syCurr->data.semesters[currSemNumber - 1].Courses = temp->next;
+                        delete temp;
+                        currSem = syCurr->data.semesters[currSemNumber - 1];
+                        break;
+                    }
+                    syCurr = syCurr->next;
+                }
+            }
+            else {
+                delete[] couCurr->data.score;
+                couPrev->next = couCurr->next;
+                delete couCurr;
             }
             break;
         }
+        couPrev = couCurr;
+        couCurr = couCurr->next;
     }
+    std::cout << "\t(!) Course deleted successfully.\n";
     system("pause");
     courseManagementPage();
     return;
 }
 
 void addStudentToACourse() {
-    system("cls");
-    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
+    menuCommandHeader();
+    std::cout << "[4]. Add student to a course\n\n";
     int no;
-    displayTableListOfCoursesInCurrSem(no);
-    std::cout << "Enter the course you want to add students to (1 to " << no << "): ";
+    currSem.viewCoursesList(no);
     int choice;
-    while (true) {
-        std::cin >> choice;
-        if (std::cin.fail() || choice < 1 || choice > no) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
-        }
-        else {
-            int count;
-            Node<Course>* couCurr = currSem.Courses;
-            bool isAdded = false;
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
+    std::cout << "\t(?) Enter the course number you want to add students (0-" << no << "): ";
+    while (!(std::cin >> choice) || choice < 0 || choice > no) {
+        std::cout << "\t(X) Invalid input. Please enter a again:";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    int count;
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr) {
+        if (syCurr->data.year == currSYear->data.year) {
+            Node<Course>* couCurr = syCurr->data.semesters[currSemNumber - 1].Courses;
+            count = 0;
             while (couCurr) {
                 count++;
                 if (count == choice) {
-                    StudentScore studentScore;
-                    while (true) {
-                        std::cout << "\tEnter the student's ID: ";
-                        std::getline(std::cin, studentScore.studentID);
-                        if (checkIDValid(studentScore.studentID)) break;
-                    }
-                    while (true) {
-                        std::cout << "\tEnter the student's name: ";
-                        std::getline(std::cin, studentScore.studentName);
-                        if (checkNameValid(studentScore.studentName)) break;
-                    }
-                    formalize(studentScore.studentName);
-                    couCurr->data.score[couCurr->data.courseSize] = studentScore;
-                    couCurr->data.courseSize++;
-                    break;
+                    couCurr->data.addStudent();
+                    return;
                 }
                 couCurr = couCurr->next;
             }
         }
+        syCurr = syCurr->next;
     }
+}
+
+void removeAStudentFromACourse() {
+    menuCommandHeader();
+    std::cout << "[5]. Remove student from a course\n";
+    int no;
+    currSem.viewCoursesList(no);
+    int choice;
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    int count = 0;
+    Node<Course>* couCurr = currSem.Courses;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            std::cout << "[5]. Remove student from a course\n";
+            couCurr->data.deleteStudent();
+            return;
+        }
+        couCurr = couCurr->next;
+    }
+}
+
+void viewListOfCoursesInCurrSem() {
+    menuCommandHeader();
+    std::cout << "[8]. List of courses in current semester:\n\n";
+    int no;
+    currSem.viewCoursesList(no);
+    std::cout << std::endl;
     system("pause");
     courseManagementPage();
     return;
 }
 
 void viewScoreboardOfACourse() {
-    system("cls");
-    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-    std::cout << "List of courses in current semester:\n";
+    menuCommandHeader();
+    std::cout << "[10]. View scoreboard of a course\n\n";
     int no;
-    displayTableListOfCoursesInCurrSem(no);
-    std::cout << "Enter the course you want to view scoreboard (1 to " << no << "): ";
+    currSem.viewCoursesList(no);
     int choice;
-    while (true) {
-        std::cin >> choice;
-        if (std::cin.fail() || choice < 1 || choice > no) {
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
+    getChoiceInt(0, no, "\t(?) Enter the course you want to view scoreboard (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    int count = 0;
+    Node<Course>* couCurr = currSem.Courses;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            menuCommandHeader();
+            std::cout << "[10]. Scoreboard of course " << couCurr->data.ID << " - " << couCurr->data.Name << " - " << couCurr->data.className << ":\n\n";
+            couCurr->data.viewScoreboard();
+            std::cout << std::endl;
+            system("pause");
+            courseManagementPage();
+            return;
+        }
+        couCurr = couCurr->next;
+    }
+}
+
+void viewListStudentInACourse() {
+    menuCommandHeader();
+    std::cout << "[9]. View list of students in a course\n\n";
+    int no;
+    currSem.viewCoursesList(no);
+    int choice;
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    Node<Course>* couCurr = currSem.Courses;
+    int count = 0;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            menuCommandHeader();
+            std::cout << "[9] List of students in course " << couCurr->data.ID << " - " << couCurr->data.Name << " - " << couCurr->data.className << ":\n\n";
+            couCurr->data.viewStudentsList();
+            std::cout << "\n";
+            system("pause");
+            courseManagementPage();
+            return;
+            return;
+        }
+        couCurr = couCurr->next;
+    }
+}
+
+void chooseStudentToUpdateResult(Node<Course>* couCurr) {
+    menuCommandHeader();
+    std::cout << "[11]. Update a student's result of course " << couCurr->data.ID << " - " << couCurr->data.Name << " - " << couCurr->data.className << "\n\n";
+    couCurr->data.viewScoreboard();
+    int studentIndex;
+    getChoiceInt(1, couCurr->data.courseSize, "\n\t(?) Enter the student number you want to update: ", studentIndex);
+    std::string scoreTypes[4] = { "Midterm", "Final", "Other", "Total" };
+    std::cout << "\t(*) Select the score type to update:" << std::endl;
+    for (int i = 0; i < 4; ++i) std::cout << "\t\t" << i + 1 << ". " << scoreTypes[i] << std::endl;
+    int choice;
+    getChoiceInt(1, 4, "\t(?) Enter the number of the score type you want to update (1/2/3/4): ", choice);
+    double newScore;
+    std::cout << "\t(?) Enter the new score: ";
+    do {
+        std::cin >> newScore;
+        if (std::cin.fail()) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid input. Please enter a valid integer between 1 and " << no << ": ";
+            std::cout << "\t(!) Please enter a valid number: ";
+        }
+        else if (newScore < 0 || newScore > 10) {
+            std::cout << "\t(!) Score must be between 0 and 10. Please enter again: ";
         }
         else {
-            int count = 0;
-            Node<Course>* couCurr = currSem.Courses;
-            while (couCurr) {
-                count++;
-                if (count == choice) {
-                    displayTableScoreboardOfACourse(couCurr);
-                    break;
-                }
-                couCurr = couCurr->next;
-            }
             break;
         }
+    } while (true);
+    char confirm = getYesNo("\t(?) Are you sure you want to update this score? (Y/N): ");
+    if (confirm == 'N' || confirm == 'n') {
+        std::cout << "\t(!) Cancel updating score.\n";
+        char confirm2 = getYesNo("\t(?) Do you want update again? (Y/N): ");
+        if (confirm2 == 'N' || confirm2 == 'n') {
+            system("pause");
+            courseManagementPage();
+            return;
+        }
+        else if (confirm2 == 'Y' || confirm2 == 'y') {
+            chooseStudentToUpdateResult(couCurr);
+            return;
+        }
     }
-
+    if (scoreTypes[choice - 1] == "Midterm") couCurr->data.score[studentIndex - 1].midTerm = newScore;
+    else if (scoreTypes[choice - 1] == "Final") couCurr->data.score[studentIndex - 1].final = newScore;
+    else if (scoreTypes[choice - 1] == "Other") couCurr->data.score[studentIndex - 1].other = newScore;
+    else if (scoreTypes[choice - 1] == "Total") couCurr->data.score[studentIndex - 1].total = newScore;
+    std::cout << "\n\t(!) Student's result updated successfully." << std::endl;
+    char confirm2 = getYesNo("\t(?) Do you want to update more scores? (Y/N): ");
+    if (confirm2 == 'N' || confirm2 == 'n') {
+        courseManagementPage();
+        return;
+    }
+    else if (confirm2 == 'Y' || confirm2 == 'y') {
+        chooseStudentToUpdateResult(couCurr);
+        return;
+    }
 }
 
-std::string doubleToString(double value) {
-    std::ostringstream oss;
-    oss << value;
-    return oss.str();
+void updateAStudentResultOfACourse() {
+    menuCommandHeader();
+    std::cout << "[11]. Update a student's result of a course\n\n";
+    int no;
+    currSem.viewCoursesList(no);
+    int choice;
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    Node<Course>* couCurr = currSem.Courses;
+    int count = 0;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            chooseStudentToUpdateResult(couCurr);
+            return;
+        }
+        couCurr = couCurr->next;
+    }
 }
 
-void displayTableScoreboardOfACourse(Node<Course>* couCurr) {
-    system("cls");
-    std::cout << "Latest Semester - School Year in System: " << lastSemNumber << " + " << latestSYear->data.year << "\n";
-    std::cout << "Current Semester - School Year in System: " << currSemNumber << " + " << currSYear->data.year << "\n";
-    std::cout << "List of students in course " << couCurr->data.ID << " - " << couCurr->data.Name << " - " << couCurr->data.className << ":\n";
-    std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
-    std::cout << "\t| NO     | Student ID | Student Name                 | Midterm  | Final    | Others   | Total    |" << std::endl;
-    std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
-    for (int i = 0; i < couCurr->data.courseSize; i++) {
-        std::cout << "\t| " << std::setw(7) << std::left << i + 1
-                  << "| " << std::setw(11) << std::left << couCurr->data.score[i].studentID
-                  << "| " << std::setw(29) << std::left << couCurr->data.score[i].studentName
-                  << "| " << std::setw(9) << std::left << (couCurr->data.score[i].midTerm > 0 ? doubleToString(couCurr->data.score[i].midTerm) : "")
-                  << "| " << std::setw(9) << std::left << (couCurr->data.score[i].final > 0 ? doubleToString(couCurr->data.score[i].final) : "")
-                  << "| " << std::setw(9) << std::left << (couCurr->data.score[i].other > 0 ? doubleToString(couCurr->data.score[i].other) : "")
-                  << "| " << std::setw(9) << std::left << (couCurr->data.score[i].total > 0 ? doubleToString(couCurr->data.score[i].total) : "")
-                  << "|" << std::endl;
+void exportCSVStudentsOfACourse() {
+    menuCommandHeader();
+    std::cout << "[7]. Export a CSV file containing a list of students of a course\n\n";
+    int no;
+    currSem.viewCoursesList(no);
+    int choice;
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
     }
-    std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;\
+    Node<Course>* couCurr = currSem.Courses;
+    int count = 0;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            std::string folderName;
+            std::cin.ignore();
+            while (true) {
+                std::cout << "\t(?) Enter the path of folder (You can drag the folder in - Not drive \"C:\\\"): ";
+                std::getline(std::cin >> std::ws, folderName);
+                folderName = removeQuotesFromPath(folderName);
+                if (!std::filesystem::is_directory(folderName) || folderName.empty()) {
+                    char confirm = getYesNo("\t(X) Invalid path. Do you want to try again? (Y/N): ");
+                    if (confirm == 'N' || confirm == 'n') {
+                        courseManagementPage();
+                        return;
+                    }
+                    folderName = ""; // Clear folderName to loop again
+                    continue;
+                }
+                break;
+            }
+            std::string fileName;
+            if (!folderName.empty() && folderName.back() == '\\') {
+                fileName = removeQuotesFromPath(folderName) + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
+            }
+            else {
+                fileName = removeQuotesFromPath(folderName) + "\\" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
+            }
+            std::ofstream outF(fileName);
+            if (!outF.is_open()) {
+                std::cout << "\t(X) Cannot create CSV file!" << std::endl;
+                system("pause");
+                courseManagementPage();
+                return;
+            }
+            outF << "No,Student ID,Student Full Name,Total Mark,Final Mark,Midterm Mark,Other Mark\n";
+            StudentScore* scoreArr = couCurr->data.score;
+            for (int i = 0; i < couCurr->data.courseSize; i++) {
+                outF << i + 1 << "," << scoreArr[i].studentID << "," << scoreArr[i].studentName << ",";
+                if (scoreArr[i].midTerm > 0)
+                    outF << scoreArr[i].total;
+                outF << ",";
+                if (scoreArr[i].final > 0)
+                    outF << scoreArr[i].final;
+                outF << ",";
+                if (scoreArr[i].other > 0)
+                    outF << scoreArr[i].midTerm;
+                outF << ",";
+                if (scoreArr[i].total > 0)
+                    outF << scoreArr[i].other;
+                outF << "\n";
+            }
+            outF.close();
+            std::cout << "\t(!) Exported successfully!" << std::endl;
+            system("pause");
+            courseManagementPage();
+            return;
+        }
+        couCurr = couCurr->next;
+    }
+}
+
+void importOutsideCSVStudentsInCourse(Node<Course>* couCurr) {
+    std::string fileName;
+    std::cin.ignore();
+    while (true) {
+        std::cout << "\t(?) Enter the path of the CSV file (You can drag it into the program): ";
+        std::getline(std::cin >> std::ws, fileName);
+        fileName = removeQuotesFromPath(fileName);
+        if (std::filesystem::is_regular_file(fileName) && ends_with(fileName, ".csv")) {
+            break;
+        }
+        std::cout << "\t(X) Invalid CSV file path." << std::endl;
+        char confirm = getYesNo("\t(?) Do you want to try again? (Y/N): ");
+        if (confirm == 'N' || confirm == 'n') {
+            courseManagementPage();
+            return;
+        }
+    }
+    char confirm = getYesNo("\t(?) Are you sure you want to import this CSV file? (Y/N): ");
+    if (confirm == 'N' || confirm == 'n') {
+        courseManagementPage();
+        return;
+    }
+    std::ifstream inF(fileName);
+    if (!inF.is_open()) {
+        std::cout << "\t(X) Couldn't import " << fileName << std::endl;
         system("pause");
+        courseManagementPage();
+        return;
+    }
+    std::string header;
+    std::getline(inF, header);
+    std::string line;
+    int n = 0;
+    bool success = true;
+    while (std::getline(inF, line)) {
+        if (n == couCurr->data.maxStudents) {
+            std::cout << "\t(X) The number of students in the course exceeds the limit of " << couCurr->data.maxStudents << " students." << std::endl;
+            success = false;
+            break;
+        }
+        // Check if the line is empty or contains only whitespace
+        if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
+            break; // Stop reading if the line is empty
+        }
+        std::stringstream ss(line);
+        std::string token;
+        std::getline(ss, token, ',');
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].studentID = token;
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].studentName = token;
+        n++;
+    }
+    if (!success) {
+        delete[] couCurr->data.score;
+        couCurr->data.score = nullptr;
+        std::cout << "\t(X) Import failed. Imported students are removed. If you want to import more students, resize the course and try again." << std::endl;
+    }
+    else {
+        couCurr->data.courseSize = n;
+        inF.close();
+        std::cout << "\t(!) Imported successfully." << std::endl;
+    }
+    inF.close();
+}
+
+void uploadCSVFileContainingAListOfStudentsOfACourse() {
+    menuCommandHeader();
+    std::cout << "[6]. Upload a CSV file containing a list of students of a course\n\n";
+    int no;
+    currSem.viewCoursesList(no);
+    std::cout << "\n\t(*) Your CSV file must have the format:" << std::endl;
+    std::cout << "\t\t1. The header line has the format: No,Student ID,Student Name" << std::endl;
+    std::cout << "\t\t2. No is the serial number of each student, student ID must have 8 digits, student Name has no format." << std::endl;
+    std::cout << "\t(*) Enter '0' to return to the course management page\n";
+    int choice;
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    int count = 0;
+    Node<Course>* couCurr = currSem.Courses;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            if (couCurr->data.score == nullptr) {
+                importOutsideCSVStudentsInCourse(couCurr);
+            }
+            else {
+                std::cout << "\t(X) This course already has students enrolled." << std::endl;
+            }
+            system("pause");
+            courseManagementPage();
+            return;
+        }
+        couCurr = couCurr->next;
+    }
+}
+
+void uploadCSVScoreboardOfACourse(Node<Course>* couCurr) {
+    std::string fileName;
+    std::cin.ignore();
+    while (true) {
+        std::cout << "\t(?) Enter the path of the CSV file (You can drag it into the program): ";
+        std::getline(std::cin >> std::ws, fileName);
+        fileName = removeQuotesFromPath(fileName);
+        if (std::filesystem::is_regular_file(fileName) && ends_with(fileName, ".csv")) {
+            break;
+        }
+        std::cout << "\t(X) Invalid CSV file path." << std::endl;
+        char confirm = getYesNo("\t(?) Do you want to try again? (Y/N): ");
+        if (confirm == 'N' || confirm == 'n') {
+            courseManagementPage();
+            return;
+        }
+    }
+    char confirm = getYesNo("\t(?) Are you sure you want to import this CSV file? (Y/N): ");
+    if (confirm == 'N' || confirm == 'n') {
+        courseManagementPage();
+        return;
+    }
+    std::ifstream inF(fileName);
+    if (!inF.is_open()) {
+        std::cout << "\t(X) Couldn't import " << fileName << std::endl;
+        system("pause");
+        courseManagementPage();
+        return;
+    }
+    std::string header;
+    std::getline(inF, header);
+    std::string line;
+    int n = 0;
+    bool success = true;
+    while (std::getline(inF, line)) {
+        if (n == couCurr->data.maxStudents) {
+            std::cout << "\t(X) The number of students in the course exceeds the limit of " << couCurr->data.maxStudents << " students." << std::endl;
+            success = false;
+            break;
+        }
+        // Check if the line is empty or contains only whitespace
+        if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
+            break; // Stop reading if the line is empty
+        }
+        std::stringstream ss(line);
+        std::string token;
+        std::getline(ss, token, ',');
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].studentID = token;
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].studentName = token;
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].total = std::stod(token);
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].final = std::stod(token);
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].midTerm = std::stod(token);
+        std::getline(ss, token, ',');
+        couCurr->data.score[n].other = std::stod(token);
+        n++;
+    }
+    if (!success) {
+        delete[] couCurr->data.score;
+        couCurr->data.score = nullptr;
+        std::cout << "\t(X) Import failed. Imported students are removed. If you want to import more students, resize the course and try again." << std::endl;
+    }
+    else {
+        couCurr->data.courseSize = n;
+        inF.close();
+        std::cout << "\t(X) Imported successfully." << std::endl;
+    }
+    inF.close();
+    system("pause");
     courseManagementPage();
     return;
+}
+
+void importScoreboardOfACourse() {
+    menuCommandHeader();
+    std::cout << "[8]. Import the scoreboard of a course\n\n";
+    int no;
+    currSem.viewCoursesList(no);
+    int choice;
+    std::cout << "\n\t(*) Enter '0' to return to the course management page\n";
+    getChoiceInt(0, no, "\t(?) Enter the course number (0-" + std::to_string(no) + "): ", choice);
+    if (choice == 0) {
+        courseManagementPage();
+        return;
+    }
+    int count = 0;
+    Node<Course>* couCurr = currSem.Courses;
+    while (couCurr) {
+        count++;
+        if (count == choice) {
+            uploadCSVScoreboardOfACourse(couCurr);
+            return;
+        }
+        couCurr = couCurr->next;
+    }
 }

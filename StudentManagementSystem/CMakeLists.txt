@@ -24,22 +24,39 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         resourses.qrc
-        system.h system.cpp
+
         Class.h
         Course.h
 
-        Node.h
-        SchoolYear.h
-        Staff.h
-        Student.h
+
+
+
+
         Class.cpp
         Course.cpp
+        Data.cpp
+        Data.h
 
+
+        Node.h
         SchoolYear.cpp
+        SchoolYear.h
         Staff.cpp
+        Staff.h
         Student.cpp
-        GlobalVariables.h
+        Student.h
+        Sub.cpp
+        Sub.h
+        System.h
+        System.cpp
         GlobalVariables.cpp
+        GlobalVariables.h
+
+
+
+
+
+
 
 
 

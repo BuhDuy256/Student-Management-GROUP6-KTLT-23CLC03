@@ -13,16 +13,15 @@ struct Class {
     Node<Student>* students = nullptr;
 };
 
-void importAllClassesCSV();
-void saveAllClassesData();
-void deleteAllClassesData();
-
-std::string removeQuotesFromPath(const std::string& path);
-bool checkClassExist(std::string className);
-bool isValidClassName(std::string className);
-void importCSVStudentsOfAClass_Public();
 void createANewClassInCurrentSYear();
-void viewListOfStudentsInAClass();
-void displayTableOfClassesInCurrentSemester(int &no); // no is the number of classes to reuse in another function
-void viewListOfClassesInCurrentSemeter();
-void viewListOfClassesInSystem();
+void displayTableOfFirstYearClasses(int &no);
+void add1stStudentsTo1stClass(Node<Class>* claCurr);
+void add1stStudentsTo1styearClassPage();
+void importCSVStudentsOfAClass(Node<Class>* claCurr);
+void importCSVStudentsOfAFirstYearClassPage();
+void displayTableOfStudentsInAClass(Node<Class>* claCurr, int &no);
+void viewListOfStudentsInAClassPage();
+void displayTableOfClassesStudyingInCurrentSemester(int &no);
+void viewListOfClassesStudyingInCurrentSemesterPage();
+void displayTableOfClassesInSystem(int &no);
+void viewListOfClassesInSystemPage();

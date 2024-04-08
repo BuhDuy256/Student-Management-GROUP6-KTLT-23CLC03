@@ -9,8 +9,6 @@ struct Student;
 struct Class;
 struct SchoolYear;
 
-class MainWindow;
-
 struct Student {
     std::string ID;
     std::string name;
@@ -21,11 +19,6 @@ struct Student {
     std::string password = "12345678";
 };
 
-void importAllStudentsCSV();
-void saveAllStudentsData();
-void deleteAllStudentsData();
-
-// Menu:
 void viewStudentProfile();
 void viewStudentCourses();
 void viewStudentScoresInCurrentSem();

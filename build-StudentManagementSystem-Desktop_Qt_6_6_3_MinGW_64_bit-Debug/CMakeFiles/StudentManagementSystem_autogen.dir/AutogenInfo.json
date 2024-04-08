@@ -268,6 +268,12 @@
 			null
 		],
 		[
+			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/Data.h",
+			"MU",
+			"EWIEGA46WW/moc_Data.cpp",
+			null
+		],
+		[
 			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/GlobalVariables.h",
 			"MU",
 			"EWIEGA46WW/moc_GlobalVariables.cpp",
@@ -298,15 +304,21 @@
 			null
 		],
 		[
-			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/mainwindow.h",
+			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/Sub.h",
 			"MU",
-			"EWIEGA46WW/moc_mainwindow.cpp",
+			"EWIEGA46WW/moc_Sub.cpp",
 			null
 		],
 		[
-			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/system.h",
+			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/System.h",
 			"MU",
-			"EWIEGA46WW/moc_system.cpp",
+			"EWIEGA46WW/moc_System.cpp",
+			null
+		],
+		[
+			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/mainwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
 		]
 	],
@@ -391,6 +403,11 @@
 			null
 		],
 		[
+			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/Data.cpp",
+			"MU",
+			null
+		],
+		[
 			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/GlobalVariables.cpp",
 			"MU",
 			null
@@ -411,17 +428,22 @@
 			null
 		],
 		[
+			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/Sub.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/System.cpp",
+			"MU",
+			null
+		],
+		[
 			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/main.cpp",
 			"MU",
 			null
 		],
 		[
 			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/mainwindow.cpp",
-			"MU",
-			null
-		],
-		[
-			"D:/Coding/GROUP6_23CLC03/StudentManagementSystem/system.cpp",
 			"MU",
 			null
 		]

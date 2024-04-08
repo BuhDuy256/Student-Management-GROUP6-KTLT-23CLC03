@@ -10,3 +10,5 @@ int currSemNumber;
 Node<Staff>* listStaff = nullptr;
 Node<Staff>* currStaff = nullptr;
 Node<Course>* currCourse = nullptr;
+StudentScore* currStuScore = nullptr;
+unsigned short userMode;

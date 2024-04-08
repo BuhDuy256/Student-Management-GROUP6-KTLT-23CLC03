@@ -26,29 +26,32 @@ struct Course {
     std::string teacherName;
     int nCredits = 0;
     int courseSize = 0;
+    int maxStudents = 0;
     std::string dayOfWeek;
     std::string session;
     std::string couSY;
     int couSem;
     StudentScore* score = nullptr;
+    void viewStudentsList();
+    void deleteStudent();
+    void viewScoreboard();
+    void addStudent();
+    void updateInformation();
 };
 
-std::string doubleToString(double value);
-void importAllCoursesCSV();
-void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr);
-void importAllStudentsInAllCoursesCSV();
-void saveAllCoursesData();
-void saveScoreboardOfACourse(Node<Course>* couCurr);
-void saveAllScoreboardsData();
-void deleteAllScoreboardsData();
-void deleteAllCourseData();
-
-std::string formatSchoolYear(const std::string& inputYear);
-void exportCSVStudentsOfACourse();
 void addACourseInCurrSem();
-void displayTableListOfCoursesInCurrSem(int& no);
-void viewListOfCoursesInCurrSem();
-void updateInformationOfACoursePage();
-void updateInformationOfACourse(int choice);
+void updateInformationOfACourse();
 void deleteACourseInCurrSem();
 void addStudentToACourse();
+void removeAStudentFromACourse();
+void importOutsideCSVStudentsInCourse(Node<Course>* couCurr);
+void uploadCSVFileContainingAListOfStudentsOfACourse();
+void exportCSVStudentsOfACourse();
+void uploadCSVScoreboardOfACourse(Node<Course>* couCurr);
+void importScoreboardOfACourse();
+void viewListOfCoursesInCurrSem();
+void viewListStudentInACourse();
+void viewScoreboardOfACourse();
+void chooseStudentToUpdateResult(Node<Course>* couCurr);
+void updateAStudentResultOfACourse();
+

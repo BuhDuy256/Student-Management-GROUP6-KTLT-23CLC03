@@ -718,7 +718,7 @@ public:
         QFont font9;
         font9.setPointSize(36);
         lb_MyProfile->setFont(font9);
-        lb_MyProfile->setStyleSheet(QString::fromUtf8(""));
+        lb_MyProfile->setStyleSheet(QString::fromUtf8("color: #7FFFD4"));
         lb_MyProfile->setAlignment(Qt::AlignCenter);
 
         gridLayout_6->addWidget(lb_MyProfile, 0, 0, 1, 2);
@@ -730,7 +730,7 @@ public:
         lb_MyCourses->setObjectName("lb_MyCourses");
         lb_MyCourses->setGeometry(QRect(60, 10, 777, 129));
         lb_MyCourses->setFont(font9);
-        lb_MyCourses->setStyleSheet(QString::fromUtf8(""));
+        lb_MyCourses->setStyleSheet(QString::fromUtf8("color: #7FFFD4"));
         lb_MyCourses->setAlignment(Qt::AlignCenter);
         tableWidget = new QTableWidget(StuCourse);
         if (tableWidget->columnCount() < 7)
@@ -801,7 +801,7 @@ public:
         lb_changePass->setMaximumSize(QSize(16777215, 85));
         lb_changePass->setFont(font9);
         lb_changePass->setStyleSheet(QString::fromUtf8("#lb_changePass{\n"
-"        color:rgb(151, 255, 168);\n"
+"        color: #7FFFD4;\n"
 "}"));
         lb_changePass->setAlignment(Qt::AlignCenter);
 
@@ -892,7 +892,7 @@ public:
         name_2->setMaximumSize(QSize(16777215, 34));
         name_2->setFont(font5);
         name_2->setStyleSheet(QString::fromUtf8("#name_2{\n"
-"        color: white;\n"
+"        color: #FBFFF4;\n"
 "}"));
         name_2->setAlignment(Qt::AlignCenter);
 
@@ -936,7 +936,7 @@ public:
         stackedWidget_3 = new QStackedWidget(admin_homepage);
         stackedWidget_3->setObjectName("stackedWidget_3");
         stackedWidget_3->setStyleSheet(QString::fromUtf8("#AdHome{\n"
-"        background-color: rgba(0, 0, 0, 0);\n"
+"        background-color: rgba(0, 0, 0, 96);\n"
 "}\n"
 "#AdProfile{\n"
 "        background-color: rgba(0, 0, 0, 96);\n"
@@ -956,23 +956,23 @@ public:
 "}\n"
 "\n"
 "#lb_AdID{\n"
-"        color: white;\n"
+"        color: #FBFFF4;\n"
 "}\n"
 "\n"
 "#lb_AdName{\n"
-"        color: white;\n"
+"        color: #FBFFF4;\n"
 "}\n"
 "\n"
 "#lb_AdGender{\n"
-"        color: white;\n"
+"        color: #FBFFF4;\n"
 "}\n"
 "\n"
 "#lb_AdBirthday{\n"
-"        color: white;\n"
+"        color: #FBFFF4;\n"
 "}\n"
 "\n"
 "#lb_AdSocialID{\n"
-"        color: white;\n"
+"        color: #FBFFF4;\n"
 "}\n"
 ""));
         AdHome = new QWidget();
@@ -994,7 +994,7 @@ public:
         lb_AdID->setObjectName("lb_AdID");
         lb_AdID->setFont(font8);
         lb_AdID->setStyleSheet(QString::fromUtf8("#label{\n"
-"        color: white;\n"
+"        color: #FBFFF4;\n"
 "}\n"
 ""));
 
@@ -1010,6 +1010,7 @@ public:
         txt_AdID->setMinimumSize(QSize(586, 50));
         txt_AdID->setMaximumSize(QSize(612, 50));
         txt_AdID->setFont(font8);
+        txt_AdID->setStyleSheet(QString::fromUtf8("color: #FBFFF4;"));
         txt_AdID->setReadOnly(true);
 
         gridLayout_8->addWidget(txt_AdID, 1, 1, 1, 2);
@@ -1018,7 +1019,7 @@ public:
         lb_AdName->setObjectName("lb_AdName");
         lb_AdName->setFont(font8);
         lb_AdName->setStyleSheet(QString::fromUtf8("#label{\n"
-"        color: white;\n"
+"        color: #FBFFF4;\n"
 "}\n"
 ""));
 
@@ -1029,6 +1030,7 @@ public:
         txt_AdName->setMinimumSize(QSize(0, 50));
         txt_AdName->setMaximumSize(QSize(612, 50));
         txt_AdName->setFont(font8);
+        txt_AdName->setStyleSheet(QString::fromUtf8("color: #FBFFF4;"));
         txt_AdName->setReadOnly(true);
 
         gridLayout_8->addWidget(txt_AdName, 2, 1, 1, 2);
@@ -1037,7 +1039,7 @@ public:
         lb_AdGender->setObjectName("lb_AdGender");
         lb_AdGender->setFont(font8);
         lb_AdGender->setStyleSheet(QString::fromUtf8("#label{\n"
-"        color: white;\n"
+"        color: #FBFFF4;\n"
 "}\n"
 ""));
 
@@ -1048,6 +1050,7 @@ public:
         txt_AdGender->setMinimumSize(QSize(0, 50));
         txt_AdGender->setMaximumSize(QSize(612, 50));
         txt_AdGender->setFont(font8);
+        txt_AdGender->setStyleSheet(QString::fromUtf8("color: #FBFFF4;"));
         txt_AdGender->setReadOnly(true);
 
         gridLayout_8->addWidget(txt_AdGender, 3, 1, 1, 2);
@@ -1056,7 +1059,7 @@ public:
         lb_AdBirthday->setObjectName("lb_AdBirthday");
         lb_AdBirthday->setFont(font8);
         lb_AdBirthday->setStyleSheet(QString::fromUtf8("#label{\n"
-"        color: white;\n"
+"        color: #FBFFF4;\n"
 "}\n"
 ""));
 
@@ -1067,6 +1070,7 @@ public:
         txt_AdBirthday->setMinimumSize(QSize(0, 50));
         txt_AdBirthday->setMaximumSize(QSize(612, 50));
         txt_AdBirthday->setFont(font8);
+        txt_AdBirthday->setStyleSheet(QString::fromUtf8("color: #FBFFF4;"));
         txt_AdBirthday->setReadOnly(true);
 
         gridLayout_8->addWidget(txt_AdBirthday, 4, 1, 1, 2);
@@ -1075,7 +1079,7 @@ public:
         lb_AdSocialID->setObjectName("lb_AdSocialID");
         lb_AdSocialID->setFont(font8);
         lb_AdSocialID->setStyleSheet(QString::fromUtf8("#label{\n"
-"        color: white;\n"
+"        color: #FBFFF4;\n"
 "}\n"
 ""));
 
@@ -1086,6 +1090,7 @@ public:
         txt_AdSocialID->setMinimumSize(QSize(0, 50));
         txt_AdSocialID->setMaximumSize(QSize(612, 50));
         txt_AdSocialID->setFont(font8);
+        txt_AdSocialID->setStyleSheet(QString::fromUtf8("color: #FBFFF4;"));
         txt_AdSocialID->setReadOnly(true);
 
         gridLayout_8->addWidget(txt_AdSocialID, 5, 1, 1, 2);
@@ -1101,7 +1106,7 @@ public:
         lb_MyProfile_2 = new QLabel(AdProfile);
         lb_MyProfile_2->setObjectName("lb_MyProfile_2");
         lb_MyProfile_2->setFont(font9);
-        lb_MyProfile_2->setStyleSheet(QString::fromUtf8(""));
+        lb_MyProfile_2->setStyleSheet(QString::fromUtf8("color: #7FFFD4;"));
         lb_MyProfile_2->setAlignment(Qt::AlignCenter);
 
         gridLayout_8->addWidget(lb_MyProfile_2, 0, 0, 1, 3);
@@ -1117,7 +1122,7 @@ public:
         lb_changePass_2->setMaximumSize(QSize(16777215, 85));
         lb_changePass_2->setFont(font9);
         lb_changePass_2->setStyleSheet(QString::fromUtf8("#lb_changePass_2{\n"
-"        color:rgb(151, 255, 168);\n"
+"        color: #7FFFD4;\n"
 "}"));
         lb_changePass_2->setAlignment(Qt::AlignCenter);
 
@@ -1127,7 +1132,7 @@ public:
         lb_curPass_2->setObjectName("lb_curPass_2");
         lb_curPass_2->setFont(font8);
         lb_curPass_2->setStyleSheet(QString::fromUtf8("#lb_curPass_2{\n"
-"        color:white;\n"
+"        color: #FBFFF4;\n"
 "}"));
         lb_curPass_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
@@ -1138,6 +1143,7 @@ public:
         txtCurPass_2->setMinimumSize(QSize(0, 50));
         txtCurPass_2->setMaximumSize(QSize(612, 50));
         txtCurPass_2->setFont(font8);
+        txtCurPass_2->setStyleSheet(QString::fromUtf8("color: #FBFFF4;"));
         txtCurPass_2->setEchoMode(QLineEdit::Password);
 
         gridLayout_7->addWidget(txtCurPass_2, 1, 1, 1, 1);
@@ -1146,7 +1152,7 @@ public:
         lb_newPass_2->setObjectName("lb_newPass_2");
         lb_newPass_2->setFont(font8);
         lb_newPass_2->setStyleSheet(QString::fromUtf8("#lb_newPass_2{\n"
-"        color:white;\n"
+"        color: #FBFFF4;\n"
 "}"));
         lb_newPass_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
@@ -1157,6 +1163,7 @@ public:
         txtNewPass_2->setMinimumSize(QSize(0, 50));
         txtNewPass_2->setMaximumSize(QSize(612, 50));
         txtNewPass_2->setFont(font8);
+        txtNewPass_2->setStyleSheet(QString::fromUtf8("color: #FBFFF4;"));
         txtNewPass_2->setEchoMode(QLineEdit::Password);
 
         gridLayout_7->addWidget(txtNewPass_2, 2, 1, 1, 1);
@@ -1165,7 +1172,7 @@ public:
         lb_confirmPass_2->setObjectName("lb_confirmPass_2");
         lb_confirmPass_2->setFont(font8);
         lb_confirmPass_2->setStyleSheet(QString::fromUtf8("#lb_confirmPass_2{\n"
-"        color:white;\n"
+"        color:#FBFFF4;\n"
 "}"));
         lb_confirmPass_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
@@ -1176,15 +1183,18 @@ public:
         txtConfirmPass_2->setMinimumSize(QSize(0, 50));
         txtConfirmPass_2->setMaximumSize(QSize(612, 50));
         txtConfirmPass_2->setFont(font8);
+        txtConfirmPass_2->setStyleSheet(QString::fromUtf8("color: #FBFFF4"));
         txtConfirmPass_2->setEchoMode(QLineEdit::Password);
 
         gridLayout_7->addWidget(txtConfirmPass_2, 3, 1, 1, 1);
 
         checkBox_3 = new QCheckBox(AdChangePass);
         checkBox_3->setObjectName("checkBox_3");
-        checkBox_3->setFont(font6);
+        QFont font11;
+        checkBox_3->setFont(font11);
         checkBox_3->setStyleSheet(QString::fromUtf8("#checkBox_3{\n"
-"        color: white;\n"
+"        color: #FBFFF4;\n"
+"		font-size: 16px;\n"
 "}"));
 
         gridLayout_7->addWidget(checkBox_3, 4, 1, 1, 1);
@@ -1222,9 +1232,9 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
-        stackedWidget_2->setCurrentIndex(0);
-        stackedWidget_3->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(2);
+        stackedWidget_2->setCurrentIndex(1);
+        stackedWidget_3->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
