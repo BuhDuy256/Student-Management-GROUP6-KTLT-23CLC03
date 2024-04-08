@@ -249,6 +249,7 @@ void MainWindow::on_button_StuMyCourses_clicked()
             ui->tableWidget->setItem(no - 1, 5, new QTableWidgetItem(QString::number(couCurr->data.courseSize)));
             ui->tableWidget->setItem(no - 1, 6, new QTableWidgetItem(QString::fromStdString(couCurr->data.dayOfWeek)));
             ui->tableWidget->setItem(no - 1, 7, new QTableWidgetItem(QString::fromStdString(couCurr->data.session)));
+            ui->tableWidget->resizeColumnsToContents();
         }
         couCurr = couCurr->next;
     }
