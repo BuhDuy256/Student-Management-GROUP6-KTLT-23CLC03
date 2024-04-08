@@ -9,6 +9,7 @@
 #include"GlobalVariables.h"
 #include"Sub.h"
 #include"Data.h"
+#include"scoreboardClass.h"
 
 #include<iostream>
 #include<fstream>
