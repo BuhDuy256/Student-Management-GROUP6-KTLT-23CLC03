@@ -154,7 +154,7 @@ color: white;
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true"/>
+              <string notr="true">color: #FBFFF4</string>
              </property>
              <property name="text">
               <string>Sign In</string>
@@ -171,6 +171,9 @@ color: white;
                <pointsize>22</pointsize>
                <bold>true</bold>
               </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: #FBFFF4</string>
              </property>
              <property name="text">
               <string>Username</string>
@@ -238,6 +241,9 @@ color: white;
                <pointsize>22</pointsize>
                <bold>true</bold>
               </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: #FBFFF4</string>
              </property>
              <property name="text">
               <string>Password</string>
@@ -307,11 +313,12 @@ background-color: transparent;
             <widget class="QCheckBox" name="checkBox">
              <property name="font">
               <font>
-               <pointsize>11</pointsize>
+               <pointsize>-1</pointsize>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true"/>
+              <string notr="true">font-size: 16px;
+color: #FBFFF4</string>
              </property>
              <property name="text">
               <string>Show Password</string>
@@ -505,7 +512,7 @@ background-color: transparent;
              </property>
              <property name="styleSheet">
               <string notr="true">#name{
-        color: white;
+        color: #FBFFF4;
 }</string>
              </property>
              <property name="text">
@@ -702,7 +709,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -838,6 +845,10 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
+              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -852,7 +863,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-        color: white;
+        color: #FBFFF4;
 }
 </string>
               </property>
@@ -870,7 +881,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-        color: white;
+        color: #FBFFF4;
 }
 </string>
               </property>
@@ -888,7 +899,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-        color: white;
+        color: #FBFFF4;
 }
 </string>
               </property>
@@ -906,7 +917,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-        color: white;
+        color: #FBFFF4;
 }
 </string>
               </property>
@@ -933,6 +944,10 @@ background-color: rgba(0, 0, 0, 96);
                <font>
                 <pointsize>18</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -982,6 +997,10 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
+              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -1006,6 +1025,10 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
+              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -1020,7 +1043,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-        color: white;
+        color: #FBFFF4;
 }
 </string>
               </property>
@@ -1038,7 +1061,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-        color: white;
+        color: #FBFFF4;
 }
 </string>
               </property>
@@ -1066,6 +1089,10 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
+              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -1089,6 +1116,10 @@ background-color: rgba(0, 0, 0, 96);
                <font>
                 <pointsize>18</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -1154,6 +1185,9 @@ background-color: rgba(0, 0, 0, 96);
               <pointsize>9</pointsize>
              </font>
             </property>
+            <property name="styleSheet">
+             <string notr="true">color: #FBFFF4</string>
+            </property>
             <property name="sortingEnabled">
              <bool>false</bool>
             </property>
@@ -1161,25 +1195,50 @@ background-color: rgba(0, 0, 0, 96);
              <property name="text">
               <string>No</string>
              </property>
+             <property name="font">
+              <font>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>Course ID</string>
+             </property>
+             <property name="font">
+              <font>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
             <column>
              <property name="text">
               <string>Course Name</string>
              </property>
+             <property name="font">
+              <font>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>Class Name</string>
              </property>
+             <property name="font">
+              <font>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>Tearcher Name</string>
+             </property>
+             <property name="font">
+              <font>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
             <column>
@@ -1196,10 +1255,20 @@ background-color: rgba(0, 0, 0, 96);
              <property name="text">
               <string>Day Of Week</string>
              </property>
+             <property name="font">
+              <font>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>Session</string>
+             </property>
+             <property name="font">
+              <font>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
            </widget>
@@ -1221,7 +1290,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#lb_confirmPass{
-        color:white;
+        color: #FBFFF4;
 }</string>
               </property>
               <property name="text">
@@ -1299,6 +1368,10 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
+              </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
               </property>
@@ -1339,7 +1412,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#lb_curPass{
-        color:white;
+        color: #FBFFF4;
 }</string>
               </property>
               <property name="text">
@@ -1359,7 +1432,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#lb_newPass{
-        color:white;
+        color: #FBFFF4;
 }</string>
               </property>
               <property name="text">
@@ -1389,6 +1462,10 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;
+background-color:	rgba(255,255,255,100);</string>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -1416,6 +1493,10 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
+              </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
               </property>
@@ -1425,12 +1506,13 @@ background-color: rgba(0, 0, 0, 96);
              <widget class="QCheckBox" name="checkBox_2">
               <property name="font">
                <font>
-                <pointsize>12</pointsize>
+                <pointsize>-1</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">#checkBox_2{
-        color: white;
+        color: #FBFFF4;
+	font-size: 16px;
 }</string>
               </property>
               <property name="text">
@@ -1762,7 +1844,8 @@ background-color: rgba(0, 0, 0, 96);
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: #FBFFF4;</string>
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -1807,7 +1890,8 @@ background-color: rgba(0, 0, 0, 96);
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: #FBFFF4;</string>
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -1852,7 +1936,8 @@ background-color: rgba(0, 0, 0, 96);
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: #FBFFF4;</string>
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -1897,7 +1982,8 @@ background-color: rgba(0, 0, 0, 96);
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: #FBFFF4;</string>
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -1942,7 +2028,8 @@ background-color: rgba(0, 0, 0, 96);
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: #FBFFF4;</string>
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -2067,7 +2154,8 @@ background-color: rgba(0, 0, 0, 96);
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: #FBFFF4;</string>
+               <string notr="true">color: #FBFFF4;
+background-color: transparent</string>
               </property>
               <property name="text">
                <string/>
@@ -2117,7 +2205,8 @@ background-color: rgba(0, 0, 0, 96);
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: #FBFFF4;</string>
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
               </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
@@ -2164,7 +2253,8 @@ background-color: rgba(0, 0, 0, 96);
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: #FBFFF4</string>
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
               </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
