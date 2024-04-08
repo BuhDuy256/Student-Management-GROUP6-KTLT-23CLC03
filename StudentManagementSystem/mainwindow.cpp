@@ -252,6 +252,9 @@ void MainWindow::on_button_StuMyCourses_clicked()
         }
         couCurr = couCurr->next;
     }
+
+    init_sy_select();
+
     ui->stackedWidget_2->setCurrentIndex(2);
 }
 
@@ -446,3 +449,39 @@ void MainWindow::on_button_currentDay_clicked()
     ui->calendarWidget->setCurrentPage(currentDate.year(), currentDate.month());
     ui->calendarWidget->setSelectedDate(currentDate);
 }
+
+void MainWindow::init_sy_select()
+{
+    ui->sy_select->clear();
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr)
+    {
+        ui->sy_select->addItem(QString::fromStdString(syCurr->data.year));
+        syCurr = syCurr->next;
+    }
+}
+
+
+void MainWindow::on_sy_select_currentTextChanged(const QString &arg1)
+{
+    ui->sem_select->clear();
+    std::string sy = ui->sy_select->currentText().toStdString();
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr)
+    {
+        if (syCurr->data.year == sy)
+        {
+            int no = 0;
+            for (int i = 2; i >= 0; i--)
+            {
+                if (syCurr->data.semesters[i].isCreated)
+                {
+                    ui->sem_select->addItem(QString::number(++no));
+                }
+            }
+        }
+
+        syCurr = syCurr->next;
+    }
+}
+

@@ -79,6 +79,10 @@ private slots:
 
     void on_button_currentDay_clicked();
 
+    void init_sy_select();
+
+    void on_sy_select_currentTextChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 };

@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCalendarWidget>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
@@ -93,8 +94,14 @@ public:
     QLineEdit *txt_StuClass;
     QLabel *lb_MyProfile;
     QWidget *StuCourse;
+    QVBoxLayout *verticalLayout_5;
     QLabel *lb_MyCourses;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *lb_select;
+    QComboBox *sy_select;
+    QComboBox *sem_select;
     QTableWidget *tableWidget;
+    QPushButton *button_viewScore;
     QWidget *StuChangePassword;
     QGridLayout *gridLayout_5;
     QLabel *lb_confirmPass;
@@ -740,15 +747,47 @@ public:
         stackedWidget_2->addWidget(StuProfile);
         StuCourse = new QWidget();
         StuCourse->setObjectName("StuCourse");
+        verticalLayout_5 = new QVBoxLayout(StuCourse);
+        verticalLayout_5->setObjectName("verticalLayout_5");
+        verticalLayout_5->setContentsMargins(40, 20, 40, 30);
         lb_MyCourses = new QLabel(StuCourse);
         lb_MyCourses->setObjectName("lb_MyCourses");
-        lb_MyCourses->setGeometry(QRect(60, 10, 777, 129));
         lb_MyCourses->setFont(font9);
         lb_MyCourses->setStyleSheet(QString::fromUtf8("color: #7FFFD4"));
         lb_MyCourses->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_5->addWidget(lb_MyCourses);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        lb_select = new QLabel(StuCourse);
+        lb_select->setObjectName("lb_select");
+        lb_select->setFont(font6);
+        lb_select->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+
+        horizontalLayout_2->addWidget(lb_select, 0, Qt::AlignLeft);
+
+        sy_select = new QComboBox(StuCourse);
+        sy_select->setObjectName("sy_select");
+        sy_select->setMaximumSize(QSize(10000, 16777215));
+
+        horizontalLayout_2->addWidget(sy_select);
+
+        sem_select = new QComboBox(StuCourse);
+        sem_select->addItem(QString());
+        sem_select->addItem(QString());
+        sem_select->addItem(QString());
+        sem_select->setObjectName("sem_select");
+        sem_select->setMaximumSize(QSize(10000, 16777215));
+
+        horizontalLayout_2->addWidget(sem_select);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_2);
+
         tableWidget = new QTableWidget(StuCourse);
-        if (tableWidget->columnCount() < 9)
-            tableWidget->setColumnCount(9);
+        if (tableWidget->columnCount() < 8)
+            tableWidget->setColumnCount(8);
         QFont font10;
         font10.setBold(true);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
@@ -767,22 +806,32 @@ public:
         __qtablewidgetitem4->setFont(font10);
         tableWidget->setHorizontalHeaderItem(4, __qtablewidgetitem4);
         QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        __qtablewidgetitem5->setFont(font10);
         tableWidget->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
+        __qtablewidgetitem6->setFont(font10);
         tableWidget->setHorizontalHeaderItem(6, __qtablewidgetitem6);
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
         __qtablewidgetitem7->setFont(font10);
         tableWidget->setHorizontalHeaderItem(7, __qtablewidgetitem7);
-        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
-        __qtablewidgetitem8->setFont(font10);
-        tableWidget->setHorizontalHeaderItem(8, __qtablewidgetitem8);
         tableWidget->setObjectName("tableWidget");
-        tableWidget->setGeometry(QRect(20, 200, 861, 371));
         QFont font11;
         font11.setPointSize(9);
         tableWidget->setFont(font11);
         tableWidget->setStyleSheet(QString::fromUtf8("color: #FBFFF4"));
+        tableWidget->setEditTriggers(QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed);
         tableWidget->setSortingEnabled(false);
+
+        verticalLayout_5->addWidget(tableWidget);
+
+        button_viewScore = new QPushButton(StuCourse);
+        button_viewScore->setObjectName("button_viewScore");
+        button_viewScore->setMinimumSize(QSize(200, 50));
+        button_viewScore->setMaximumSize(QSize(200, 50));
+        button_viewScore->setFont(font6);
+
+        verticalLayout_5->addWidget(button_viewScore, 0, Qt::AlignHCenter);
+
         stackedWidget_2->addWidget(StuCourse);
         StuChangePassword = new QWidget();
         StuChangePassword->setObjectName("StuChangePassword");
@@ -1278,7 +1327,7 @@ public:
         retranslateUi(MainWindow);
 
         stackedWidget->setCurrentIndex(1);
-        stackedWidget_2->setCurrentIndex(3);
+        stackedWidget_2->setCurrentIndex(2);
         stackedWidget_3->setCurrentIndex(0);
 
 
@@ -1316,24 +1365,28 @@ public:
         lb_StuID->setText(QCoreApplication::translate("MainWindow", "Student ID:   ", nullptr));
         lb_MyProfile->setText(QCoreApplication::translate("MainWindow", "My Profile", nullptr));
         lb_MyCourses->setText(QCoreApplication::translate("MainWindow", "My Courses", nullptr));
+        lb_select->setText(QCoreApplication::translate("MainWindow", "Select Shool Year - Semester:", nullptr));
+        sem_select->setItemText(0, QCoreApplication::translate("MainWindow", "1", nullptr));
+        sem_select->setItemText(1, QCoreApplication::translate("MainWindow", "2", nullptr));
+        sem_select->setItemText(2, QCoreApplication::translate("MainWindow", "3", nullptr));
+
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "No", nullptr));
+        ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "Course ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "Course ID", nullptr));
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "Course Name", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Course Name", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Class Name", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Class Name", nullptr));
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Tearcher Name", nullptr));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QCoreApplication::translate("MainWindow", "Tearcher Name", nullptr));
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("MainWindow", "Number of Credits", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidget->horizontalHeaderItem(5);
-        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "Number of Credits", nullptr));
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "Course Size", nullptr));
         QTableWidgetItem *___qtablewidgetitem6 = tableWidget->horizontalHeaderItem(6);
-        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "Course Size", nullptr));
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "Day Of Week", nullptr));
         QTableWidgetItem *___qtablewidgetitem7 = tableWidget->horizontalHeaderItem(7);
-        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "Day Of Week", nullptr));
-        QTableWidgetItem *___qtablewidgetitem8 = tableWidget->horizontalHeaderItem(8);
-        ___qtablewidgetitem8->setText(QCoreApplication::translate("MainWindow", "Session", nullptr));
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "Session", nullptr));
+        button_viewScore->setText(QCoreApplication::translate("MainWindow", "VIEW SCORES", nullptr));
         lb_confirmPass->setText(QCoreApplication::translate("MainWindow", "Confirm Password:", nullptr));
         button_back->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         button_confirm->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
