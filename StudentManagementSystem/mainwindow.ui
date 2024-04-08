@@ -796,7 +796,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#lb_welcome{
-        color:white;
+        color: #7FFFD4;
 }</string>
               </property>
               <property name="text">
@@ -1243,6 +1243,16 @@ background-color: rgba(255,255,255,100)</string>
               <font>
                <bold>true</bold>
               </font>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Number of Credits</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Course Size</string>
              </property>
             </column>
             <column>
@@ -1747,7 +1757,7 @@ background-color: rgba(255, 255, 255, 100)</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -1764,8 +1774,13 @@ background-color: rgba(255, 255, 255, 100)</string>
               <pointsize>48</pointsize>
              </font>
             </property>
+            <property name="styleSheet">
+             <string notr="true">#lb_welcome_2{
+	color: #7FFFD4;
+}</string>
+            </property>
             <property name="text">
-             <string>Welcome</string>
+             <string>WELCOME</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
