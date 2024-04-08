@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
@@ -175,14 +175,14 @@ void MainWindow::on_button_signin_clicked()
 }
 
 
-void MainWindow::on_txtUsername_textEdited(const QString &arg1)
+void MainWindow::on_txtUsername_textEdited(const QString& arg1)
 {
     if (ui->txtUsername->text() == "" || ui->txtPassword->text() == "") ui->button_signin->setDisabled(1);
     else ui->button_signin->setDisabled(0);
 }
 
 
-void MainWindow::on_txtPassword_textEdited(const QString &arg1)
+void MainWindow::on_txtPassword_textEdited(const QString& arg1)
 {
     if (ui->txtUsername->text() == "" || ui->txtPassword->text() == "") ui->button_signin->setDisabled(1);
     else ui->button_signin->setDisabled(0);
@@ -249,6 +249,7 @@ void MainWindow::on_button_StuMyCourses_clicked()
             ui->tableWidget->setItem(no - 1, 5, new QTableWidgetItem(QString::number(couCurr->data.courseSize)));
             ui->tableWidget->setItem(no - 1, 6, new QTableWidgetItem(QString::fromStdString(couCurr->data.dayOfWeek)));
             ui->tableWidget->setItem(no - 1, 7, new QTableWidgetItem(QString::fromStdString(couCurr->data.session)));
+            ui->tableWidget->resizeColumnsToContents();
         }
         couCurr = couCurr->next;
     }
@@ -462,7 +463,7 @@ void MainWindow::init_sy_select()
 }
 
 
-void MainWindow::on_sy_select_currentTextChanged(const QString &arg1)
+void MainWindow::on_sy_select_currentTextChanged(const QString& arg1)
 {
     ui->sem_select->clear();
     std::string sy = ui->sy_select->currentText().toStdString();
