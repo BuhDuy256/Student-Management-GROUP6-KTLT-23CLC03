@@ -105,23 +105,29 @@ void Course::addStudent()
             std::cout << "\t(X) Invalid student name. Please try again: ";
         }
     }
-    formalize(studentScore.studentName);
-    bool isExist = false;
-    for (int i = 0; i < courseSize; i++) {
-        if (studentScore.studentID == score[i].studentID) {
-            isExist = true;
-            break;
-        }
-    }
-    if (!isExist) {
+
+    if (checkMatchStudentIDAndName(studentScore.studentID, studentScore.studentName)) {
         formalize(studentScore.studentName);
-        score[courseSize] = studentScore;
-        courseSize++;
-        std::cout << "\n\t(!) Student is added sucessfully.\n";
+        bool isExist = false;
+        for (int i = 0; i < courseSize; i++) {
+            if (studentScore.studentID == score[i].studentID) {
+                isExist = true;
+                break;
+            }
+        }
+        if (!isExist) {
+            formalize(studentScore.studentName);
+            score[courseSize] = studentScore;
+            courseSize++;
+            std::cout << "\n\t(!) Student is added sucessfully.\n";
+        }
+        else {
+            std::cout << "\n\t(X) The student ID is already in the course.\n";
+        }
+    } else {
+        std::cout << "\n\t(X) The student ID and name do not match.\n";
     }
-    else {
-        std::cout << "\n\t(X) The student ID is already in the course.\n";
-    }
+
     char confirm = getYesNo("\t(?) Do you want to add more students to course " + ID + " - " + Name + "? (Y/N): ");
     if (confirm == 'Y' || confirm == 'y') {
         addStudent();
@@ -840,14 +846,23 @@ void importOutsideCSVStudentsInCourse(Node<Course>* couCurr) {
         if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
             break; // Stop reading if the line is empty
         }
+        StudentScore newStudent;
         std::stringstream ss(line);
         std::string token;
         std::getline(ss, token, ',');
         std::getline(ss, token, ',');
-        couCurr->data.score[n].studentID = token;
+        newStudent.studentID = token;
         std::getline(ss, token, ',');
-        couCurr->data.score[n].studentName = token;
-        n++;
+        newStudent.studentName = token;
+        if (checkMatchStudentIDAndName(newStudent.studentID, newStudent.studentName)) {
+            couCurr->data.score[n] = newStudent;
+            n++;
+        }
+        else {
+            std::cout << "\t(X) The student ID and student name do not match. Please check the CSV file and try again." << std::endl;
+            success = false;
+            break;
+        }
     }
     if (!success) {
         delete[] couCurr->data.score;
@@ -942,20 +957,29 @@ void uploadCSVScoreboardOfACourse(Node<Course>* couCurr) {
         }
         std::stringstream ss(line);
         std::string token;
+        StudentScore newStudent;
         std::getline(ss, token, ',');
         std::getline(ss, token, ',');
-        couCurr->data.score[n].studentID = token;
+        newStudent.studentID = token;
         std::getline(ss, token, ',');
-        couCurr->data.score[n].studentName = token;
+        newStudent.studentName = token;
         std::getline(ss, token, ',');
-        couCurr->data.score[n].total = std::stod(token);
+        newStudent.total = std::stod(token);
         std::getline(ss, token, ',');
-        couCurr->data.score[n].final = std::stod(token);
+        newStudent.final = std::stod(token);
         std::getline(ss, token, ',');
-        couCurr->data.score[n].midTerm = std::stod(token);
+        newStudent.midTerm = std::stod(token);
         std::getline(ss, token, ',');
-        couCurr->data.score[n].other = std::stod(token);
-        n++;
+        newStudent.other = std::stod(token);
+        if (checkMatchStudentIDAndName(newStudent.studentID, newStudent.studentName)) {
+            couCurr->data.score[n] = newStudent;
+            n++;
+        }
+        else {
+            std::cout << "\t(X) The student ID and student name do not match. Please check the CSV file and try again." << std::endl;
+            success = false;
+            break;
+        }
     }
     if (!success) {
         delete[] couCurr->data.score;

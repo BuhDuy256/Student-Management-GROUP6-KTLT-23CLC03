@@ -327,3 +327,28 @@ char getYesNo(std::string prompt) {
     }
     return confirm;
 }
+
+bool checkMatchStudentIDAndName(std::string studentID, std::string studentName) {
+	Node<SchoolYear>* syCurr = latestSYear;
+	while (syCurr) {
+		Node<Class>* claCurr = syCurr->data.classes;
+		while (claCurr) {
+			Node<Student>* stuCurr = claCurr->data.students;
+			while (stuCurr) {
+				if (stuCurr->data.ID == studentID) {	
+                    if (stuCurr->data.name == studentName) {
+                        return true;
+                    }
+                    else {
+                        std::cout << "\t(X) Student ID " << studentID << " must match with student name " << stuCurr->data.name << ".\n";
+                        return false;
+                    }
+				}
+				stuCurr = stuCurr->next;
+			}
+			claCurr = claCurr->next;
+		}
+		syCurr = syCurr->next;
+	}
+	return false;
+}

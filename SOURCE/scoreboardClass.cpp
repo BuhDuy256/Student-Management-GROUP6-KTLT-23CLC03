@@ -83,8 +83,6 @@ void viewScoreBoardOfAClass() {
 	std::cout << "\t+----------+--------------------------------------------------+";
 	std::cout << "\n\n";
 
-
-
 	std::cout << "\t+-----+-------------+------------------------------+";
 	for (int i = 0; i < NumofClassCourses; i++) std::cout << "---------+";
 	std::cout << "-----+-------------+";
@@ -322,7 +320,6 @@ void previous(double& previoussum, double& previousnumofacticour, Node<Student>*
 		previousnumofacticour = preacticour;
 		previoussum = prevsum;
 	}
-
 
 	Node<std::string>* deleteStuCours = StuUniqueCours;
 	while (deleteStuCours != nullptr)
