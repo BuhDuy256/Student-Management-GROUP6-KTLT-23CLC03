@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1190</width>
+    <width>1184</width>
     <height>715</height>
    </rect>
   </property>
@@ -15,8 +15,8 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QPushButton{
-	border-image: url(:/background/button.png);
-	color: white;
+        border-image: url(:/background/button.png);
+        color: white;
 }
 QPushButton:hover { color: black; }
 
@@ -60,11 +60,11 @@ color: black;
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="styleSheet">
        <string notr="true">#page{
-	border-image: url(:/background/Minecraft HD world.jpg);
+        border-image: url(:/background/Minecraft HD world.jpg);
 }
 
 #student_homepage{
-	border-image: url(:/background/Lovely Minecraft Hd Wallpaper 1920x1080.jpg);
+        border-image: url(:/background/Lovely Minecraft Hd Wallpaper 1920x1080.jpg);
 }</string>
       </property>
       <property name="currentIndex">
@@ -96,7 +96,7 @@ color: black;
           <property name="styleSheet">
            <string notr="true">#widget{
 border-radius:40px;
-	background-color: rgba(0, 0, 0, 175);
+        background-color: rgba(0, 0, 0, 175);
 }
 
 #lb_username{
@@ -198,7 +198,7 @@ color: white;
              </property>
              <property name="styleSheet">
               <string notr="true">#txtUsername{
-	background-color: transparent;
+        background-color: transparent;
 }</string>
              </property>
              <property name="frame">
@@ -307,11 +307,11 @@ background-color: transparent;
             <widget class="QCheckBox" name="checkBox">
              <property name="font">
               <font>
-               <pointsize>-1</pointsize>
+               <pointsize>11</pointsize>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">font-size: 16px;</string>
+              <string notr="true"/>
              </property>
              <property name="text">
               <string>Show Password</string>
@@ -452,996 +452,20 @@ background-color: transparent;
         <property name="bottomMargin">
          <number>15</number>
         </property>
-        <item row="0" column="2">
-         <widget class="QStackedWidget" name="stackedWidget_2">
-          <property name="styleSheet">
-           <string notr="true">#StuHome{
-	background-color: rgba(0, 0, 0, 0);
-}
-
-#StuChangePassword{
-	background-color: rgba(0, 0, 0, 96);
-}
-
-#StuProfile{
-	background-color: rgba(0, 0, 0, 96);
-}
-
-#StuHome{
-	background-color: rgba(0, 0, 0, 80);
-}
-
-#lb_StuID{
-	color: white;
-}
-
-#lb_StuName{
-	color: white;
-}
-
-#lb_StuGender{
-	color: white;
-}
-
-#lb_StuBirthday{
-	color: white;
-}
-
-#lb_StuMainClass{
-	color: white;
-}
-
-#lb_StuSocialID{
-	color: white;
-}
-
-#lb_MyProfile{
-	color:rgb(151, 255, 168);
-}
-
-#StuCourse{
-background-color: rgba(0, 0, 0, 96);
-}
-
-#lb_MyCourses{
-	color:rgb(151, 255, 168);
-}
-
-#lb_welcome{
-	color:rgb(151, 255, 168);
-}
-
-#slogan_1{
-	color: white;
-}
-#slogan_2{
-	color: white;
-}
-#slogan_3{
-	color: white;
-}
-
-#txt_StuID{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txt_StuName{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txt_StuGender{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txt_StuBirthday{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txt_StuClass{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txt_StuSocialID{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txtCurPass{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txtNewPass{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txtConfirmPass{
-	background-color: rgba(255, 255, 255, 200);
-}</string>
-          </property>
-          <property name="currentIndex">
-<<<<<<< HEAD
-           <number>0</number>
-=======
-           <number>1</number>
->>>>>>> 804232a1d12343baafe36fcf754dd51d27d53159
-          </property>
-          <widget class="QWidget" name="StuHome">
-           <layout class="QGridLayout" name="gridLayout_9">
-            <property name="leftMargin">
-             <number>20</number>
-            </property>
-            <property name="topMargin">
-             <number>15</number>
-            </property>
-            <property name="rightMargin">
-             <number>20</number>
-            </property>
-            <property name="bottomMargin">
-             <number>60</number>
-            </property>
-            <property name="horizontalSpacing">
-             <number>30</number>
-            </property>
-            <property name="verticalSpacing">
-             <number>0</number>
-            </property>
-            <item row="4" column="0">
-             <widget class="QLabel" name="slogan_3">
-              <property name="font">
-               <font>
-                <pointsize>16</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>The More You Learn, The More You Earn</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0" colspan="2">
-             <widget class="QLabel" name="lb_welcome">
-              <property name="font">
-               <font>
-                <pointsize>48</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <property name="text">
-               <string>WELCOME</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="slogan_1">
-              <property name="font">
-               <font>
-                <pointsize>16</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Take A Chance To Make A Change</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1" rowspan="3">
-             <layout class="QVBoxLayout" name="verticalLayout_4">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <item>
-               <widget class="QCalendarWidget" name="calendarWidget">
-                <property name="enabled">
-                 <bool>true</bool>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>369</width>
-                  <height>302</height>
-                 </size>
-                </property>
-                <property name="focusPolicy">
-                 <enum>Qt::NoFocus</enum>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="firstDayOfWeek">
-                 <enum>Qt::Monday</enum>
-                </property>
-                <property name="gridVisible">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item alignment="Qt::AlignHCenter">
-               <widget class="QPushButton" name="button_currentDay">
-                <property name="minimumSize">
-                 <size>
-                  <width>160</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>180</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>CURRENT DAY</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="slogan_2">
-              <property name="font">
-               <font>
-                <pointsize>16</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Be A Warrior, Not A Worrier</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="StuProfile">
-           <layout class="QGridLayout" name="gridLayout_6">
-            <property name="leftMargin">
-             <number>65</number>
-            </property>
-            <property name="rightMargin">
-             <number>65</number>
-            </property>
-            <property name="bottomMargin">
-             <number>50</number>
-            </property>
-            <property name="horizontalSpacing">
-             <number>20</number>
-            </property>
-            <property name="verticalSpacing">
-             <number>15</number>
-            </property>
-            <item row="3" column="1">
-             <widget class="QLineEdit" name="txt_StuGender">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>612</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255)</string>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="0" alignment="Qt::AlignRight">
-             <widget class="QLabel" name="lb_StuSocialID">
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#label{
-	color: white;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>Social ID:   </string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0" alignment="Qt::AlignRight">
-             <widget class="QLabel" name="lb_StuBirthday">
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#label{
-	color: white;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>Birthday:   </string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0" alignment="Qt::AlignRight">
-             <widget class="QLabel" name="lb_StuMainClass">
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#label{
-	color: white;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>Class:   </string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0" alignment="Qt::AlignRight">
-             <widget class="QLabel" name="lb_StuGender">
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#label{
-	color: white;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>Gender:   </string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QLineEdit" name="txt_StuName">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>612</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255)</string>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="1" alignment="Qt::AlignRight">
-             <widget class="QPushButton" name="button_back_2">
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>14</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>BACK</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QLineEdit" name="txt_StuID">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>612</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255)</string>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1">
-             <widget class="QLineEdit" name="txt_StuBirthday">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>612</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255)</string>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0" alignment="Qt::AlignRight">
-             <widget class="QLabel" name="lb_StuName">
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#label{
-	color: white;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>Name:   </string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0" alignment="Qt::AlignRight">
-             <widget class="QLabel" name="lb_StuID">
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#label{
-	color: white;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>Student ID:   </string>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="1">
-             <widget class="QLineEdit" name="txt_StuSocialID">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>612</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="1">
-             <widget class="QLineEdit" name="txt_StuClass">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>612</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255)</string>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0" colspan="2">
-             <widget class="QLabel" name="lb_MyProfile">
-              <property name="font">
-               <font>
-                <pointsize>36</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <property name="text">
-               <string>My Profile</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="StuCourse">
-           <widget class="QLabel" name="lb_MyCourses">
-            <property name="geometry">
-             <rect>
-              <x>60</x>
-              <y>10</y>
-              <width>777</width>
-              <height>129</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>36</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="text">
-             <string>My Courses</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-           <widget class="QTableWidget" name="tableWidget">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>200</y>
-              <width>861</width>
-              <height>371</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>9</pointsize>
-             </font>
-            </property>
-            <property name="sortingEnabled">
-             <bool>false</bool>
-            </property>
-            <column>
-             <property name="text">
-              <string>No</string>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Course ID</string>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Course Name</string>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Class Name</string>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Tearcher Name</string>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Day Of Week</string>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Session</string>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-               <underline>true</underline>
-              </font>
-             </property>
-            </column>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="StuChangePassword">
-           <layout class="QGridLayout" name="gridLayout_5">
-            <property name="leftMargin">
-             <number>65</number>
-            </property>
-            <property name="rightMargin">
-             <number>65</number>
-            </property>
-            <item row="3" column="0">
-             <widget class="QLabel" name="lb_confirmPass">
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#lb_confirmPass{
-	color:white;
-}</string>
-              </property>
-              <property name="text">
-               <string>Confirm Password:</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="2" alignment="Qt::AlignRight">
-             <widget class="QPushButton" name="button_back">
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>14</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>BACK</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0">
-             <widget class="QPushButton" name="button_confirm">
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>14</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>CONFIRM</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="2">
-             <widget class="QLineEdit" name="txtNewPass">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>612</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>-1</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);
-font-size: 14px;</string>
-              </property>
-              <property name="echoMode">
-               <enum>QLineEdit::Password</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0" colspan="3">
-             <widget class="QLabel" name="lb_changePass">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>85</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>36</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#lb_changePass{
-	color:rgb(151, 255, 168);
-}</string>
-              </property>
-              <property name="text">
-               <string>Change Password</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="lb_curPass">
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#lb_curPass{
-	color:white;
-}</string>
-              </property>
-              <property name="text">
-               <string>Current Password:</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="lb_newPass">
-              <property name="font">
-               <font>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#lb_newPass{
-	color:white;
-}</string>
-              </property>
-              <property name="text">
-               <string>New Password:</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="2">
-             <widget class="QLineEdit" name="txtCurPass">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>612</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>-1</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);
-font-size: 14px;</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="echoMode">
-               <enum>QLineEdit::Password</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="2">
-             <widget class="QLineEdit" name="txtConfirmPass">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>612</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>-1</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);
-font-size: 14px;</string>
-              </property>
-              <property name="echoMode">
-               <enum>QLineEdit::Password</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="2">
-             <widget class="QCheckBox" name="checkBox_2">
-              <property name="font">
-               <font>
-                <pointsize>-1</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#checkBox_2{
-	color: white;
-	font-size: 16px;
-}</string>
-              </property>
-              <property name="text">
-               <string>Show Password</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </widget>
-        </item>
-        <item row="0" column="1">
+        <item row="0" column="0">
          <widget class="QWidget" name="widget_2" native="true">
           <property name="styleSheet">
            <string notr="true">#widget_2{
-	background-color: rgba(0, 0, 0, 150);
-}
-
-#lb_curSY{
-	color:white;
-}
-#lb_latestSY{
-	color:white;
+        background-color: rgba(0, 0, 0, 150);
 }</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_2">
-           <property name="bottomMargin">
-            <number>33</number>
+           <property name="topMargin">
+            <number>50</number>
            </property>
-           <item>
-            <widget class="QLabel" name="lb_latestSY">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="lb_curSY">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
-           </item>
+           <property name="bottomMargin">
+            <number>70</number>
+           </property>
            <item alignment="Qt::AlignHCenter">
             <widget class="QLabel" name="avatar">
              <property name="minimumSize">
@@ -1458,7 +482,7 @@ font-size: 14px;</string>
              </property>
              <property name="styleSheet">
               <string notr="true">#avatar{
-	border-image: url(:/background/OIP.jpg)
+        border-image: url(:/background/OIP.jpg)
 }</string>
              </property>
              <property name="text">
@@ -1481,7 +505,7 @@ font-size: 14px;</string>
              </property>
              <property name="styleSheet">
               <string notr="true">#name{
-	color: white;
+        color: white;
 }</string>
              </property>
              <property name="text">
@@ -1615,12 +639,805 @@ font-size: 14px;</string>
           </layout>
          </widget>
         </item>
+        <item row="0" column="1">
+         <widget class="QStackedWidget" name="stackedWidget_2">
+          <property name="styleSheet">
+           <string notr="true">#StuHome{
+        background-color: rgba(0, 0, 0, 80);
+}
+
+#StuChangePassword{
+        background-color: rgba(0, 0, 0, 96);
+}
+
+#StuProfile{
+        background-color: rgba(0, 0, 0, 96);
+}
+
+#lb_StuID{
+        color: white;
+}
+
+#lb_StuName{
+        color: white;
+}
+
+#lb_StuGender{
+        color: white;
+}
+
+#lb_StuBirthday{
+        color: white;
+}
+
+#lb_StuMainClass{
+        color: white;
+}
+
+#lb_StuSocialID{
+        color: white;
+}
+
+#lb_MyProfile{
+        color:rgb(151, 255, 168);
+}
+
+#StuCourse{
+background-color: rgba(0, 0, 0, 96);
+}
+
+#lb_MyCourses{
+        color:rgb(151, 255, 168);
+}
+
+#slogan_1{
+	color: white;
+}
+#slogan_2{
+	color: white;
+}
+#slogan_3{
+	color: white;
+}
+</string>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="StuHome">
+           <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
+            <property name="leftMargin">
+             <number>40</number>
+            </property>
+            <property name="topMargin">
+             <number>11</number>
+            </property>
+            <property name="rightMargin">
+             <number>40</number>
+            </property>
+            <property name="bottomMargin">
+             <number>80</number>
+            </property>
+            <item row="1" column="0">
+             <widget class="QLabel" name="slogan_1">
+              <property name="font">
+               <font>
+                <pointsize>16</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>slogan</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1" rowspan="3">
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <item>
+               <widget class="QCalendarWidget" name="calendarWidget"/>
+              </item>
+              <item alignment="Qt::AlignHCenter">
+               <widget class="QPushButton" name="button_currentDay">
+                <property name="minimumSize">
+                 <size>
+                  <width>201</width>
+                  <height>51</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>201</width>
+                  <height>51</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>CURRENT DAY</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="slogan_2">
+              <property name="font">
+               <font>
+                <pointsize>16</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>slogan</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="slogan_3">
+              <property name="font">
+               <font>
+                <pointsize>16</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>slogan</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="2">
+             <widget class="QLabel" name="lb_welcome">
+              <property name="font">
+               <font>
+                <pointsize>48</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#lb_welcome{
+        color:white;
+}</string>
+              </property>
+              <property name="text">
+               <string>WELCOME</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="StuProfile">
+           <layout class="QGridLayout" name="gridLayout_6">
+            <property name="leftMargin">
+             <number>65</number>
+            </property>
+            <property name="rightMargin">
+             <number>65</number>
+            </property>
+            <property name="bottomMargin">
+             <number>50</number>
+            </property>
+            <property name="horizontalSpacing">
+             <number>20</number>
+            </property>
+            <property name="verticalSpacing">
+             <number>15</number>
+            </property>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="txt_StuGender">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>612</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="lb_StuSocialID">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#label{
+        color: white;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Social ID:   </string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="lb_StuBirthday">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#label{
+        color: white;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Birthday:   </string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="lb_StuMainClass">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#label{
+        color: white;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Class:   </string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="lb_StuGender">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#label{
+        color: white;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Gender:   </string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="txt_StuName">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>612</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="1" alignment="Qt::AlignRight">
+             <widget class="QPushButton" name="button_back_2">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>BACK</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="txt_StuID">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>612</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLineEdit" name="txt_StuBirthday">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>612</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="lb_StuName">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#label{
+        color: white;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Name:   </string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="lb_StuID">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#label{
+        color: white;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Student ID:   </string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <widget class="QLineEdit" name="txt_StuSocialID">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>612</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QLineEdit" name="txt_StuClass">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>612</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="2">
+             <widget class="QLabel" name="lb_MyProfile">
+              <property name="font">
+               <font>
+                <pointsize>36</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>My Profile</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="StuCourse">
+           <widget class="QLabel" name="lb_MyCourses">
+            <property name="geometry">
+             <rect>
+              <x>60</x>
+              <y>10</y>
+              <width>777</width>
+              <height>129</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>36</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>My Courses</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QTableWidget" name="tableWidget">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>200</y>
+              <width>861</width>
+              <height>371</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="sortingEnabled">
+             <bool>false</bool>
+            </property>
+            <column>
+             <property name="text">
+              <string>No</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Course ID</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Course Name</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Class Name</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Tearcher Name</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Day Of Week</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Session</string>
+             </property>
+            </column>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="StuChangePassword">
+           <layout class="QGridLayout" name="gridLayout_5">
+            <property name="leftMargin">
+             <number>65</number>
+            </property>
+            <property name="rightMargin">
+             <number>65</number>
+            </property>
+            <item row="3" column="0">
+             <widget class="QLabel" name="lb_confirmPass">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#lb_confirmPass{
+        color:white;
+}</string>
+              </property>
+              <property name="text">
+               <string>Confirm Password:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="2" alignment="Qt::AlignRight">
+             <widget class="QPushButton" name="button_back">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>BACK</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QPushButton" name="button_confirm">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>CONFIRM</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2">
+             <widget class="QLineEdit" name="txtNewPass">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>612</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="3">
+             <widget class="QLabel" name="lb_changePass">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>85</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>36</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#lb_changePass{
+        color:rgb(151, 255, 168);
+}</string>
+              </property>
+              <property name="text">
+               <string>Change Password</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="lb_curPass">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#lb_curPass{
+        color:white;
+}</string>
+              </property>
+              <property name="text">
+               <string>Current Password:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="lb_newPass">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#lb_newPass{
+        color:white;
+}</string>
+              </property>
+              <property name="text">
+               <string>New Password:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLineEdit" name="txtCurPass">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>612</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="2">
+             <widget class="QLineEdit" name="txtConfirmPass">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>612</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="2">
+             <widget class="QCheckBox" name="checkBox_2">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#checkBox_2{
+        color: white;
+}</string>
+              </property>
+              <property name="text">
+               <string>Show Password</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="admin_homepage">
        <property name="styleSheet">
         <string notr="true">#admin_homepage{
-	border-image: url(:/background/Lovely Minecraft Hd Wallpaper 1920x1080.jpg);
+        border-image: url(:/background/Lovely Minecraft Hd Wallpaper 1920x1080.jpg);
 }</string>
        </property>
        <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,19">
@@ -1640,7 +1457,7 @@ font-size: 14px;</string>
          <widget class="QWidget" name="widget_3" native="true">
           <property name="styleSheet">
            <string notr="true">#widget_3{
-	background-color: rgba(0, 0, 0, 150);
+        background-color: rgba(0, 0, 0, 150);
 }</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1666,7 +1483,7 @@ font-size: 14px;</string>
              </property>
              <property name="styleSheet">
               <string notr="true">#avatar_2{
-	border-image: url(:/background/OIP.jpg)
+        border-image: url(:/background/OIP.jpg)
 }</string>
              </property>
              <property name="text">
@@ -1689,7 +1506,7 @@ font-size: 14px;</string>
              </property>
              <property name="styleSheet">
               <string notr="true">#name_2{
-	color: white;
+        color: white;
 }</string>
              </property>
              <property name="text">
@@ -1803,81 +1620,57 @@ font-size: 14px;</string>
          <widget class="QStackedWidget" name="stackedWidget_3">
           <property name="styleSheet">
            <string notr="true">#AdHome{
-	background-color: rgba(0, 0, 0, 80);
+        background-color: rgba(0, 0, 0, 0);
 }
 #AdProfile{
-	background-color: rgba(0, 0, 0, 96);
+        background-color: rgba(0, 0, 0, 96);
 }
 #AdChangePass{
-	background-color: rgba(0, 0, 0, 96);
+        background-color: rgba(0, 0, 0, 96);
 }
 
 #lb_welcome_2{
-	color:rgb(151, 255, 168);
+        color:white;
 }
 #lb_changePass_2{
-	color:rgb(151, 255, 168);
+        color:rgb(151, 255, 168);
 }
 #lb_MyProfile_2{
-	color:rgb(151, 255, 168);
+        color:rgb(151, 255, 168);
 }
 
 #lb_AdID{
-	color: white;
+        color: white;
 }
 
 #lb_AdName{
-	color: white;
+        color: white;
 }
 
 #lb_AdGender{
-	color: white;
+        color: white;
 }
 
 #lb_AdBirthday{
-	color: white;
+        color: white;
 }
 
 #lb_AdSocialID{
-	color: white;
+        color: white;
 }
-
-#txt_AdID{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txt_AdName{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txt_AdGender{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txt_AdBirthday{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txt_AdSocialID{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txtCurPass_2{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txtNewPass_2{
-	background-color: rgba(255, 255, 255, 200);
-}
-#txtConfirmPass_2{
-	background-color: rgba(255, 255, 255, 200);
-}</string>
+</string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
             <property name="geometry">
              <rect>
-              <x>30</x>
-              <y>10</y>
-              <width>867</width>
-              <height>146</height>
+              <x>250</x>
+              <y>30</y>
+              <width>381</width>
+              <height>141</height>
              </rect>
             </property>
             <property name="font">
@@ -1885,11 +1678,8 @@ font-size: 14px;</string>
               <pointsize>48</pointsize>
              </font>
             </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
             <property name="text">
-             <string>WELCOME</string>
+             <string>Welcome</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -1922,7 +1712,7 @@ font-size: 14px;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-	color: white;
+        color: white;
 }
 </string>
               </property>
@@ -1956,9 +1746,6 @@ font-size: 14px;</string>
                 <pointsize>18</pointsize>
                </font>
               </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -1973,7 +1760,7 @@ font-size: 14px;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-	color: white;
+        color: white;
 }
 </string>
               </property>
@@ -2001,9 +1788,6 @@ font-size: 14px;</string>
                 <pointsize>18</pointsize>
                </font>
               </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -2018,7 +1802,7 @@ font-size: 14px;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-	color: white;
+        color: white;
 }
 </string>
               </property>
@@ -2046,9 +1830,6 @@ font-size: 14px;</string>
                 <pointsize>18</pointsize>
                </font>
               </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -2063,7 +1844,7 @@ font-size: 14px;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-	color: white;
+        color: white;
 }
 </string>
               </property>
@@ -2091,9 +1872,6 @@ font-size: 14px;</string>
                 <pointsize>18</pointsize>
                </font>
               </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -2108,7 +1886,7 @@ font-size: 14px;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-	color: white;
+        color: white;
 }
 </string>
               </property>
@@ -2135,9 +1913,6 @@ font-size: 14px;</string>
                <font>
                 <pointsize>18</pointsize>
                </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -2211,7 +1986,7 @@ font-size: 14px;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">#lb_changePass_2{
-	color:rgb(151, 255, 168);
+        color:rgb(151, 255, 168);
 }</string>
               </property>
               <property name="text">
@@ -2231,7 +2006,7 @@ font-size: 14px;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">#lb_curPass_2{
-	color:white;
+        color:white;
 }</string>
               </property>
               <property name="text">
@@ -2278,7 +2053,7 @@ font-size: 14px;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">#lb_newPass_2{
-	color:white;
+        color:white;
 }</string>
               </property>
               <property name="text">
@@ -2322,7 +2097,7 @@ font-size: 14px;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">#lb_confirmPass_2{
-	color:white;
+        color:white;
 }</string>
               </property>
               <property name="text">
@@ -2361,13 +2136,12 @@ font-size: 14px;</string>
              <widget class="QCheckBox" name="checkBox_3">
               <property name="font">
                <font>
-                <pointsize>-1</pointsize>
+                <pointsize>12</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">#checkBox_3{
-	color: white;
-	font-size: 16px;
+        color: white;
 }</string>
               </property>
               <property name="text">
