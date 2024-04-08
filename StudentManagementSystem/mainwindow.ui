@@ -68,7 +68,7 @@ color: black;
 }</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2" rowstretch="2,7,2" columnstretch="2,5,2">
@@ -709,7 +709,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -1359,7 +1359,8 @@ background-color: transparent;</string>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: #FBFFF4</string>
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
               </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
@@ -1452,7 +1453,8 @@ background-color: transparent;</string>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: #FBFFF4;</string>
+               <string notr="true">color: #FBFFF4;
+background-color: transparent</string>
               </property>
               <property name="text">
                <string/>
@@ -1482,7 +1484,8 @@ background-color: transparent;</string>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: #FBFFF4</string>
+               <string notr="true">color: #FBFFF4;
+background-color: transparent;</string>
               </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
