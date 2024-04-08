@@ -83,6 +83,18 @@ private slots:
 
     void on_sy_select_currentTextChanged(const QString &arg1);
 
+    void on_button_viewScore_clicked();
+
+    void show_tableWidget_list();
+
+    void show_tableWidget_score();
+
+    void on_button_ok_clicked();
+
+    void on_button_back_5_clicked();
+
+    void on_button_create_sy_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

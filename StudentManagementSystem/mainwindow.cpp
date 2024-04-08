@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget* parent)
 {
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
+    ui->lb_latestSem->setText(QString::fromStdString("Latest Semester: " + std::to_string(lastSemNumber) + " + " + latestSYear->data.year));
 
     int fontId = QFontDatabase::addApplicationFont(":/font/MinecraftRegular-Bmg3.ttf");
     QString fontName = QFontDatabase::applicationFontFamilies(fontId).at(0);
@@ -197,7 +198,7 @@ void MainWindow::on_button_exit_clicked()
 void MainWindow::on_button_StuSignOut_clicked()
 {
     // ui->txtUsername->setText(QString::fromStdString(""));
-    // ui->txtPassword->setText(QString::fromStdString(""));
+    ui->txtPassword->setText(QString::fromStdString(""));
     ui->stackedWidget->setCurrentIndex(0);
 }
 
@@ -205,7 +206,7 @@ void MainWindow::on_button_StuSignOut_clicked()
 void MainWindow::on_button_AdSignOut_clicked()
 {
     // ui->txtUsername->setText(QString::fromStdString(""));
-    // ui->txtPassword->setText(QString::fromStdString(""));
+    ui->txtPassword->setText(QString::fromStdString(""));
     ui->stackedWidget->setCurrentIndex(0);
 }
 
@@ -226,9 +227,13 @@ void MainWindow::on_button_StuMyProfile_clicked()
     ui->stackedWidget_2->setCurrentIndex(1);
 }
 
-void MainWindow::on_button_StuMyCourses_clicked()
+void MainWindow::show_tableWidget_list()
 {
+    ui->tableWidget->clear();
+    ui->tableWidget->setRowCount(0);
+    ui->tableWidget->setColumnCount(0);
     Node<Course>* couCurr = currSem.Courses;
+    ui->tableWidget->setColumnCount(9);
 
     int no = 0;
     while (couCurr) {
@@ -247,14 +252,45 @@ void MainWindow::on_button_StuMyCourses_clicked()
             ui->tableWidget->setItem(no - 1, 3, new QTableWidgetItem(QString::fromStdString(couCurr->data.teacherName)));
             ui->tableWidget->setItem(no - 1, 4, new QTableWidgetItem(QString::number(couCurr->data.nCredits)));
             ui->tableWidget->setItem(no - 1, 5, new QTableWidgetItem(QString::number(couCurr->data.courseSize)));
-            ui->tableWidget->setItem(no - 1, 6, new QTableWidgetItem(QString::fromStdString(couCurr->data.dayOfWeek)));
-            ui->tableWidget->setItem(no - 1, 7, new QTableWidgetItem(QString::fromStdString(couCurr->data.session)));
-            ui->tableWidget->resizeColumnsToContents();
+            ui->tableWidget->setItem(no - 1, 6, new QTableWidgetItem(QString::number(couCurr->data.maxStudents)));
+            ui->tableWidget->setItem(no - 1, 7, new QTableWidgetItem(QString::fromStdString(couCurr->data.dayOfWeek)));
+            ui->tableWidget->setItem(no - 1, 8, new QTableWidgetItem(QString::fromStdString(couCurr->data.session)));
         }
         couCurr = couCurr->next;
     }
+    ui->tableWidget->setHorizontalHeaderLabels({"Course ID", "Course Name", "Course Class", "Teacher Name", "Number of Credits", "Course Size","Max Students", "Day of Week", "Session"});
+    ui->tableWidget->resizeColumnsToContents();
+}
+void MainWindow::show_tableWidget_score()
+{
+    ui->tableWidget->clear();
+    ui->tableWidget->setRowCount(0);
+    ui->tableWidget->setColumnCount(0);
+    Node<Course>* couCurr = currSem.Courses;
+    ui->tableWidget->setColumnCount(6);
 
+    int no = 0;
+    while (couCurr) {
+        for (int i = 0; i < couCurr->data.courseSize; i++) {
+            if (couCurr->data.score[i].studentID == currStudent->data.ID) {
+                no++;
+                ui->tableWidget->setItem(no - 1, 0, new QTableWidgetItem(QString::fromStdString(couCurr->data.ID)));
+                ui->tableWidget->setItem(no - 1, 1, new QTableWidgetItem(QString::fromStdString(couCurr->data.Name)));
+                if (couCurr->data.score[i].midTerm > 0) ui->tableWidget->setItem(no - 1, 2, new QTableWidgetItem(QString::number(couCurr->data.score[i].midTerm)));
+                if (couCurr->data.score[i].final > 0) ui->tableWidget->setItem(no - 1, 3, new QTableWidgetItem(QString::number(couCurr->data.score[i].final)));
+                if (couCurr->data.score[i].other > 0) ui->tableWidget->setItem(no - 1, 4, new QTableWidgetItem(QString::number(couCurr->data.score[i].other)));
+                if (couCurr->data.score[i].total > 0) ui->tableWidget->setItem(no - 1, 5, new QTableWidgetItem(QString::number(couCurr->data.score[i].total)));
+            }
+        }
+        couCurr = couCurr->next;
+    }
+    ui->tableWidget->setHorizontalHeaderLabels({"Course ID", "Course Name", "Mid Term", "Final", "Other", "Total"});
+    ui->tableWidget->resizeColumnsToContents();
+}
+void MainWindow::on_button_StuMyCourses_clicked()
+{
     init_sy_select();
+    show_tableWidget_list();
 
     ui->stackedWidget_2->setCurrentIndex(2);
 }
@@ -395,13 +431,13 @@ void MainWindow::on_button_confirm_2_clicked()
 
     if (!verifyPassword) {
         // std::cout << "Your old password is incorrect!" << std::endl;
-        QMessageBox::warning(nullptr, "Fail", "Current Password Is Incorrect!");
+        QMessageBox::critical(nullptr, "Fail", "Current Password Is Incorrect!");
         return;
     }
 
     if (newPassword != confirmPassword) {
         // std::cout << "Your new passwords do not match. Please try again!" << std::endl;
-        QMessageBox::warning(nullptr, "Fail", "New Password Not Matched!");
+        QMessageBox::critical(nullptr, "Fail", "New Password Not Matched!");
         return;
     }
 
@@ -481,8 +517,80 @@ void MainWindow::on_sy_select_currentTextChanged(const QString& arg1)
                 }
             }
         }
-
         syCurr = syCurr->next;
+    }
+}
+
+
+void MainWindow::on_button_viewScore_clicked()
+{
+    MainWindow::on_button_ok_clicked();
+    show_tableWidget_score();
+}
+
+
+void MainWindow::on_button_ok_clicked()
+{
+    // change current semester
+    std::string sy = ui->sy_select->currentText().toStdString();
+    currSemNumber = ui->sem_select->currentText().toInt();
+
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr)
+    {
+        if (syCurr->data.year == sy)
+        {
+            currSYear = syCurr;
+            currSem = syCurr->data.semesters[currSemNumber - 1];
+            break;
+        }
+        syCurr = syCurr->next;
+    }
+    show_tableWidget_list();
+}
+
+void MainWindow::on_button_back_5_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_button_create_sy_clicked()
+{
+    if (lastSemNumber < 2)
+    {
+        MessageBox("Error!", "Unable To Create New School Year, Semester Is Not Latest!");
+    }
+    else
+    {
+        QMessageBox msgBox;
+
+        std::string nextSY = getNextSchoolYear(latestSYear->data.year);
+        msgBox.setText(QString::fromStdString("The Next School Year Will Be " + nextSY + ", Do You Want To Continue?"));
+        msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+
+        msgBox.setDefaultButton(QMessageBox::Cancel);
+        msgBox.setWindowTitle("Confirmation");
+        msgBox.setIcon(QMessageBox::Information);
+
+        int ret = msgBox.exec();
+        if (ret == QMessageBox::Ok)
+        {
+            //create new school year
+            SchoolYear newYear;
+            newYear.year = nextSY;
+            Node<SchoolYear>* syHead = new Node<SchoolYear>(newYear, latestSYear);
+            latestSYear = currSYear = syHead;
+            lastSemNumber = currSemNumber = 0;
+
+            QMessageBox::information(nullptr, "Notification", "A New School Year Has Been Created!");
+
+            ui->lb_latestSem->setText(QString::fromStdString("Latest Semester: " + std::to_string(lastSemNumber) + " + " + latestSYear->data.year));
+        }
+        else if (ret == QMessageBox::Cancel)
+        {
+            return;
+        }
     }
 }
 

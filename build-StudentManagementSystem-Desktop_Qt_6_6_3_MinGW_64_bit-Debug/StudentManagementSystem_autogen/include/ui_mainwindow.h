@@ -100,8 +100,11 @@ public:
     QLabel *lb_select;
     QComboBox *sy_select;
     QComboBox *sem_select;
+    QPushButton *button_ok;
     QTableWidget *tableWidget;
+    QHBoxLayout *horizontalLayout_3;
     QPushButton *button_viewScore;
+    QPushButton *button_back_5;
     QWidget *StuChangePassword;
     QGridLayout *gridLayout_5;
     QLabel *lb_confirmPass;
@@ -118,6 +121,7 @@ public:
     QGridLayout *gridLayout_4;
     QWidget *widget_3;
     QVBoxLayout *verticalLayout_3;
+    QLabel *lb_latestSem;
     QLabel *avatar_2;
     QLabel *name_2;
     QPushButton *button_AdHome;
@@ -127,6 +131,10 @@ public:
     QStackedWidget *stackedWidget_3;
     QWidget *AdHome;
     QLabel *lb_welcome_2;
+    QPushButton *button_create_sy;
+    QPushButton *button_class_manage;
+    QPushButton *button_create_sem;
+    QPushButton *button_course_manage;
     QWidget *AdProfile;
     QGridLayout *gridLayout_8;
     QLabel *lb_AdID;
@@ -782,6 +790,13 @@ public:
 
         horizontalLayout_2->addWidget(sem_select);
 
+        button_ok = new QPushButton(StuCourse);
+        button_ok->setObjectName("button_ok");
+        button_ok->setMinimumSize(QSize(70, 28));
+        button_ok->setMaximumSize(QSize(100, 28));
+
+        horizontalLayout_2->addWidget(button_ok);
+
 
         verticalLayout_5->addLayout(horizontalLayout_2);
 
@@ -818,19 +833,32 @@ public:
         QFont font11;
         font11.setPointSize(9);
         tableWidget->setFont(font11);
-        tableWidget->setStyleSheet(QString::fromUtf8("color: #FBFFF4"));
+        tableWidget->setStyleSheet(QString::fromUtf8(""));
         tableWidget->setEditTriggers(QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed);
         tableWidget->setSortingEnabled(false);
 
         verticalLayout_5->addWidget(tableWidget);
 
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
         button_viewScore = new QPushButton(StuCourse);
         button_viewScore->setObjectName("button_viewScore");
         button_viewScore->setMinimumSize(QSize(200, 50));
         button_viewScore->setMaximumSize(QSize(200, 50));
         button_viewScore->setFont(font6);
 
-        verticalLayout_5->addWidget(button_viewScore, 0, Qt::AlignHCenter);
+        horizontalLayout_3->addWidget(button_viewScore);
+
+        button_back_5 = new QPushButton(StuCourse);
+        button_back_5->setObjectName("button_back_5");
+        button_back_5->setMinimumSize(QSize(200, 50));
+        button_back_5->setMaximumSize(QSize(200, 50));
+        button_back_5->setFont(font6);
+
+        horizontalLayout_3->addWidget(button_back_5);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_3);
 
         stackedWidget_2->addWidget(StuCourse);
         StuChangePassword = new QWidget();
@@ -940,7 +968,7 @@ public:
 
         stackedWidget_2->addWidget(StuChangePassword);
 
-        gridLayout_3->addWidget(stackedWidget_2, 0, 1, 1, 1);
+        gridLayout_3->addWidget(stackedWidget_2, 0, 1, 1, 2);
 
         gridLayout_3->setColumnStretch(0, 5);
         gridLayout_3->setColumnStretch(1, 19);
@@ -959,8 +987,19 @@ public:
 "        background-color: rgba(0, 0, 0, 150);\n"
 "}"));
         verticalLayout_3 = new QVBoxLayout(widget_3);
+        verticalLayout_3->setSpacing(4);
         verticalLayout_3->setObjectName("verticalLayout_3");
-        verticalLayout_3->setContentsMargins(-1, 50, -1, 70);
+        verticalLayout_3->setContentsMargins(-1, 0, -1, 70);
+        lb_latestSem = new QLabel(widget_3);
+        lb_latestSem->setObjectName("lb_latestSem");
+        lb_latestSem->setMaximumSize(QSize(218, 53));
+        QFont font12;
+        font12.setPointSize(10);
+        lb_latestSem->setFont(font12);
+        lb_latestSem->setStyleSheet(QString::fromUtf8("color:white;"));
+
+        verticalLayout_3->addWidget(lb_latestSem, 0, Qt::AlignHCenter);
+
         avatar_2 = new QLabel(widget_3);
         avatar_2->setObjectName("avatar_2");
         avatar_2->setMinimumSize(QSize(140, 140));
@@ -1063,12 +1102,24 @@ public:
         AdHome->setObjectName("AdHome");
         lb_welcome_2 = new QLabel(AdHome);
         lb_welcome_2->setObjectName("lb_welcome_2");
-        lb_welcome_2->setGeometry(QRect(250, 30, 381, 141));
+        lb_welcome_2->setGeometry(QRect(250, 0, 381, 141));
         lb_welcome_2->setFont(font7);
         lb_welcome_2->setStyleSheet(QString::fromUtf8("#lb_welcome_2{\n"
 "	color: #7FFFD4;\n"
 "}"));
         lb_welcome_2->setAlignment(Qt::AlignCenter);
+        button_create_sy = new QPushButton(AdHome);
+        button_create_sy->setObjectName("button_create_sy");
+        button_create_sy->setGeometry(QRect(200, 200, 271, 41));
+        button_class_manage = new QPushButton(AdHome);
+        button_class_manage->setObjectName("button_class_manage");
+        button_class_manage->setGeometry(QRect(200, 360, 261, 41));
+        button_create_sem = new QPushButton(AdHome);
+        button_create_sem->setObjectName("button_create_sem");
+        button_create_sem->setGeometry(QRect(500, 200, 211, 41));
+        button_course_manage = new QPushButton(AdHome);
+        button_course_manage->setObjectName("button_course_manage");
+        button_course_manage->setGeometry(QRect(510, 360, 201, 41));
         stackedWidget_3->addWidget(AdHome);
         AdProfile = new QWidget();
         AdProfile->setObjectName("AdProfile");
@@ -1326,8 +1377,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
-        stackedWidget_2->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(2);
+        stackedWidget_2->setCurrentIndex(2);
         stackedWidget_3->setCurrentIndex(0);
 
 
@@ -1351,7 +1402,7 @@ public:
         button_StuMyCourses->setText(QCoreApplication::translate("MainWindow", "MY COURSES", nullptr));
         button_StuChangePassword->setText(QCoreApplication::translate("MainWindow", "CHANGE PASSWORD", nullptr));
         button_StuSignOut->setText(QCoreApplication::translate("MainWindow", "SIGN OUT", nullptr));
-        slogan_1->setText(QCoreApplication::translate("MainWindow", "slogan", nullptr));
+        slogan_1->setText(QCoreApplication::translate("MainWindow", "Take A Chance To Make A Change", nullptr));
         button_currentDay->setText(QCoreApplication::translate("MainWindow", "CURRENT DAY", nullptr));
         slogan_2->setText(QCoreApplication::translate("MainWindow", "slogan", nullptr));
         slogan_3->setText(QCoreApplication::translate("MainWindow", "slogan", nullptr));
@@ -1370,6 +1421,7 @@ public:
         sem_select->setItemText(1, QCoreApplication::translate("MainWindow", "2", nullptr));
         sem_select->setItemText(2, QCoreApplication::translate("MainWindow", "3", nullptr));
 
+        button_ok->setText(QCoreApplication::translate("MainWindow", "OK", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "Course ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
@@ -1387,6 +1439,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem7 = tableWidget->horizontalHeaderItem(7);
         ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "Session", nullptr));
         button_viewScore->setText(QCoreApplication::translate("MainWindow", "VIEW SCORES", nullptr));
+        button_back_5->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         lb_confirmPass->setText(QCoreApplication::translate("MainWindow", "Confirm Password:", nullptr));
         button_back->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         button_confirm->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
@@ -1395,6 +1448,7 @@ public:
         lb_newPass->setText(QCoreApplication::translate("MainWindow", "New Password:", nullptr));
         txtCurPass->setText(QString());
         checkBox_2->setText(QCoreApplication::translate("MainWindow", "Show Password", nullptr));
+        lb_latestSem->setText(QCoreApplication::translate("MainWindow", "Latest Semester:", nullptr));
         avatar_2->setText(QString());
         name_2->setText(QCoreApplication::translate("MainWindow", "Hi, Admin", nullptr));
         button_AdHome->setText(QCoreApplication::translate("MainWindow", "HOME", nullptr));
@@ -1402,6 +1456,10 @@ public:
         button_AdChangePassword->setText(QCoreApplication::translate("MainWindow", "CHANGE PASSWORD", nullptr));
         button_AdSignOut->setText(QCoreApplication::translate("MainWindow", "SIGN OUT", nullptr));
         lb_welcome_2->setText(QCoreApplication::translate("MainWindow", "WELCOME", nullptr));
+        button_create_sy->setText(QCoreApplication::translate("MainWindow", "CREATE A NEW SCHOOL YEAR", nullptr));
+        button_class_manage->setText(QCoreApplication::translate("MainWindow", "CLASS MANAGEMENT", nullptr));
+        button_create_sem->setText(QCoreApplication::translate("MainWindow", "CREATE A NEW SEMESTER", nullptr));
+        button_course_manage->setText(QCoreApplication::translate("MainWindow", "COURSE MANAGEMENT", nullptr));
         lb_AdID->setText(QCoreApplication::translate("MainWindow", "Staff ID:   ", nullptr));
         lb_AdName->setText(QCoreApplication::translate("MainWindow", "Name:   ", nullptr));
         lb_AdGender->setText(QCoreApplication::translate("MainWindow", "Gender:   ", nullptr));
