@@ -1,14 +1,6 @@
 #include"Course.h"
 
 void importAllCoursesCSV() {
-    // std::ifstream inF("../CSV Files/AllCourses.csv");
-    // if (!inF.is_open()) {
-    //     std::cout << "Couldn't import AllCourses.csv!" << std::endl;
-    //     return;
-    // }
-    // std::string header;
-    // std::getline(inF, header);
-    // std::string line;
     QFile file(":/CSV Files/AllCourses.csv");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Failed to open file:" << file.errorString();

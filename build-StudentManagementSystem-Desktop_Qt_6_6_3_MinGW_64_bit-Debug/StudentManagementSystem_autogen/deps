@@ -24,6 +24,7 @@ StudentManagementSystem_autogen/timestamp: \
 	D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeRCCompiler.cmake \
 	D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeSystem.cmake \
 	D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/moc_predefs.h \
+	D:/Qt/6.6.3/mingw_64/include/QtCore/QDate \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QDeadlineTimer \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QEvent \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QFile \
@@ -425,6 +426,7 @@ StudentManagementSystem_autogen/timestamp: \
 	D:/Qt/6.6.3/mingw_64/include/QtGui/qwindowdefs_win.h \
 	D:/Qt/6.6.3/mingw_64/include/QtGui/qwindowsmimeconverter.h \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QApplication \
+	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QCalendarWidget \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QCommonStyle \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QLayout \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QMainWindow \

@@ -12,10 +12,13 @@ MainWindow::MainWindow(QWidget *parent)
     QString fontName = QFontDatabase::applicationFontFamilies(fontId).at(0);
     QFont minecraftFont(fontName);
 
+
     minecraftFont.setPointSize(12);
     ui->checkBox->setFont(minecraftFont);
     ui->checkBox_2->setFont(minecraftFont);
     ui->checkBox_3->setFont(minecraftFont);
+    ui->button_currentDay->setFont(minecraftFont);
+    ui->calendarWidget->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(14);
@@ -37,6 +40,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->button_back_3->setFont(minecraftFont);
     ui->button_back_4->setFont(minecraftFont);
 
+
+    minecraftFont.setPointSize(16);
+    ui->slogan_1->setFont(minecraftFont);
+    ui->slogan_2->setFont(minecraftFont);
+    ui->slogan_3->setFont(minecraftFont);
 
     minecraftFont.setPointSize(18);
     ui->txtPassword->setFont(minecraftFont);
@@ -96,6 +104,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lb_changePass_2->setFont(minecraftFont);
     ui->lb_MyProfile_2->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
+
+    minecraftFont.setPointSize(48);
+    minecraftFont.setBold(1); // Bold region
+    ui->lb_welcome->setFont(minecraftFont);
+    ui->lb_welcome_2->setFont(minecraftFont);
+    minecraftFont.setBold(0); // End Bold region
 
 }
 
@@ -212,8 +226,9 @@ void MainWindow::on_button_StuMyCourses_clicked()
 {
     Node<Course>* couCurr = latestSem.Courses;
 
-    ui->tableWidget->setRowCount(1);
     int no = 0;
+    ui->tableWidget->setRowCount(5);
+
     while (couCurr) {
         bool check = false;
         for (int i = 0; i < couCurr->data.courseSize; i++) {
@@ -223,7 +238,7 @@ void MainWindow::on_button_StuMyCourses_clicked()
             }
         }
         if (check) {
-            ui->tableWidget->insertRow(1);
+            ui->tableWidget->setRowCount(no);
             ui->tableWidget->setItem(no - 1, 0, new QTableWidgetItem(QString::number(no)));
             ui->tableWidget->setItem(no - 1, 1, new QTableWidgetItem(QString::fromStdString(couCurr->data.ID)));
             ui->tableWidget->setItem(no - 1, 2, new QTableWidgetItem(QString::fromStdString(couCurr->data.Name)));
@@ -424,3 +439,11 @@ void MainWindow::on_button_back_4_clicked()
     ui->stackedWidget_3->setCurrentIndex(0);
 }
 
+
+void MainWindow::on_button_currentDay_clicked()
+{
+    QDate currentDate = QDate::currentDate();
+
+    ui->calendarWidget->setCurrentPage(currentDate.year(), currentDate.month());
+    ui->calendarWidget->setSelectedDate(currentDate);
+}

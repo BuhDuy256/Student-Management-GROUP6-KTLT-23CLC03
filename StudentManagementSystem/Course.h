@@ -46,7 +46,7 @@ void deleteAllCourseData();
 std::string formatSchoolYear(const std::string& inputYear);
 void exportCSVStudentsOfACourse();
 void addACourseInCurrSem();
-void displayTableListOfCoursesInCurrSem(int &no);
+void displayTableListOfCoursesInCurrSem(int& no);
 void viewListOfCoursesInCurrSem();
 void updateInformationOfACoursePage();
 void updateInformationOfACourse(int choice);

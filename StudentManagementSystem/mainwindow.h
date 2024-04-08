@@ -10,6 +10,8 @@
 #include <QMessageBox>
 #include <QTableWidget>
 #include <QTableWidgetItem>
+#include <QCalendarWidget>
+#include <QDate>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -74,6 +76,8 @@ private slots:
     void on_button_back_3_clicked();
 
     void on_button_back_4_clicked();
+
+    void on_button_currentDay_clicked();
 
 private:
     Ui::MainWindow *ui;

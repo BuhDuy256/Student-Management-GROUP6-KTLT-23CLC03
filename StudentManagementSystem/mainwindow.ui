@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1184</width>
+    <width>1190</width>
     <height>715</height>
    </rect>
   </property>
@@ -439,7 +439,7 @@ background-color: transparent;
        </layout>
       </widget>
       <widget class="QWidget" name="student_homepage">
-       <layout class="QGridLayout" name="gridLayout_3" columnstretch="5,19">
+       <layout class="QGridLayout" name="gridLayout_3" columnstretch="5,19,0">
         <property name="leftMargin">
          <number>15</number>
         </property>
@@ -452,194 +452,7 @@ background-color: transparent;
         <property name="bottomMargin">
          <number>15</number>
         </property>
-        <item row="0" column="0">
-         <widget class="QWidget" name="widget_2" native="true">
-          <property name="styleSheet">
-           <string notr="true">#widget_2{
-	background-color: rgba(0, 0, 0, 150);
-}</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_2">
-           <property name="topMargin">
-            <number>50</number>
-           </property>
-           <property name="bottomMargin">
-            <number>70</number>
-           </property>
-           <item alignment="Qt::AlignHCenter">
-            <widget class="QLabel" name="avatar">
-             <property name="minimumSize">
-              <size>
-               <width>140</width>
-               <height>140</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>140</width>
-               <height>140</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">#avatar{
-	border-image: url(:/background/OIP.jpg)
-}</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="name">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>34</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>16</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">#name{
-	color: white;
-}</string>
-             </property>
-             <property name="text">
-              <string>Hi, Student</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="button_StuHome">
-             <property name="minimumSize">
-              <size>
-               <width>218</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>251</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>HOME</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="button_StuMyProfile">
-             <property name="minimumSize">
-              <size>
-               <width>218</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>251</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>MY PROFILE</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="button_StuMyCourses">
-             <property name="minimumSize">
-              <size>
-               <width>218</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>251</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>MY COURSES</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="button_StuChangePassword">
-             <property name="minimumSize">
-              <size>
-               <width>218</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>251</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>CHANGE PASSWORD</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="button_StuSignOut">
-             <property name="minimumSize">
-              <size>
-               <width>218</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>251</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>SIGN OUT</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="0" column="1">
+        <item row="0" column="2">
          <widget class="QStackedWidget" name="stackedWidget_2">
           <property name="styleSheet">
            <string notr="true">#StuHome{
@@ -652,6 +465,10 @@ background-color: transparent;
 
 #StuProfile{
 	background-color: rgba(0, 0, 0, 96);
+}
+
+#StuHome{
+	background-color: rgba(0, 0, 0, 80);
 }
 
 #lb_StuID{
@@ -689,38 +506,183 @@ background-color: rgba(0, 0, 0, 96);
 #lb_MyCourses{
 	color:rgb(151, 255, 168);
 }
-</string>
+
+#lb_welcome{
+	color:rgb(151, 255, 168);
+}
+
+#slogan_1{
+	color: white;
+}
+#slogan_2{
+	color: white;
+}
+#slogan_3{
+	color: white;
+}
+
+#txt_StuID{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txt_StuName{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txt_StuGender{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txt_StuBirthday{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txt_StuClass{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txt_StuSocialID{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txtCurPass{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txtNewPass{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txtConfirmPass{
+	background-color: rgba(255, 255, 255, 200);
+}</string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="StuHome">
-           <widget class="QLabel" name="lb_welcome">
-            <property name="geometry">
-             <rect>
-              <x>190</x>
-              <y>40</y>
-              <width>511</width>
-              <height>111</height>
-             </rect>
+           <layout class="QGridLayout" name="gridLayout_9">
+            <property name="leftMargin">
+             <number>20</number>
             </property>
-            <property name="font">
-             <font>
-              <pointsize>48</pointsize>
-             </font>
+            <property name="topMargin">
+             <number>15</number>
             </property>
-            <property name="styleSheet">
-             <string notr="true">#lb_welcome{
-	color:white;
-}</string>
+            <property name="rightMargin">
+             <number>20</number>
             </property>
-            <property name="text">
-             <string>WELCOME</string>
+            <property name="bottomMargin">
+             <number>60</number>
             </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
+            <property name="horizontalSpacing">
+             <number>30</number>
             </property>
-           </widget>
+            <property name="verticalSpacing">
+             <number>0</number>
+            </property>
+            <item row="4" column="0">
+             <widget class="QLabel" name="slogan_3">
+              <property name="font">
+               <font>
+                <pointsize>16</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>The More You Learn, The More You Earn</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="2">
+             <widget class="QLabel" name="lb_welcome">
+              <property name="font">
+               <font>
+                <pointsize>48</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>WELCOME</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="slogan_1">
+              <property name="font">
+               <font>
+                <pointsize>16</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Take A Chance To Make A Change</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1" rowspan="3">
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QCalendarWidget" name="calendarWidget">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>369</width>
+                  <height>302</height>
+                 </size>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="firstDayOfWeek">
+                 <enum>Qt::Monday</enum>
+                </property>
+                <property name="gridVisible">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignHCenter">
+               <widget class="QPushButton" name="button_currentDay">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>180</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>CURRENT DAY</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="slogan_2">
+              <property name="font">
+               <font>
+                <pointsize>16</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Be A Warrior, Not A Worrier</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="StuProfile">
            <layout class="QGridLayout" name="gridLayout_6">
@@ -1352,6 +1314,223 @@ background-color: rgba(0, 0, 0, 96);
           </widget>
          </widget>
         </item>
+        <item row="0" column="1">
+         <widget class="QWidget" name="widget_2" native="true">
+          <property name="styleSheet">
+           <string notr="true">#widget_2{
+	background-color: rgba(0, 0, 0, 150);
+}
+
+#lb_curSY{
+	color:white;
+}
+#lb_latestSY{
+	color:white;
+}</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <property name="bottomMargin">
+            <number>33</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="lb_latestSY">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lb_curSY">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="avatar">
+             <property name="minimumSize">
+              <size>
+               <width>140</width>
+               <height>140</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>140</width>
+               <height>140</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#avatar{
+	border-image: url(:/background/OIP.jpg)
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="name">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>34</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#name{
+	color: white;
+}</string>
+             </property>
+             <property name="text">
+              <string>Hi, Student</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="button_StuHome">
+             <property name="minimumSize">
+              <size>
+               <width>218</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>251</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>HOME</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="button_StuMyProfile">
+             <property name="minimumSize">
+              <size>
+               <width>218</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>251</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>MY PROFILE</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="button_StuMyCourses">
+             <property name="minimumSize">
+              <size>
+               <width>218</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>251</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>MY COURSES</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="button_StuChangePassword">
+             <property name="minimumSize">
+              <size>
+               <width>218</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>251</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>CHANGE PASSWORD</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="button_StuSignOut">
+             <property name="minimumSize">
+              <size>
+               <width>218</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>251</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>SIGN OUT</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="admin_homepage">
@@ -1540,7 +1719,7 @@ background-color: rgba(0, 0, 0, 96);
          <widget class="QStackedWidget" name="stackedWidget_3">
           <property name="styleSheet">
            <string notr="true">#AdHome{
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 80);
 }
 #AdProfile{
 	background-color: rgba(0, 0, 0, 96);
@@ -1550,7 +1729,7 @@ background-color: rgba(0, 0, 0, 96);
 }
 
 #lb_welcome_2{
-	color:white;
+	color:rgb(151, 255, 168);
 }
 #lb_changePass_2{
 	color:rgb(151, 255, 168);
@@ -1578,7 +1757,31 @@ background-color: rgba(0, 0, 0, 96);
 #lb_AdSocialID{
 	color: white;
 }
-</string>
+
+#txt_AdID{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txt_AdName{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txt_AdGender{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txt_AdBirthday{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txt_AdSocialID{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txtCurPass_2{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txtNewPass_2{
+	background-color: rgba(255, 255, 255, 200);
+}
+#txtConfirmPass_2{
+	background-color: rgba(255, 255, 255, 200);
+}</string>
           </property>
           <property name="currentIndex">
            <number>0</number>
@@ -1587,10 +1790,10 @@ background-color: rgba(0, 0, 0, 96);
            <widget class="QLabel" name="lb_welcome_2">
             <property name="geometry">
              <rect>
-              <x>250</x>
-              <y>30</y>
-              <width>381</width>
-              <height>141</height>
+              <x>30</x>
+              <y>10</y>
+              <width>867</width>
+              <height>146</height>
              </rect>
             </property>
             <property name="font">
@@ -1598,8 +1801,11 @@ background-color: rgba(0, 0, 0, 96);
               <pointsize>48</pointsize>
              </font>
             </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
             <property name="text">
-             <string>Welcome</string>
+             <string>WELCOME</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>

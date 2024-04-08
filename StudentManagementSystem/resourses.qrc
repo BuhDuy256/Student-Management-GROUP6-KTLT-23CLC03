@@ -10,6 +10,8 @@
         <file>Lovely Minecraft Hd Wallpaper 1920x1080.jpg</file>
         <file>Iapn6B.webp</file>
         <file>OIP.jpg</file>
+        <file>axe.png</file>
+        <file>diamond.png</file>
     </qresource>
     <qresource prefix="/CSV Files">
         <file>AllClasses.csv</file>
