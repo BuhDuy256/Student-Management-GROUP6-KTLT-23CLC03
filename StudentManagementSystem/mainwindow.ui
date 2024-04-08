@@ -1264,7 +1264,7 @@ background-color: rgba(255,255,255,200;
 font-family: MinecraftBold-nMK1.otf)</string>
               </property>
               <property name="editTriggers">
-               <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
+               <set>QAbstractItemView::NoEditTriggers</set>
               </property>
               <property name="sortingEnabled">
                <bool>true</bool>
