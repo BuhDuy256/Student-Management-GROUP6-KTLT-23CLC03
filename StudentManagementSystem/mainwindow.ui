@@ -68,7 +68,7 @@ color: black;
 }</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2" rowstretch="2,7,2" columnstretch="2,5,2">
@@ -439,7 +439,7 @@ background-color: transparent;
        </layout>
       </widget>
       <widget class="QWidget" name="student_homepage">
-       <layout class="QGridLayout" name="gridLayout_3" columnstretch="5,19,0">
+       <layout class="QGridLayout" name="gridLayout_3" columnstretch="5,19">
         <property name="leftMargin">
          <number>15</number>
         </property>
@@ -1506,7 +1506,7 @@ background-color: rgba(0, 0, 0, 96);
              </property>
              <property name="styleSheet">
               <string notr="true">#name_2{
-        color: white;
+        color: #FBFFF4;
 }</string>
              </property>
              <property name="text">
@@ -1620,7 +1620,7 @@ background-color: rgba(0, 0, 0, 96);
          <widget class="QStackedWidget" name="stackedWidget_3">
           <property name="styleSheet">
            <string notr="true">#AdHome{
-        background-color: rgba(0, 0, 0, 0);
+        background-color: rgba(0, 0, 0, 96);
 }
 #AdProfile{
         background-color: rgba(0, 0, 0, 96);
@@ -1640,28 +1640,28 @@ background-color: rgba(0, 0, 0, 96);
 }
 
 #lb_AdID{
-        color: white;
+        color: #FBFFF4;
 }
 
 #lb_AdName{
-        color: white;
+        color: #FBFFF4;
 }
 
 #lb_AdGender{
-        color: white;
+        color: #FBFFF4;
 }
 
 #lb_AdBirthday{
-        color: white;
+        color: #FBFFF4;
 }
 
 #lb_AdSocialID{
-        color: white;
+        color: #FBFFF4;
 }
 </string>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -1712,7 +1712,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-        color: white;
+        color: #FBFFF4;
 }
 </string>
               </property>
@@ -1746,6 +1746,9 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;</string>
+              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -1760,7 +1763,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-        color: white;
+        color: #FBFFF4;
 }
 </string>
               </property>
@@ -1788,6 +1791,9 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;</string>
+              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -1802,7 +1808,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-        color: white;
+        color: #FBFFF4;
 }
 </string>
               </property>
@@ -1830,6 +1836,9 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;</string>
+              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -1844,7 +1853,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-        color: white;
+        color: #FBFFF4;
 }
 </string>
               </property>
@@ -1872,6 +1881,9 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;</string>
+              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -1886,7 +1898,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#label{
-        color: white;
+        color: #FBFFF4;
 }
 </string>
               </property>
@@ -1913,6 +1925,9 @@ background-color: rgba(0, 0, 0, 96);
                <font>
                 <pointsize>18</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -1951,7 +1966,7 @@ background-color: rgba(0, 0, 0, 96);
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true"/>
+               <string notr="true">color: #7FFFD4;</string>
               </property>
               <property name="text">
                <string>My Profile</string>
@@ -1986,7 +2001,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#lb_changePass_2{
-        color:rgb(151, 255, 168);
+        color: #7FFFD4;
 }</string>
               </property>
               <property name="text">
@@ -2006,7 +2021,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#lb_curPass_2{
-        color:white;
+        color: #FBFFF4;
 }</string>
               </property>
               <property name="text">
@@ -2036,6 +2051,9 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;</string>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -2053,7 +2071,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#lb_newPass_2{
-        color:white;
+        color: #FBFFF4;
 }</string>
               </property>
               <property name="text">
@@ -2083,6 +2101,9 @@ background-color: rgba(0, 0, 0, 96);
                 <pointsize>18</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4;</string>
+              </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
               </property>
@@ -2097,7 +2118,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#lb_confirmPass_2{
-        color:white;
+        color:#FBFFF4;
 }</string>
               </property>
               <property name="text">
@@ -2126,6 +2147,9 @@ background-color: rgba(0, 0, 0, 96);
                <font>
                 <pointsize>18</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: #FBFFF4</string>
               </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
