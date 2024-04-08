@@ -1,3 +1,11 @@
+//functiondeclaration
+void deleteDuplicateTempCourses(Node<std::string>* TempCourses);	
+int countUniqueTempCourses(Node<std::string>* TempCourses);
+bool Exist(bool* check, Node<Course>* checkexist, Node<std::string>* TempCourse, int n, int& ind);
+Node<std::string>* ClassCourse(Node<std::string>* TempCourses, bool* check);
+Node<Class>* ChooseClass(int choice);
+void previous(double& previoussum, double& previousnumofacticour, Node<Student>* StuScore, Node<Class>* ChosenClass,Node<std::string>* StuUniqueCours);
+void viewScoreBoardOfAClass();
 
 void viewScoreBoardOfAClass() { 
     system("cls");
@@ -328,4 +336,82 @@ void previous(double& previoussum, double& previousnumofacticour, Node<Student>*
         deleteStuCours = deleteStuCours->next;
         delete tempdelete;
     }
+}
+void deleteDuplicateTempCourses(Node<std::string>* TempCourses) {
+        Node<std::string>* temp = TempCourses;
+        while(temp != nullptr){
+            Node<std::string>* deleteCourse = temp;
+            while(deleteCourse != nullptr)
+            {
+                if(deleteCourse->next != nullptr && deleteCourse->next->data == temp->data)
+                {
+                    Node<std::string>* temp = deleteCourse->next;
+                    deleteCourse->next = deleteCourse->next->next;
+                    delete temp;
+                    continue;
+                }
+                deleteCourse = deleteCourse->next;
+            }
+            temp = temp->next;
+        }
+}
+int countUniqueTempCourses(Node<std::string>* TempCourses) {
+    int cnt = 0;
+    Node<std::string>* count = TempCourses;
+    while (count != nullptr)
+    {
+        cnt++;
+        count = count->next;
+    }
+    return cnt;
+}
+bool Exist(bool* check, Node<Course>* checkexist, Node<std::string>* TempCourse, int n, int& ind) {
+    Node<std::string>* temp = TempCourse;
+    int index = 0;
+    while (temp != nullptr)
+    {
+        if (temp->data == checkexist->data.ID)
+        {
+            ind = index;
+            return check[index];
+        }
+        index++;
+        temp = temp->next;
+    }
+    return false;
+}
+Node<std::string>* ClassCourse(Node<std::string>* TempCourses, bool* check) {
+    Node<std::string>* Cour = nullptr;
+    int index = 0;
+    while (TempCourses != nullptr)
+    {
+        if (check[index])
+        {
+            std::string newCour = TempCourses->data;
+            Node<std::string>* NewCourse = new Node<std::string>(newCour, Cour);
+            Cour = NewCourse;
+        }
+        index++;
+        TempCourses = TempCourses->next;
+    }
+    return Cour;
+}
+Node<Class>* ChooseClass(int choice) {  //copyallfunc
+    Node<SchoolYear>* tempcurrYear = currSYear;
+    int index = 1;
+    while (tempcurrYear != nullptr)
+    {
+        Node<Class>* tempclass = tempcurrYear->data.classes;
+        while (tempclass != nullptr)
+        {
+            if (index == choice)
+            {
+                return tempclass;
+            }
+	    index++;
+            tempclass = tempclass->next;
+        }
+        tempcurrYear = tempcurrYear->next;
+    }
+    return nullptr;
 }
