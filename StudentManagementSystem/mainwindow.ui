@@ -702,7 +702,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -1103,7 +1103,7 @@ background-color: rgba(0, 0, 0, 96);
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true"/>
+               <string notr="true">color: #7FFFD4</string>
               </property>
               <property name="text">
                <string>My Profile</string>
@@ -1131,7 +1131,7 @@ background-color: rgba(0, 0, 0, 96);
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true"/>
+             <string notr="true">color: #7FFFD4</string>
             </property>
             <property name="text">
              <string>My Courses</string>
@@ -1309,7 +1309,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">#lb_changePass{
-        color:rgb(151, 255, 168);
+        color: #7FFFD4;
 }</string>
               </property>
               <property name="text">
@@ -2160,12 +2160,13 @@ background-color: rgba(0, 0, 0, 96);
              <widget class="QCheckBox" name="checkBox_3">
               <property name="font">
                <font>
-                <pointsize>12</pointsize>
+                <pointsize>-1</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">#checkBox_3{
-        color: white;
+        color: #FBFFF4;
+		font-size: 16px;
 }</string>
               </property>
               <property name="text">
