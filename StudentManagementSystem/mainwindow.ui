@@ -1180,18 +1180,21 @@ background-color: rgba(255,255,255,200)</string>
             </item>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_2">
-              <item alignment="Qt::AlignLeft">
-               <widget class="QLabel" name="lb_select">
+              <item>
+               <widget class="QLabel" name="lb_select_sy">
                 <property name="font">
                  <font>
-                  <pointsize>12</pointsize>
+                  <pointsize>-1</pointsize>
+                  <italic>false</italic>
+                  <bold>false</bold>
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(255, 255, 255);</string>
+                 <string notr="true">color: rgb(255, 255, 255);
+font: 14px;</string>
                 </property>
                 <property name="text">
-                 <string>Select Shool Year - Semester:</string>
+                 <string>Select School Year</string>
                 </property>
                </widget>
               </item>
@@ -1203,6 +1206,36 @@ background-color: rgba(255,255,255,200)</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">font-size: 12px;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Preferred</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="lb_select_sem">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 255);
+font-size: 14px;</string>
+                </property>
+                <property name="text">
+                 <string>Select Semester</string>
+                </property>
                </widget>
               </item>
               <item>
@@ -1212,6 +1245,9 @@ background-color: rgba(255,255,255,200)</string>
                   <width>10000</width>
                   <height>16777215</height>
                  </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font-size: 12px;</string>
                 </property>
                 <item>
                  <property name="text">
@@ -1244,6 +1280,9 @@ background-color: rgba(255,255,255,200)</string>
                   <height>28</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">font-size: 16px;</string>
+                </property>
                 <property name="text">
                  <string>OK</string>
                 </property>
@@ -1255,13 +1294,16 @@ background-color: rgba(255,255,255,200)</string>
              <widget class="QTableWidget" name="tableWidget">
               <property name="font">
                <font>
-                <pointsize>9</pointsize>
+                <pointsize>-1</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,200;
-font-family: MinecraftBold-nMK1.otf)</string>
+background-color: rgba(255,255,255,200);
+font-size: 12px;
+QHeaderView::section {
+	font: 12pt &quot;American Typewriter&quot;;
+}</string>
               </property>
               <property name="editTriggers">
                <set>QAbstractItemView::NoEditTriggers</set>

@@ -23,6 +23,10 @@ MainWindow::MainWindow(QWidget* parent)
     ui->checkBox_3->setFont(minecraftFont);
     ui->button_currentDay->setFont(minecraftFont);
     ui->calendarWidget->setFont(minecraftFont);
+    ui->sem_select->setFont(minecraftFont);
+    ui->sy_select->setFont(minecraftFont);
+    ui->tableWidget->horizontalHeader()->setFont(minecraftFont);
+    ui->tableWidget->verticalHeader()->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(14);
@@ -43,12 +47,15 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_back_2->setFont(minecraftFont);
     ui->button_back_3->setFont(minecraftFont);
     ui->button_back_4->setFont(minecraftFont);
+    ui->lb_select_sy->setFont(minecraftFont);
+    ui->lb_select_sem->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(16);
     ui->slogan_1->setFont(minecraftFont);
     ui->slogan_2->setFont(minecraftFont);
     ui->slogan_3->setFont(minecraftFont);
+    ui->button_ok->setFont(minecraftFont);
 
     minecraftFont.setPointSize(18);
     ui->txtPassword->setFont(minecraftFont);
