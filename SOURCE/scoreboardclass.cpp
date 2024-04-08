@@ -168,6 +168,9 @@ void displayTableScoreboardOfAClass(Node<Class>*& claCurr) {
 		std::cout << linePlus;
 	}
 	std::cout << std::endl;
+	system("pause");
+	courseManagementPage();
+	return;
 }
 
 void viewScoreboardOfAClass() {
@@ -182,20 +185,21 @@ void viewScoreboardOfAClass() {
 		classManagementPage();
 		return;
 	}
-	int limits = 4;
+	int limits = 0;
 	int count = 0;
-	Node<SchoolYear>* syCurr = latestSYear;
+	Node<SchoolYear>* syCurr = currSYear;
 	while (syCurr != nullptr && limits != 4) {
 		Node<Class>* claCurr = syCurr->data.classes;
 		while (claCurr) {
+			std::cout << "Class " << claCurr->data.className << ":\n";
 			count++;
-			if (count == no) {
+			if (count == choice) {
 				displayTableScoreboardOfAClass(claCurr);
 				return;
 			}
 			claCurr = claCurr->next;
 		}
-		limits++;
 		syCurr = syCurr->next;
+		limits++;
 	}
 }
