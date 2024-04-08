@@ -13,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent)
     QFont minecraftFont(fontName);
 
 
+    minecraftFont.setPointSize(9);
+    ui->tableWidget->setFont(minecraftFont);
+
     minecraftFont.setPointSize(12);
     ui->checkBox->setFont(minecraftFont);
     ui->checkBox_2->setFont(minecraftFont);
@@ -101,6 +104,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lb_signin->setFont(minecraftFont);
     ui->lb_changePass->setFont(minecraftFont);
     ui->lb_MyProfile->setFont(minecraftFont);
+    ui->lb_MyCourses->setFont(minecraftFont);
     ui->lb_changePass_2->setFont(minecraftFont);
     ui->lb_MyProfile_2->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
@@ -224,11 +228,9 @@ void MainWindow::on_button_StuMyProfile_clicked()
 
 void MainWindow::on_button_StuMyCourses_clicked()
 {
-    Node<Course>* couCurr = latestSem.Courses;
+    Node<Course>* couCurr = currSem.Courses;
 
     int no = 0;
-    ui->tableWidget->setRowCount(5);
-
     while (couCurr) {
         bool check = false;
         for (int i = 0; i < couCurr->data.courseSize; i++) {
@@ -239,20 +241,17 @@ void MainWindow::on_button_StuMyCourses_clicked()
         }
         if (check) {
             ui->tableWidget->setRowCount(no);
-            ui->tableWidget->setItem(no - 1, 0, new QTableWidgetItem(QString::number(no)));
-            ui->tableWidget->setItem(no - 1, 1, new QTableWidgetItem(QString::fromStdString(couCurr->data.ID)));
-            ui->tableWidget->setItem(no - 1, 2, new QTableWidgetItem(QString::fromStdString(couCurr->data.Name)));
-            ui->tableWidget->setItem(no - 1, 3, new QTableWidgetItem(QString::fromStdString(couCurr->data.className)));
-            ui->tableWidget->setItem(no - 1, 4, new QTableWidgetItem(QString::fromStdString(couCurr->data.teacherName)));
-            ui->tableWidget->setItem(no - 1, 5, new QTableWidgetItem(QString::fromStdString(couCurr->data.dayOfWeek)));
-            ui->tableWidget->setItem(no - 1, 6, new QTableWidgetItem(QString::fromStdString(couCurr->data.session)));
-            // std::cout << "\t| " << std::left << std::setw(8) << no << "| " << std::left << std::setw(15) << couCurr->data.ID << "| " << std::left << std::setw(31) << couCurr->data.Name << "| "
-            //           << std::left << std::setw(15) << couCurr->data.className << "| " << std::left << std::setw(23) << couCurr->data.teacherName << "| "
-            //           << std::left << std::setw(12) << couCurr->data.dayOfWeek << "| " << std::left << std::setw(15) << couCurr->data.session << "|\n";
+            ui->tableWidget->setItem(no - 1, 0, new QTableWidgetItem(QString::fromStdString(couCurr->data.ID)));
+            ui->tableWidget->setItem(no - 1, 1, new QTableWidgetItem(QString::fromStdString(couCurr->data.Name)));
+            ui->tableWidget->setItem(no - 1, 2, new QTableWidgetItem(QString::fromStdString(couCurr->data.className)));
+            ui->tableWidget->setItem(no - 1, 3, new QTableWidgetItem(QString::fromStdString(couCurr->data.teacherName)));
+            ui->tableWidget->setItem(no - 1, 4, new QTableWidgetItem(QString::number(couCurr->data.nCredits)));
+            ui->tableWidget->setItem(no - 1, 5, new QTableWidgetItem(QString::number(couCurr->data.courseSize)));
+            ui->tableWidget->setItem(no - 1, 6, new QTableWidgetItem(QString::fromStdString(couCurr->data.dayOfWeek)));
+            ui->tableWidget->setItem(no - 1, 7, new QTableWidgetItem(QString::fromStdString(couCurr->data.session)));
         }
         couCurr = couCurr->next;
     }
-
     ui->stackedWidget_2->setCurrentIndex(2);
 }
 

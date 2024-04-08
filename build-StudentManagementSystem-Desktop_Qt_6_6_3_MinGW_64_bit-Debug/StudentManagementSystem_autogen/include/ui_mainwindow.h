@@ -573,7 +573,7 @@ public:
         font7.setPointSize(48);
         lb_welcome->setFont(font7);
         lb_welcome->setStyleSheet(QString::fromUtf8("#lb_welcome{\n"
-"        color:white;\n"
+"        color: #7FFFD4;\n"
 "}"));
         lb_welcome->setAlignment(Qt::AlignCenter);
 
@@ -733,8 +733,8 @@ public:
         lb_MyCourses->setStyleSheet(QString::fromUtf8("color: #7FFFD4"));
         lb_MyCourses->setAlignment(Qt::AlignCenter);
         tableWidget = new QTableWidget(StuCourse);
-        if (tableWidget->columnCount() < 7)
-            tableWidget->setColumnCount(7);
+        if (tableWidget->columnCount() < 9)
+            tableWidget->setColumnCount(9);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
@@ -749,6 +749,10 @@ public:
         tableWidget->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(6, __qtablewidgetitem6);
+        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(7, __qtablewidgetitem7);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(8, __qtablewidgetitem8);
         tableWidget->setObjectName("tableWidget");
         tableWidget->setGeometry(QRect(20, 200, 861, 371));
         QFont font10;
@@ -981,6 +985,9 @@ public:
         lb_welcome_2->setObjectName("lb_welcome_2");
         lb_welcome_2->setGeometry(QRect(250, 30, 381, 141));
         lb_welcome_2->setFont(font7);
+        lb_welcome_2->setStyleSheet(QString::fromUtf8("#lb_welcome_2{\n"
+"	color: #7FFFD4;\n"
+"}"));
         lb_welcome_2->setAlignment(Qt::AlignCenter);
         stackedWidget_3->addWidget(AdHome);
         AdProfile = new QWidget();
@@ -1232,9 +1239,9 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
-        stackedWidget_2->setCurrentIndex(1);
-        stackedWidget_3->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
+        stackedWidget_2->setCurrentIndex(2);
+        stackedWidget_3->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1282,9 +1289,13 @@ public:
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget->horizontalHeaderItem(4);
         ___qtablewidgetitem4->setText(QCoreApplication::translate("MainWindow", "Tearcher Name", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidget->horizontalHeaderItem(5);
-        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "Day Of Week", nullptr));
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "Number of Credits", nullptr));
         QTableWidgetItem *___qtablewidgetitem6 = tableWidget->horizontalHeaderItem(6);
-        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "Session", nullptr));
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "Course Size", nullptr));
+        QTableWidgetItem *___qtablewidgetitem7 = tableWidget->horizontalHeaderItem(7);
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "Day Of Week", nullptr));
+        QTableWidgetItem *___qtablewidgetitem8 = tableWidget->horizontalHeaderItem(8);
+        ___qtablewidgetitem8->setText(QCoreApplication::translate("MainWindow", "Session", nullptr));
         lb_confirmPass->setText(QCoreApplication::translate("MainWindow", "Confirm Password:", nullptr));
         button_back->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         button_confirm->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
@@ -1299,7 +1310,7 @@ public:
         button_AdMyProfile->setText(QCoreApplication::translate("MainWindow", "MY PROFILE", nullptr));
         button_AdChangePassword->setText(QCoreApplication::translate("MainWindow", "CHANGE PASSWORD", nullptr));
         button_AdSignOut->setText(QCoreApplication::translate("MainWindow", "SIGN OUT", nullptr));
-        lb_welcome_2->setText(QCoreApplication::translate("MainWindow", "Welcome", nullptr));
+        lb_welcome_2->setText(QCoreApplication::translate("MainWindow", "WELCOME", nullptr));
         lb_AdID->setText(QCoreApplication::translate("MainWindow", "Staff ID:   ", nullptr));
         lb_AdName->setText(QCoreApplication::translate("MainWindow", "Name:   ", nullptr));
         lb_AdGender->setText(QCoreApplication::translate("MainWindow", "Gender:   ", nullptr));
