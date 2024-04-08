@@ -15,10 +15,8 @@ struct Semester {
     std::string startDate;
     std::string endDate;
     Node<Course>* Courses = nullptr;
+    void viewCoursesList(int &no);
 };
-
-void importAllSemestersCSV();
-void saveAllSemestersData();
 
 struct SchoolYear {
     std::string year;
@@ -26,12 +24,10 @@ struct SchoolYear {
     Semester semesters[3];
 };
 
-void importAllSchoolYearsCSV();
 void reverseSchoolYearsList(Node<SchoolYear>*& syHead);
 void saveAllSchoolYearsData();
 void deleteAllSchoolYearsData();
-void findCurrSem();
-std::string getNextSchoolYear(const std::string& currentYear);
 void createANewSchoolYear();
 void createANewSemester();
 void changeCurrentSemesterSchoolYear();
+void displayTableOfAllSemesters(int& no);

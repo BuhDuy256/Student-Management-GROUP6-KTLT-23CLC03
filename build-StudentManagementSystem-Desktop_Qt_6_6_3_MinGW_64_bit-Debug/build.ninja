@@ -73,14 +73,6 @@ build CMakeFiles/StudentManagementSystem.dir/mainwindow.cpp.obj: CXX_COMPILER__S
   OBJECT_DIR = CMakeFiles\StudentManagementSystem.dir
   OBJECT_FILE_DIR = CMakeFiles\StudentManagementSystem.dir
 
-build CMakeFiles/StudentManagementSystem.dir/system.cpp.obj: CXX_COMPILER__StudentManagementSystem_unscanned_Debug D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/system.cpp || cmake_object_order_depends_target_StudentManagementSystem
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = CMakeFiles\StudentManagementSystem.dir\system.cpp.obj.d
-  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -ID:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/include -isystem D:/Qt/6.6.3/mingw_64/include/QtCore -isystem D:/Qt/6.6.3/mingw_64/include -isystem D:/Qt/6.6.3/mingw_64/mkspecs/win32-g++ -isystem D:/Qt/6.6.3/mingw_64/include/QtWidgets -isystem D:/Qt/6.6.3/mingw_64/include/QtGui
-  OBJECT_DIR = CMakeFiles\StudentManagementSystem.dir
-  OBJECT_FILE_DIR = CMakeFiles\StudentManagementSystem.dir
-
 build CMakeFiles/StudentManagementSystem.dir/Class.cpp.obj: CXX_COMPILER__StudentManagementSystem_unscanned_Debug D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/Class.cpp || cmake_object_order_depends_target_StudentManagementSystem
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\StudentManagementSystem.dir\Class.cpp.obj.d
@@ -92,6 +84,14 @@ build CMakeFiles/StudentManagementSystem.dir/Class.cpp.obj: CXX_COMPILER__Studen
 build CMakeFiles/StudentManagementSystem.dir/Course.cpp.obj: CXX_COMPILER__StudentManagementSystem_unscanned_Debug D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/Course.cpp || cmake_object_order_depends_target_StudentManagementSystem
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\StudentManagementSystem.dir\Course.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -ID:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/include -isystem D:/Qt/6.6.3/mingw_64/include/QtCore -isystem D:/Qt/6.6.3/mingw_64/include -isystem D:/Qt/6.6.3/mingw_64/mkspecs/win32-g++ -isystem D:/Qt/6.6.3/mingw_64/include/QtWidgets -isystem D:/Qt/6.6.3/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\StudentManagementSystem.dir
+  OBJECT_FILE_DIR = CMakeFiles\StudentManagementSystem.dir
+
+build CMakeFiles/StudentManagementSystem.dir/Data.cpp.obj: CXX_COMPILER__StudentManagementSystem_unscanned_Debug D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/Data.cpp || cmake_object_order_depends_target_StudentManagementSystem
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\StudentManagementSystem.dir\Data.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
   INCLUDES = -ID:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/include -isystem D:/Qt/6.6.3/mingw_64/include/QtCore -isystem D:/Qt/6.6.3/mingw_64/include -isystem D:/Qt/6.6.3/mingw_64/mkspecs/win32-g++ -isystem D:/Qt/6.6.3/mingw_64/include/QtWidgets -isystem D:/Qt/6.6.3/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\StudentManagementSystem.dir
@@ -121,6 +121,22 @@ build CMakeFiles/StudentManagementSystem.dir/Student.cpp.obj: CXX_COMPILER__Stud
   OBJECT_DIR = CMakeFiles\StudentManagementSystem.dir
   OBJECT_FILE_DIR = CMakeFiles\StudentManagementSystem.dir
 
+build CMakeFiles/StudentManagementSystem.dir/Sub.cpp.obj: CXX_COMPILER__StudentManagementSystem_unscanned_Debug D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/Sub.cpp || cmake_object_order_depends_target_StudentManagementSystem
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\StudentManagementSystem.dir\Sub.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -ID:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/include -isystem D:/Qt/6.6.3/mingw_64/include/QtCore -isystem D:/Qt/6.6.3/mingw_64/include -isystem D:/Qt/6.6.3/mingw_64/mkspecs/win32-g++ -isystem D:/Qt/6.6.3/mingw_64/include/QtWidgets -isystem D:/Qt/6.6.3/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\StudentManagementSystem.dir
+  OBJECT_FILE_DIR = CMakeFiles\StudentManagementSystem.dir
+
+build CMakeFiles/StudentManagementSystem.dir/System.cpp.obj: CXX_COMPILER__StudentManagementSystem_unscanned_Debug D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/System.cpp || cmake_object_order_depends_target_StudentManagementSystem
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\StudentManagementSystem.dir\System.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -ID:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/include -isystem D:/Qt/6.6.3/mingw_64/include/QtCore -isystem D:/Qt/6.6.3/mingw_64/include -isystem D:/Qt/6.6.3/mingw_64/mkspecs/win32-g++ -isystem D:/Qt/6.6.3/mingw_64/include/QtWidgets -isystem D:/Qt/6.6.3/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\StudentManagementSystem.dir
+  OBJECT_FILE_DIR = CMakeFiles\StudentManagementSystem.dir
+
 build CMakeFiles/StudentManagementSystem.dir/GlobalVariables.cpp.obj: CXX_COMPILER__StudentManagementSystem_unscanned_Debug D$:/Coding/GROUP6_23CLC03/StudentManagementSystem/GlobalVariables.cpp || cmake_object_order_depends_target_StudentManagementSystem
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\StudentManagementSystem.dir\GlobalVariables.cpp.obj.d
@@ -145,7 +161,7 @@ build CMakeFiles/StudentManagementSystem.dir/StudentManagementSystem_autogen/EWI
 #############################################
 # Link the executable StudentManagementSystem.exe
 
-build StudentManagementSystem.exe: CXX_EXECUTABLE_LINKER__StudentManagementSystem_Debug CMakeFiles/StudentManagementSystem.dir/StudentManagementSystem_autogen/mocs_compilation.cpp.obj CMakeFiles/StudentManagementSystem.dir/main.cpp.obj CMakeFiles/StudentManagementSystem.dir/mainwindow.cpp.obj CMakeFiles/StudentManagementSystem.dir/system.cpp.obj CMakeFiles/StudentManagementSystem.dir/Class.cpp.obj CMakeFiles/StudentManagementSystem.dir/Course.cpp.obj CMakeFiles/StudentManagementSystem.dir/SchoolYear.cpp.obj CMakeFiles/StudentManagementSystem.dir/Staff.cpp.obj CMakeFiles/StudentManagementSystem.dir/Student.cpp.obj CMakeFiles/StudentManagementSystem.dir/GlobalVariables.cpp.obj CMakeFiles/StudentManagementSystem.dir/StudentManagementSystem_autogen/EWIEGA46WW/qrc_resourses.cpp.obj | D$:/Qt/6.6.3/mingw_64/lib/libQt6Widgets.a D$:/Qt/6.6.3/mingw_64/lib/libQt6Gui.a D$:/Qt/6.6.3/mingw_64/lib/libQt6Core.a D$:/Qt/6.6.3/mingw_64/lib/libQt6EntryPoint.a || StudentManagementSystem_autogen StudentManagementSystem_autogen_timestamp_deps
+build StudentManagementSystem.exe: CXX_EXECUTABLE_LINKER__StudentManagementSystem_Debug CMakeFiles/StudentManagementSystem.dir/StudentManagementSystem_autogen/mocs_compilation.cpp.obj CMakeFiles/StudentManagementSystem.dir/main.cpp.obj CMakeFiles/StudentManagementSystem.dir/mainwindow.cpp.obj CMakeFiles/StudentManagementSystem.dir/Class.cpp.obj CMakeFiles/StudentManagementSystem.dir/Course.cpp.obj CMakeFiles/StudentManagementSystem.dir/Data.cpp.obj CMakeFiles/StudentManagementSystem.dir/SchoolYear.cpp.obj CMakeFiles/StudentManagementSystem.dir/Staff.cpp.obj CMakeFiles/StudentManagementSystem.dir/Student.cpp.obj CMakeFiles/StudentManagementSystem.dir/Sub.cpp.obj CMakeFiles/StudentManagementSystem.dir/System.cpp.obj CMakeFiles/StudentManagementSystem.dir/GlobalVariables.cpp.obj CMakeFiles/StudentManagementSystem.dir/StudentManagementSystem_autogen/EWIEGA46WW/qrc_resourses.cpp.obj | D$:/Qt/6.6.3/mingw_64/lib/libQt6Widgets.a D$:/Qt/6.6.3/mingw_64/lib/libQt6Gui.a D$:/Qt/6.6.3/mingw_64/lib/libQt6Core.a D$:/Qt/6.6.3/mingw_64/lib/libQt6EntryPoint.a || StudentManagementSystem_autogen StudentManagementSystem_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = D:/Qt/6.6.3/mingw_64/lib/libQt6Widgets.a  D:/Qt/6.6.3/mingw_64/lib/libQt6Gui.a  D:/Qt/6.6.3/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  D:/Qt/6.6.3/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
