@@ -87,11 +87,13 @@ Node<Class>* ChooseClass(int choice) {
     }
     return nullptr;
 }
+
+
 void previous(double& previoussum, double& previousnumofacticour, Node<Student>* StuScore, Node<Class>* ChosenClass,Node<std::string>* StuUniqueCours) {
-    //previoussem
     double prevsum = 0, preacticour = 0;
-    Node<SchoolYear>* tempYear = currSYear; //currSYear
+    Node<SchoolYear>* tempYear = currSYear;
     if (tempYear == nullptr) return;
+
     if (currSemNumber >= 2)
     {
         Node<Course>* tempCours = tempYear->data.semesters[0].Courses;
@@ -101,7 +103,7 @@ void previous(double& previoussum, double& previousnumofacticour, Node<Student>*
             Node<std::string>* check = StuUniqueCours;
             while (check != nullptr)
             {
-                if (check->data == tempCours->data.Name)
+                if (check->data == tempCours->data.ID)
                 {
                     canCount = true;
                     break;
@@ -114,7 +116,7 @@ void previous(double& previoussum, double& previousnumofacticour, Node<Student>*
                 {
                     if (tempCours->data.score[i].studentID == StuScore->data.ID)
                     {
-                        std::string newCours = tempCours->data.Name;
+                        std::string newCours = tempCours->data.ID;
                         Node<std::string>* newStuCour = new Node<std::string>(newCours, StuUniqueCours);
                         StuUniqueCours = newStuCour;
                         if (tempCours->data.score[i].total != (-1) * 1.0)
@@ -134,30 +136,39 @@ void previous(double& previoussum, double& previousnumofacticour, Node<Student>*
         Node<Course>* tempCours = tempYear->data.semesters[1].Courses;
         while (tempCours != nullptr)
         {
+            bool canCount = false;
             Node<std::string>* check = StuUniqueCours;
             while (check != nullptr)
             {
-                if (check->data == tempCours->data.Name) break;
+                if (check->data == tempCours->data.ID)
+                {
+                    canCount = true;
+                    break;
+                }
                 check = check->next;
             }
-            for (int i = 0; i < tempCours->data.courseSize; i++)
+            if (!canCount)
             {
-                if (tempCours->data.score[i].studentID == StuScore->data.ID)
+                for (int i = 0; i < tempCours->data.courseSize; i++)
                 {
-                    std::string newCours = tempCours->data.Name;
-                    Node<std::string>* newStuCour = new Node<std::string>(newCours, StuUniqueCours);
-                    StuUniqueCours = newStuCour;
-                    if (tempCours->data.score[i].total != (-1) * 1.0)
+                    if (tempCours->data.score[i].studentID == StuScore->data.ID)
                     {
-                        prevsum += tempCours->data.score[i].total;
-                        preacticour++;
+                        std::string newCours = tempCours->data.ID;
+                        Node<std::string>* newStuCour = new Node<std::string>(newCours, StuUniqueCours);
+                        StuUniqueCours = newStuCour;
+                        if (tempCours->data.score[i].total != (-1) * 1.0)
+                        {
+                            prevsum += tempCours->data.score[i].total;
+                            preacticour++;
+                        }
+                        break;
                     }
-                    break;
                 }
             }
             tempCours = tempCours->next;
         }
     }
+    
     tempYear = tempYear->next;
     while (tempYear != nullptr) 
     {
@@ -172,22 +183,28 @@ void previous(double& previoussum, double& previousnumofacticour, Node<Student>*
             }
             checkClass = checkClass->next;
         }
-        for (int i = 0; i < 3; i++)
+        for (int z = 0; z < 3; z++)
         {
-            Node<Course>* tempCour = tempYear->data.semesters[i].Courses;
+            Node<Course>* tempCour = tempYear->data.semesters[z].Courses;
             while (tempCour != nullptr)
             {
+                bool canCount = false;
                 Node<std::string>* check = StuUniqueCours;
                 while (check != nullptr)
                 {
-                    if (check->data == tempCour->data.Name) break;
+                    if (check->data == tempCour->data.ID)
+                    {
+                        canCount = true;
+                        break;
+                    }
                     check = check->next;
                 }
+                if(!canCount){
                 for (int i = 0; i < tempCour->data.courseSize; i++)
                 {
                     if (tempCour->data.score[i].studentID == StuScore->data.ID)
                     {
-                        std::string newCours = tempCour->data.Name;
+                        std::string newCours = tempCour->data.ID;
                         Node<std::string>* newStuCour = new Node<std::string>(newCours, StuUniqueCours);
                         StuUniqueCours = newStuCour;
                         if (tempCour->data.score[i].total != (-1) * 1.0)
@@ -198,6 +215,7 @@ void previous(double& previoussum, double& previousnumofacticour, Node<Student>*
                         break;
                     }
                 }
+                }
                 tempCour = tempCour->next;
             }
         }
@@ -205,10 +223,18 @@ void previous(double& previoussum, double& previousnumofacticour, Node<Student>*
         {
             previousnumofacticour = preacticour;
             previoussum = prevsum;
-            return;
+            break;
         }
         tempYear = tempYear->next;
     }
+
+    if(tempYear == nullptr)
+    {
+        previousnumofacticour = preacticour;
+        previoussum = prevsum;
+    }
+
+    
     Node<std::string>* deleteStuCours = StuUniqueCours;
     while (deleteStuCours != nullptr)
     {
@@ -218,20 +244,21 @@ void previous(double& previoussum, double& previousnumofacticour, Node<Student>*
     }
 }
 
+
+
 //class.cpp
 void viewScoreBoardOfAClass() { 
     system("cls");
     int no;
     displayTableOfClassesStudyingInCurrentSemester(no);
     
-   /*  //addafunctiontocheckvalidhereandgetchoice
+   /*  //checkvalid
     int choice;
     std::cout << "Enter Number Corresponding To Desired Class (1 - " << no << "):";
     std::cin >> choice;
-    ....
-    ....
    */
-
+    int choice;
+    std::cin >> choice;
     Node<Class>* ChosenClass = ChooseClass(choice);
     if (ChosenClass == nullptr)
     {
@@ -275,6 +302,7 @@ void viewScoreBoardOfAClass() {
         }
         tempStu = tempStu->next;
     }
+    std::cout << "SCOREBOARD OF CLASS " << ChosenClass->data.className << " in semester " << currSemNumber << " of " << currSYear->data.year << "\n\n";
     Node<std::string>* ClassCourses = ClassCourse(TempCourses, check);
     int NumofClassCourses = countUniqueTempCourses(ClassCourses);
     Node<std::string>* print = ClassCourses;
@@ -327,7 +355,7 @@ void viewScoreBoardOfAClass() {
             Node<Course>* check = currSem.Courses;
             while (check != nullptr)
             {
-                bool score = false;
+                bool score = false; 
                 if (tmp2->data == check->data.ID)
                 {
                     int numofstudents = check->data.courseSize;
@@ -335,14 +363,15 @@ void viewScoreBoardOfAClass() {
                     {
                         if (StuScore->data.ID == check->data.score[i].studentID)
                         {
-                            std::string newStuCourses = check->data.Name;
+                            std::string newStuCourses = check->data.ID;
                             Node<std::string>* newStuCours = new Node<std::string>(newStuCourses, StudentUniqueCourses);
                             StudentUniqueCourses = newStuCours;
                             if (check->data.score[i].total != (-1) * 1.0)
                             {
                                 gpa += check->data.score[i].total;
                                 numofactivecourses++;
-                            }                                                              
+                            }
+                                                                                          
                             if (check->data.score[i].final != (-1) * 1.0) std::cout << std::left << std::setfill(' ') << std::setw(8) << check->data.score[i].final << "|";
                             else std::cout << std::setw(8) << " " << "|";
                             score = true;
@@ -362,9 +391,7 @@ void viewScoreBoardOfAClass() {
         previous(prevtotal, prevnumofacticour, StuScore, ChosenClass,StudentUniqueCourses);
         if(prevnumofacticour == 0 &&  numofactivecourses == 0) std::cout << std::setw(10) << " " << "|\n";
         else std::cout << std::left << std::setfill(' ') << std::setw(10) << std::fixed << std::setprecision(1) << (prevtotal + gpa) / (prevnumofacticour + numofactivecourses) << "|\n";
-        
-	
-    
+     
     StuScore = StuScore->next;
 	index++;
     }
