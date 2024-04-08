@@ -68,7 +68,7 @@ color: black;
 }</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2" rowstretch="2,7,2" columnstretch="2,5,2">
@@ -709,11 +709,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-<<<<<<< HEAD
            <number>2</number>
-=======
-           <number>3</number>
->>>>>>> 5d96bb3afcd8018a9d3dd3f1bf43462d9aadb960
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -851,7 +847,7 @@ background-color: rgba(0, 0, 0, 96);
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -951,7 +947,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -1003,7 +999,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -1031,7 +1027,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -1095,7 +1091,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -1123,7 +1119,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -1263,12 +1259,9 @@ background-color: rgba(255,255,255,100)</string>
                </font>
               </property>
               <property name="styleSheet">
-<<<<<<< HEAD
-               <string notr="true"/>
-=======
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
->>>>>>> 5d96bb3afcd8018a9d3dd3f1bf43462d9aadb960
+background-color: rgba(255,255,255,200;
+font-family: MinecraftBold-nMK1.otf)</string>
               </property>
               <property name="editTriggers">
                <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
@@ -1512,7 +1505,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
@@ -1606,7 +1599,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="text">
                <string/>
@@ -1637,7 +1630,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
@@ -1674,7 +1667,7 @@ background-color: rgba(255,255,255,100)</string>
         border-image: url(:/background/Lovely Minecraft Hd Wallpaper 1920x1080.jpg);
 }</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,19,0">
+       <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,19">
         <property name="leftMargin">
          <number>15</number>
         </property>
@@ -1919,7 +1912,7 @@ background-color: rgba(255,255,255,100)</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -2063,7 +2056,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -2109,7 +2102,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -2155,7 +2148,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -2201,7 +2194,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -2247,7 +2240,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -2373,7 +2366,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="text">
                <string/>
@@ -2424,7 +2417,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
@@ -2472,7 +2465,7 @@ background-color: rgba(255,255,255,100)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,100)</string>
+background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
