@@ -613,8 +613,8 @@ public:
         QFont font8;
         font8.setPointSize(18);
         txt_StuGender->setFont(font8);
-        txt_StuGender->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txt_StuGender->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txt_StuGender->setReadOnly(true);
 
         gridLayout_6->addWidget(txt_StuGender, 3, 1, 1, 1);
@@ -664,8 +664,8 @@ public:
         txt_StuName->setMinimumSize(QSize(0, 50));
         txt_StuName->setMaximumSize(QSize(612, 50));
         txt_StuName->setFont(font8);
-        txt_StuName->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txt_StuName->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txt_StuName->setReadOnly(true);
 
         gridLayout_6->addWidget(txt_StuName, 2, 1, 1, 1);
@@ -683,8 +683,8 @@ public:
         txt_StuID->setMinimumSize(QSize(0, 50));
         txt_StuID->setMaximumSize(QSize(612, 50));
         txt_StuID->setFont(font8);
-        txt_StuID->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txt_StuID->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txt_StuID->setReadOnly(true);
 
         gridLayout_6->addWidget(txt_StuID, 1, 1, 1, 1);
@@ -694,8 +694,8 @@ public:
         txt_StuBirthday->setMinimumSize(QSize(0, 50));
         txt_StuBirthday->setMaximumSize(QSize(612, 50));
         txt_StuBirthday->setFont(font8);
-        txt_StuBirthday->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txt_StuBirthday->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txt_StuBirthday->setReadOnly(true);
 
         gridLayout_6->addWidget(txt_StuBirthday, 4, 1, 1, 1);
@@ -725,8 +725,8 @@ public:
         txt_StuSocialID->setMinimumSize(QSize(0, 50));
         txt_StuSocialID->setMaximumSize(QSize(612, 50));
         txt_StuSocialID->setFont(font8);
-        txt_StuSocialID->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txt_StuSocialID->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txt_StuSocialID->setReadOnly(true);
 
         gridLayout_6->addWidget(txt_StuSocialID, 6, 1, 1, 1);
@@ -736,8 +736,8 @@ public:
         txt_StuClass->setMinimumSize(QSize(0, 50));
         txt_StuClass->setMaximumSize(QSize(612, 50));
         txt_StuClass->setFont(font8);
-        txt_StuClass->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txt_StuClass->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txt_StuClass->setReadOnly(true);
 
         gridLayout_6->addWidget(txt_StuClass, 5, 1, 1, 1);
@@ -833,9 +833,11 @@ public:
         QFont font11;
         font11.setPointSize(9);
         tableWidget->setFont(font11);
-        tableWidget->setStyleSheet(QString::fromUtf8(""));
+        tableWidget->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         tableWidget->setEditTriggers(QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed);
-        tableWidget->setSortingEnabled(false);
+        tableWidget->setSortingEnabled(true);
+        tableWidget->horizontalHeader()->setDefaultSectionSize(120);
 
         verticalLayout_5->addWidget(tableWidget);
 
@@ -897,8 +899,8 @@ public:
         txtNewPass->setMinimumSize(QSize(0, 50));
         txtNewPass->setMaximumSize(QSize(612, 50));
         txtNewPass->setFont(font8);
-        txtNewPass->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txtNewPass->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txtNewPass->setEchoMode(QLineEdit::Password);
 
         gridLayout_5->addWidget(txtNewPass, 2, 2, 1, 1);
@@ -939,8 +941,8 @@ public:
         txtCurPass->setMinimumSize(QSize(0, 50));
         txtCurPass->setMaximumSize(QSize(612, 50));
         txtCurPass->setFont(font8);
-        txtCurPass->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color:	rgba(255,255,255,100);"));
+        txtCurPass->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txtCurPass->setEchoMode(QLineEdit::Password);
 
         gridLayout_5->addWidget(txtCurPass, 1, 2, 1, 1);
@@ -950,8 +952,8 @@ public:
         txtConfirmPass->setMinimumSize(QSize(0, 50));
         txtConfirmPass->setMaximumSize(QSize(612, 50));
         txtConfirmPass->setFont(font8);
-        txtConfirmPass->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txtConfirmPass->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txtConfirmPass->setEchoMode(QLineEdit::Password);
 
         gridLayout_5->addWidget(txtConfirmPass, 3, 2, 1, 1);
@@ -1148,8 +1150,8 @@ public:
         txt_AdID->setMinimumSize(QSize(586, 50));
         txt_AdID->setMaximumSize(QSize(612, 50));
         txt_AdID->setFont(font8);
-        txt_AdID->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txt_AdID->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txt_AdID->setReadOnly(true);
 
         gridLayout_8->addWidget(txt_AdID, 1, 1, 1, 2);
@@ -1169,8 +1171,8 @@ public:
         txt_AdName->setMinimumSize(QSize(0, 50));
         txt_AdName->setMaximumSize(QSize(612, 50));
         txt_AdName->setFont(font8);
-        txt_AdName->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txt_AdName->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txt_AdName->setReadOnly(true);
 
         gridLayout_8->addWidget(txt_AdName, 2, 1, 1, 2);
@@ -1190,8 +1192,8 @@ public:
         txt_AdGender->setMinimumSize(QSize(0, 50));
         txt_AdGender->setMaximumSize(QSize(612, 50));
         txt_AdGender->setFont(font8);
-        txt_AdGender->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txt_AdGender->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txt_AdGender->setReadOnly(true);
 
         gridLayout_8->addWidget(txt_AdGender, 3, 1, 1, 2);
@@ -1211,8 +1213,8 @@ public:
         txt_AdBirthday->setMinimumSize(QSize(0, 50));
         txt_AdBirthday->setMaximumSize(QSize(612, 50));
         txt_AdBirthday->setFont(font8);
-        txt_AdBirthday->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txt_AdBirthday->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txt_AdBirthday->setReadOnly(true);
 
         gridLayout_8->addWidget(txt_AdBirthday, 4, 1, 1, 2);
@@ -1232,8 +1234,8 @@ public:
         txt_AdSocialID->setMinimumSize(QSize(0, 50));
         txt_AdSocialID->setMaximumSize(QSize(612, 50));
         txt_AdSocialID->setFont(font8);
-        txt_AdSocialID->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txt_AdSocialID->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txt_AdSocialID->setReadOnly(true);
 
         gridLayout_8->addWidget(txt_AdSocialID, 5, 1, 1, 2);
@@ -1286,8 +1288,8 @@ public:
         txtCurPass_2->setMinimumSize(QSize(0, 50));
         txtCurPass_2->setMaximumSize(QSize(612, 50));
         txtCurPass_2->setFont(font8);
-        txtCurPass_2->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent"));
+        txtCurPass_2->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txtCurPass_2->setEchoMode(QLineEdit::Password);
 
         gridLayout_7->addWidget(txtCurPass_2, 1, 1, 1, 1);
@@ -1307,8 +1309,8 @@ public:
         txtNewPass_2->setMinimumSize(QSize(0, 50));
         txtNewPass_2->setMaximumSize(QSize(612, 50));
         txtNewPass_2->setFont(font8);
-        txtNewPass_2->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txtNewPass_2->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txtNewPass_2->setEchoMode(QLineEdit::Password);
 
         gridLayout_7->addWidget(txtNewPass_2, 2, 1, 1, 1);
@@ -1328,8 +1330,8 @@ public:
         txtConfirmPass_2->setMinimumSize(QSize(0, 50));
         txtConfirmPass_2->setMaximumSize(QSize(612, 50));
         txtConfirmPass_2->setFont(font8);
-        txtConfirmPass_2->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
-"background-color: transparent;"));
+        txtConfirmPass_2->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,100)"));
         txtConfirmPass_2->setEchoMode(QLineEdit::Password);
 
         gridLayout_7->addWidget(txtConfirmPass_2, 3, 1, 1, 1);
@@ -1377,9 +1379,9 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
-        stackedWidget_2->setCurrentIndex(2);
-        stackedWidget_3->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
+        stackedWidget_2->setCurrentIndex(0);
+        stackedWidget_3->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
