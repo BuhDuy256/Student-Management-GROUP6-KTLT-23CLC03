@@ -128,7 +128,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_welcome->setFont(minecraftFont);
     ui->lb_welcome_2->setFont(minecraftFont);
     minecraftFont.setBold(0); // End Bold region
-
 }
 
 MainWindow::~MainWindow()

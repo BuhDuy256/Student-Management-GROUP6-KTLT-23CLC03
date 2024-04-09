@@ -13,6 +13,8 @@
         <file>axe.png</file>
         <file>diamond.png</file>
         <file>Minecraft_thegame_6961.ico</file>
+        <file>right_arrow.png</file>
+        <file>left_arrow.png</file>
     </qresource>
     <qresource prefix="/prefix">
         <file>CSV Files/AllClasses.csv</file>

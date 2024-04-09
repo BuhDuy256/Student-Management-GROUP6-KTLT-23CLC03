@@ -709,7 +709,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -725,6 +725,21 @@ background-color: rgba(0, 0, 0, 96);
             <property name="bottomMargin">
              <number>80</number>
             </property>
+            <item row="2" column="0">
+             <widget class="QLabel" name="slogan_2">
+              <property name="font">
+               <font>
+                <pointsize>16</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>The only way to do great work is to love what you do.</string>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
             <item row="1" column="0">
              <widget class="QLabel" name="slogan_1">
               <property name="font">
@@ -735,12 +750,65 @@ background-color: rgba(0, 0, 0, 96);
               <property name="text">
                <string>Take A Chance To Make A Change</string>
               </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item row="1" column="1" rowspan="3">
              <layout class="QVBoxLayout" name="verticalLayout_4">
               <item>
-               <widget class="QCalendarWidget" name="calendarWidget"/>
+               <widget class="QCalendarWidget" name="calendarWidget">
+                <property name="styleSheet">
+                 <string notr="true">QCalendarWidget QToolButton#qt_calendar_nextmonth{
+	background-image: url(:/background/right_arrow.png);
+	background-position: center;
+	background-repeat: none;
+	icon-size: 0px;
+	padding: 10px;
+}
+
+QCalendarWidget QToolButton#qt_calendar_prevmonth{
+	background-image: url(:/background/left_arrow.png);
+	background-position: center;
+	background-repeat: none;
+	icon-size: 0px;
+	padding: 10px;
+}
+
+QCalendarWidget QToolButton{
+	background-color: rgb(118, 118, 118);
+}
+
+QCalendarWidget QWidget#qt_calendar_navigationbar{
+	background-color: rgb(198, 198, 198);
+}
+
+QCalendarWidget QSpinBox::up-button {
+	background-color: rgb(118, 118, 118);
+}
+
+QCalendarWidget QSpinBox::down-button {
+	background-color: rgb(118, 118, 118);
+}
+</string>
+                </property>
+                <property name="gridVisible">
+                 <bool>false</bool>
+                </property>
+                <property name="horizontalHeaderFormat">
+                 <enum>QCalendarWidget::ShortDayNames</enum>
+                </property>
+                <property name="verticalHeaderFormat">
+                 <enum>QCalendarWidget::NoVerticalHeader</enum>
+                </property>
+                <property name="navigationBarVisible">
+                 <bool>true</bool>
+                </property>
+                <property name="dateEditEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
               </item>
               <item alignment="Qt::AlignHCenter">
                <widget class="QPushButton" name="button_currentDay">
@@ -763,18 +831,6 @@ background-color: rgba(0, 0, 0, 96);
               </item>
              </layout>
             </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="slogan_2">
-              <property name="font">
-               <font>
-                <pointsize>16</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>slogan</string>
-              </property>
-             </widget>
-            </item>
             <item row="3" column="0">
              <widget class="QLabel" name="slogan_3">
               <property name="font">
@@ -783,7 +839,10 @@ background-color: rgba(0, 0, 0, 96);
                </font>
               </property>
               <property name="text">
-               <string>slogan</string>
+               <string>Believe you can and you’re halfway there.</string>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -2053,7 +2112,7 @@ font-size: 20px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>4</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -2507,7 +2566,8 @@ background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,200)</string>
+background-color: rgba(255,255,255,200);
+padding-left: 10px;</string>
               </property>
               <property name="text">
                <string/>
@@ -2558,7 +2618,8 @@ background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,200)</string>
+background-color: rgba(255,255,255,200);
+padding-left: 10px</string>
               </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
@@ -2606,7 +2667,8 @@ background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,200)</string>
+background-color: rgba(255,255,255,200);
+padding-left: 10px;</string>
               </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
