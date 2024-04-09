@@ -7,7 +7,8 @@ MainWindow::MainWindow(QWidget* parent)
 {
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
-    ui->lb_latestSem->setText(QString::fromStdString("Latest Semester: " + std::to_string(lastSemNumber) + " + " + latestSYear->data.year));
+    ui->lb_latestSY->setText(QString::fromStdString("Latest School Year: " + latestSYear->data.year));
+    ui->lb_latestSem->setText(QString::fromStdString("Latest Semester: " + std::to_string(lastSemNumber)));
 
     int fontId = QFontDatabase::addApplicationFont(":/font/MinecraftRegular-Bmg3.ttf");
     QString fontName = QFontDatabase::applicationFontFamilies(fontId).at(0);
@@ -148,12 +149,6 @@ void MainWindow::on_checkBox_stateChanged(int arg1)
 
 void MainWindow::on_button_signin_clicked()
 {
-    // if (ui->txtUsername->text() != "admin") MessageBox("Error", "Username Not Found!");
-    // else
-    // {
-    //     if (ui->txtPassword->text() != "123456") MessageBox("Error", "Wrong Password!");
-    //     else ui->stackedWidget->setCurrentIndex(1);
-    // }
     std::string username = ui->txtUsername->text().toStdString();
     std::string password = ui->txtPassword->text().toStdString();
 
@@ -284,6 +279,7 @@ void MainWindow::show_tableWidget_score()
         for (int i = 0; i < couCurr->data.courseSize; i++) {
             if (couCurr->data.score[i].studentID == currStudent->data.ID) {
                 no++;
+                ui->tableWidget->setRowCount(no);
                 ui->tableWidget->setItem(no - 1, 0, new QTableWidgetItem(QString::fromStdString(couCurr->data.ID)));
                 ui->tableWidget->setItem(no - 1, 1, new QTableWidgetItem(QString::fromStdString(couCurr->data.Name)));
                 if (couCurr->data.score[i].midTerm > 0) ui->tableWidget->setItem(no - 1, 2, new QTableWidgetItem(QString::number(couCurr->data.score[i].midTerm)));
@@ -367,6 +363,18 @@ void MainWindow::on_button_confirm_clicked()
     if (newPassword != confirmPassword) {
         // std::cout << "Your new passwords do not match. Please try again!" << std::endl;
         MessageBox("Fail", "New Password Not Matched!");
+        return;
+    }
+
+    if (newPassword == "")
+    {
+        MessageBox("Fail", "Password Can Not Be Empty!");
+        return;
+    }
+
+    if (newPassword.size() < 6)
+    {
+        MessageBox("Fail", "Password Should Contain At Least 6 Characters!");
         return;
     }
 
@@ -524,8 +532,15 @@ void MainWindow::on_sy_select_currentTextChanged(const QString& arg1)
                 if (syCurr->data.semesters[i].isCreated)
                 {
                     ui->sem_select->addItem(QString::number(++no));
+                    ui->sem_select->setCurrentIndex(no - 1);
                 }
             }
+            if (no == 0)
+            {
+                ui->sem_select->addItem("No Semester");
+                ui->sem_select->setDisabled(1);
+            }
+            else ui->sem_select->setDisabled(0);
         }
         syCurr = syCurr->next;
     }
@@ -595,12 +610,19 @@ void MainWindow::on_button_create_sy_clicked()
 
             QMessageBox::information(nullptr, "Notification", "A New School Year Has Been Created!");
 
-            ui->lb_latestSem->setText(QString::fromStdString("Latest Semester: " + std::to_string(lastSemNumber) + " + " + latestSYear->data.year));
+            ui->lb_latestSY->setText(QString::fromStdString("Latest School Year: " + latestSYear->data.year));
+            ui->lb_latestSem->setText(QString::fromStdString("Latest Semester: " + std::to_string(lastSemNumber)));
         }
         else if (ret == QMessageBox::Cancel)
         {
             return;
         }
     }
+}
+
+
+void MainWindow::on_button_create_sem_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(3);
 }
 

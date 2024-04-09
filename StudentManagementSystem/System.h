@@ -20,6 +20,7 @@
 #include <QMessageBox>
 #include <QFile>
 #include <QTextStream>
+#include <QIcon>
 #include <iostream>
 #include <fstream>
 #include <sstream>

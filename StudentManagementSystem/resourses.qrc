@@ -12,6 +12,7 @@
         <file>OIP.jpg</file>
         <file>axe.png</file>
         <file>diamond.png</file>
+        <file>Minecraft_thegame_6961.ico</file>
     </qresource>
     <qresource prefix="/prefix">
         <file>CSV Files/AllClasses.csv</file>

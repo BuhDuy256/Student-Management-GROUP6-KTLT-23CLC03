@@ -7,6 +7,9 @@ int main(int argc, char *argv[])
     importData();
 
     MainWindow w;
+    w.setWindowTitle("Student Management System");
+    w.setWindowIcon(QIcon(":/background/Minecraft_thegame_6961.ico"));
+
     w.show();
 
     return a.exec();

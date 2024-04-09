@@ -95,6 +95,8 @@ private slots:
 
     void on_button_create_sy_clicked();
 
+    void on_button_create_sem_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

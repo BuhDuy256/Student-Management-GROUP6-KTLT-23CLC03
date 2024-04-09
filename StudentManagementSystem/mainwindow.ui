@@ -68,7 +68,7 @@ color: black;
 }</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2" rowstretch="2,7,2" columnstretch="2,5,2">
@@ -523,7 +523,7 @@ color: #FBFFF4</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item alignment="Qt::AlignHCenter">
             <widget class="QPushButton" name="button_StuHome">
              <property name="minimumSize">
               <size>
@@ -547,7 +547,7 @@ color: #FBFFF4</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item alignment="Qt::AlignHCenter">
             <widget class="QPushButton" name="button_StuMyProfile">
              <property name="minimumSize">
               <size>
@@ -571,7 +571,7 @@ color: #FBFFF4</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item alignment="Qt::AlignHCenter">
             <widget class="QPushButton" name="button_StuMyCourses">
              <property name="minimumSize">
               <size>
@@ -595,7 +595,7 @@ color: #FBFFF4</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item alignment="Qt::AlignHCenter">
             <widget class="QPushButton" name="button_StuChangePassword">
              <property name="minimumSize">
               <size>
@@ -619,7 +619,7 @@ color: #FBFFF4</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item alignment="Qt::AlignHCenter">
             <widget class="QPushButton" name="button_StuSignOut">
              <property name="minimumSize">
               <size>
@@ -1001,6 +1001,9 @@ background-color: rgba(255,255,255,200)</string>
                <string notr="true">color: #000000;
 background-color: rgba(255,255,255,200)</string>
               </property>
+              <property name="frame">
+               <bool>true</bool>
+              </property>
               <property name="readOnly">
                <bool>true</bool>
               </property>
@@ -1162,6 +1165,12 @@ background-color: rgba(255,255,255,200)</string>
             </property>
             <item>
              <widget class="QLabel" name="lb_MyCourses">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>130</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <pointsize>36</pointsize>
@@ -1191,7 +1200,7 @@ background-color: rgba(255,255,255,200)</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">color: rgb(255, 255, 255);
-font: 14px;</string>
+font: 20px;</string>
                 </property>
                 <property name="text">
                  <string>Select School Year</string>
@@ -1200,6 +1209,12 @@ font: 14px;</string>
               </item>
               <item>
                <widget class="QComboBox" name="sy_select">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>28</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>10000</width>
@@ -1207,9 +1222,10 @@ font: 14px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">font-size: 12px;
-background-image: url(:/background/button.png);
-background-color: rgb(133, 133, 133);</string>
+                 <string notr="true">font-size: 20px;
+border-image: url(:/background/button.png);
+background-color: rgb(133, 133, 133);
+color: white;</string>
                 </property>
                </widget>
               </item>
@@ -1233,7 +1249,7 @@ background-color: rgb(133, 133, 133);</string>
                <widget class="QLabel" name="lb_select_sem">
                 <property name="styleSheet">
                  <string notr="true">color: rgb(255, 255, 255);
-font-size: 14px;</string>
+font-size: 20px;</string>
                 </property>
                 <property name="text">
                  <string>Select Semester</string>
@@ -1242,6 +1258,12 @@ font-size: 14px;</string>
               </item>
               <item>
                <widget class="QComboBox" name="sem_select">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>28</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>10000</width>
@@ -1249,9 +1271,10 @@ font-size: 14px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">font-size: 12px;
-background-image: url(:/background/button.png);
-background-color: rgb(133, 133, 133);</string>
+                 <string notr="true">font-size: 20px;
+border-image: url(:/background/button.png);
+background-color: rgb(133, 133, 133);
+color: white;</string>
                 </property>
                 <item>
                  <property name="text">
@@ -1299,6 +1322,7 @@ background-color: rgb(133, 133, 133);</string>
               <property name="font">
                <font>
                 <pointsize>9</pointsize>
+                <kerning>true</kerning>
                </font>
               </property>
               <property name="styleSheet">
@@ -1757,7 +1781,7 @@ background-color: rgba(255,255,255,200)</string>
         border-image: url(:/background/Lovely Minecraft Hd Wallpaper 1920x1080.jpg);
 }</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,19">
+       <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,19,0">
         <property name="leftMargin">
          <number>15</number>
         </property>
@@ -1788,20 +1812,38 @@ background-color: rgba(255,255,255,200)</string>
             <number>70</number>
            </property>
            <item alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="lb_latestSY">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color:white;
+font-size: 20px;</string>
+             </property>
+             <property name="text">
+              <string>Latest School Year:</string>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
             <widget class="QLabel" name="lb_latestSem">
              <property name="maximumSize">
               <size>
                <width>218</width>
-               <height>53</height>
+               <height>23</height>
               </size>
              </property>
              <property name="font">
               <font>
-               <pointsize>10</pointsize>
+               <pointsize>-1</pointsize>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color:white;</string>
+              <string notr="true">color:white;
+font-size: 20px;</string>
              </property>
              <property name="text">
               <string>Latest Semester:</string>
@@ -1858,7 +1900,7 @@ background-color: rgba(255,255,255,200)</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item alignment="Qt::AlignHCenter">
             <widget class="QPushButton" name="button_AdHome">
              <property name="minimumSize">
               <size>
@@ -1882,7 +1924,7 @@ background-color: rgba(255,255,255,200)</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item alignment="Qt::AlignHCenter">
             <widget class="QPushButton" name="button_AdMyProfile">
              <property name="minimumSize">
               <size>
@@ -1906,7 +1948,7 @@ background-color: rgba(255,255,255,200)</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item alignment="Qt::AlignHCenter">
             <widget class="QPushButton" name="button_AdChangePassword">
              <property name="minimumSize">
               <size>
@@ -1930,7 +1972,7 @@ background-color: rgba(255,255,255,200)</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item alignment="Qt::AlignHCenter">
             <widget class="QPushButton" name="button_AdSignOut">
              <property name="minimumSize">
               <size>
@@ -1969,6 +2011,9 @@ background-color: rgba(255,255,255,200)</string>
 #AdChangePass{
         background-color: rgba(0, 0, 0, 96);
 }
+#AdCreateSemester{
+        background-color: rgba(0, 0, 0, 96);
+}
 
 #lb_welcome_2{
         color:white;
@@ -2002,7 +2047,7 @@ background-color: rgba(255,255,255,200)</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -2630,6 +2675,7 @@ background-color: rgba(255,255,255,200)</string>
             </item>
            </layout>
           </widget>
+          <widget class="QWidget" name="AdCreateSemester"/>
          </widget>
         </item>
        </layout>

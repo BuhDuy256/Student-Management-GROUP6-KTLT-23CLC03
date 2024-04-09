@@ -18,11 +18,11 @@ StudentManagementSystem_autogen/timestamp: \
 	D:/Coding/GROUP6_23CLC03/StudentManagementSystem/Sub.cpp \
 	D:/Coding/GROUP6_23CLC03/StudentManagementSystem/Sub.h \
 	D:/Coding/GROUP6_23CLC03/StudentManagementSystem/System.cpp \
-	D:/Coding/GROUP6_23CLC03/StudentManagementSystem/System.h \
 	D:/Coding/GROUP6_23CLC03/StudentManagementSystem/main.cpp \
 	D:/Coding/GROUP6_23CLC03/StudentManagementSystem/mainwindow.cpp \
 	D:/Coding/GROUP6_23CLC03/StudentManagementSystem/mainwindow.h \
 	D:/Coding/GROUP6_23CLC03/StudentManagementSystem/resourses.qrc \
+	D:/Coding/GROUP6_23CLC03/StudentManagementSystem/system.h \
 	D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
 	D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeCXXCompiler.cmake \
 	D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeRCCompiler.cmake \
@@ -307,6 +307,7 @@ StudentManagementSystem_autogen/timestamp: \
 	D:/Qt/6.6.3/mingw_64/include/QtGui/QFileSystemModel \
 	D:/Qt/6.6.3/mingw_64/include/QtGui/QFont \
 	D:/Qt/6.6.3/mingw_64/include/QtGui/QFontDatabase \
+	D:/Qt/6.6.3/mingw_64/include/QtGui/QIcon \
 	D:/Qt/6.6.3/mingw_64/include/QtGui/QMatrix4x4 \
 	D:/Qt/6.6.3/mingw_64/include/QtGui/QPaintDevice \
 	D:/Qt/6.6.3/mingw_64/include/QtGui/QPaintDeviceWindow \
