@@ -97,6 +97,18 @@ private slots:
 
     void on_button_create_sem_clicked();
 
+    void on_button_currentDate_clicked();
+
+    void on_button_setStartDate_clicked();
+
+    void on_button_setEndDate_clicked();
+
+    void on_button_back_6_clicked();
+
+    void on_button_confirm_3_clicked();
+
+    void on_button_class_manage_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

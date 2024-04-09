@@ -582,7 +582,7 @@ void MainWindow::on_button_back_5_clicked()
 
 void MainWindow::on_button_create_sy_clicked()
 {
-    if (lastSemNumber < 2)
+    if (lastSemNumber < 3)
     {
         MessageBox("Error!", "Unable To Create New School Year, Semester Is Not Latest!");
     }
@@ -624,5 +624,94 @@ void MainWindow::on_button_create_sy_clicked()
 void MainWindow::on_button_create_sem_clicked()
 {
     ui->stackedWidget_3->setCurrentIndex(3);
+    ui->lb_latestSED->setText(QString::fromStdString("Latest Semester End Date: " + latestSem.endDate));
+}
+
+
+void MainWindow::on_button_currentDate_clicked()
+{
+    QDate currentDate = QDate::currentDate();
+
+    ui->calendarWidget_2->setCurrentPage(currentDate.year(), currentDate.month());
+    ui->calendarWidget_2->setSelectedDate(currentDate);
+}
+
+
+void MainWindow::on_button_setStartDate_clicked()
+{
+    QDate selectedDate = ui->calendarWidget_2->selectedDate();
+
+    ui->txt_startDate->setText(selectedDate.toString("dd/MM/yyyy"));
+}
+
+
+void MainWindow::on_button_setEndDate_clicked()
+{
+    QDate selectedDate = ui->calendarWidget_2->selectedDate();
+
+    ui->txt_endDate->setText(selectedDate.toString("dd/MM/yyyy"));
+}
+
+
+void MainWindow::on_button_back_6_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_button_confirm_3_clicked()
+{
+    if (lastSemNumber >= 3)
+    {
+        MessageBox("Error", "Current School Year Is Full Of Semesters!\n Let's Create A New School Year!");
+        return;
+    }
+
+    std::string startDate = ui->txt_startDate->text().toStdString();
+    std::string endDate = ui->txt_endDate->text().toStdString();
+
+    int diff = daysBetweenDates(startDate, latestSem.endDate);
+    if (diff < 1)
+    {
+        MessageBox("Error", "Start Date Must Be Later Than The End Date Of The Previous Semester!");
+        ui->txt_startDate->setText("");
+        ui->txt_endDate->setText("");
+        return;
+    }
+
+    diff = daysBetweenDates(endDate, startDate);
+    if (diff < 1)
+    {
+        MessageBox("Error", "End Date Must Be Later Than Start Date!");
+        ui->txt_startDate->setText("");
+        ui->txt_endDate->setText("");
+        return;
+    }
+
+    diff = daysBetweenDates(endDate, startDate);
+    if ((diff < 90) || (diff > 150))
+    {
+        MessageBox("Error", "The Duration Of A Semester Must Be Between 90 Days (~3 Months) And 150 Days (~5 Months)!");
+        ui->txt_startDate->setText("");
+        ui->txt_endDate->setText("");
+        return;
+    }
+
+    latestSYear->data.semesters[lastSemNumber].isCreated = true;
+    latestSYear->data.semesters[lastSemNumber].startDate = startDate;
+    latestSYear->data.semesters[lastSemNumber].endDate = endDate;
+    latestSem = currSem = latestSYear->data.semesters[lastSemNumber];
+    lastSemNumber++;
+    currSemNumber = lastSemNumber;
+    QMessageBox::information(nullptr, "Notification", "Semester Created Successfully!");
+    ui->lb_latestSY->setText(QString::fromStdString("Latest School Year: " + latestSYear->data.year));
+    ui->lb_latestSem->setText(QString::fromStdString("Latest Semester: " + std::to_string(lastSemNumber)));
+    ui->lb_latestSED->setText(QString::fromStdString("Latest Semester End Date: " + latestSem.endDate));
+}
+
+
+void MainWindow::on_button_class_manage_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(4);
 }
 

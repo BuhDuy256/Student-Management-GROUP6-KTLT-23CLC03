@@ -22,6 +22,7 @@
 #include <QTextStream>
 #include <QIcon>
 #include <iostream>
+#include <string>
 #include <fstream>
 #include <sstream>
 #include <algorithm>

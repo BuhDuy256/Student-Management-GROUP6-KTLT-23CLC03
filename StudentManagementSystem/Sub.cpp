@@ -283,9 +283,9 @@ bool isValidDateFormat(const std::string& date) {
 }
 
 int dateToInt(std::string date) {
-    if (!isValidDateFormat(date)) {
-        throw std::invalid_argument("Invalid date format");
-    }
+    // if (!isValidDateFormat(date)) {
+    //     throw std::invalid_argument("Invalid date format");
+    // }
 
     int Y = std::stoi(date.substr(6, 4));
     int M = std::stoi(date.substr(3, 2));
@@ -314,7 +314,7 @@ int daysInMonth(int month, int year) {
 }
 
 int daysBetweenDates(const std::string& date1, const std::string& date2) {
-    return abs(dateToInt(date2) - dateToInt(date1));
+    return -(dateToInt(date2) - dateToInt(date1));
 }
 
 char getYesNo(std::string prompt) {
