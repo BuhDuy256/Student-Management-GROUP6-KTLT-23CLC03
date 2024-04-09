@@ -68,7 +68,7 @@ color: black;
 }</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2" rowstretch="2,7,2" columnstretch="2,5,2">
@@ -709,7 +709,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -1222,7 +1222,7 @@ font: 20px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">font-size: 20px;
+                 <string notr="true">font-size: 18px;
 border-image: url(:/background/button.png);
 background-color: rgb(133, 133, 133);
 color: white;</string>
@@ -1271,7 +1271,7 @@ font-size: 20px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">font-size: 20px;
+                 <string notr="true">font-size: 18px;
 border-image: url(:/background/button.png);
 background-color: rgb(133, 133, 133);
 color: white;</string>
@@ -1614,12 +1614,13 @@ QScrollBar:horizontal {
               </property>
               <property name="font">
                <font>
-                <pointsize>18</pointsize>
+                <pointsize>20</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,200)</string>
+background-color: rgba(255,255,255,200);
+padding-left: 10px;</string>
               </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
@@ -1708,12 +1709,13 @@ background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="font">
                <font>
-                <pointsize>18</pointsize>
+                <pointsize>20</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,200)</string>
+background-color: rgba(255,255,255,200);
+padding-left: 10px;</string>
               </property>
               <property name="text">
                <string/>
@@ -1739,12 +1741,13 @@ background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="font">
                <font>
-                <pointsize>18</pointsize>
+                <pointsize>20</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,200)</string>
+background-color: rgba(255,255,255,200);
+padding-left: 10px;</string>
               </property>
               <property name="echoMode">
                <enum>QLineEdit::Password</enum>
@@ -1781,7 +1784,7 @@ background-color: rgba(255,255,255,200)</string>
         border-image: url(:/background/Lovely Minecraft Hd Wallpaper 1920x1080.jpg);
 }</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,19,0">
+       <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,19">
         <property name="leftMargin">
          <number>15</number>
         </property>
@@ -2047,7 +2050,7 @@ font-size: 20px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">

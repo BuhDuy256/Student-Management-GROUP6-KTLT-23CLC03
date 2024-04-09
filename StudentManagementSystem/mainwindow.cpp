@@ -101,6 +101,8 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_AdGender->setFont(minecraftFont);
     ui->lb_AdBirthday->setFont(minecraftFont);
     ui->lb_AdSocialID->setFont(minecraftFont);
+    ui->lb_latestSem->setFont(minecraftFont);
+    ui->lb_latestSY->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
 
