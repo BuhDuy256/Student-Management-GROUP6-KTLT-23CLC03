@@ -709,7 +709,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-           <number>3</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -757,7 +757,7 @@ background-color: rgba(0, 0, 0, 96);
                  </size>
                 </property>
                 <property name="text">
-                 <string>CURRENT DAY</string>
+                 <string>CURRENT DATE</string>
                 </property>
                </widget>
               </item>
@@ -2017,6 +2017,9 @@ font-size: 20px;</string>
 #AdCreateSemester{
         background-color: rgba(0, 0, 0, 96);
 }
+#AdClassManagement{
+        background-color: rgba(0, 0, 0, 96);
+}
 
 #lb_welcome_2{
         color:white;
@@ -2050,7 +2053,7 @@ font-size: 20px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>4</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -2678,7 +2681,296 @@ background-color: rgba(255,255,255,200)</string>
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="AdCreateSemester"/>
+          <widget class="QWidget" name="AdCreateSemester">
+           <layout class="QGridLayout" name="gridLayout_10">
+            <property name="leftMargin">
+             <number>65</number>
+            </property>
+            <property name="topMargin">
+             <number>11</number>
+            </property>
+            <property name="rightMargin">
+             <number>65</number>
+            </property>
+            <item row="3" column="1">
+             <widget class="QPushButton" name="button_setStartDate">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Set Start Date</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="2" alignment="Qt::AlignRight">
+             <widget class="QPushButton" name="button_back_6">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>BACK</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLineEdit" name="txt_endDate">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>16</pointsize>
+               </font>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="3" alignment="Qt::AlignHCenter">
+             <widget class="QLabel" name="lb_createNewSemester">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>103</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>36</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: #7FFFD4;
+</string>
+              </property>
+              <property name="text">
+               <string>Create New Semester</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="2" rowspan="2">
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QCalendarWidget" name="calendarWidget_2"/>
+              </item>
+              <item alignment="Qt::AlignHCenter">
+               <widget class="QPushButton" name="button_currentDate">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>170</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>CURRENT DAY</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="4" column="1">
+             <widget class="QPushButton" name="button_setEndDate">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Set End Date</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0" colspan="2">
+             <widget class="QPushButton" name="button_confirm_3">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>CONFIRM</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLineEdit" name="txt_startDate">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>16</pointsize>
+               </font>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" colspan="3">
+             <widget class="QLabel" name="lb_latestSED">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>20</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: white;
+</string>
+              </property>
+              <property name="text">
+               <string>Latest Semester End Date:</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="AdClassManagement">
+           <widget class="QLabel" name="lb_classManage">
+            <property name="geometry">
+             <rect>
+              <x>150</x>
+              <y>30</y>
+              <width>621</width>
+              <height>111</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>36</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: #7FFFD4;
+</string>
+            </property>
+            <property name="text">
+             <string>CLASS MANAGEMENT</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton">
+            <property name="geometry">
+             <rect>
+              <x>270</x>
+              <y>490</y>
+              <width>301</width>
+              <height>61</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>VIEW SCOREBOARD OF CLASS</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="geometry">
+             <rect>
+              <x>270</x>
+              <y>390</y>
+              <width>301</width>
+              <height>61</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>ALL CLASSES</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="geometry">
+             <rect>
+              <x>270</x>
+              <y>290</y>
+              <width>301</width>
+              <height>61</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>ADD STUDENTS TO CLASS</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton_4">
+            <property name="geometry">
+             <rect>
+              <x>270</x>
+              <y>190</y>
+              <width>301</width>
+              <height>61</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>CREATED NEW CLASS</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="AdAddClass"/>
+          <widget class="QWidget" name="AdAddStudent"/>
+          <widget class="QWidget" name="AdAllClasses"/>
+          <widget class="QWidget" name="AdScoreboard"/>
          </widget>
         </item>
        </layout>

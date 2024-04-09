@@ -165,6 +165,20 @@ public:
     QPushButton *button_confirm_2;
     QPushButton *button_back_3;
     QWidget *AdCreateSemester;
+    QGridLayout *gridLayout_10;
+    QPushButton *button_setStartDate;
+    QPushButton *button_back_6;
+    QLineEdit *txt_endDate;
+    QLabel *lb_createNewSemester;
+    QVBoxLayout *verticalLayout_6;
+    QCalendarWidget *calendarWidget_2;
+    QPushButton *button_currentDate;
+    QPushButton *button_setEndDate;
+    QPushButton *button_confirm_3;
+    QLineEdit *txt_startDate;
+    QLabel *lb_latestSED;
+    QWidget *AdClassManagement;
+    QLabel *lb_classManage;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -1161,6 +1175,9 @@ public:
 "#AdCreateSemester{\n"
 "        background-color: rgba(0, 0, 0, 96);\n"
 "}\n"
+"#AdClassManagement{\n"
+"        background-color: rgba(0, 0, 0, 96);\n"
+"}\n"
 "\n"
 "#lb_welcome_2{\n"
 "        color:white;\n"
@@ -1457,7 +1474,106 @@ public:
         stackedWidget_3->addWidget(AdChangePass);
         AdCreateSemester = new QWidget();
         AdCreateSemester->setObjectName("AdCreateSemester");
+        gridLayout_10 = new QGridLayout(AdCreateSemester);
+        gridLayout_10->setObjectName("gridLayout_10");
+        gridLayout_10->setContentsMargins(65, 11, 65, -1);
+        button_setStartDate = new QPushButton(AdCreateSemester);
+        button_setStartDate->setObjectName("button_setStartDate");
+        button_setStartDate->setMinimumSize(QSize(150, 50));
+
+        gridLayout_10->addWidget(button_setStartDate, 3, 1, 1, 1);
+
+        button_back_6 = new QPushButton(AdCreateSemester);
+        button_back_6->setObjectName("button_back_6");
+        button_back_6->setMinimumSize(QSize(200, 65));
+        button_back_6->setMaximumSize(QSize(200, 65));
+
+        gridLayout_10->addWidget(button_back_6, 6, 2, 1, 1, Qt::AlignRight);
+
+        txt_endDate = new QLineEdit(AdCreateSemester);
+        txt_endDate->setObjectName("txt_endDate");
+        txt_endDate->setMinimumSize(QSize(0, 50));
+        txt_endDate->setMaximumSize(QSize(16777215, 50));
+        txt_endDate->setFont(font5);
+        txt_endDate->setAlignment(Qt::AlignCenter);
+        txt_endDate->setReadOnly(true);
+
+        gridLayout_10->addWidget(txt_endDate, 4, 0, 1, 1);
+
+        lb_createNewSemester = new QLabel(AdCreateSemester);
+        lb_createNewSemester->setObjectName("lb_createNewSemester");
+        lb_createNewSemester->setMaximumSize(QSize(16777215, 103));
+        lb_createNewSemester->setFont(font9);
+        lb_createNewSemester->setStyleSheet(QString::fromUtf8("color: #7FFFD4;\n"
+""));
+
+        gridLayout_10->addWidget(lb_createNewSemester, 0, 0, 1, 3, Qt::AlignHCenter);
+
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setSpacing(5);
+        verticalLayout_6->setObjectName("verticalLayout_6");
+        calendarWidget_2 = new QCalendarWidget(AdCreateSemester);
+        calendarWidget_2->setObjectName("calendarWidget_2");
+
+        verticalLayout_6->addWidget(calendarWidget_2);
+
+        button_currentDate = new QPushButton(AdCreateSemester);
+        button_currentDate->setObjectName("button_currentDate");
+        QSizePolicy sizePolicy4(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Fixed);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(button_currentDate->sizePolicy().hasHeightForWidth());
+        button_currentDate->setSizePolicy(sizePolicy4);
+        button_currentDate->setMinimumSize(QSize(150, 40));
+        button_currentDate->setMaximumSize(QSize(170, 16777215));
+
+        verticalLayout_6->addWidget(button_currentDate, 0, Qt::AlignHCenter);
+
+
+        gridLayout_10->addLayout(verticalLayout_6, 3, 2, 2, 1);
+
+        button_setEndDate = new QPushButton(AdCreateSemester);
+        button_setEndDate->setObjectName("button_setEndDate");
+        button_setEndDate->setMinimumSize(QSize(150, 50));
+
+        gridLayout_10->addWidget(button_setEndDate, 4, 1, 1, 1);
+
+        button_confirm_3 = new QPushButton(AdCreateSemester);
+        button_confirm_3->setObjectName("button_confirm_3");
+        button_confirm_3->setMinimumSize(QSize(200, 65));
+        button_confirm_3->setMaximumSize(QSize(200, 65));
+
+        gridLayout_10->addWidget(button_confirm_3, 6, 0, 1, 2);
+
+        txt_startDate = new QLineEdit(AdCreateSemester);
+        txt_startDate->setObjectName("txt_startDate");
+        txt_startDate->setMinimumSize(QSize(0, 50));
+        txt_startDate->setMaximumSize(QSize(16777215, 50));
+        txt_startDate->setFont(font5);
+        txt_startDate->setAlignment(Qt::AlignCenter);
+        txt_startDate->setReadOnly(true);
+
+        gridLayout_10->addWidget(txt_startDate, 3, 0, 1, 1);
+
+        lb_latestSED = new QLabel(AdCreateSemester);
+        lb_latestSED->setObjectName("lb_latestSED");
+        lb_latestSED->setMaximumSize(QSize(16777215, 30));
+        lb_latestSED->setFont(font2);
+        lb_latestSED->setStyleSheet(QString::fromUtf8("color: white;\n"
+""));
+
+        gridLayout_10->addWidget(lb_latestSED, 2, 0, 1, 3);
+
         stackedWidget_3->addWidget(AdCreateSemester);
+        AdClassManagement = new QWidget();
+        AdClassManagement->setObjectName("AdClassManagement");
+        lb_classManage = new QLabel(AdClassManagement);
+        lb_classManage->setObjectName("lb_classManage");
+        lb_classManage->setGeometry(QRect(150, 30, 621, 111));
+        lb_classManage->setFont(font9);
+        lb_classManage->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
+""));
+        stackedWidget_3->addWidget(AdClassManagement);
 
         gridLayout_4->addWidget(stackedWidget_3, 0, 1, 1, 1);
 
@@ -1475,7 +1591,7 @@ public:
         retranslateUi(MainWindow);
 
         stackedWidget->setCurrentIndex(2);
-        stackedWidget_2->setCurrentIndex(2);
+        stackedWidget_2->setCurrentIndex(1);
         stackedWidget_3->setCurrentIndex(0);
 
 
@@ -1500,7 +1616,7 @@ public:
         button_StuChangePassword->setText(QCoreApplication::translate("MainWindow", "CHANGE PASSWORD", nullptr));
         button_StuSignOut->setText(QCoreApplication::translate("MainWindow", "SIGN OUT", nullptr));
         slogan_1->setText(QCoreApplication::translate("MainWindow", "Take A Chance To Make A Change", nullptr));
-        button_currentDay->setText(QCoreApplication::translate("MainWindow", "CURRENT DAY", nullptr));
+        button_currentDay->setText(QCoreApplication::translate("MainWindow", "CURRENT DATE", nullptr));
         slogan_2->setText(QCoreApplication::translate("MainWindow", "slogan", nullptr));
         slogan_3->setText(QCoreApplication::translate("MainWindow", "slogan", nullptr));
         lb_welcome->setText(QCoreApplication::translate("MainWindow", "WELCOME", nullptr));
@@ -1574,6 +1690,14 @@ public:
         checkBox_3->setText(QCoreApplication::translate("MainWindow", "Show Password", nullptr));
         button_confirm_2->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
         button_back_3->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
+        button_setStartDate->setText(QCoreApplication::translate("MainWindow", "Set Start Date", nullptr));
+        button_back_6->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
+        lb_createNewSemester->setText(QCoreApplication::translate("MainWindow", "Create New Semester", nullptr));
+        button_currentDate->setText(QCoreApplication::translate("MainWindow", "CURRENT DAY", nullptr));
+        button_setEndDate->setText(QCoreApplication::translate("MainWindow", "Set End Date", nullptr));
+        button_confirm_3->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
+        lb_latestSED->setText(QCoreApplication::translate("MainWindow", "Latest Semester End Date:", nullptr));
+        lb_classManage->setText(QCoreApplication::translate("MainWindow", "CLASS MANAGEMENT", nullptr));
     } // retranslateUi
 
 };
