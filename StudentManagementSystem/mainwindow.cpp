@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget* parent)
 
 
     minecraftFont.setPointSize(9);
-    ui->tableWidget->setFont(minecraftFont);
+
 
     minecraftFont.setPointSize(12);
     ui->checkBox->setFont(minecraftFont);
@@ -49,6 +49,9 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_back_4->setFont(minecraftFont);
     ui->lb_select_sy->setFont(minecraftFont);
     ui->lb_select_sem->setFont(minecraftFont);
+    ui->tableWidget->setFont(minecraftFont);
+    ui->button_viewScore->setFont(minecraftFont);
+    ui->button_back_5->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(16);
