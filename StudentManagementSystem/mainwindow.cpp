@@ -716,3 +716,282 @@ void MainWindow::on_button_class_manage_clicked()
     ui->stackedWidget_3->setCurrentIndex(4);
 }
 
+
+void MainWindow::on_button_createClass_clicked()
+{
+    ui->box_selectSY->clear();
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr)
+    {
+        ui->box_selectSY->addItem(QString::fromStdString(syCurr->data.year));
+        syCurr = syCurr->next;
+    }
+
+    ui->stackedWidget_3->setCurrentIndex(5);
+}
+
+
+void MainWindow::on_box_selectSY_currentTextChanged(const QString &arg1)
+{
+    std::string sy = ui->box_selectSY->currentText().toStdString();
+
+    ui->lb_allClassesIn->setText(QString::fromStdString("All Classes In " + sy));
+
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr)
+    {
+        if (syCurr->data.year == sy)
+        {
+            currSYear = syCurr;
+            break;
+        }
+        syCurr = syCurr->next;
+    }
+
+    ui->list_classes->clear();
+    Node<Class>* claCurr = currSYear->data.classes;
+    if (!claCurr)
+    {
+        QListWidgetItem* item = new QListWidgetItem("No Class");
+        item->setTextAlignment(Qt::AlignHCenter);
+        ui->list_classes->addItem(item);
+    }
+    else while (claCurr)
+    {
+        // std::cout << std::left << "\t| " << std::setw(8) << no << "| " << std::setw(19) << claCurr->data.className << "|\n";
+        QListWidgetItem* item = new QListWidgetItem(QString::fromStdString(claCurr->data.className));
+        item->setTextAlignment(Qt::AlignHCenter);
+        ui->list_classes->addItem(item);
+        claCurr = claCurr->next;
+    }
+
+    if (sy.size() > 0)
+    ui->lb_example->setText(QString::fromStdString("Example: " + sy.substr(2, 2) + "CLC04, " + sy.substr(2, 2) + "APCS09, etc."));
+}
+
+
+void MainWindow::on_button_confirm_4_clicked()
+{
+    std::string className = ui->txt_className->text().toStdString();
+
+    if (!isValidClassName(className, currSYear->data.year))
+    {
+        MessageBox("Error", "Invalid Class Name!");
+        return;
+    }
+    if (isClassExisted(className))
+    {
+        MessageBox("Error", "Class Is Already In The System!");
+        return;
+    }
+
+    Class newClass;
+    newClass.className = className;
+    newClass.schoolYear = currSYear->data.year;
+    Node<Class>* claHead = new Node<Class>(newClass, currSYear->data.classes);
+    currSYear->data.classes = claHead;
+
+    QMessageBox::information(nullptr, "Notification", "A New Class Created Successfully!");
+    MainWindow::on_box_selectSY_currentTextChanged("0");
+}
+
+
+void MainWindow::on_button_back_8_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(4);
+}
+
+
+void MainWindow::on_button_addStudent_clicked()
+{
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr)
+    {
+        Node<Class>* claCurr = syCurr->data.classes;
+        while (claCurr)
+        {
+            ui->box_selectClass->addItem(QString::fromStdString(claCurr->data.className));
+            claCurr = claCurr->next;
+        }
+        syCurr = syCurr->next;
+    }
+
+    ui->stackedWidget_3->setCurrentIndex(6);
+    ui->stackedWidget_4->setCurrentIndex(0);
+}
+
+
+
+void MainWindow::on_button_back_9_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(4);
+}
+
+
+void MainWindow::on_button_addOne_clicked()
+{
+    ui->stackedWidget_4->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_button_import_clicked()
+{
+    ui->stackedWidget_4->setCurrentIndex(1);
+}
+
+
+void MainWindow::on_button_openCalendar_clicked()
+{
+    ui->stackedWidget_4->setCurrentIndex(2);
+}
+
+
+void MainWindow::on_button_selectDate_clicked()
+{
+    QDate selectedDate = ui->calendarWidget_3->selectedDate();
+
+    ui->txt_addBirthday->setText(selectedDate.toString("dd/MM/yyyy"));
+
+    ui->stackedWidget_4->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_box_selectClass_currentTextChanged(const QString &arg1)
+{
+    ui->tableWidget_2->setRowCount(0);
+    std::string className = ui->box_selectClass->currentText().toStdString();
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr)
+    {
+        Node<Class>* claCurr = syCurr->data.classes;
+        while (claCurr)
+        {
+            if (claCurr->data.className == className)
+            {
+                // displayTableOfStudentsInAClass(claCurr, no2);
+                Node<Student>* currStu = claCurr->data.students;
+                int no = 0;
+                while (currStu)
+                {
+                    no++;
+                    ui->tableWidget_2->setRowCount(no);
+                    ui->tableWidget_2->setItem(no - 1, 0, new QTableWidgetItem(QString::fromStdString(currStu->data.ID)));
+                    ui->tableWidget_2->setItem(no - 1, 1, new QTableWidgetItem(QString::fromStdString(currStu->data.name)));
+                    ui->tableWidget_2->setItem(no - 1, 2, new QTableWidgetItem(QString::fromStdString(currStu->data.gender)));
+                    ui->tableWidget_2->setItem(no - 1, 3, new QTableWidgetItem(QString::fromStdString(currStu->data.socialID)));
+
+                    currStu = currStu->next;
+                }
+                break;
+            }
+            claCurr = claCurr->next;
+        }
+        syCurr = syCurr->next;
+    }
+    ui->tableWidget_2->resizeColumnsToContents();
+}
+
+
+void MainWindow::on_button_confirm_5_clicked()
+{
+    std::string className = ui->box_selectClass->currentText().toStdString();
+    Node<Class>* claCurr = latestSYear->data.classes;
+    Node<SchoolYear>* tempYear = latestSYear;
+    while(tempYear)
+    {
+        while (claCurr)
+        {
+            if (claCurr->data.className == className)
+            {
+                break;
+            }
+            claCurr = claCurr->next;
+        }
+        tempYear = tempYear->next;
+    }
+
+    std::string newStudentID = ui->txt_addID->text().toStdString();
+    std::string newStudentName = ui->txt_addName->text().toStdString();
+    std::string newStudentGender = ui->box_addGender->currentText().toStdString();
+    std::string newStudentBirthday = ui->txt_addBirthday->text().toStdString();
+    std::string newStudentSocialID = ui->txt_addSocialID->text().toStdString();
+    if (!isValidStudentID(newStudentID))
+    {
+        MessageBox("Error", "Student ID Must Be A 8-Digit Number!");
+        return;
+    }
+    // check exist student ID
+
+    if (!isValidCouOrStuName(newStudentName))
+    {
+        MessageBox("Error", "Invalid Name!");
+        return;
+    }
+    formalize(newStudentName);
+
+    if (newStudentSocialID.length() != 8)
+    {
+        MessageBox("Error", "Social ID Must Be A 8-Digit Number!");
+        return;
+    }
+
+    Student newStudent;
+    newStudent.ID = newStudentID;
+    newStudent.name = newStudentName;
+    newStudent.gender = newStudentGender;
+    newStudent.birthday = newStudentBirthday;
+    newStudent.socialID = newStudentSocialID;
+    newStudent.mainClass = claCurr->data.className;
+    if (!claCurr->data.students)
+    {
+        claCurr->data.students = new Node<Student>(newStudent);
+    }
+    else
+    {
+        Node<Student>* stuCurr = claCurr->data.students;
+        while (stuCurr->next)
+            stuCurr = stuCurr->next;
+        stuCurr->next = new Node<Student>(newStudent);
+    }
+
+    QMessageBox::information(nullptr, "Notification", "A New Student Added Successfully!");
+}
+
+
+void MainWindow::on_button_cancel_clicked()
+{
+    ui->txt_addID->setText("");
+    ui->txt_addName->setText("");
+    ui->txt_addBirthday->setText("");
+    ui->txt_addSocialID->setText("");
+}
+
+
+void MainWindow::on_button_cancel_2_clicked()
+{
+    ui->txt_path->setText("");
+}
+
+
+void MainWindow::on_button_confirm_6_clicked()
+{
+    std::string path = ui->txt_path->text().toStdString();
+    std::string className = ui->box_selectClass->currentText().toStdString();
+
+    Node<SchoolYear>* syHead = currSYear;
+    int count = 0;
+    while (syHead) {
+        Node<Class>* claHead = syHead->data.classes;
+        while (claHead)
+        {
+            if (claHead->data.className == className)
+            {
+                importCSVStudentsOfAClass(claHead);
+                return;
+            }
+            claHead = claHead->next;
+        }
+        syHead = syHead->next;
+    }
+}
+

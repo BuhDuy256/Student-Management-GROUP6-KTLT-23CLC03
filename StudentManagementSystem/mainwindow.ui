@@ -68,7 +68,7 @@ color: black;
 }</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2" rowstretch="2,7,2" columnstretch="2,5,2">
@@ -709,7 +709,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -733,7 +733,7 @@ background-color: rgba(0, 0, 0, 96);
                </font>
               </property>
               <property name="text">
-               <string>The only way to do great work is to love what you do.</string>
+               <string>The only way to do great work is to love what you do</string>
               </property>
               <property name="wordWrap">
                <bool>true</bool>
@@ -839,7 +839,7 @@ QCalendarWidget QSpinBox::down-button {
                </font>
               </property>
               <property name="text">
-               <string>Believe you can and you’re halfway there.</string>
+               <string>Believe you can and you’re halfway there</string>
               </property>
               <property name="wordWrap">
                <bool>true</bool>
@@ -1843,7 +1843,7 @@ padding-left: 10px;</string>
         border-image: url(:/background/Lovely Minecraft Hd Wallpaper 1920x1080.jpg);
 }</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,19">
+       <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,19,0,0,0,0">
         <property name="leftMargin">
          <number>15</number>
         </property>
@@ -1856,211 +1856,6 @@ padding-left: 10px;</string>
         <property name="bottomMargin">
          <number>15</number>
         </property>
-        <item row="0" column="0">
-         <widget class="QWidget" name="widget_3" native="true">
-          <property name="styleSheet">
-           <string notr="true">#widget_3{
-        background-color: rgba(0, 0, 0, 150);
-}</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_3">
-           <property name="spacing">
-            <number>4</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>70</number>
-           </property>
-           <item alignment="Qt::AlignHCenter">
-            <widget class="QLabel" name="lb_latestSY">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>23</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;
-font-size: 20px;</string>
-             </property>
-             <property name="text">
-              <string>Latest School Year:</string>
-             </property>
-            </widget>
-           </item>
-           <item alignment="Qt::AlignHCenter">
-            <widget class="QLabel" name="lb_latestSem">
-             <property name="maximumSize">
-              <size>
-               <width>218</width>
-               <height>23</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>-1</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color:white;
-font-size: 20px;</string>
-             </property>
-             <property name="text">
-              <string>Latest Semester:</string>
-             </property>
-            </widget>
-           </item>
-           <item alignment="Qt::AlignHCenter">
-            <widget class="QLabel" name="avatar_2">
-             <property name="minimumSize">
-              <size>
-               <width>140</width>
-               <height>140</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>140</width>
-               <height>140</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">#avatar_2{
-        border-image: url(:/background/OIP.jpg)
-}</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="name_2">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>34</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>16</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">#name_2{
-        color: #FBFFF4;
-}</string>
-             </property>
-             <property name="text">
-              <string>Hi, Admin</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item alignment="Qt::AlignHCenter">
-            <widget class="QPushButton" name="button_AdHome">
-             <property name="minimumSize">
-              <size>
-               <width>218</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>251</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>HOME</string>
-             </property>
-            </widget>
-           </item>
-           <item alignment="Qt::AlignHCenter">
-            <widget class="QPushButton" name="button_AdMyProfile">
-             <property name="minimumSize">
-              <size>
-               <width>218</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>251</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>MY PROFILE</string>
-             </property>
-            </widget>
-           </item>
-           <item alignment="Qt::AlignHCenter">
-            <widget class="QPushButton" name="button_AdChangePassword">
-             <property name="minimumSize">
-              <size>
-               <width>218</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>251</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>CHANGE PASSWORD</string>
-             </property>
-            </widget>
-           </item>
-           <item alignment="Qt::AlignHCenter">
-            <widget class="QPushButton" name="button_AdSignOut">
-             <property name="minimumSize">
-              <size>
-               <width>218</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>251</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>SIGN OUT</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
         <item row="0" column="1">
          <widget class="QStackedWidget" name="stackedWidget_3">
           <property name="styleSheet">
@@ -2077,6 +1872,24 @@ font-size: 20px;</string>
         background-color: rgba(0, 0, 0, 96);
 }
 #AdClassManagement{
+        background-color: rgba(0, 0, 0, 96);
+}
+#AdAddClass{
+	 background-color: rgba(0, 0, 0, 96);
+}
+#AdAddStudent{
+        background-color: rgba(0, 0, 0, 96);
+}
+#AdAddStudent_input{
+        background-color: rgba(0, 0, 0, 96);
+}
+#AdAddStudent_import{
+        background-color: rgba(0, 0, 0, 96);
+}
+#AdAllClasses{
+        background-color: rgba(0, 0, 0, 96);
+}
+#AdScoreboard{
         background-color: rgba(0, 0, 0, 96);
 }
 
@@ -2112,7 +1925,7 @@ font-size: 20px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>6</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -2957,7 +2770,7 @@ padding-left: 10px;</string>
            <widget class="QLabel" name="lb_classManage">
             <property name="geometry">
              <rect>
-              <x>150</x>
+              <x>120</x>
               <y>30</y>
               <width>621</width>
               <height>111</height>
@@ -2975,8 +2788,11 @@ padding-left: 10px;</string>
             <property name="text">
              <string>CLASS MANAGEMENT</string>
             </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
            </widget>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="button_scoreOfClass">
             <property name="geometry">
              <rect>
               <x>270</x>
@@ -2989,7 +2805,7 @@ padding-left: 10px;</string>
              <string>VIEW SCOREBOARD OF CLASS</string>
             </property>
            </widget>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="button_allClasses">
             <property name="geometry">
              <rect>
               <x>270</x>
@@ -3002,7 +2818,7 @@ padding-left: 10px;</string>
              <string>ALL CLASSES</string>
             </property>
            </widget>
-           <widget class="QPushButton" name="pushButton_3">
+           <widget class="QPushButton" name="button_addStudent">
             <property name="geometry">
              <rect>
               <x>270</x>
@@ -3015,7 +2831,7 @@ padding-left: 10px;</string>
              <string>ADD STUDENTS TO CLASS</string>
             </property>
            </widget>
-           <widget class="QPushButton" name="pushButton_4">
+           <widget class="QPushButton" name="button_createClass">
             <property name="geometry">
              <rect>
               <x>270</x>
@@ -3028,11 +2844,914 @@ padding-left: 10px;</string>
              <string>CREATED NEW CLASS</string>
             </property>
            </widget>
+           <widget class="QPushButton" name="button_back_7">
+            <property name="geometry">
+             <rect>
+              <x>680</x>
+              <y>570</y>
+              <width>200</width>
+              <height>65</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>65</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>65</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>BACK</string>
+            </property>
+           </widget>
           </widget>
-          <widget class="QWidget" name="AdAddClass"/>
-          <widget class="QWidget" name="AdAddStudent"/>
+          <widget class="QWidget" name="AdAddClass">
+           <layout class="QGridLayout" name="gridLayout_11">
+            <property name="leftMargin">
+             <number>65</number>
+            </property>
+            <property name="rightMargin">
+             <number>65</number>
+            </property>
+            <property name="bottomMargin">
+             <number>11</number>
+            </property>
+            <property name="horizontalSpacing">
+             <number>30</number>
+            </property>
+            <property name="verticalSpacing">
+             <number>20</number>
+            </property>
+            <item row="0" column="0" colspan="2">
+             <widget class="QLabel" name="lb_createNewClass">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>130</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>36</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: #7FFFD4;
+</string>
+              </property>
+              <property name="text">
+               <string>CREATE NEW CLASS</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <widget class="QLabel" name="lb_selectSY">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;
+</string>
+                </property>
+                <property name="text">
+                 <string>Select School Year:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="box_selectSY">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>2023-2024</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="1" rowspan="2">
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="QLabel" name="lb_allClassesIn">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color:white;
+</string>
+                </property>
+                <property name="text">
+                 <string>All Classes In</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QListWidget" name="list_classes">
+                <property name="font">
+                 <font>
+                  <pointsize>22</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QListWidget::item { padding: 8px; text-align: center; }</string>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::EditKeyPressed</set>
+                </property>
+                <property name="viewMode">
+                 <enum>QListView::ListMode</enum>
+                </property>
+                <property name="itemAlignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="sortingEnabled">
+                 <bool>true</bool>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>23CLC03</string>
+                 </property>
+                 <property name="textAlignment">
+                  <set>AlignCenter</set>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="2" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <item alignment="Qt::AlignBottom">
+               <widget class="QLabel" name="lb_enterClassName">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>100000</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color:white;</string>
+                </property>
+                <property name="text">
+                 <string>Enter New Class Name:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="txt_className">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>16</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lb_example">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>129</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color:white;</string>
+                </property>
+                <property name="text">
+                 <string>Example: 23CLC05, 23APCS10, etc.</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="3" column="1" alignment="Qt::AlignRight">
+             <widget class="QPushButton" name="button_back_8">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>BACK</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QPushButton" name="button_confirm_4">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>CONFIRM</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="AdAddStudent">
+           <layout class="QGridLayout" name="gridLayout_14" columnstretch="5,5,11">
+            <property name="leftMargin">
+             <number>65</number>
+            </property>
+            <property name="topMargin">
+             <number>35</number>
+            </property>
+            <property name="rightMargin">
+             <number>65</number>
+            </property>
+            <property name="bottomMargin">
+             <number>30</number>
+            </property>
+            <item row="1" column="2" rowspan="6">
+             <widget class="QTableWidget" name="tableWidget_2">
+              <column>
+               <property name="text">
+                <string>Student ID</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Full Name</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Gender</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Social ID</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QPushButton" name="button_import">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>IMPORT CSV FILE</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="2" alignment="Qt::AlignRight">
+             <widget class="QPushButton" name="button_back_9">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>BACK</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0" colspan="2">
+             <widget class="QStackedWidget" name="stackedWidget_4">
+              <property name="styleSheet">
+               <string notr="true">QLabel{
+color:white;
+}</string>
+              </property>
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <widget class="QWidget" name="page_addOne">
+               <layout class="QGridLayout" name="gridLayout_12">
+                <property name="leftMargin">
+                 <number>15</number>
+                </property>
+                <property name="topMargin">
+                 <number>5</number>
+                </property>
+                <property name="rightMargin">
+                 <number>15</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <property name="spacing">
+                 <number>7</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="lb_addStuID">
+                  <property name="text">
+                   <string>Student ID</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="3">
+                 <widget class="QLineEdit" name="txt_addID">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="lb_addName">
+                  <property name="text">
+                   <string>Full Name</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1" colspan="3">
+                 <widget class="QLineEdit" name="txt_addName">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="lb_addGender">
+                  <property name="text">
+                   <string>Gender</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="3">
+                 <widget class="QComboBox" name="box_addGender">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>Male</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Female</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="lb_addBirthday">
+                  <property name="text">
+                   <string>Birthday</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1" colspan="2">
+                 <widget class="QLineEdit" name="txt_addBirthday">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="readOnly">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="3">
+                 <widget class="QPushButton" name="button_openCalendar">
+                  <property name="minimumSize">
+                   <size>
+                    <width>25</width>
+                    <height>25</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>25</width>
+                    <height>25</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">border-image: url(:/background/right_arrow.png);</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QLabel" name="lb_addSocialID">
+                  <property name="text">
+                   <string>Social ID</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1" colspan="3">
+                 <widget class="QLineEdit" name="txt_addSocialID">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0" colspan="2">
+                 <widget class="QPushButton" name="button_confirm_5">
+                  <property name="minimumSize">
+                   <size>
+                    <width>120</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>120</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>CONFIRM</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="2" colspan="2" alignment="Qt::AlignRight">
+                 <widget class="QPushButton" name="button_cancel">
+                  <property name="minimumSize">
+                   <size>
+                    <width>120</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>120</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>CANCEL</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="page_import">
+               <layout class="QGridLayout" name="gridLayout_13">
+                <property name="leftMargin">
+                 <number>11</number>
+                </property>
+                <property name="topMargin">
+                 <number>65</number>
+                </property>
+                <property name="rightMargin">
+                 <number>11</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>115</number>
+                </property>
+                <property name="horizontalSpacing">
+                 <number>77</number>
+                </property>
+                <item row="1" column="0" colspan="2">
+                 <widget class="QLineEdit" name="txt_path">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0" alignment="Qt::AlignLeft">
+                 <widget class="QPushButton" name="button_confirm_6">
+                  <property name="minimumSize">
+                   <size>
+                    <width>120</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>120</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>CONFIRM</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1" alignment="Qt::AlignRight">
+                 <widget class="QPushButton" name="button_cancel_2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>120</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>120</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>CANCEL</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0" colspan="2" alignment="Qt::AlignBottom">
+                 <widget class="QLabel" name="lb_enterPath">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Enter Path To CSV File:</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="page_calendar">
+               <layout class="QGridLayout" name="gridLayout_15">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QCalendarWidget" name="calendarWidget_3"/>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QPushButton" name="button_selectDate">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Select Date</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QPushButton" name="button_addOne">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>ADD ONE STUDENT</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0" alignment="Qt::AlignLeft">
+             <widget class="QLabel" name="lb_selectClass">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color:white;
+</string>
+              </property>
+              <property name="text">
+               <string>Select Class:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1" rowspan="2">
+             <widget class="QComboBox" name="box_selectClass">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="3">
+             <widget class="QLabel" name="lb_addNewStudent">
+              <property name="font">
+               <font>
+                <pointsize>36</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: #7FFFD4;</string>
+              </property>
+              <property name="text">
+               <string>ADD NEW STUDENT</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
           <widget class="QWidget" name="AdAllClasses"/>
           <widget class="QWidget" name="AdScoreboard"/>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QWidget" name="widget_3" native="true">
+          <property name="styleSheet">
+           <string notr="true">#widget_3{
+        background-color: rgba(0, 0, 0, 150);
+}</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <property name="spacing">
+            <number>4</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>70</number>
+           </property>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="lb_latestSY">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color:white;
+font-size: 20px;</string>
+             </property>
+             <property name="text">
+              <string>Latest School Year:</string>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="lb_latestSem">
+             <property name="maximumSize">
+              <size>
+               <width>218</width>
+               <height>23</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>-1</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color:white;
+font-size: 20px;</string>
+             </property>
+             <property name="text">
+              <string>Latest Semester:</string>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="avatar_2">
+             <property name="minimumSize">
+              <size>
+               <width>140</width>
+               <height>140</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>140</width>
+               <height>140</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#avatar_2{
+        border-image: url(:/background/OIP.jpg)
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="name_2">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>34</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#name_2{
+        color: #FBFFF4;
+}</string>
+             </property>
+             <property name="text">
+              <string>Hi, Admin</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QPushButton" name="button_AdHome">
+             <property name="minimumSize">
+              <size>
+               <width>218</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>251</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>HOME</string>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QPushButton" name="button_AdMyProfile">
+             <property name="minimumSize">
+              <size>
+               <width>218</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>251</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>MY PROFILE</string>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QPushButton" name="button_AdChangePassword">
+             <property name="minimumSize">
+              <size>
+               <width>218</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>251</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>CHANGE PASSWORD</string>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QPushButton" name="button_AdSignOut">
+             <property name="minimumSize">
+              <size>
+               <width>218</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>251</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>SIGN OUT</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
        </layout>

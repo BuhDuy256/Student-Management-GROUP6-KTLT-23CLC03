@@ -109,6 +109,30 @@ private slots:
 
     void on_button_class_manage_clicked();
 
+    void on_button_createClass_clicked();
+
+    void on_box_selectSY_currentTextChanged(const QString &arg1);
+
+    void on_button_confirm_4_clicked();
+
+    void on_button_back_8_clicked();
+
+    void on_button_addStudent_clicked();
+
+    void on_button_back_9_clicked();
+
+    void on_button_addOne_clicked();
+
+    void on_button_import_clicked();
+
+    void on_button_openCalendar_clicked();
+
+    void on_button_selectDate_clicked();
+
+    void on_box_selectClass_currentTextChanged(const QString &arg1);
+
+    void on_button_confirm_5_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

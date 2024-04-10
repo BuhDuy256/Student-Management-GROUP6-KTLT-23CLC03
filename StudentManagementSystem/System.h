@@ -21,6 +21,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QIcon>
+#include <QListWidgetItem>
 #include <iostream>
 #include <string>
 #include <fstream>
