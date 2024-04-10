@@ -94,11 +94,42 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "on_button_openCalendar_clicked",
     "on_button_selectDate_clicked",
     "on_box_selectClass_currentTextChanged",
-    "on_button_confirm_5_clicked"
+    "on_button_confirm_5_clicked",
+    "on_button_cancel_clicked",
+    "on_button_cancel_2_clicked",
+    "on_button_confirm_6_clicked",
+    "importCSVStudentsOfAClass_2",
+    "Node<Class>*",
+    "claCurr",
+    "std::string",
+    "fileName",
+    "on_button_back_7_clicked",
+    "on_button_allClasses_clicked",
+    "on_pushButton_clicked",
+    "on_list_classes_2_itemClicked",
+    "QListWidgetItem*",
+    "item",
+    "on_button_scoreOfClass_clicked",
+    "on_box_class_currentTextChanged",
+    "on_box_year_currentTextChanged",
+    "on_button_ok_2_clicked",
+    "ChooseClass_2",
+    "className",
+    "on_box_semester_currentTextChanged",
+    "on_sem_select_currentTextChanged",
+    "on_button_courseSetting_clicked",
+    "on_button_courseView_clicked",
+    "on_button_removeFilter_clicked",
+    "on_button_course_manage_clicked",
+    "on_button_ok_3_clicked",
+    "on_box_selectSY_2_currentTextChanged",
+    "on_box_selectSem_currentTextChanged",
+    "on_button_viewStudent_clicked",
+    "on_button_coursesList_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[110];
+    uint offsetsAndSizes[172];
     char stringdata0[11];
     char stringdata1[25];
     char stringdata2[1];
@@ -154,6 +185,37 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata52[29];
     char stringdata53[38];
     char stringdata54[28];
+    char stringdata55[25];
+    char stringdata56[27];
+    char stringdata57[28];
+    char stringdata58[28];
+    char stringdata59[13];
+    char stringdata60[8];
+    char stringdata61[12];
+    char stringdata62[9];
+    char stringdata63[25];
+    char stringdata64[29];
+    char stringdata65[22];
+    char stringdata66[30];
+    char stringdata67[17];
+    char stringdata68[5];
+    char stringdata69[31];
+    char stringdata70[32];
+    char stringdata71[31];
+    char stringdata72[23];
+    char stringdata73[14];
+    char stringdata74[10];
+    char stringdata75[35];
+    char stringdata76[33];
+    char stringdata77[32];
+    char stringdata78[29];
+    char stringdata79[31];
+    char stringdata80[32];
+    char stringdata81[23];
+    char stringdata82[37];
+    char stringdata83[36];
+    char stringdata84[30];
+    char stringdata85[30];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -213,7 +275,38 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(1335, 30),  // "on_button_openCalendar_clicked"
         QT_MOC_LITERAL(1366, 28),  // "on_button_selectDate_clicked"
         QT_MOC_LITERAL(1395, 37),  // "on_box_selectClass_currentTex..."
-        QT_MOC_LITERAL(1433, 27)   // "on_button_confirm_5_clicked"
+        QT_MOC_LITERAL(1433, 27),  // "on_button_confirm_5_clicked"
+        QT_MOC_LITERAL(1461, 24),  // "on_button_cancel_clicked"
+        QT_MOC_LITERAL(1486, 26),  // "on_button_cancel_2_clicked"
+        QT_MOC_LITERAL(1513, 27),  // "on_button_confirm_6_clicked"
+        QT_MOC_LITERAL(1541, 27),  // "importCSVStudentsOfAClass_2"
+        QT_MOC_LITERAL(1569, 12),  // "Node<Class>*"
+        QT_MOC_LITERAL(1582, 7),  // "claCurr"
+        QT_MOC_LITERAL(1590, 11),  // "std::string"
+        QT_MOC_LITERAL(1602, 8),  // "fileName"
+        QT_MOC_LITERAL(1611, 24),  // "on_button_back_7_clicked"
+        QT_MOC_LITERAL(1636, 28),  // "on_button_allClasses_clicked"
+        QT_MOC_LITERAL(1665, 21),  // "on_pushButton_clicked"
+        QT_MOC_LITERAL(1687, 29),  // "on_list_classes_2_itemClicked"
+        QT_MOC_LITERAL(1717, 16),  // "QListWidgetItem*"
+        QT_MOC_LITERAL(1734, 4),  // "item"
+        QT_MOC_LITERAL(1739, 30),  // "on_button_scoreOfClass_clicked"
+        QT_MOC_LITERAL(1770, 31),  // "on_box_class_currentTextChanged"
+        QT_MOC_LITERAL(1802, 30),  // "on_box_year_currentTextChanged"
+        QT_MOC_LITERAL(1833, 22),  // "on_button_ok_2_clicked"
+        QT_MOC_LITERAL(1856, 13),  // "ChooseClass_2"
+        QT_MOC_LITERAL(1870, 9),  // "className"
+        QT_MOC_LITERAL(1880, 34),  // "on_box_semester_currentTextCh..."
+        QT_MOC_LITERAL(1915, 32),  // "on_sem_select_currentTextChanged"
+        QT_MOC_LITERAL(1948, 31),  // "on_button_courseSetting_clicked"
+        QT_MOC_LITERAL(1980, 28),  // "on_button_courseView_clicked"
+        QT_MOC_LITERAL(2009, 30),  // "on_button_removeFilter_clicked"
+        QT_MOC_LITERAL(2040, 31),  // "on_button_course_manage_clicked"
+        QT_MOC_LITERAL(2072, 22),  // "on_button_ok_3_clicked"
+        QT_MOC_LITERAL(2095, 36),  // "on_box_selectSY_2_currentText..."
+        QT_MOC_LITERAL(2132, 35),  // "on_box_selectSem_currentTextC..."
+        QT_MOC_LITERAL(2168, 29),  // "on_button_viewStudent_clicked"
+        QT_MOC_LITERAL(2198, 29)   // "on_button_coursesList_clicked"
     },
     "MainWindow",
     "on_checkBox_stateChanged",
@@ -269,7 +362,38 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "on_button_openCalendar_clicked",
     "on_button_selectDate_clicked",
     "on_box_selectClass_currentTextChanged",
-    "on_button_confirm_5_clicked"
+    "on_button_confirm_5_clicked",
+    "on_button_cancel_clicked",
+    "on_button_cancel_2_clicked",
+    "on_button_confirm_6_clicked",
+    "importCSVStudentsOfAClass_2",
+    "Node<Class>*",
+    "claCurr",
+    "std::string",
+    "fileName",
+    "on_button_back_7_clicked",
+    "on_button_allClasses_clicked",
+    "on_pushButton_clicked",
+    "on_list_classes_2_itemClicked",
+    "QListWidgetItem*",
+    "item",
+    "on_button_scoreOfClass_clicked",
+    "on_box_class_currentTextChanged",
+    "on_box_year_currentTextChanged",
+    "on_button_ok_2_clicked",
+    "ChooseClass_2",
+    "className",
+    "on_box_semester_currentTextChanged",
+    "on_sem_select_currentTextChanged",
+    "on_button_courseSetting_clicked",
+    "on_button_courseView_clicked",
+    "on_button_removeFilter_clicked",
+    "on_button_course_manage_clicked",
+    "on_button_ok_3_clicked",
+    "on_box_selectSY_2_currentTextChanged",
+    "on_box_selectSem_currentTextChanged",
+    "on_button_viewStudent_clicked",
+    "on_button_coursesList_clicked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -281,7 +405,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      52,   14, // methods
+      76,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -289,58 +413,82 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  326,    2, 0x08,    1 /* Private */,
-       4,    0,  329,    2, 0x08,    3 /* Private */,
-       5,    1,  330,    2, 0x08,    4 /* Private */,
-       6,    1,  333,    2, 0x08,    6 /* Private */,
-       7,    0,  336,    2, 0x08,    8 /* Private */,
-       8,    0,  337,    2, 0x08,    9 /* Private */,
-       9,    0,  338,    2, 0x08,   10 /* Private */,
-      10,    0,  339,    2, 0x08,   11 /* Private */,
-      11,    0,  340,    2, 0x08,   12 /* Private */,
-      12,    0,  341,    2, 0x08,   13 /* Private */,
-      13,    1,  342,    2, 0x08,   14 /* Private */,
-      14,    0,  345,    2, 0x08,   16 /* Private */,
-      15,    1,  346,    2, 0x08,   17 /* Private */,
-      16,    0,  349,    2, 0x08,   19 /* Private */,
-      17,    0,  350,    2, 0x08,   20 /* Private */,
-      18,    0,  351,    2, 0x08,   21 /* Private */,
-      19,    1,  352,    2, 0x08,   22 /* Private */,
-      20,    0,  355,    2, 0x08,   24 /* Private */,
-      21,    0,  356,    2, 0x08,   25 /* Private */,
-      22,    0,  357,    2, 0x08,   26 /* Private */,
-      23,    0,  358,    2, 0x08,   27 /* Private */,
-      24,    1,  359,    2, 0x08,   28 /* Private */,
-      25,    0,  362,    2, 0x08,   30 /* Private */,
-      26,    0,  363,    2, 0x08,   31 /* Private */,
-      27,    0,  364,    2, 0x08,   32 /* Private */,
-      28,    0,  365,    2, 0x08,   33 /* Private */,
-      29,    1,  366,    2, 0x08,   34 /* Private */,
-      30,    0,  369,    2, 0x08,   36 /* Private */,
-      31,    0,  370,    2, 0x08,   37 /* Private */,
-      32,    0,  371,    2, 0x08,   38 /* Private */,
-      33,    0,  372,    2, 0x08,   39 /* Private */,
-      34,    0,  373,    2, 0x08,   40 /* Private */,
-      35,    0,  374,    2, 0x08,   41 /* Private */,
-      36,    0,  375,    2, 0x08,   42 /* Private */,
-      37,    0,  376,    2, 0x08,   43 /* Private */,
-      38,    0,  377,    2, 0x08,   44 /* Private */,
-      39,    0,  378,    2, 0x08,   45 /* Private */,
-      40,    0,  379,    2, 0x08,   46 /* Private */,
-      41,    0,  380,    2, 0x08,   47 /* Private */,
-      42,    0,  381,    2, 0x08,   48 /* Private */,
-      43,    0,  382,    2, 0x08,   49 /* Private */,
-      44,    1,  383,    2, 0x08,   50 /* Private */,
-      45,    0,  386,    2, 0x08,   52 /* Private */,
-      46,    0,  387,    2, 0x08,   53 /* Private */,
-      47,    0,  388,    2, 0x08,   54 /* Private */,
-      48,    0,  389,    2, 0x08,   55 /* Private */,
-      49,    0,  390,    2, 0x08,   56 /* Private */,
-      50,    0,  391,    2, 0x08,   57 /* Private */,
-      51,    0,  392,    2, 0x08,   58 /* Private */,
-      52,    0,  393,    2, 0x08,   59 /* Private */,
-      53,    1,  394,    2, 0x08,   60 /* Private */,
-      54,    0,  397,    2, 0x08,   62 /* Private */,
+       1,    1,  470,    2, 0x08,    1 /* Private */,
+       4,    0,  473,    2, 0x08,    3 /* Private */,
+       5,    1,  474,    2, 0x08,    4 /* Private */,
+       6,    1,  477,    2, 0x08,    6 /* Private */,
+       7,    0,  480,    2, 0x08,    8 /* Private */,
+       8,    0,  481,    2, 0x08,    9 /* Private */,
+       9,    0,  482,    2, 0x08,   10 /* Private */,
+      10,    0,  483,    2, 0x08,   11 /* Private */,
+      11,    0,  484,    2, 0x08,   12 /* Private */,
+      12,    0,  485,    2, 0x08,   13 /* Private */,
+      13,    1,  486,    2, 0x08,   14 /* Private */,
+      14,    0,  489,    2, 0x08,   16 /* Private */,
+      15,    1,  490,    2, 0x08,   17 /* Private */,
+      16,    0,  493,    2, 0x08,   19 /* Private */,
+      17,    0,  494,    2, 0x08,   20 /* Private */,
+      18,    0,  495,    2, 0x08,   21 /* Private */,
+      19,    1,  496,    2, 0x08,   22 /* Private */,
+      20,    0,  499,    2, 0x08,   24 /* Private */,
+      21,    0,  500,    2, 0x08,   25 /* Private */,
+      22,    0,  501,    2, 0x08,   26 /* Private */,
+      23,    0,  502,    2, 0x08,   27 /* Private */,
+      24,    1,  503,    2, 0x08,   28 /* Private */,
+      25,    0,  506,    2, 0x08,   30 /* Private */,
+      26,    0,  507,    2, 0x08,   31 /* Private */,
+      27,    0,  508,    2, 0x08,   32 /* Private */,
+      28,    0,  509,    2, 0x08,   33 /* Private */,
+      29,    1,  510,    2, 0x08,   34 /* Private */,
+      30,    0,  513,    2, 0x08,   36 /* Private */,
+      31,    0,  514,    2, 0x08,   37 /* Private */,
+      32,    0,  515,    2, 0x08,   38 /* Private */,
+      33,    0,  516,    2, 0x08,   39 /* Private */,
+      34,    0,  517,    2, 0x08,   40 /* Private */,
+      35,    0,  518,    2, 0x08,   41 /* Private */,
+      36,    0,  519,    2, 0x08,   42 /* Private */,
+      37,    0,  520,    2, 0x08,   43 /* Private */,
+      38,    0,  521,    2, 0x08,   44 /* Private */,
+      39,    0,  522,    2, 0x08,   45 /* Private */,
+      40,    0,  523,    2, 0x08,   46 /* Private */,
+      41,    0,  524,    2, 0x08,   47 /* Private */,
+      42,    0,  525,    2, 0x08,   48 /* Private */,
+      43,    0,  526,    2, 0x08,   49 /* Private */,
+      44,    1,  527,    2, 0x08,   50 /* Private */,
+      45,    0,  530,    2, 0x08,   52 /* Private */,
+      46,    0,  531,    2, 0x08,   53 /* Private */,
+      47,    0,  532,    2, 0x08,   54 /* Private */,
+      48,    0,  533,    2, 0x08,   55 /* Private */,
+      49,    0,  534,    2, 0x08,   56 /* Private */,
+      50,    0,  535,    2, 0x08,   57 /* Private */,
+      51,    0,  536,    2, 0x08,   58 /* Private */,
+      52,    0,  537,    2, 0x08,   59 /* Private */,
+      53,    1,  538,    2, 0x08,   60 /* Private */,
+      54,    0,  541,    2, 0x08,   62 /* Private */,
+      55,    0,  542,    2, 0x08,   63 /* Private */,
+      56,    0,  543,    2, 0x08,   64 /* Private */,
+      57,    0,  544,    2, 0x08,   65 /* Private */,
+      58,    2,  545,    2, 0x08,   66 /* Private */,
+      63,    0,  550,    2, 0x08,   69 /* Private */,
+      64,    0,  551,    2, 0x08,   70 /* Private */,
+      65,    0,  552,    2, 0x08,   71 /* Private */,
+      66,    1,  553,    2, 0x08,   72 /* Private */,
+      69,    0,  556,    2, 0x08,   74 /* Private */,
+      70,    1,  557,    2, 0x08,   75 /* Private */,
+      71,    1,  560,    2, 0x08,   77 /* Private */,
+      72,    0,  563,    2, 0x08,   79 /* Private */,
+      73,    1,  564,    2, 0x08,   80 /* Private */,
+      75,    1,  567,    2, 0x08,   82 /* Private */,
+      76,    1,  570,    2, 0x08,   84 /* Private */,
+      77,    0,  573,    2, 0x08,   86 /* Private */,
+      78,    0,  574,    2, 0x08,   87 /* Private */,
+      79,    0,  575,    2, 0x08,   88 /* Private */,
+      80,    0,  576,    2, 0x08,   89 /* Private */,
+      81,    0,  577,    2, 0x08,   90 /* Private */,
+      82,    1,  578,    2, 0x08,   91 /* Private */,
+      83,    1,  581,    2, 0x08,   93 /* Private */,
+      84,    0,  584,    2, 0x08,   95 /* Private */,
+      85,    0,  585,    2, 0x08,   96 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -394,6 +542,30 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 59, 0x80000000 | 61,   60,   62,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 67,   68,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void,
+    0x80000000 | 59, 0x80000000 | 61,   74,
+    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -521,6 +693,64 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'on_button_confirm_5_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_button_cancel_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_button_cancel_2_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_button_confirm_6_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'importCSVStudentsOfAClass_2'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<Node<Class> *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<std::string, std::false_type>,
+        // method 'on_button_back_7_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_button_allClasses_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_list_classes_2_itemClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>,
+        // method 'on_button_scoreOfClass_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_box_class_currentTextChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'on_box_year_currentTextChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'on_button_ok_2_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'ChooseClass_2'
+        QtPrivate::TypeAndForceComplete<Node<Class> *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<std::string, std::false_type>,
+        // method 'on_box_semester_currentTextChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'on_sem_select_currentTextChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'on_button_courseSetting_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_button_courseView_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_button_removeFilter_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_button_course_manage_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_button_ok_3_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_box_selectSY_2_currentTextChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'on_box_selectSem_currentTextChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'on_button_viewStudent_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_button_coursesList_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -584,6 +814,31 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 49: _t->on_button_selectDate_clicked(); break;
         case 50: _t->on_box_selectClass_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 51: _t->on_button_confirm_5_clicked(); break;
+        case 52: _t->on_button_cancel_clicked(); break;
+        case 53: _t->on_button_cancel_2_clicked(); break;
+        case 54: _t->on_button_confirm_6_clicked(); break;
+        case 55: _t->importCSVStudentsOfAClass_2((*reinterpret_cast< std::add_pointer_t<Node<Class>*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<std::string>>(_a[2]))); break;
+        case 56: _t->on_button_back_7_clicked(); break;
+        case 57: _t->on_button_allClasses_clicked(); break;
+        case 58: _t->on_pushButton_clicked(); break;
+        case 59: _t->on_list_classes_2_itemClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
+        case 60: _t->on_button_scoreOfClass_clicked(); break;
+        case 61: _t->on_box_class_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 62: _t->on_box_year_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 63: _t->on_button_ok_2_clicked(); break;
+        case 64: { Node<Class>* _r = _t->ChooseClass_2((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< Node<Class>**>(_a[0]) = std::move(_r); }  break;
+        case 65: _t->on_box_semester_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 66: _t->on_sem_select_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 67: _t->on_button_courseSetting_clicked(); break;
+        case 68: _t->on_button_courseView_clicked(); break;
+        case 69: _t->on_button_removeFilter_clicked(); break;
+        case 70: _t->on_button_course_manage_clicked(); break;
+        case 71: _t->on_button_ok_3_clicked(); break;
+        case 72: _t->on_box_selectSY_2_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 73: _t->on_box_selectSem_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 74: _t->on_button_viewStudent_clicked(); break;
+        case 75: _t->on_button_coursesList_clicked(); break;
         default: ;
         }
     }
@@ -608,13 +863,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 52)
+        if (_id < 76)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 52;
+        _id -= 76;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 52)
+        if (_id < 76)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 52;
+        _id -= 76;
     }
     return _id;
 }

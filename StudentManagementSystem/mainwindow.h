@@ -133,6 +133,54 @@ private slots:
 
     void on_button_confirm_5_clicked();
 
+    void on_button_cancel_clicked();
+
+    void on_button_cancel_2_clicked();
+
+    void on_button_confirm_6_clicked();
+
+    void importCSVStudentsOfAClass_2(Node<Class>* claCurr, std::string fileName);
+
+    void on_button_back_7_clicked();
+
+    void on_button_allClasses_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_list_classes_2_itemClicked(QListWidgetItem *item);
+
+    void on_button_scoreOfClass_clicked();
+
+    void on_box_class_currentTextChanged(const QString &arg1);
+
+    void on_box_year_currentTextChanged(const QString &arg1);
+
+    void on_button_ok_2_clicked();
+
+    Node<Class>* ChooseClass_2(std::string className);
+
+    void on_box_semester_currentTextChanged(const QString &arg1);
+
+    void on_sem_select_currentTextChanged(const QString &arg1);
+
+    void on_button_courseSetting_clicked();
+
+    void on_button_courseView_clicked();
+
+    void on_button_removeFilter_clicked();
+
+    void on_button_course_manage_clicked();
+
+    void on_button_ok_3_clicked();
+
+    void on_box_selectSY_2_currentTextChanged(const QString &arg1);
+
+    void on_box_selectSem_currentTextChanged(const QString &arg1);
+
+    void on_button_viewStudent_clicked();
+
+    void on_button_coursesList_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -14,6 +14,9 @@ MainWindow::MainWindow(QWidget* parent)
     QString fontName = QFontDatabase::applicationFontFamilies(fontId).at(0);
     QFont minecraftFont(fontName);
 
+    ui->tableWidget->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1; }"
+                                      "QTableWidget QHeaderView::section { font-family: %1; }").arg(fontName));
+
 
     minecraftFont.setPointSize(9);
 
@@ -26,8 +29,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->calendarWidget->setFont(minecraftFont);
     ui->sem_select->setFont(minecraftFont);
     ui->sy_select->setFont(minecraftFont);
-    ui->tableWidget->horizontalHeader()->setFont(minecraftFont);
-    ui->tableWidget->verticalHeader()->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(14);
@@ -978,6 +979,59 @@ void MainWindow::on_button_cancel_2_clicked()
 }
 
 
+void MainWindow::importCSVStudentsOfAClass_2(Node<Class>* claCurr, std::string fileName)
+{
+    QFile file(QString::fromStdString(fileName));
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        MessageBox("Error", "Fail To Open File!");
+        return;
+    }
+    QTextStream inF(&file);
+
+    if (!claCurr->data.students)
+    {
+        // Pass the header
+        QString header = inF.readLine();
+
+        while (!inF.atEnd()) {
+            QString Line = inF.readLine();
+            std::string line = Line.toStdString();
+            // Check if the line is empty or contains only whitespace
+            if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
+                break; // Stop reading if the line is empty
+            }
+
+            Student newStu;
+            std::stringstream ss(line);
+            std::string NO; std::getline(ss, NO, ','); // don't use
+            std::getline(ss, newStu.ID, ',');
+            std::string firstName, lastName;
+            std::getline(ss, firstName, ',');
+            std::getline(ss, lastName, ',');
+            newStu.name = lastName + (firstName.empty() ? "" : " " + firstName);
+            std::getline(ss, newStu.gender, ',');
+            std::getline(ss, newStu.birthday, ',');
+            std::getline(ss, newStu.socialID, ',');
+            newStu.mainClass = claCurr->data.className;
+            if (!claCurr->data.students) {
+                claCurr->data.students = new Node<Student>(newStu);
+            }
+            else {
+                Node<Student>* stuCurr = claCurr->data.students;
+                while (stuCurr->next)
+                    stuCurr = stuCurr->next;
+                stuCurr->next = new Node<Student>(newStu);
+            }
+        }
+        QMessageBox::information(nullptr, "Notification", "Import CSV Successfully!");
+
+    }
+    else {
+        MessageBox("Error", "You Can Only Import CSV When The Class Has Had No Student Yet");
+    }
+    file.close();
+}
 void MainWindow::on_button_confirm_6_clicked()
 {
     std::string path = ui->txt_path->text().toStdString();
@@ -991,12 +1045,510 @@ void MainWindow::on_button_confirm_6_clicked()
         {
             if (claHead->data.className == className)
             {
-                importCSVStudentsOfAClass(claHead);
+                importCSVStudentsOfAClass_2(claHead, path);
                 return;
             }
             claHead = claHead->next;
         }
         syHead = syHead->next;
     }
+}
+
+
+void MainWindow::on_button_back_7_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_button_allClasses_clicked()
+{
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr)
+    {
+        Node<Class>* claCurr = syCurr->data.classes;
+        while (claCurr)
+        {
+            QListWidgetItem* item = new QListWidgetItem(QString::fromStdString(claCurr->data.className));
+            item->setTextAlignment(Qt::AlignHCenter);
+            ui->list_classes_2->addItem(item);
+            claCurr = claCurr->next;
+        }
+        syCurr = syCurr->next;
+    }
+
+    ui->stackedWidget_3->setCurrentIndex(7);
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(4);
+}
+
+
+void MainWindow::on_list_classes_2_itemClicked(QListWidgetItem *item)
+{
+    ui->table_student->setRowCount(0);
+    std::string className = item->text().toStdString();
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr)
+    {
+        Node<Class>* claCurr = syCurr->data.classes;
+        while (claCurr)
+        {
+            if (claCurr->data.className == className)
+            {
+                // displayTableOfStudentsInAClass(claCurr, no2);
+                Node<Student>* currStu = claCurr->data.students;
+                int no = 0;
+                while (currStu)
+                {
+                    no++;
+                    ui->table_student->setRowCount(no);
+                    ui->table_student->setItem(no - 1, 0, new QTableWidgetItem(QString::fromStdString(currStu->data.ID)));
+                    ui->table_student->setItem(no - 1, 1, new QTableWidgetItem(QString::fromStdString(currStu->data.name)));
+                    ui->table_student->setItem(no - 1, 2, new QTableWidgetItem(QString::fromStdString(currStu->data.gender)));
+                    ui->table_student->setItem(no - 1, 3, new QTableWidgetItem(QString::fromStdString(currStu->data.birthday)));
+                    ui->table_student->setItem(no - 1, 4, new QTableWidgetItem(QString::fromStdString(currStu->data.socialID)));
+
+                    currStu = currStu->next;
+                }
+                break;
+            }
+            claCurr = claCurr->next;
+        }
+        syCurr = syCurr->next;
+    }
+    ui->table_student->resizeColumnsToContents();
+
+    ui->lb_curClass->setText(QString::fromStdString(className));
+}
+
+
+void MainWindow::on_button_scoreOfClass_clicked()
+{
+    ui->box_class->clear();
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr)
+    {
+        Node<Class>* claCurr = syCurr->data.classes;
+        while (claCurr)
+        {
+            ui->box_class->addItem(QString::fromStdString(claCurr->data.className));
+            claCurr = claCurr->next;
+        }
+        syCurr = syCurr->next;
+    }
+
+    ui->stackedWidget_3->setCurrentIndex(8);
+}
+
+
+void MainWindow::on_box_class_currentTextChanged(const QString &arg1)
+{
+    ui->box_year->clear();
+    std::string className = ui->box_class->currentText().toStdString();
+    Node<SchoolYear>* syCurr = latestSYear;
+
+    bool ok = 1;
+    while (syCurr && ok)
+    {
+        Node<Class>* claCurr = syCurr->data.classes;
+        ui->box_year->addItem(QString::fromStdString(syCurr->data.year));
+        while (claCurr)
+        {
+            if (claCurr->data.className == className) {ok = 0; break;}
+            claCurr = claCurr->next;
+        }
+        if (ok) syCurr = syCurr->next;
+    }
+}
+
+
+void MainWindow::on_box_year_currentTextChanged(const QString &arg1)
+{
+    if (ui->box_year->count() == 0) return;
+    ui->box_semester->clear();
+    std::string sy = ui->box_year->currentText().toStdString();
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr)
+    {
+        if (syCurr->data.year == sy)
+        {
+            currSYear = syCurr;
+            int no = 0;
+            for (int i = 2; i >= 0; i--)
+            {
+                if (syCurr->data.semesters[i].isCreated)
+                {
+                    ui->box_semester->addItem(QString::number(++no));
+                    ui->box_semester->setCurrentIndex(no - 1);
+                }
+            }
+            if (no == 0)
+            {
+                ui->box_semester->addItem("No Semester");
+                ui->box_semester->setDisabled(1);
+            }
+            else ui->box_semester->setDisabled(0);
+            break;
+        }
+        syCurr = syCurr->next;
+    }
+}
+
+
+void MainWindow::on_box_semester_currentTextChanged(const QString &arg1)
+{
+    if (ui->box_semester->count() == 0) return;
+
+    int semester = ui->box_semester->currentText().toInt();
+    currSem = currSYear->data.semesters[semester - 1];
+}
+
+Node<Class>* MainWindow::ChooseClass_2(std::string className) {  //copyallfunc
+    Node<SchoolYear>* tempcurrYear = latestSYear;
+    while (tempcurrYear != nullptr)
+    {
+        Node<Class>* tempclass = tempcurrYear->data.classes;
+        while (tempclass != nullptr)
+        {
+            if (tempclass->data.className == className)
+            {
+                return tempclass;
+            }
+            tempclass = tempclass->next;
+        }
+        tempcurrYear = tempcurrYear->next;
+    }
+    return nullptr;
+}
+
+void MainWindow::on_button_ok_2_clicked()
+{
+    std::string className = ui->box_class->currentText().toStdString();
+
+    Node<Class>* ChosenClass = ChooseClass_2(className);
+
+
+    Node<std::string>* TempCourses = nullptr;
+    Node<Course>* SemCourse = currSem.Courses;
+    while (SemCourse != nullptr)
+    {
+        std::string addTempCourse = SemCourse->data.Name;
+        Node<std::string>* newTempCourse = new Node<std::string>(addTempCourse, TempCourses);
+        TempCourses = newTempCourse;
+        SemCourse = SemCourse->next;
+    }
+    deleteDuplicateTempCourses(TempCourses);
+    int numofCourses = countUniqueTempCourses(TempCourses);
+    bool* check = new bool[numofCourses];
+    for (int i = 0; i < numofCourses; i++) check[i] = false;
+    Node<Student>* tempStu = ChosenClass->data.students;
+    while (tempStu != nullptr)
+    {
+        Node<Course>* tmp = currSem.Courses;
+        while (tmp != nullptr)
+        {
+            int index = 0;
+            if (!Exist(check, tmp, TempCourses, numofCourses, index))
+            {
+                int numofStu = tmp->data.courseSize;
+                for (int i = 0; i < numofStu; i++)
+                {
+                    if (tempStu->data.ID == tmp->data.score[i].studentID)
+                    {
+                        check[index] = true;
+                    }
+                }
+            }
+            tmp = tmp->next;
+        }
+        tempStu = tempStu->next;
+    }
+
+    Node<std::string>* ClassCourses = ClassCourse(TempCourses, check);
+    int NumofClassCourses = countUniqueTempCourses(ClassCourses);
+
+    ui->table_scoreboard->setColumnCount(4 + NumofClassCourses);
+    QStringList horizontalHeaders;
+    horizontalHeaders << "Student ID" << "Full Name";
+
+    Node<std::string>* temp = ClassCourses;
+    while (temp)
+    {
+        horizontalHeaders << QString::fromStdString(temp->data);
+        temp = temp->next;
+    }
+    horizontalHeaders << "GPA" << "Overall GPA";
+    ui->table_scoreboard->setHorizontalHeaderLabels(horizontalHeaders);
+
+
+
+    ui->table_scoreboard->setRowCount(0);
+    int no = 0;
+    Node<Student>* StuScore = ChosenClass->data.students;
+    while (StuScore != nullptr)
+    {
+        ui->table_scoreboard->setRowCount(++no);
+        Node<std::string>* StudentUniqueCourses = nullptr;
+        double numofactivecourses = 0, gpa = 0;
+
+        ui->table_scoreboard->setItem(no - 1, 0, new QTableWidgetItem(QString::fromStdString(StuScore->data.ID)));
+        ui->table_scoreboard->setItem(no - 1, 1, new QTableWidgetItem(QString::fromStdString(StuScore->data.name)));
+        Node<std::string>* tmp2 = ClassCourses;
+        int columnCount = 1;
+        while (tmp2 != nullptr)
+        {
+            Node<Course>* check = currSem.Courses;
+            while (check != nullptr)
+            {
+                bool score = false;
+                if (tmp2->data == check->data.Name)
+                {
+                    int numofstudents = check->data.courseSize;
+                    for (int i = 0; i < numofstudents; i++)
+                    {
+                        if (StuScore->data.ID == check->data.score[i].studentID)
+                        {
+                            std::string newStuCourses = check->data.Name;
+                            Node<std::string>* newStuCours = new Node<std::string>(newStuCourses, StudentUniqueCourses);
+                            StudentUniqueCourses = newStuCours;
+                            if (check->data.score[i].total != (-1) * 1.0)
+                            {
+                                gpa += check->data.score[i].total;
+                                numofactivecourses++;
+                            }
+
+                            // columnCount++;
+                            if (check->data.score[i].final != (-1) * 1.0) ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::number(check->data.score[i].final)));
+                            else ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::fromStdString("")));
+                            score = true;
+                            break;
+                        }
+                    }
+                }
+                if (score) break;
+                check = check->next;
+            }
+            if (check == nullptr) ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::fromStdString("")));
+            tmp2 = tmp2->next;
+        }
+        // columnCount++;
+        if (numofactivecourses == 0 || gpa == 0) ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::fromStdString("")));
+        else ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::number(gpa / numofactivecourses, 'f', 2)));
+        double prevtotal = 0, prevnumofacticour = 0;
+        // columnCount++;
+        previous(prevtotal, prevnumofacticour, StuScore, ChosenClass, StudentUniqueCourses);
+        if (prevnumofacticour == 0 || numofactivecourses == 0) ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::fromStdString("")));
+        else ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::number((prevtotal + gpa) / (prevnumofacticour + numofactivecourses), 'f', 2)));
+
+        StuScore = StuScore->next;
+    }
+
+    delete[] check;
+    Node<std::string>* deleteTempCourses = TempCourses;
+    while (deleteTempCourses != nullptr)
+    {
+        Node<std::string>* temp = deleteTempCourses;
+        deleteTempCourses = deleteTempCourses->next;
+        delete temp;
+    }
+    Node<std::string>* deleteClassCourses = ClassCourses;
+    while (deleteClassCourses != nullptr)
+    {
+        Node<std::string>* temp = deleteClassCourses;
+        deleteClassCourses = deleteClassCourses->next;
+        delete temp;
+    }
+
+    ui->table_scoreboard->resizeColumnsToContents();
+}
+
+
+void MainWindow::on_sem_select_currentTextChanged(const QString &arg1)
+{
+    if (ui->sem_select->count() == 0) return;
+    on_button_ok_clicked();
+}
+
+
+void MainWindow::on_button_courseSetting_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(10);
+}
+
+
+void MainWindow::on_button_courseView_clicked()
+{
+    MainWindow::on_button_removeFilter_clicked();
+    ui->box_selectSY_2->clear();
+
+    Node<SchoolYear>* tempYear = latestSYear;
+    while (tempYear)
+    {
+        ui->box_selectSY_2->addItem(QString::fromStdString(tempYear->data.year));
+        tempYear = tempYear->next;
+    }
+
+    ui->stackedWidget_3->setCurrentIndex(11);
+    ui->stackedWidget_5->setCurrentIndex(0);
+}
+
+void MainWindow::on_button_removeFilter_clicked()
+{
+    ui->table_course->setRowCount(0);
+    int no = 0;
+    Node<SchoolYear>* tempYear = latestSYear;
+    while (tempYear)
+    {
+        for (int i = 2; i >= 0; i--)
+        {
+            Node<Course>* couCurr = tempYear->data.semesters[i].Courses;
+            while (couCurr)
+            {
+                ui->table_course->setRowCount(++no);
+                ui->table_course->setItem(no - 1, 0, new QTableWidgetItem(QString::fromStdString(couCurr->data.ID)));
+                ui->table_course->setItem(no - 1, 1, new QTableWidgetItem(QString::fromStdString(couCurr->data.Name)));
+                ui->table_course->setItem(no - 1, 2, new QTableWidgetItem(QString::fromStdString(couCurr->data.className)));
+                ui->table_course->setItem(no - 1, 3, new QTableWidgetItem(QString::fromStdString(couCurr->data.teacherName)));
+                ui->table_course->setItem(no - 1, 4, new QTableWidgetItem(QString::number(couCurr->data.nCredits)));
+                ui->table_course->setItem(no - 1, 5, new QTableWidgetItem(QString::number(couCurr->data.courseSize)));
+                ui->table_course->setItem(no - 1, 6, new QTableWidgetItem(QString::number(couCurr->data.maxStudents)));
+                ui->table_course->setItem(no - 1, 7, new QTableWidgetItem(QString::fromStdString(couCurr->data.dayOfWeek)));
+                ui->table_course->setItem(no - 1, 8, new QTableWidgetItem(QString::fromStdString(couCurr->data.session)));
+                couCurr = couCurr->next;
+
+            }
+        }
+        tempYear = tempYear->next;
+    }
+    ui->table_course->resizeColumnsToContents();
+}
+
+
+void MainWindow::on_button_course_manage_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(9);
+}
+
+
+void MainWindow::on_button_ok_3_clicked()
+{
+    std::string year = ui->box_selectSY_2->currentText().toStdString();
+    int sem = ui->box_selectSem->currentText().toInt();
+
+    ui->table_course->setRowCount(0);
+    int no = 0;
+    Node<SchoolYear>* tempYear = latestSYear;
+    while (tempYear)
+    {
+        if (tempYear->data.year == year)
+        {
+            Node<Course>* couCurr = tempYear->data.semesters[sem - 1].Courses;
+            while (couCurr)
+            {
+                ui->table_course->setRowCount(++no);
+                ui->table_course->setItem(no - 1, 0, new QTableWidgetItem(QString::fromStdString(couCurr->data.ID)));
+                ui->table_course->setItem(no - 1, 1, new QTableWidgetItem(QString::fromStdString(couCurr->data.Name)));
+                ui->table_course->setItem(no - 1, 2, new QTableWidgetItem(QString::fromStdString(couCurr->data.className)));
+                ui->table_course->setItem(no - 1, 3, new QTableWidgetItem(QString::fromStdString(couCurr->data.teacherName)));
+                ui->table_course->setItem(no - 1, 4, new QTableWidgetItem(QString::number(couCurr->data.nCredits)));
+                ui->table_course->setItem(no - 1, 5, new QTableWidgetItem(QString::number(couCurr->data.courseSize)));
+                ui->table_course->setItem(no - 1, 6, new QTableWidgetItem(QString::number(couCurr->data.maxStudents)));
+                ui->table_course->setItem(no - 1, 7, new QTableWidgetItem(QString::fromStdString(couCurr->data.dayOfWeek)));
+                ui->table_course->setItem(no - 1, 8, new QTableWidgetItem(QString::fromStdString(couCurr->data.session)));
+                couCurr = couCurr->next;
+            }
+        }
+        tempYear = tempYear->next;
+    }
+    ui->table_course->resizeColumnsToContents();
+}
+
+
+void MainWindow::on_box_selectSY_2_currentTextChanged(const QString &arg1)
+{
+    if (ui->box_selectSY_2->count() == 0) return;
+    ui->box_selectSem->clear();
+
+    std::string year = ui->box_selectSY_2->currentText().toStdString();
+
+    Node<SchoolYear>* tempYear = latestSYear;
+    while (tempYear)
+    {
+        if (tempYear->data.year == year)
+        {
+            for (int i = 2; i >= 0; i--)
+            {
+                if (tempYear->data.semesters[i].isCreated) ui->box_selectSem->addItem(QString::number(i + 1));
+            }
+            break;
+        }
+        tempYear = tempYear->next;
+    }
+
+    MainWindow::on_button_ok_3_clicked();
+}
+
+void MainWindow::on_box_selectSem_currentTextChanged(const QString &arg1)
+{
+    if (ui->box_selectSem->count() == 0) return;
+
+    MainWindow::on_button_ok_3_clicked();
+}
+
+
+void MainWindow::on_button_viewStudent_clicked()
+{
+    if (ui->table_course->selectedItems().isEmpty())
+    {
+        MessageBox("Error", "Select A Course ID or Course Name To View Score!");
+        return;
+    }
+    int row = ui->table_course->currentRow();
+
+    std::string ID = ui->table_course->item(row, 0)->text().toStdString();
+    std::string className = ui->table_course->item(row, 2)->text().toStdString();
+
+    Node<SchoolYear>* tempYear = latestSYear;
+    while (tempYear)
+    {
+        for (int i = 2; i >= 0; i--)
+        {
+            Node<Course>* tempCou = tempYear->data.semesters[i].Courses;
+            while(tempCou)
+            {
+                if (tempCou->data.ID == ID && tempCou->data.className == className)
+                {
+                    int no = 0;
+                    for (int i = 0; i < tempCou->data.courseSize; i++)
+                    {
+                        ui->table_student_2->setRowCount(++no);
+                        StudentScore curStu = tempCou->data.score[i];
+                        ui->table_student_2->setItem(no - 1, 0, new QTableWidgetItem(QString::fromStdString(curStu.studentID)));
+                        ui->table_student_2->setItem(no - 1, 1, new QTableWidgetItem(QString::fromStdString(curStu.studentName)));
+                        ui->table_student_2->setItem(no - 1, 2, new QTableWidgetItem(QString::number(curStu.midTerm)));
+                        ui->table_student_2->setItem(no - 1, 3, new QTableWidgetItem(QString::number(curStu.final)));
+                        ui->table_student_2->setItem(no - 1, 4, new QTableWidgetItem(QString::number(curStu.other)));
+                        ui->table_student_2->setItem(no - 1, 5, new QTableWidgetItem(QString::number(curStu.total)));
+                    }
+                    break;
+                }
+                tempCou = tempCou->next;
+            }
+        }
+        tempYear = tempYear->next;
+    }
+
+    ui->table_student_2->resizeColumnsToContents();
+    ui->stackedWidget_5->setCurrentIndex(1);
+}
+
+
+void MainWindow::on_button_coursesList_clicked()
+{
+    ui->stackedWidget_5->setCurrentIndex(0);
 }
 
