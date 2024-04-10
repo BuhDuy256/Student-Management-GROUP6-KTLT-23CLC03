@@ -24,7 +24,6 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -179,7 +178,14 @@ public:
     QLabel *lb_latestSED;
     QWidget *AdClassManagement;
     QLabel *lb_classManage;
-    QStatusBar *statusBar;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
+    QPushButton *pushButton_4;
+    QWidget *AdAddClass;
+    QWidget *AdAddStudent;
+    QWidget *AdAllClasses;
+    QWidget *AdScoreboard;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -1571,9 +1577,33 @@ public:
         lb_classManage->setObjectName("lb_classManage");
         lb_classManage->setGeometry(QRect(150, 30, 621, 111));
         lb_classManage->setFont(font9);
-        lb_classManage->setStyleSheet(QString::fromUtf8("color: #FBFFF4;\n"
+        lb_classManage->setStyleSheet(QString::fromUtf8("color: #7FFFD4;\n"
 ""));
+        pushButton = new QPushButton(AdClassManagement);
+        pushButton->setObjectName("pushButton");
+        pushButton->setGeometry(QRect(270, 490, 301, 61));
+        pushButton_2 = new QPushButton(AdClassManagement);
+        pushButton_2->setObjectName("pushButton_2");
+        pushButton_2->setGeometry(QRect(270, 390, 301, 61));
+        pushButton_3 = new QPushButton(AdClassManagement);
+        pushButton_3->setObjectName("pushButton_3");
+        pushButton_3->setGeometry(QRect(270, 290, 301, 61));
+        pushButton_4 = new QPushButton(AdClassManagement);
+        pushButton_4->setObjectName("pushButton_4");
+        pushButton_4->setGeometry(QRect(270, 190, 301, 61));
         stackedWidget_3->addWidget(AdClassManagement);
+        AdAddClass = new QWidget();
+        AdAddClass->setObjectName("AdAddClass");
+        stackedWidget_3->addWidget(AdAddClass);
+        AdAddStudent = new QWidget();
+        AdAddStudent->setObjectName("AdAddStudent");
+        stackedWidget_3->addWidget(AdAddStudent);
+        AdAllClasses = new QWidget();
+        AdAllClasses->setObjectName("AdAllClasses");
+        stackedWidget_3->addWidget(AdAllClasses);
+        AdScoreboard = new QWidget();
+        AdScoreboard->setObjectName("AdScoreboard");
+        stackedWidget_3->addWidget(AdScoreboard);
 
         gridLayout_4->addWidget(stackedWidget_3, 0, 1, 1, 1);
 
@@ -1584,15 +1614,12 @@ public:
         gridLayout->addWidget(stackedWidget, 0, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
-        statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName("statusBar");
-        MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
 
         stackedWidget->setCurrentIndex(2);
         stackedWidget_2->setCurrentIndex(1);
-        stackedWidget_3->setCurrentIndex(0);
+        stackedWidget_3->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1698,6 +1725,10 @@ public:
         button_confirm_3->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
         lb_latestSED->setText(QCoreApplication::translate("MainWindow", "Latest Semester End Date:", nullptr));
         lb_classManage->setText(QCoreApplication::translate("MainWindow", "CLASS MANAGEMENT", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "VIEW SCOREBOARD OF CLASS", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("MainWindow", "ALL CLASSES", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("MainWindow", "ADD STUDENTS TO CLASS", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("MainWindow", "CREATED NEW CLASS", nullptr));
     } // retranslateUi
 
 };

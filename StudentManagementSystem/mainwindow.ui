@@ -1781,7 +1781,7 @@ background-color: rgba(255,255,255,200)</string>
         border-image: url(:/background/Lovely Minecraft Hd Wallpaper 1920x1080.jpg);
 }</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,19,0">
+       <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,19">
         <property name="leftMargin">
          <number>15</number>
         </property>
