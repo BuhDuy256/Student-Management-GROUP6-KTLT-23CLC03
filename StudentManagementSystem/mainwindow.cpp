@@ -128,6 +128,11 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_welcome->setFont(minecraftFont);
     ui->lb_welcome_2->setFont(minecraftFont);
     minecraftFont.setBold(0); // End Bold region
+
+    QTextCharFormat weekendFormat;
+    weekendFormat.setForeground(QColor("#7FFFD4"));
+    ui->calendarWidget->setWeekdayTextFormat(Qt::Saturday, weekendFormat);
+    ui->calendarWidget->setWeekdayTextFormat(Qt::Sunday, weekendFormat);
 }
 
 MainWindow::~MainWindow()

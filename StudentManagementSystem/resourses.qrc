@@ -15,6 +15,8 @@
         <file>Minecraft_thegame_6961.ico</file>
         <file>right_arrow.png</file>
         <file>left_arrow.png</file>
+        <file>down_arrow.png</file>
+        <file>up_arrow.png</file>
     </qresource>
     <qresource prefix="/prefix">
         <file>CSV Files/AllClasses.csv</file>

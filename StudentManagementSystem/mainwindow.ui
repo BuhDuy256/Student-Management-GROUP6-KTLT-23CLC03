@@ -760,7 +760,12 @@ background-color: rgba(0, 0, 0, 96);
               <item>
                <widget class="QCalendarWidget" name="calendarWidget">
                 <property name="styleSheet">
-                 <string notr="true">QCalendarWidget QToolButton#qt_calendar_nextmonth{
+                 <string notr="true">QCalendarWidget QWidget { 
+	background-color: rgb(118, 118, 118);
+	border: 2px solid black;
+}
+
+QCalendarWidget QToolButton#qt_calendar_nextmonth{
 	background-image: url(:/background/right_arrow.png);
 	background-position: center;
 	background-repeat: none;
@@ -780,18 +785,26 @@ QCalendarWidget QToolButton{
 	background-color: rgb(118, 118, 118);
 }
 
-QCalendarWidget QWidget#qt_calendar_navigationbar{
+QCalendarWidget QWidget#qt_calendar_navigationbar {
 	background-color: rgb(198, 198, 198);
 }
 
-QCalendarWidget QSpinBox::up-button {
-	background-color: rgb(118, 118, 118);
+
+QSpinBox::up-button { 
+	background-image: url(:/background/up_arrow.png);
+	background-position: center;
+	background-repeat: none;
+	border: none;
+	height: 16px;
 }
 
-QCalendarWidget QSpinBox::down-button {
-	background-color: rgb(118, 118, 118);
-}
-</string>
+QSpinBox::down-button { 
+	background-image: url(:/background/down_arrow.png);
+	background-position: center;
+	background-repeat: none;
+	border: none;
+	height: 16px;
+}</string>
                 </property>
                 <property name="gridVisible">
                  <bool>false</bool>
@@ -1925,7 +1938,11 @@ padding-left: 10px;</string>
 </string>
           </property>
           <property name="currentIndex">
+<<<<<<< HEAD
            <number>6</number>
+=======
+           <number>0</number>
+>>>>>>> 8d415e0ad61eed89ffb84bfd91498de8560c1c7d
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
