@@ -926,7 +926,27 @@ void MainWindow::on_button_confirm_5_clicked()
         MessageBox("Error", "Student ID Must Be A 8-Digit Number!");
         return;
     }
-    // check exist student ID
+    
+     Node<SchoolYear>* checkExist = latestSYear;
+    while(checkExist)
+    {
+        Node<Class>* ClassesInSY = checkExist->data.classes;
+        while(ClassesInSY)
+        {
+            Node<Student>* StuInClass = ClassesinSY->data.students;
+            while(StuInClass)
+            {
+                if(StuInClass->data.ID == newStudentID || StuInClass->data.socialID == newStudentSocialID)
+                {
+                    MessageBox("Error", "Student already studies in class" + ClassesInSY->data.className);
+                    return;
+                }
+                StuInClass = StuInClass->next;
+            }
+            ClassesInSY = ClassesInSY->next;
+        }
+        checkExist = checkExist->next;
+    }
 
     if (!isValidCouOrStuName(newStudentName))
     {
@@ -934,13 +954,13 @@ void MainWindow::on_button_confirm_5_clicked()
         return;
     }
     formalize(newStudentName);
-
+    
     if (newStudentSocialID.length() != 8)
     {
         MessageBox("Error", "Social ID Must Be A 8-Digit Number!");
         return;
     }
-
+    
     Student newStudent;
     newStudent.ID = newStudentID;
     newStudent.name = newStudentName;
