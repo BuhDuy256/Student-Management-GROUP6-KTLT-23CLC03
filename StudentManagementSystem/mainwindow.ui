@@ -68,7 +68,7 @@ color: black;
 }</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2" rowstretch="2,7,2" columnstretch="2,5,2">
@@ -796,11 +796,14 @@ QCalendarWidget QSpinBox::down-button {
 	background-repeat: none;
 }
 
-
 QCalendarWidget QWidget {
 	background-color: rgb(118, 118, 118);
 	font-size: 14px;
 	border: 1px solid black;
+}
+
+#qt_calendar_monthbutton::menu-indicator{
+   width:0px;
 }
 </string>
                 </property>
@@ -2924,8 +2927,8 @@ QCalendarWidget QWidget {
 	font-size: 14px;
 }
 
-QCalendarWidget QSpinBox::up-arrow, QCalendarWidget QSpinBox::down-arrow {
-	image: none;
+#qt_calendar_monthbutton::menu-indicator{
+   width:0px;
 }</string>
                 </property>
                 <property name="verticalHeaderFormat">
@@ -3766,8 +3769,8 @@ QCalendarWidget QWidget {
 	font-size: 14px;
 }
 
-QCalendarWidget QSpinBox::up-arrow, QCalendarWidget QSpinBox::down-arrow {
-	image: none;
+#qt_calendar_monthbutton::menu-indicator{
+   width:0px;
 }</string>
                   </property>
                   <property name="verticalHeaderFormat">
