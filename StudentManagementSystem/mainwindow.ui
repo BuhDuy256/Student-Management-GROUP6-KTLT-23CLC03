@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1184</width>
+    <width>1216</width>
     <height>715</height>
    </rect>
   </property>
@@ -18,7 +18,8 @@
         border-image: url(:/background/button.png);
         color: white;
 }
-QPushButton:hover { color: black; }
+QPushButton:hover { border-image: url(:/background/button_hover.png); }
+
 
 QLabel{
 color: black;
@@ -709,6 +710,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
+           <number>1</number>
            <number>1</number>
           </property>
           <widget class="QWidget" name="StuHome">
@@ -1434,12 +1436,16 @@ QScrollBar:horizontal {
         min-width: 20px;
     }
     QScrollBar::add-line:horizontal {
+		
+	border-image: url(:/background/right_arrow.png);
         background: black;
         width: 20px;
         subcontrol-position: right;
         subcontrol-origin: margin;
     }
     QScrollBar::sub-line:horizontal {
+		
+	border-image: url(:/background/left_arrow.png);
         background: black;
         width: 20px;
         subcontrol-position: left;
@@ -1882,7 +1888,7 @@ padding-left: 10px;</string>
         border-image: url(:/background/Lovely Minecraft Hd Wallpaper 1920x1080.jpg);
 }</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,0">
+       <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,19">
         <property name="leftMargin">
          <number>15</number>
         </property>
@@ -2100,7 +2106,7 @@ font-size: 18px;</string>
           </layout>
          </widget>
         </item>
-        <item row="0" column="1">
+        <item row="0" column="2" colspan="3">
          <widget class="QStackedWidget" name="stackedWidget_3">
           <property name="styleSheet">
            <string notr="true">#AdHome{
@@ -2122,6 +2128,12 @@ font-size: 18px;</string>
 	 background-color: rgba(0, 0, 0, 96);
 }
 #AdAddStudent{
+        background-color: rgba(0, 0, 0, 96);
+}
+#AdAddStudent_2{
+        background-color: rgba(0, 0, 0, 96);
+}
+#AdAddCourse{
         background-color: rgba(0, 0, 0, 96);
 }
 #AdAddStudent_input{
@@ -2178,7 +2190,7 @@ font-size: 18px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>5</number>
+           <number>7</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -3003,6 +3015,9 @@ QCalendarWidget QWidget {
             </item>
             <item row="6" column="0" colspan="2">
              <widget class="QPushButton" name="button_confirm_3">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
               <property name="minimumSize">
                <size>
                 <width>200</width>
@@ -4419,8 +4434,8 @@ QScrollBar::sub-line:vertical {
            <widget class="QPushButton" name="pushButton">
             <property name="geometry">
              <rect>
-              <x>40</x>
-              <y>570</y>
+              <x>670</x>
+              <y>560</y>
               <width>200</width>
               <height>65</height>
              </rect>
@@ -4656,58 +4671,6 @@ QScrollBar::sub-line:vertical {
             </property>
            </widget>
           </widget>
-          <widget class="QWidget" name="AdCourseManagement">
-           <widget class="QLabel" name="lb_courseManagement">
-            <property name="geometry">
-             <rect>
-              <x>70</x>
-              <y>10</y>
-              <width>777</width>
-              <height>80</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>36</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: #7FFFD4;</string>
-            </property>
-            <property name="text">
-             <string>COURSE MANAGEMENT</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="button_courseView">
-            <property name="geometry">
-             <rect>
-              <x>220</x>
-              <y>350</y>
-              <width>441</width>
-              <height>101</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>COURSES VIEW</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="button_courseSetting">
-            <property name="geometry">
-             <rect>
-              <x>220</x>
-              <y>220</y>
-              <width>441</width>
-              <height>101</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>COURSES SETTING</string>
-            </property>
-           </widget>
-          </widget>
           <widget class="QWidget" name="AdCourseSetting">
            <widget class="QLabel" name="lb_courseSetting">
             <property name="geometry">
@@ -4733,87 +4696,72 @@ QScrollBar::sub-line:vertical {
              <set>Qt::AlignCenter</set>
             </property>
            </widget>
-          </widget>
-          <widget class="QWidget" name="AdCourseView">
-           <widget class="QLabel" name="lb_courseView">
+           <widget class="QLabel" name="lb_selectSY_2">
             <property name="geometry">
              <rect>
-              <x>60</x>
-              <y>10</y>
-              <width>777</width>
-              <height>80</height>
+              <x>32</x>
+              <y>70</y>
+              <width>161</width>
+              <height>30</height>
              </rect>
             </property>
             <property name="font">
              <font>
-              <pointsize>36</pointsize>
+              <pointsize>12</pointsize>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">color: #7FFFD4;</string>
+             <string notr="true">color:white;</string>
             </property>
             <property name="text">
-             <string>COURSE VIEW</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <string>Select School Year</string>
             </property>
            </widget>
-           <widget class="QPushButton" name="button_back_11">
+           <widget class="QPushButton" name="button_removeFilter">
             <property name="geometry">
              <rect>
-              <x>650</x>
-              <y>560</y>
-              <width>200</width>
-              <height>65</height>
+              <x>740</x>
+              <y>70</y>
+              <width>121</width>
+              <height>31</height>
              </rect>
             </property>
-            <property name="minimumSize">
-             <size>
-              <width>200</width>
-              <height>65</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>200</width>
-              <height>65</height>
-             </size>
-            </property>
             <property name="text">
-             <string>BACK</string>
+             <string>REMOVE FILTER</string>
             </property>
            </widget>
-           <widget class="QStackedWidget" name="stackedWidget_5">
+           <widget class="QLabel" name="lb_selectSem">
             <property name="geometry">
              <rect>
-              <x>30</x>
-              <y>100</y>
+              <x>340</x>
+              <y>70</y>
+              <width>161</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:white;</string>
+            </property>
+            <property name="text">
+             <string>Select Semester</string>
+            </property>
+           </widget>
+           <widget class="QTableWidget" name="table_course">
+            <property name="geometry">
+             <rect>
+              <x>40</x>
+              <y>110</y>
               <width>831</width>
-              <height>451</height>
+              <height>387</height>
              </rect>
             </property>
-            <property name="currentIndex">
-             <number>0</number>
-            </property>
-            <widget class="QWidget" name="page_2">
-             <layout class="QGridLayout" name="gridLayout_16">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <item row="1" column="0" colspan="5">
-               <widget class="QTableWidget" name="table_course">
-                <property name="styleSheet">
-                 <string notr="true">QTableWidget::item {
+            <property name="styleSheet">
+             <string notr="true">QTableWidget::item {
 	background-color: rgba(118, 118, 118,200);
 	color: #000000;
 	color: white;
@@ -4940,14 +4888,8 @@ QScrollBar::sub-line:vertical {
                <widget class="QComboBox" name="box_selectSY_2">
                 <property name="font">
                  <font>
-                  <pointsize>-1</pointsize>
+                  <pointsize>10</pointsize>
                  </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">font-size: 18px;
-border-image: url(:/background/button.png);
-background-color: rgb(133, 133, 133);
-color: white;</string>
                 </property>
                </widget>
               </item>
@@ -4955,14 +4897,8 @@ color: white;</string>
                <widget class="QComboBox" name="box_selectSem">
                 <property name="font">
                  <font>
-                  <pointsize>-1</pointsize>
+                  <pointsize>10</pointsize>
                  </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">font-size: 18px;
-border-image: url(:/background/button.png);
-background-color: rgb(133, 133, 133);
-color: white;</string>
                 </property>
                </widget>
               </item>
@@ -5111,48 +5047,118 @@ QScrollBar::sub-line:vertical {
 
 
 </string>
-                </property>
-                <column>
-                 <property name="text">
-                  <string>Student ID</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Full Name</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Mid Term</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Final</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Other</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Total</string>
-                 </property>
-                </column>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QPushButton" name="button_coursesList">
-                <property name="text">
-                 <string>COURSES LIST</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
+            </property>
+            <column>
+             <property name="text">
+              <string>Student ID</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Full Name</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Mid Term</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Final</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Other</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Total</string>
+             </property>
+            </column>
+           </widget>
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="geometry">
+             <rect>
+              <x>40</x>
+              <y>530</y>
+              <width>211</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>REMOVE STUDENT</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton_5">
+            <property name="geometry">
+             <rect>
+              <x>480</x>
+              <y>530</y>
+              <width>151</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>EXPORT TABLE</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton_6">
+            <property name="geometry">
+             <rect>
+              <x>660</x>
+              <y>530</y>
+              <width>201</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>IMPORT SCORE</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton_7">
+            <property name="geometry">
+             <rect>
+              <x>680</x>
+              <y>90</y>
+              <width>171</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>UPDATE SCORE</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="AdAddStudent_2">
+           <widget class="QLabel" name="lb_courseSetting_3">
+            <property name="geometry">
+             <rect>
+              <x>80</x>
+              <y>0</y>
+              <width>777</width>
+              <height>80</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>36</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: #7FFFD4;</string>
+            </property>
+            <property name="text">
+             <string>ADD STUDENT</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
            </widget>
           </widget>
          </widget>
