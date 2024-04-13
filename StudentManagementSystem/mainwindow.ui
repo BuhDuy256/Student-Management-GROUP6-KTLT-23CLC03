@@ -785,11 +785,25 @@ QCalendarWidget QWidget#qt_calendar_navigationbar{
 }
 
 QCalendarWidget QSpinBox::up-button {
-	background-color: rgb(118, 118, 118);
+	border-image: url(:/background/up_arrow.png);
+	background-position: center;
+	background-repeat: none;
 }
 
 QCalendarWidget QSpinBox::down-button {
+	border-image: url(:/background/down_arrow.png);	
+	background-position: center;
+	background-repeat: none;
+}
+
+QCalendarWidget QWidget {
 	background-color: rgb(118, 118, 118);
+	font-size: 14px;
+	border: 1px solid black;
+}
+
+#qt_calendar_monthbutton::menu-indicator{
+   width:0px;
 }
 </string>
                 </property>
@@ -1432,6 +1446,31 @@ QScrollBar:horizontal {
         subcontrol-origin: margin;
     }
 
+QScrollBar:vertical {
+    border: 2px solid black;
+    background-color: rgb(118, 118, 118);
+    width: 15px;
+    margin: 22px 0 22px 0;
+}
+QScrollBar::handle:vertical {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+    border: 1px solid #adb0b6;
+    border-radius: 4px;
+    min-height: 20px;
+}
+QScrollBar::add-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
 
 
 </string>
@@ -1530,30 +1569,6 @@ QScrollBar:horizontal {
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_3">
               <item>
-               <widget class="QPushButton" name="button_viewScore">
-                <property name="minimumSize">
-                 <size>
-                  <width>200</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>200</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>VIEW SCORES</string>
-                </property>
-               </widget>
-              </item>
-              <item>
                <widget class="QPushButton" name="button_back_5">
                 <property name="minimumSize">
                  <size>
@@ -1574,6 +1589,30 @@ QScrollBar:horizontal {
                 </property>
                 <property name="text">
                  <string>BACK</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="button_viewScore">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>VIEW SCORES</string>
                 </property>
                </widget>
               </item>
@@ -2139,7 +2178,11 @@ font-size: 18px;</string>
 </string>
           </property>
           <property name="currentIndex">
+<<<<<<< HEAD
            <number>6</number>
+=======
+           <number>7</number>
+>>>>>>> 9d8b7eb4faa162545cdc485258f08a24716038b3
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -2868,7 +2911,59 @@ padding-left: 10px;</string>
                <number>5</number>
               </property>
               <item>
-               <widget class="QCalendarWidget" name="calendarWidget_2"/>
+               <widget class="QCalendarWidget" name="calendarWidget_2">
+                <property name="styleSheet">
+                 <string notr="true">QCalendarWidget QToolButton#qt_calendar_nextmonth{
+	border-image: url(:/background/right_arrow.png);
+	background-position: center;
+	background-repeat: none;
+	icon-size: 0px;
+	padding: 10px;
+}
+
+QCalendarWidget QToolButton#qt_calendar_prevmonth{
+	border-image: url(:/background/left_arrow.png);
+	background-position: center;
+	background-repeat: none;
+	icon-size: 0px;
+	padding: 10px;
+}
+
+QCalendarWidget QToolButton{
+	background-color: rgb(118, 118, 118);
+}
+
+QCalendarWidget QWidget#qt_calendar_navigationbar{
+	background-color: rgb(198, 198, 198);
+}
+
+QCalendarWidget QSpinBox::up-button {
+	border-image: url(:/background/up_arrow.png);
+	background-position: center;
+	background-repeat: none;
+}
+
+QCalendarWidget QSpinBox::down-button {
+	border-image: url(:/background/down_arrow.png);	
+	background-position: center;
+	background-repeat: none;
+}
+
+
+QCalendarWidget QWidget {
+	background-color: rgb(118, 118, 118);
+	border: 1px solid black;
+	font-size: 14px;
+}
+
+#qt_calendar_monthbutton::menu-indicator{
+   width:0px;
+}</string>
+                </property>
+                <property name="verticalHeaderFormat">
+                 <enum>QCalendarWidget::NoVerticalHeader</enum>
+                </property>
+               </widget>
               </item>
               <item alignment="Qt::AlignHCenter">
                <widget class="QPushButton" name="button_currentDate">
@@ -3658,7 +3753,59 @@ color:white;
                  <number>0</number>
                 </property>
                 <item row="0" column="0">
-                 <widget class="QCalendarWidget" name="calendarWidget_3"/>
+                 <widget class="QCalendarWidget" name="calendarWidget_3">
+                  <property name="styleSheet">
+                   <string notr="true">QCalendarWidget QToolButton#qt_calendar_nextmonth{
+	border-image: url(:/background/right_arrow.png);
+	background-position: center;
+	background-repeat: none;
+	icon-size: 0px;
+	padding: 10px;
+}
+
+QCalendarWidget QToolButton#qt_calendar_prevmonth{
+	border-image: url(:/background/left_arrow.png);
+	background-position: center;
+	background-repeat: none;
+	icon-size: 0px;
+	padding: 10px;
+}
+
+QCalendarWidget QToolButton{
+	background-color: rgb(118, 118, 118);
+}
+
+QCalendarWidget QWidget#qt_calendar_navigationbar{
+	background-color: rgb(198, 198, 198);
+}
+
+QCalendarWidget QSpinBox::up-button {
+	border-image: url(:/background/up_arrow.png);
+	background-position: center;
+	background-repeat: none;
+}
+
+QCalendarWidget QSpinBox::down-button {
+	border-image: url(:/background/down_arrow.png);	
+	background-position: center;
+	background-repeat: none;
+}
+
+
+QCalendarWidget QWidget {
+	background-color: rgb(118, 118, 118);
+	border: 1px solid black;
+	font-size: 14px;
+}
+
+#qt_calendar_monthbutton::menu-indicator{
+   width:0px;
+}</string>
+                  </property>
+                  <property name="verticalHeaderFormat">
+                   <enum>QCalendarWidget::NoVerticalHeader</enum>
+                  </property>
+                 </widget>
                 </item>
                 <item row="1" column="0">
                  <widget class="QPushButton" name="button_selectDate">
@@ -3735,6 +3882,83 @@ color:white;
             </item>
             <item row="1" column="2" rowspan="6">
              <widget class="QTableWidget" name="tableWidget_2">
+              <property name="styleSheet">
+               <string notr="true">QTableWidget::item {
+	background-color: rgba(118, 118, 118,200);
+	color: #000000;
+	color: white;
+	border: 2px solid #000000;
+}
+
+QHeaderView::section {
+	background-color: rgba(198, 198, 198,200);
+	color: #000000;
+	padding: 4px;
+	border-style: none;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
+}
+
+QTableWidget {
+	background-color: rgb(118, 118, 118);
+	gridline-color: rgb(198, 198, 198);
+}
+
+QScrollBar:horizontal {
+        border: 2px solid black;
+        background-color: rgb(118, 118, 118);
+        height: 15px;
+        margin: 0 22px 0 22px;
+    }
+    QScrollBar::handle:horizontal {
+	   background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+        border: 1px solid #adb0b6;
+        border-radius: 4px;
+        min-width: 20px;
+    }
+    QScrollBar::add-line:horizontal {
+        background: black;
+        width: 20px;
+        subcontrol-position: right;
+        subcontrol-origin: margin;
+    }
+    QScrollBar::sub-line:horizontal {
+        background: black;
+        width: 20px;
+        subcontrol-position: left;
+        subcontrol-origin: margin;
+    }
+
+QScrollBar:vertical {
+    border: 2px solid black;
+    background-color: rgb(118, 118, 118);
+    width: 15px;
+    margin: 22px 0 22px 0;
+}
+QScrollBar::handle:vertical {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+    border: 1px solid #adb0b6;
+    border-radius: 4px;
+    min-height: 20px;
+}
+QScrollBar::add-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+
+
+</string>
+              </property>
               <column>
                <property name="text">
                 <string>Student ID</string>
@@ -3798,6 +4022,90 @@ color:white;
               <pointsize>22</pointsize>
              </font>
             </property>
+            <property name="styleSheet">
+             <string notr="true">QListWidget::item {
+    background-color: rgba(118, 118, 118, 200);
+    color: white;
+    border: 2px solid #000000;
+}
+
+QListWidget::item:selected {
+    background-color: rgba(198, 198, 198, 200);
+    color: #000000;
+}
+
+QHeaderView::section {
+    background-color: rgba(198, 198, 198, 200);
+    color: #000000;
+    padding: 4px;
+    border-style: none;
+    border-bottom: 2px solid #000000;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+QListWidget {
+    background-color: rgb(118, 118, 118);
+}
+
+QScrollBar:horizontal {
+    border: 2px solid black;
+    background-color: rgb(118, 118, 118);
+    height: 15px;
+    margin: 0 22px 0 22px;
+}
+
+QScrollBar::handle:horizontal {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+    border: 1px solid #adb0b6;
+    border-radius: 4px;
+    min-width: 20px;
+}
+
+QScrollBar::add-line:horizontal {
+    background: black;
+    width: 20px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal {
+    background: black;
+    width: 20px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+
+QScrollBar:vertical {
+    border: 2px solid black;
+    background-color: rgb(118, 118, 118);
+    width: 15px;
+    margin: 22px 0 22px 0;
+}
+
+QScrollBar::handle:vertical {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+    border: 1px solid #adb0b6;
+    border-radius: 4px;
+    min-height: 20px;
+}
+
+QScrollBar::add-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+</string>
+            </property>
            </widget>
            <widget class="QTableWidget" name="table_student">
             <property name="geometry">
@@ -3808,6 +4116,98 @@ color:white;
               <height>351</height>
              </rect>
             </property>
+            <property name="styleSheet">
+             <string notr="true">QTableWidget::item {
+	background-color: rgba(118, 118, 118,200);
+	color: #000000;
+	color: white;
+	border: 2px solid #000000;
+}
+
+QHeaderView::section {
+	background-color: rgba(198, 198, 198,200);
+	color: #000000;
+	padding: 4px;
+	border-style: none;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
+}
+
+QTableWidget {
+	background-color: rgb(118, 118, 118);
+	gridline-color: rgb(198, 198, 198);
+}
+
+QScrollBar:horizontal {
+        border: 2px solid black;
+        background-color: rgb(118, 118, 118);
+        height: 15px;
+        margin: 0 22px 0 22px;
+    }
+    QScrollBar::handle:horizontal {
+	   background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+        border: 1px solid #adb0b6;
+        border-radius: 4px;
+        min-width: 20px;
+    }
+    QScrollBar::add-line:horizontal {
+        background: black;
+        width: 20px;
+        subcontrol-position: right;
+        subcontrol-origin: margin;
+    }
+    QScrollBar::sub-line:horizontal {
+        background: black;
+        width: 20px;
+        subcontrol-position: left;
+        subcontrol-origin: margin;
+    }
+
+QScrollBar:vertical {
+    border: 2px solid black;
+    background-color: rgb(118, 118, 118);
+    width: 15px;
+    margin: 22px 0 22px 0;
+}
+QScrollBar::handle:vertical {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+    border: 1px solid #adb0b6;
+    border-radius: 4px;
+    min-height: 20px;
+}
+QScrollBar::add-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+
+
+</string>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="sortingEnabled">
+             <bool>true</bool>
+            </property>
+            <attribute name="horizontalHeaderCascadingSectionResizes">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="verticalHeaderCascadingSectionResizes">
+             <bool>false</bool>
+            </attribute>
             <column>
              <property name="text">
               <string>Student ID</string>
@@ -3849,7 +4249,7 @@ color:white;
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">color:white;
+             <string notr="true">color: #F5F0F0;
 </string>
             </property>
             <property name="text">
@@ -3871,7 +4271,7 @@ color:white;
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">color:white;
+             <string notr="true">color: #F5F0F0;
 </string>
             </property>
             <property name="text">
@@ -3881,7 +4281,7 @@ color:white;
            <widget class="QPushButton" name="pushButton">
             <property name="geometry">
              <rect>
-              <x>660</x>
+              <x>40</x>
               <y>570</y>
               <width>200</width>
               <height>65</height>
@@ -3982,6 +4382,83 @@ color:white;
               <width>781</width>
               <height>331</height>
              </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QTableWidget::item {
+	background-color: rgba(118, 118, 118,200);
+	color: #000000;
+	color: white;
+	border: 2px solid #000000;
+}
+
+QHeaderView::section {
+	background-color: rgba(198, 198, 198,200);
+	color: #000000;
+	padding: 4px;
+	border-style: none;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
+}
+
+QTableWidget {
+	background-color: rgb(118, 118, 118);
+	gridline-color: rgb(198, 198, 198);
+}
+
+QScrollBar:horizontal {
+        border: 2px solid black;
+        background-color: rgb(118, 118, 118);
+        height: 15px;
+        margin: 0 22px 0 22px;
+    }
+    QScrollBar::handle:horizontal {
+	   background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+        border: 1px solid #adb0b6;
+        border-radius: 4px;
+        min-width: 20px;
+    }
+    QScrollBar::add-line:horizontal {
+        background: black;
+        width: 20px;
+        subcontrol-position: right;
+        subcontrol-origin: margin;
+    }
+    QScrollBar::sub-line:horizontal {
+        background: black;
+        width: 20px;
+        subcontrol-position: left;
+        subcontrol-origin: margin;
+    }
+
+QScrollBar:vertical {
+    border: 2px solid black;
+    background-color: rgb(118, 118, 118);
+    width: 15px;
+    margin: 22px 0 22px 0;
+}
+QScrollBar::handle:vertical {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+    border: 1px solid #adb0b6;
+    border-radius: 4px;
+    min-height: 20px;
+}
+QScrollBar::add-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+
+
+</string>
             </property>
            </widget>
            <widget class="QPushButton" name="button_back_10">
@@ -4179,6 +4656,83 @@ color:white;
               </property>
               <item row="1" column="0" colspan="5">
                <widget class="QTableWidget" name="table_course">
+                <property name="styleSheet">
+                 <string notr="true">QTableWidget::item {
+	background-color: rgba(118, 118, 118,200);
+	color: #000000;
+	color: white;
+	border: 2px solid #000000;
+}
+
+QHeaderView::section {
+	background-color: rgba(198, 198, 198,200);
+	color: #000000;
+	padding: 4px;
+	border-style: none;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
+}
+
+QTableWidget {
+	background-color: rgb(118, 118, 118);
+	gridline-color: rgb(198, 198, 198);
+}
+
+QScrollBar:horizontal {
+        border: 2px solid black;
+        background-color: rgb(118, 118, 118);
+        height: 15px;
+        margin: 0 22px 0 22px;
+    }
+    QScrollBar::handle:horizontal {
+	   background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+        border: 1px solid #adb0b6;
+        border-radius: 4px;
+        min-width: 20px;
+    }
+    QScrollBar::add-line:horizontal {
+        background: black;
+        width: 20px;
+        subcontrol-position: right;
+        subcontrol-origin: margin;
+    }
+    QScrollBar::sub-line:horizontal {
+        background: black;
+        width: 20px;
+        subcontrol-position: left;
+        subcontrol-origin: margin;
+    }
+
+QScrollBar:vertical {
+    border: 2px solid black;
+    background-color: rgb(118, 118, 118);
+    width: 15px;
+    margin: 22px 0 22px 0;
+}
+QScrollBar::handle:vertical {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+    border: 1px solid #adb0b6;
+    border-radius: 4px;
+    min-height: 20px;
+}
+QScrollBar::add-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+
+
+</string>
+                </property>
                 <column>
                  <property name="text">
                   <string>Course ID</string>
@@ -4313,6 +4867,83 @@ color:white;
               </property>
               <item row="0" column="0">
                <widget class="QTableWidget" name="table_student_2">
+                <property name="styleSheet">
+                 <string notr="true">QTableWidget::item {
+	background-color: rgba(118, 118, 118,200);
+	color: #000000;
+	color: white;
+	border: 2px solid #000000;
+}
+
+QHeaderView::section {
+	background-color: rgba(198, 198, 198,200);
+	color: #000000;
+	padding: 4px;
+	border-style: none;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
+}
+
+QTableWidget {
+	background-color: rgb(118, 118, 118);
+	gridline-color: rgb(198, 198, 198);
+}
+
+QScrollBar:horizontal {
+        border: 2px solid black;
+        background-color: rgb(118, 118, 118);
+        height: 15px;
+        margin: 0 22px 0 22px;
+    }
+    QScrollBar::handle:horizontal {
+	   background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+        border: 1px solid #adb0b6;
+        border-radius: 4px;
+        min-width: 20px;
+    }
+    QScrollBar::add-line:horizontal {
+        background: black;
+        width: 20px;
+        subcontrol-position: right;
+        subcontrol-origin: margin;
+    }
+    QScrollBar::sub-line:horizontal {
+        background: black;
+        width: 20px;
+        subcontrol-position: left;
+        subcontrol-origin: margin;
+    }
+
+QScrollBar:vertical {
+    border: 2px solid black;
+    background-color: rgb(118, 118, 118);
+    width: 15px;
+    margin: 22px 0 22px 0;
+}
+QScrollBar::handle:vertical {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+    border: 1px solid #adb0b6;
+    border-radius: 4px;
+    min-height: 20px;
+}
+QScrollBar::add-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+
+
+</string>
+                </property>
                 <column>
                  <property name="text">
                   <string>Student ID</string>

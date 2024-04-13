@@ -15,9 +15,10 @@ MainWindow::MainWindow(QWidget* parent)
     QFont minecraftFont(fontName);
 
     ui->tableWidget->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1; }"
-                                      "QTableWidget QHeaderView::section { font-family: %1; }").arg(fontName));
+                                      "QTableWidget QHeaderView::section { font-size: 14px; font-family: %1; }").arg(fontName));
 
-
+    ui->table_student->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1; }"
+                                                                             "QTableWidget QHeaderView::section { font-size: 14px; font-family: %1; }").arg(fontName));
     minecraftFont.setPointSize(9);
 
 
@@ -61,6 +62,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->slogan_2->setFont(minecraftFont);
     ui->slogan_3->setFont(minecraftFont);
     ui->button_ok->setFont(minecraftFont);
+    ui->pushButton->setFont(minecraftFont);
 
     minecraftFont.setPointSize(18);
     ui->txtPassword->setFont(minecraftFont);
@@ -111,6 +113,9 @@ MainWindow::MainWindow(QWidget* parent)
     minecraftFont.setBold(1); // Bold Region
     ui->lb_username->setFont(minecraftFont);
     ui->lb_password->setFont(minecraftFont);
+    ui->list_classes_2->setFont(minecraftFont);
+    ui->lb_curClass->setFont(minecraftFont);
+    ui->lb_class->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
 
@@ -122,6 +127,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_MyCourses->setFont(minecraftFont);
     ui->lb_changePass_2->setFont(minecraftFont);
     ui->lb_MyProfile_2->setFont(minecraftFont);
+    ui->lb_allClasses->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
     minecraftFont.setPointSize(48);
@@ -134,6 +140,24 @@ MainWindow::MainWindow(QWidget* parent)
     weekendFormat.setForeground(QColor("#7FFFD4"));
     ui->calendarWidget->setWeekdayTextFormat(Qt::Saturday, weekendFormat);
     ui->calendarWidget->setWeekdayTextFormat(Qt::Sunday, weekendFormat);
+    ui->calendarWidget_2->setWeekdayTextFormat(Qt::Saturday, weekendFormat);
+    ui->calendarWidget_2->setWeekdayTextFormat(Qt::Sunday, weekendFormat);
+    ui->calendarWidget_3->setWeekdayTextFormat(Qt::Saturday, weekendFormat);
+    ui->calendarWidget_3->setWeekdayTextFormat(Qt::Sunday, weekendFormat);
+
+    ui->table_student->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->table_student->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->table_student_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->table_student_2->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->table_course->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->table_course->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->table_scoreboard->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->table_scoreboard->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->tableWidget_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->tableWidget_2->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+
 }
 
 MainWindow::~MainWindow()
