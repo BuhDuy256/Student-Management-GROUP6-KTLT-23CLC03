@@ -106,8 +106,8 @@ public:
     QPushButton *button_ok;
     QTableWidget *tableWidget;
     QHBoxLayout *horizontalLayout_3;
-    QPushButton *button_back_5;
     QPushButton *button_viewScore;
+    QPushButton *button_back_5;
     QWidget *StuChangePassword;
     QGridLayout *gridLayout_5;
     QLabel *lb_confirmPass;
@@ -253,6 +253,7 @@ public:
     QWidget *AdCourseManagement;
     QLabel *lb_courseManagement;
     QPushButton *button_courseView;
+    QPushButton *button_courseSetting;
     QWidget *AdCourseSetting;
     QLabel *lb_courseSetting;
     QWidget *AdCourseView;
@@ -265,16 +266,14 @@ public:
     QComboBox *box_selectSY_2;
     QComboBox *box_selectSem;
     QPushButton *button_ok_3;
-    QLabel *lb_selectSY_2;
-    QLabel *lb_selectSem;
+    QLabel *label;
+    QLabel *label_2;
     QPushButton *button_viewStudent;
     QPushButton *button_removeFilter;
     QWidget *page_4;
     QGridLayout *gridLayout_17;
-    QPushButton *button_coursesList;
-    QPushButton *pushButton_2;
     QTableWidget *table_student_2;
-    QLabel *lb_scoreTable;
+    QPushButton *button_coursesList;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -286,8 +285,7 @@ public:
 "        border-image: url(:/background/button.png);\n"
 "        color: white;\n"
 "}\n"
-"QPushButton:hover { border-image: url(:/background/button_hover.png); }\n"
-"\n"
+"QPushButton:hover { color: black; }\n"
 "\n"
 "QLabel{\n"
 "color: black;\n"
@@ -707,26 +705,11 @@ public:
 "}\n"
 "\n"
 "QCalendarWidget QSpinBox::up-button {\n"
-"	border-image: url(:/background/up_arrow.png);\n"
-"	background-position: center;\n"
-"	background-repeat: none;\n"
+"	background-color: rgb(118, 118, 118);\n"
 "}\n"
 "\n"
 "QCalendarWidget QSpinBox::down-button {\n"
-"	border-image: url(:/background/down_arrow.png);	\n"
-"	background-position: center;\n"
-"	background-repeat: none;\n"
-"}\n"
-"\n"
-"QCalendarWidget QWidget {\n"
-"	backgrou"
-                        "nd-color: rgb(118, 118, 118);\n"
-"	font-size: 14px;\n"
-"	border: 1px solid black;\n"
-"}\n"
-"\n"
-"#qt_calendar_monthbutton::menu-indicator{\n"
-"   width:0px;\n"
+"	background-color: rgb(118, 118, 118);\n"
 "}\n"
 ""));
         calendarWidget->setGridVisible(false);
@@ -1067,48 +1050,18 @@ public:
 "        min-width: 20px;\n"
 "    }\n"
 "    QScrollBar::add-line:horizontal {\n"
-"		\n"
-"	border-ima"
-                        "ge: url(:/background/right_arrow.png);\n"
-"        background: black;\n"
+"        background"
+                        ": black;\n"
 "        width: 20px;\n"
 "        subcontrol-position: right;\n"
 "        subcontrol-origin: margin;\n"
 "    }\n"
 "    QScrollBar::sub-line:horizontal {\n"
-"		\n"
-"	border-image: url(:/background/left_arrow.png);\n"
 "        background: black;\n"
 "        width: 20px;\n"
 "        subcontrol-position: left;\n"
 "        subcontrol-origin: margin;\n"
 "    }\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: 2px solid black;\n"
-"    background-color: rgb(118, 118, 118);\n"
-"    width: 15px;\n"
-"    margin: 22px 0 22px 0;\n"
-"}\n"
-"QScrollBar::handle:vertical {\n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);\n"
-"    border: 1px solid #adb0b6;\n"
-"    border-radius: 4px;\n"
-"    min-height: 20px;\n"
-"}\n"
-"QScrollBar::add-line:vertical {\n"
-"    background: black;\n"
-"    height: 20px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-"QScrollBar::sub-line:vertical {\n"
-"  "
-                        "  background: black;\n"
-"    height: 20px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
 "\n"
 "\n"
 "\n"
@@ -1121,14 +1074,6 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName("horizontalLayout_3");
-        button_back_5 = new QPushButton(StuCourse);
-        button_back_5->setObjectName("button_back_5");
-        button_back_5->setMinimumSize(QSize(200, 50));
-        button_back_5->setMaximumSize(QSize(200, 50));
-        button_back_5->setFont(font6);
-
-        horizontalLayout_3->addWidget(button_back_5);
-
         button_viewScore = new QPushButton(StuCourse);
         button_viewScore->setObjectName("button_viewScore");
         button_viewScore->setMinimumSize(QSize(200, 50));
@@ -1136,6 +1081,14 @@ public:
         button_viewScore->setFont(font6);
 
         horizontalLayout_3->addWidget(button_viewScore);
+
+        button_back_5 = new QPushButton(StuCourse);
+        button_back_5->setObjectName("button_back_5");
+        button_back_5->setMinimumSize(QSize(200, 50));
+        button_back_5->setMaximumSize(QSize(200, 50));
+        button_back_5->setFont(font6);
+
+        horizontalLayout_3->addWidget(button_back_5);
 
 
         verticalLayout_5->addLayout(horizontalLayout_3);
@@ -1277,7 +1230,7 @@ public:
         lb_latestSY->setObjectName("lb_latestSY");
         lb_latestSY->setMaximumSize(QSize(16777215, 23));
         lb_latestSY->setStyleSheet(QString::fromUtf8("color:white;\n"
-"font-size: 18px;"));
+"font-size: 20px;"));
 
         verticalLayout_3->addWidget(lb_latestSY, 0, Qt::AlignHCenter);
 
@@ -1286,7 +1239,7 @@ public:
         lb_latestSem->setMaximumSize(QSize(218, 23));
         lb_latestSem->setFont(font3);
         lb_latestSem->setStyleSheet(QString::fromUtf8("color:white;\n"
-"font-size: 18px;"));
+"font-size: 20px;"));
 
         verticalLayout_3->addWidget(lb_latestSem, 0, Qt::AlignHCenter);
 
@@ -1730,54 +1683,6 @@ public:
         verticalLayout_6->setObjectName("verticalLayout_6");
         calendarWidget_2 = new QCalendarWidget(AdCreateSemester);
         calendarWidget_2->setObjectName("calendarWidget_2");
-        calendarWidget_2->setStyleSheet(QString::fromUtf8("QCalendarWidget QToolButton#qt_calendar_nextmonth{\n"
-"	border-image: url(:/background/right_arrow.png);\n"
-"	background-position: center;\n"
-"	background-repeat: none;\n"
-"	icon-size: 0px;\n"
-"	padding: 10px;\n"
-"}\n"
-"\n"
-"QCalendarWidget QToolButton#qt_calendar_prevmonth{\n"
-"	border-image: url(:/background/left_arrow.png);\n"
-"	background-position: center;\n"
-"	background-repeat: none;\n"
-"	icon-size: 0px;\n"
-"	padding: 10px;\n"
-"}\n"
-"\n"
-"QCalendarWidget QToolButton{\n"
-"	background-color: rgb(118, 118, 118);\n"
-"}\n"
-"\n"
-"QCalendarWidget QWidget#qt_calendar_navigationbar{\n"
-"	background-color: rgb(198, 198, 198);\n"
-"}\n"
-"\n"
-"QCalendarWidget QSpinBox::up-button {\n"
-"	border-image: url(:/background/up_arrow.png);\n"
-"	background-position: center;\n"
-"	background-repeat: none;\n"
-"}\n"
-"\n"
-"QCalendarWidget QSpinBox::down-button {\n"
-"	border-image: url(:/background/down_arrow.png);	\n"
-"	background-position: center;\n"
-"	background-repeat: none;\n"
-"}\n"
-"\n"
-"\n"
-"QCalendarWidget QWidget {\n"
-"	bac"
-                        "kground-color: rgb(118, 118, 118);\n"
-"	border: 1px solid black;\n"
-"	font-size: 14px;\n"
-"}\n"
-"\n"
-"#qt_calendar_monthbutton::menu-indicator{\n"
-"   width:0px;\n"
-"}"));
-        calendarWidget_2->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
 
         verticalLayout_6->addWidget(calendarWidget_2);
 
@@ -1804,7 +1709,6 @@ public:
 
         button_confirm_3 = new QPushButton(AdCreateSemester);
         button_confirm_3->setObjectName("button_confirm_3");
-        button_confirm_3->setEnabled(true);
         button_confirm_3->setMinimumSize(QSize(200, 65));
         button_confirm_3->setMaximumSize(QSize(200, 65));
 
@@ -2118,54 +2022,6 @@ public:
         gridLayout_15->setContentsMargins(0, 0, 0, 0);
         calendarWidget_3 = new QCalendarWidget(page_calendar);
         calendarWidget_3->setObjectName("calendarWidget_3");
-        calendarWidget_3->setStyleSheet(QString::fromUtf8("QCalendarWidget QToolButton#qt_calendar_nextmonth{\n"
-"	border-image: url(:/background/right_arrow.png);\n"
-"	background-position: center;\n"
-"	background-repeat: none;\n"
-"	icon-size: 0px;\n"
-"	padding: 10px;\n"
-"}\n"
-"\n"
-"QCalendarWidget QToolButton#qt_calendar_prevmonth{\n"
-"	border-image: url(:/background/left_arrow.png);\n"
-"	background-position: center;\n"
-"	background-repeat: none;\n"
-"	icon-size: 0px;\n"
-"	padding: 10px;\n"
-"}\n"
-"\n"
-"QCalendarWidget QToolButton{\n"
-"	background-color: rgb(118, 118, 118);\n"
-"}\n"
-"\n"
-"QCalendarWidget QWidget#qt_calendar_navigationbar{\n"
-"	background-color: rgb(198, 198, 198);\n"
-"}\n"
-"\n"
-"QCalendarWidget QSpinBox::up-button {\n"
-"	border-image: url(:/background/up_arrow.png);\n"
-"	background-position: center;\n"
-"	background-repeat: none;\n"
-"}\n"
-"\n"
-"QCalendarWidget QSpinBox::down-button {\n"
-"	border-image: url(:/background/down_arrow.png);	\n"
-"	background-position: center;\n"
-"	background-repeat: none;\n"
-"}\n"
-"\n"
-"\n"
-"QCalendarWidget QWidget {\n"
-"	bac"
-                        "kground-color: rgb(118, 118, 118);\n"
-"	border: 1px solid black;\n"
-"	font-size: 14px;\n"
-"}\n"
-"\n"
-"#qt_calendar_monthbutton::menu-indicator{\n"
-"   width:0px;\n"
-"}"));
-        calendarWidget_3->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
 
         gridLayout_15->addWidget(calendarWidget_3, 0, 0, 1, 1);
 
@@ -2219,83 +2075,6 @@ public:
         QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
         tableWidget_2->setHorizontalHeaderItem(3, __qtablewidgetitem11);
         tableWidget_2->setObjectName("tableWidget_2");
-        tableWidget_2->setStyleSheet(QString::fromUtf8("QTableWidget::item {\n"
-"	background-color: rgba(118, 118, 118,200);\n"
-"	color: #000000;\n"
-"	color: white;\n"
-"	border: 2px solid #000000;\n"
-"}\n"
-"\n"
-"QHeaderView::section {\n"
-"	background-color: rgba(198, 198, 198,200);\n"
-"	color: #000000;\n"
-"	padding: 4px;\n"
-"	border-style: none;\n"
-"	border-bottom: 2px solid #000000;\n"
-"	border-right: 1px solid #000000;\n"
-"	border-left: 1px solid #000000; \n"
-"}\n"
-"\n"
-"QTableWidget {\n"
-"	background-color: rgb(118, 118, 118);\n"
-"	gridline-color: rgb(198, 198, 198);\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"        border: 2px solid black;\n"
-"        background-color: rgb(118, 118, 118);\n"
-"        height: 15px;\n"
-"        margin: 0 22px 0 22px;\n"
-"    }\n"
-"    QScrollBar::handle:horizontal {\n"
-"	   background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);\n"
-"        border: 1px solid #adb0b6;\n"
-"        border-radius: 4px;\n"
-"        min-width: 20px;\n"
-"    }\n"
-"    QScrollBar::add-line:horizontal {\n"
-"        background"
-                        ": black;\n"
-"        width: 20px;\n"
-"        subcontrol-position: right;\n"
-"        subcontrol-origin: margin;\n"
-"    }\n"
-"    QScrollBar::sub-line:horizontal {\n"
-"        background: black;\n"
-"        width: 20px;\n"
-"        subcontrol-position: left;\n"
-"        subcontrol-origin: margin;\n"
-"    }\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: 2px solid black;\n"
-"    background-color: rgb(118, 118, 118);\n"
-"    width: 15px;\n"
-"    margin: 22px 0 22px 0;\n"
-"}\n"
-"QScrollBar::handle:vertical {\n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);\n"
-"    border: 1px solid #adb0b6;\n"
-"    border-radius: 4px;\n"
-"    min-height: 20px;\n"
-"}\n"
-"QScrollBar::add-line:vertical {\n"
-"    background: black;\n"
-"    height: 20px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background: black;\n"
-"    height: 20px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-""
-                        "\n"
-"\n"
-"\n"
-""));
 
         gridLayout_14->addWidget(tableWidget_2, 1, 2, 6, 1);
 
@@ -2315,90 +2094,6 @@ public:
         list_classes_2->setObjectName("list_classes_2");
         list_classes_2->setGeometry(QRect(40, 190, 201, 351));
         list_classes_2->setFont(font13);
-        list_classes_2->setStyleSheet(QString::fromUtf8("QListWidget::item {\n"
-"    background-color: rgba(118, 118, 118, 200);\n"
-"    color: white;\n"
-"    border: 2px solid #000000;\n"
-"}\n"
-"\n"
-"QListWidget::item:selected {\n"
-"    background-color: rgba(198, 198, 198, 200);\n"
-"    color: #000000;\n"
-"}\n"
-"\n"
-"QHeaderView::section {\n"
-"    background-color: rgba(198, 198, 198, 200);\n"
-"    color: #000000;\n"
-"    padding: 4px;\n"
-"    border-style: none;\n"
-"    border-bottom: 2px solid #000000;\n"
-"    border-right: 1px solid #000000;\n"
-"    border-left: 1px solid #000000;\n"
-"    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);\n"
-"}\n"
-"\n"
-"QListWidget {\n"
-"    background-color: rgb(118, 118, 118);\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"    border: 2px solid black;\n"
-"    background-color: rgb(118, 118, 118);\n"
-"    height: 15px;\n"
-"    margin: 0 22px 0 22px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:horizontal {\n"
-"    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);\n"
-"    border: 1px solid #adb0b6;\n"
-"    border-"
-                        "radius: 4px;\n"
-"    min-width: 20px;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:horizontal {\n"
-"    background: black;\n"
-"    width: 20px;\n"
-"    subcontrol-position: right;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:horizontal {\n"
-"    background: black;\n"
-"    width: 20px;\n"
-"    subcontrol-position: left;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: 2px solid black;\n"
-"    background-color: rgb(118, 118, 118);\n"
-"    width: 15px;\n"
-"    margin: 22px 0 22px 0;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical {\n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);\n"
-"    border: 1px solid #adb0b6;\n"
-"    border-radius: 4px;\n"
-"    min-height: 20px;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical {\n"
-"    background: black;\n"
-"    height: 20px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background: black;\n"
-"    height:"
-                        " 20px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-""));
         table_student = new QTableWidget(AdAllClasses);
         if (table_student->columnCount() < 5)
             table_student->setColumnCount(5);
@@ -2414,103 +2109,21 @@ public:
         table_student->setHorizontalHeaderItem(4, __qtablewidgetitem16);
         table_student->setObjectName("table_student");
         table_student->setGeometry(QRect(270, 190, 591, 351));
-        table_student->setStyleSheet(QString::fromUtf8("QTableWidget::item {\n"
-"	background-color: rgba(118, 118, 118,200);\n"
-"	color: #000000;\n"
-"	color: white;\n"
-"	border: 2px solid #000000;\n"
-"}\n"
-"\n"
-"QHeaderView::section {\n"
-"	background-color: rgba(198, 198, 198,200);\n"
-"	color: #000000;\n"
-"	padding: 4px;\n"
-"	border-style: none;\n"
-"	border-bottom: 2px solid #000000;\n"
-"	border-right: 1px solid #000000;\n"
-"	border-left: 1px solid #000000; \n"
-"}\n"
-"\n"
-"QTableWidget {\n"
-"	background-color: rgb(118, 118, 118);\n"
-"	gridline-color: rgb(198, 198, 198);\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"        border: 2px solid black;\n"
-"        background-color: rgb(118, 118, 118);\n"
-"        height: 15px;\n"
-"        margin: 0 22px 0 22px;\n"
-"    }\n"
-"    QScrollBar::handle:horizontal {\n"
-"	   background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);\n"
-"        border: 1px solid #adb0b6;\n"
-"        border-radius: 4px;\n"
-"        min-width: 20px;\n"
-"    }\n"
-"    QScrollBar::add-line:horizontal {\n"
-"        background"
-                        ": black;\n"
-"        width: 20px;\n"
-"        subcontrol-position: right;\n"
-"        subcontrol-origin: margin;\n"
-"    }\n"
-"    QScrollBar::sub-line:horizontal {\n"
-"        background: black;\n"
-"        width: 20px;\n"
-"        subcontrol-position: left;\n"
-"        subcontrol-origin: margin;\n"
-"    }\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: 2px solid black;\n"
-"    background-color: rgb(118, 118, 118);\n"
-"    width: 15px;\n"
-"    margin: 22px 0 22px 0;\n"
-"}\n"
-"QScrollBar::handle:vertical {\n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);\n"
-"    border: 1px solid #adb0b6;\n"
-"    border-radius: 4px;\n"
-"    min-height: 20px;\n"
-"}\n"
-"QScrollBar::add-line:vertical {\n"
-"    background: black;\n"
-"    height: 20px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background: black;\n"
-"    height: 20px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-""
-                        "\n"
-"\n"
-"\n"
-""));
-        table_student->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        table_student->setSortingEnabled(true);
-        table_student->horizontalHeader()->setCascadingSectionResizes(false);
-        table_student->horizontalHeader()->setProperty("showSortIndicator", QVariant(true));
-        table_student->verticalHeader()->setCascadingSectionResizes(false);
         lb_curClass = new QLabel(AdAllClasses);
         lb_curClass->setObjectName("lb_curClass");
         lb_curClass->setGeometry(QRect(490, 140, 151, 41));
         lb_curClass->setFont(font13);
-        lb_curClass->setStyleSheet(QString::fromUtf8("color: #F5F0F0;\n"
+        lb_curClass->setStyleSheet(QString::fromUtf8("color:white;\n"
 ""));
         lb_class = new QLabel(AdAllClasses);
         lb_class->setObjectName("lb_class");
         lb_class->setGeometry(QRect(70, 140, 151, 41));
         lb_class->setFont(font13);
-        lb_class->setStyleSheet(QString::fromUtf8("color: #F5F0F0;\n"
+        lb_class->setStyleSheet(QString::fromUtf8("color:white;\n"
 ""));
         pushButton = new QPushButton(AdAllClasses);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(670, 560, 200, 65));
+        pushButton->setGeometry(QRect(660, 570, 200, 65));
         pushButton->setMinimumSize(QSize(200, 65));
         pushButton->setMaximumSize(QSize(200, 65));
         stackedWidget_3->addWidget(AdAllClasses);
@@ -2537,83 +2150,6 @@ public:
         table_scoreboard = new QTableWidget(AdScoreboard);
         table_scoreboard->setObjectName("table_scoreboard");
         table_scoreboard->setGeometry(QRect(60, 210, 781, 331));
-        table_scoreboard->setStyleSheet(QString::fromUtf8("QTableWidget::item {\n"
-"	background-color: rgba(118, 118, 118,200);\n"
-"	color: #000000;\n"
-"	color: white;\n"
-"	border: 2px solid #000000;\n"
-"}\n"
-"\n"
-"QHeaderView::section {\n"
-"	background-color: rgba(198, 198, 198,200);\n"
-"	color: #000000;\n"
-"	padding: 4px;\n"
-"	border-style: none;\n"
-"	border-bottom: 2px solid #000000;\n"
-"	border-right: 1px solid #000000;\n"
-"	border-left: 1px solid #000000; \n"
-"}\n"
-"\n"
-"QTableWidget {\n"
-"	background-color: rgb(118, 118, 118);\n"
-"	gridline-color: rgb(198, 198, 198);\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"        border: 2px solid black;\n"
-"        background-color: rgb(118, 118, 118);\n"
-"        height: 15px;\n"
-"        margin: 0 22px 0 22px;\n"
-"    }\n"
-"    QScrollBar::handle:horizontal {\n"
-"	   background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);\n"
-"        border: 1px solid #adb0b6;\n"
-"        border-radius: 4px;\n"
-"        min-width: 20px;\n"
-"    }\n"
-"    QScrollBar::add-line:horizontal {\n"
-"        background"
-                        ": black;\n"
-"        width: 20px;\n"
-"        subcontrol-position: right;\n"
-"        subcontrol-origin: margin;\n"
-"    }\n"
-"    QScrollBar::sub-line:horizontal {\n"
-"        background: black;\n"
-"        width: 20px;\n"
-"        subcontrol-position: left;\n"
-"        subcontrol-origin: margin;\n"
-"    }\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: 2px solid black;\n"
-"    background-color: rgb(118, 118, 118);\n"
-"    width: 15px;\n"
-"    margin: 22px 0 22px 0;\n"
-"}\n"
-"QScrollBar::handle:vertical {\n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);\n"
-"    border: 1px solid #adb0b6;\n"
-"    border-radius: 4px;\n"
-"    min-height: 20px;\n"
-"}\n"
-"QScrollBar::add-line:vertical {\n"
-"    background: black;\n"
-"    height: 20px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background: black;\n"
-"    height: 20px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-""
-                        "\n"
-"\n"
-"\n"
-""));
         button_back_10 = new QPushButton(AdScoreboard);
         button_back_10->setObjectName("button_back_10");
         button_back_10->setGeometry(QRect(640, 570, 200, 65));
@@ -2633,7 +2169,10 @@ public:
         lb_courseManagement->setAlignment(Qt::AlignCenter);
         button_courseView = new QPushButton(AdCourseManagement);
         button_courseView->setObjectName("button_courseView");
-        button_courseView->setGeometry(QRect(170, 220, 631, 261));
+        button_courseView->setGeometry(QRect(220, 350, 441, 101));
+        button_courseSetting = new QPushButton(AdCourseManagement);
+        button_courseSetting->setObjectName("button_courseSetting");
+        button_courseSetting->setGeometry(QRect(220, 220, 441, 101));
         stackedWidget_3->addWidget(AdCourseManagement);
         AdCourseSetting = new QWidget();
         AdCourseSetting->setObjectName("AdCourseSetting");
@@ -2687,84 +2226,6 @@ public:
         QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
         table_course->setHorizontalHeaderItem(8, __qtablewidgetitem25);
         table_course->setObjectName("table_course");
-        table_course->setStyleSheet(QString::fromUtf8("QTableWidget::item {\n"
-"	background-color: rgba(118, 118, 118,200);\n"
-"	color: #000000;\n"
-"	color: white;\n"
-"	border: 2px solid #000000;\n"
-"}\n"
-"\n"
-"QHeaderView::section {\n"
-"	background-color: rgba(198, 198, 198,200);\n"
-"	color: #000000;\n"
-"	padding: 4px;\n"
-"	border-style: none;\n"
-"	border-bottom: 2px solid #000000;\n"
-"	border-right: 1px solid #000000;\n"
-"	border-left: 1px solid #000000; \n"
-"}\n"
-"\n"
-"QTableWidget {\n"
-"	background-color: rgb(118, 118, 118);\n"
-"	gridline-color: rgb(198, 198, 198);\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"        border: 2px solid black;\n"
-"        background-color: rgb(118, 118, 118);\n"
-"        height: 15px;\n"
-"        margin: 0 22px 0 22px;\n"
-"    }\n"
-"    QScrollBar::handle:horizontal {\n"
-"	   background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);\n"
-"        border: 1px solid #adb0b6;\n"
-"        border-radius: 4px;\n"
-"        min-width: 20px;\n"
-"    }\n"
-"    QScrollBar::add-line:horizontal {\n"
-"        background"
-                        ": black;\n"
-"        width: 20px;\n"
-"        subcontrol-position: right;\n"
-"        subcontrol-origin: margin;\n"
-"    }\n"
-"    QScrollBar::sub-line:horizontal {\n"
-"        background: black;\n"
-"        width: 20px;\n"
-"        subcontrol-position: left;\n"
-"        subcontrol-origin: margin;\n"
-"    }\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: 2px solid black;\n"
-"    background-color: rgb(118, 118, 118);\n"
-"    width: 15px;\n"
-"    margin: 22px 0 22px 0;\n"
-"}\n"
-"QScrollBar::handle:vertical {\n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);\n"
-"    border: 1px solid #adb0b6;\n"
-"    border-radius: 4px;\n"
-"    min-height: 20px;\n"
-"}\n"
-"QScrollBar::add-line:vertical {\n"
-"    background: black;\n"
-"    height: 20px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background: black;\n"
-"    height: 20px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-""
-                        "\n"
-"\n"
-"\n"
-""));
-        table_course->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
         gridLayout_16->addWidget(table_course, 1, 0, 1, 5);
 
@@ -2787,19 +2248,19 @@ public:
 
         gridLayout_16->addWidget(button_ok_3, 0, 4, 1, 1);
 
-        lb_selectSY_2 = new QLabel(page_2);
-        lb_selectSY_2->setObjectName("lb_selectSY_2");
-        lb_selectSY_2->setFont(font6);
-        lb_selectSY_2->setStyleSheet(QString::fromUtf8("color:white;"));
+        label = new QLabel(page_2);
+        label->setObjectName("label");
+        label->setFont(font6);
+        label->setStyleSheet(QString::fromUtf8("color:white;"));
 
-        gridLayout_16->addWidget(lb_selectSY_2, 0, 0, 1, 1);
+        gridLayout_16->addWidget(label, 0, 0, 1, 1);
 
-        lb_selectSem = new QLabel(page_2);
-        lb_selectSem->setObjectName("lb_selectSem");
-        lb_selectSem->setFont(font6);
-        lb_selectSem->setStyleSheet(QString::fromUtf8("color:white;"));
+        label_2 = new QLabel(page_2);
+        label_2->setObjectName("label_2");
+        label_2->setFont(font6);
+        label_2->setStyleSheet(QString::fromUtf8("color:white;"));
 
-        gridLayout_16->addWidget(lb_selectSem, 0, 2, 1, 1);
+        gridLayout_16->addWidget(label_2, 0, 2, 1, 1);
 
         button_viewStudent = new QPushButton(page_2);
         button_viewStudent->setObjectName("button_viewStudent");
@@ -2817,16 +2278,6 @@ public:
         gridLayout_17 = new QGridLayout(page_4);
         gridLayout_17->setObjectName("gridLayout_17");
         gridLayout_17->setContentsMargins(0, 0, 0, 0);
-        button_coursesList = new QPushButton(page_4);
-        button_coursesList->setObjectName("button_coursesList");
-
-        gridLayout_17->addWidget(button_coursesList, 2, 0, 1, 1);
-
-        pushButton_2 = new QPushButton(page_4);
-        pushButton_2->setObjectName("pushButton_2");
-
-        gridLayout_17->addWidget(pushButton_2, 2, 1, 1, 1);
-
         table_student_2 = new QTableWidget(page_4);
         if (table_student_2->columnCount() < 6)
             table_student_2->setColumnCount(6);
@@ -2843,94 +2294,13 @@ public:
         QTableWidgetItem *__qtablewidgetitem31 = new QTableWidgetItem();
         table_student_2->setHorizontalHeaderItem(5, __qtablewidgetitem31);
         table_student_2->setObjectName("table_student_2");
-        table_student_2->setStyleSheet(QString::fromUtf8("QTableWidget::item {\n"
-"	background-color: rgba(118, 118, 118,200);\n"
-"	color: #000000;\n"
-"	color: white;\n"
-"	border: 2px solid #000000;\n"
-"}\n"
-"\n"
-"QHeaderView::section {\n"
-"	background-color: rgba(198, 198, 198,200);\n"
-"	color: #000000;\n"
-"	padding: 4px;\n"
-"	border-style: none;\n"
-"	border-bottom: 2px solid #000000;\n"
-"	border-right: 1px solid #000000;\n"
-"	border-left: 1px solid #000000; \n"
-"}\n"
-"\n"
-"QTableWidget {\n"
-"	background-color: rgb(118, 118, 118);\n"
-"	gridline-color: rgb(198, 198, 198);\n"
-"}\n"
-"\n"
-"QScrollBar:horizontal {\n"
-"        border: 2px solid black;\n"
-"        background-color: rgb(118, 118, 118);\n"
-"        height: 15px;\n"
-"        margin: 0 22px 0 22px;\n"
-"    }\n"
-"    QScrollBar::handle:horizontal {\n"
-"	   background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);\n"
-"        border: 1px solid #adb0b6;\n"
-"        border-radius: 4px;\n"
-"        min-width: 20px;\n"
-"    }\n"
-"    QScrollBar::add-line:horizontal {\n"
-"        background"
-                        ": black;\n"
-"        width: 20px;\n"
-"        subcontrol-position: right;\n"
-"        subcontrol-origin: margin;\n"
-"    }\n"
-"    QScrollBar::sub-line:horizontal {\n"
-"        background: black;\n"
-"        width: 20px;\n"
-"        subcontrol-position: left;\n"
-"        subcontrol-origin: margin;\n"
-"    }\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: 2px solid black;\n"
-"    background-color: rgb(118, 118, 118);\n"
-"    width: 15px;\n"
-"    margin: 22px 0 22px 0;\n"
-"}\n"
-"QScrollBar::handle:vertical {\n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);\n"
-"    border: 1px solid #adb0b6;\n"
-"    border-radius: 4px;\n"
-"    min-height: 20px;\n"
-"}\n"
-"QScrollBar::add-line:vertical {\n"
-"    background: black;\n"
-"    height: 20px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-"QScrollBar::sub-line:vertical {\n"
-"    background: black;\n"
-"    height: 20px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-""
-                        "\n"
-"\n"
-"\n"
-""));
-        table_student_2->setEditTriggers(QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed);
 
-        gridLayout_17->addWidget(table_student_2, 1, 0, 1, 2);
+        gridLayout_17->addWidget(table_student_2, 0, 0, 1, 1);
 
-        lb_scoreTable = new QLabel(page_4);
-        lb_scoreTable->setObjectName("lb_scoreTable");
-        lb_scoreTable->setStyleSheet(QString::fromUtf8("color: white;\n"
-"font-size: 18px"));
-        lb_scoreTable->setAlignment(Qt::AlignCenter);
+        button_coursesList = new QPushButton(page_4);
+        button_coursesList->setObjectName("button_coursesList");
 
-        gridLayout_17->addWidget(lb_scoreTable, 0, 0, 1, 2);
+        gridLayout_17->addWidget(button_coursesList, 1, 0, 1, 1);
 
         stackedWidget_5->addWidget(page_4);
         stackedWidget_3->addWidget(AdCourseView);
@@ -2951,10 +2321,10 @@ public:
         retranslateUi(MainWindow);
 
         stackedWidget->setCurrentIndex(2);
-        stackedWidget_2->setCurrentIndex(1);
-        stackedWidget_3->setCurrentIndex(3);
-        stackedWidget_4->setCurrentIndex(0);
-        stackedWidget_5->setCurrentIndex(1);
+        stackedWidget_2->setCurrentIndex(2);
+        stackedWidget_3->setCurrentIndex(11);
+        stackedWidget_4->setCurrentIndex(1);
+        stackedWidget_5->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -3014,8 +2384,8 @@ public:
         ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "Day Of Week", nullptr));
         QTableWidgetItem *___qtablewidgetitem7 = tableWidget->horizontalHeaderItem(7);
         ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "Session", nullptr));
-        button_back_5->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         button_viewScore->setText(QCoreApplication::translate("MainWindow", "VIEW SCORES", nullptr));
+        button_back_5->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         lb_confirmPass->setText(QCoreApplication::translate("MainWindow", "Confirm Password:", nullptr));
         button_back->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         button_confirm->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
@@ -3135,6 +2505,7 @@ public:
         button_ok_2->setText(QCoreApplication::translate("MainWindow", "OK", nullptr));
         lb_courseManagement->setText(QCoreApplication::translate("MainWindow", "COURSE MANAGEMENT", nullptr));
         button_courseView->setText(QCoreApplication::translate("MainWindow", "COURSES VIEW", nullptr));
+        button_courseSetting->setText(QCoreApplication::translate("MainWindow", "COURSES SETTING", nullptr));
         lb_courseSetting->setText(QCoreApplication::translate("MainWindow", "COURSE SETTING", nullptr));
         lb_courseView->setText(QCoreApplication::translate("MainWindow", "COURSE VIEW", nullptr));
         button_back_11->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
@@ -3157,12 +2528,10 @@ public:
         QTableWidgetItem *___qtablewidgetitem25 = table_course->horizontalHeaderItem(8);
         ___qtablewidgetitem25->setText(QCoreApplication::translate("MainWindow", "Session", nullptr));
         button_ok_3->setText(QCoreApplication::translate("MainWindow", "OK", nullptr));
-        lb_selectSY_2->setText(QCoreApplication::translate("MainWindow", "Select School Year", nullptr));
-        lb_selectSem->setText(QCoreApplication::translate("MainWindow", "Select Semester", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Select School Year", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Select Semester", nullptr));
         button_viewStudent->setText(QCoreApplication::translate("MainWindow", "VIEW SCORE", nullptr));
         button_removeFilter->setText(QCoreApplication::translate("MainWindow", "REMOVE FILTER", nullptr));
-        button_coursesList->setText(QCoreApplication::translate("MainWindow", "COURSES LIST", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "UPDATE CHANGE", nullptr));
         QTableWidgetItem *___qtablewidgetitem26 = table_student_2->horizontalHeaderItem(0);
         ___qtablewidgetitem26->setText(QCoreApplication::translate("MainWindow", "Student ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem27 = table_student_2->horizontalHeaderItem(1);
@@ -3175,7 +2544,7 @@ public:
         ___qtablewidgetitem30->setText(QCoreApplication::translate("MainWindow", "Other", nullptr));
         QTableWidgetItem *___qtablewidgetitem31 = table_student_2->horizontalHeaderItem(5);
         ___qtablewidgetitem31->setText(QCoreApplication::translate("MainWindow", "Total", nullptr));
-        lb_scoreTable->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        button_coursesList->setText(QCoreApplication::translate("MainWindow", "COURSES LIST", nullptr));
     } // retranslateUi
 
 };
