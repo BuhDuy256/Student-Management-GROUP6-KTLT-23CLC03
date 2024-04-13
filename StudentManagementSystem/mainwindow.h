@@ -162,8 +162,6 @@ private slots:
 
     void on_sem_select_currentTextChanged(const QString &arg1);
 
-    void on_button_courseSetting_clicked();
-
     void on_button_courseView_clicked();
 
     void on_button_removeFilter_clicked();
@@ -179,6 +177,9 @@ private slots:
     void on_button_viewStudent_clicked();
 
     void on_button_coursesList_clicked();
+
+    void on_table_student_2_itemDoubleClicked(QTableWidgetItem *item);
+
 
 private:
     Ui::MainWindow *ui;
