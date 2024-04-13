@@ -711,6 +711,17 @@ void MainWindow::on_button_confirm_3_clicked()
     std::string startDate = ui->txt_startDate->text().toStdString();
     std::string endDate = ui->txt_endDate->text().toStdString();
 
+    if (startDate == "")
+    {
+        MessageBox("Error", "Start Date Is Not Choosen!");
+        return;
+    }
+    if (endDate == "")
+    {
+        MessageBox("Error", "End Date Is Not Choosen!");
+        return;
+    }
+
     int diff = daysBetweenDates(startDate, latestSem.endDate);
     if (diff < 1)
     {
@@ -961,7 +972,7 @@ void MainWindow::on_button_confirm_5_clicked()
         return;
     }
     
-     Node<SchoolYear>* checkExist = latestSYear;
+    Node<SchoolYear>* checkExist = latestSYear;
     while(checkExist)
     {
         Node<Class>* ClassesInSY = checkExist->data.classes;
@@ -972,7 +983,7 @@ void MainWindow::on_button_confirm_5_clicked()
             {
                 if(StuInClass->data.ID == newStudentID || StuInClass->data.socialID == newStudentSocialID)
                 {
-                    MessageBox("Error", "Student already studies in class" + ClassesInSY->data.className);
+                    MessageBox("Error", "Student already studies in class " + ClassesInSY->data.className);
                     return;
                 }
                 StuInClass = StuInClass->next;
@@ -1428,12 +1439,6 @@ void MainWindow::on_sem_select_currentTextChanged(const QString &arg1)
 }
 
 
-void MainWindow::on_button_courseSetting_clicked()
-{
-    ui->stackedWidget_3->setCurrentIndex(10);
-}
-
-
 void MainWindow::on_button_courseView_clicked()
 {
     MainWindow::on_button_removeFilter_clicked();
@@ -1564,6 +1569,7 @@ void MainWindow::on_button_viewStudent_clicked()
     int row = ui->table_course->currentRow();
 
     std::string ID = ui->table_course->item(row, 0)->text().toStdString();
+    std::string courseName = ui->table_course->item(row, 1)->text().toStdString();
     std::string className = ui->table_course->item(row, 2)->text().toStdString();
 
     Node<SchoolYear>* tempYear = latestSYear;
@@ -1597,6 +1603,8 @@ void MainWindow::on_button_viewStudent_clicked()
     }
 
     ui->table_student_2->resizeColumnsToContents();
+
+    ui->lb_scoreTable->setText(QString::fromStdString(ID + " - " + courseName + " - " + className));
     ui->stackedWidget_5->setCurrentIndex(1);
 }
 
@@ -1612,3 +1620,19 @@ void MainWindow::on_txt_className_textEdited(const QString &arg1)
     ui->txt_className->setText(arg1.toUpper());
 }
 
+
+void MainWindow::on_txt_className_textEdited(const QString &arg1)
+{
+    ui->txt_className->setText(arg1.toUpper());
+}
+
+
+void MainWindow::on_table_student_2_itemDoubleClicked(QTableWidgetItem *item)
+{
+    if (ui->table_student_2->currentColumn() < 2)
+    {
+        MessageBox("Error", "Unable To Edit Student ID and Name!");
+        item->setFlags(item->flags() & ~Qt::ItemIsEditable);
+        return;
+    }
+}

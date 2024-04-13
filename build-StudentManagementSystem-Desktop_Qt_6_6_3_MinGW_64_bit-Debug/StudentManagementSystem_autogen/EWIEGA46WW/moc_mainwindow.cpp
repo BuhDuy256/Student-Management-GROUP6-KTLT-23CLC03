@@ -117,7 +117,6 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "className",
     "on_box_semester_currentTextChanged",
     "on_sem_select_currentTextChanged",
-    "on_button_courseSetting_clicked",
     "on_button_courseView_clicked",
     "on_button_removeFilter_clicked",
     "on_button_course_manage_clicked",
@@ -125,11 +124,13 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "on_box_selectSY_2_currentTextChanged",
     "on_box_selectSem_currentTextChanged",
     "on_button_viewStudent_clicked",
-    "on_button_coursesList_clicked"
+    "on_button_coursesList_clicked",
+    "on_table_student_2_itemDoubleClicked",
+    "QTableWidgetItem*"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[172];
+    uint offsetsAndSizes[174];
     char stringdata0[11];
     char stringdata1[25];
     char stringdata2[1];
@@ -207,15 +208,16 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata74[10];
     char stringdata75[35];
     char stringdata76[33];
-    char stringdata77[32];
-    char stringdata78[29];
-    char stringdata79[31];
-    char stringdata80[32];
-    char stringdata81[23];
-    char stringdata82[37];
-    char stringdata83[36];
+    char stringdata77[29];
+    char stringdata78[31];
+    char stringdata79[32];
+    char stringdata80[23];
+    char stringdata81[37];
+    char stringdata82[36];
+    char stringdata83[30];
     char stringdata84[30];
-    char stringdata85[30];
+    char stringdata85[37];
+    char stringdata86[18];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -298,15 +300,16 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(1870, 9),  // "className"
         QT_MOC_LITERAL(1880, 34),  // "on_box_semester_currentTextCh..."
         QT_MOC_LITERAL(1915, 32),  // "on_sem_select_currentTextChanged"
-        QT_MOC_LITERAL(1948, 31),  // "on_button_courseSetting_clicked"
-        QT_MOC_LITERAL(1980, 28),  // "on_button_courseView_clicked"
-        QT_MOC_LITERAL(2009, 30),  // "on_button_removeFilter_clicked"
-        QT_MOC_LITERAL(2040, 31),  // "on_button_course_manage_clicked"
-        QT_MOC_LITERAL(2072, 22),  // "on_button_ok_3_clicked"
-        QT_MOC_LITERAL(2095, 36),  // "on_box_selectSY_2_currentText..."
-        QT_MOC_LITERAL(2132, 35),  // "on_box_selectSem_currentTextC..."
-        QT_MOC_LITERAL(2168, 29),  // "on_button_viewStudent_clicked"
-        QT_MOC_LITERAL(2198, 29)   // "on_button_coursesList_clicked"
+        QT_MOC_LITERAL(1948, 28),  // "on_button_courseView_clicked"
+        QT_MOC_LITERAL(1977, 30),  // "on_button_removeFilter_clicked"
+        QT_MOC_LITERAL(2008, 31),  // "on_button_course_manage_clicked"
+        QT_MOC_LITERAL(2040, 22),  // "on_button_ok_3_clicked"
+        QT_MOC_LITERAL(2063, 36),  // "on_box_selectSY_2_currentText..."
+        QT_MOC_LITERAL(2100, 35),  // "on_box_selectSem_currentTextC..."
+        QT_MOC_LITERAL(2136, 29),  // "on_button_viewStudent_clicked"
+        QT_MOC_LITERAL(2166, 29),  // "on_button_coursesList_clicked"
+        QT_MOC_LITERAL(2196, 36),  // "on_table_student_2_itemDouble..."
+        QT_MOC_LITERAL(2233, 17)   // "QTableWidgetItem*"
     },
     "MainWindow",
     "on_checkBox_stateChanged",
@@ -385,7 +388,6 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "className",
     "on_box_semester_currentTextChanged",
     "on_sem_select_currentTextChanged",
-    "on_button_courseSetting_clicked",
     "on_button_courseView_clicked",
     "on_button_removeFilter_clicked",
     "on_button_course_manage_clicked",
@@ -393,7 +395,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "on_box_selectSY_2_currentTextChanged",
     "on_box_selectSem_currentTextChanged",
     "on_button_viewStudent_clicked",
-    "on_button_coursesList_clicked"
+    "on_button_coursesList_clicked",
+    "on_table_student_2_itemDoubleClicked",
+    "QTableWidgetItem*"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -484,11 +488,11 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       78,    0,  574,    2, 0x08,   87 /* Private */,
       79,    0,  575,    2, 0x08,   88 /* Private */,
       80,    0,  576,    2, 0x08,   89 /* Private */,
-      81,    0,  577,    2, 0x08,   90 /* Private */,
-      82,    1,  578,    2, 0x08,   91 /* Private */,
-      83,    1,  581,    2, 0x08,   93 /* Private */,
+      81,    1,  577,    2, 0x08,   90 /* Private */,
+      82,    1,  580,    2, 0x08,   92 /* Private */,
+      83,    0,  583,    2, 0x08,   94 /* Private */,
       84,    0,  584,    2, 0x08,   95 /* Private */,
-      85,    0,  585,    2, 0x08,   96 /* Private */,
+      85,    1,  585,    2, 0x08,   96 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -562,11 +566,11 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    3,
     QMetaType::Void, QMetaType::QString,    3,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 86,   68,
 
        0        // eod
 };
@@ -732,8 +736,6 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'on_sem_select_currentTextChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
-        // method 'on_button_courseSetting_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_button_courseView_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_button_removeFilter_clicked'
@@ -751,7 +753,10 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'on_button_viewStudent_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_button_coursesList_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_table_student_2_itemDoubleClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QTableWidgetItem *, std::false_type>
     >,
     nullptr
 } };
@@ -830,15 +835,15 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             if (_a[0]) *reinterpret_cast< Node<Class>**>(_a[0]) = std::move(_r); }  break;
         case 65: _t->on_box_semester_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 66: _t->on_sem_select_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 67: _t->on_button_courseSetting_clicked(); break;
-        case 68: _t->on_button_courseView_clicked(); break;
-        case 69: _t->on_button_removeFilter_clicked(); break;
-        case 70: _t->on_button_course_manage_clicked(); break;
-        case 71: _t->on_button_ok_3_clicked(); break;
-        case 72: _t->on_box_selectSY_2_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 73: _t->on_box_selectSem_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 74: _t->on_button_viewStudent_clicked(); break;
-        case 75: _t->on_button_coursesList_clicked(); break;
+        case 67: _t->on_button_courseView_clicked(); break;
+        case 68: _t->on_button_removeFilter_clicked(); break;
+        case 69: _t->on_button_course_manage_clicked(); break;
+        case 70: _t->on_button_ok_3_clicked(); break;
+        case 71: _t->on_box_selectSY_2_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 72: _t->on_box_selectSem_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 73: _t->on_button_viewStudent_clicked(); break;
+        case 74: _t->on_button_coursesList_clicked(); break;
+        case 75: _t->on_table_student_2_itemDoubleClicked((*reinterpret_cast< std::add_pointer_t<QTableWidgetItem*>>(_a[1]))); break;
         default: ;
         }
     }
