@@ -17,6 +17,8 @@
         <file>left_arrow.png</file>
         <file>down_arrow.png</file>
         <file>up_arrow.png</file>
+        <file>calendar.png</file>
+        <file>File.png</file>
     </qresource>
     <qresource prefix="/prefix">
         <file>CSV Files/AllClasses.csv</file>
