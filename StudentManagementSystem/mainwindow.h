@@ -28,7 +28,6 @@ public:
     ~MainWindow();
 
 private slots:
-
     void on_checkBox_stateChanged(int arg1);
 
     void on_button_signin_clicked();

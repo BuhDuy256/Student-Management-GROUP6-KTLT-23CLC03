@@ -1230,7 +1230,7 @@ public:
         lb_latestSY->setObjectName("lb_latestSY");
         lb_latestSY->setMaximumSize(QSize(16777215, 23));
         lb_latestSY->setStyleSheet(QString::fromUtf8("color:white;\n"
-"font-size: 20px;"));
+"font-size: 18px;"));
 
         verticalLayout_3->addWidget(lb_latestSY, 0, Qt::AlignHCenter);
 
@@ -1239,7 +1239,7 @@ public:
         lb_latestSem->setMaximumSize(QSize(218, 23));
         lb_latestSem->setFont(font3);
         lb_latestSem->setStyleSheet(QString::fromUtf8("color:white;\n"
-"font-size: 20px;"));
+"font-size: 18px;"));
 
         verticalLayout_3->addWidget(lb_latestSem, 0, Qt::AlignHCenter);
 
@@ -2321,9 +2321,9 @@ public:
         retranslateUi(MainWindow);
 
         stackedWidget->setCurrentIndex(2);
-        stackedWidget_2->setCurrentIndex(2);
-        stackedWidget_3->setCurrentIndex(11);
-        stackedWidget_4->setCurrentIndex(1);
+        stackedWidget_2->setCurrentIndex(3);
+        stackedWidget_3->setCurrentIndex(6);
+        stackedWidget_4->setCurrentIndex(0);
         stackedWidget_5->setCurrentIndex(0);
 
 

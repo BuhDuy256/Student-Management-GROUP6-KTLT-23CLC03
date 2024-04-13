@@ -927,18 +927,18 @@ void MainWindow::on_button_confirm_5_clicked()
         return;
     }
     
-     Node<SchoolYear>* checkExist = latestSYear;
+    Node<SchoolYear>* checkExist = latestSYear;
     while(checkExist)
     {
         Node<Class>* ClassesInSY = checkExist->data.classes;
         while(ClassesInSY)
         {
-            Node<Student>* StuInClass = ClassesinSY->data.students;
+            Node<Student>* StuInClass = ClassesInSY->data.students;
             while(StuInClass)
             {
                 if(StuInClass->data.ID == newStudentID || StuInClass->data.socialID == newStudentSocialID)
                 {
-                    MessageBox("Error", "Student already studies in class" + ClassesInSY->data.className);
+                    MessageBox("Error", "Student already studies in class " + ClassesInSY->data.className);
                     return;
                 }
                 StuInClass = StuInClass->next;

@@ -377,4 +377,7 @@
         <file>CSV Files/List of Courses/VHR105_21CLC02.csv</file>
         <file>CSV Files/List of Courses/VHR105_21CLC03.csv</file>
     </qresource>
+    <qresource prefix="/sound">
+        <file>y2mate.com - ButtonPlate Click Minecraft Sound  Sound Effect for editing.mp3</file>
+    </qresource>
 </RCC>
