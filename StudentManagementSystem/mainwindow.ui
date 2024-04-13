@@ -709,7 +709,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -1072,7 +1072,7 @@ background-color: rgba(255,255,255,200)</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: #000000;
-background-color: rgba(255,255,255,200)</string>
+background-color: rgba(255,255,255,200);</string>
               </property>
               <property name="frame">
                <bool>true</bool>
@@ -1882,7 +1882,7 @@ padding-left: 10px;</string>
         border-image: url(:/background/Lovely Minecraft Hd Wallpaper 1920x1080.jpg);
 }</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,19">
+       <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,0">
         <property name="leftMargin">
          <number>15</number>
         </property>
@@ -2178,7 +2178,7 @@ font-size: 18px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>7</number>
+           <number>5</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -3192,65 +3192,6 @@ QCalendarWidget QWidget {
             <property name="verticalSpacing">
              <number>20</number>
             </property>
-            <item row="0" column="0" colspan="2">
-             <widget class="QLabel" name="lb_createNewClass">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>130</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>36</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: #7FFFD4;
-</string>
-              </property>
-              <property name="text">
-               <string>CREATE NEW CLASS</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
-              <item>
-               <widget class="QLabel" name="lb_selectSY">
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: white;
-</string>
-                </property>
-                <property name="text">
-                 <string>Select School Year:</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QComboBox" name="box_selectSY">
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>2023-2024</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-             </layout>
-            </item>
             <item row="1" column="1" rowspan="2">
              <layout class="QVBoxLayout" name="verticalLayout_7">
               <item>
@@ -3280,7 +3221,88 @@ QCalendarWidget QWidget {
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">QListWidget::item { padding: 8px; text-align: center; }</string>
+                 <string notr="true">QListWidget::item {
+    background-color: rgba(118, 118, 118, 200);
+    color: white;
+    border: 2px solid #000000;
+}
+
+QListWidget::item:selected {
+    background-color: rgba(198, 198, 198, 200);
+    color: #000000;
+}
+
+QHeaderView::section {
+    background-color: rgba(198, 198, 198, 200);
+    color: #000000;
+    padding: 4px;
+    border-style: none;
+    border-bottom: 2px solid #000000;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+QListWidget {
+    background-color: rgb(118, 118, 118);
+}
+
+QScrollBar:horizontal {
+    border: 2px solid black;
+    background-color: rgb(118, 118, 118);
+    height: 15px;
+    margin: 0 22px 0 22px;
+}
+
+QScrollBar::handle:horizontal {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+    border: 1px solid #adb0b6;
+    border-radius: 4px;
+    min-width: 20px;
+}
+
+QScrollBar::add-line:horizontal {
+    background: black;
+    width: 20px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal {
+    background: black;
+    width: 20px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+
+QScrollBar:vertical {
+    border: 2px solid black;
+    background-color: rgb(118, 118, 118);
+    width: 15px;
+    margin: 22px 0 22px 0;
+}
+
+QScrollBar::handle:vertical {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+    border: 1px solid #adb0b6;
+    border-radius: 4px;
+    min-height: 20px;
+}
+
+QScrollBar::add-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+</string>
                 </property>
                 <property name="editTriggers">
                  <set>QAbstractItemView::EditKeyPressed</set>
@@ -3306,14 +3328,101 @@ QCalendarWidget QWidget {
               </item>
              </layout>
             </item>
-            <item row="2" column="0">
+            <item row="0" column="0" colspan="2">
+             <widget class="QLabel" name="lb_createNewClass">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>130</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>36</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: #7FFFD4;
+</string>
+              </property>
+              <property name="text">
+               <string>CREATE NEW CLASS</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
              <layout class="QVBoxLayout" name="verticalLayout_8">
-              <item alignment="Qt::AlignBottom">
+              <property name="spacing">
+               <number>-1</number>
+              </property>
+              <property name="sizeConstraint">
+               <enum>QLayout::SetDefaultConstraint</enum>
+              </property>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <item>
+                 <widget class="QLabel" name="lb_selectSY">
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: white;
+</string>
+                  </property>
+                  <property name="text">
+                   <string>Select School Year:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="box_selectSY">
+                  <property name="font">
+                   <font>
+                    <pointsize>-1</pointsize>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">font-size: 16px;
+border-image: url(:/background/button.png);
+background-color: rgb(133, 133, 133);
+color: white;</string>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>2023-2024</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Preferred</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
                <widget class="QLabel" name="lb_enterClassName">
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
-                  <height>100000</height>
+                  <height>1000</height>
                  </size>
                 </property>
                 <property name="font">
@@ -3327,10 +3436,19 @@ QCalendarWidget QWidget {
                 <property name="text">
                  <string>Enter New Class Name:</string>
                 </property>
+                <property name="indent">
+                 <number>-1</number>
+                </property>
                </widget>
               </item>
               <item>
                <widget class="QLineEdit" name="txt_className">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
@@ -3348,76 +3466,88 @@ QCalendarWidget QWidget {
                   <pointsize>16</pointsize>
                  </font>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #000000;
+background-color: rgba(255,255,255,200);
+padding: 10px;</string>
+                </property>
                 <property name="text">
                  <string/>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="lb_example">
-                <property name="minimumSize">
+               <spacer name="verticalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Preferred</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
                  <size>
-                  <width>0</width>
-                  <height>129</height>
+                  <width>20</width>
+                  <height>40</height>
                  </size>
                 </property>
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
+               </spacer>
+              </item>
+              <item alignment="Qt::AlignHCenter">
+               <widget class="QPushButton" name="button_confirm_4">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
                 </property>
-                <property name="styleSheet">
-                 <string notr="true">color:white;</string>
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>65</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>65</height>
+                 </size>
                 </property>
                 <property name="text">
-                 <string>Example: 23CLC05, 23APCS10, etc.</string>
+                 <string>CONFIRM</string>
+                </property>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignHCenter">
+               <widget class="QPushButton" name="button_back_8">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>65</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>65</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>BACK</string>
                 </property>
                </widget>
               </item>
              </layout>
             </item>
-            <item row="3" column="1" alignment="Qt::AlignRight">
-             <widget class="QPushButton" name="button_back_8">
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>BACK</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QPushButton" name="button_confirm_4">
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>CONFIRM</string>
-              </property>
-             </widget>
-            </item>
            </layout>
           </widget>
           <widget class="QWidget" name="AdAddStudent">
-           <layout class="QGridLayout" name="gridLayout_14" columnstretch="5,5,11">
+           <layout class="QGridLayout" name="gridLayout_14" columnstretch="5,0,0">
             <property name="leftMargin">
              <number>65</number>
             </property>
@@ -3430,8 +3560,8 @@ QCalendarWidget QWidget {
             <property name="bottomMargin">
              <number>30</number>
             </property>
-            <item row="5" column="1">
-             <widget class="QPushButton" name="button_import">
+            <item row="5" column="0">
+             <widget class="QPushButton" name="button_addOne">
               <property name="minimumSize">
                <size>
                 <width>0</width>
@@ -3439,7 +3569,7 @@ QCalendarWidget QWidget {
                </size>
               </property>
               <property name="text">
-               <string>IMPORT CSV FILE</string>
+               <string>ADD ONE STUDENT</string>
               </property>
              </widget>
             </item>
@@ -3459,6 +3589,169 @@ QCalendarWidget QWidget {
               </property>
               <property name="text">
                <string>BACK</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="3">
+             <widget class="QLabel" name="lb_addNewStudent">
+              <property name="font">
+               <font>
+                <pointsize>36</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: #7FFFD4;</string>
+              </property>
+              <property name="text">
+               <string>ADD NEW STUDENT</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1" rowspan="2">
+             <widget class="QComboBox" name="box_selectClass">
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 18px;
+border-image: url(:/background/button.png);
+background-color: rgb(133, 133, 133);
+color: white;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2" rowspan="6">
+             <widget class="QTableWidget" name="tableWidget_2">
+              <property name="styleSheet">
+               <string notr="true">QTableWidget::item {
+	background-color: rgba(118, 118, 118,200);
+	color: #000000;
+	color: white;
+	border: 2px solid #000000;
+}
+
+QHeaderView::section {
+	background-color: rgba(198, 198, 198,200);
+	color: #000000;
+	padding: 4px;
+	border-style: none;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
+}
+
+QTableWidget {
+	background-color: rgb(118, 118, 118);
+	gridline-color: rgb(198, 198, 198);
+}
+
+QScrollBar:horizontal {
+        border: 2px solid black;
+        background-color: rgb(118, 118, 118);
+        height: 15px;
+        margin: 0 22px 0 22px;
+    }
+    QScrollBar::handle:horizontal {
+	   background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+        border: 1px solid #adb0b6;
+        border-radius: 4px;
+        min-width: 20px;
+    }
+    QScrollBar::add-line:horizontal {
+        background: black;
+        width: 20px;
+        subcontrol-position: right;
+        subcontrol-origin: margin;
+    }
+    QScrollBar::sub-line:horizontal {
+        background: black;
+        width: 20px;
+        subcontrol-position: left;
+        subcontrol-origin: margin;
+    }
+
+QScrollBar:vertical {
+    border: 2px solid black;
+    background-color: rgb(118, 118, 118);
+    width: 15px;
+    margin: 22px 0 22px 0;
+}
+QScrollBar::handle:vertical {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);
+    border: 1px solid #adb0b6;
+    border-radius: 4px;
+    min-height: 20px;
+}
+QScrollBar::add-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+    background: black;
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+
+
+</string>
+              </property>
+              <column>
+               <property name="text">
+                <string>Student ID</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Full Name</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Gender</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Social ID</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item row="4" column="0" alignment="Qt::AlignLeft">
+             <widget class="QLabel" name="lb_selectClass">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color:white;
+</string>
+              </property>
+              <property name="text">
+               <string>Select Class:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QPushButton" name="button_import">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>IMPORT CSV FILE</string>
               </property>
              </widget>
             </item>
@@ -3537,6 +3830,12 @@ color:white;
                     <width>0</width>
                     <height>40</height>
                    </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">font-size: 14px;
+border-image: url(:/background/button.png);
+background-color: rgb(133, 133, 133);
+color: white;</string>
                   </property>
                   <item>
                    <property name="text">
@@ -3818,163 +4117,6 @@ QCalendarWidget QWidget {
                 </item>
                </layout>
               </widget>
-             </widget>
-            </item>
-            <item row="5" column="0">
-             <widget class="QPushButton" name="button_addOne">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>ADD ONE STUDENT</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0" alignment="Qt::AlignLeft">
-             <widget class="QLabel" name="lb_selectClass">
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color:white;
-</string>
-              </property>
-              <property name="text">
-               <string>Select Class:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0" colspan="3">
-             <widget class="QLabel" name="lb_addNewStudent">
-              <property name="font">
-               <font>
-                <pointsize>36</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: #7FFFD4;</string>
-              </property>
-              <property name="text">
-               <string>ADD NEW STUDENT</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1" rowspan="2">
-             <widget class="QComboBox" name="box_selectClass">
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="2" rowspan="6">
-             <widget class="QTableWidget" name="tableWidget_2">
-              <property name="styleSheet">
-               <string notr="true">QTableWidget::item {
-	background-color: rgba(118, 118, 118,200);
-	color: #000000;
-	color: white;
-	border: 2px solid #000000;
-}
-
-QHeaderView::section {
-	background-color: rgba(198, 198, 198,200);
-	color: #000000;
-	padding: 4px;
-	border-style: none;
-	border-bottom: 2px solid #000000;
-	border-right: 1px solid #000000;
-	border-left: 1px solid #000000; 
-}
-
-QTableWidget {
-	background-color: rgb(118, 118, 118);
-	gridline-color: rgb(198, 198, 198);
-}
-
-QScrollBar:horizontal {
-        border: 2px solid black;
-        background-color: rgb(118, 118, 118);
-        height: 15px;
-        margin: 0 22px 0 22px;
-    }
-    QScrollBar::handle:horizontal {
-	   background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);
-        border: 1px solid #adb0b6;
-        border-radius: 4px;
-        min-width: 20px;
-    }
-    QScrollBar::add-line:horizontal {
-        background: black;
-        width: 20px;
-        subcontrol-position: right;
-        subcontrol-origin: margin;
-    }
-    QScrollBar::sub-line:horizontal {
-        background: black;
-        width: 20px;
-        subcontrol-position: left;
-        subcontrol-origin: margin;
-    }
-
-QScrollBar:vertical {
-    border: 2px solid black;
-    background-color: rgb(118, 118, 118);
-    width: 15px;
-    margin: 22px 0 22px 0;
-}
-QScrollBar::handle:vertical {
-    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #D3D3D3, stop:1 #808080);
-    border: 1px solid #adb0b6;
-    border-radius: 4px;
-    min-height: 20px;
-}
-QScrollBar::add-line:vertical {
-    background: black;
-    height: 20px;
-    subcontrol-position: bottom;
-    subcontrol-origin: margin;
-}
-QScrollBar::sub-line:vertical {
-    background: black;
-    height: 20px;
-    subcontrol-position: top;
-    subcontrol-origin: margin;
-}
-
-
-
-</string>
-              </property>
-              <column>
-               <property name="text">
-                <string>Student ID</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Full Name</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Gender</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Social ID</string>
-               </property>
-              </column>
              </widget>
             </item>
            </layout>
@@ -4334,6 +4476,12 @@ QScrollBar::sub-line:vertical {
               <height>41</height>
              </rect>
             </property>
+            <property name="styleSheet">
+             <string notr="true">font-size: 16px;
+border-image: url(:/background/button.png);
+background-color: rgb(133, 133, 133);
+color: white;</string>
+            </property>
             <item>
              <property name="text">
               <string>class</string>
@@ -4349,6 +4497,12 @@ QScrollBar::sub-line:vertical {
               <height>41</height>
              </rect>
             </property>
+            <property name="styleSheet">
+             <string notr="true">font-size: 16px;
+border-image: url(:/background/button.png);
+background-color: rgb(133, 133, 133);
+color: white;</string>
+            </property>
             <item>
              <property name="text">
               <string>year</string>
@@ -4363,6 +4517,12 @@ QScrollBar::sub-line:vertical {
               <width>141</width>
               <height>41</height>
              </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-size: 16px;
+border-image: url(:/background/button.png);
+background-color: rgb(133, 133, 133);
+color: white;</string>
             </property>
             <item>
              <property name="text">
@@ -4780,8 +4940,14 @@ QScrollBar::sub-line:vertical {
                <widget class="QComboBox" name="box_selectSY_2">
                 <property name="font">
                  <font>
-                  <pointsize>10</pointsize>
+                  <pointsize>-1</pointsize>
                  </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font-size: 18px;
+border-image: url(:/background/button.png);
+background-color: rgb(133, 133, 133);
+color: white;</string>
                 </property>
                </widget>
               </item>
@@ -4789,8 +4955,14 @@ QScrollBar::sub-line:vertical {
                <widget class="QComboBox" name="box_selectSem">
                 <property name="font">
                  <font>
-                  <pointsize>10</pointsize>
+                  <pointsize>-1</pointsize>
                  </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font-size: 18px;
+border-image: url(:/background/button.png);
+background-color: rgb(133, 133, 133);
+color: white;</string>
                 </property>
                </widget>
               </item>

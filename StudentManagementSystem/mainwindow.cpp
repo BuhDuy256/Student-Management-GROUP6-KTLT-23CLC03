@@ -55,6 +55,11 @@ MainWindow::MainWindow(QWidget* parent)
     ui->tableWidget->setFont(minecraftFont);
     ui->button_viewScore->setFont(minecraftFont);
     ui->button_back_5->setFont(minecraftFont);
+    ui->lb_selectSY->setFont(minecraftFont);
+
+    ui->lb_enterClassName->setFont(minecraftFont);
+    ui->button_confirm_4->setFont(minecraftFont);
+    ui->button_back_8->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(16);
@@ -63,6 +68,8 @@ MainWindow::MainWindow(QWidget* parent)
     ui->slogan_3->setFont(minecraftFont);
     ui->button_ok->setFont(minecraftFont);
     ui->pushButton->setFont(minecraftFont);
+    ui->box_selectSY->setFont(minecraftFont);
+    ui->lb_allClassesIn->setFont(minecraftFont);
 
     minecraftFont.setPointSize(18);
     ui->txtPassword->setFont(minecraftFont);
@@ -84,6 +91,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->txt_AdGender->setFont(minecraftFont);
     ui->txt_AdBirthday->setFont(minecraftFont);
     ui->txt_AdSocialID->setFont(minecraftFont);
+    ui->txt_className->setFont(minecraftFont);
     minecraftFont.setBold(1);  // Bold Region
     ui->name->setFont(minecraftFont);
     ui->name_2->setFont(minecraftFont);
@@ -114,6 +122,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_username->setFont(minecraftFont);
     ui->lb_password->setFont(minecraftFont);
     ui->list_classes_2->setFont(minecraftFont);
+    ui->list_classes->setFont(minecraftFont);
     ui->lb_curClass->setFont(minecraftFont);
     ui->lb_class->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
@@ -128,6 +137,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_changePass_2->setFont(minecraftFont);
     ui->lb_MyProfile_2->setFont(minecraftFont);
     ui->lb_allClasses->setFont(minecraftFont);
+    ui->lb_createNewClass->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
     minecraftFont.setPointSize(48);
@@ -796,7 +806,7 @@ void MainWindow::on_box_selectSY_currentTextChanged(const QString &arg1)
     }
 
     if (sy.size() > 0)
-    ui->lb_example->setText(QString::fromStdString("Example: " + sy.substr(2, 2) + "CLC04, " + sy.substr(2, 2) + "APCS09, etc."));
+        ui->txt_className->setPlaceholderText(QString::fromStdString("Example: " + sy.substr(2, 2) + "CLC04, " + sy.substr(2, 2) + "APCS09, etc."));
 }
 
 
@@ -1594,5 +1604,11 @@ void MainWindow::on_button_viewStudent_clicked()
 void MainWindow::on_button_coursesList_clicked()
 {
     ui->stackedWidget_5->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_txt_className_textEdited(const QString &arg1)
+{
+    ui->txt_className->setText(arg1.toUpper());
 }
 

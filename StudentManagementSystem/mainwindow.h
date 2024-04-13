@@ -181,6 +181,8 @@ private slots:
 
     void on_button_coursesList_clicked();
 
+    void on_txt_className_textEdited(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 };
