@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget* parent)
     QString fontName = QFontDatabase::applicationFontFamilies(fontId).at(0);
     QFont minecraftFont(fontName);
 
-    ui->tableWidget->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1;}"
+    ui->tableWidget->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1;font-size: 14px;}"
                                       "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
 
     ui->table_student->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1; }"
