@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget* parent)
 
     ui->tableWidget->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1;font-size: 14px;}"
                                       "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+    ui->table_scoreboard->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1;font-size: 14px;}"
+                                                                           "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
 
     ui->table_student->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1; }"
                                                                              "QTableWidget QHeaderView::section { font-family: %1; font-size: 14px;}").arg(fontName));
@@ -75,6 +77,14 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_confirm_5->setFont(minecraftFont);
     ui->button_cancel->setFont(minecraftFont);
     ui->button_addOne->setFont(minecraftFont);
+    ui->button_back_10->setFont(minecraftFont);
+    ui->button_ok_2->setFont(minecraftFont);
+    ui->button_back_9->setFont(minecraftFont);
+    ui->button_allClasses->setFont(minecraftFont);
+    ui->button_createClass->setFont(minecraftFont);
+    ui->button_addStudent->setFont(minecraftFont);
+    ui->button_scoreOfClass->setFont(minecraftFont);
+    ui->button_back_7->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(16);
@@ -94,6 +104,10 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_selectClass->setFont(minecraftFont);
     ui->box_selectClass->setFont(minecraftFont);
     ui->lb_enterPath->setFont(minecraftFont);
+
+    ui->box_year->setFont(minecraftFont);
+    ui->box_semester->setFont(minecraftFont);
+    ui->box_class->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(18);
@@ -171,6 +185,10 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_MyProfile_2->setFont(minecraftFont);
     ui->lb_allClasses->setFont(minecraftFont);
     ui->lb_createNewClass->setFont(minecraftFont);
+    ui->lb_viewScoreboard->setFont(minecraftFont);
+    ui->lb_addNewStudent->setFont(minecraftFont);
+    ui->lb_addNewStudent->setFont(minecraftFont);
+    ui->lb_classManage->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
     minecraftFont.setPointSize(48);
