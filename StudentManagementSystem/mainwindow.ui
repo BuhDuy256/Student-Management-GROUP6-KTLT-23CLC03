@@ -709,7 +709,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -2205,7 +2205,7 @@ font-size: 18px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>11</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -3652,7 +3652,7 @@ color:white;
 }</string>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="page_addOne">
                <layout class="QGridLayout" name="gridLayout_12">
@@ -4960,7 +4960,7 @@ QScrollBar::sub-line:vertical {
              <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="page_2">
              <layout class="QGridLayout" name="gridLayout_16">
