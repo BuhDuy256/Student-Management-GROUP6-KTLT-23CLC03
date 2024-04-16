@@ -14,11 +14,25 @@ MainWindow::MainWindow(QWidget* parent)
     QString fontName = QFontDatabase::applicationFontFamilies(fontId).at(0);
     QFont minecraftFont(fontName);
 
-    ui->tableWidget->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1; }"
-                                      "QTableWidget QHeaderView::section { font-size: 14px; font-family: %1; }").arg(fontName));
+    ui->tableWidget->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1;font-size: 14px;}"
+                                      "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+    ui->table_scoreboard->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1;font-size: 14px;}"
+                                                                           "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
 
     ui->table_student->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1; }"
-                                                                             "QTableWidget QHeaderView::section { font-size: 14px; font-family: %1; }").arg(fontName));
+                                                                             "QTableWidget QHeaderView::section { font-family: %1; font-size: 14px;}").arg(fontName));
+    ui->tableWidget_2->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1; }"
+                                                                             "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+
+    ui->calendarWidget_3->setStyleSheet(QString(ui->calendarWidget_3->styleSheet() + "QMenu { font-family: %1;}"
+                                                                                     "QWidget#qt_calendar_navigationbar {font-family: %1}"
+                                                                                     "QCalendarWidget { font-family: %1;}").arg(fontName));
+
+    ui->calendarWidget->setStyleSheet(QString(ui->calendarWidget_3->styleSheet() + "QMenu { font-family: %1;}"
+                                                                                       "QWidget#qt_calendar_navigationbar {font-family: %1}"
+                                                                                       "QCalendarWidget { font-family: %1;}").arg(fontName));
+
+
     minecraftFont.setPointSize(9);
 
 
@@ -27,7 +41,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->checkBox_2->setFont(minecraftFont);
     ui->checkBox_3->setFont(minecraftFont);
     ui->button_currentDay->setFont(minecraftFont);
-    ui->calendarWidget->setFont(minecraftFont);
     ui->sem_select->setFont(minecraftFont);
     ui->sy_select->setFont(minecraftFont);
 
@@ -52,9 +65,26 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_back_4->setFont(minecraftFont);
     ui->lb_select_sy->setFont(minecraftFont);
     ui->lb_select_sem->setFont(minecraftFont);
-    ui->tableWidget->setFont(minecraftFont);
     ui->button_viewScore->setFont(minecraftFont);
     ui->button_back_5->setFont(minecraftFont);
+    ui->lb_selectSY->setFont(minecraftFont);
+    ui->lb_enterClassName->setFont(minecraftFont);
+    ui->button_confirm_4->setFont(minecraftFont);
+    ui->button_back_8->setFont(minecraftFont);
+    ui->button_selectDate->setFont(minecraftFont);
+    ui->button_confirm_6->setFont(minecraftFont);
+    ui->button_cancel_2->setFont(minecraftFont);
+    ui->button_confirm_5->setFont(minecraftFont);
+    ui->button_cancel->setFont(minecraftFont);
+    ui->button_addOne->setFont(minecraftFont);
+    ui->button_back_10->setFont(minecraftFont);
+    ui->button_ok_2->setFont(minecraftFont);
+    ui->button_back_9->setFont(minecraftFont);
+    ui->button_allClasses->setFont(minecraftFont);
+    ui->button_createClass->setFont(minecraftFont);
+    ui->button_addStudent->setFont(minecraftFont);
+    ui->button_scoreOfClass->setFont(minecraftFont);
+    ui->button_back_7->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(16);
@@ -63,6 +93,22 @@ MainWindow::MainWindow(QWidget* parent)
     ui->slogan_3->setFont(minecraftFont);
     ui->button_ok->setFont(minecraftFont);
     ui->pushButton->setFont(minecraftFont);
+    ui->box_selectSY->setFont(minecraftFont);
+    ui->lb_allClassesIn->setFont(minecraftFont);
+
+    ui->lb_addStuID->setFont(minecraftFont);
+    ui->lb_addGender->setFont(minecraftFont);
+    ui->lb_addBirthday->setFont(minecraftFont);
+    ui->lb_addName->setFont(minecraftFont);
+    ui->lb_addSocialID->setFont(minecraftFont);
+    ui->lb_selectClass->setFont(minecraftFont);
+    ui->box_selectClass->setFont(minecraftFont);
+    ui->lb_enterPath->setFont(minecraftFont);
+
+    ui->box_year->setFont(minecraftFont);
+    ui->box_semester->setFont(minecraftFont);
+    ui->box_class->setFont(minecraftFont);
+
 
     minecraftFont.setPointSize(18);
     ui->txtPassword->setFont(minecraftFont);
@@ -84,6 +130,14 @@ MainWindow::MainWindow(QWidget* parent)
     ui->txt_AdGender->setFont(minecraftFont);
     ui->txt_AdBirthday->setFont(minecraftFont);
     ui->txt_AdSocialID->setFont(minecraftFont);
+    ui->txt_className->setFont(minecraftFont);
+
+    ui->txt_addBirthday->setFont(minecraftFont);
+    ui->txt_addID->setFont(minecraftFont);
+    ui->txt_addName->setFont(minecraftFont);
+    ui->txt_addSocialID->setFont(minecraftFont);
+    ui->txt_path->setFont(minecraftFont);
+
     minecraftFont.setBold(1);  // Bold Region
     ui->name->setFont(minecraftFont);
     ui->name_2->setFont(minecraftFont);
@@ -110,10 +164,12 @@ MainWindow::MainWindow(QWidget* parent)
 
 
     minecraftFont.setPointSize(22);
+    ui->box_addGender->setFont(minecraftFont);
     minecraftFont.setBold(1); // Bold Region
     ui->lb_username->setFont(minecraftFont);
     ui->lb_password->setFont(minecraftFont);
     ui->list_classes_2->setFont(minecraftFont);
+    ui->list_classes->setFont(minecraftFont);
     ui->lb_curClass->setFont(minecraftFont);
     ui->lb_class->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
@@ -128,6 +184,11 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_changePass_2->setFont(minecraftFont);
     ui->lb_MyProfile_2->setFont(minecraftFont);
     ui->lb_allClasses->setFont(minecraftFont);
+    ui->lb_createNewClass->setFont(minecraftFont);
+    ui->lb_viewScoreboard->setFont(minecraftFont);
+    ui->lb_addNewStudent->setFont(minecraftFont);
+    ui->lb_addNewStudent->setFont(minecraftFont);
+    ui->lb_classManage->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
     minecraftFont.setPointSize(48);
@@ -701,17 +762,6 @@ void MainWindow::on_button_confirm_3_clicked()
     std::string startDate = ui->txt_startDate->text().toStdString();
     std::string endDate = ui->txt_endDate->text().toStdString();
 
-    if (startDate == "")
-    {
-        MessageBox("Error", "Start Date Is Not Choosen!");
-        return;
-    }
-    if (endDate == "")
-    {
-        MessageBox("Error", "End Date Is Not Choosen!");
-        return;
-    }
-
     int diff = daysBetweenDates(startDate, latestSem.endDate);
     if (diff < 1)
     {
@@ -807,7 +857,7 @@ void MainWindow::on_box_selectSY_currentTextChanged(const QString &arg1)
     }
 
     if (sy.size() > 0)
-    ui->lb_example->setText(QString::fromStdString("Example: " + sy.substr(2, 2) + "CLC04, " + sy.substr(2, 2) + "APCS09, etc."));
+        ui->txt_className->setPlaceholderText(QString::fromStdString("Example: " + sy.substr(2, 2) + "CLC04, " + sy.substr(2, 2) + "APCS09, etc."));
 }
 
 
@@ -962,7 +1012,7 @@ void MainWindow::on_button_confirm_5_clicked()
         return;
     }
     
-    Node<SchoolYear>* checkExist = latestSYear;
+     Node<SchoolYear>* checkExist = latestSYear;
     while(checkExist)
     {
         Node<Class>* ClassesInSY = checkExist->data.classes;
@@ -973,7 +1023,7 @@ void MainWindow::on_button_confirm_5_clicked()
             {
                 if(StuInClass->data.ID == newStudentID || StuInClass->data.socialID == newStudentSocialID)
                 {
-                    MessageBox("Error", "Student already studies in class " + ClassesInSY->data.className);
+                    MessageBox("Error", "Student already studies in class" + ClassesInSY->data.className);
                     return;
                 }
                 StuInClass = StuInClass->next;
@@ -1014,6 +1064,11 @@ void MainWindow::on_button_confirm_5_clicked()
             stuCurr = stuCurr->next;
         stuCurr->next = new Node<Student>(newStudent);
     }
+
+    ui->txt_addID->setText("");
+    ui->txt_addName->setText("");
+    ui->txt_addBirthday->setText("");
+    ui->txt_addSocialID->setText("");
 
     QMessageBox::information(nullptr, "Notification", "A New Student Added Successfully!");
 }
@@ -1429,6 +1484,12 @@ void MainWindow::on_sem_select_currentTextChanged(const QString &arg1)
 }
 
 
+void MainWindow::on_button_courseSetting_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(10);
+}
+
+
 void MainWindow::on_button_courseView_clicked()
 {
     MainWindow::on_button_removeFilter_clicked();
@@ -1559,7 +1620,6 @@ void MainWindow::on_button_viewStudent_clicked()
     int row = ui->table_course->currentRow();
 
     std::string ID = ui->table_course->item(row, 0)->text().toStdString();
-    std::string courseName = ui->table_course->item(row, 1)->text().toStdString();
     std::string className = ui->table_course->item(row, 2)->text().toStdString();
 
     Node<SchoolYear>* tempYear = latestSYear;
@@ -1593,8 +1653,6 @@ void MainWindow::on_button_viewStudent_clicked()
     }
 
     ui->table_student_2->resizeColumnsToContents();
-
-    ui->lb_scoreTable->setText(QString::fromStdString(ID + " - " + courseName + " - " + className));
     ui->stackedWidget_5->setCurrentIndex(1);
 }
 
@@ -1605,12 +1663,8 @@ void MainWindow::on_button_coursesList_clicked()
 }
 
 
-void MainWindow::on_table_student_2_itemDoubleClicked(QTableWidgetItem *item)
+void MainWindow::on_txt_className_textEdited(const QString &arg1)
 {
-    if (ui->table_student_2->currentColumn() < 2)
-    {
-        MessageBox("Error", "Unable To Edit Student ID and Name!");
-        item->setFlags(item->flags() & ~Qt::ItemIsEditable);
-        return;
-    }
+    ui->txt_className->setText(arg1.toUpper());
 }
+

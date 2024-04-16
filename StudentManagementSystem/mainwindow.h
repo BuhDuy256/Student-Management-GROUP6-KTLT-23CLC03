@@ -28,6 +28,7 @@ public:
     ~MainWindow();
 
 private slots:
+
     void on_checkBox_stateChanged(int arg1);
 
     void on_button_signin_clicked();
@@ -162,6 +163,8 @@ private slots:
 
     void on_sem_select_currentTextChanged(const QString &arg1);
 
+    void on_button_courseSetting_clicked();
+
     void on_button_courseView_clicked();
 
     void on_button_removeFilter_clicked();
@@ -178,8 +181,7 @@ private slots:
 
     void on_button_coursesList_clicked();
 
-    void on_table_student_2_itemDoubleClicked(QTableWidgetItem *item);
-
+    void on_txt_className_textEdited(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;
