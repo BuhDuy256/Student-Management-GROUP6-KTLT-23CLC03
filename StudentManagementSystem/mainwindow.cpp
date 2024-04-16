@@ -192,6 +192,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->list_classes->setFont(minecraftFont);
     ui->lb_curClass->setFont(minecraftFont);
     ui->lb_class->setFont(minecraftFont);
+    ui->lb_latestSED->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
 
@@ -211,6 +212,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_classManage->setFont(minecraftFont);
     ui->lb_courseView->setFont(minecraftFont);
     ui->lb_courseManagement->setFont(minecraftFont);
+    ui->lb_createNewSemester->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
     minecraftFont.setPointSize(48);

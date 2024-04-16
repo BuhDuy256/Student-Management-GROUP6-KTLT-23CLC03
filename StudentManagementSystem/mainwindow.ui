@@ -2847,28 +2847,6 @@ padding-left: 10px;</string>
             <property name="rightMargin">
              <number>65</number>
             </property>
-            <item row="0" column="0" colspan="13" alignment="Qt::AlignHCenter">
-             <widget class="QLabel" name="lb_createNewSemester">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>103</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>36</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: #7FFFD4;
-</string>
-              </property>
-              <property name="text">
-               <string>Create New Semester</string>
-              </property>
-             </widget>
-            </item>
             <item row="3" column="2" rowspan="3" colspan="11">
              <layout class="QVBoxLayout" name="verticalLayout_6">
               <property name="spacing">
@@ -2880,7 +2858,7 @@ padding-left: 10px;</string>
               <item>
                <widget class="QCalendarWidget" name="calendarWidget_2">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
@@ -2942,7 +2920,7 @@ QCalendarWidget QWidget {
               <item alignment="Qt::AlignHCenter">
                <widget class="QPushButton" name="button_currentDate">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
@@ -2966,10 +2944,32 @@ QCalendarWidget QWidget {
               </item>
              </layout>
             </item>
+            <item row="0" column="0" colspan="13" alignment="Qt::AlignHCenter">
+             <widget class="QLabel" name="lb_createNewSemester">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>103</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>36</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: #7FFFD4;
+</string>
+              </property>
+              <property name="text">
+               <string>Create New Semester</string>
+              </property>
+             </widget>
+            </item>
             <item row="5" column="0">
              <layout class="QFormLayout" name="formLayout">
               <property name="sizeConstraint">
-               <enum>QLayout::SetDefaultConstraint</enum>
+               <enum>QLayout::SetNoConstraint</enum>
               </property>
               <property name="fieldGrowthPolicy">
                <enum>QFormLayout::FieldsStayAtSizeHint</enum>
@@ -2992,6 +2992,28 @@ QCalendarWidget QWidget {
               <property name="bottomMargin">
                <number>0</number>
               </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="lb_latestSED">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>20</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;
+</string>
+                </property>
+                <property name="text">
+                 <string>Latest Semester End Date:</string>
+                </property>
+               </widget>
+              </item>
               <item row="1" column="0">
                <widget class="QLineEdit" name="txt_startDate">
                 <property name="sizePolicy">
@@ -3153,28 +3175,6 @@ padding: 10px;</string>
                 </property>
                 <property name="text">
                  <string>BACK</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="lb_latestSED">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>20</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: white;
-</string>
-                </property>
-                <property name="text">
-                 <string>Latest Semester End Date:</string>
                 </property>
                </widget>
               </item>
