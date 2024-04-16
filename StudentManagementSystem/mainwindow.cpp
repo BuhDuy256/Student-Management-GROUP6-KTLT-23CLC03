@@ -31,7 +31,9 @@ MainWindow::MainWindow(QWidget* parent)
     ui->calendarWidget_3->setStyleSheet(QString(ui->calendarWidget_3->styleSheet() + "QMenu { font-family: %1;}"
                                                                                      "QWidget#qt_calendar_navigationbar {font-family: %1}"
                                                                                      "QCalendarWidget { font-family: %1;}").arg(fontName));
-
+    ui->calendarWidget_2->setStyleSheet(QString(ui->calendarWidget_2->styleSheet() + "QMenu { font-family: %1;}"
+                                                                                     "QWidget#qt_calendar_navigationbar {font-family: %1}"
+                                                                                     "QCalendarWidget { font-family: %1;}").arg(fontName));
     ui->calendarWidget->setStyleSheet(QString(ui->calendarWidget->styleSheet() + "QMenu { font-family: %1;}"
                                                                                        "QWidget#qt_calendar_navigationbar {font-family: %1}"
                                                                                        "QCalendarWidget { font-family: %1;}").arg(fontName));
@@ -153,6 +155,8 @@ MainWindow::MainWindow(QWidget* parent)
     ui->txt_addName->setFont(minecraftFont);
     ui->txt_addSocialID->setFont(minecraftFont);
     ui->txt_path->setFont(minecraftFont);
+    ui->txt_startDate->setFont(minecraftFont);
+    ui->txt_endDate->setFont(minecraftFont);
 
     minecraftFont.setBold(1);  // Bold Region
     ui->name->setFont(minecraftFont);

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1101</width>
+    <width>1130</width>
     <height>715</height>
    </rect>
   </property>
@@ -2205,7 +2205,7 @@ font-size: 18px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -2847,66 +2847,7 @@ padding-left: 10px;</string>
             <property name="rightMargin">
              <number>65</number>
             </property>
-            <item row="3" column="1">
-             <widget class="QPushButton" name="button_setStartDate">
-              <property name="minimumSize">
-               <size>
-                <width>150</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Set Start Date</string>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="2" alignment="Qt::AlignRight">
-             <widget class="QPushButton" name="button_back_6">
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>BACK</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLineEdit" name="txt_endDate">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>16</pointsize>
-               </font>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0" colspan="3" alignment="Qt::AlignHCenter">
+            <item row="0" column="0" colspan="13" alignment="Qt::AlignHCenter">
              <widget class="QLabel" name="lb_createNewSemester">
               <property name="maximumSize">
                <size>
@@ -2928,13 +2869,22 @@ padding-left: 10px;</string>
               </property>
              </widget>
             </item>
-            <item row="3" column="2" rowspan="2">
+            <item row="3" column="2" rowspan="3" colspan="11">
              <layout class="QVBoxLayout" name="verticalLayout_6">
               <property name="spacing">
                <number>5</number>
               </property>
+              <property name="sizeConstraint">
+               <enum>QLayout::SetFixedSize</enum>
+              </property>
               <item>
                <widget class="QCalendarWidget" name="calendarWidget_2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">QCalendarWidget QToolButton#qt_calendar_nextmonth{
 	border-image: url(:/background/right_arrow.png);
@@ -2958,6 +2908,7 @@ QCalendarWidget QToolButton{
 
 QCalendarWidget QWidget#qt_calendar_navigationbar{
 	background-color: rgb(198, 198, 198);
+	color: #F5F0F0;
 }
 
 QCalendarWidget QSpinBox::up-button {
@@ -2972,16 +2923,16 @@ QCalendarWidget QSpinBox::down-button {
 	background-repeat: none;
 }
 
-
 QCalendarWidget QWidget {
 	background-color: rgb(118, 118, 118);
-	border: 1px solid black;
 	font-size: 14px;
+	border: 1px solid black;
 }
 
 #qt_calendar_monthbutton::menu-indicator{
    width:0px;
-}</string>
+}
+</string>
                 </property>
                 <property name="verticalHeaderFormat">
                  <enum>QCalendarWidget::NoVerticalHeader</enum>
@@ -3015,86 +2966,235 @@ QCalendarWidget QWidget {
               </item>
              </layout>
             </item>
-            <item row="4" column="1">
-             <widget class="QPushButton" name="button_setEndDate">
-              <property name="minimumSize">
-               <size>
-                <width>150</width>
-                <height>50</height>
-               </size>
+            <item row="5" column="0">
+             <layout class="QFormLayout" name="formLayout">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
-              <property name="text">
-               <string>Set End Date</string>
+              <property name="fieldGrowthPolicy">
+               <enum>QFormLayout::FieldsStayAtSizeHint</enum>
               </property>
-             </widget>
-            </item>
-            <item row="6" column="0" colspan="2">
-             <widget class="QPushButton" name="button_confirm_3">
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
+              <property name="rowWrapPolicy">
+               <enum>QFormLayout::DontWrapRows</enum>
               </property>
-              <property name="maximumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
+              <property name="labelAlignment">
+               <set>Qt::AlignJustify|Qt::AlignVCenter</set>
               </property>
-              <property name="text">
-               <string>CONFIRM</string>
+              <property name="formAlignment">
+               <set>Qt::AlignJustify|Qt::AlignVCenter</set>
               </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLineEdit" name="txt_startDate">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
+              <property name="horizontalSpacing">
+               <number>0</number>
               </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>50</height>
-               </size>
+              <property name="verticalSpacing">
+               <number>50</number>
               </property>
-              <property name="font">
-               <font>
-                <pointsize>16</pointsize>
-               </font>
+              <property name="bottomMargin">
+               <number>0</number>
               </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0" colspan="3">
-             <widget class="QLabel" name="lb_latestSED">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>20</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: white;
+              <item row="1" column="0">
+               <widget class="QLineEdit" name="txt_startDate">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>16</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #000000;
+background-color: rgba(255,255,255,200);
+padding: 10px;</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QPushButton" name="button_setStartDate">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Set Start Date</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLineEdit" name="txt_endDate">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>16</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #000000;
+background-color: rgba(255,255,255,200);
+padding: 10px;</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QPushButton" name="button_setEndDate">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Set End Date</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QPushButton" name="button_confirm_3">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>65</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>65</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>CONFIRM</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QPushButton" name="button_back_6">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>65</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>65</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>BACK</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="lb_latestSED">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>20</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;
 </string>
-              </property>
-              <property name="text">
-               <string>Latest Semester End Date:</string>
-              </property>
-             </widget>
+                </property>
+                <property name="text">
+                 <string>Latest Semester End Date:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <spacer name="verticalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>50</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
             </item>
            </layout>
           </widget>
@@ -3652,7 +3752,7 @@ color:white;
 }</string>
               </property>
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="page_addOne">
                <layout class="QGridLayout" name="gridLayout_12">
