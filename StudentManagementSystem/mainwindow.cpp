@@ -99,6 +99,11 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_create_sem->setFont(minecraftFont);
     ui->button_course_manage->setFont(minecraftFont);
     ui->button_class_manage->setFont(minecraftFont);
+    ui->button_setStartDate->setFont(minecraftFont);
+    ui->button_setEndDate->setFont(minecraftFont);
+    ui->button_confirm_3->setFont(minecraftFont);
+    ui->button_back_6->setFont(minecraftFont);
+    ui->button_currentDate->setFont(minecraftFont);
 
 
 
