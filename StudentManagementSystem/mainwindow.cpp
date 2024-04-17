@@ -828,6 +828,9 @@ void MainWindow::on_button_confirm_3_clicked()
     ui->lb_latestSY->setText(QString::fromStdString("Latest School Year: " + latestSYear->data.year));
     ui->lb_latestSem->setText(QString::fromStdString("Latest Semester: " + std::to_string(lastSemNumber)));
     ui->lb_latestSED->setText(QString::fromStdString("Latest Semester End Date: " + latestSem.endDate));
+
+    ui->txt_startDate->setText("");
+    ui->txt_endDate->setText("");
 }
 
 
