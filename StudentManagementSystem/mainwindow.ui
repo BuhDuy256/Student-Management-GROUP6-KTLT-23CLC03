@@ -2865,7 +2865,7 @@ padding-left: 10px;</string>
              <string>Create New Semester</string>
             </property>
            </widget>
-           <widget class="QWidget" name="">
+           <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
               <x>410</x>
@@ -2975,7 +2975,7 @@ QCalendarWidget QWidget {
              <rect>
               <x>10</x>
               <y>160</y>
-              <width>391</width>
+              <width>401</width>
               <height>381</height>
              </rect>
             </property>
