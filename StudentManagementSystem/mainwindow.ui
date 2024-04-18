@@ -68,7 +68,7 @@ color: black;
 }</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2" rowstretch="2,7,2" columnstretch="2,5,2">
@@ -793,7 +793,7 @@ QCalendarWidget QToolButton:pressed {
 QCalendarWidget QWidget#qt_calendar_navigationbar {
     background-color: rgba(198, 198, 198,200);
     color: #292727;
-    padding: 4px;
+	padding-left: 5px;
     border-style: none;
     border-bottom: 2px solid #000000;
     border-right: 1px solid #000000;
@@ -827,6 +827,10 @@ QCalendarWidget QWidget::item:selected {
 	border-bottom: 2px solid #000000;
 	border-right: 1px solid #000000;
 	border-left: 1px solid #000000; 
+}
+
+QCalendarWidget QMenu {
+	padding-left: 10px;
 }
 
 #qt_calendar_monthbutton::menu-indicator{
@@ -2938,13 +2942,28 @@ QCalendarWidget QToolButton#qt_calendar_prevmonth{
 	padding: 10px;
 }
 
-QCalendarWidget QToolButton{
-	background-color: rgb(118, 118, 118);
+QCalendarWidget QToolButton {
+    background-color: rgb(118, 118, 118);
+    color: #F5F0F0;
+    border: 2px solid #000000;
 }
 
-QCalendarWidget QWidget#qt_calendar_navigationbar{
-	background-color: rgb(198, 198, 198);
-	color: #F5F0F0;
+QCalendarWidget QToolButton:hover {
+    background-color: rgba(158, 158, 158,200);
+}
+
+QCalendarWidget QToolButton:pressed {
+    background-color: rgba(118, 118, 118,200);
+}
+
+QCalendarWidget QWidget#qt_calendar_navigationbar {
+    background-color: rgba(198, 198, 198,200);
+    color: #292727;
+	padding-left: 5px;
+    border-style: none;
+    border-bottom: 2px solid #000000;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
 }
 
 QCalendarWidget QSpinBox::up-button {
@@ -2963,6 +2982,21 @@ QCalendarWidget QWidget {
 	background-color: rgb(118, 118, 118);
 	font-size: 14px;
 	border: 1px solid black;
+    gridline-color: rgb(198, 198, 198);
+}
+
+QCalendarWidget QWidget::item:selected {
+    background-color: rgba(198, 198, 198,200);
+	color: #292727;
+    border: 1px solid #696969;
+	border-style: none;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
+}
+
+QCalendarWidget QMenu {
+	padding-left: 10px;
 }
 
 #qt_calendar_monthbutton::menu-indicator{
@@ -4125,14 +4159,28 @@ QCalendarWidget QToolButton#qt_calendar_prevmonth{
 	padding: 10px;
 }
 
-QCalendarWidget QToolButton{
-	background-color: rgb(118, 118, 118);
+QCalendarWidget QToolButton {
+    background-color: rgb(118, 118, 118);
+    color: #F5F0F0;
+    border: 2px solid #000000;
 }
 
-QCalendarWidget QWidget#qt_calendar_navigationbar{
-	background-color: rgb(198, 198, 198);
-	font-size: 12px;
-	color: #F5F0F0;
+QCalendarWidget QToolButton:hover {
+    background-color: rgba(158, 158, 158,200);
+}
+
+QCalendarWidget QToolButton:pressed {
+    background-color: rgba(118, 118, 118,200);
+}
+
+QCalendarWidget QWidget#qt_calendar_navigationbar {
+    background-color: rgba(198, 198, 198,200);
+    color: #292727;
+	padding-left: 5px;
+    border-style: none;
+    border-bottom: 2px solid #000000;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
 }
 
 QCalendarWidget QSpinBox::up-button {
@@ -4147,16 +4195,31 @@ QCalendarWidget QSpinBox::down-button {
 	background-repeat: none;
 }
 
-
 QCalendarWidget QWidget {
 	background-color: rgb(118, 118, 118);
-	border: 1px solid black;
 	font-size: 14px;
+	border: 1px solid black;
+    gridline-color: rgb(198, 198, 198);
+}
+
+QCalendarWidget QWidget::item:selected {
+    background-color: rgba(198, 198, 198,200);
+	color: #292727;
+    border: 1px solid #696969;
+	border-style: none;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
+}
+
+QCalendarWidget QMenu {
+	padding-left: 10px;
 }
 
 #qt_calendar_monthbutton::menu-indicator{
-   width: 0px;
-}</string>
+   width:0px;
+}
+</string>
                   </property>
                   <property name="verticalHeaderFormat">
                    <enum>QCalendarWidget::NoVerticalHeader</enum>
