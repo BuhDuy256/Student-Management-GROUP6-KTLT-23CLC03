@@ -68,7 +68,7 @@ color: black;
 }</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2" rowstretch="2,7,2" columnstretch="2,5,2">
@@ -709,7 +709,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-           <number>3</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -776,13 +776,28 @@ QCalendarWidget QToolButton#qt_calendar_prevmonth{
 	padding: 10px;
 }
 
-QCalendarWidget QToolButton{
-	background-color: rgb(118, 118, 118);
+QCalendarWidget QToolButton {
+    background-color: rgb(118, 118, 118);
+    color: #F5F0F0;
+    border: 2px solid #000000;
 }
 
-QCalendarWidget QWidget#qt_calendar_navigationbar{
-	background-color: rgb(198, 198, 198);
-	color: #F5F0F0;
+QCalendarWidget QToolButton:hover {
+    background-color: rgba(158, 158, 158,200);
+}
+
+QCalendarWidget QToolButton:pressed {
+    background-color: rgba(118, 118, 118,200);
+}
+
+QCalendarWidget QWidget#qt_calendar_navigationbar {
+    background-color: rgba(198, 198, 198,200);
+    color: #292727;
+    padding: 4px;
+    border-style: none;
+    border-bottom: 2px solid #000000;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
 }
 
 QCalendarWidget QSpinBox::up-button {
@@ -801,6 +816,17 @@ QCalendarWidget QWidget {
 	background-color: rgb(118, 118, 118);
 	font-size: 14px;
 	border: 1px solid black;
+    gridline-color: rgb(198, 198, 198);
+}
+
+QCalendarWidget QWidget::item:selected {
+    background-color: rgba(198, 198, 198,200);
+	color: #292727;
+    border: 1px solid #696969;
+	border-style: none;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
 }
 
 #qt_calendar_monthbutton::menu-indicator{
@@ -1497,7 +1523,7 @@ QScrollBar::sub-line:vertical {
                <set>QAbstractItemView::NoEditTriggers</set>
               </property>
               <property name="sortingEnabled">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
               <attribute name="horizontalHeaderDefaultSectionSize">
                <number>120</number>
@@ -2211,7 +2237,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>3</number>
+           <number>6</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -4267,7 +4293,7 @@ QScrollBar::sub-line:vertical {
                <set>QAbstractItemView::NoEditTriggers</set>
               </property>
               <property name="sortingEnabled">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
               <column>
                <property name="text">
@@ -4582,13 +4608,13 @@ QScrollBar::sub-line:vertical {
              <set>QAbstractItemView::NoEditTriggers</set>
             </property>
             <property name="sortingEnabled">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
             <attribute name="horizontalHeaderCascadingSectionResizes">
              <bool>false</bool>
             </attribute>
             <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-             <bool>true</bool>
+             <bool>false</bool>
             </attribute>
             <attribute name="verticalHeaderCascadingSectionResizes">
              <bool>false</bool>
@@ -4897,13 +4923,13 @@ QScrollBar::sub-line:vertical {
              <set>QAbstractItemView::NoEditTriggers</set>
             </property>
             <property name="sortingEnabled">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
             <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-             <bool>true</bool>
+             <bool>false</bool>
             </attribute>
             <attribute name="verticalHeaderShowSortIndicator" stdset="0">
-             <bool>true</bool>
+             <bool>false</bool>
             </attribute>
            </widget>
            <widget class="QPushButton" name="button_back_10">
