@@ -16,19 +16,25 @@ MainWindow::MainWindow(QWidget* parent)
 
     ui->tableWidget->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1;font-size: 14px;}"
                                       "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
-    ui->table_scoreboard->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1;font-size: 14px;}"
+    ui->table_scoreboard->setStyleSheet(QString(ui->table_scoreboard->styleSheet() + "QTableWidget { font-family: %1;font-size: 14px;}"
                                                                            "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
 
-    ui->table_student->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1; }"
+    ui->table_student->setStyleSheet(QString(ui->table_student->styleSheet() + "QTableWidget { font-family: %1; }"
                                                                              "QTableWidget QHeaderView::section { font-family: %1; font-size: 14px;}").arg(fontName));
-    ui->tableWidget_2->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1; }"
+    ui->tableWidget_2->setStyleSheet(QString(ui->tableWidget_2->styleSheet() + "QTableWidget { font-family: %1; }"
+                                                                             "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+    ui->table_course->setStyleSheet(QString(ui->table_course->styleSheet() + "QTableWidget { font-family: %1; font-size: 14px;}"
+                                                                               "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+    ui->table_student_2->setStyleSheet(QString(ui->table_student_2->styleSheet() + "QTableWidget { font-family: %1; font-size: 14px;}"
                                                                              "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
 
     ui->calendarWidget_3->setStyleSheet(QString(ui->calendarWidget_3->styleSheet() + "QMenu { font-family: %1;}"
                                                                                      "QWidget#qt_calendar_navigationbar {font-family: %1}"
                                                                                      "QCalendarWidget { font-family: %1;}").arg(fontName));
-
-    ui->calendarWidget->setStyleSheet(QString(ui->calendarWidget_3->styleSheet() + "QMenu { font-family: %1;}"
+    ui->calendarWidget_2->setStyleSheet(QString(ui->calendarWidget_2->styleSheet() + "QMenu { font-family: %1;}"
+                                                                                     "QWidget#qt_calendar_navigationbar {font-family: %1}"
+                                                                                     "QCalendarWidget { font-family: %1;}").arg(fontName));
+    ui->calendarWidget->setStyleSheet(QString(ui->calendarWidget->styleSheet() + "QMenu { font-family: %1;}"
                                                                                        "QWidget#qt_calendar_navigationbar {font-family: %1}"
                                                                                        "QCalendarWidget { font-family: %1;}").arg(fontName));
 
@@ -85,6 +91,20 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_addStudent->setFont(minecraftFont);
     ui->button_scoreOfClass->setFont(minecraftFont);
     ui->button_back_7->setFont(minecraftFont);
+    ui->button_coursesList->setFont(minecraftFont);
+    ui->button_viewStudent->setFont(minecraftFont);
+    ui->button_removeFilter->setFont(minecraftFont);
+    ui->button_back_11->setFont(minecraftFont);
+    ui->button_create_sy->setFont(minecraftFont);
+    ui->button_create_sem->setFont(minecraftFont);
+    ui->button_course_manage->setFont(minecraftFont);
+    ui->button_class_manage->setFont(minecraftFont);
+    ui->button_setStartDate->setFont(minecraftFont);
+    ui->button_setEndDate->setFont(minecraftFont);
+    ui->button_confirm_3->setFont(minecraftFont);
+    ui->button_back_6->setFont(minecraftFont);
+    ui->button_currentDate->setFont(minecraftFont);
+
 
 
     minecraftFont.setPointSize(16);
@@ -95,7 +115,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->pushButton->setFont(minecraftFont);
     ui->box_selectSY->setFont(minecraftFont);
     ui->lb_allClassesIn->setFont(minecraftFont);
-
     ui->lb_addStuID->setFont(minecraftFont);
     ui->lb_addGender->setFont(minecraftFont);
     ui->lb_addBirthday->setFont(minecraftFont);
@@ -104,11 +123,15 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_selectClass->setFont(minecraftFont);
     ui->box_selectClass->setFont(minecraftFont);
     ui->lb_enterPath->setFont(minecraftFont);
-
     ui->box_year->setFont(minecraftFont);
     ui->box_semester->setFont(minecraftFont);
     ui->box_class->setFont(minecraftFont);
-
+    ui->label->setFont(minecraftFont);
+    ui->label_2->setFont(minecraftFont);
+    ui->box_selectSY_2->setFont(minecraftFont);
+    ui->box_selectSem->setFont(minecraftFont);
+    ui->button_courseSetting->setFont(minecraftFont);
+    ui->button_courseView->setFont(minecraftFont);
 
     minecraftFont.setPointSize(18);
     ui->txtPassword->setFont(minecraftFont);
@@ -137,6 +160,8 @@ MainWindow::MainWindow(QWidget* parent)
     ui->txt_addName->setFont(minecraftFont);
     ui->txt_addSocialID->setFont(minecraftFont);
     ui->txt_path->setFont(minecraftFont);
+    ui->txt_startDate->setFont(minecraftFont);
+    ui->txt_endDate->setFont(minecraftFont);
 
     minecraftFont.setBold(1);  // Bold Region
     ui->name->setFont(minecraftFont);
@@ -172,6 +197,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->list_classes->setFont(minecraftFont);
     ui->lb_curClass->setFont(minecraftFont);
     ui->lb_class->setFont(minecraftFont);
+    ui->lb_latestSED->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
 
@@ -189,6 +215,9 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_addNewStudent->setFont(minecraftFont);
     ui->lb_addNewStudent->setFont(minecraftFont);
     ui->lb_classManage->setFont(minecraftFont);
+    ui->lb_courseView->setFont(minecraftFont);
+    ui->lb_courseManagement->setFont(minecraftFont);
+    ui->lb_createNewSemester->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
     minecraftFont.setPointSize(48);
@@ -799,6 +828,9 @@ void MainWindow::on_button_confirm_3_clicked()
     ui->lb_latestSY->setText(QString::fromStdString("Latest School Year: " + latestSYear->data.year));
     ui->lb_latestSem->setText(QString::fromStdString("Latest Semester: " + std::to_string(lastSemNumber)));
     ui->lb_latestSED->setText(QString::fromStdString("Latest Semester End Date: " + latestSem.endDate));
+
+    ui->txt_startDate->setText("");
+    ui->txt_endDate->setText("");
 }
 
 
