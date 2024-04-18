@@ -171,7 +171,7 @@ private slots:
 
     void on_button_course_manage_clicked();
 
-    void on_button_ok_3_clicked();
+    void button_ok_3_clicked();
 
     void on_box_selectSY_2_currentTextChanged(const QString &arg1);
 
@@ -182,6 +182,17 @@ private slots:
     void on_button_coursesList_clicked();
 
     void on_txt_className_textEdited(const QString &arg1);
+
+    void on_button_back_10_clicked();
+
+
+    void on_button_back_11_clicked();
+
+    void on_checkBox_edit_stateChanged(int arg1);
+
+    void on_table_course_itemDoubleClicked(QTableWidgetItem *item);
+
+    void on_button_removeCourse_clicked();
 
 private:
     Ui::MainWindow *ui;

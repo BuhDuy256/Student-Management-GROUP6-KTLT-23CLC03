@@ -257,8 +257,58 @@ MainWindow::~MainWindow()
 
 void MessageBox(std::string title, std::string text)
 {
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::critical(nullptr, QString::fromStdString(title), QString::fromStdString(text), QMessageBox::Ok);
+    int fontId = QFontDatabase::addApplicationFont(":/font/MinecraftRegular-Bmg3.ttf");
+    QString fontName = QFontDatabase::applicationFontFamilies(fontId).at(0);
+    QFont minecraftFont(fontName);
+    minecraftFont.setPointSize(15);
+
+    QMessageBox reply;
+    reply.setStandardButtons(QMessageBox::Ok);
+    reply.setIcon(QMessageBox::Critical);
+    reply.setFont(minecraftFont);
+    reply.setWindowTitle(QString::fromStdString(title));
+    reply.setText(QString::fromStdString(text));
+
+    reply.exec();
+
+    // reply = QMessageBox::critical(nullptr, QString::fromStdString(title), QString::fromStdString(text), QMessageBox::Ok);
+}
+void MessageBox_information(std::string title, std::string text)
+{
+    int fontId = QFontDatabase::addApplicationFont(":/font/MinecraftRegular-Bmg3.ttf");
+    QString fontName = QFontDatabase::applicationFontFamilies(fontId).at(0);
+    QFont minecraftFont(fontName);
+    minecraftFont.setPointSize(15);
+
+    QMessageBox reply;
+    reply.setStandardButtons(QMessageBox::Ok);
+    reply.setIcon(QMessageBox::Information);
+    reply.setFont(minecraftFont);
+    reply.setWindowTitle(QString::fromStdString(title));
+    reply.setText(QString::fromStdString(text));
+
+    reply.exec();
+
+    // reply = QMessageBox::critical(nullptr, QString::fromStdString(title), QString::fromStdString(text), QMessageBox::Ok);
+}
+int MessageBox_ok_cancel(std::string title, std::string text)
+{
+    int fontId = QFontDatabase::addApplicationFont(":/font/MinecraftRegular-Bmg3.ttf");
+    QString fontName = QFontDatabase::applicationFontFamilies(fontId).at(0);
+    QFont minecraftFont(fontName);
+    minecraftFont.setPointSize(15);
+
+    QMessageBox msgBox;
+
+    msgBox.setText(QString::fromStdString(text));
+    msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+    msgBox.setFont(minecraftFont);
+
+    msgBox.setDefaultButton(QMessageBox::Cancel);
+    msgBox.setWindowTitle(QString::fromStdString(title));
+    msgBox.setIcon(QMessageBox::Information);
+
+    return msgBox.exec();
 }
 
 void MainWindow::on_checkBox_stateChanged(int arg1)
@@ -437,28 +487,28 @@ void MainWindow::on_button_back_clicked()
 void MainWindow::on_stackedWidget_2_currentChanged(int arg1)
 {
     if (ui->stackedWidget_2->currentIndex() == 0) ui->button_StuHome->setStyleSheet("color: lightgreen;");
-    else ui->button_StuHome->setStyleSheet("color: white; :hover{color: black;}");
+    else ui->button_StuHome->setStyleSheet("color: white;");
 
     if (ui->stackedWidget_2->currentIndex() == 1) ui->button_StuMyProfile->setStyleSheet("color: lightgreen;");
-    else ui->button_StuMyProfile->setStyleSheet("color: white; :hover{color: black;}");
+    else ui->button_StuMyProfile->setStyleSheet("color: white;");
 
     if (ui->stackedWidget_2->currentIndex() == 2) ui->button_StuMyCourses->setStyleSheet("color: lightgreen;");
-    else ui->button_StuMyCourses->setStyleSheet("color: white; :hover{color: black;}");
+    else ui->button_StuMyCourses->setStyleSheet("color: white;");
 
     if (ui->stackedWidget_2->currentIndex() == 3) ui->button_StuChangePassword->setStyleSheet("color: lightgreen;");
-    else ui->button_StuChangePassword->setStyleSheet("color: white; :hover{color: black;}");
+    else ui->button_StuChangePassword->setStyleSheet("color: white;");
 }
 
 void MainWindow::on_stackedWidget_3_currentChanged(int arg1)
 {
     if (ui->stackedWidget_3->currentIndex() == 0) ui->button_AdHome->setStyleSheet("color: lightgreen;");
-    else ui->button_AdHome->setStyleSheet("color: white; :hover{color: black;}");
+    else ui->button_AdHome->setStyleSheet("color: white;");
 
     if (ui->stackedWidget_3->currentIndex() == 1) ui->button_AdMyProfile->setStyleSheet("color: lightgreen;");
-    else ui->button_AdMyProfile->setStyleSheet("color: white; :hover{color: black;}");
+    else ui->button_AdMyProfile->setStyleSheet("color: white;");
 
     if (ui->stackedWidget_3->currentIndex() == 2) ui->button_AdChangePassword->setStyleSheet("color: lightgreen;");
-    else ui->button_AdChangePassword->setStyleSheet("color: white; :hover{color: black;}");
+    else ui->button_AdChangePassword->setStyleSheet("color: white;");
 }
 
 void MainWindow::on_button_confirm_clicked()
@@ -709,17 +759,17 @@ void MainWindow::on_button_create_sy_clicked()
     }
     else
     {
-        QMessageBox msgBox;
+        // QMessageBox msgBox;
 
         std::string nextSY = getNextSchoolYear(latestSYear->data.year);
-        msgBox.setText(QString::fromStdString("The Next School Year Will Be " + nextSY + ", Do You Want To Continue?"));
-        msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+        // msgBox.setText(QString::fromStdString("The Next School Year Will Be " + nextSY + ", Do You Want To Continue?"));
+        // msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
 
-        msgBox.setDefaultButton(QMessageBox::Cancel);
-        msgBox.setWindowTitle("Confirmation");
-        msgBox.setIcon(QMessageBox::Information);
+        // msgBox.setDefaultButton(QMessageBox::Cancel);
+        // msgBox.setWindowTitle("Confirmation");
+        // msgBox.setIcon(QMessageBox::Information);
 
-        int ret = msgBox.exec();
+        int ret = MessageBox_ok_cancel("Confirmation", "The Next School Year Will Be " + nextSY + ", Do You Want To Continue?");
         if (ret == QMessageBox::Ok)
         {
             //create new school year
@@ -729,7 +779,7 @@ void MainWindow::on_button_create_sy_clicked()
             latestSYear = currSYear = syHead;
             lastSemNumber = currSemNumber = 0;
 
-            QMessageBox::information(nullptr, "Notification", "A New School Year Has Been Created!");
+            MessageBox_information("Notification", "A New School Year Has Been Created!");
 
             ui->lb_latestSY->setText(QString::fromStdString("Latest School Year: " + latestSYear->data.year));
             ui->lb_latestSem->setText(QString::fromStdString("Latest Semester: " + std::to_string(lastSemNumber)));
@@ -1347,6 +1397,8 @@ void MainWindow::on_box_semester_currentTextChanged(const QString &arg1)
 
     int semester = ui->box_semester->currentText().toInt();
     currSem = currSYear->data.semesters[semester - 1];
+
+    MainWindow::on_button_ok_2_clicked();
 }
 
 Node<Class>* MainWindow::ChooseClass_2(std::string className) {  //copyallfunc
@@ -1369,6 +1421,8 @@ Node<Class>* MainWindow::ChooseClass_2(std::string className) {  //copyallfunc
 
 void MainWindow::on_button_ok_2_clicked()
 {
+    if (ui->box_class->currentText() == "" || ui->box_year->currentText() == "" || ui->box_semester->currentText() == "") return;
+
     std::string className = ui->box_class->currentText().toStdString();
 
     Node<Class>* ChosenClass = ChooseClass_2(className);
@@ -1540,6 +1594,9 @@ void MainWindow::on_button_courseView_clicked()
 
 void MainWindow::on_button_removeFilter_clicked()
 {
+    ui->box_selectSY_2->setCurrentIndex(-1);
+    ui->box_selectSem->clear();
+
     ui->table_course->setRowCount(0);
     int no = 0;
     Node<SchoolYear>* tempYear = latestSYear;
@@ -1576,7 +1633,7 @@ void MainWindow::on_button_course_manage_clicked()
 }
 
 
-void MainWindow::on_button_ok_3_clicked()
+void MainWindow::button_ok_3_clicked()
 {
     std::string year = ui->box_selectSY_2->currentText().toStdString();
     int sem = ui->box_selectSem->currentText().toInt();
@@ -1612,7 +1669,7 @@ void MainWindow::on_button_ok_3_clicked()
 
 void MainWindow::on_box_selectSY_2_currentTextChanged(const QString &arg1)
 {
-    if (ui->box_selectSY_2->count() == 0) return;
+    if (ui->box_selectSY_2->count() == 0 || ui->box_selectSY_2->currentIndex() == -1) return;
     ui->box_selectSem->clear();
 
     std::string year = ui->box_selectSY_2->currentText().toStdString();
@@ -1631,14 +1688,14 @@ void MainWindow::on_box_selectSY_2_currentTextChanged(const QString &arg1)
         tempYear = tempYear->next;
     }
 
-    MainWindow::on_button_ok_3_clicked();
+    MainWindow::button_ok_3_clicked();
 }
 
 void MainWindow::on_box_selectSem_currentTextChanged(const QString &arg1)
 {
     if (ui->box_selectSem->count() == 0) return;
 
-    MainWindow::on_button_ok_3_clicked();
+    MainWindow::button_ok_3_clicked();
 }
 
 
@@ -1646,13 +1703,16 @@ void MainWindow::on_button_viewStudent_clicked()
 {
     if (ui->table_course->selectedItems().isEmpty())
     {
-        MessageBox("Error", "Select A Course ID or Course Name To View Score!");
+        MessageBox("Error", "Select A Course ID or Course Name To View!");
         return;
     }
     int row = ui->table_course->currentRow();
 
     std::string ID = ui->table_course->item(row, 0)->text().toStdString();
+    std::string courseName = ui->table_course->item(row, 1)->text().toStdString();
     std::string className = ui->table_course->item(row, 2)->text().toStdString();
+
+    ui->lb_scoreBoard->setText(QString::fromStdString(ID + " - " + courseName + " - " + className));
 
     Node<SchoolYear>* tempYear = latestSYear;
     while (tempYear)
@@ -1698,5 +1758,97 @@ void MainWindow::on_button_coursesList_clicked()
 void MainWindow::on_txt_className_textEdited(const QString &arg1)
 {
     ui->txt_className->setText(arg1.toUpper());
+}
+
+
+void MainWindow::on_button_back_10_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(4);
+}
+
+void MainWindow::on_button_back_11_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(9);
+}
+
+
+void MainWindow::on_checkBox_edit_stateChanged(int arg1)
+{
+    if (ui->checkBox_edit->isChecked())
+    {
+        MessageBox_information("Notification", "Double Click On A Cell To Edit");
+        ui->table_course->setEditTriggers(QAbstractItemView::DoubleClicked);
+    }
+    else ui->table_course->setEditTriggers(QAbstractItemView::NoEditTriggers);
+}
+
+
+void MainWindow::on_table_course_itemDoubleClicked(QTableWidgetItem *item)
+{
+    if (ui->table_course->currentColumn() < 2)
+    {
+        MessageBox("Error", "Unable To Edit Course ID and Course Name!");
+        item->setFlags(item->flags() & ~Qt::ItemIsEditable);
+        return;
+    }
+}
+
+
+void MainWindow::on_button_removeCourse_clicked()
+{
+    if (ui->table_course->selectedItems().isEmpty())
+    {
+        MessageBox("Error", "Select A Course ID or Course Name To Remove!");
+        return;
+    }
+    int row = ui->table_course->currentRow();
+
+    std::string ID = ui->table_course->item(row, 0)->text().toStdString();
+    std::string courseName = ui->table_course->item(row, 1)->text().toStdString();
+    std::string className = ui->table_course->item(row, 2)->text().toStdString();
+    std::string courseData = ID + " - " + courseName + " - " + className;
+
+    int ret = MessageBox_ok_cancel("Confirmation", "Do You Want To Remove [" + courseData + "] Permanently?"
+                                                    "\n\nYou Will Lose All Information Of This Course");
+    if (ret == QMessageBox::Cancel) return;
+
+
+
+    // Delete course
+    Node<SchoolYear>* tempYear = latestSYear;
+    while (tempYear)
+    {
+        for (int i = 2; i >= 0; i--)
+        {
+            Node<Course>* couCurr = tempYear->data.semesters[i].Courses;
+            Node<Course>* couPrev = nullptr;
+
+            if (couCurr && couCurr->data.ID == ID && couCurr->data.className == className)
+            {
+                delete[] couCurr->data.score;
+                tempYear->data.semesters[i].Courses = couCurr->next;
+                delete couCurr;
+                break;
+            }
+            while(couCurr)
+            {
+                if (couCurr->data.ID == ID && couCurr->data.className == className) // found course
+                {
+                    delete[] couCurr->data.score;
+                    couPrev->next = couCurr->next;
+                    delete couCurr;
+                    break;
+                }
+                couPrev = couCurr;
+                couCurr = couCurr->next;
+            }
+        }
+        tempYear = tempYear->next;
+    }
+
+    if (ui->box_selectSY_2->currentIndex() == -1) MainWindow::on_button_removeFilter_clicked();
+    else {
+        MainWindow::button_ok_3_clicked();
+    }
 }
 

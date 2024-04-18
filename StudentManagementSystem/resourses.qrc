@@ -19,6 +19,7 @@
         <file>up_arrow.png</file>
         <file>calendar.png</file>
         <file>File.png</file>
+        <file>button_hover.png</file>
     </qresource>
     <qresource prefix="/prefix">
         <file>CSV Files/AllClasses.csv</file>
