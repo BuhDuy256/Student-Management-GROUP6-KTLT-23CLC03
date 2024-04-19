@@ -7,9 +7,9 @@ void Course::viewStudentsList() {
 
     for (int i = 0; i < courseSize; i++) {
         std::cout << "\t| " << std::setw(7) << std::left << (i + 1)
-                  << "| " << std::setw(11) << std::left << score[i].studentID
-                  << "| " << std::setw(29) << std::left << score[i].studentName
-                  << "|\n";
+            << "| " << std::setw(11) << std::left << score[i].studentID
+            << "| " << std::setw(29) << std::left << score[i].studentName
+            << "|\n";
     }
     std::cout << "\t+--------+------------+------------------------------+\n";
 }
@@ -57,13 +57,13 @@ void Course::viewScoreboard() {
     std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
     for (int i = 0; i < courseSize; i++) {
         std::cout << "\t| " << std::setw(7) << std::left << i + 1
-                  << "| " << std::setw(11) << std::left << score[i].studentID
-                  << "| " << std::setw(29) << std::left << score[i].studentName
-                  << "| " << std::setw(9) << std::left << (score[i].midTerm > 0 ? doubleToString(score[i].midTerm) : "")
-                  << "| " << std::setw(9) << std::left << (score[i].final > 0 ? doubleToString(score[i].final) : "")
-                  << "| " << std::setw(9) << std::left << (score[i].other > 0 ? doubleToString(score[i].other) : "")
-                  << "| " << std::setw(9) << std::left << (score[i].total > 0 ? doubleToString(score[i].total) : "")
-                  << "|" << std::endl;
+            << "| " << std::setw(11) << std::left << score[i].studentID
+            << "| " << std::setw(29) << std::left << score[i].studentName
+            << "| " << std::setw(9) << std::left << (score[i].midTerm > 0 ? doubleToString(score[i].midTerm) : "")
+            << "| " << std::setw(9) << std::left << (score[i].final > 0 ? doubleToString(score[i].final) : "")
+            << "| " << std::setw(9) << std::left << (score[i].other > 0 ? doubleToString(score[i].other) : "")
+            << "| " << std::setw(9) << std::left << (score[i].total > 0 ? doubleToString(score[i].total) : "")
+            << "|" << std::endl;
     }
     std::cout << "\t+--------+------------+------------------------------+----------+----------+----------+----------+" << std::endl;
 }
@@ -666,7 +666,8 @@ void chooseStudentToUpdateResult(Node<Course>* couCurr) {
         else {
             break;
         }
-    } while (true);
+    }
+    while (true);
     char confirm = getYesNo("\t(?) Are you sure you want to update this score? (Y/N): ");
     if (confirm == 'N' || confirm == 'n') {
         std::cout << "\t(!) Cancel updating score.\n";

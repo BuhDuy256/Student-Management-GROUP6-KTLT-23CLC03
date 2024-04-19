@@ -104,6 +104,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_confirm_3->setFont(minecraftFont);
     ui->button_back_6->setFont(minecraftFont);
     ui->button_currentDate->setFont(minecraftFont);
+    ui->button_back_12->setFont(minecraftFont);
 
 
 
@@ -112,7 +113,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->slogan_2->setFont(minecraftFont);
     ui->slogan_3->setFont(minecraftFont);
     ui->button_ok->setFont(minecraftFont);
-    ui->pushButton->setFont(minecraftFont);
     ui->box_selectSY->setFont(minecraftFont);
     ui->lb_allClassesIn->setFont(minecraftFont);
     ui->lb_addStuID->setFont(minecraftFont);
@@ -130,8 +130,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->label_2->setFont(minecraftFont);
     ui->box_selectSY_2->setFont(minecraftFont);
     ui->box_selectSem->setFont(minecraftFont);
-    ui->button_courseSetting->setFont(minecraftFont);
-    ui->button_courseView->setFont(minecraftFont);
 
     minecraftFont.setPointSize(18);
     ui->txtPassword->setFont(minecraftFont);
@@ -216,7 +214,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_addNewStudent->setFont(minecraftFont);
     ui->lb_classManage->setFont(minecraftFont);
     ui->lb_courseView->setFont(minecraftFont);
-    ui->lb_courseManagement->setFont(minecraftFont);
     ui->lb_createNewSemester->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
@@ -1273,7 +1270,7 @@ void MainWindow::on_button_allClasses_clicked()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_button_back_12_clicked()
 {
     ui->stackedWidget_3->setCurrentIndex(4);
 }
@@ -1570,28 +1567,6 @@ void MainWindow::on_sem_select_currentTextChanged(const QString &arg1)
 }
 
 
-void MainWindow::on_button_courseSetting_clicked()
-{
-    ui->stackedWidget_3->setCurrentIndex(10);
-}
-
-
-void MainWindow::on_button_courseView_clicked()
-{
-    MainWindow::on_button_removeFilter_clicked();
-    ui->box_selectSY_2->clear();
-
-    Node<SchoolYear>* tempYear = latestSYear;
-    while (tempYear)
-    {
-        ui->box_selectSY_2->addItem(QString::fromStdString(tempYear->data.year));
-        tempYear = tempYear->next;
-    }
-
-    ui->stackedWidget_3->setCurrentIndex(11);
-    ui->stackedWidget_5->setCurrentIndex(0);
-}
-
 void MainWindow::on_button_removeFilter_clicked()
 {
     ui->box_selectSY_2->setCurrentIndex(-1);
@@ -1629,7 +1604,18 @@ void MainWindow::on_button_removeFilter_clicked()
 
 void MainWindow::on_button_course_manage_clicked()
 {
+    MainWindow::on_button_removeFilter_clicked();
+    ui->box_selectSY_2->clear();
+
+    Node<SchoolYear>* tempYear = latestSYear;
+    while (tempYear)
+    {
+        ui->box_selectSY_2->addItem(QString::fromStdString(tempYear->data.year));
+        tempYear = tempYear->next;
+    }
+
     ui->stackedWidget_3->setCurrentIndex(9);
+    ui->stackedWidget_5->setCurrentIndex(0);
 }
 
 
@@ -1768,7 +1754,7 @@ void MainWindow::on_button_back_10_clicked()
 
 void MainWindow::on_button_back_11_clicked()
 {
-    ui->stackedWidget_3->setCurrentIndex(9);
+    ui->stackedWidget_3->setCurrentIndex(0);
 }
 
 
@@ -1850,5 +1836,31 @@ void MainWindow::on_button_removeCourse_clicked()
     else {
         MainWindow::button_ok_3_clicked();
     }
+}
+
+
+void MainWindow::on_button_addCourse_clicked()
+{
+    if (ui->box_selectSY_2->currentIndex() == -1)
+    {
+        MessageBox("Notice", "Select School Year and Semester First!");
+        return;
+    }
+    {
+        ui->lb_addCourse->setText("ADD COURSE TO " + ui->box_selectSY_2->currentText() + ", SEMESTER " + ui->box_selectSem->currentText());
+        ui->stackedWidget_5->setCurrentIndex(2);
+    }
+}
+
+
+void MainWindow::on_button_confirm_7_clicked()
+{
+
+}
+
+
+void MainWindow::on_button_back_13_clicked()
+{
+    ui->stackedWidget_5->setCurrentIndex(0);
 }
 

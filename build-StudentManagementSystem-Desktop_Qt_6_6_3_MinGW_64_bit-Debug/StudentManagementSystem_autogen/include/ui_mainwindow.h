@@ -244,7 +244,7 @@ public:
     QTableWidget *table_student;
     QLabel *lb_curClass;
     QLabel *lb_class;
-    QPushButton *pushButton;
+    QPushButton *button_back_12;
     QWidget *AdScoreboard;
     QLabel *lb_viewScoreboard;
     QComboBox *box_class;
@@ -253,13 +253,8 @@ public:
     QTableWidget *table_scoreboard;
     QPushButton *button_back_10;
     QPushButton *button_ok_2;
-    QWidget *AdCourseManagement;
-    QLabel *lb_courseManagement;
-    QPushButton *button_courseView;
-    QPushButton *button_courseSetting;
-    QWidget *AdCourseSetting;
-    QLabel *lb_courseSetting;
     QWidget *AdCourseView;
+    QGridLayout *gridLayout_16;
     QLabel *lb_courseView;
     QStackedWidget *stackedWidget_5;
     QWidget *page_2;
@@ -275,10 +270,33 @@ public:
     QPushButton *button_addCourse;
     QPushButton *button_removeCourse;
     QWidget *page_4;
-    QGridLayout *gridLayout_17;
     QTableWidget *table_student_2;
     QPushButton *button_coursesList;
     QLabel *lb_scoreBoard;
+    QPushButton *button_addStudent_2;
+    QPushButton *button_removeStudent;
+    QPushButton *button_importScoreBoard;
+    QCheckBox *checkBox_4;
+    QPushButton *button_exportTable;
+    QWidget *page_5;
+    QLabel *lb_addCourse;
+    QComboBox *box_numCredits;
+    QComboBox *box_dayOfWeek;
+    QComboBox *box_session;
+    QLabel *lb_numCredits;
+    QLabel *lb_session;
+    QPushButton *button_confirm_7;
+    QPushButton *button_back_13;
+    QLabel *lb_teacherName;
+    QLineEdit *txt_teacherName;
+    QLabel *lb_className;
+    QLineEdit *txt_className_2;
+    QLineEdit *txt_courseName;
+    QLabel *lb_courseName;
+    QLineEdit *txt_courseID;
+    QLabel *lb_courseID;
+    QWidget *page_3;
+    QLabel *label_3;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -703,13 +721,29 @@ public:
 "	padding: 10px;\n"
 "}\n"
 "\n"
-"QCalendarWidget QToolButton{\n"
-"	background-color: rgb(118, 118, 118);\n"
+"QCalendarWidget QToolButton {\n"
+"    background-color: rgb(118, 118, 118);\n"
+"    color: #F5F0F0;\n"
+"    border: 2px solid #000000;\n"
 "}\n"
 "\n"
-"QCalendarWidget QWidget#qt_calendar_navigationbar{\n"
-"	background-color: rgb(198, 198, 198);\n"
-"	color: #F5F0F0;\n"
+"QCalendarWidget QToolButton:hover {\n"
+"    background-color: rgba(158, 158, 158,200);\n"
+"}\n"
+"\n"
+"QCalendarWidget QToolButton:pressed {\n"
+"    background-color: rgba(118, 118, 118,200);\n"
+"}\n"
+"\n"
+"QCalendarWidget QWidget#qt_calendar_navigationbar {\n"
+"    background-color: rgba(198, 198, 198,200);\n"
+"    color: #292727;\n"
+"	padding-left: 5px;\n"
+"    border-style: none;\n"
+"    border-bottom: 2px solid #000000;"
+                        "\n"
+"    border-right: 1px solid #000000;\n"
+"    border-left: 1px solid #000000;\n"
 "}\n"
 "\n"
 "QCalendarWidget QSpinBox::up-button {\n"
@@ -724,14 +758,29 @@ public:
 "	background-repeat: none;\n"
 "}\n"
 "\n"
-"QCalendarWidget QW"
-                        "idget {\n"
+"QCalendarWidget QWidget {\n"
 "	background-color: rgb(118, 118, 118);\n"
 "	font-size: 14px;\n"
 "	border: 1px solid black;\n"
+"    gridline-color: rgb(198, 198, 198);\n"
 "}\n"
 "\n"
-"#qt_calendar_monthbutton::menu-indicator{\n"
+"QCalendarWidget QWidget::item:selected {\n"
+"    background-color: rgba(198, 198, 198,200);\n"
+"	color: #292727;\n"
+"    border: 1px solid #696969;\n"
+"	border-style: none;\n"
+"	border-bottom: 2px solid #000000;\n"
+"	border-right: 1px solid #000000;\n"
+"	border-left: 1px solid #000000; \n"
+"}\n"
+"\n"
+"QCalendarWidget QMenu {\n"
+"	padding-left: 10px;\n"
+"}\n"
+"\n"
+"#qt_calendar_monthbutton::menu-indicator"
+                        "{\n"
 "   width:0px;\n"
 "}\n"
 ""));
@@ -1133,7 +1182,7 @@ public:
 "\n"
 ""));
         tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        tableWidget->setSortingEnabled(true);
+        tableWidget->setSortingEnabled(false);
         tableWidget->horizontalHeader()->setDefaultSectionSize(120);
 
         verticalLayout_5->addWidget(tableWidget);
@@ -1754,13 +1803,29 @@ public:
 "	padding: 10px;\n"
 "}\n"
 "\n"
-"QCalendarWidget QToolButton{\n"
-"	background-color: rgb(118, 118, 118);\n"
+"QCalendarWidget QToolButton {\n"
+"    background-color: rgb(118, 118, 118);\n"
+"    color: #F5F0F0;\n"
+"    border: 2px solid #000000;\n"
 "}\n"
 "\n"
-"QCalendarWidget QWidget#qt_calendar_navigationbar{\n"
-"	background-color: rgb(198, 198, 198);\n"
-"	color: #F5F0F0;\n"
+"QCalendarWidget QToolButton:hover {\n"
+"    background-color: rgba(158, 158, 158,200);\n"
+"}\n"
+"\n"
+"QCalendarWidget QToolButton:pressed {\n"
+"    background-color: rgba(118, 118, 118,200);\n"
+"}\n"
+"\n"
+"QCalendarWidget QWidget#qt_calendar_navigationbar {\n"
+"    background-color: rgba(198, 198, 198,200);\n"
+"    color: #292727;\n"
+"	padding-left: 5px;\n"
+"    border-style: none;\n"
+"    border-bottom: 2px solid #000000;"
+                        "\n"
+"    border-right: 1px solid #000000;\n"
+"    border-left: 1px solid #000000;\n"
 "}\n"
 "\n"
 "QCalendarWidget QSpinBox::up-button {\n"
@@ -1775,14 +1840,29 @@ public:
 "	background-repeat: none;\n"
 "}\n"
 "\n"
-"QCalendarWidget QW"
-                        "idget {\n"
+"QCalendarWidget QWidget {\n"
 "	background-color: rgb(118, 118, 118);\n"
 "	font-size: 14px;\n"
 "	border: 1px solid black;\n"
+"    gridline-color: rgb(198, 198, 198);\n"
 "}\n"
 "\n"
-"#qt_calendar_monthbutton::menu-indicator{\n"
+"QCalendarWidget QWidget::item:selected {\n"
+"    background-color: rgba(198, 198, 198,200);\n"
+"	color: #292727;\n"
+"    border: 1px solid #696969;\n"
+"	border-style: none;\n"
+"	border-bottom: 2px solid #000000;\n"
+"	border-right: 1px solid #000000;\n"
+"	border-left: 1px solid #000000; \n"
+"}\n"
+"\n"
+"QCalendarWidget QMenu {\n"
+"	padding-left: 10px;\n"
+"}\n"
+"\n"
+"#qt_calendar_monthbutton::menu-indicator"
+                        "{\n"
 "   width:0px;\n"
 "}\n"
 ""));
@@ -2349,14 +2429,29 @@ public:
 "	padding: 10px;\n"
 "}\n"
 "\n"
-"QCalendarWidget QToolButton{\n"
-"	background-color: rgb(118, 118, 118);\n"
+"QCalendarWidget QToolButton {\n"
+"    background-color: rgb(118, 118, 118);\n"
+"    color: #F5F0F0;\n"
+"    border: 2px solid #000000;\n"
 "}\n"
 "\n"
-"QCalendarWidget QWidget#qt_calendar_navigationbar{\n"
-"	background-color: rgb(198, 198, 198);\n"
-"	font-size: 12px;\n"
-"	color: #F5F0F0;\n"
+"QCalendarWidget QToolButton:hover {\n"
+"    background-color: rgba(158, 158, 158,200);\n"
+"}\n"
+"\n"
+"QCalendarWidget QToolButton:pressed {\n"
+"    background-color: rgba(118, 118, 118,200);\n"
+"}\n"
+"\n"
+"QCalendarWidget QWidget#qt_calendar_navigationbar {\n"
+"    background-color: rgba(198, 198, 198,200);\n"
+"    color: #292727;\n"
+"	padding-left: 5px;\n"
+"    border-style: none;\n"
+"    border-bottom: 2px solid #000000;"
+                        "\n"
+"    border-right: 1px solid #000000;\n"
+"    border-left: 1px solid #000000;\n"
 "}\n"
 "\n"
 "QCalendarWidget QSpinBox::up-button {\n"
@@ -2371,17 +2466,32 @@ public:
 "	background-repeat: none;\n"
 "}\n"
 "\n"
-""
-                        "\n"
 "QCalendarWidget QWidget {\n"
 "	background-color: rgb(118, 118, 118);\n"
-"	border: 1px solid black;\n"
 "	font-size: 14px;\n"
+"	border: 1px solid black;\n"
+"    gridline-color: rgb(198, 198, 198);\n"
 "}\n"
 "\n"
-"#qt_calendar_monthbutton::menu-indicator{\n"
-"   width: 0px;\n"
-"}"));
+"QCalendarWidget QWidget::item:selected {\n"
+"    background-color: rgba(198, 198, 198,200);\n"
+"	color: #292727;\n"
+"    border: 1px solid #696969;\n"
+"	border-style: none;\n"
+"	border-bottom: 2px solid #000000;\n"
+"	border-right: 1px solid #000000;\n"
+"	border-left: 1px solid #000000; \n"
+"}\n"
+"\n"
+"QCalendarWidget QMenu {\n"
+"	padding-left: 10px;\n"
+"}\n"
+"\n"
+"#qt_calendar_monthbutton::menu-indicator"
+                        "{\n"
+"   width:0px;\n"
+"}\n"
+""));
         calendarWidget_3->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
 
         gridLayout_15->addWidget(calendarWidget_3, 0, 0, 1, 1);
@@ -2500,7 +2610,7 @@ public:
 "\n"
 ""));
         tableWidget_2->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        tableWidget_2->setSortingEnabled(true);
+        tableWidget_2->setSortingEnabled(false);
 
         gridLayout_14->addWidget(tableWidget_2, 10, 5, 1, 2);
 
@@ -2728,9 +2838,9 @@ public:
 "\n"
 ""));
         table_student->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        table_student->setSortingEnabled(true);
+        table_student->setSortingEnabled(false);
         table_student->horizontalHeader()->setCascadingSectionResizes(false);
-        table_student->horizontalHeader()->setProperty("showSortIndicator", QVariant(true));
+        table_student->horizontalHeader()->setProperty("showSortIndicator", QVariant(false));
         table_student->verticalHeader()->setCascadingSectionResizes(false);
         lb_curClass = new QLabel(AdAllClasses);
         lb_curClass->setObjectName("lb_curClass");
@@ -2744,17 +2854,17 @@ public:
         lb_class->setFont(font13);
         lb_class->setStyleSheet(QString::fromUtf8("color: #F5F0F0;\n"
 ""));
-        pushButton = new QPushButton(AdAllClasses);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(630, 550, 200, 65));
-        pushButton->setMinimumSize(QSize(200, 65));
-        pushButton->setMaximumSize(QSize(200, 65));
+        button_back_12 = new QPushButton(AdAllClasses);
+        button_back_12->setObjectName("button_back_12");
+        button_back_12->setGeometry(QRect(630, 550, 200, 65));
+        button_back_12->setMinimumSize(QSize(200, 65));
+        button_back_12->setMaximumSize(QSize(200, 65));
         stackedWidget_3->addWidget(AdAllClasses);
         AdScoreboard = new QWidget();
         AdScoreboard->setObjectName("AdScoreboard");
         lb_viewScoreboard = new QLabel(AdScoreboard);
         lb_viewScoreboard->setObjectName("lb_viewScoreboard");
-        lb_viewScoreboard->setGeometry(QRect(50, 10, 777, 80));
+        lb_viewScoreboard->setGeometry(QRect(70, 10, 777, 80));
         lb_viewScoreboard->setFont(font9);
         lb_viewScoreboard->setStyleSheet(QString::fromUtf8("color: #7FFFD4;"));
         lb_viewScoreboard->setAlignment(Qt::AlignCenter);
@@ -2894,7 +3004,7 @@ public:
         table_scoreboard->setEditTriggers(QAbstractItemView::NoEditTriggers);
         table_scoreboard->setSortingEnabled(false);
         table_scoreboard->horizontalHeader()->setProperty("showSortIndicator", QVariant(false));
-        table_scoreboard->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
+        table_scoreboard->verticalHeader()->setProperty("showSortIndicator", QVariant(false));
         button_back_10 = new QPushButton(AdScoreboard);
         button_back_10->setObjectName("button_back_10");
         button_back_10->setGeometry(QRect(610, 530, 200, 65));
@@ -2905,56 +3015,37 @@ public:
         button_ok_2->setGeometry(QRect(640, 140, 161, 31));
         button_ok_2->setStyleSheet(QString::fromUtf8(""));
         stackedWidget_3->addWidget(AdScoreboard);
-        AdCourseManagement = new QWidget();
-        AdCourseManagement->setObjectName("AdCourseManagement");
-        lb_courseManagement = new QLabel(AdCourseManagement);
-        lb_courseManagement->setObjectName("lb_courseManagement");
-        lb_courseManagement->setGeometry(QRect(70, 10, 777, 80));
-        lb_courseManagement->setFont(font9);
-        lb_courseManagement->setStyleSheet(QString::fromUtf8("color: #7FFFD4;"));
-        lb_courseManagement->setAlignment(Qt::AlignCenter);
-        button_courseView = new QPushButton(AdCourseManagement);
-        button_courseView->setObjectName("button_courseView");
-        button_courseView->setGeometry(QRect(220, 350, 441, 101));
-        button_courseSetting = new QPushButton(AdCourseManagement);
-        button_courseSetting->setObjectName("button_courseSetting");
-        button_courseSetting->setGeometry(QRect(220, 220, 441, 101));
-        stackedWidget_3->addWidget(AdCourseManagement);
-        AdCourseSetting = new QWidget();
-        AdCourseSetting->setObjectName("AdCourseSetting");
-        lb_courseSetting = new QLabel(AdCourseSetting);
-        lb_courseSetting->setObjectName("lb_courseSetting");
-        lb_courseSetting->setGeometry(QRect(70, 0, 777, 80));
-        lb_courseSetting->setFont(font9);
-        lb_courseSetting->setStyleSheet(QString::fromUtf8("color: #7FFFD4;"));
-        lb_courseSetting->setAlignment(Qt::AlignCenter);
-        stackedWidget_3->addWidget(AdCourseSetting);
         AdCourseView = new QWidget();
         AdCourseView->setObjectName("AdCourseView");
+        gridLayout_16 = new QGridLayout(AdCourseView);
+        gridLayout_16->setObjectName("gridLayout_16");
         lb_courseView = new QLabel(AdCourseView);
         lb_courseView->setObjectName("lb_courseView");
-        lb_courseView->setGeometry(QRect(60, 10, 777, 80));
         lb_courseView->setFont(font9);
         lb_courseView->setStyleSheet(QString::fromUtf8("color: #7FFFD4;"));
         lb_courseView->setAlignment(Qt::AlignCenter);
+
+        gridLayout_16->addWidget(lb_courseView, 0, 0, 1, 1);
+
         stackedWidget_5 = new QStackedWidget(AdCourseView);
         stackedWidget_5->setObjectName("stackedWidget_5");
-        stackedWidget_5->setGeometry(QRect(20, 100, 901, 521));
         sizePolicy3.setHeightForWidth(stackedWidget_5->sizePolicy().hasHeightForWidth());
         stackedWidget_5->setSizePolicy(sizePolicy3);
-        stackedWidget_5->setStyleSheet(QString::fromUtf8(""));
+        stackedWidget_5->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"	background-color: rgba(255, 255, 255, 200);\n"
+"}"));
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
         button_back_11 = new QPushButton(page_2);
         button_back_11->setObjectName("button_back_11");
-        button_back_11->setGeometry(QRect(720, 470, 141, 41));
+        button_back_11->setGeometry(QRect(730, 500, 141, 41));
         sizePolicy10.setHeightForWidth(button_back_11->sizePolicy().hasHeightForWidth());
         button_back_11->setSizePolicy(sizePolicy10);
         button_back_11->setMinimumSize(QSize(0, 0));
         button_back_11->setStyleSheet(QString::fromUtf8(""));
         box_selectSY_2 = new QComboBox(page_2);
         box_selectSY_2->setObjectName("box_selectSY_2");
-        box_selectSY_2->setGeometry(QRect(194, 12, 141, 23));
+        box_selectSY_2->setGeometry(QRect(194, 12, 141, 31));
         sizePolicy4.setHeightForWidth(box_selectSY_2->sizePolicy().hasHeightForWidth());
         box_selectSY_2->setSizePolicy(sizePolicy4);
         box_selectSY_2->setFont(font3);
@@ -2990,7 +3081,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
         table_course->setHorizontalHeaderItem(8, __qtablewidgetitem25);
         table_course->setObjectName("table_course");
-        table_course->setGeometry(QRect(0, 50, 881, 406));
+        table_course->setGeometry(QRect(10, 50, 891, 441));
         sizePolicy5.setHeightForWidth(table_course->sizePolicy().hasHeightForWidth());
         table_course->setSizePolicy(sizePolicy5);
         table_course->setMinimumSize(QSize(831, 406));
@@ -3081,7 +3172,7 @@ public:
         table_course->setSelectionMode(QAbstractItemView::SingleSelection);
         label_2 = new QLabel(page_2);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(329, 0, 191, 47));
+        label_2->setGeometry(QRect(329, 0, 161, 47));
         sizePolicy9.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
         label_2->setSizePolicy(sizePolicy9);
         label_2->setMinimumSize(QSize(0, 0));
@@ -3099,7 +3190,7 @@ public:
 ""));
         box_selectSem = new QComboBox(page_2);
         box_selectSem->setObjectName("box_selectSem");
-        box_selectSem->setGeometry(QRect(500, 10, 121, 23));
+        box_selectSem->setGeometry(QRect(500, 10, 121, 31));
         sizePolicy10.setHeightForWidth(box_selectSem->sizePolicy().hasHeightForWidth());
         box_selectSem->setSizePolicy(sizePolicy10);
         box_selectSem->setFont(font3);
@@ -3115,7 +3206,7 @@ public:
 "}"));
         button_viewStudent = new QPushButton(page_2);
         button_viewStudent->setObjectName("button_viewStudent");
-        button_viewStudent->setGeometry(QRect(570, 470, 131, 40));
+        button_viewStudent->setGeometry(QRect(550, 500, 131, 40));
         sizePolicy5.setHeightForWidth(button_viewStudent->sizePolicy().hasHeightForWidth());
         button_viewStudent->setSizePolicy(sizePolicy5);
         button_viewStudent->setStyleSheet(QString::fromUtf8("padding: 10px"));
@@ -3127,23 +3218,20 @@ public:
         button_removeFilter->setStyleSheet(QString::fromUtf8("padding: 10px;"));
         checkBox_edit = new QCheckBox(page_2);
         checkBox_edit->setObjectName("checkBox_edit");
-        checkBox_edit->setGeometry(QRect(20, 480, 93, 26));
+        checkBox_edit->setGeometry(QRect(10, 510, 93, 26));
         QFont font14;
         font14.setPointSize(11);
         checkBox_edit->setFont(font14);
         checkBox_edit->setStyleSheet(QString::fromUtf8("color: white;"));
         button_addCourse = new QPushButton(page_2);
         button_addCourse->setObjectName("button_addCourse");
-        button_addCourse->setGeometry(QRect(150, 470, 131, 41));
+        button_addCourse->setGeometry(QRect(100, 500, 131, 41));
         button_removeCourse = new QPushButton(page_2);
         button_removeCourse->setObjectName("button_removeCourse");
-        button_removeCourse->setGeometry(QRect(310, 470, 141, 41));
+        button_removeCourse->setGeometry(QRect(270, 500, 141, 41));
         stackedWidget_5->addWidget(page_2);
         page_4 = new QWidget();
         page_4->setObjectName("page_4");
-        gridLayout_17 = new QGridLayout(page_4);
-        gridLayout_17->setObjectName("gridLayout_17");
-        gridLayout_17->setContentsMargins(0, 0, 0, 0);
         table_student_2 = new QTableWidget(page_4);
         if (table_student_2->columnCount() < 6)
             table_student_2->setColumnCount(6);
@@ -3160,6 +3248,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem31 = new QTableWidgetItem();
         table_student_2->setHorizontalHeaderItem(5, __qtablewidgetitem31);
         table_student_2->setObjectName("table_student_2");
+        table_student_2->setGeometry(QRect(10, 50, 891, 441));
         sizePolicy.setHeightForWidth(table_student_2->sizePolicy().hasHeightForWidth());
         table_student_2->setSizePolicy(sizePolicy);
         table_student_2->setStyleSheet(QString::fromUtf8("QTableWidget::item {\n"
@@ -3247,25 +3336,148 @@ public:
 ""));
         table_student_2->setEditTriggers(QAbstractItemView::NoEditTriggers);
         table_student_2->setSelectionMode(QAbstractItemView::SingleSelection);
-
-        gridLayout_17->addWidget(table_student_2, 1, 0, 1, 1);
-
         button_coursesList = new QPushButton(page_4);
         button_coursesList->setObjectName("button_coursesList");
+        button_coursesList->setGeometry(QRect(730, 510, 141, 40));
         button_coursesList->setStyleSheet(QString::fromUtf8("padding: 10px;"));
-
-        gridLayout_17->addWidget(button_coursesList, 2, 0, 1, 1, Qt::AlignHCenter);
-
         lb_scoreBoard = new QLabel(page_4);
         lb_scoreBoard->setObjectName("lb_scoreBoard");
+        lb_scoreBoard->setGeometry(QRect(70, 0, 582, 40));
         lb_scoreBoard->setMaximumSize(QSize(16777215, 41));
         lb_scoreBoard->setFont(font8);
         lb_scoreBoard->setStyleSheet(QString::fromUtf8("color:white;"));
         lb_scoreBoard->setAlignment(Qt::AlignCenter);
-
-        gridLayout_17->addWidget(lb_scoreBoard, 0, 0, 1, 1);
-
+        button_addStudent_2 = new QPushButton(page_4);
+        button_addStudent_2->setObjectName("button_addStudent_2");
+        button_addStudent_2->setGeometry(QRect(90, 510, 161, 41));
+        button_removeStudent = new QPushButton(page_4);
+        button_removeStudent->setObjectName("button_removeStudent");
+        button_removeStudent->setGeometry(QRect(280, 510, 171, 41));
+        button_importScoreBoard = new QPushButton(page_4);
+        button_importScoreBoard->setObjectName("button_importScoreBoard");
+        button_importScoreBoard->setGeometry(QRect(490, 510, 171, 41));
+        checkBox_4 = new QCheckBox(page_4);
+        checkBox_4->setObjectName("checkBox_4");
+        checkBox_4->setGeometry(QRect(10, 510, 111, 31));
+        checkBox_4->setFont(font14);
+        checkBox_4->setStyleSheet(QString::fromUtf8("color: white;\n"
+""));
+        button_exportTable = new QPushButton(page_4);
+        button_exportTable->setObjectName("button_exportTable");
+        button_exportTable->setGeometry(QRect(700, 0, 151, 41));
         stackedWidget_5->addWidget(page_4);
+        page_5 = new QWidget();
+        page_5->setObjectName("page_5");
+        lb_addCourse = new QLabel(page_5);
+        lb_addCourse->setObjectName("lb_addCourse");
+        lb_addCourse->setGeometry(QRect(290, 20, 311, 41));
+        lb_addCourse->setFont(font8);
+        lb_addCourse->setStyleSheet(QString::fromUtf8("color: white;\n"
+""));
+        lb_addCourse->setAlignment(Qt::AlignCenter);
+        box_numCredits = new QComboBox(page_5);
+        box_numCredits->addItem(QString());
+        box_numCredits->addItem(QString());
+        box_numCredits->addItem(QString());
+        box_numCredits->setObjectName("box_numCredits");
+        box_numCredits->setGeometry(QRect(260, 340, 71, 41));
+        box_numCredits->setFont(font4);
+        box_dayOfWeek = new QComboBox(page_5);
+        box_dayOfWeek->addItem(QString());
+        box_dayOfWeek->addItem(QString());
+        box_dayOfWeek->addItem(QString());
+        box_dayOfWeek->addItem(QString());
+        box_dayOfWeek->addItem(QString());
+        box_dayOfWeek->addItem(QString());
+        box_dayOfWeek->setObjectName("box_dayOfWeek");
+        box_dayOfWeek->setGeometry(QRect(460, 340, 131, 41));
+        box_dayOfWeek->setFont(font4);
+        box_session = new QComboBox(page_5);
+        box_session->addItem(QString());
+        box_session->addItem(QString());
+        box_session->addItem(QString());
+        box_session->addItem(QString());
+        box_session->setObjectName("box_session");
+        box_session->setGeometry(QRect(600, 340, 131, 41));
+        box_session->setFont(font4);
+        lb_numCredits = new QLabel(page_5);
+        lb_numCredits->setObjectName("lb_numCredits");
+        lb_numCredits->setGeometry(QRect(60, 340, 201, 41));
+        lb_numCredits->setFont(font4);
+        lb_numCredits->setStyleSheet(QString::fromUtf8("color: white;"));
+        lb_session = new QLabel(page_5);
+        lb_session->setObjectName("lb_session");
+        lb_session->setGeometry(QRect(370, 340, 91, 41));
+        lb_session->setFont(font4);
+        lb_session->setStyleSheet(QString::fromUtf8("color: white;"));
+        button_confirm_7 = new QPushButton(page_5);
+        button_confirm_7->setObjectName("button_confirm_7");
+        button_confirm_7->setGeometry(QRect(20, 470, 221, 61));
+        button_back_13 = new QPushButton(page_5);
+        button_back_13->setObjectName("button_back_13");
+        button_back_13->setGeometry(QRect(650, 470, 231, 61));
+        lb_teacherName = new QLabel(page_5);
+        lb_teacherName->setObjectName("lb_teacherName");
+        lb_teacherName->setGeometry(QRect(90, 280, 153, 31));
+        lb_teacherName->setFont(font4);
+        lb_teacherName->setStyleSheet(QString::fromUtf8("color: white;"));
+        lb_teacherName->setAlignment(Qt::AlignCenter);
+        txt_teacherName = new QLineEdit(page_5);
+        txt_teacherName->setObjectName("txt_teacherName");
+        txt_teacherName->setGeometry(QRect(260, 270, 471, 53));
+        txt_teacherName->setMinimumSize(QSize(0, 53));
+        txt_teacherName->setFont(font4);
+        txt_teacherName->setStyleSheet(QString::fromUtf8(""));
+        lb_className = new QLabel(page_5);
+        lb_className->setObjectName("lb_className");
+        lb_className->setGeometry(QRect(110, 220, 119, 31));
+        lb_className->setFont(font4);
+        lb_className->setStyleSheet(QString::fromUtf8("color: white;"));
+        lb_className->setAlignment(Qt::AlignCenter);
+        txt_className_2 = new QLineEdit(page_5);
+        txt_className_2->setObjectName("txt_className_2");
+        txt_className_2->setGeometry(QRect(260, 210, 471, 53));
+        txt_className_2->setMinimumSize(QSize(0, 53));
+        txt_className_2->setFont(font4);
+        txt_className_2->setStyleSheet(QString::fromUtf8(""));
+        txt_courseName = new QLineEdit(page_5);
+        txt_courseName->setObjectName("txt_courseName");
+        txt_courseName->setGeometry(QRect(260, 150, 471, 53));
+        txt_courseName->setMinimumSize(QSize(0, 53));
+        txt_courseName->setFont(font4);
+        txt_courseName->setStyleSheet(QString::fromUtf8(""));
+        lb_courseName = new QLabel(page_5);
+        lb_courseName->setObjectName("lb_courseName");
+        lb_courseName->setGeometry(QRect(100, 160, 137, 31));
+        lb_courseName->setFont(font4);
+        lb_courseName->setStyleSheet(QString::fromUtf8("color: white;"));
+        lb_courseName->setAlignment(Qt::AlignCenter);
+        txt_courseID = new QLineEdit(page_5);
+        txt_courseID->setObjectName("txt_courseID");
+        txt_courseID->setGeometry(QRect(260, 90, 471, 53));
+        txt_courseID->setMinimumSize(QSize(0, 53));
+        txt_courseID->setFont(font4);
+        txt_courseID->setStyleSheet(QString::fromUtf8(""));
+        lb_courseID = new QLabel(page_5);
+        lb_courseID->setObjectName("lb_courseID");
+        lb_courseID->setGeometry(QRect(130, 100, 98, 31));
+        lb_courseID->setFont(font4);
+        lb_courseID->setStyleSheet(QString::fromUtf8("color: white;"));
+        lb_courseID->setAlignment(Qt::AlignCenter);
+        stackedWidget_5->addWidget(page_5);
+        page_3 = new QWidget();
+        page_3->setObjectName("page_3");
+        label_3 = new QLabel(page_3);
+        label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(230, 0, 451, 51));
+        label_3->setFont(font8);
+        label_3->setStyleSheet(QString::fromUtf8("color: white;\n"
+""));
+        label_3->setAlignment(Qt::AlignCenter);
+        stackedWidget_5->addWidget(page_3);
+
+        gridLayout_16->addWidget(stackedWidget_5, 1, 0, 1, 1);
+
         stackedWidget_3->addWidget(AdCourseView);
 
         gridLayout_4->addWidget(stackedWidget_3, 0, 1, 1, 1);
@@ -3285,7 +3497,7 @@ public:
 
         stackedWidget->setCurrentIndex(2);
         stackedWidget_2->setCurrentIndex(0);
-        stackedWidget_3->setCurrentIndex(11);
+        stackedWidget_3->setCurrentIndex(9);
         stackedWidget_4->setCurrentIndex(0);
         stackedWidget_5->setCurrentIndex(0);
 
@@ -3459,7 +3671,7 @@ public:
         ___qtablewidgetitem16->setText(QCoreApplication::translate("MainWindow", "Social ID", nullptr));
         lb_curClass->setText(QCoreApplication::translate("MainWindow", "23CLC03", nullptr));
         lb_class->setText(QCoreApplication::translate("MainWindow", "CLASSES", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
+        button_back_12->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         lb_viewScoreboard->setText(QCoreApplication::translate("MainWindow", "VIEW SCOREBOARD", nullptr));
         box_class->setItemText(0, QCoreApplication::translate("MainWindow", "class", nullptr));
 
@@ -3469,11 +3681,7 @@ public:
 
         button_back_10->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         button_ok_2->setText(QCoreApplication::translate("MainWindow", "OK", nullptr));
-        lb_courseManagement->setText(QCoreApplication::translate("MainWindow", "COURSE MANAGEMENT", nullptr));
-        button_courseView->setText(QCoreApplication::translate("MainWindow", "COURSES VIEW", nullptr));
-        button_courseSetting->setText(QCoreApplication::translate("MainWindow", "COURSES SETTING", nullptr));
-        lb_courseSetting->setText(QCoreApplication::translate("MainWindow", "COURSE SETTING", nullptr));
-        lb_courseView->setText(QCoreApplication::translate("MainWindow", "COURSE VIEW", nullptr));
+        lb_courseView->setText(QCoreApplication::translate("MainWindow", "COURSE MANAGEMENT", nullptr));
         button_back_11->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         QTableWidgetItem *___qtablewidgetitem17 = table_course->horizontalHeaderItem(0);
         ___qtablewidgetitem17->setText(QCoreApplication::translate("MainWindow", "Course ID", nullptr));
@@ -3512,8 +3720,39 @@ public:
         ___qtablewidgetitem30->setText(QCoreApplication::translate("MainWindow", "Other", nullptr));
         QTableWidgetItem *___qtablewidgetitem31 = table_student_2->horizontalHeaderItem(5);
         ___qtablewidgetitem31->setText(QCoreApplication::translate("MainWindow", "Total", nullptr));
-        button_coursesList->setText(QCoreApplication::translate("MainWindow", "COURSES LIST", nullptr));
+        button_coursesList->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         lb_scoreBoard->setText(QCoreApplication::translate("MainWindow", "COURSE ID - COURSE NAME - CLASS NAME", nullptr));
+        button_addStudent_2->setText(QCoreApplication::translate("MainWindow", "ADD STUDENT", nullptr));
+        button_removeStudent->setText(QCoreApplication::translate("MainWindow", "REMOVE STUDENT", nullptr));
+        button_importScoreBoard->setText(QCoreApplication::translate("MainWindow", "IMPORT SCOREBOARD", nullptr));
+        checkBox_4->setText(QCoreApplication::translate("MainWindow", "Edit", nullptr));
+        button_exportTable->setText(QCoreApplication::translate("MainWindow", "EXPORT TABLE", nullptr));
+        lb_addCourse->setText(QCoreApplication::translate("MainWindow", "ADD COURSE", nullptr));
+        box_numCredits->setItemText(0, QCoreApplication::translate("MainWindow", "2", nullptr));
+        box_numCredits->setItemText(1, QCoreApplication::translate("MainWindow", "3", nullptr));
+        box_numCredits->setItemText(2, QCoreApplication::translate("MainWindow", "4", nullptr));
+
+        box_dayOfWeek->setItemText(0, QCoreApplication::translate("MainWindow", "MON", nullptr));
+        box_dayOfWeek->setItemText(1, QCoreApplication::translate("MainWindow", "TUE", nullptr));
+        box_dayOfWeek->setItemText(2, QCoreApplication::translate("MainWindow", "WED", nullptr));
+        box_dayOfWeek->setItemText(3, QCoreApplication::translate("MainWindow", "THU", nullptr));
+        box_dayOfWeek->setItemText(4, QCoreApplication::translate("MainWindow", "FRI", nullptr));
+        box_dayOfWeek->setItemText(5, QCoreApplication::translate("MainWindow", "SAT", nullptr));
+
+        box_session->setItemText(0, QCoreApplication::translate("MainWindow", "07:30", nullptr));
+        box_session->setItemText(1, QCoreApplication::translate("MainWindow", "09:30", nullptr));
+        box_session->setItemText(2, QCoreApplication::translate("MainWindow", "13:30", nullptr));
+        box_session->setItemText(3, QCoreApplication::translate("MainWindow", "15:30", nullptr));
+
+        lb_numCredits->setText(QCoreApplication::translate("MainWindow", "Number of Credits", nullptr));
+        lb_session->setText(QCoreApplication::translate("MainWindow", "Session", nullptr));
+        button_confirm_7->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
+        button_back_13->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
+        lb_teacherName->setText(QCoreApplication::translate("MainWindow", "Tearcher Name", nullptr));
+        lb_className->setText(QCoreApplication::translate("MainWindow", "Class Name", nullptr));
+        lb_courseName->setText(QCoreApplication::translate("MainWindow", "Course Name", nullptr));
+        lb_courseID->setText(QCoreApplication::translate("MainWindow", "Course ID", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "ADD STUDENT TO COURSE", nullptr));
     } // retranslateUi
 
 };

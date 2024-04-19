@@ -145,7 +145,7 @@ private slots:
 
     void on_button_allClasses_clicked();
 
-    void on_pushButton_clicked();
+    void on_button_back_12_clicked();
 
     void on_list_classes_2_itemClicked(QListWidgetItem *item);
 
@@ -162,10 +162,6 @@ private slots:
     void on_box_semester_currentTextChanged(const QString &arg1);
 
     void on_sem_select_currentTextChanged(const QString &arg1);
-
-    void on_button_courseSetting_clicked();
-
-    void on_button_courseView_clicked();
 
     void on_button_removeFilter_clicked();
 
@@ -193,6 +189,12 @@ private slots:
     void on_table_course_itemDoubleClicked(QTableWidgetItem *item);
 
     void on_button_removeCourse_clicked();
+
+    void on_button_addCourse_clicked();
+
+    void on_button_confirm_7_clicked();
+
+    void on_button_back_13_clicked();
 
 private:
     Ui::MainWindow *ui;
