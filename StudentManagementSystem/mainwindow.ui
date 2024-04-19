@@ -4040,6 +4040,9 @@ padding: 10px;</string>
 background-color: rgba(255,255,255,200);
 padding: 10px;</string>
                   </property>
+                  <property name="text">
+                   <string/>
+                  </property>
                   <property name="readOnly">
                    <bool>true</bool>
                   </property>
@@ -5259,6 +5262,12 @@ QScrollBar::sub-line:vertical {
                 <property name="selectionMode">
                  <enum>QAbstractItemView::SingleSelection</enum>
                 </property>
+                <property name="verticalScrollMode">
+                 <enum>QAbstractItemView::ScrollPerPixel</enum>
+                </property>
+                <property name="horizontalScrollMode">
+                 <enum>QAbstractItemView::ScrollPerPixel</enum>
+                </property>
                 <column>
                  <property name="text">
                   <string>Course ID</string>
@@ -5426,9 +5435,9 @@ QComboBox::hover {
                <widget class="QPushButton" name="button_removeFilter">
                 <property name="geometry">
                  <rect>
-                  <x>688</x>
-                  <y>3</y>
-                  <width>124</width>
+                  <x>680</x>
+                  <y>0</y>
+                  <width>161</width>
                   <height>40</height>
                  </rect>
                 </property>
@@ -5754,9 +5763,9 @@ QScrollBar::sub-line:vertical {
                <widget class="QLabel" name="lb_addCourse">
                 <property name="geometry">
                  <rect>
-                  <x>290</x>
+                  <x>40</x>
                   <y>20</y>
-                  <width>311</width>
+                  <width>861</width>
                   <height>41</height>
                  </rect>
                 </property>
@@ -5780,7 +5789,7 @@ QScrollBar::sub-line:vertical {
                 <property name="geometry">
                  <rect>
                   <x>260</x>
-                  <y>340</y>
+                  <y>400</y>
                   <width>71</width>
                   <height>41</height>
                  </rect>
@@ -5789,6 +5798,9 @@ QScrollBar::sub-line:vertical {
                  <font>
                   <pointsize>14</pointsize>
                  </font>
+                </property>
+                <property name="currentIndex">
+                 <number>-1</number>
                 </property>
                 <item>
                  <property name="text">
@@ -5810,7 +5822,7 @@ QScrollBar::sub-line:vertical {
                 <property name="geometry">
                  <rect>
                   <x>460</x>
-                  <y>340</y>
+                  <y>400</y>
                   <width>131</width>
                   <height>41</height>
                  </rect>
@@ -5819,6 +5831,9 @@ QScrollBar::sub-line:vertical {
                  <font>
                   <pointsize>14</pointsize>
                  </font>
+                </property>
+                <property name="currentIndex">
+                 <number>-1</number>
                 </property>
                 <item>
                  <property name="text">
@@ -5855,7 +5870,7 @@ QScrollBar::sub-line:vertical {
                 <property name="geometry">
                  <rect>
                   <x>600</x>
-                  <y>340</y>
+                  <y>400</y>
                   <width>131</width>
                   <height>41</height>
                  </rect>
@@ -5864,6 +5879,9 @@ QScrollBar::sub-line:vertical {
                  <font>
                   <pointsize>14</pointsize>
                  </font>
+                </property>
+                <property name="currentIndex">
+                 <number>-1</number>
                 </property>
                 <item>
                  <property name="text">
@@ -5890,7 +5908,7 @@ QScrollBar::sub-line:vertical {
                 <property name="geometry">
                  <rect>
                   <x>60</x>
-                  <y>340</y>
+                  <y>400</y>
                   <width>201</width>
                   <height>41</height>
                  </rect>
@@ -5911,7 +5929,7 @@ QScrollBar::sub-line:vertical {
                 <property name="geometry">
                  <rect>
                   <x>370</x>
-                  <y>340</y>
+                  <y>400</y>
                   <width>91</width>
                   <height>41</height>
                  </rect>
@@ -6141,6 +6159,57 @@ QScrollBar::sub-line:vertical {
                 </property>
                 <property name="text">
                  <string>Course ID</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+               <widget class="QLineEdit" name="txt_maxStudents">
+                <property name="geometry">
+                 <rect>
+                  <x>260</x>
+                  <y>330</y>
+                  <width>471</width>
+                  <height>53</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>53</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="placeholderText">
+                 <string>Default 50</string>
+                </property>
+               </widget>
+               <widget class="QLabel" name="lb_maxStudents">
+                <property name="geometry">
+                 <rect>
+                  <x>90</x>
+                  <y>340</y>
+                  <width>153</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;</string>
+                </property>
+                <property name="text">
+                 <string>Max Students</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>

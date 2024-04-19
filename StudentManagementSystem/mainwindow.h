@@ -196,6 +196,12 @@ private slots:
 
     void on_button_back_13_clicked();
 
+    void on_txt_className_2_textEdited(const QString &arg1);
+
+    void on_txt_courseID_textEdited(const QString &arg1);
+
+    void on_table_course_currentItemChanged(QTableWidgetItem *current, QTableWidgetItem *previous);
+
 private:
     Ui::MainWindow *ui;
 };

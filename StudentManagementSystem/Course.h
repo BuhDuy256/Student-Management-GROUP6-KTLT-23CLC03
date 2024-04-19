@@ -37,6 +37,7 @@ struct Course {
     void viewScoreboard();
     void addStudent();
     void updateInformation();
+    void updateInformation_forUI(int choice, Course newCourse);
 };
 
 void addACourseInCurrSem();

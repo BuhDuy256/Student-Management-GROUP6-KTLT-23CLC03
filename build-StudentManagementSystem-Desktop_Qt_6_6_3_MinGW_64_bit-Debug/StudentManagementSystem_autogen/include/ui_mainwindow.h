@@ -295,6 +295,8 @@ public:
     QLabel *lb_courseName;
     QLineEdit *txt_courseID;
     QLabel *lb_courseID;
+    QLineEdit *txt_maxStudents;
+    QLabel *lb_maxStudents;
     QWidget *page_3;
     QLabel *label_3;
     QStatusBar *statusBar;
@@ -3170,6 +3172,8 @@ public:
 ""));
         table_course->setEditTriggers(QAbstractItemView::NoEditTriggers);
         table_course->setSelectionMode(QAbstractItemView::SingleSelection);
+        table_course->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+        table_course->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
         label_2 = new QLabel(page_2);
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(329, 0, 161, 47));
@@ -3212,7 +3216,7 @@ public:
         button_viewStudent->setStyleSheet(QString::fromUtf8("padding: 10px"));
         button_removeFilter = new QPushButton(page_2);
         button_removeFilter->setObjectName("button_removeFilter");
-        button_removeFilter->setGeometry(QRect(688, 3, 124, 40));
+        button_removeFilter->setGeometry(QRect(680, 0, 161, 40));
         sizePolicy10.setHeightForWidth(button_removeFilter->sizePolicy().hasHeightForWidth());
         button_removeFilter->setSizePolicy(sizePolicy10);
         button_removeFilter->setStyleSheet(QString::fromUtf8("padding: 10px;"));
@@ -3370,7 +3374,7 @@ public:
         page_5->setObjectName("page_5");
         lb_addCourse = new QLabel(page_5);
         lb_addCourse->setObjectName("lb_addCourse");
-        lb_addCourse->setGeometry(QRect(290, 20, 311, 41));
+        lb_addCourse->setGeometry(QRect(40, 20, 861, 41));
         lb_addCourse->setFont(font8);
         lb_addCourse->setStyleSheet(QString::fromUtf8("color: white;\n"
 ""));
@@ -3380,7 +3384,7 @@ public:
         box_numCredits->addItem(QString());
         box_numCredits->addItem(QString());
         box_numCredits->setObjectName("box_numCredits");
-        box_numCredits->setGeometry(QRect(260, 340, 71, 41));
+        box_numCredits->setGeometry(QRect(260, 400, 71, 41));
         box_numCredits->setFont(font4);
         box_dayOfWeek = new QComboBox(page_5);
         box_dayOfWeek->addItem(QString());
@@ -3390,7 +3394,7 @@ public:
         box_dayOfWeek->addItem(QString());
         box_dayOfWeek->addItem(QString());
         box_dayOfWeek->setObjectName("box_dayOfWeek");
-        box_dayOfWeek->setGeometry(QRect(460, 340, 131, 41));
+        box_dayOfWeek->setGeometry(QRect(460, 400, 131, 41));
         box_dayOfWeek->setFont(font4);
         box_session = new QComboBox(page_5);
         box_session->addItem(QString());
@@ -3398,16 +3402,16 @@ public:
         box_session->addItem(QString());
         box_session->addItem(QString());
         box_session->setObjectName("box_session");
-        box_session->setGeometry(QRect(600, 340, 131, 41));
+        box_session->setGeometry(QRect(600, 400, 131, 41));
         box_session->setFont(font4);
         lb_numCredits = new QLabel(page_5);
         lb_numCredits->setObjectName("lb_numCredits");
-        lb_numCredits->setGeometry(QRect(60, 340, 201, 41));
+        lb_numCredits->setGeometry(QRect(60, 400, 201, 41));
         lb_numCredits->setFont(font4);
         lb_numCredits->setStyleSheet(QString::fromUtf8("color: white;"));
         lb_session = new QLabel(page_5);
         lb_session->setObjectName("lb_session");
-        lb_session->setGeometry(QRect(370, 340, 91, 41));
+        lb_session->setGeometry(QRect(370, 400, 91, 41));
         lb_session->setFont(font4);
         lb_session->setStyleSheet(QString::fromUtf8("color: white;"));
         button_confirm_7 = new QPushButton(page_5);
@@ -3464,6 +3468,18 @@ public:
         lb_courseID->setFont(font4);
         lb_courseID->setStyleSheet(QString::fromUtf8("color: white;"));
         lb_courseID->setAlignment(Qt::AlignCenter);
+        txt_maxStudents = new QLineEdit(page_5);
+        txt_maxStudents->setObjectName("txt_maxStudents");
+        txt_maxStudents->setGeometry(QRect(260, 330, 471, 53));
+        txt_maxStudents->setMinimumSize(QSize(0, 53));
+        txt_maxStudents->setFont(font4);
+        txt_maxStudents->setStyleSheet(QString::fromUtf8(""));
+        lb_maxStudents = new QLabel(page_5);
+        lb_maxStudents->setObjectName("lb_maxStudents");
+        lb_maxStudents->setGeometry(QRect(90, 340, 153, 31));
+        lb_maxStudents->setFont(font4);
+        lb_maxStudents->setStyleSheet(QString::fromUtf8("color: white;"));
+        lb_maxStudents->setAlignment(Qt::AlignCenter);
         stackedWidget_5->addWidget(page_5);
         page_3 = new QWidget();
         page_3->setObjectName("page_3");
@@ -3500,6 +3516,9 @@ public:
         stackedWidget_3->setCurrentIndex(9);
         stackedWidget_4->setCurrentIndex(0);
         stackedWidget_5->setCurrentIndex(0);
+        box_numCredits->setCurrentIndex(-1);
+        box_dayOfWeek->setCurrentIndex(-1);
+        box_session->setCurrentIndex(-1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -3638,6 +3657,7 @@ public:
         button_cancel->setText(QCoreApplication::translate("MainWindow", "CANCEL", nullptr));
         lb_addSocialID->setText(QCoreApplication::translate("MainWindow", "Social ID", nullptr));
         button_openCalendar->setText(QString());
+        txt_addBirthday->setText(QString());
         txt_addBirthday->setPlaceholderText(QCoreApplication::translate("MainWindow", "Click the calendar icon", nullptr));
         button_confirm_6->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
         button_cancel_2->setText(QCoreApplication::translate("MainWindow", "CANCEL", nullptr));
@@ -3752,6 +3772,8 @@ public:
         lb_className->setText(QCoreApplication::translate("MainWindow", "Class Name", nullptr));
         lb_courseName->setText(QCoreApplication::translate("MainWindow", "Course Name", nullptr));
         lb_courseID->setText(QCoreApplication::translate("MainWindow", "Course ID", nullptr));
+        txt_maxStudents->setPlaceholderText(QCoreApplication::translate("MainWindow", "Default 50", nullptr));
+        lb_maxStudents->setText(QCoreApplication::translate("MainWindow", "Max Students", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "ADD STUDENT TO COURSE", nullptr));
     } // retranslateUi
 

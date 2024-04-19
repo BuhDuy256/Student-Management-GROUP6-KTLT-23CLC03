@@ -284,6 +284,52 @@ void Course::updateInformation()
     }
 }
 
+void Course::updateInformation_forUI(int choice, Course newCourse)
+{
+    std::string newClassName = newCourse.className;
+    std::string newTeacherName = newCourse.teacherName;
+    int newNCredits = newCourse.nCredits;
+    int newMaxStudents = newCourse.maxStudents;
+    std::string newDayOfWeek = newCourse.dayOfWeek;
+    std::string newSession = newCourse.session;
+
+    if (choice == 1) {
+        if (newClassName != className) {
+            // std::string fileName = "../CSV Files/List of Courses/" + ID + "_" + className + ".csv";
+            // std::ifstream fileStream(fileName);
+            // if (fileStream.is_open()) {
+            //     fileStream.close();
+            //     std::remove(fileName.c_str());
+            // }
+            className = newClassName;
+        }
+    }
+    else if (choice == 2) {
+        formalize(newTeacherName);
+        teacherName = newTeacherName;
+    }
+    else if (choice == 3) {
+        nCredits = newNCredits;
+    }
+    else if (choice == 4) {
+        if (newMaxStudents >= courseSize) {
+            StudentScore* temp = new StudentScore[newMaxStudents];
+            for (int i = 0; i < courseSize; i++) {
+                temp[i] = score[i];
+            }
+            delete[] score;
+            score = temp;
+            maxStudents = newMaxStudents;
+        }
+    }
+    else if (choice == 5) {
+        dayOfWeek = newDayOfWeek;
+    }
+    else if (choice == 6) {
+        session = newSession;
+    }
+}
+
 void addACourseInCurrSem() {
     menuCommandHeader();
     std::cout << "[1]. Add a course in current semester:\n";

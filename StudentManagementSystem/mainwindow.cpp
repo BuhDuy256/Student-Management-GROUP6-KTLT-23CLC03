@@ -1771,9 +1771,9 @@ void MainWindow::on_checkBox_edit_stateChanged(int arg1)
 
 void MainWindow::on_table_course_itemDoubleClicked(QTableWidgetItem *item)
 {
-    if (ui->table_course->currentColumn() < 2)
+    if (ui->table_course->currentColumn() < 2 || ui->table_course->currentColumn() == 5)
     {
-        MessageBox("Error", "Unable To Edit Course ID and Course Name!");
+        MessageBox("Error", "Unable To Edit Course ID, Course Name and Course Size!");
         item->setFlags(item->flags() & ~Qt::ItemIsEditable);
         return;
     }
@@ -1855,12 +1855,194 @@ void MainWindow::on_button_addCourse_clicked()
 
 void MainWindow::on_button_confirm_7_clicked()
 {
+    Course newCourse;
 
+    //get info
+    newCourse.couSY = ui->box_selectSY_2->currentText().toStdString();
+    newCourse.couSem = ui->box_selectSem->currentText().toInt();
+    newCourse.ID = ui->txt_courseID->text().toStdString();
+    newCourse.Name = ui->txt_courseName->text().toStdString();
+    newCourse.teacherName = ui->txt_teacherName->text().toStdString();
+    newCourse.className = ui->txt_className_2->text().toStdString();
+    newCourse.nCredits = ui->box_numCredits->currentText().toInt();
+    newCourse.dayOfWeek = ui->box_dayOfWeek->currentText().toStdString();
+    newCourse.session = ui->box_session->currentText().toStdString();
+    if (ui->txt_maxStudents->text() == "") newCourse.maxStudents = 50;
+    else newCourse.maxStudents = ui->txt_maxStudents->text().toInt();
+
+
+    // access current semester
+    std::string year = ui->box_selectSY_2->currentText().toStdString();
+    currSemNumber = ui->box_selectSem->currentText().toInt();
+
+    currSYear = latestSYear;
+    while (currSYear)
+    {
+        if (currSYear->data.year == year)
+        {
+            currSem = currSYear->data.semesters[currSemNumber - 1];
+            break;
+        }
+        currSYear = currSYear->next;
+    }
+
+
+    // add course
+    if (!isValidCourseID(newCourse.ID)) {
+        MessageBox("Error", "Invalid Course ID!");
+        return;
+    }
+    if (!isValidCouOrStuName(newCourse.Name)) {
+        MessageBox("Error", "Invalid Course Name!");
+        return;
+    }
+    formalize(newCourse.Name);
+
+    if (!isValidClassName(newCourse.className, year)) {
+        MessageBox("Error", "Invalid Class Name!");
+        return;
+    }
+    if (!notExistclassNameOfCourse(newCourse.ID, newCourse.className, year)) {
+        MessageBox("Error", "Class Name Has Already Existed!");
+        return;
+    }
+
+    if (!isValidCouOrStuName(newCourse.teacherName)) {
+        MessageBox("Error", "Invalid Teacher Name");
+        return;
+    }
+    formalize(newCourse.teacherName);
+
+    if (ui->box_numCredits->currentIndex() == -1){
+        MessageBox("Error", "Choose Number of Credits");
+        return;
+    }
+    if (ui->box_dayOfWeek->currentIndex() == -1 || ui->box_session->currentIndex() == -1){
+        MessageBox("Error", "Choose Session");
+        return;
+    }
+
+    int ret = MessageBox_ok_cancel("Confirmation", "Do You Want To Add This Course?");
+    if (ret == QMessageBox::Cancel) return;
+
+    Node<SchoolYear>* syCurr = latestSYear;
+    while (syCurr) {
+        if (syCurr->data.year == year) {
+            Node<Course>* temp = syCurr->data.semesters[currSemNumber - 1].Courses;
+            syCurr->data.semesters[currSemNumber - 1].Courses = new Node<Course>(newCourse, temp);
+            syCurr->data.semesters[currSemNumber - 1].Courses->data.score = new StudentScore[newCourse.maxStudents];
+            currSem = syCurr->data.semesters[currSemNumber - 1];
+            break;
+        }
+        syCurr = syCurr->next;
+    }
+
+    MessageBox_information("Notification", "A New Course Has Been Added!");
+
+    ui->txt_courseID->setText("");
+    ui->txt_courseName->setText("");
+    ui->txt_className_2->setText("");
+    ui->txt_teacherName->setText("");
+    ui->txt_maxStudents->setText("");
+    ui->box_numCredits->setCurrentIndex(-1);
+    ui->box_dayOfWeek->setCurrentIndex(-1);
+    ui->box_session->setCurrentIndex(-1);
+    MainWindow::button_ok_3_clicked();
 }
 
 
 void MainWindow::on_button_back_13_clicked()
 {
     ui->stackedWidget_5->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_txt_className_2_textEdited(const QString &arg1)
+{
+    ui->txt_className_2->setText(arg1.toUpper());
+}
+
+
+void MainWindow::on_txt_courseID_textEdited(const QString &arg1)
+{
+    ui->txt_courseID->setText(arg1.toUpper());
+}
+
+
+void MainWindow::on_table_course_currentItemChanged(QTableWidgetItem *current, QTableWidgetItem *previous)
+{
+    int choice, row = previous->row(), col = previous->column();
+    if (col < 5) choice = col - 1;
+    else choice = col - 2;
+
+    std::string ID = ui->table_course->item(row, 0)->text().toStdString();
+    std::string className = ui->table_course->item(row, 2)->text().toStdString();
+
+    Course newCourse;
+    newCourse.ID = ID;
+    newCourse.Name = ui->table_course->item(row, 1)->text().toStdString();
+    newCourse.className = className;
+    newCourse.teacherName = ui->table_course->item(row, 3)->text().toStdString();
+    newCourse.nCredits = ui->table_course->item(row, 4)->text().toInt();
+    newCourse.courseSize = ui->table_course->item(row, 5)->text().toInt();
+    newCourse.maxStudents = ui->table_course->item(row, 6)->text().toInt();
+    newCourse.dayOfWeek = ui->table_course->item(row, 7)->text().toStdString();
+    newCourse.session = ui->table_course->item(row, 8)->text().toStdString();
+
+
+    // check valid
+    // if (choice == 1){
+    //     if (!isValidClassName(newCourse.className, currSYear->data.year)) {
+
+    //     }
+    //     if (!notExistclassNameOfCourse(ID, newCourse.className, currSYear->data.year)) {
+
+    //     }
+    // }
+    // else if (choice == 2) {
+    //         if (!isValidCouOrStuName(newCourse.teacherName)) {
+
+    //         }
+    //     }
+    // else if (choice == 3) {
+    //     if ((newCourse.nCredits < 2) || (newCourse.nCredits > 4)) {
+
+    //     }
+    // }
+    // else if (choice == 4) {
+    //         if (newCourse.maxStudents < courseSize) {
+
+    //         }
+    //         else if (newCourse.maxStudents < 1) {
+
+    //         }
+    //     }
+    // else if (choice == 5) {
+    //     std::string daysOfWeek[6] = { "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+
+    // }
+    // else if (choice == 6) {
+    //     std::string sessions[4] = { "07:30", "09:30", "13:30", "15:30"};
+
+    // }
+
+    // search course
+    Node<SchoolYear>* tempYear = latestSYear;
+    while (tempYear)
+    {
+        for (int i = 2; i >= 0; i--)
+        {
+            Node<Course>* couCurr = tempYear->data.semesters[i].Courses;
+            while(couCurr)
+            {
+                if (couCurr->data.ID == ID && couCurr->data.className == className) // found course
+                {
+                    couCurr->data.updateInformation_forUI(choice, newCourse);
+                }
+                couCurr = couCurr->next;
+            }
+        }
+        tempYear = tempYear->next;
+    }
 }
 
