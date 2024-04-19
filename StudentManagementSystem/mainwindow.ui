@@ -1453,7 +1453,9 @@ QComboBox::hover {
 QTableWidget::item:selected {
 	background-color: rgba(158, 158, 158,200);
 	color: #292727;
-    border: 1px solid #696969;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
 }
 
 QHeaderView::section {
@@ -1483,13 +1485,15 @@ QScrollBar:horizontal {
         border-radius: 4px;
         min-width: 20px;
     }
+
     QScrollBar::add-line:horizontal {
-        background: black;
+		border-image: url(:/background/right_arrow.png);
         width: 20px;
         subcontrol-position: right;
         subcontrol-origin: margin;
     }
     QScrollBar::sub-line:horizontal {
+		border-image: url(:/background/left_arrow.png);
         background: black;
         width: 20px;
         subcontrol-position: left;
@@ -1509,13 +1513,14 @@ QScrollBar::handle:vertical {
     min-height: 20px;
 }
 QScrollBar::add-line:vertical {
-    background: black;
+	border-image: url(:/background/down_arrow.png);
+  
     height: 20px;
     subcontrol-position: bottom;
     subcontrol-origin: margin;
 }
 QScrollBar::sub-line:vertical {
-    background: black;
+	border-image: url(:/background/up_arrow.png);
     height: 20px;
     subcontrol-position: top;
     subcontrol-origin: margin;
@@ -2243,7 +2248,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>9</number>
+           <number>5</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -3002,7 +3007,6 @@ QCalendarWidget QWidget {
 QCalendarWidget QWidget::item:selected {
     background-color: rgba(198, 198, 198,200);
 	color: #292727;
-    border: 1px solid #696969;
 	border-style: none;
 	border-bottom: 2px solid #000000;
 	border-right: 1px solid #000000;
@@ -3055,7 +3059,7 @@ QCalendarWidget QMenu {
              <rect>
               <x>10</x>
               <y>160</y>
-              <width>439</width>
+              <width>391</width>
               <height>381</height>
              </rect>
             </property>
@@ -3451,7 +3455,6 @@ QHeaderView::section {
     border-bottom: 2px solid #000000;
     border-right: 1px solid #000000;
     border-left: 1px solid #000000;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
 }
 
 QListWidget {
@@ -3828,7 +3831,73 @@ QComboBox::hover {
               </property>
              </widget>
             </item>
-            <item row="10" column="0" colspan="5">
+            <item row="11" column="6" alignment="Qt::AlignRight">
+             <widget class="QPushButton" name="button_back_9">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">margin: 5px</string>
+              </property>
+              <property name="text">
+               <string>BACK</string>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="0">
+             <widget class="QPushButton" name="button_addOne">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>370</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>370</width>
+                <height>65</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">margin: 5px;</string>
+              </property>
+              <property name="text">
+               <string>ADD ONE STUDENT</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <widget class="QLabel" name="lb_selectClass">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: #F5F0F0;
+</string>
+              </property>
+              <property name="text">
+               <string>Select Class:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="10" column="0" colspan="3">
              <widget class="QStackedWidget" name="stackedWidget_4">
               <property name="styleSheet">
                <string notr="true">QLabel{
@@ -4263,29 +4332,33 @@ QCalendarWidget QMenu {
               </widget>
              </widget>
             </item>
-            <item row="11" column="6" alignment="Qt::AlignRight">
-             <widget class="QPushButton" name="button_back_9">
+            <item row="11" column="1">
+             <widget class="QPushButton" name="button_import">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="minimumSize">
                <size>
-                <width>200</width>
+                <width>0</width>
                 <height>65</height>
                </size>
               </property>
-              <property name="maximumSize">
-               <size>
-                <width>200</width>
-                <height>65</height>
-               </size>
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="styleSheet">
-               <string notr="true">margin: 5px</string>
+               <string notr="true">border-image: url(:/background/File.png);
+margin: 5px;</string>
               </property>
               <property name="text">
-               <string>BACK</string>
+               <string/>
               </property>
              </widget>
             </item>
-            <item row="10" column="5" colspan="2">
+            <item row="10" column="3" colspan="4">
              <widget class="QTableWidget" name="tableWidget_2">
               <property name="styleSheet">
                <string notr="true">QTableWidget::item {
@@ -4297,7 +4370,9 @@ QCalendarWidget QMenu {
 QTableWidget::item:selected {
 	background-color: rgba(158, 158, 158,200);
 	color: #292727;
-	border: 1px solid #696969;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
 }
 
 QHeaderView::section {
@@ -4327,13 +4402,15 @@ QScrollBar:horizontal {
         border-radius: 4px;
         min-width: 20px;
     }
+
     QScrollBar::add-line:horizontal {
-        background: black;
+		border-image: url(:/background/right_arrow.png);
         width: 20px;
         subcontrol-position: right;
         subcontrol-origin: margin;
     }
     QScrollBar::sub-line:horizontal {
+		border-image: url(:/background/left_arrow.png);
         background: black;
         width: 20px;
         subcontrol-position: left;
@@ -4353,13 +4430,14 @@ QScrollBar::handle:vertical {
     min-height: 20px;
 }
 QScrollBar::add-line:vertical {
-    background: black;
+	border-image: url(:/background/down_arrow.png);
+  
     height: 20px;
     subcontrol-position: bottom;
     subcontrol-origin: margin;
 }
 QScrollBar::sub-line:vertical {
-    background: black;
+	border-image: url(:/background/up_arrow.png);
     height: 20px;
     subcontrol-position: top;
     subcontrol-origin: margin;
@@ -4395,76 +4473,6 @@ QScrollBar::sub-line:vertical {
                 <string>Social ID</string>
                </property>
               </column>
-             </widget>
-            </item>
-            <item row="11" column="0">
-             <widget class="QPushButton" name="button_addOne">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>370</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>370</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">margin: 5px;</string>
-              </property>
-              <property name="text">
-               <string>ADD ONE STUDENT</string>
-              </property>
-             </widget>
-            </item>
-            <item row="11" column="1" colspan="2">
-             <widget class="QPushButton" name="button_import">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>65</height>
-               </size>
-              </property>
-              <property name="toolTip">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">border-image: url(:/background/File.png);
-margin: 5px;</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-             </widget>
-            </item>
-            <item row="8" column="0">
-             <widget class="QLabel" name="lb_selectClass">
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: #F5F0F0;
-</string>
-              </property>
-              <property name="text">
-               <string>Select Class:</string>
-              </property>
              </widget>
             </item>
            </layout>
@@ -4612,7 +4620,9 @@ QScrollBar::sub-line:vertical {
 QTableWidget::item:selected {
 	background-color: rgba(158, 158, 158,200);
 	color: #292727;
-    border: 1px solid #696969;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
 }
 
 QHeaderView::section {
@@ -4642,13 +4652,15 @@ QScrollBar:horizontal {
         border-radius: 4px;
         min-width: 20px;
     }
+
     QScrollBar::add-line:horizontal {
-        background: black;
+		border-image: url(:/background/right_arrow.png);
         width: 20px;
         subcontrol-position: right;
         subcontrol-origin: margin;
     }
     QScrollBar::sub-line:horizontal {
+		border-image: url(:/background/left_arrow.png);
         background: black;
         width: 20px;
         subcontrol-position: left;
@@ -4668,13 +4680,14 @@ QScrollBar::handle:vertical {
     min-height: 20px;
 }
 QScrollBar::add-line:vertical {
-    background: black;
+	border-image: url(:/background/down_arrow.png);
+  
     height: 20px;
     subcontrol-position: bottom;
     subcontrol-origin: margin;
 }
 QScrollBar::sub-line:vertical {
-    background: black;
+	border-image: url(:/background/up_arrow.png);
     height: 20px;
     subcontrol-position: top;
     subcontrol-origin: margin;
@@ -4919,20 +4932,21 @@ QComboBox::hover {
             <property name="styleSheet">
              <string notr="true">QTableWidget::item {
 	background-color: rgba(118, 118, 118,200);
-	color: #000000;
-	color: white;
+	color: #F5F0F0;
 	border: 2px solid #000000;
 }
 
 QTableWidget::item:selected {
 	background-color: rgba(158, 158, 158,200);
 	color: #292727;
-	border: 1px solid #696969;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
 }
 
 QHeaderView::section {
 	background-color: rgba(198, 198, 198,200);
-	color: #000000;
+	color: #292727;
 	padding: 4px;
 	border-style: none;
 	border-bottom: 2px solid #000000;
@@ -4957,13 +4971,15 @@ QScrollBar:horizontal {
         border-radius: 4px;
         min-width: 20px;
     }
+
     QScrollBar::add-line:horizontal {
-        background: black;
+		border-image: url(:/background/right_arrow.png);
         width: 20px;
         subcontrol-position: right;
         subcontrol-origin: margin;
     }
     QScrollBar::sub-line:horizontal {
+		border-image: url(:/background/left_arrow.png);
         background: black;
         width: 20px;
         subcontrol-position: left;
@@ -4983,13 +4999,14 @@ QScrollBar::handle:vertical {
     min-height: 20px;
 }
 QScrollBar::add-line:vertical {
-    background: black;
+	border-image: url(:/background/down_arrow.png);
+  
     height: 20px;
     subcontrol-position: bottom;
     subcontrol-origin: margin;
 }
 QScrollBar::sub-line:vertical {
-    background: black;
+	border-image: url(:/background/up_arrow.png);
     height: 20px;
     subcontrol-position: top;
     subcontrol-origin: margin;
@@ -5088,7 +5105,7 @@ QScrollBar::sub-line:vertical {
 }</string>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="page_2">
                <widget class="QPushButton" name="button_back_11">
@@ -5183,9 +5200,10 @@ QComboBox::hover {
 QTableWidget::item:selected {
 	background-color: rgba(158, 158, 158,200);
 	color: #292727;
-    border: 1px solid #696969;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
 }
-
 
 QHeaderView::section {
 	background-color: rgba(198, 198, 198,200);
@@ -5214,13 +5232,15 @@ QScrollBar:horizontal {
         border-radius: 4px;
         min-width: 20px;
     }
+
     QScrollBar::add-line:horizontal {
-        background: black;
+		border-image: url(:/background/right_arrow.png);
         width: 20px;
         subcontrol-position: right;
         subcontrol-origin: margin;
     }
     QScrollBar::sub-line:horizontal {
+		border-image: url(:/background/left_arrow.png);
         background: black;
         width: 20px;
         subcontrol-position: left;
@@ -5240,13 +5260,14 @@ QScrollBar::handle:vertical {
     min-height: 20px;
 }
 QScrollBar::add-line:vertical {
-    background: black;
+	border-image: url(:/background/down_arrow.png);
+  
     height: 20px;
     subcontrol-position: bottom;
     subcontrol-origin: margin;
 }
 QScrollBar::sub-line:vertical {
-    background: black;
+	border-image: url(:/background/up_arrow.png);
     height: 20px;
     subcontrol-position: top;
     subcontrol-origin: margin;
@@ -5521,20 +5542,21 @@ QComboBox::hover {
                 <property name="styleSheet">
                  <string notr="true">QTableWidget::item {
 	background-color: rgba(118, 118, 118,200);
-	color: #000000;
-	color: white;
+	color: #F5F0F0;
 	border: 2px solid #000000;
 }
 
 QTableWidget::item:selected {
 	background-color: rgba(158, 158, 158,200);
 	color: #292727;
-    border: 1px solid #696969;
+	border-bottom: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000; 
 }
 
 QHeaderView::section {
 	background-color: rgba(198, 198, 198,200);
-	color: #000000;
+	color: #292727;
 	padding: 4px;
 	border-style: none;
 	border-bottom: 2px solid #000000;
@@ -5559,13 +5581,15 @@ QScrollBar:horizontal {
         border-radius: 4px;
         min-width: 20px;
     }
+
     QScrollBar::add-line:horizontal {
-        background: black;
+		border-image: url(:/background/right_arrow.png);
         width: 20px;
         subcontrol-position: right;
         subcontrol-origin: margin;
     }
     QScrollBar::sub-line:horizontal {
+		border-image: url(:/background/left_arrow.png);
         background: black;
         width: 20px;
         subcontrol-position: left;
@@ -5585,13 +5609,14 @@ QScrollBar::handle:vertical {
     min-height: 20px;
 }
 QScrollBar::add-line:vertical {
-    background: black;
+	border-image: url(:/background/down_arrow.png);
+  
     height: 20px;
     subcontrol-position: bottom;
     subcontrol-origin: margin;
 }
 QScrollBar::sub-line:vertical {
-    background: black;
+	border-image: url(:/background/up_arrow.png);
     height: 20px;
     subcontrol-position: top;
     subcontrol-origin: margin;
