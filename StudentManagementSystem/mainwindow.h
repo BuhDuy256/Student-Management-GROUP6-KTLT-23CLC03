@@ -28,6 +28,7 @@ public:
     ~MainWindow();
 
 private slots:
+    void resizeTable(QTableWidget* tableWidget);
 
     void on_checkBox_stateChanged(int arg1);
 
@@ -200,9 +201,38 @@ private slots:
 
     void on_txt_courseID_textEdited(const QString &arg1);
 
-    void on_table_course_currentItemChanged(QTableWidgetItem *current, QTableWidgetItem *previous);
+    void on_button_removeStudent_clicked();
+
+    void on_button_addStudent_2_clicked();
 
 private:
     Ui::MainWindow *ui;
+};
+
+
+// make drop event
+class FileDragLineEdit : public QLineEdit {
+public:
+    FileDragLineEdit(QWidget *parent = nullptr) : QLineEdit(parent) {
+        setAcceptDrops(true);
+    }
+
+protected:
+    void dragEnterEvent(QDragEnterEvent *event) override {
+        if (event->mimeData()->hasUrls()) {
+            event->acceptProposedAction();
+        }
+    }
+
+    void dropEvent(QDropEvent *event) override {
+        if (event->mimeData()->hasUrls()) {
+            QList<QUrl> urls = event->mimeData()->urls();
+            if (!urls.isEmpty()) {
+                QString filePath = urls.first().toLocalFile();
+                setText(filePath);
+            }
+            event->acceptProposedAction();
+        }
+    }
 };
 #endif // MAINWINDOW_H

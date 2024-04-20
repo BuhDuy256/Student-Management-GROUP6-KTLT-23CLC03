@@ -105,23 +105,30 @@ void Course::addStudent()
             std::cout << "\t(X) Invalid student name. Please try again: ";
         }
     }
-    formalize(studentScore.studentName);
-    bool isExist = false;
-    for (int i = 0; i < courseSize; i++) {
-        if (studentScore.studentID == score[i].studentID) {
-            isExist = true;
-            break;
+
+    if (checkMatchStudentIDAndName(studentScore.studentID, studentScore.studentName)) {
+        formalize(studentScore.studentName);
+        bool isExist = false;
+        for (int i = 0; i < courseSize; i++) {
+            if (studentScore.studentID == score[i].studentID) {
+                isExist = true;
+                break;
+            }
+        }
+        if (!isExist) {
+            formalize(studentScore.studentName);
+            score[courseSize] = studentScore;
+            courseSize++;
+            std::cout << "\n\t(!) Student is added sucessfully.\n";
+        }
+        else {
+            std::cout << "\n\t(X) The student ID is already in the course.\n";
         }
     }
-    if (!isExist) {
-        formalize(studentScore.studentName);
-        score[courseSize] = studentScore;
-        courseSize++;
-        std::cout << "\n\t(!) Student is added sucessfully.\n";
-    }
     else {
-        std::cout << "\n\t(X) The student ID is already in the course.\n";
+        std::cout << "\n\t(X) The student ID and name do not match.\n";
     }
+
     char confirm = getYesNo("\t(?) Do you want to add more students to course " + ID + " - " + Name + "? (Y/N): ");
     if (confirm == 'Y' || confirm == 'y') {
         addStudent();

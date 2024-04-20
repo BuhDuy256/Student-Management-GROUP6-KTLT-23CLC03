@@ -1533,6 +1533,12 @@ QScrollBar::sub-line:vertical {
               <property name="editTriggers">
                <set>QAbstractItemView::NoEditTriggers</set>
               </property>
+              <property name="verticalScrollMode">
+               <enum>QAbstractItemView::ScrollPerPixel</enum>
+              </property>
+              <property name="horizontalScrollMode">
+               <enum>QAbstractItemView::ScrollPerPixel</enum>
+              </property>
               <property name="sortingEnabled">
                <bool>false</bool>
               </property>
@@ -2248,7 +2254,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>5</number>
+           <number>9</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -3059,7 +3065,7 @@ QCalendarWidget QMenu {
              <rect>
               <x>10</x>
               <y>160</y>
-              <width>391</width>
+              <width>439</width>
               <height>381</height>
              </rect>
             </property>
@@ -3905,7 +3911,7 @@ color:white;
 }</string>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="page_addOne">
                <layout class="QGridLayout" name="gridLayout_12">
@@ -4151,6 +4157,9 @@ padding: 10px;</string>
                    <string notr="true">color: #000000;
 background-color: rgba(255,255,255,200);
 padding: 10px;</string>
+                  </property>
+                  <property name="dragEnabled">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -4450,6 +4459,12 @@ QScrollBar::sub-line:vertical {
               <property name="editTriggers">
                <set>QAbstractItemView::NoEditTriggers</set>
               </property>
+              <property name="verticalScrollMode">
+               <enum>QAbstractItemView::ScrollPerPixel</enum>
+              </property>
+              <property name="horizontalScrollMode">
+               <enum>QAbstractItemView::ScrollPerPixel</enum>
+              </property>
               <property name="sortingEnabled">
                <bool>false</bool>
               </property>
@@ -4699,6 +4714,12 @@ QScrollBar::sub-line:vertical {
             </property>
             <property name="editTriggers">
              <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="verticalScrollMode">
+             <enum>QAbstractItemView::ScrollPerPixel</enum>
+            </property>
+            <property name="horizontalScrollMode">
+             <enum>QAbstractItemView::ScrollPerPixel</enum>
             </property>
             <property name="sortingEnabled">
              <bool>false</bool>
@@ -5019,6 +5040,12 @@ QScrollBar::sub-line:vertical {
             <property name="editTriggers">
              <set>QAbstractItemView::NoEditTriggers</set>
             </property>
+            <property name="verticalScrollMode">
+             <enum>QAbstractItemView::ScrollPerPixel</enum>
+            </property>
+            <property name="horizontalScrollMode">
+             <enum>QAbstractItemView::ScrollPerPixel</enum>
+            </property>
             <property name="sortingEnabled">
              <bool>false</bool>
             </property>
@@ -5105,7 +5132,7 @@ QScrollBar::sub-line:vertical {
 }</string>
               </property>
               <property name="currentIndex">
-               <number>1</number>
+               <number>3</number>
               </property>
               <widget class="QWidget" name="page_2">
                <widget class="QPushButton" name="button_back_11">
@@ -5631,6 +5658,12 @@ QScrollBar::sub-line:vertical {
                 </property>
                 <property name="selectionMode">
                  <enum>QAbstractItemView::SingleSelection</enum>
+                </property>
+                <property name="verticalScrollMode">
+                 <enum>QAbstractItemView::ScrollPerPixel</enum>
+                </property>
+                <property name="horizontalScrollMode">
+                 <enum>QAbstractItemView::ScrollPerPixel</enum>
                 </property>
                 <column>
                  <property name="text">
@@ -6246,7 +6279,7 @@ QScrollBar::sub-line:vertical {
                 <property name="geometry">
                  <rect>
                   <x>230</x>
-                  <y>0</y>
+                  <y>10</y>
                   <width>451</width>
                   <height>51</height>
                  </rect>
@@ -6262,6 +6295,104 @@ QScrollBar::sub-line:vertical {
                 </property>
                 <property name="text">
                  <string>ADD STUDENT TO COURSE</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+               <widget class="QLineEdit" name="txt_studentID">
+                <property name="geometry">
+                 <rect>
+                  <x>270</x>
+                  <y>130</y>
+                  <width>421</width>
+                  <height>61</height>
+                 </rect>
+                </property>
+               </widget>
+               <widget class="QLineEdit" name="txt_studentName">
+                <property name="geometry">
+                 <rect>
+                  <x>270</x>
+                  <y>260</y>
+                  <width>421</width>
+                  <height>61</height>
+                 </rect>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_4">
+                <property name="geometry">
+                 <rect>
+                  <x>120</x>
+                  <y>130</y>
+                  <width>121</width>
+                  <height>41</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;</string>
+                </property>
+                <property name="text">
+                 <string>Student ID</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_5">
+                <property name="geometry">
+                 <rect>
+                  <x>90</x>
+                  <y>270</y>
+                  <width>161</width>
+                  <height>41</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;</string>
+                </property>
+                <property name="text">
+                 <string>Student Name</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+               <widget class="QLabel" name="lb_scoreBoard_2">
+                <property name="geometry">
+                 <rect>
+                  <x>190</x>
+                  <y>60</y>
+                  <width>582</width>
+                  <height>40</height>
+                 </rect>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>41</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>18</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color:white;</string>
+                </property>
+                <property name="text">
+                 <string>COURSE ID - COURSE NAME - CLASS NAME</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>

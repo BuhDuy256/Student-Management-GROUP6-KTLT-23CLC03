@@ -308,6 +308,50 @@ int MessageBox_ok_cancel(std::string title, std::string text)
     return msgBox.exec();
 }
 
+void MainWindow::resizeTable(QTableWidget* tableWidget)
+{
+    tableWidget->resizeColumnsToContents();
+    // Get the width of the table widget
+    int tableWidth = tableWidget->viewport()->width();
+
+    // Get the total width of all the columns
+    int totalColumnWidth = 0;
+    int columnCount = tableWidget->columnCount();
+    for (int col = 0; col < columnCount; ++col) {
+        totalColumnWidth += tableWidget->columnWidth(col);
+    }
+
+    // Check if the total width of columns is larger than the width of the table
+    if (totalColumnWidth < tableWidth) {
+        // Resize columns to fit their contents
+        tableWidget->resizeColumnsToContents();
+
+        // Get the total width of all the columns after resizing
+        totalColumnWidth = 0;
+        for (int col = 0; col < columnCount; ++col) {
+            totalColumnWidth += tableWidget->columnWidth(col);
+        }
+
+        // Get the width of the vertical scroll bar
+        int verticalScrollBarWidth = tableWidget->verticalScrollBar()->isVisible() ? tableWidget->verticalScrollBar()->width() : 0;
+
+        // Calculate the available width (excluding the width of the vertical scroll bar)
+        int availableWidth = tableWidth - verticalScrollBarWidth;
+
+        // Calculate the remaining space to be distributed among columns
+        int remainingSpace = availableWidth - totalColumnWidth;
+
+        // Calculate the width to be added to each column
+        int extraWidthPerColumn = remainingSpace / columnCount;
+
+        // Distribute the remaining space evenly among columns
+        for (int col = 0; col < columnCount; ++col) {
+            int newWidth = tableWidget->columnWidth(col) + extraWidthPerColumn;
+            tableWidget->setColumnWidth(col, newWidth);
+        }
+    }
+}
+
 void MainWindow::on_checkBox_stateChanged(int arg1)
 {
     if (ui->checkBox->isChecked()) ui->txtPassword->setEchoMode(QLineEdit::Normal);
@@ -433,6 +477,8 @@ void MainWindow::show_tableWidget_list()
     }
     ui->tableWidget->setHorizontalHeaderLabels({"Course ID", "Course Name", "Course Class", "Teacher Name", "Number of Credits", "Course Size","Max Students", "Day of Week", "Session"});
     ui->tableWidget->resizeColumnsToContents();
+
+    resizeTable(ui->tableWidget);
 }
 void MainWindow::show_tableWidget_score()
 {
@@ -460,6 +506,8 @@ void MainWindow::show_tableWidget_score()
     }
     ui->tableWidget->setHorizontalHeaderLabels({"Course ID", "Course Name", "Mid Term", "Final", "Other", "Total"});
     ui->tableWidget->resizeColumnsToContents();
+
+    resizeTable(ui->tableWidget);
 }
 void MainWindow::on_button_StuMyCourses_clicked()
 {
@@ -1836,6 +1884,8 @@ void MainWindow::on_button_removeCourse_clicked()
     else {
         MainWindow::button_ok_3_clicked();
     }
+
+    MessageBox_information("Notification", "Course Removed Successfully!");
 }
 
 
@@ -1968,65 +2018,28 @@ void MainWindow::on_txt_courseID_textEdited(const QString &arg1)
     ui->txt_courseID->setText(arg1.toUpper());
 }
 
-
-void MainWindow::on_table_course_currentItemChanged(QTableWidgetItem *current, QTableWidgetItem *previous)
+void MainWindow::on_button_removeStudent_clicked()
 {
-    int choice, row = previous->row(), col = previous->column();
-    if (col < 5) choice = col - 1;
-    else choice = col - 2;
+    if (ui->table_student_2->selectedItems().isEmpty())
+    {
+        MessageBox("Error", "Select A Student To Remove!");
+        return;
+    }
 
-    std::string ID = ui->table_course->item(row, 0)->text().toStdString();
-    std::string className = ui->table_course->item(row, 2)->text().toStdString();
+    int ROW = ui->table_course->currentRow();
+    std::string courseID = ui->table_course->item(ROW, 0)->text().toStdString();
+    std::string className = ui->table_course->item(ROW, 2)->text().toStdString();
+    // int courseSize = ui->table_course->item(ROW, 5)->text().toInt();
 
-    Course newCourse;
-    newCourse.ID = ID;
-    newCourse.Name = ui->table_course->item(row, 1)->text().toStdString();
-    newCourse.className = className;
-    newCourse.teacherName = ui->table_course->item(row, 3)->text().toStdString();
-    newCourse.nCredits = ui->table_course->item(row, 4)->text().toInt();
-    newCourse.courseSize = ui->table_course->item(row, 5)->text().toInt();
-    newCourse.maxStudents = ui->table_course->item(row, 6)->text().toInt();
-    newCourse.dayOfWeek = ui->table_course->item(row, 7)->text().toStdString();
-    newCourse.session = ui->table_course->item(row, 8)->text().toStdString();
+    int row = ui->table_student_2->currentRow();
+    std::string studentID = ui->table_student_2->item(row, 0)->text().toStdString();
+    // std::string studentName = ui->table_student_2->item(row, 1)->text().toStdString();
 
 
-    // check valid
-    // if (choice == 1){
-    //     if (!isValidClassName(newCourse.className, currSYear->data.year)) {
+    // delete student
+    int ret = MessageBox_ok_cancel("Confirmation", "Do You Want To Remove [" + studentID + "] From [" + courseID + "] Pernamently?");
+    if (ret == QMessageBox::Cancel) return;
 
-    //     }
-    //     if (!notExistclassNameOfCourse(ID, newCourse.className, currSYear->data.year)) {
-
-    //     }
-    // }
-    // else if (choice == 2) {
-    //         if (!isValidCouOrStuName(newCourse.teacherName)) {
-
-    //         }
-    //     }
-    // else if (choice == 3) {
-    //     if ((newCourse.nCredits < 2) || (newCourse.nCredits > 4)) {
-
-    //     }
-    // }
-    // else if (choice == 4) {
-    //         if (newCourse.maxStudents < courseSize) {
-
-    //         }
-    //         else if (newCourse.maxStudents < 1) {
-
-    //         }
-    //     }
-    // else if (choice == 5) {
-    //     std::string daysOfWeek[6] = { "MON", "TUE", "WED", "THU", "FRI", "SAT"};
-
-    // }
-    // else if (choice == 6) {
-    //     std::string sessions[4] = { "07:30", "09:30", "13:30", "15:30"};
-
-    // }
-
-    // search course
     Node<SchoolYear>* tempYear = latestSYear;
     while (tempYear)
     {
@@ -2035,14 +2048,26 @@ void MainWindow::on_table_course_currentItemChanged(QTableWidgetItem *current, Q
             Node<Course>* couCurr = tempYear->data.semesters[i].Courses;
             while(couCurr)
             {
-                if (couCurr->data.ID == ID && couCurr->data.className == className) // found course
+                if (couCurr->data.ID == courseID && couCurr->data.className == className) // found course
                 {
-                    couCurr->data.updateInformation_forUI(choice, newCourse);
+                    int index;
+                    for (int i = 0; i < couCurr->data.courseSize; i++) if (couCurr->data.score[i].studentID == studentID) index = i;
+                    for (int i = index; i < couCurr->data.courseSize - 1; i++) couCurr->data.score[i] = couCurr->data.score[i + 1];
+                    couCurr->data.courseSize--;
+                    break;
                 }
                 couCurr = couCurr->next;
             }
         }
         tempYear = tempYear->next;
     }
+
+    MainWindow::on_button_viewStudent_clicked();
+    MessageBox_information("Notification", "Student Removed Successfully!");
+}
+
+void MainWindow::on_button_addStudent_2_clicked()
+{
+    ui->stackedWidget_5->setCurrentIndex(3);
 }
 
