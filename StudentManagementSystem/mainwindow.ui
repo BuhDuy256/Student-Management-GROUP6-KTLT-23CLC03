@@ -2254,7 +2254,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>9</number>
+           <number>5</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -3444,7 +3444,7 @@ padding: 10px;</string>
                 <property name="styleSheet">
                  <string notr="true">QListWidget::item {
     background-color: rgba(118, 118, 118, 200);
-    color: #F5F0F0;;
+    color: #F5F0F0;
     border: 2px solid #000000;
 }
 
@@ -3461,6 +3461,7 @@ QHeaderView::section {
     border-bottom: 2px solid #000000;
     border-right: 1px solid #000000;
     border-left: 1px solid #000000;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
 }
 
 QListWidget {
@@ -3510,14 +3511,14 @@ QScrollBar::handle:vertical {
 }
 
 QScrollBar::add-line:vertical {
-    background: black;
+	border-image: url(:/background/down_arrow.png);
     height: 20px;
     subcontrol-position: bottom;
     subcontrol-origin: margin;
 }
 
 QScrollBar::sub-line:vertical {
-    background: black;
+    	border-image: url(:/background/up_arrow.png);
     height: 20px;
     subcontrol-position: top;
     subcontrol-origin: margin;
@@ -4600,14 +4601,14 @@ QScrollBar::handle:vertical {
 }
 
 QScrollBar::add-line:vertical {
-    background: black;
+	border-image: url(:/background/down_arrow.png);
     height: 20px;
     subcontrol-position: bottom;
     subcontrol-origin: margin;
 }
 
 QScrollBar::sub-line:vertical {
-    background: black;
+    	border-image: url(:/background/up_arrow.png);
     height: 20px;
     subcontrol-position: top;
     subcontrol-origin: margin;
@@ -5131,7 +5132,7 @@ QScrollBar::sub-line:vertical {
 }</string>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="page_2">
                <widget class="QPushButton" name="button_back_11">
@@ -5460,7 +5461,7 @@ QComboBox::hover {
                <widget class="QPushButton" name="button_viewStudent">
                 <property name="geometry">
                  <rect>
-                  <x>550</x>
+                  <x>540</x>
                   <y>500</y>
                   <width>131</width>
                   <height>40</height>
@@ -5504,7 +5505,7 @@ QComboBox::hover {
                <widget class="QCheckBox" name="checkBox_edit">
                 <property name="geometry">
                  <rect>
-                  <x>10</x>
+                  <x>30</x>
                   <y>510</y>
                   <width>93</width>
                   <height>26</height>
@@ -5528,7 +5529,7 @@ QComboBox::hover {
                <widget class="QPushButton" name="button_addCourse">
                 <property name="geometry">
                  <rect>
-                  <x>100</x>
+                  <x>130</x>
                   <y>500</y>
                   <width>131</width>
                   <height>41</height>
@@ -5541,7 +5542,7 @@ QComboBox::hover {
                <widget class="QPushButton" name="button_removeCourse">
                 <property name="geometry">
                  <rect>
-                  <x>270</x>
+                  <x>340</x>
                   <y>500</y>
                   <width>141</width>
                   <height>41</height>
