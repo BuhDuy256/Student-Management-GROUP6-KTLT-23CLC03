@@ -266,9 +266,9 @@ public:
     QComboBox *box_selectSem;
     QPushButton *button_viewStudent;
     QPushButton *button_removeFilter;
-    QCheckBox *checkBox_edit;
     QPushButton *button_addCourse;
     QPushButton *button_removeCourse;
+    QPushButton *pushButton_2;
     QWidget *page_4;
     QTableWidget *table_student_2;
     QPushButton *button_coursesList;
@@ -276,8 +276,8 @@ public:
     QPushButton *button_addStudent_2;
     QPushButton *button_removeStudent;
     QPushButton *button_importScoreBoard;
-    QCheckBox *checkBox_4;
     QPushButton *button_exportTable;
+    QPushButton *pushButton;
     QWidget *page_5;
     QLabel *lb_addCourse;
     QComboBox *box_numCredits;
@@ -301,9 +301,11 @@ public:
     QLabel *label_3;
     QLineEdit *txt_studentID;
     QLineEdit *txt_studentName;
-    QLabel *label_4;
-    QLabel *label_5;
-    QLabel *lb_scoreBoard_2;
+    QLabel *lb_studentID;
+    QLabel *lb_studentName;
+    QLabel *lb_courseData;
+    QPushButton *pushButton_3;
+    QPushButton *pushButton_4;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -1791,7 +1793,7 @@ public:
 ""));
         layoutWidget = new QWidget(AdCreateSemester);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(410, 110, 435, 473));
+        layoutWidget->setGeometry(QRect(464, 110, 451, 473));
         verticalLayout_6 = new QVBoxLayout(layoutWidget);
         verticalLayout_6->setSpacing(5);
         verticalLayout_6->setObjectName("verticalLayout_6");
@@ -1896,7 +1898,7 @@ public:
 
         gridLayoutWidget = new QWidget(AdCreateSemester);
         gridLayoutWidget->setObjectName("gridLayoutWidget");
-        gridLayoutWidget->setGeometry(QRect(10, 160, 439, 381));
+        gridLayoutWidget->setGeometry(QRect(10, 160, 441, 381));
         gridLayout_10 = new QGridLayout(gridLayoutWidget);
         gridLayout_10->setObjectName("gridLayout_10");
         gridLayout_10->setContentsMargins(0, 0, 0, 0);
@@ -2040,7 +2042,7 @@ public:
         list_classes->setFont(font13);
         list_classes->setStyleSheet(QString::fromUtf8("QListWidget::item {\n"
 "    background-color: rgba(118, 118, 118, 200);\n"
-"    color: #F5F0F0;;\n"
+"    color: #F5F0F0;\n"
 "    border: 2px solid #000000;\n"
 "}\n"
 "\n"
@@ -2057,6 +2059,7 @@ public:
 "    border-bottom: 2px solid #000000;\n"
 "    border-right: 1px solid #000000;\n"
 "    border-left: 1px solid #000000;\n"
+"    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);\n"
 "}\n"
 "\n"
 "QListWidget {\n"
@@ -2073,12 +2076,12 @@ public:
 "QScrollBar::handle:horizontal {\n"
 "    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #D3D3D3, stop:1 #808080);\n"
 "    border: 1px solid #adb0b6;\n"
-"    border-radius: 4px;\n"
+"    borde"
+                        "r-radius: 4px;\n"
 "    min-width: 20px;\n"
 "}\n"
 "\n"
-""
-                        "QScrollBar::add-line:horizontal {\n"
+"QScrollBar::add-line:horizontal {\n"
 "    background: black;\n"
 "    width: 20px;\n"
 "    subcontrol-position: right;\n"
@@ -2107,18 +2110,18 @@ public:
 "}\n"
 "\n"
 "QScrollBar::add-line:vertical {\n"
-"    background: black;\n"
+"	border-image: url(:/background/down_arrow.png);\n"
 "    height: 20px;\n"
 "    subcontrol-position: bottom;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
 "\n"
 "QScrollBar::sub-line:vertical {\n"
-"    background: black;\n"
+"    	borde"
+                        "r-image: url(:/background/up_arrow.png);\n"
 "    height: 20px;\n"
 "    subcontrol-position: top;\n"
-"    subc"
-                        "ontrol-origin: margin;\n"
+"    subcontrol-origin: margin;\n"
 "}\n"
 ""));
         list_classes->setEditTriggers(QAbstractItemView::EditKeyPressed);
@@ -2514,7 +2517,6 @@ public:
 "QCalendarWidget QWidget::item:selected {\n"
 "    background-color: rgba(198, 198, 198,200);\n"
 "	color: #292727;\n"
-"    border: 1px solid #696969;\n"
 "	border-style: none;\n"
 "	border-bottom: 2px solid #000000;\n"
 "	border-right: 1px solid #000000;\n"
@@ -2525,8 +2527,7 @@ public:
 "	padding-left: 10px;\n"
 "}\n"
 "\n"
-"#qt_calendar_monthbutton::menu-indicator"
-                        "{\n"
+"#qt_calendar_monthbutton::menu-indicator{\n"
 "   width:0px;\n"
 "}\n"
 ""));
@@ -2745,16 +2746,16 @@ public:
 "}\n"
 "\n"
 "QScrollBar::add-line:vertical {\n"
-"    background: black;\n"
+"	border-image: url(:/background/down_arrow.png);\n"
 "    height: 20px;\n"
 "    subcontrol-position: bottom;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
 "\n"
 "QScrollBar::sub-line:vertical {\n"
-"    background: black;\n"
-"    heigh"
-                        "t: 20px;\n"
+"    	borde"
+                        "r-image: url(:/background/up_arrow.png);\n"
+"    height: 20px;\n"
 "    subcontrol-position: top;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
@@ -3244,7 +3245,7 @@ public:
 "}"));
         button_viewStudent = new QPushButton(page_2);
         button_viewStudent->setObjectName("button_viewStudent");
-        button_viewStudent->setGeometry(QRect(550, 500, 131, 40));
+        button_viewStudent->setGeometry(QRect(540, 500, 131, 40));
         sizePolicy5.setHeightForWidth(button_viewStudent->sizePolicy().hasHeightForWidth());
         button_viewStudent->setSizePolicy(sizePolicy5);
         button_viewStudent->setStyleSheet(QString::fromUtf8("padding: 10px"));
@@ -3254,19 +3255,15 @@ public:
         sizePolicy10.setHeightForWidth(button_removeFilter->sizePolicy().hasHeightForWidth());
         button_removeFilter->setSizePolicy(sizePolicy10);
         button_removeFilter->setStyleSheet(QString::fromUtf8("padding: 10px;"));
-        checkBox_edit = new QCheckBox(page_2);
-        checkBox_edit->setObjectName("checkBox_edit");
-        checkBox_edit->setGeometry(QRect(10, 510, 93, 26));
-        QFont font14;
-        font14.setPointSize(11);
-        checkBox_edit->setFont(font14);
-        checkBox_edit->setStyleSheet(QString::fromUtf8("color: white;"));
         button_addCourse = new QPushButton(page_2);
         button_addCourse->setObjectName("button_addCourse");
-        button_addCourse->setGeometry(QRect(100, 500, 131, 41));
+        button_addCourse->setGeometry(QRect(130, 500, 131, 41));
         button_removeCourse = new QPushButton(page_2);
         button_removeCourse->setObjectName("button_removeCourse");
-        button_removeCourse->setGeometry(QRect(270, 500, 141, 41));
+        button_removeCourse->setGeometry(QRect(340, 500, 141, 41));
+        pushButton_2 = new QPushButton(page_2);
+        pushButton_2->setObjectName("pushButton_2");
+        pushButton_2->setGeometry(QRect(20, 500, 101, 41));
         stackedWidget_5->addWidget(page_2);
         page_4 = new QWidget();
         page_4->setObjectName("page_4");
@@ -3393,22 +3390,19 @@ public:
         lb_scoreBoard->setAlignment(Qt::AlignCenter);
         button_addStudent_2 = new QPushButton(page_4);
         button_addStudent_2->setObjectName("button_addStudent_2");
-        button_addStudent_2->setGeometry(QRect(90, 510, 161, 41));
+        button_addStudent_2->setGeometry(QRect(110, 510, 161, 41));
         button_removeStudent = new QPushButton(page_4);
         button_removeStudent->setObjectName("button_removeStudent");
-        button_removeStudent->setGeometry(QRect(280, 510, 171, 41));
+        button_removeStudent->setGeometry(QRect(300, 510, 171, 41));
         button_importScoreBoard = new QPushButton(page_4);
         button_importScoreBoard->setObjectName("button_importScoreBoard");
-        button_importScoreBoard->setGeometry(QRect(490, 510, 171, 41));
-        checkBox_4 = new QCheckBox(page_4);
-        checkBox_4->setObjectName("checkBox_4");
-        checkBox_4->setGeometry(QRect(10, 510, 111, 31));
-        checkBox_4->setFont(font14);
-        checkBox_4->setStyleSheet(QString::fromUtf8("color: white;\n"
-""));
+        button_importScoreBoard->setGeometry(QRect(510, 510, 171, 41));
         button_exportTable = new QPushButton(page_4);
         button_exportTable->setObjectName("button_exportTable");
         button_exportTable->setGeometry(QRect(700, 0, 151, 41));
+        pushButton = new QPushButton(page_4);
+        pushButton->setObjectName("pushButton");
+        pushButton->setGeometry(QRect(20, 510, 81, 41));
         stackedWidget_5->addWidget(page_4);
         page_5 = new QWidget();
         page_5->setObjectName("page_5");
@@ -3424,8 +3418,18 @@ public:
         box_numCredits->addItem(QString());
         box_numCredits->addItem(QString());
         box_numCredits->setObjectName("box_numCredits");
-        box_numCredits->setGeometry(QRect(260, 400, 71, 41));
-        box_numCredits->setFont(font4);
+        box_numCredits->setGeometry(QRect(260, 410, 71, 31));
+        box_numCredits->setFont(font3);
+        box_numCredits->setStyleSheet(QString::fromUtf8("QComboBox {\n"
+"	font-size: 16px;\n"
+"	border-image: url(:/background/button.png);\n"
+"	background-color: rgb(133, 133, 133);\n"
+"	color: #F5F0F0;\n"
+"}\n"
+"\n"
+"QComboBox::hover {\n"
+" 	color: #292727\n"
+"}"));
         box_dayOfWeek = new QComboBox(page_5);
         box_dayOfWeek->addItem(QString());
         box_dayOfWeek->addItem(QString());
@@ -3434,16 +3438,36 @@ public:
         box_dayOfWeek->addItem(QString());
         box_dayOfWeek->addItem(QString());
         box_dayOfWeek->setObjectName("box_dayOfWeek");
-        box_dayOfWeek->setGeometry(QRect(460, 400, 131, 41));
-        box_dayOfWeek->setFont(font4);
+        box_dayOfWeek->setGeometry(QRect(460, 410, 131, 31));
+        box_dayOfWeek->setFont(font3);
+        box_dayOfWeek->setStyleSheet(QString::fromUtf8("QComboBox {\n"
+"	font-size: 16px;\n"
+"	border-image: url(:/background/button.png);\n"
+"	background-color: rgb(133, 133, 133);\n"
+"	color: #F5F0F0;\n"
+"}\n"
+"\n"
+"QComboBox::hover {\n"
+" 	color: #292727\n"
+"}"));
         box_session = new QComboBox(page_5);
         box_session->addItem(QString());
         box_session->addItem(QString());
         box_session->addItem(QString());
         box_session->addItem(QString());
         box_session->setObjectName("box_session");
-        box_session->setGeometry(QRect(600, 400, 131, 41));
-        box_session->setFont(font4);
+        box_session->setGeometry(QRect(600, 410, 131, 31));
+        box_session->setFont(font3);
+        box_session->setStyleSheet(QString::fromUtf8("QComboBox {\n"
+"	font-size: 16px;\n"
+"	border-image: url(:/background/button.png);\n"
+"	background-color: rgb(133, 133, 133);\n"
+"	color: #F5F0F0;\n"
+"}\n"
+"\n"
+"QComboBox::hover {\n"
+" 	color: #292727\n"
+"}"));
         lb_numCredits = new QLabel(page_5);
         lb_numCredits->setObjectName("lb_numCredits");
         lb_numCredits->setGeometry(QRect(60, 400, 201, 41));
@@ -3451,15 +3475,15 @@ public:
         lb_numCredits->setStyleSheet(QString::fromUtf8("color: white;"));
         lb_session = new QLabel(page_5);
         lb_session->setObjectName("lb_session");
-        lb_session->setGeometry(QRect(370, 400, 91, 41));
+        lb_session->setGeometry(QRect(360, 400, 91, 41));
         lb_session->setFont(font4);
         lb_session->setStyleSheet(QString::fromUtf8("color: white;"));
         button_confirm_7 = new QPushButton(page_5);
         button_confirm_7->setObjectName("button_confirm_7");
-        button_confirm_7->setGeometry(QRect(20, 470, 221, 61));
+        button_confirm_7->setGeometry(QRect(70, 470, 221, 61));
         button_back_13 = new QPushButton(page_5);
         button_back_13->setObjectName("button_back_13");
-        button_back_13->setGeometry(QRect(650, 470, 231, 61));
+        button_back_13->setGeometry(QRect(620, 470, 231, 61));
         lb_teacherName = new QLabel(page_5);
         lb_teacherName->setObjectName("lb_teacherName");
         lb_teacherName->setGeometry(QRect(90, 280, 153, 31));
@@ -3471,7 +3495,9 @@ public:
         txt_teacherName->setGeometry(QRect(260, 270, 471, 53));
         txt_teacherName->setMinimumSize(QSize(0, 53));
         txt_teacherName->setFont(font4);
-        txt_teacherName->setStyleSheet(QString::fromUtf8(""));
+        txt_teacherName->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,200);\n"
+"padding: 10px;"));
         lb_className = new QLabel(page_5);
         lb_className->setObjectName("lb_className");
         lb_className->setGeometry(QRect(110, 220, 119, 31));
@@ -3483,13 +3509,17 @@ public:
         txt_className_2->setGeometry(QRect(260, 210, 471, 53));
         txt_className_2->setMinimumSize(QSize(0, 53));
         txt_className_2->setFont(font4);
-        txt_className_2->setStyleSheet(QString::fromUtf8(""));
+        txt_className_2->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,200);\n"
+"padding: 10px;"));
         txt_courseName = new QLineEdit(page_5);
         txt_courseName->setObjectName("txt_courseName");
         txt_courseName->setGeometry(QRect(260, 150, 471, 53));
         txt_courseName->setMinimumSize(QSize(0, 53));
         txt_courseName->setFont(font4);
-        txt_courseName->setStyleSheet(QString::fromUtf8(""));
+        txt_courseName->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,200);\n"
+"padding: 10px;"));
         lb_courseName = new QLabel(page_5);
         lb_courseName->setObjectName("lb_courseName");
         lb_courseName->setGeometry(QRect(100, 160, 137, 31));
@@ -3501,7 +3531,9 @@ public:
         txt_courseID->setGeometry(QRect(260, 90, 471, 53));
         txt_courseID->setMinimumSize(QSize(0, 53));
         txt_courseID->setFont(font4);
-        txt_courseID->setStyleSheet(QString::fromUtf8(""));
+        txt_courseID->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,200);\n"
+"padding: 10px;"));
         lb_courseID = new QLabel(page_5);
         lb_courseID->setObjectName("lb_courseID");
         lb_courseID->setGeometry(QRect(130, 100, 98, 31));
@@ -3513,7 +3545,9 @@ public:
         txt_maxStudents->setGeometry(QRect(260, 330, 471, 53));
         txt_maxStudents->setMinimumSize(QSize(0, 53));
         txt_maxStudents->setFont(font4);
-        txt_maxStudents->setStyleSheet(QString::fromUtf8(""));
+        txt_maxStudents->setStyleSheet(QString::fromUtf8("color: #000000;\n"
+"background-color: rgba(255,255,255,200);\n"
+"padding: 10px;"));
         lb_maxStudents = new QLabel(page_5);
         lb_maxStudents->setObjectName("lb_maxStudents");
         lb_maxStudents->setGeometry(QRect(90, 340, 153, 31));
@@ -3525,7 +3559,7 @@ public:
         page_3->setObjectName("page_3");
         label_3 = new QLabel(page_3);
         label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(230, 10, 451, 51));
+        label_3->setGeometry(QRect(250, 10, 411, 51));
         label_3->setFont(font8);
         label_3->setStyleSheet(QString::fromUtf8("color: white;\n"
 ""));
@@ -3533,28 +3567,36 @@ public:
         txt_studentID = new QLineEdit(page_3);
         txt_studentID->setObjectName("txt_studentID");
         txt_studentID->setGeometry(QRect(270, 130, 421, 61));
+        txt_studentID->setStyleSheet(QString::fromUtf8("padding-left: 10px;"));
         txt_studentName = new QLineEdit(page_3);
         txt_studentName->setObjectName("txt_studentName");
         txt_studentName->setGeometry(QRect(270, 260, 421, 61));
-        label_4 = new QLabel(page_3);
-        label_4->setObjectName("label_4");
-        label_4->setGeometry(QRect(120, 130, 121, 41));
-        label_4->setFont(font4);
-        label_4->setStyleSheet(QString::fromUtf8("color: white;"));
-        label_4->setAlignment(Qt::AlignCenter);
-        label_5 = new QLabel(page_3);
-        label_5->setObjectName("label_5");
-        label_5->setGeometry(QRect(90, 270, 161, 41));
-        label_5->setFont(font4);
-        label_5->setStyleSheet(QString::fromUtf8("color: white;"));
-        label_5->setAlignment(Qt::AlignCenter);
-        lb_scoreBoard_2 = new QLabel(page_3);
-        lb_scoreBoard_2->setObjectName("lb_scoreBoard_2");
-        lb_scoreBoard_2->setGeometry(QRect(190, 60, 582, 40));
-        lb_scoreBoard_2->setMaximumSize(QSize(16777215, 41));
-        lb_scoreBoard_2->setFont(font8);
-        lb_scoreBoard_2->setStyleSheet(QString::fromUtf8("color:white;"));
-        lb_scoreBoard_2->setAlignment(Qt::AlignCenter);
+        txt_studentName->setStyleSheet(QString::fromUtf8("padding-left: 10px;"));
+        lb_studentID = new QLabel(page_3);
+        lb_studentID->setObjectName("lb_studentID");
+        lb_studentID->setGeometry(QRect(120, 140, 121, 41));
+        lb_studentID->setFont(font4);
+        lb_studentID->setStyleSheet(QString::fromUtf8("color: white;"));
+        lb_studentID->setAlignment(Qt::AlignCenter);
+        lb_studentName = new QLabel(page_3);
+        lb_studentName->setObjectName("lb_studentName");
+        lb_studentName->setGeometry(QRect(90, 270, 161, 41));
+        lb_studentName->setFont(font4);
+        lb_studentName->setStyleSheet(QString::fromUtf8("color: white;"));
+        lb_studentName->setAlignment(Qt::AlignCenter);
+        lb_courseData = new QLabel(page_3);
+        lb_courseData->setObjectName("lb_courseData");
+        lb_courseData->setGeometry(QRect(190, 60, 582, 40));
+        lb_courseData->setMaximumSize(QSize(16777215, 41));
+        lb_courseData->setFont(font8);
+        lb_courseData->setStyleSheet(QString::fromUtf8("color:white;"));
+        lb_courseData->setAlignment(Qt::AlignCenter);
+        pushButton_3 = new QPushButton(page_3);
+        pushButton_3->setObjectName("pushButton_3");
+        pushButton_3->setGeometry(QRect(150, 410, 201, 61));
+        pushButton_4 = new QPushButton(page_3);
+        pushButton_4->setObjectName("pushButton_4");
+        pushButton_4->setGeometry(QRect(590, 410, 201, 61));
         stackedWidget_5->addWidget(page_3);
 
         gridLayout_16->addWidget(stackedWidget_5, 1, 0, 1, 1);
@@ -3577,10 +3619,10 @@ public:
         retranslateUi(MainWindow);
 
         stackedWidget->setCurrentIndex(2);
-        stackedWidget_2->setCurrentIndex(0);
+        stackedWidget_2->setCurrentIndex(3);
         stackedWidget_3->setCurrentIndex(9);
-        stackedWidget_4->setCurrentIndex(1);
-        stackedWidget_5->setCurrentIndex(3);
+        stackedWidget_4->setCurrentIndex(0);
+        stackedWidget_5->setCurrentIndex(0);
         box_numCredits->setCurrentIndex(-1);
         box_dayOfWeek->setCurrentIndex(-1);
         box_session->setCurrentIndex(-1);
@@ -3790,9 +3832,9 @@ public:
         label->setText(QCoreApplication::translate("MainWindow", "Select School Year", nullptr));
         button_viewStudent->setText(QCoreApplication::translate("MainWindow", "DETAIL", nullptr));
         button_removeFilter->setText(QCoreApplication::translate("MainWindow", "REMOVE FILTER", nullptr));
-        checkBox_edit->setText(QCoreApplication::translate("MainWindow", "Edit", nullptr));
         button_addCourse->setText(QCoreApplication::translate("MainWindow", "ADD COURSE", nullptr));
         button_removeCourse->setText(QCoreApplication::translate("MainWindow", "REMOVE COURSE", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("MainWindow", "EDIT", nullptr));
         QTableWidgetItem *___qtablewidgetitem26 = table_student_2->horizontalHeaderItem(0);
         ___qtablewidgetitem26->setText(QCoreApplication::translate("MainWindow", "Student ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem27 = table_student_2->horizontalHeaderItem(1);
@@ -3810,8 +3852,8 @@ public:
         button_addStudent_2->setText(QCoreApplication::translate("MainWindow", "ADD STUDENT", nullptr));
         button_removeStudent->setText(QCoreApplication::translate("MainWindow", "REMOVE STUDENT", nullptr));
         button_importScoreBoard->setText(QCoreApplication::translate("MainWindow", "IMPORT SCOREBOARD", nullptr));
-        checkBox_4->setText(QCoreApplication::translate("MainWindow", "Edit", nullptr));
         button_exportTable->setText(QCoreApplication::translate("MainWindow", "EXPORT TABLE", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "EDIT", nullptr));
         lb_addCourse->setText(QCoreApplication::translate("MainWindow", "ADD COURSE", nullptr));
         box_numCredits->setItemText(0, QCoreApplication::translate("MainWindow", "2", nullptr));
         box_numCredits->setItemText(1, QCoreApplication::translate("MainWindow", "3", nullptr));
@@ -3840,9 +3882,11 @@ public:
         txt_maxStudents->setPlaceholderText(QCoreApplication::translate("MainWindow", "Default 50", nullptr));
         lb_maxStudents->setText(QCoreApplication::translate("MainWindow", "Max Students", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "ADD STUDENT TO COURSE", nullptr));
-        label_4->setText(QCoreApplication::translate("MainWindow", "Student ID", nullptr));
-        label_5->setText(QCoreApplication::translate("MainWindow", "Student Name", nullptr));
-        lb_scoreBoard_2->setText(QCoreApplication::translate("MainWindow", "COURSE ID - COURSE NAME - CLASS NAME", nullptr));
+        lb_studentID->setText(QCoreApplication::translate("MainWindow", "Student ID", nullptr));
+        lb_studentName->setText(QCoreApplication::translate("MainWindow", "Student Name", nullptr));
+        lb_courseData->setText(QCoreApplication::translate("MainWindow", "COURSE ID - COURSE NAME - CLASS NAME", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
     } // retranslateUi
 
 };

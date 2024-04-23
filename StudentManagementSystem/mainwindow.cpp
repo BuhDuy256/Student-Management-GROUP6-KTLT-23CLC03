@@ -46,8 +46,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->checkBox->setFont(minecraftFont);
     ui->checkBox_2->setFont(minecraftFont);
     ui->checkBox_3->setFont(minecraftFont);
-    ui->checkBox_4->setFont(minecraftFont);
-    ui->checkBox_edit->setFont(minecraftFont);
     ui->button_currentDay->setFont(minecraftFont);
     ui->sem_select->setFont(minecraftFont);
     ui->sy_select->setFont(minecraftFont);
@@ -211,8 +209,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_className->setFont(minecraftFont);
     ui->lb_teacherName->setFont(minecraftFont);
     ui->lb_maxStudents->setFont(minecraftFont);
-    ui->label_4->setFont(minecraftFont);
-    ui->label_5->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
 
@@ -227,7 +223,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_class->setFont(minecraftFont);
     ui->lb_latestSED->setFont(minecraftFont);
     ui->lb_scoreBoard->setFont(minecraftFont);
-    ui->lb_scoreBoard_2->setFont(minecraftFont);
     ui->label_3->setFont(minecraftFont);
     ui->lb_addCourse->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
@@ -1839,18 +1834,6 @@ void MainWindow::on_button_back_11_clicked()
     ui->stackedWidget_3->setCurrentIndex(0);
 }
 
-
-void MainWindow::on_checkBox_edit_stateChanged(int arg1)
-{
-    if (ui->checkBox_edit->isChecked())
-    {
-        MessageBox_information("Notification", "Double Click On A Cell To Edit");
-        ui->table_course->setEditTriggers(QAbstractItemView::DoubleClicked);
-    }
-    else ui->table_course->setEditTriggers(QAbstractItemView::NoEditTriggers);
-}
-
-
 void MainWindow::on_table_course_itemDoubleClicked(QTableWidgetItem *item)
 {
     if (ui->table_course->currentColumn() < 2 || ui->table_course->currentColumn() == 5)
@@ -2103,5 +2086,97 @@ void MainWindow::on_button_removeStudent_clicked()
 void MainWindow::on_button_addStudent_2_clicked()
 {
     ui->stackedWidget_5->setCurrentIndex(3);
+
+    int row = ui->table_course->currentRow();
+
+    std::string ID = ui->table_course->item(row, 0)->text().toStdString();
+    std::string courseName = ui->table_course->item(row, 1)->text().toStdString();
+    std::string className = ui->table_course->item(row, 2)->text().toStdString();
+    int courseSize = ui->table_course->item(row, 5)->text().toInt();
+    int maxStudents = ui->table_course->item(row, 6)->text().toInt();
+    std::string courseData = ID + " - " + courseName + " - " + className;
+
+    if (courseSize + 1 > maxStudents) {
+        MessageBox("Error", "The Number Of Students In This Course Reached Maximum!");
+        return;
+    }
+
+    ui->lb_courseData->setText(QString::fromStdString(courseData));
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    ui->stackedWidget_5->setCurrentIndex(1);
+}
+
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    std::string studentID = ui->txt_studentID->text().toStdString();
+    std::string studentName = ui->txt_studentName->text().toStdString();
+
+    int row = ui->table_course->currentRow();
+    std::string courseID = ui->table_course->item(row, 0)->text().toStdString();
+    std::string className = ui->table_course->item(row, 2)->text().toStdString();
+
+    StudentScore studentScore;
+    studentScore.studentID = studentID;
+    studentScore.studentName = studentName;
+
+    if (!isValidStudentID(studentScore.studentID)) {
+        MessageBox("Error", "Invalid Student ID!");
+        return;
+    }
+    if (!isValidCouOrStuName(studentScore.studentName)) {
+        MessageBox("Error", "Invalid Student Name!");
+        return;
+    }
+
+    int ret = MessageBox_ok_cancel("Confirmation", "Do You Want To Add [" + studentID + "] To [" + courseID + "] ?");
+    if (ret == QMessageBox::Cancel) return;
+
+    // search course
+    Node<SchoolYear>* tempYear = latestSYear;
+    Node<Course>* couCurr = nullptr;
+    while (tempYear)
+    {
+        for (int i = 2; i >= 0; i--)
+        {
+            Node<Course>* tempCou = tempYear->data.semesters[i].Courses;
+            while(tempCou)
+            {
+                if (tempCou->data.ID == courseID && tempCou->data.className == className)
+                {
+                    couCurr = tempCou;
+                    break;
+                }
+                tempCou = tempCou->next;
+            }
+        }
+        tempYear = tempYear->next;
+    }
+
+    if (checkMatchStudentIDAndName(studentScore.studentID, studentScore.studentName)) {
+        formalize(studentScore.studentName);
+        bool isExist = false;
+        for (int i = 0; i < couCurr->data.courseSize; i++) {
+            if (studentScore.studentID == couCurr->data.score[i].studentID) {
+                isExist = true;
+                break;
+            }
+        }
+        if (!isExist) {
+            formalize(studentScore.studentName);
+            couCurr->data.score[couCurr->data.courseSize] = studentScore;
+            couCurr->data.courseSize++;
+            MessageBox_information("Notification", "Student Added Successfully!");
+        }
+        else {
+            MessageBox_information("Notification", "Student Has Been Already In The Course!");
+        }
+    }
+    else {
+        MessageBox("Error", "Student ID and Student Name Do Not Match!");
+    }
 }
 

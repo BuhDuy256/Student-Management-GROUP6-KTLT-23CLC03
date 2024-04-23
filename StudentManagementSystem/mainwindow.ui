@@ -2254,7 +2254,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>5</number>
+           <number>9</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -3912,7 +3912,7 @@ color:white;
 }</string>
               </property>
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="page_addOne">
                <layout class="QGridLayout" name="gridLayout_12">
@@ -5132,7 +5132,7 @@ QScrollBar::sub-line:vertical {
 }</string>
               </property>
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="page_2">
                <widget class="QPushButton" name="button_back_11">
@@ -5502,30 +5502,6 @@ QComboBox::hover {
                  <string>REMOVE FILTER</string>
                 </property>
                </widget>
-               <widget class="QCheckBox" name="checkBox_edit">
-                <property name="geometry">
-                 <rect>
-                  <x>30</x>
-                  <y>510</y>
-                  <width>93</width>
-                  <height>26</height>
-                 </rect>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>-1</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">#checkBox_edit{
-        color: #FBFFF4;
-	font-size: 16px;
-}</string>
-                </property>
-                <property name="text">
-                 <string>Edit</string>
-                </property>
-               </widget>
                <widget class="QPushButton" name="button_addCourse">
                 <property name="geometry">
                  <rect>
@@ -5550,6 +5526,19 @@ QComboBox::hover {
                 </property>
                 <property name="text">
                  <string>REMOVE COURSE</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="pushButton_2">
+                <property name="geometry">
+                 <rect>
+                  <x>20</x>
+                  <y>500</y>
+                  <width>101</width>
+                  <height>41</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>EDIT</string>
                 </property>
                </widget>
               </widget>
@@ -5748,7 +5737,7 @@ QScrollBar::sub-line:vertical {
                <widget class="QPushButton" name="button_addStudent_2">
                 <property name="geometry">
                  <rect>
-                  <x>90</x>
+                  <x>110</x>
                   <y>510</y>
                   <width>161</width>
                   <height>41</height>
@@ -5761,7 +5750,7 @@ QScrollBar::sub-line:vertical {
                <widget class="QPushButton" name="button_removeStudent">
                 <property name="geometry">
                  <rect>
-                  <x>280</x>
+                  <x>300</x>
                   <y>510</y>
                   <width>171</width>
                   <height>41</height>
@@ -5774,7 +5763,7 @@ QScrollBar::sub-line:vertical {
                <widget class="QPushButton" name="button_importScoreBoard">
                 <property name="geometry">
                  <rect>
-                  <x>490</x>
+                  <x>510</x>
                   <y>510</y>
                   <width>171</width>
                   <height>41</height>
@@ -5782,28 +5771,6 @@ QScrollBar::sub-line:vertical {
                 </property>
                 <property name="text">
                  <string>IMPORT SCOREBOARD</string>
-                </property>
-               </widget>
-               <widget class="QCheckBox" name="checkBox_4">
-                <property name="geometry">
-                 <rect>
-                  <x>10</x>
-                  <y>510</y>
-                  <width>111</width>
-                  <height>31</height>
-                 </rect>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>11</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: white;
-</string>
-                </property>
-                <property name="text">
-                 <string>Edit</string>
                 </property>
                </widget>
                <widget class="QPushButton" name="button_exportTable">
@@ -5817,6 +5784,19 @@ QScrollBar::sub-line:vertical {
                 </property>
                 <property name="text">
                  <string>EXPORT TABLE</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="pushButton">
+                <property name="geometry">
+                 <rect>
+                  <x>20</x>
+                  <y>510</y>
+                  <width>81</width>
+                  <height>41</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>EDIT</string>
                 </property>
                </widget>
               </widget>
@@ -6025,8 +6005,8 @@ QComboBox::hover {
                <widget class="QLabel" name="lb_session">
                 <property name="geometry">
                  <rect>
-                  <x>370</x>
-                  <y>410</y>
+                  <x>360</x>
+                  <y>400</y>
                   <width>91</width>
                   <height>41</height>
                  </rect>
@@ -6327,9 +6307,9 @@ padding: 10px;</string>
                <widget class="QLabel" name="label_3">
                 <property name="geometry">
                  <rect>
-                  <x>230</x>
+                  <x>250</x>
                   <y>10</y>
-                  <width>451</width>
+                  <width>411</width>
                   <height>51</height>
                  </rect>
                 </property>
@@ -6375,11 +6355,11 @@ padding: 10px;</string>
                  <string notr="true">padding-left: 10px;</string>
                 </property>
                </widget>
-               <widget class="QLabel" name="label_4">
+               <widget class="QLabel" name="lb_studentID">
                 <property name="geometry">
                  <rect>
                   <x>120</x>
-                  <y>130</y>
+                  <y>140</y>
                   <width>121</width>
                   <height>41</height>
                  </rect>
@@ -6399,7 +6379,7 @@ padding: 10px;</string>
                  <set>Qt::AlignCenter</set>
                 </property>
                </widget>
-               <widget class="QLabel" name="label_5">
+               <widget class="QLabel" name="lb_studentName">
                 <property name="geometry">
                  <rect>
                   <x>90</x>
@@ -6423,7 +6403,7 @@ padding: 10px;</string>
                  <set>Qt::AlignCenter</set>
                 </property>
                </widget>
-               <widget class="QLabel" name="lb_scoreBoard_2">
+               <widget class="QLabel" name="lb_courseData">
                 <property name="geometry">
                  <rect>
                   <x>190</x>
@@ -6451,6 +6431,32 @@ padding: 10px;</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="pushButton_3">
+                <property name="geometry">
+                 <rect>
+                  <x>150</x>
+                  <y>410</y>
+                  <width>201</width>
+                  <height>61</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>CONFIRM</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="pushButton_4">
+                <property name="geometry">
+                 <rect>
+                  <x>590</x>
+                  <y>410</y>
+                  <width>201</width>
+                  <height>61</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>BACK</string>
                 </property>
                </widget>
               </widget>
