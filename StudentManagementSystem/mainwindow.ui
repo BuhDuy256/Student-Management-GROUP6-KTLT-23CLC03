@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1220</width>
-    <height>695</height>
+    <width>1230</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -2260,7 +2260,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>7</number>
+           <number>9</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -3979,7 +3979,7 @@ QScrollBar::sub-line:vertical {
     subcontrol-origin: margin;
 }
 
-font-size: 14px;
+font-size: 16px;
 
 
 
@@ -5537,7 +5537,7 @@ QComboBox::hover {
                  <string>REMOVE COURSE</string>
                 </property>
                </widget>
-               <widget class="QPushButton" name="pushButton_2">
+               <widget class="QPushButton" name="button_edit">
                 <property name="geometry">
                  <rect>
                   <x>20</x>
@@ -5971,12 +5971,12 @@ QComboBox::hover {
                 </property>
                 <item>
                  <property name="text">
-                  <string>07:30</string>
+                  <string>7:30</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>09:30</string>
+                  <string>9:30</string>
                  </property>
                 </item>
                 <item>
@@ -6442,7 +6442,7 @@ padding: 10px;</string>
                  <set>Qt::AlignCenter</set>
                 </property>
                </widget>
-               <widget class="QPushButton" name="pushButton_3">
+               <widget class="QPushButton" name="button_confirm_9">
                 <property name="geometry">
                  <rect>
                   <x>150</x>
@@ -6455,7 +6455,7 @@ padding: 10px;</string>
                  <string>CONFIRM</string>
                 </property>
                </widget>
-               <widget class="QPushButton" name="pushButton_4">
+               <widget class="QPushButton" name="button_back_15">
                 <property name="geometry">
                  <rect>
                   <x>590</x>
@@ -6466,6 +6466,542 @@ padding: 10px;</string>
                 </property>
                 <property name="text">
                  <string>BACK</string>
+                </property>
+               </widget>
+              </widget>
+              <widget class="QWidget" name="page_6">
+               <widget class="QLabel" name="label_4">
+                <property name="geometry">
+                 <rect>
+                  <x>260</x>
+                  <y>10</y>
+                  <width>411</width>
+                  <height>51</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>18</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;
+</string>
+                </property>
+                <property name="text">
+                 <string>EDIT COURSE DATA</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+               <widget class="QLabel" name="lb_courseID_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>150</x>
+                  <y>90</y>
+                  <width>98</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;</string>
+                </property>
+                <property name="text">
+                 <string>Course ID</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+               <widget class="QLabel" name="lb_numCredits_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>80</x>
+                  <y>390</y>
+                  <width>201</width>
+                  <height>41</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;</string>
+                </property>
+                <property name="text">
+                 <string>Number of Credits</string>
+                </property>
+               </widget>
+               <widget class="QLineEdit" name="txt_className_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>280</x>
+                  <y>200</y>
+                  <width>471</width>
+                  <height>53</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>53</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #000000;
+background-color: rgba(255,255,255,200);
+padding: 10px;</string>
+                </property>
+               </widget>
+               <widget class="QLineEdit" name="txt_maxStudents_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>280</x>
+                  <y>320</y>
+                  <width>471</width>
+                  <height>53</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>53</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #000000;
+background-color: rgba(255,255,255,200);
+padding: 10px;</string>
+                </property>
+                <property name="placeholderText">
+                 <string>Default 50</string>
+                </property>
+               </widget>
+               <widget class="QComboBox" name="box_numCredits_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>280</x>
+                  <y>400</y>
+                  <width>71</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>-1</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QComboBox {
+	font-size: 16px;
+	border-image: url(:/background/button.png);
+	background-color: rgb(133, 133, 133);
+	color: #F5F0F0;
+}
+
+QComboBox::hover {
+ 	color: #292727
+}</string>
+                </property>
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>4</string>
+                 </property>
+                </item>
+               </widget>
+               <widget class="QLineEdit" name="txt_courseID_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>280</x>
+                  <y>80</y>
+                  <width>471</width>
+                  <height>53</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>53</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #000000;
+background-color: rgba(255,255,255,200);
+padding: 10px;</string>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+               <widget class="QLabel" name="lb_courseName_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>120</x>
+                  <y>150</y>
+                  <width>137</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;</string>
+                </property>
+                <property name="text">
+                 <string>Course Name</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+               <widget class="QLabel" name="lb_session_2_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>380</x>
+                  <y>390</y>
+                  <width>91</width>
+                  <height>41</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;</string>
+                </property>
+                <property name="text">
+                 <string>Session</string>
+                </property>
+               </widget>
+               <widget class="QLineEdit" name="txt_courseName_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>280</x>
+                  <y>140</y>
+                  <width>471</width>
+                  <height>53</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>53</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #000000;
+background-color: rgba(255,255,255,200);
+padding: 10px;</string>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+               <widget class="QComboBox" name="box_session_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>620</x>
+                  <y>400</y>
+                  <width>131</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>-1</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QComboBox {
+	font-size: 16px;
+	border-image: url(:/background/button.png);
+	background-color: rgb(133, 133, 133);
+	color: #F5F0F0;
+}
+
+QComboBox::hover {
+ 	color: #292727
+}</string>
+                </property>
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>7:30</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>9:30</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>13:30</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>15:30</string>
+                 </property>
+                </item>
+               </widget>
+               <widget class="QLabel" name="lb_maxStudents_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>110</x>
+                  <y>330</y>
+                  <width>153</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;</string>
+                </property>
+                <property name="text">
+                 <string>Max Students</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+               <widget class="QLabel" name="lb_className_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>130</x>
+                  <y>210</y>
+                  <width>119</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;</string>
+                </property>
+                <property name="text">
+                 <string>Class Name</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+               <widget class="QLabel" name="lb_teacherName_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>110</x>
+                  <y>270</y>
+                  <width>153</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;</string>
+                </property>
+                <property name="text">
+                 <string>Tearcher Name</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="button_confirm_8">
+                <property name="geometry">
+                 <rect>
+                  <x>90</x>
+                  <y>460</y>
+                  <width>221</width>
+                  <height>61</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>CONFIRM</string>
+                </property>
+               </widget>
+               <widget class="QComboBox" name="box_dayOfWeek_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>480</x>
+                  <y>400</y>
+                  <width>131</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>-1</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QComboBox {
+	font-size: 16px;
+	border-image: url(:/background/button.png);
+	background-color: rgb(133, 133, 133);
+	color: #F5F0F0;
+}
+
+QComboBox::hover {
+ 	color: #292727
+}</string>
+                </property>
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>MON</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>TUE</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>WED</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>THU</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>FRI</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>SAT</string>
+                 </property>
+                </item>
+               </widget>
+               <widget class="QPushButton" name="button_back_14">
+                <property name="geometry">
+                 <rect>
+                  <x>640</x>
+                  <y>460</y>
+                  <width>231</width>
+                  <height>61</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>BACK</string>
+                </property>
+               </widget>
+               <widget class="QLineEdit" name="txt_teacherName_edit">
+                <property name="geometry">
+                 <rect>
+                  <x>280</x>
+                  <y>260</y>
+                  <width>471</width>
+                  <height>53</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>53</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #000000;
+background-color: rgba(255,255,255,200);
+padding: 10px;</string>
+                </property>
+               </widget>
+              </widget>
+              <widget class="QWidget" name="page_7">
+               <widget class="QLabel" name="label_5">
+                <property name="geometry">
+                 <rect>
+                  <x>250</x>
+                  <y>10</y>
+                  <width>411</width>
+                  <height>51</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>18</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;
+</string>
+                </property>
+                <property name="text">
+                 <string>EDIT STUDENT DATA</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
                 </property>
                </widget>
               </widget>

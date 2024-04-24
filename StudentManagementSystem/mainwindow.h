@@ -203,9 +203,15 @@ private slots:
 
     void on_button_addStudent_2_clicked();
 
-    void on_pushButton_4_clicked();
+    void on_button_back_15_clicked();
 
-    void on_pushButton_3_clicked();
+    void on_button_confirm_9_clicked();
+
+    void on_button_edit_clicked();
+
+    void on_button_back_14_clicked();
+
+    void on_button_confirm_8_clicked();
 
 private:
     Ui::MainWindow *ui;

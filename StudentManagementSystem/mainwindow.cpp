@@ -143,6 +143,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->box_session->setFont(minecraftFont);
     ui->box_numCredits->setFont(minecraftFont);
     ui->box_dayOfWeek->setFont(minecraftFont);
+    ui->tableWidget_2->setFont(minecraftFont);
 
     minecraftFont.setPointSize(18);
     ui->txtPassword->setFont(minecraftFont);
@@ -2104,13 +2105,13 @@ void MainWindow::on_button_addStudent_2_clicked()
     ui->lb_courseData->setText(QString::fromStdString(courseData));
 }
 
-void MainWindow::on_pushButton_4_clicked()
+void MainWindow::on_button_back_15_clicked()
 {
     ui->stackedWidget_5->setCurrentIndex(1);
 }
 
 
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_button_confirm_9_clicked()
 {
     std::string studentID = ui->txt_studentID->text().toStdString();
     std::string studentName = ui->txt_studentName->text().toStdString();
@@ -2178,5 +2179,49 @@ void MainWindow::on_pushButton_3_clicked()
     else {
         MessageBox("Error", "Student ID and Student Name Do Not Match!");
     }
+}
+
+
+void MainWindow::on_button_edit_clicked()
+{
+    if (ui->table_course->selectedItems().isEmpty())
+    {
+        MessageBox("Error", "Select A Course To Edit!");
+        return;
+    }
+
+    ui->stackedWidget_5->setCurrentIndex(4);
+
+    int row = ui->table_course->currentRow();
+
+    ui->txt_courseID_edit->setText(ui->table_course->item(row, 0)->text());
+    ui->txt_courseName_edit->setText(ui->table_course->item(row, 1)->text());
+    ui->txt_className_edit->setText(ui->table_course->item(row, 2)->text());
+    ui->txt_teacherName_edit->setText(ui->table_course->item(row, 3)->text());
+    ui->txt_maxStudents_edit->setText(ui->table_course->item(row, 6)->text());
+    ui->box_numCredits_edit->setCurrentText(ui->table_course->item(row, 4)->text());
+    ui->box_dayOfWeek_edit->setCurrentText(ui->table_course->item(row, 7)->text());
+    ui->box_session_edit->setCurrentText(ui->table_course->item(row, 8)->text());
+}
+
+
+void MainWindow::on_button_back_14_clicked()
+{
+    ui->stackedWidget_5->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_button_confirm_8_clicked()
+{
+    // Course couCurr;
+    // couCurr.ID = ui->table_course->item(row, 0)->text().toStdString();
+    // couCurr.Name = ui->table_course->item(row, 1)->text().toStdString();
+    // couCurr.className = ui->table_course->item(row, 2)->text().toStdString();
+    // couCurr.teacherName = ui->table_course->item(row, 3)->text().toStdString();
+    // couCurr.nCredits = ui->table_course->item(row, 4)->text().toInt();
+    // couCurr.courseSize = ui->table_course->item(row, 5)->text().toInt();
+    // couCurr.maxStudents = ui->table_course->item(row, 6)->text().toInt();
+    // couCurr.dayOfWeek = ui->table_course->item(row, 7)->text().toStdString();
+    // couCurr.session = ui->table_course->item(row, 8)->text().toStdString();
 }
 
