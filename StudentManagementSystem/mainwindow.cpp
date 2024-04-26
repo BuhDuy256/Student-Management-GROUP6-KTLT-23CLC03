@@ -303,7 +303,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
     ui->tableWidget_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
     ui->tableWidget_2->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-
 }
 
 MainWindow::~MainWindow()

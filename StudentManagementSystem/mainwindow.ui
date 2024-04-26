@@ -97,8 +97,8 @@ color: black;
           </property>
           <property name="styleSheet">
            <string notr="true">#widget{
-border-radius:40px;
-        background-color: rgba(0, 0, 0, 175);
+	border-radius:40px;
+     background-color: rgba(0, 0, 0, 175);
 }
 
 #lb_username{
@@ -124,6 +124,8 @@ color: white;
 #txtPassword{
 color: white;
 }
+
+
 
 </string>
           </property>
@@ -2179,7 +2181,7 @@ font-size: 16px;</string>
         <item row="0" column="1">
          <widget class="QStackedWidget" name="stackedWidget_3">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+           <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -2260,7 +2262,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>3</number>
+           <number>9</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -2936,6 +2938,9 @@ padding-left: 10px;</string>
             </property>
             <property name="text">
              <string>Create New Semester</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
            <widget class="QWidget" name="layoutWidget">
@@ -5141,13 +5146,13 @@ QScrollBar::sub-line:vertical {
 }</string>
               </property>
               <property name="currentIndex">
-               <number>5</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="page_2">
                <widget class="QPushButton" name="button_back_11">
                 <property name="geometry">
                  <rect>
-                  <x>730</x>
+                  <x>750</x>
                   <y>500</y>
                   <width>141</width>
                   <height>41</height>
@@ -5208,14 +5213,14 @@ QComboBox::hover {
                <widget class="QTableWidget" name="table_course">
                 <property name="geometry">
                  <rect>
-                  <x>10</x>
+                  <x>20</x>
                   <y>50</y>
-                  <width>891</width>
+                  <width>871</width>
                   <height>441</height>
                  </rect>
                 </property>
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
@@ -5312,6 +5317,15 @@ QScrollBar::sub-line:vertical {
 
 
 </string>
+                </property>
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAsNeeded</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAsNeeded</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::AdjustIgnored</enum>
                 </property>
                 <property name="editTriggers">
                  <set>QAbstractItemView::NoEditTriggers</set>
@@ -5470,7 +5484,7 @@ QComboBox::hover {
                <widget class="QPushButton" name="button_viewStudent">
                 <property name="geometry">
                  <rect>
-                  <x>540</x>
+                  <x>570</x>
                   <y>500</y>
                   <width>131</width>
                   <height>40</height>
@@ -5514,7 +5528,7 @@ QComboBox::hover {
                <widget class="QPushButton" name="button_addCourse">
                 <property name="geometry">
                  <rect>
-                  <x>130</x>
+                  <x>180</x>
                   <y>500</y>
                   <width>131</width>
                   <height>41</height>
@@ -5527,7 +5541,7 @@ QComboBox::hover {
                <widget class="QPushButton" name="button_removeCourse">
                 <property name="geometry">
                  <rect>
-                  <x>340</x>
+                  <x>370</x>
                   <y>500</y>
                   <width>141</width>
                   <height>41</height>
@@ -5555,14 +5569,14 @@ QComboBox::hover {
                <widget class="QTableWidget" name="table_student_2">
                 <property name="geometry">
                  <rect>
-                  <x>10</x>
+                  <x>30</x>
                   <y>50</y>
-                  <width>891</width>
+                  <width>851</width>
                   <height>441</height>
                  </rect>
                 </property>
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
@@ -5654,6 +5668,9 @@ QScrollBar::sub-line:vertical {
 
 </string>
                 </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Sunken</enum>
+                </property>
                 <property name="editTriggers">
                  <set>QAbstractItemView::NoEditTriggers</set>
                 </property>
@@ -5700,7 +5717,7 @@ QScrollBar::sub-line:vertical {
                <widget class="QPushButton" name="button_coursesList">
                 <property name="geometry">
                  <rect>
-                  <x>730</x>
+                  <x>740</x>
                   <y>510</y>
                   <width>141</width>
                   <height>40</height>
@@ -5746,7 +5763,7 @@ QScrollBar::sub-line:vertical {
                <widget class="QPushButton" name="button_addStudent_2">
                 <property name="geometry">
                  <rect>
-                  <x>110</x>
+                  <x>140</x>
                   <y>510</y>
                   <width>161</width>
                   <height>41</height>
@@ -5759,7 +5776,7 @@ QScrollBar::sub-line:vertical {
                <widget class="QPushButton" name="button_removeStudent">
                 <property name="geometry">
                  <rect>
-                  <x>300</x>
+                  <x>340</x>
                   <y>510</y>
                   <width>171</width>
                   <height>41</height>
@@ -5772,7 +5789,7 @@ QScrollBar::sub-line:vertical {
                <widget class="QPushButton" name="button_importScoreBoard">
                 <property name="geometry">
                  <rect>
-                  <x>510</x>
+                  <x>540</x>
                   <y>510</y>
                   <width>171</width>
                   <height>41</height>
@@ -5798,7 +5815,7 @@ QScrollBar::sub-line:vertical {
                <widget class="QPushButton" name="pushButton">
                 <property name="geometry">
                  <rect>
-                  <x>20</x>
+                  <x>30</x>
                   <y>510</y>
                   <width>81</width>
                   <height>41</height>
