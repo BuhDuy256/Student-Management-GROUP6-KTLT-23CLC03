@@ -15,28 +15,28 @@ MainWindow::MainWindow(QWidget* parent)
     QFont minecraftFont(fontName);
 
     ui->tableWidget->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1;font-size: 14px;}"
-                                      "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+        "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
     ui->table_scoreboard->setStyleSheet(QString(ui->table_scoreboard->styleSheet() + "QTableWidget { font-family: %1;font-size: 14px;}"
-                                                                           "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+        "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
 
     ui->table_student->setStyleSheet(QString(ui->table_student->styleSheet() + "QTableWidget { font-family: %1; }"
-                                                                             "QTableWidget QHeaderView::section { font-family: %1; font-size: 14px;}").arg(fontName));
+        "QTableWidget QHeaderView::section { font-family: %1; font-size: 14px;}").arg(fontName));
     ui->tableWidget_2->setStyleSheet(QString(ui->tableWidget_2->styleSheet() + "QTableWidget { font-family: %1; }"
-                                                                             "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+        "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
     ui->table_course->setStyleSheet(QString(ui->table_course->styleSheet() + "QTableWidget { font-family: %1; font-size: 14px;}"
-                                                                               "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+        "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
     ui->table_student_2->setStyleSheet(QString(ui->table_student_2->styleSheet() + "QTableWidget { font-family: %1; font-size: 14px;}"
-                                                                             "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+        "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
 
     ui->calendarWidget_3->setStyleSheet(QString(ui->calendarWidget_3->styleSheet() + "QMenu { font-family: %1;}"
-                                                                                     "QWidget#qt_calendar_navigationbar {font-family: %1}"
-                                                                                     "QCalendarWidget { font-family: %1;}").arg(fontName));
+        "QWidget#qt_calendar_navigationbar {font-family: %1}"
+        "QCalendarWidget { font-family: %1;}").arg(fontName));
     ui->calendarWidget_2->setStyleSheet(QString(ui->calendarWidget_2->styleSheet() + "QMenu { font-family: %1;}"
-                                                                                     "QWidget#qt_calendar_navigationbar {font-family: %1}"
-                                                                                     "QCalendarWidget { font-family: %1;}").arg(fontName));
+        "QWidget#qt_calendar_navigationbar {font-family: %1}"
+        "QCalendarWidget { font-family: %1;}").arg(fontName));
     ui->calendarWidget->setStyleSheet(QString(ui->calendarWidget->styleSheet() + "QMenu { font-family: %1;}"
-                                                                                       "QWidget#qt_calendar_navigationbar {font-family: %1}"
-                                                                                       "QCalendarWidget { font-family: %1;}").arg(fontName));
+        "QWidget#qt_calendar_navigationbar {font-family: %1}"
+        "QCalendarWidget { font-family: %1;}").arg(fontName));
 
 
     minecraftFont.setPointSize(9);
@@ -533,7 +533,7 @@ void MainWindow::show_tableWidget_list()
         }
         couCurr = couCurr->next;
     }
-    ui->tableWidget->setHorizontalHeaderLabels({"Course ID", "Course Name", "Course Class", "Teacher Name", "Number of Credits", "Course Size","Max Students", "Day of Week", "Session"});
+    ui->tableWidget->setHorizontalHeaderLabels({ "Course ID", "Course Name", "Course Class", "Teacher Name", "Number of Credits", "Course Size","Max Students", "Day of Week", "Session" });
     ui->tableWidget->resizeColumnsToContents();
 
     resizeTable(ui->tableWidget);
@@ -562,7 +562,7 @@ void MainWindow::show_tableWidget_score()
         }
         couCurr = couCurr->next;
     }
-    ui->tableWidget->setHorizontalHeaderLabels({"Course ID", "Course Name", "Mid Term", "Final", "Other", "Total"});
+    ui->tableWidget->setHorizontalHeaderLabels({ "Course ID", "Course Name", "Mid Term", "Final", "Other", "Total" });
     ui->tableWidget->resizeColumnsToContents();
 
     resizeTable(ui->tableWidget);
@@ -1007,7 +1007,7 @@ void MainWindow::on_button_createClass_clicked()
 }
 
 
-void MainWindow::on_box_selectSY_currentTextChanged(const QString &arg1)
+void MainWindow::on_box_selectSY_currentTextChanged(const QString& arg1)
 {
     std::string sy = ui->box_selectSY->currentText().toStdString();
 
@@ -1132,7 +1132,7 @@ void MainWindow::on_button_selectDate_clicked()
 }
 
 
-void MainWindow::on_box_selectClass_currentTextChanged(const QString &arg1)
+void MainWindow::on_box_selectClass_currentTextChanged(const QString& arg1)
 {
     ui->tableWidget_2->setRowCount(0);
     std::string className = ui->box_selectClass->currentText().toStdString();
@@ -1173,7 +1173,7 @@ void MainWindow::on_button_confirm_5_clicked()
     std::string className = ui->box_selectClass->currentText().toStdString();
     Node<Class>* claCurr = latestSYear->data.classes;
     Node<SchoolYear>* tempYear = latestSYear;
-    while(tempYear)
+    while (tempYear)
     {
         while (claCurr)
         {
@@ -1196,17 +1196,17 @@ void MainWindow::on_button_confirm_5_clicked()
         MessageBox("Error", "Student ID Must Be A 8-Digit Number!");
         return;
     }
-    
-     Node<SchoolYear>* checkExist = latestSYear;
-    while(checkExist)
+
+    Node<SchoolYear>* checkExist = latestSYear;
+    while (checkExist)
     {
         Node<Class>* ClassesInSY = checkExist->data.classes;
-        while(ClassesInSY)
+        while (ClassesInSY)
         {
             Node<Student>* StuInClass = ClassesInSY->data.students;
-            while(StuInClass)
+            while (StuInClass)
             {
-                if(StuInClass->data.ID == newStudentID || StuInClass->data.socialID == newStudentSocialID)
+                if (StuInClass->data.ID == newStudentID || StuInClass->data.socialID == newStudentSocialID)
                 {
                     MessageBox("Error", "Student already studies in class" + ClassesInSY->data.className);
                     return;
@@ -1224,13 +1224,13 @@ void MainWindow::on_button_confirm_5_clicked()
         return;
     }
     formalize(newStudentName);
-    
+
     if (newStudentSocialID.length() != 8)
     {
         MessageBox("Error", "Social ID Must Be A 8-Digit Number!");
         return;
     }
-    
+
     Student newStudent;
     newStudent.ID = newStudentID;
     newStudent.name = newStudentName;
@@ -1382,7 +1382,7 @@ void MainWindow::on_button_back_12_clicked()
 }
 
 
-void MainWindow::on_list_classes_2_itemClicked(QListWidgetItem *item)
+void MainWindow::on_list_classes_2_itemClicked(QListWidgetItem* item)
 {
     ui->table_student->setRowCount(0);
     std::string className = item->text().toStdString();
@@ -1440,7 +1440,7 @@ void MainWindow::on_button_scoreOfClass_clicked()
 }
 
 
-void MainWindow::on_box_class_currentTextChanged(const QString &arg1)
+void MainWindow::on_box_class_currentTextChanged(const QString& arg1)
 {
     ui->box_year->clear();
     std::string className = ui->box_class->currentText().toStdString();
@@ -1453,7 +1453,7 @@ void MainWindow::on_box_class_currentTextChanged(const QString &arg1)
         ui->box_year->addItem(QString::fromStdString(syCurr->data.year));
         while (claCurr)
         {
-            if (claCurr->data.className == className) {ok = 0; break;}
+            if (claCurr->data.className == className) { ok = 0; break; }
             claCurr = claCurr->next;
         }
         if (ok) syCurr = syCurr->next;
@@ -1461,7 +1461,7 @@ void MainWindow::on_box_class_currentTextChanged(const QString &arg1)
 }
 
 
-void MainWindow::on_box_year_currentTextChanged(const QString &arg1)
+void MainWindow::on_box_year_currentTextChanged(const QString& arg1)
 {
     if (ui->box_year->count() == 0) return;
     ui->box_semester->clear();
@@ -1494,7 +1494,7 @@ void MainWindow::on_box_year_currentTextChanged(const QString &arg1)
 }
 
 
-void MainWindow::on_box_semester_currentTextChanged(const QString &arg1)
+void MainWindow::on_box_semester_currentTextChanged(const QString& arg1)
 {
     if (ui->box_semester->count() == 0) return;
 
@@ -1666,7 +1666,7 @@ void MainWindow::on_button_ok_2_clicked()
 }
 
 
-void MainWindow::on_sem_select_currentTextChanged(const QString &arg1)
+void MainWindow::on_sem_select_currentTextChanged(const QString& arg1)
 {
     if (ui->sem_select->count() == 0) return;
     on_button_ok_clicked();
@@ -1764,7 +1764,7 @@ void MainWindow::button_ok_3_clicked()
 }
 
 
-void MainWindow::on_box_selectSY_2_currentTextChanged(const QString &arg1)
+void MainWindow::on_box_selectSY_2_currentTextChanged(const QString& arg1)
 {
     if (ui->box_selectSY_2->count() == 0 || ui->box_selectSY_2->currentIndex() == -1) return;
     ui->box_selectSem->clear();
@@ -1788,7 +1788,7 @@ void MainWindow::on_box_selectSY_2_currentTextChanged(const QString &arg1)
     MainWindow::button_ok_3_clicked();
 }
 
-void MainWindow::on_box_selectSem_currentTextChanged(const QString &arg1)
+void MainWindow::on_box_selectSem_currentTextChanged(const QString& arg1)
 {
     if (ui->box_selectSem->count() == 0) return;
 
@@ -1817,7 +1817,7 @@ void MainWindow::on_button_viewStudent_clicked()
         for (int i = 2; i >= 0; i--)
         {
             Node<Course>* tempCou = tempYear->data.semesters[i].Courses;
-            while(tempCou)
+            while (tempCou)
             {
                 if (tempCou->data.ID == ID && tempCou->data.className == className)
                 {
@@ -1852,7 +1852,7 @@ void MainWindow::on_button_coursesList_clicked()
 }
 
 
-void MainWindow::on_txt_className_textEdited(const QString &arg1)
+void MainWindow::on_txt_className_textEdited(const QString& arg1)
 {
     ui->txt_className->setText(arg1.toUpper());
 }
@@ -1868,7 +1868,7 @@ void MainWindow::on_button_back_11_clicked()
     ui->stackedWidget_3->setCurrentIndex(0);
 }
 
-void MainWindow::on_table_course_itemDoubleClicked(QTableWidgetItem *item)
+void MainWindow::on_table_course_itemDoubleClicked(QTableWidgetItem* item)
 {
     if (ui->table_course->currentColumn() < 2 || ui->table_course->currentColumn() == 5)
     {
@@ -1894,7 +1894,7 @@ void MainWindow::on_button_removeCourse_clicked()
     std::string courseData = ID + " - " + courseName + " - " + className;
 
     int ret = MessageBox_ok_cancel("Confirmation", "Do You Want To Remove [" + courseData + "] Permanently?"
-                                                    "\n\nYou Will Lose All Information Of This Course");
+        "\n\nYou Will Lose All Information Of This Course");
     if (ret == QMessageBox::Cancel) return;
 
 
@@ -1915,7 +1915,7 @@ void MainWindow::on_button_removeCourse_clicked()
                 delete couCurr;
                 break;
             }
-            while(couCurr)
+            while (couCurr)
             {
                 if (couCurr->data.ID == ID && couCurr->data.className == className) // found course
                 {
@@ -2014,11 +2014,11 @@ void MainWindow::on_button_confirm_7_clicked()
     }
     formalize(newCourse.teacherName);
 
-    if (ui->box_numCredits->currentIndex() == -1){
+    if (ui->box_numCredits->currentIndex() == -1) {
         MessageBox("Error", "Choose Number of Credits");
         return;
     }
-    if (ui->box_dayOfWeek->currentIndex() == -1 || ui->box_session->currentIndex() == -1){
+    if (ui->box_dayOfWeek->currentIndex() == -1 || ui->box_session->currentIndex() == -1) {
         MessageBox("Error", "Choose Session");
         return;
     }
@@ -2058,13 +2058,13 @@ void MainWindow::on_button_back_13_clicked()
 }
 
 
-void MainWindow::on_txt_className_2_textEdited(const QString &arg1)
+void MainWindow::on_txt_className_2_textEdited(const QString& arg1)
 {
     ui->txt_className_2->setText(arg1.toUpper());
 }
 
 
-void MainWindow::on_txt_courseID_textEdited(const QString &arg1)
+void MainWindow::on_txt_courseID_textEdited(const QString& arg1)
 {
     ui->txt_courseID->setText(arg1.toUpper());
 }
@@ -2097,7 +2097,7 @@ void MainWindow::on_button_removeStudent_clicked()
         for (int i = 2; i >= 0; i--)
         {
             Node<Course>* couCurr = tempYear->data.semesters[i].Courses;
-            while(couCurr)
+            while (couCurr)
             {
                 if (couCurr->data.ID == courseID && couCurr->data.className == className) // found course
                 {
@@ -2177,7 +2177,7 @@ void MainWindow::on_button_confirm_9_clicked()
         for (int i = 2; i >= 0; i--)
         {
             Node<Course>* tempCou = tempYear->data.semesters[i].Courses;
-            while(tempCou)
+            while (tempCou)
             {
                 if (tempCou->data.ID == courseID && tempCou->data.className == className)
                 {
@@ -2286,7 +2286,7 @@ void MainWindow::on_button_confirm_8_clicked()
         return;
     }
 
-    int ret = MessageBox_ok_cancel("Confimation","Do You Want To Update This Information?");
+    int ret = MessageBox_ok_cancel("Confimation", "Do You Want To Update This Information?");
     if (ret == QMessageBox::Cancel) return;
 
     couCurr->className = couNew.className;
