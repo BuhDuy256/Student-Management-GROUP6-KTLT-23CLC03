@@ -2319,6 +2319,8 @@ void MainWindow::on_button_confirm_8_clicked()
 
 void MainWindow::on_table_course_cellClicked(int row, int column)
 {
+    int scrollPos = ui->table_course->horizontalScrollBar()->value();
     ui->table_course->selectRow(row);
+    ui->table_course->horizontalScrollBar()->setValue(scrollPos);
 }
 

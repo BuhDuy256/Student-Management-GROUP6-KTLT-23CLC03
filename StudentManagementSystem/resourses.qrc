@@ -23,7 +23,6 @@
     </qresource>
     <qresource prefix="/prefix">
         <file>CSV Files/AllClasses.csv</file>
-        <file>CSV Files/AllCourses.csv</file>
         <file>CSV Files/AllSchoolYears.csv</file>
         <file>CSV Files/AllSemesters.csv</file>
         <file>CSV Files/AllStaffs.csv</file>
@@ -379,5 +378,6 @@
         <file>CSV Files/List of Courses/VHR105_21CLC01.csv</file>
         <file>CSV Files/List of Courses/VHR105_21CLC02.csv</file>
         <file>CSV Files/List of Courses/VHR105_21CLC03.csv</file>
+        <file>CSV Files/AllCourses.csv</file>
     </qresource>
 </RCC>

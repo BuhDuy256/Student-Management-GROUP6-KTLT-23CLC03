@@ -185,8 +185,6 @@ private slots:
 
     void on_button_back_11_clicked();
 
-    void on_table_course_itemDoubleClicked(QTableWidgetItem *item);
-
     void on_button_removeCourse_clicked();
 
     void on_button_addCourse_clicked();
