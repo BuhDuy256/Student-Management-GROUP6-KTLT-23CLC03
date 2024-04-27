@@ -55,4 +55,5 @@ void viewListStudentInACourse();
 void viewScoreboardOfACourse();
 void chooseStudentToUpdateResult(Node<Course>* couCurr);
 void updateAStudentResultOfACourse();
-
+Course* getCourse(std::string ID, std::string className);
+SchoolYear* getSYofCourse(std::string ID, std::string className);

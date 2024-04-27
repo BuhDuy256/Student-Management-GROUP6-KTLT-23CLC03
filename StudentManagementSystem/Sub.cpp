@@ -118,17 +118,20 @@ bool isValidStudentID(std::string id) {
 }
 
 bool notExistclassNameOfCourse(const std::string& courseID, const std::string& className, const std::string& currentYear) {
-    if (!isValidClassName(className, currentYear)) {
-        return false;
-    }
-    Node<Course>* couCurr = currSem.Courses;
-    while (couCurr) {
-        if (couCurr->data.ID == courseID && couCurr->data.className == className) {
-            return false;
-        }
-        couCurr = couCurr->next;
-    }
-    return true;
+    // std::string year = getSYofCourse(courseID, className)->year;
+    // if (year != currentYear) return 0;
+    // Node<Course>* couCurr = currSem.Courses;
+    // while (couCurr) {
+    //     if (couCurr->data.ID == courseID && couCurr->data.className == className) {
+    //         return false;
+    //     }
+    //     couCurr = couCurr->next;
+    // }
+    // return true;
+
+    Course* tempCou = getCourse(courseID, className);
+    if (tempCou == nullptr) return 1;
+    return 0;
 }
 
 void formalize(std::string& name)

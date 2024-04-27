@@ -1050,3 +1050,47 @@ void importScoreboardOfACourse() {
         couCurr = couCurr->next;
     }
 }
+
+Course* getCourse(std::string ID, std::string className)
+{
+    Node<SchoolYear>* tempYear = latestSYear;
+    while (tempYear)
+    {
+        for (int i = 2; i >= 0; i--)
+        {
+            Node<Course>* tempCou = tempYear->data.semesters[i].Courses;
+            while(tempCou)
+            {
+                if (tempCou->data.ID == ID && tempCou->data.className == className)
+                {
+                    return &tempCou->data;
+                }
+                tempCou = tempCou->next;
+            }
+        }
+        tempYear = tempYear->next;
+    }
+    return nullptr;
+}
+
+SchoolYear* getSYofCourse(std::string ID, std::string className)
+{
+    Node<SchoolYear>* tempYear = latestSYear;
+    while (tempYear)
+    {
+        for (int i = 2; i >= 0; i--)
+        {
+            Node<Course>* tempCou = tempYear->data.semesters[i].Courses;
+            while(tempCou)
+            {
+                if (tempCou->data.ID == ID && tempCou->data.className == className)
+                {
+                    return &tempYear->data;
+                }
+                tempCou = tempCou->next;
+            }
+        }
+        tempYear = tempYear->next;
+    }
+    return nullptr;
+}

@@ -213,6 +213,8 @@ private slots:
 
     void on_button_confirm_8_clicked();
 
+    void on_table_course_cellClicked(int row, int column);
+
 private:
     Ui::MainWindow *ui;
 };

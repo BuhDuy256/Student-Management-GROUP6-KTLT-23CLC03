@@ -1672,9 +1672,9 @@ void MainWindow::on_sem_select_currentTextChanged(const QString &arg1)
     on_button_ok_clicked();
 }
 
-
 void MainWindow::on_button_removeFilter_clicked()
 {
+    int selectedRow = ui->table_course->currentRow();
     ui->box_selectSY_2->setCurrentIndex(-1);
     ui->box_selectSem->clear();
 
@@ -1705,6 +1705,8 @@ void MainWindow::on_button_removeFilter_clicked()
         tempYear = tempYear->next;
     }
     ui->table_course->resizeColumnsToContents();
+    if (selectedRow == -1) return;
+    ui->table_course->selectRow(selectedRow);
 }
 
 
@@ -1727,6 +1729,7 @@ void MainWindow::on_button_course_manage_clicked()
 
 void MainWindow::button_ok_3_clicked()
 {
+    int selectedRow = ui->table_course->currentRow();
     std::string year = ui->box_selectSY_2->currentText().toStdString();
     int sem = ui->box_selectSem->currentText().toInt();
 
@@ -1756,6 +1759,8 @@ void MainWindow::button_ok_3_clicked()
         tempYear = tempYear->next;
     }
     ui->table_course->resizeColumnsToContents();
+    if (selectedRow == -1) return;
+    ui->table_course->selectRow(selectedRow);;
 }
 
 
@@ -2241,15 +2246,79 @@ void MainWindow::on_button_back_14_clicked()
 
 void MainWindow::on_button_confirm_8_clicked()
 {
-    // Course couCurr;
-    // couCurr.ID = ui->table_course->item(row, 0)->text().toStdString();
-    // couCurr.Name = ui->table_course->item(row, 1)->text().toStdString();
-    // couCurr.className = ui->table_course->item(row, 2)->text().toStdString();
-    // couCurr.teacherName = ui->table_course->item(row, 3)->text().toStdString();
-    // couCurr.nCredits = ui->table_course->item(row, 4)->text().toInt();
-    // couCurr.courseSize = ui->table_course->item(row, 5)->text().toInt();
-    // couCurr.maxStudents = ui->table_course->item(row, 6)->text().toInt();
-    // couCurr.dayOfWeek = ui->table_course->item(row, 7)->text().toStdString();
-    // couCurr.session = ui->table_course->item(row, 8)->text().toStdString();
+    int row = ui->table_course->currentRow();
+
+    std::string ID = ui->table_course->item(row, 0)->text().toStdString();
+    std::string className = ui->table_course->item(row, 2)->text().toStdString();
+    Course* couCurr = getCourse(ID, className);
+
+    Course couNew = *couCurr;
+    couNew.className = ui->txt_className_edit->text().toStdString();
+    couNew.teacherName = ui->txt_teacherName_edit->text().toStdString();
+    couNew.nCredits = ui->box_numCredits_edit->currentText().toInt();
+    if (ui->txt_maxStudents_edit->text() == "") couNew.maxStudents = 50;
+    couNew.maxStudents = ui->txt_maxStudents_edit->text().toInt();
+    couNew.dayOfWeek = ui->box_dayOfWeek_edit->currentText().toStdString();
+    couNew.session = ui->box_session_edit->currentText().toStdString();
+
+
+    std::string year = getSYofCourse(ID, className)->year;
+
+    // if (!isValidClassName(couNew.className, year)) {
+    //     MessageBox("Error", "Invalid Class Name!");
+    //     return;
+    // }
+    if (!notExistclassNameOfCourse(ID, couNew.className, year) && couNew.className != className) {
+        MessageBox("Error", "Class Name Existed!");
+        return;
+    }
+    if (!isValidCouOrStuName(couNew.teacherName)) {
+        MessageBox("Error", "Invalid Teacher Name!");
+        return;
+    }
+    formalize(couNew.teacherName);
+    if (couNew.maxStudents < couCurr->courseSize) {
+        MessageBox("Error", "The Maximum Number Of Students Must Not Less Than The Number Of Students In The Course!");
+        return;
+    }
+    if (couNew.maxStudents < 1) {
+        MessageBox("Error", "Please Input A Positive Integer!");
+        return;
+    }
+
+    int ret = MessageBox_ok_cancel("Confimation","Do You Want To Update This Information?");
+    if (ret == QMessageBox::Cancel) return;
+
+    couCurr->className = couNew.className;
+    couCurr->teacherName = couNew.teacherName;
+    couCurr->nCredits = couNew.nCredits;
+    couCurr->maxStudents = couNew.maxStudents;
+    couCurr->dayOfWeek = couNew.dayOfWeek;
+    couCurr->session = couNew.session;
+
+    if (couNew.maxStudents > couCurr->courseSize) {
+        StudentScore* temp = new StudentScore[couNew.maxStudents];
+        for (int i = 0; i < couCurr->courseSize; i++) {
+            temp[i] = couCurr->score[i];
+        }
+        delete[] couCurr->score;
+        couCurr->score = temp;
+        couCurr->maxStudents = couNew.maxStudents;
+    }
+
+    MessageBox_information("Notification", "Course Updated Successfully!");
+
+    if (ui->box_selectSY_2->currentIndex() == -1) MainWindow::on_button_removeFilter_clicked();
+    else {
+        MainWindow::button_ok_3_clicked();
+    }
+    ui->stackedWidget_5->setCurrentIndex(0);
+}
+
+
+
+void MainWindow::on_table_course_cellClicked(int row, int column)
+{
+    ui->table_course->selectRow(row);
 }
 
