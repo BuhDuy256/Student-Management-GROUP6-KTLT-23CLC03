@@ -277,7 +277,7 @@ public:
     QPushButton *button_removeStudent;
     QPushButton *button_importScoreBoard;
     QPushButton *button_exportTable;
-    QPushButton *pushButton;
+    QPushButton *button_edit_2;
     QWidget *page_5;
     QLabel *lb_addCourse;
     QComboBox *box_numCredits;
@@ -327,13 +327,28 @@ public:
     QLineEdit *txt_teacherName_edit;
     QWidget *page_7;
     QLabel *label_5;
+    QLabel *lb_studentID_edit;
+    QLabel *lb_studentName_edit;
+    QPushButton *button_confirm_10;
+    QLineEdit *txt_studentID_edit;
+    QPushButton *button_back_16;
+    QLineEdit *txt_studentName_edit;
+    QLineEdit *txt_midTerm_edit;
+    QLineEdit *txt_final_edit;
+    QLineEdit *txt_other_edit;
+    QLineEdit *txt_total_edit;
+    QLabel *lb_midTerm_edit;
+    QLabel *lb_final_edit;
+    QLabel *lb_other_edit;
+    QLabel *lb_total_edit;
+    QLabel *lb_courseData_edit;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1250, 728);
+        MainWindow->resize(1247, 727);
         MainWindow->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "        border-image: url(:/background/button.png);\n"
 "        color: white;\n"
@@ -3408,7 +3423,7 @@ public:
 ""));
         table_student_2->setFrameShadow(QFrame::Sunken);
         table_student_2->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        table_student_2->setSelectionMode(QAbstractItemView::SingleSelection);
+        table_student_2->setSelectionMode(QAbstractItemView::ExtendedSelection);
         table_student_2->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
         table_student_2->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
         button_coursesList = new QPushButton(page_4);
@@ -3417,7 +3432,7 @@ public:
         button_coursesList->setStyleSheet(QString::fromUtf8("padding: 10px;"));
         lb_scoreBoard = new QLabel(page_4);
         lb_scoreBoard->setObjectName("lb_scoreBoard");
-        lb_scoreBoard->setGeometry(QRect(70, 0, 582, 40));
+        lb_scoreBoard->setGeometry(QRect(70, 0, 621, 40));
         lb_scoreBoard->setMaximumSize(QSize(16777215, 41));
         lb_scoreBoard->setFont(font8);
         lb_scoreBoard->setStyleSheet(QString::fromUtf8("color:white;"));
@@ -3434,9 +3449,9 @@ public:
         button_exportTable = new QPushButton(page_4);
         button_exportTable->setObjectName("button_exportTable");
         button_exportTable->setGeometry(QRect(700, 0, 151, 41));
-        pushButton = new QPushButton(page_4);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(30, 510, 81, 41));
+        button_edit_2 = new QPushButton(page_4);
+        button_edit_2->setObjectName("button_edit_2");
+        button_edit_2->setGeometry(QRect(30, 510, 81, 41));
         stackedWidget_5->addWidget(page_4);
         page_5 = new QWidget();
         page_5->setObjectName("page_5");
@@ -3643,7 +3658,7 @@ public:
         label_4->setAlignment(Qt::AlignCenter);
         lb_courseID_edit = new QLabel(page_6);
         lb_courseID_edit->setObjectName("lb_courseID_edit");
-        lb_courseID_edit->setGeometry(QRect(107, 90, 141, 31));
+        lb_courseID_edit->setGeometry(QRect(100, 90, 141, 31));
         lb_courseID_edit->setFont(font4);
         lb_courseID_edit->setStyleSheet(QString::fromUtf8("color: white;"));
         lb_courseID_edit->setAlignment(Qt::AlignCenter);
@@ -3795,6 +3810,87 @@ public:
         label_5->setStyleSheet(QString::fromUtf8("color: white;\n"
 ""));
         label_5->setAlignment(Qt::AlignCenter);
+        lb_studentID_edit = new QLabel(page_7);
+        lb_studentID_edit->setObjectName("lb_studentID_edit");
+        lb_studentID_edit->setGeometry(QRect(130, 150, 121, 31));
+        lb_studentID_edit->setFont(font4);
+        lb_studentID_edit->setStyleSheet(QString::fromUtf8("color: white;"));
+        lb_studentID_edit->setAlignment(Qt::AlignCenter);
+        lb_studentName_edit = new QLabel(page_7);
+        lb_studentName_edit->setObjectName("lb_studentName_edit");
+        lb_studentName_edit->setGeometry(QRect(100, 220, 161, 31));
+        lb_studentName_edit->setFont(font4);
+        lb_studentName_edit->setStyleSheet(QString::fromUtf8("color: white;"));
+        lb_studentName_edit->setAlignment(Qt::AlignCenter);
+        button_confirm_10 = new QPushButton(page_7);
+        button_confirm_10->setObjectName("button_confirm_10");
+        button_confirm_10->setGeometry(QRect(80, 460, 201, 61));
+        txt_studentID_edit = new QLineEdit(page_7);
+        txt_studentID_edit->setObjectName("txt_studentID_edit");
+        txt_studentID_edit->setGeometry(QRect(280, 140, 471, 53));
+        txt_studentID_edit->setMinimumSize(QSize(0, 53));
+        txt_studentID_edit->setStyleSheet(QString::fromUtf8("padding-left: 10px;"));
+        txt_studentID_edit->setReadOnly(true);
+        button_back_16 = new QPushButton(page_7);
+        button_back_16->setObjectName("button_back_16");
+        button_back_16->setGeometry(QRect(680, 460, 201, 61));
+        txt_studentName_edit = new QLineEdit(page_7);
+        txt_studentName_edit->setObjectName("txt_studentName_edit");
+        txt_studentName_edit->setGeometry(QRect(280, 210, 471, 53));
+        txt_studentName_edit->setMinimumSize(QSize(0, 53));
+        txt_studentName_edit->setStyleSheet(QString::fromUtf8("padding-left: 10px;"));
+        txt_studentName_edit->setReadOnly(true);
+        txt_midTerm_edit = new QLineEdit(page_7);
+        txt_midTerm_edit->setObjectName("txt_midTerm_edit");
+        txt_midTerm_edit->setGeometry(QRect(280, 290, 91, 53));
+        txt_midTerm_edit->setMinimumSize(QSize(0, 53));
+        txt_midTerm_edit->setStyleSheet(QString::fromUtf8("padding-left: 10px;"));
+        txt_final_edit = new QLineEdit(page_7);
+        txt_final_edit->setObjectName("txt_final_edit");
+        txt_final_edit->setGeometry(QRect(400, 290, 91, 53));
+        txt_final_edit->setMinimumSize(QSize(0, 53));
+        txt_final_edit->setStyleSheet(QString::fromUtf8("padding-left: 10px;"));
+        txt_other_edit = new QLineEdit(page_7);
+        txt_other_edit->setObjectName("txt_other_edit");
+        txt_other_edit->setGeometry(QRect(530, 290, 91, 53));
+        txt_other_edit->setMinimumSize(QSize(0, 53));
+        txt_other_edit->setStyleSheet(QString::fromUtf8("padding-left: 10px;"));
+        txt_total_edit = new QLineEdit(page_7);
+        txt_total_edit->setObjectName("txt_total_edit");
+        txt_total_edit->setGeometry(QRect(660, 290, 91, 53));
+        txt_total_edit->setMinimumSize(QSize(0, 53));
+        txt_total_edit->setStyleSheet(QString::fromUtf8("padding-left: 10px;"));
+        lb_midTerm_edit = new QLabel(page_7);
+        lb_midTerm_edit->setObjectName("lb_midTerm_edit");
+        lb_midTerm_edit->setGeometry(QRect(270, 350, 111, 31));
+        lb_midTerm_edit->setFont(font4);
+        lb_midTerm_edit->setStyleSheet(QString::fromUtf8("color: white;"));
+        lb_midTerm_edit->setAlignment(Qt::AlignCenter);
+        lb_final_edit = new QLabel(page_7);
+        lb_final_edit->setObjectName("lb_final_edit");
+        lb_final_edit->setGeometry(QRect(390, 350, 101, 31));
+        lb_final_edit->setFont(font4);
+        lb_final_edit->setStyleSheet(QString::fromUtf8("color: white;"));
+        lb_final_edit->setAlignment(Qt::AlignCenter);
+        lb_other_edit = new QLabel(page_7);
+        lb_other_edit->setObjectName("lb_other_edit");
+        lb_other_edit->setGeometry(QRect(530, 350, 91, 31));
+        lb_other_edit->setFont(font4);
+        lb_other_edit->setStyleSheet(QString::fromUtf8("color: white;"));
+        lb_other_edit->setAlignment(Qt::AlignCenter);
+        lb_total_edit = new QLabel(page_7);
+        lb_total_edit->setObjectName("lb_total_edit");
+        lb_total_edit->setGeometry(QRect(660, 350, 91, 31));
+        lb_total_edit->setFont(font4);
+        lb_total_edit->setStyleSheet(QString::fromUtf8("color: white;"));
+        lb_total_edit->setAlignment(Qt::AlignCenter);
+        lb_courseData_edit = new QLabel(page_7);
+        lb_courseData_edit->setObjectName("lb_courseData_edit");
+        lb_courseData_edit->setGeometry(QRect(170, 60, 582, 40));
+        lb_courseData_edit->setMaximumSize(QSize(16777215, 41));
+        lb_courseData_edit->setFont(font8);
+        lb_courseData_edit->setStyleSheet(QString::fromUtf8("color:white;"));
+        lb_courseData_edit->setAlignment(Qt::AlignCenter);
         stackedWidget_5->addWidget(page_7);
 
         gridLayout_16->addWidget(stackedWidget_5, 1, 0, 1, 1);
@@ -4054,7 +4150,7 @@ public:
         button_removeStudent->setText(QCoreApplication::translate("MainWindow", "REMOVE STUDENT", nullptr));
         button_importScoreBoard->setText(QCoreApplication::translate("MainWindow", "IMPORT SCOREBOARD", nullptr));
         button_exportTable->setText(QCoreApplication::translate("MainWindow", "EXPORT TABLE", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "EDIT", nullptr));
+        button_edit_2->setText(QCoreApplication::translate("MainWindow", "EDIT", nullptr));
         lb_addCourse->setText(QCoreApplication::translate("MainWindow", "ADD COURSE", nullptr));
         box_numCredits->setItemText(0, QCoreApplication::translate("MainWindow", "2", nullptr));
         box_numCredits->setItemText(1, QCoreApplication::translate("MainWindow", "3", nullptr));
@@ -4115,7 +4211,16 @@ public:
         box_dayOfWeek_edit->setItemText(5, QCoreApplication::translate("MainWindow", "SAT", nullptr));
 
         button_back_14->setText(QCoreApplication::translate("MainWindow", "CANCEL", nullptr));
-        label_5->setText(QCoreApplication::translate("MainWindow", "EDIT STUDENT DATA", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "EDIT STUDENT'S RESULT", nullptr));
+        lb_studentID_edit->setText(QCoreApplication::translate("MainWindow", "Student ID", nullptr));
+        lb_studentName_edit->setText(QCoreApplication::translate("MainWindow", "Student Name", nullptr));
+        button_confirm_10->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
+        button_back_16->setText(QCoreApplication::translate("MainWindow", "CANCEL", nullptr));
+        lb_midTerm_edit->setText(QCoreApplication::translate("MainWindow", "Mid Term", nullptr));
+        lb_final_edit->setText(QCoreApplication::translate("MainWindow", "Final", nullptr));
+        lb_other_edit->setText(QCoreApplication::translate("MainWindow", "Other", nullptr));
+        lb_total_edit->setText(QCoreApplication::translate("MainWindow", "Total", nullptr));
+        lb_courseData_edit->setText(QCoreApplication::translate("MainWindow", "COURSE ID - COURSE NAME - CLASS NAME", nullptr));
     } // retranslateUi
 
 };

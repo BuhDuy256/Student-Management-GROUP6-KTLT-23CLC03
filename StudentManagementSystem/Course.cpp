@@ -1094,3 +1094,13 @@ SchoolYear* getSYofCourse(std::string ID, std::string className)
     }
     return nullptr;
 }
+
+StudentScore* getStudentInCourse(std::string studentID, std::string studentName, Course *couCurr)
+{
+    for (int i = 0; i < couCurr->courseSize; i++)
+    {
+        StudentScore* stuCurr = &couCurr->score[i];
+        if (stuCurr->studentID == studentID && stuCurr->studentName == studentName) return stuCurr;
+    }
+    return nullptr;
+}

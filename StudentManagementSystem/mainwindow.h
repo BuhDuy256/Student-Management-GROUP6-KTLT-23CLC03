@@ -12,6 +12,7 @@
 #include <QTableWidgetItem>
 #include <QCalendarWidget>
 #include <QDate>
+#include <QStandardPaths>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -212,6 +213,17 @@ private slots:
     void on_button_confirm_8_clicked();
 
     void on_table_course_cellClicked(int row, int column);
+
+    void on_button_edit_2_clicked();
+
+    void on_button_back_16_clicked();
+
+    void on_table_student_2_cellClicked(int row, int column);
+
+    void on_button_confirm_10_clicked();
+
+
+    void on_button_exportTable_clicked();
 
 private:
     Ui::MainWindow *ui;

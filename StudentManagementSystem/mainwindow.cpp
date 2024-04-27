@@ -119,7 +119,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_back_14->setFont(minecraftFont);
     ui->button_confirm_8->setFont(minecraftFont);
     ui->button_edit->setFont(minecraftFont);
-    ui->pushButton->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(16);
@@ -408,6 +407,24 @@ void MainWindow::resizeTable(QTableWidget* tableWidget)
             tableWidget->setColumnWidth(col, newWidth);
         }
     }
+}
+
+void adjustLabelFontSizeToFit(QLabel* label) {
+    // Get the current label size
+    QSize labelSize = label->size();
+
+    // Get the text from the label
+    QString labelText = label->text();
+
+    // Calculate the font size that fits the label's size
+    int fontSize = qMin(labelSize.width() / labelText.length(), labelSize.height());
+
+    // Create a new font with the calculated size
+    QFont font = label->font();
+    font.setPointSize(fontSize);
+
+    // Set the new font to the label
+    label->setFont(font);
 }
 
 void MainWindow::on_checkBox_stateChanged(int arg1)
@@ -1798,6 +1815,7 @@ void MainWindow::on_box_selectSem_currentTextChanged(const QString& arg1)
 
 void MainWindow::on_button_viewStudent_clicked()
 {
+    int selectRow = ui->table_student_2->currentRow();
     if (ui->table_course->selectedItems().isEmpty())
     {
         MessageBox("Error", "Select A Course ID or Course Name To View!");
@@ -1810,6 +1828,9 @@ void MainWindow::on_button_viewStudent_clicked()
     std::string className = ui->table_course->item(row, 2)->text().toStdString();
 
     ui->lb_scoreBoard->setText(QString::fromStdString(ID + " - " + courseName + " - " + className));
+    ui->lb_courseData_edit->setText(QString::fromStdString(ID + " - " + courseName + " - " + className));
+    adjustLabelFontSizeToFit(ui->lb_scoreBoard);
+    adjustLabelFontSizeToFit(ui->lb_courseData_edit);
 
     Node<SchoolYear>* tempYear = latestSYear;
     while (tempYear)
@@ -1843,6 +1864,7 @@ void MainWindow::on_button_viewStudent_clicked()
 
     ui->table_student_2->resizeColumnsToContents();
     ui->stackedWidget_5->setCurrentIndex(1);
+    if (selectRow != -1) ui->table_student_2->selectRow(selectRow);
 }
 
 
@@ -1866,16 +1888,6 @@ void MainWindow::on_button_back_10_clicked()
 void MainWindow::on_button_back_11_clicked()
 {
     ui->stackedWidget_3->setCurrentIndex(0);
-}
-
-void MainWindow::on_table_course_itemDoubleClicked(QTableWidgetItem* item)
-{
-    if (ui->table_course->currentColumn() < 2 || ui->table_course->currentColumn() == 5)
-    {
-        MessageBox("Error", "Unable To Edit Course ID, Course Name and Course Size!");
-        item->setFlags(item->flags() & ~Qt::ItemIsEditable);
-        return;
-    }
 }
 
 
@@ -2322,5 +2334,142 @@ void MainWindow::on_table_course_cellClicked(int row, int column)
     int scrollPos = ui->table_course->horizontalScrollBar()->value();
     ui->table_course->selectRow(row);
     ui->table_course->horizontalScrollBar()->setValue(scrollPos);
+}
+
+
+void MainWindow::on_table_student_2_cellClicked(int row, int column)
+{
+    int scrollPos = ui->table_student_2->horizontalScrollBar()->value();
+    ui->table_student_2->selectRow(row);
+    ui->table_student_2->horizontalScrollBar()->setValue(scrollPos);
+}
+
+
+void MainWindow::on_button_back_16_clicked()
+{
+    ui->stackedWidget_5->setCurrentIndex(1);
+}
+
+
+void MainWindow::on_button_edit_2_clicked()
+{
+    if (ui->table_student_2->selectedItems().isEmpty())
+    {
+        MessageBox("Error", "Select A Student To Edit!");
+        return;
+    }
+
+    ui->stackedWidget_5->setCurrentIndex(5);
+
+    int row = ui->table_student_2->currentRow();
+    ui->txt_studentID_edit->setText(ui->table_student_2->item(row, 0)->text());
+    ui->txt_studentName_edit->setText(ui->table_student_2->item(row, 1)->text());
+    ui->txt_midTerm_edit->setText(ui->table_student_2->item(row, 2)->text());
+    ui->txt_final_edit->setText(ui->table_student_2->item(row, 3)->text());
+    ui->txt_other_edit->setText(ui->table_student_2->item(row, 4)->text());
+    ui->txt_total_edit->setText(ui->table_student_2->item(row, 5)->text());
+}
+
+
+void MainWindow::on_button_confirm_10_clicked()
+{
+    int row = ui->table_course->currentRow();
+    std::string ID = ui->table_course->item(row, 0)->text().toStdString();
+    std::string className = ui->table_course->item(row, 2)->text().toStdString();
+
+    int ROW = ui->table_student_2->currentRow();
+    std::string studentID = ui->table_student_2->item(ROW, 0)->text().toStdString();
+    std::string studentName = ui->table_student_2->item(ROW, 1)->text().toStdString();
+
+    Course* couCurr = getCourse(ID, className);
+    StudentScore* stuCurr = getStudentInCourse(studentID, studentName, couCurr);
+    StudentScore stuNew = *stuCurr;
+
+    stuNew.midTerm = ui->txt_midTerm_edit->text().toFloat();
+    stuNew.final = ui->txt_final_edit->text().toFloat();
+    stuNew.other = ui->txt_other_edit->text().toFloat();
+    stuNew.total = ui->txt_total_edit->text().toFloat();
+
+    if ((stuNew.midTerm < 0) || (stuNew.midTerm > 10)){
+        MessageBox("Error", "Scores Must Be In Range [0, 10]!");
+        return;
+    }
+    if ((stuNew.final < 0) || (stuNew.final > 10)){
+        MessageBox("Error", "Scores Must Be In Range [0, 10]!");
+        return;
+    }
+    if ((stuNew.other < 0) || (stuNew.other > 10)){
+        MessageBox("Error", "Scores Must Be In Range [0, 10]!");
+        return;
+    }
+    if ((stuNew.total < 0) || (stuNew.total > 10)){
+        MessageBox("Error", "Scores Must Be In Range [0, 10]!");
+        return;
+    }
+
+    int ret = MessageBox_ok_cancel("Confirmation", "Do You Want To Update This Result?");
+    if (ret == QMessageBox::Cancel) return;
+
+    stuCurr->midTerm = stuNew.midTerm;
+    stuCurr->final = stuNew.final;
+    stuCurr->other = stuNew.other;
+    stuCurr->total = stuNew.total;
+
+    MessageBox_information("Notification", "Result Updated Successfully!");
+
+    MainWindow::on_button_viewStudent_clicked();
+    ui->stackedWidget_5->setCurrentIndex(1);
+}
+
+
+void MainWindow::on_button_exportTable_clicked()
+{
+    int ret = MessageBox_ok_cancel("Confirmation", "The Table Will Be Exported To Desktop Screen."
+                                                   "\nDo You Want To Continue?");
+    if (ret == QMessageBox::Cancel) return;
+
+    QString desktopPath = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+
+    int row = ui->table_course->currentRow();
+    QString filename = ui->table_course->item(row, 0)->text() + "_" + ui->table_course->item(row, 2)->text() + "_scores.csv";
+    QString filePath = desktopPath + "/" + filename;
+
+    QFile file(filePath);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << "Failed to open file for writing";
+        return;
+    }
+
+    QTextStream out(&file);
+
+    // Write headers to the CSV file
+    for (int col = 0; col < ui->table_student_2->columnCount(); ++col)
+    {
+        out << ui->table_student_2->horizontalHeaderItem(col)->text();
+        if (col < ui->table_student_2->columnCount() - 1) out << ",";
+    }
+    out << "\n";
+
+    // Write contents
+    for (int row = 0; row < ui->table_student_2->rowCount(); ++row)
+    {
+        for (int col = 0; col < ui->table_student_2->columnCount(); ++col)
+        {
+            QTableWidgetItem* item = ui->table_student_2->item(row, col);
+            if (item)
+            {
+                out << item->text();
+            }
+            if (col < ui->table_student_2->columnCount() - 1)
+            {
+                out << ",";
+            }
+        }
+        out << "\n";
+    }
+
+    file.close();
+    MessageBox_information("Notification", "Successfully Exported!\n"
+                                           "Check Your Desktop Screen (Press F5 If You Do Not See).");
 }
 

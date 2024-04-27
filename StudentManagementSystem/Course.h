@@ -57,3 +57,4 @@ void chooseStudentToUpdateResult(Node<Course>* couCurr);
 void updateAStudentResultOfACourse();
 Course* getCourse(std::string ID, std::string className);
 SchoolYear* getSYofCourse(std::string ID, std::string className);
+StudentScore* getStudentInCourse(std::string studentID, std::string studentName, Course* couCurr);
