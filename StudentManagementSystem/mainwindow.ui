@@ -4032,7 +4032,7 @@ color:white;
 }</string>
               </property>
               <property name="currentIndex">
-               <number>1</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="page_addOne">
                <layout class="QGridLayout" name="gridLayout_12">
@@ -5146,7 +5146,7 @@ QScrollBar::sub-line:vertical {
 }</string>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>5</number>
               </property>
               <widget class="QWidget" name="page_2">
                <widget class="QPushButton" name="button_back_11">
@@ -5422,7 +5422,7 @@ padding: 10px</string>
                <widget class="QLabel" name="label">
                 <property name="geometry">
                  <rect>
-                  <x>0</x>
+                  <x>10</x>
                   <y>0</y>
                   <width>187</width>
                   <height>47</height>
@@ -7158,7 +7158,10 @@ padding: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">padding-left: 10px;</string>
+                 <string notr="true"/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
                 </property>
                </widget>
                <widget class="QLineEdit" name="txt_final_edit">
@@ -7177,7 +7180,10 @@ padding: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">padding-left: 10px;</string>
+                 <string notr="true"/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
                 </property>
                </widget>
                <widget class="QLineEdit" name="txt_other_edit">
@@ -7196,7 +7202,10 @@ padding: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">padding-left: 10px;</string>
+                 <string notr="true"/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
                 </property>
                </widget>
                <widget class="QLineEdit" name="txt_total_edit">
@@ -7215,7 +7224,10 @@ padding: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">padding-left: 10px;</string>
+                 <string notr="true"/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
                 </property>
                </widget>
                <widget class="QLabel" name="lb_midTerm_edit">

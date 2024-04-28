@@ -118,7 +118,10 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_back_15->setFont(minecraftFont);
     ui->button_back_14->setFont(minecraftFont);
     ui->button_confirm_8->setFont(minecraftFont);
+    ui->button_back_16->setFont(minecraftFont);
+    ui->button_confirm_10->setFont(minecraftFont);
     ui->button_edit->setFont(minecraftFont);
+    ui->button_edit_2->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(16);
@@ -152,6 +155,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->box_session_edit->setFont(minecraftFont);
     ui->box_numCredits_edit->setFont(minecraftFont);
     ui->box_dayOfWeek_edit->setFont(minecraftFont);
+
 
     minecraftFont.setPointSize(18);
     ui->txtPassword->setFont(minecraftFont);
@@ -197,6 +201,13 @@ MainWindow::MainWindow(QWidget* parent)
     ui->txt_className_edit->setFont(minecraftFont);
     ui->txt_maxStudents_edit->setFont(minecraftFont);
 
+    ui->txt_studentID_edit->setFont(minecraftFont);
+    ui->txt_studentName_edit->setFont(minecraftFont);
+    ui->txt_midTerm_edit->setFont(minecraftFont);
+    ui->txt_final_edit->setFont(minecraftFont);
+    ui->txt_other_edit->setFont(minecraftFont);
+    ui->txt_total_edit->setFont(minecraftFont);
+
     minecraftFont.setBold(1);  // Bold Region
     ui->name->setFont(minecraftFont);
     ui->name_2->setFont(minecraftFont);
@@ -236,6 +247,13 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_maxStudents_edit->setFont(minecraftFont);
     ui->lb_numCredits_edit->setFont(minecraftFont);
     ui->lb_session_2_edit->setFont(minecraftFont);
+
+    ui->lb_studentID_edit->setFont(minecraftFont);
+    ui->lb_studentName_edit->setFont(minecraftFont);
+    ui->lb_midTerm_edit->setFont(minecraftFont);
+    ui->lb_final_edit->setFont(minecraftFont);
+    ui->lb_total_edit->setFont(minecraftFont);
+    ui->lb_other_edit->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
 
@@ -254,6 +272,8 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_addCourse->setFont(minecraftFont);
     ui->lb_courseData->setFont(minecraftFont);
     ui->label_4->setFont(minecraftFont);
+    ui->label_5->setFont(minecraftFont);
+    ui->lb_courseData_edit->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
 
@@ -275,11 +295,13 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_createNewSemester->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
+
     minecraftFont.setPointSize(48);
     minecraftFont.setBold(1); // Bold region
     ui->lb_welcome->setFont(minecraftFont);
     ui->lb_welcome_2->setFont(minecraftFont);
     minecraftFont.setBold(0); // End Bold region
+
 
     QTextCharFormat weekendFormat;
     weekendFormat.setForeground(QColor("#7FFFD4"));
