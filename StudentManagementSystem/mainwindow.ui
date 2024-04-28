@@ -713,11 +713,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-<<<<<<< HEAD
-           <number>3</number>
-=======
-           <number>2</number>
->>>>>>> 74d531e641216dd2099040cdaacfed7e42c07c69
+           <number>0</number>
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -2271,7 +2267,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>6</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -4038,7 +4034,7 @@ color:white;
 }</string>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="page_addOne">
                <layout class="QGridLayout" name="gridLayout_12">
@@ -7439,158 +7435,8 @@ padding: 10px;</string>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
-<<<<<<< HEAD
- <tabstops>
-  <tabstop>txt_AdName</tabstop>
-  <tabstop>txt_AdSocialID</tabstop>
-  <tabstop>box_addGender</tabstop>
-  <tabstop>txt_addBirthday</tabstop>
-  <tabstop>txt_AdBirthday</tabstop>
-  <tabstop>txt_courseID</tabstop>
-  <tabstop>txt_courseName</tabstop>
-  <tabstop>txt_className_2</tabstop>
-  <tabstop>txt_teacherName</tabstop>
-  <tabstop>txt_maxStudents</tabstop>
-  <tabstop>box_numCredits</tabstop>
-  <tabstop>box_dayOfWeek</tabstop>
-  <tabstop>box_session</tabstop>
-  <tabstop>txt_studentID</tabstop>
-  <tabstop>txt_studentName</tabstop>
-  <tabstop>txt_courseID_edit</tabstop>
-  <tabstop>txt_courseName_edit</tabstop>
-  <tabstop>txt_className_edit</tabstop>
-  <tabstop>txt_teacherName_edit</tabstop>
-  <tabstop>txt_maxStudents_edit</tabstop>
-  <tabstop>box_numCredits_edit</tabstop>
-  <tabstop>box_dayOfWeek_edit</tabstop>
-  <tabstop>box_session_edit</tabstop>
-  <tabstop>txt_studentID_edit</tabstop>
-  <tabstop>txt_studentName_edit</tabstop>
-  <tabstop>txt_midTerm_edit</tabstop>
-  <tabstop>txt_final_edit</tabstop>
-  <tabstop>txt_other_edit</tabstop>
-  <tabstop>txt_total_edit</tabstop>
-  <tabstop>button_course_manage</tabstop>
-  <tabstop>button_back_4</tabstop>
-  <tabstop>txtCurPass</tabstop>
-  <tabstop>txtNewPass</tabstop>
-  <tabstop>txtConfirmPass</tabstop>
-  <tabstop>checkBox_2</tabstop>
-  <tabstop>txt_AdID</tabstop>
-  <tabstop>button_signin</tabstop>
-  <tabstop>button_exit</tabstop>
-  <tabstop>txtUsername</tabstop>
-  <tabstop>txtPassword</tabstop>
-  <tabstop>checkBox</tabstop>
-  <tabstop>txt_addID</tabstop>
-  <tabstop>txt_addName</tabstop>
-  <tabstop>txt_addSocialID</tabstop>
-  <tabstop>txt_AdGender</tabstop>
-  <tabstop>txtCurPass_2</tabstop>
-  <tabstop>txtNewPass_2</tabstop>
-  <tabstop>txtConfirmPass_2</tabstop>
-  <tabstop>checkBox_3</tabstop>
-  <tabstop>button_confirm_2</tabstop>
-  <tabstop>button_back_3</tabstop>
-  <tabstop>calendarWidget_2</tabstop>
-  <tabstop>button_currentDate</tabstop>
-  <tabstop>button_setEndDate</tabstop>
-  <tabstop>button_confirm_3</tabstop>
-  <tabstop>txt_endDate</tabstop>
-  <tabstop>button_back_6</tabstop>
-  <tabstop>txt_startDate</tabstop>
-  <tabstop>button_setStartDate</tabstop>
-  <tabstop>button_scoreOfClass</tabstop>
-  <tabstop>button_allClasses</tabstop>
-  <tabstop>button_addStudent</tabstop>
-  <tabstop>button_createClass</tabstop>
-  <tabstop>button_back_7</tabstop>
-  <tabstop>list_classes</tabstop>
-  <tabstop>box_selectSY</tabstop>
-  <tabstop>txt_className</tabstop>
-  <tabstop>button_confirm_4</tabstop>
-  <tabstop>button_back_8</tabstop>
-  <tabstop>box_selectClass</tabstop>
-  <tabstop>button_back_9</tabstop>
-  <tabstop>tableWidget_2</tabstop>
-  <tabstop>button_confirm_5</tabstop>
-  <tabstop>button_AdSignOut</tabstop>
-  <tabstop>button_class_manage</tabstop>
-  <tabstop>button_create_sem</tabstop>
-  <tabstop>button_cancel</tabstop>
-  <tabstop>button_StuMyProfile</tabstop>
-  <tabstop>button_openCalendar</tabstop>
-  <tabstop>button_AdChangePassword</tabstop>
-  <tabstop>txt_path</tabstop>
-  <tabstop>button_confirm_6</tabstop>
-  <tabstop>button_cancel_2</tabstop>
-  <tabstop>calendarWidget_3</tabstop>
-  <tabstop>button_selectDate</tabstop>
-  <tabstop>button_import</tabstop>
-  <tabstop>button_addOne</tabstop>
-  <tabstop>list_classes_2</tabstop>
-  <tabstop>table_student</tabstop>
-  <tabstop>button_back_12</tabstop>
-  <tabstop>box_class</tabstop>
-  <tabstop>box_year</tabstop>
-  <tabstop>box_semester</tabstop>
-  <tabstop>table_scoreboard</tabstop>
-  <tabstop>button_back_10</tabstop>
-  <tabstop>button_ok_2</tabstop>
-  <tabstop>button_back_11</tabstop>
-  <tabstop>box_selectSY_2</tabstop>
-  <tabstop>table_course</tabstop>
-  <tabstop>box_selectSem</tabstop>
-  <tabstop>button_viewStudent</tabstop>
-  <tabstop>button_removeFilter</tabstop>
-  <tabstop>button_addCourse</tabstop>
-  <tabstop>button_removeCourse</tabstop>
-  <tabstop>button_edit</tabstop>
-  <tabstop>table_student_2</tabstop>
-  <tabstop>button_coursesList</tabstop>
-  <tabstop>button_addStudent_2</tabstop>
-  <tabstop>button_removeStudent</tabstop>
-  <tabstop>button_importScoreBoard</tabstop>
-  <tabstop>button_exportTable</tabstop>
-  <tabstop>button_edit_2</tabstop>
-  <tabstop>button_create_sy</tabstop>
-  <tabstop>button_StuHome</tabstop>
-  <tabstop>calendarWidget</tabstop>
-  <tabstop>button_confirm_7</tabstop>
-  <tabstop>button_back_13</tabstop>
-  <tabstop>button_currentDay</tabstop>
-  <tabstop>button_StuSignOut</tabstop>
-  <tabstop>button_StuChangePassword</tabstop>
-  <tabstop>button_StuMyCourses</tabstop>
-  <tabstop>txt_StuGender</tabstop>
-  <tabstop>txt_StuName</tabstop>
-  <tabstop>button_back_2</tabstop>
-  <tabstop>button_confirm_9</tabstop>
-  <tabstop>button_back_15</tabstop>
-  <tabstop>txt_StuSocialID</tabstop>
-  <tabstop>sy_select</tabstop>
-  <tabstop>sem_select</tabstop>
-  <tabstop>txt_StuID</tabstop>
-  <tabstop>txt_StuBirthday</tabstop>
-  <tabstop>tableWidget</tabstop>
-  <tabstop>button_confirm_8</tabstop>
-  <tabstop>button_back_14</tabstop>
-  <tabstop>txt_StuClass</tabstop>
-  <tabstop>button_confirm_10</tabstop>
-  <tabstop>button_back_16</tabstop>
-  <tabstop>button_viewScore</tabstop>
-  <tabstop>button_back</tabstop>
-  <tabstop>button_confirm</tabstop>
-  <tabstop>button_AdMyProfile</tabstop>
-  <tabstop>button_AdHome</tabstop>
-  <tabstop>button_ok</tabstop>
-  <tabstop>button_back_5</tabstop>
- </tabstops>
- <resources/>
-=======
  <resources>
   <include location="resourses.qrc"/>
  </resources>
->>>>>>> 74d531e641216dd2099040cdaacfed7e42c07c69
  <connections/>
 </ui>
