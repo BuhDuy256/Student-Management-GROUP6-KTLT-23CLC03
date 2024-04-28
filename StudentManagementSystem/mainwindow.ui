@@ -2267,7 +2267,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>9</number>
+           <number>8</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -4285,6 +4285,9 @@ padding: 10px;</string>
                   <property name="dragEnabled">
                    <bool>true</bool>
                   </property>
+                  <property name="placeholderText">
+                   <string>DROP CSV FILE HERE</string>
+                  </property>
                  </widget>
                 </item>
                 <item row="2" column="0" alignment="Qt::AlignLeft">
@@ -5168,7 +5171,7 @@ QScrollBar::sub-line:vertical {
 }</string>
               </property>
               <property name="currentIndex">
-               <number>5</number>
+               <number>6</number>
               </property>
               <widget class="QWidget" name="page_2">
                <widget class="QPushButton" name="button_back_11">
