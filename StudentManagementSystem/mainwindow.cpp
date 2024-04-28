@@ -15,18 +15,20 @@ MainWindow::MainWindow(QWidget* parent)
     QFont minecraftFont(fontName);
 
     ui->tableWidget->setStyleSheet(QString(ui->tableWidget->styleSheet() + "QTableWidget { font-family: %1;font-size: 14px;}"
-        "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+        "QTableWidget QHeaderView::section {font-family: %1; font-weight: bold; font-size: 14px;}").arg(fontName));
     ui->table_scoreboard->setStyleSheet(QString(ui->table_scoreboard->styleSheet() + "QTableWidget { font-family: %1;font-size: 14px;}"
-        "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+        "QTableWidget QHeaderView::section {font-family: %1; font-weight: bold; font-size: 14px;}").arg(fontName));
 
-    ui->table_student->setStyleSheet(QString(ui->table_student->styleSheet() + "QTableWidget { font-family: %1; }"
-        "QTableWidget QHeaderView::section { font-family: %1; font-size: 14px;}").arg(fontName));
-    ui->tableWidget_2->setStyleSheet(QString(ui->tableWidget_2->styleSheet() + "QTableWidget { font-family: %1; }"
-        "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+    ui->table_student->setStyleSheet(QString(ui->table_student->styleSheet() + "QTableWidget { font-family: %1; font-size: 14px;}"
+        "QTableWidget QHeaderView::section { font-family: %1; font-weight: bold; font-size: 14px;}").arg(fontName));
+
+    ui->tableWidget_2->setStyleSheet(QString(ui->tableWidget_2->styleSheet() + "QTableWidget { font-family: %1; font-size: 14px;}"
+        "QTableWidget QHeaderView::section {font-family: %1; font-weight: bold; font-size: 14px;}").arg(fontName));
+
     ui->table_course->setStyleSheet(QString(ui->table_course->styleSheet() + "QTableWidget { font-family: %1; font-size: 14px;}"
-        "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+        "QTableWidget QHeaderView::section {font-family: %1; font-weight: bold; font-size: 14px;}").arg(fontName));
     ui->table_student_2->setStyleSheet(QString(ui->table_student_2->styleSheet() + "QTableWidget { font-family: %1; font-size: 14px;}"
-        "QTableWidget QHeaderView::section {font-family: %1; font-size: 14px;}").arg(fontName));
+        "QTableWidget QHeaderView::section {font-family: %1; font-weight: bold; font-size: 14px;}").arg(fontName));
 
     ui->calendarWidget_3->setStyleSheet(QString(ui->calendarWidget_3->styleSheet() + "QMenu { font-family: %1;}"
         "QWidget#qt_calendar_navigationbar {font-family: %1}"
@@ -122,6 +124,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_confirm_10->setFont(minecraftFont);
     ui->button_edit->setFont(minecraftFont);
     ui->button_edit_2->setFont(minecraftFont);
+    ui->button_import->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(16);
@@ -312,18 +315,18 @@ MainWindow::MainWindow(QWidget* parent)
     ui->calendarWidget_3->setWeekdayTextFormat(Qt::Saturday, weekendFormat);
     ui->calendarWidget_3->setWeekdayTextFormat(Qt::Sunday, weekendFormat);
 
-    ui->table_student->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-    ui->table_student->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-    ui->table_student_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-    ui->table_student_2->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-    ui->table_course->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-    ui->table_course->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-    ui->table_scoreboard->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-    ui->table_scoreboard->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-    ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-    ui->tableWidget_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-    ui->tableWidget_2->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->table_student->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->table_student->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->table_student_2->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->table_student_2->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->table_course->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->table_course->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->table_scoreboard->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->table_scoreboard->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->tableWidget_2->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->tableWidget_2->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 }
 
 MainWindow::~MainWindow()
