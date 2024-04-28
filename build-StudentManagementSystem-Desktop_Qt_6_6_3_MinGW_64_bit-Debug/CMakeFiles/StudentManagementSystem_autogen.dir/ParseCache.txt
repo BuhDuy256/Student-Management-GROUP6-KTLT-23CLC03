@@ -26,6 +26,7 @@ D:/Coding/GROUP6_23CLC03/StudentManagementSystem/mainwindow.h
  mdp:D:/Coding/GROUP6_23CLC03/StudentManagementSystem/mainwindow.h
  mdp:D:/Coding/GROUP6_23CLC03/StudentManagementSystem/system.h
  mdp:D:/Coding/GROUP6_23CLC03/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/StudentManagementSystem_autogen/moc_predefs.h
+ mdp:D:/Qt/6.6.3/mingw_64/include/QtCore/QCoreApplication
  mdp:D:/Qt/6.6.3/mingw_64/include/QtCore/QDate
  mdp:D:/Qt/6.6.3/mingw_64/include/QtCore/QDeadlineTimer
  mdp:D:/Qt/6.6.3/mingw_64/include/QtCore/QEvent

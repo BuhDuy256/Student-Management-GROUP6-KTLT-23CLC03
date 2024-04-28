@@ -17,6 +17,10 @@
 #include <QDragEnterEvent>
 #include <QDropEvent>
 #include <QMimeData>
+#include <QFile>
+#include <QTextStream>
+#include <QStringList>
+#include <QCoreApplication>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -234,6 +238,18 @@ private slots:
     void on_button_back_17_clicked();
 
     void on_button_confirm_11_clicked();
+
+    void on_stackedWidget_4_currentChanged(int arg1);
+
+    void on_button_addOne_2_clicked();
+
+    void on_button_import_2_clicked();
+
+    void on_stackedWidget_6_currentChanged(int arg1);
+
+    void on_button_clear_2_clicked();
+
+    void on_button_confirm_12_clicked();
 
 private:
     Ui::MainWindow *ui;

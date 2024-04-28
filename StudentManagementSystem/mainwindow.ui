@@ -70,7 +70,7 @@ color: black;
 }</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2" rowstretch="2,7,2" columnstretch="2,5,2">
@@ -713,7 +713,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -3815,33 +3815,6 @@ padding: 10px;</string>
             <property name="bottomMargin">
              <number>40</number>
             </property>
-            <item row="2" column="0">
-             <widget class="QComboBox" name="box_selectClass">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>-1</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QComboBox {
-	font-size: 18px;
-	border-image: url(:/background/button.png);
-	background-color: rgb(133, 133, 133);
-	color: #F5F0F0;
-}
-
-QComboBox::hover {
- 	color: #292727
-}</string>
-              </property>
-             </widget>
-            </item>
             <item row="4" column="4">
              <widget class="QPushButton" name="button_back_9">
               <property name="minimumSize">
@@ -4342,7 +4315,7 @@ padding: 10px;</string>
                    </font>
                   </property>
                   <property name="text">
-                   <string>Enter Path To CSV File:</string>
+                   <string>Enter CSV File:</string>
                   </property>
                  </widget>
                 </item>
@@ -4526,6 +4499,33 @@ margin: 5px;</string>
                 <width>50</width>
                 <height>50</height>
                </size>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="box_selectClass">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QComboBox {
+	font-size: 18px;
+	border-image: url(:/background/button.png);
+	background-color: rgb(133, 133, 133);
+	color: #F5F0F0;
+}
+
+QComboBox::hover {
+ 	color: #292727
+}</string>
               </property>
              </widget>
             </item>
@@ -5171,7 +5171,7 @@ QScrollBar::sub-line:vertical {
 }</string>
               </property>
               <property name="currentIndex">
-               <number>6</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="page_2">
                <widget class="QPushButton" name="button_back_11">
@@ -6422,80 +6422,6 @@ padding: 10px;</string>
                  <set>Qt::AlignCenter</set>
                 </property>
                </widget>
-               <widget class="QLineEdit" name="txt_studentID">
-                <property name="geometry">
-                 <rect>
-                  <x>270</x>
-                  <y>130</y>
-                  <width>421</width>
-                  <height>61</height>
-                 </rect>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">padding-left: 10px;</string>
-                </property>
-               </widget>
-               <widget class="QLineEdit" name="txt_studentName">
-                <property name="geometry">
-                 <rect>
-                  <x>270</x>
-                  <y>260</y>
-                  <width>421</width>
-                  <height>61</height>
-                 </rect>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">padding-left: 10px;</string>
-                </property>
-               </widget>
-               <widget class="QLabel" name="lb_studentID">
-                <property name="geometry">
-                 <rect>
-                  <x>120</x>
-                  <y>140</y>
-                  <width>121</width>
-                  <height>41</height>
-                 </rect>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: white;</string>
-                </property>
-                <property name="text">
-                 <string>Student ID</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-               <widget class="QLabel" name="lb_studentName">
-                <property name="geometry">
-                 <rect>
-                  <x>90</x>
-                  <y>270</y>
-                  <width>161</width>
-                  <height>41</height>
-                 </rect>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: white;</string>
-                </property>
-                <property name="text">
-                 <string>Student Name</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
                <widget class="QLabel" name="lb_courseData">
                 <property name="geometry">
                  <rect>
@@ -6526,30 +6452,245 @@ padding: 10px;</string>
                  <set>Qt::AlignCenter</set>
                 </property>
                </widget>
-               <widget class="QPushButton" name="button_confirm_9">
-                <property name="geometry">
-                 <rect>
-                  <x>150</x>
-                  <y>410</y>
-                  <width>201</width>
-                  <height>61</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>CONFIRM</string>
-                </property>
-               </widget>
                <widget class="QPushButton" name="button_back_15">
                 <property name="geometry">
                  <rect>
-                  <x>590</x>
-                  <y>410</y>
+                  <x>700</x>
+                  <y>480</y>
                   <width>201</width>
                   <height>61</height>
                  </rect>
                 </property>
                 <property name="text">
                  <string>BACK</string>
+                </property>
+               </widget>
+               <widget class="QStackedWidget" name="stackedWidget_6">
+                <property name="geometry">
+                 <rect>
+                  <x>120</x>
+                  <y>110</y>
+                  <width>721</width>
+                  <height>271</height>
+                 </rect>
+                </property>
+                <property name="currentIndex">
+                 <number>1</number>
+                </property>
+                <widget class="QWidget" name="page_9">
+                 <widget class="QLabel" name="lb_studentID">
+                  <property name="geometry">
+                   <rect>
+                    <x>80</x>
+                    <y>30</y>
+                    <width>121</width>
+                    <height>41</height>
+                   </rect>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: white;</string>
+                  </property>
+                  <property name="text">
+                   <string>Student ID</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                 <widget class="QLineEdit" name="txt_studentID">
+                  <property name="geometry">
+                   <rect>
+                    <x>250</x>
+                    <y>20</y>
+                    <width>421</width>
+                    <height>61</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">padding-left: 10px;</string>
+                  </property>
+                 </widget>
+                 <widget class="QLabel" name="lb_studentName">
+                  <property name="geometry">
+                   <rect>
+                    <x>50</x>
+                    <y>110</y>
+                    <width>161</width>
+                    <height>41</height>
+                   </rect>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: white;</string>
+                  </property>
+                  <property name="text">
+                   <string>Student Name</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="button_confirm_9">
+                  <property name="geometry">
+                   <rect>
+                    <x>30</x>
+                    <y>190</y>
+                    <width>201</width>
+                    <height>61</height>
+                   </rect>
+                  </property>
+                  <property name="text">
+                   <string>CONFIRM</string>
+                  </property>
+                 </widget>
+                 <widget class="QLineEdit" name="txt_studentName">
+                  <property name="geometry">
+                   <rect>
+                    <x>250</x>
+                    <y>100</y>
+                    <width>421</width>
+                    <height>61</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">padding-left: 10px;</string>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="button_clear">
+                  <property name="geometry">
+                   <rect>
+                    <x>470</x>
+                    <y>190</y>
+                    <width>201</width>
+                    <height>61</height>
+                   </rect>
+                  </property>
+                  <property name="text">
+                   <string>CLEAR</string>
+                  </property>
+                 </widget>
+                </widget>
+                <widget class="QWidget" name="page_10">
+                 <widget class="QLabel" name="lb_enterPath_2">
+                  <property name="geometry">
+                   <rect>
+                    <x>100</x>
+                    <y>40</y>
+                    <width>445</width>
+                    <height>31</height>
+                   </rect>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>16</pointsize>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color:white;</string>
+                  </property>
+                  <property name="text">
+                   <string>Enter CSV File:</string>
+                  </property>
+                 </widget>
+                 <widget class="QLineEdit" name="txt_path_2">
+                  <property name="geometry">
+                   <rect>
+                    <x>100</x>
+                    <y>90</y>
+                    <width>521</width>
+                    <height>61</height>
+                   </rect>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: #000000;
+background-color: rgba(255,255,255,200);
+padding: 10px;</string>
+                  </property>
+                  <property name="dragEnabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="placeholderText">
+                   <string>DROP CSV FILE HERE</string>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="button_confirm_12">
+                  <property name="geometry">
+                   <rect>
+                    <x>30</x>
+                    <y>190</y>
+                    <width>201</width>
+                    <height>61</height>
+                   </rect>
+                  </property>
+                  <property name="text">
+                   <string>CONFIRM</string>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="button_clear_2">
+                  <property name="geometry">
+                   <rect>
+                    <x>470</x>
+                    <y>190</y>
+                    <width>201</width>
+                    <height>61</height>
+                   </rect>
+                  </property>
+                  <property name="text">
+                   <string>CLEAR</string>
+                  </property>
+                 </widget>
+                </widget>
+               </widget>
+               <widget class="QPushButton" name="button_addOne_2">
+                <property name="geometry">
+                 <rect>
+                  <x>150</x>
+                  <y>390</y>
+                  <width>311</width>
+                  <height>61</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>ADD ONE STUDENT</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="button_import_2">
+                <property name="geometry">
+                 <rect>
+                  <x>480</x>
+                  <y>390</y>
+                  <width>311</width>
+                  <height>61</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>IMPORT</string>
                 </property>
                </widget>
               </widget>

@@ -12,12 +12,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->stackedWidget_4->setCurrentIndex(0);
     ui->stackedWidget_5->setCurrentIndex(0);
 
-    FileDropFilter* filter = new FileDropFilter;
-    filter->lineEdit = ui->txt_path;
-    ui->txt_path->installEventFilter(filter);
-    filter->lineEdit = ui->txt_pathScoreBoard;
-    ui->txt_pathScoreBoard->installEventFilter(filter);
-
 
 
     ui->lb_latestSY->setText(QString::fromStdString("Latest School Year: " + latestSYear->data.year));
@@ -465,6 +459,13 @@ void adjustLabelFontSizeToFit(QLabel* label) {
     label->setFont(font);
 }
 
+void clearAllLineEdits(QWidget *parent) {
+    QList<QLineEdit *> lineEdits = parent->findChildren<QLineEdit *>();
+    for (QLineEdit *lineEdit : lineEdits) {
+        lineEdit->clear();
+    }
+}
+
 void MainWindow::on_checkBox_stateChanged(int arg1)
 {
     if (ui->checkBox->isChecked()) ui->txtPassword->setEchoMode(QLineEdit::Normal);
@@ -491,7 +492,6 @@ void MainWindow::on_button_signin_clicked()
         ui->name_2->setText(QString::fromStdString("Hi, " + firstName));
 
         ui->stackedWidget->setCurrentIndex(2);
-        ui->stackedWidget_3->setCurrentIndex(0);
     }
     else if (id == 2)
     {
@@ -501,8 +501,14 @@ void MainWindow::on_button_signin_clicked()
         ui->name->setText(QString::fromStdString("Hi, " + firstName));
 
         ui->stackedWidget->setCurrentIndex(1);
-        ui->stackedWidget_2->setCurrentIndex(0);
     }
+    ui->stackedWidget_2->setCurrentIndex(0);
+    ui->stackedWidget_3->setCurrentIndex(0);
+    ui->stackedWidget_4->setCurrentIndex(0);
+    ui->stackedWidget_5->setCurrentIndex(0);
+    ui->stackedWidget_6->setCurrentIndex(0);
+    clearAllLineEdits(ui->centralwidget);
+    ui->txtUsername->setText(QString::fromStdString(username));
 }
 
 
@@ -677,6 +683,26 @@ void MainWindow::on_stackedWidget_3_currentChanged(int arg1)
     if (ui->stackedWidget_3->currentIndex() == 2) ui->button_AdChangePassword->setStyleSheet("color: lightgreen;");
     else ui->button_AdChangePassword->setStyleSheet("color: white;");
 }
+
+void MainWindow::on_stackedWidget_4_currentChanged(int arg1)
+{
+    if (ui->stackedWidget_4->currentIndex() == 0) ui->button_addOne->setStyleSheet("color: lightgreen;");
+    else ui->button_addOne->setStyleSheet("color: white;");
+
+    if (ui->stackedWidget_4->currentIndex() == 1) ui->button_import->setStyleSheet("color: lightgreen;");
+    else ui->button_import->setStyleSheet("color: white;");
+}
+
+
+void MainWindow::on_stackedWidget_6_currentChanged(int arg1)
+{
+    if (ui->stackedWidget_6->currentIndex() == 0) ui->button_addOne_2->setStyleSheet("color: lightgreen;");
+    else ui->button_addOne_2->setStyleSheet("color: white;");
+
+    if (ui->stackedWidget_6->currentIndex() == 1) ui->button_import_2->setStyleSheet("color: lightgreen;");
+    else ui->button_import_2->setStyleSheet("color: white;");
+}
+
 
 void MainWindow::on_button_confirm_clicked()
 {
@@ -1164,6 +1190,7 @@ void MainWindow::on_button_addStudent_clicked()
 
     ui->stackedWidget_3->setCurrentIndex(6);
     ui->stackedWidget_4->setCurrentIndex(0);
+    ui->button_addOne->setStyleSheet("color: lightgreen");
 }
 
 
@@ -1183,6 +1210,9 @@ void MainWindow::on_button_addOne_clicked()
 void MainWindow::on_button_import_clicked()
 {
     ui->stackedWidget_4->setCurrentIndex(1);
+    FileDropFilter* filter = new FileDropFilter;
+    filter->lineEdit = ui->txt_path;
+    ui->txt_path->installEventFilter(filter);
 }
 
 
@@ -1344,6 +1374,7 @@ void MainWindow::on_button_cancel_clicked()
 void MainWindow::on_button_cancel_2_clicked()
 {
     ui->txt_path->setText("");
+    // ui->stackedWidget_4->setCurrentIndex(0);
 }
 
 
@@ -1910,6 +1941,10 @@ void MainWindow::on_button_viewStudent_clicked()
                         ui->table_student_2->setItem(no - 1, 3, new QTableWidgetItem(QString::number(curStu.final)));
                         ui->table_student_2->setItem(no - 1, 4, new QTableWidgetItem(QString::number(curStu.other)));
                         ui->table_student_2->setItem(no - 1, 5, new QTableWidgetItem(QString::number(curStu.total)));
+                        if (curStu.midTerm == -1) ui->table_student_2->setItem(no - 1, 2, new QTableWidgetItem(""));
+                        if (curStu.final == -1) ui->table_student_2->setItem(no - 1, 3, new QTableWidgetItem(""));
+                        if (curStu.other == -1) ui->table_student_2->setItem(no - 1, 4, new QTableWidgetItem(""));
+                        if (curStu.total == -1) ui->table_student_2->setItem(no - 1, 5, new QTableWidgetItem(""));
                     }
                     break;
                 }
@@ -2068,7 +2103,7 @@ void MainWindow::on_button_confirm_7_clicked()
     }
     formalize(newCourse.Name);
 
-    if (!isValidClassName(newCourse.className, year)) {
+    if (!isValidClassName_smaller(newCourse.className, year)) {
         MessageBox("Error", "Invalid Class Name!");
         return;
     }
@@ -2188,8 +2223,6 @@ void MainWindow::on_button_removeStudent_clicked()
 
 void MainWindow::on_button_addStudent_2_clicked()
 {
-    ui->stackedWidget_5->setCurrentIndex(3);
-
     int row = ui->table_course->currentRow();
 
     std::string ID = ui->table_course->item(row, 0)->text().toStdString();
@@ -2204,7 +2237,10 @@ void MainWindow::on_button_addStudent_2_clicked()
         return;
     }
 
+    ui->stackedWidget_5->setCurrentIndex(3);
+    ui->stackedWidget_6->setCurrentIndex(0);
     ui->lb_courseData->setText(QString::fromStdString(courseData));
+    ui->button_addOne_2->setStyleSheet("color: lightgreen;");
 }
 
 void MainWindow::on_button_back_15_clicked()
@@ -2333,10 +2369,10 @@ void MainWindow::on_button_confirm_8_clicked()
 
     std::string year = getSYofCourse(ID, className)->year;
 
-    // if (!isValidClassName(couNew.className, year)) {
-    //     MessageBox("Error", "Invalid Class Name!");
-    //     return;
-    // }
+    if (!isValidClassName_smaller(couNew.className, year)) {
+        MessageBox("Error", "Invalid Class Name!");
+        return;
+    }
     if (!notExistclassNameOfCourse(ID, couNew.className, year) && couNew.className != className) {
         MessageBox("Error", "Class Name Existed!");
         return;
@@ -2534,6 +2570,9 @@ void MainWindow::on_button_exportTable_clicked()
 void MainWindow::on_button_importScoreBoard_clicked()
 {
     ui->stackedWidget_5->setCurrentIndex(6);
+    FileDropFilter* filter = new FileDropFilter;
+    filter->lineEdit = ui->txt_pathScoreBoard;
+    ui->txt_pathScoreBoard->installEventFilter(filter);
 }
 
 
@@ -2547,5 +2586,159 @@ void MainWindow::on_button_back_17_clicked()
 void MainWindow::on_button_confirm_11_clicked()
 {
     // import scoreboard
+
+    int row = ui->table_course->currentRow();
+    std::string ID = ui->table_course->item(row, 0)->text().toStdString();
+    std::string className = ui->table_course->item(row, 2)->text().toStdString();
+    Course* couCurr = getCourse(ID, className);
+
+    QString fileName = ui->txt_pathScoreBoard->text();
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        MessageBox("Fail", "Could Not Import File!");
+        MessageBox("Fail", "Error: " + file.errorString().toStdString());
+        return;
+    }
+
+    QTextStream in(&file);
+    QString header = in.readLine(); // Read the header line
+
+    int n = 0;
+    bool success = true;
+    bool rightClass = true;
+
+    while (!in.atEnd()) {
+        if (n == couCurr->maxStudents) {
+            MessageBox("Error", "The Number Of Students In The Course Exceeds The Limit Of " + std::to_string(couCurr->maxStudents) + " students!");
+            success = false;
+            break;
+        }
+
+        QString line = in.readLine();
+        if (line.trimmed().isEmpty()) {
+            break; // Stop reading if the line is empty
+        }
+
+        QStringList tokens = line.split(',');
+
+        if (tokens.size() < 6) {
+            MessageBox("Error", "Invalid Data Format In Line " + std::to_string(n + 2));
+            success = false;
+            break;
+        }
+
+        if (couCurr->score[n].studentID != tokens.at(0).trimmed().toStdString()) {rightClass = false; break;}
+        couCurr->score[n].total = tokens.at(2).trimmed().toDouble();
+        couCurr->score[n].final = tokens.at(3).trimmed().toDouble();
+        couCurr->score[n].midTerm = tokens.at(4).trimmed().toDouble();
+        couCurr->score[n].other = tokens.at(5).trimmed().toDouble();
+
+        n++;
+    }
+
+    if (!success) {
+        delete[] couCurr->score;
+        couCurr->score = nullptr;
+        MessageBox("Fail", "Import Failed. Imported Students Has Just Been Removed!\n"
+                           "If You Want To Import More Students, Resize The Course And Try Again.");
+    } else if (!rightClass) {
+        MessageBox("Fail", "Import Canceled!\n"
+                           "Make Sure The Order Of Students In The Score File And In The Course Is The Same!");
+    }
+    else {
+        couCurr->courseSize = n;
+        MessageBox_information("Notification", "Imported Successfully!");
+        MainWindow::on_button_viewStudent_clicked();
+    }
+
+    file.close();
+}
+
+
+void MainWindow::on_button_addOne_2_clicked()
+{
+    ui->stackedWidget_6->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_button_import_2_clicked()
+{
+    ui->stackedWidget_6->setCurrentIndex(1);
+    FileDropFilter* filter = new FileDropFilter;
+    filter->lineEdit = ui->txt_path_2;
+    ui->txt_path_2->installEventFilter(filter);
+}
+
+
+
+void MainWindow::on_button_clear_2_clicked()
+{
+    ui->txt_path_2->setText("");
+}
+
+
+void MainWindow::on_button_confirm_12_clicked()
+{
+    int row = ui->table_course->currentRow();
+    std::string ID = ui->table_course->item(row, 0)->text().toStdString();
+    std::string className = ui->table_course->item(row, 2)->text().toStdString();
+    Course* couCurr = getCourse(ID, className);
+
+    QString fileName = ui->txt_path_2->text();
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        MessageBox("Fail", "Could Not Import File!");
+        MessageBox("Fail", "Error: " + file.errorString().toStdString());
+        return;
+    }
+
+    QTextStream in(&file);
+    QString header = in.readLine(); // Read the header line
+
+    int n = 0;
+    bool success = true;
+
+    while (!in.atEnd()) {
+        if (n == couCurr->maxStudents) {
+            MessageBox("Error", "The Number Of Students In The Course Exceeds The Limit Of " + std::to_string(couCurr->maxStudents) + " students!");
+            success = false;
+            break;
+        }
+
+        QString line = in.readLine();
+        if (line.trimmed().isEmpty()) {
+            break; // Stop reading if the line is empty
+        }
+
+        QStringList tokens = line.split(',');
+
+        if (tokens.size() < 2) {
+            MessageBox("Error", "Invalid Data Format In Line " + std::to_string(n + 2));
+            success = false;
+            break;
+        }
+
+        couCurr->score[n].studentID = tokens.at(0).trimmed().toStdString();
+        couCurr->score[n].studentName = tokens.at(1).trimmed().toStdString();
+        couCurr->score[n].total = -1;
+        couCurr->score[n].final = -1;
+        couCurr->score[n].midTerm = -1;
+        couCurr->score[n].other = -1;
+
+        n++;
+    }
+
+    if (!success) {
+        delete[] couCurr->score;
+        couCurr->score = nullptr;
+        MessageBox("Fail", "Import Failed. Imported Students Has Just Been Removed!\n"
+                           "If You Want To Import More Students, Resize The Course And Try Again.");
+    } else {
+        couCurr->courseSize = n;
+        MessageBox_information("Notification", "Imported Successfully!");
+        MainWindow::on_button_viewStudent_clicked();
+    }
+
+    file.close();
 }
 

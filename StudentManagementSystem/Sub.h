@@ -9,6 +9,7 @@ void deleteData();
 void getChoiceInt(int startChoiceNum, int endChoiceNum, std::string prompt, int& choice);
 
 bool isValidClassName(const std::string& className, const std::string& currentYear);
+bool isValidClassName_smaller(const std::string& className, const std::string& currentYear);
 bool isValidCouOrStuName(const std::string& name);
 bool isValidCourseID(const std::string& courseID);
 bool isValidStudentID(std::string id);

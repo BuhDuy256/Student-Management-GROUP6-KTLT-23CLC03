@@ -88,6 +88,53 @@ bool isValidClassName(const std::string& className, const std::string& currentYe
     return false;
 }
 
+bool isValidClassName_smaller(const std::string& className, const std::string& currentYear) {
+    // if (className.size() < 6 || className.size() > 8) { // 23VP01 have 6 characters, 23CLC03 have 7 characters, 23APCS1 have 7 characters
+    //     return false;
+    // }
+    if (className.size() < 6 || className.size() > 8) { // 23VP01 have 6 characters, 23CLC03 have 7 characters, 23APCS01 have 8 characters
+        return false;
+    }
+    if (className.substr(0, 2) > currentYear.substr(2, 2)) { // 23VP01 must match with 2023-2024
+        return false;
+    }
+    if (!isdigit(className[className.size() - 1])) { // check last character is digit or not
+        return false;
+    }
+    int numUpper = 0;
+    if (isupper(className[2])) {
+        numUpper++;
+    }
+    else {
+        return false;
+    }
+    bool isPrevUpper = false;
+    for (int i = 2; i < className.size() - 2; ++i) {
+        if (isupper(className[i])) {
+            if (isPrevUpper) {
+                numUpper++;
+            }
+            isPrevUpper = true;
+        }
+        else {
+            isPrevUpper = false;
+        }
+    }
+    // if (numUpper == 3 && className.size() == 7 && isupper(className[className.size() - 2])) {
+    //     return true;
+    // } // if class is 23APCS1
+    if (numUpper == 4 && className.size() == 8 && isdigit(className[className.size() - 2])) {
+        return true;
+    } // if class is 23APCS01
+    if (numUpper == 3 && className.size() == 7 && isdigit(className[className.size() - 2])) {
+        return true;
+    }
+    if (numUpper == 2 && className.size() == 6 && isdigit(className[className.size() - 2])) {
+        return true;
+    }
+    return false;
+}
+
 bool isValidCouOrStuName(const std::string& name) {
     // Regular expression to match valid names
     std::regex pattern("^[A-Za-z]+(?:[ ][A-Za-z]+)*$");
