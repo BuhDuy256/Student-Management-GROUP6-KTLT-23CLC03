@@ -713,7 +713,11 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
+<<<<<<< HEAD
            <number>3</number>
+=======
+           <number>2</number>
+>>>>>>> 74d531e641216dd2099040cdaacfed7e42c07c69
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -2267,7 +2271,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>9</number>
+           <number>6</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <widget class="QLabel" name="lb_welcome_2">
@@ -3989,9 +3993,6 @@ QScrollBar::sub-line:vertical {
     subcontrol-origin: margin;
 }
 
-font-size: 16px;
-
-
 
 </string>
               </property>
@@ -4477,7 +4478,7 @@ QCalendarWidget QMenu {
               </property>
               <property name="maximumSize">
                <size>
-                <width>65</width>
+                <width>16777215</width>
                 <height>65</height>
                </size>
               </property>
@@ -4485,11 +4486,21 @@ QCalendarWidget QMenu {
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="styleSheet">
-               <string notr="true">border-image: url(:/background/File.png);
+               <string notr="true">
 margin: 5px;</string>
               </property>
               <property name="text">
-               <string/>
+               <string>IMPORT</string>
+              </property>
+              <property name="icon">
+               <iconset resource="resourses.qrc">
+                <normaloff>:/background/File.png</normaloff>:/background/File.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>30</width>
+                <height>30</height>
+               </size>
               </property>
              </widget>
             </item>
@@ -4505,7 +4516,17 @@ margin: 5px;</string>
                <string notr="true">margin: 5px;</string>
               </property>
               <property name="text">
-               <string>ADD ONE STUDENT</string>
+               <string>ADD NEW STUDENT</string>
+              </property>
+              <property name="icon">
+               <iconset resource="resourses.qrc">
+                <normaloff>:/background/addNewStudent.png</normaloff>:/background/addNewStudent.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
               </property>
              </widget>
             </item>
@@ -5151,7 +5172,7 @@ QScrollBar::sub-line:vertical {
 }</string>
               </property>
               <property name="currentIndex">
-               <number>5</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="page_2">
                <widget class="QPushButton" name="button_back_11">
@@ -6021,6 +6042,12 @@ QComboBox::hover {
                   <height>41</height>
                  </rect>
                 </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="font">
                  <font>
                   <pointsize>14</pointsize>
@@ -6041,6 +6068,12 @@ QComboBox::hover {
                   <width>91</width>
                   <height>41</height>
                  </rect>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
                 </property>
                 <property name="font">
                  <font>
@@ -6088,6 +6121,12 @@ QComboBox::hover {
                   <width>153</width>
                   <height>31</height>
                  </rect>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
                 </property>
                 <property name="font">
                  <font>
@@ -6138,6 +6177,12 @@ padding: 10px;</string>
                   <width>119</width>
                   <height>31</height>
                  </rect>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
                 </property>
                 <property name="font">
                  <font>
@@ -6215,6 +6260,12 @@ padding: 10px;</string>
                   <height>31</height>
                  </rect>
                 </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="font">
                  <font>
                   <pointsize>14</pointsize>
@@ -6264,6 +6315,12 @@ padding: 10px;</string>
                   <width>98</width>
                   <height>31</height>
                  </rect>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
                 </property>
                 <property name="font">
                  <font>
@@ -6317,6 +6374,12 @@ padding: 10px;</string>
                   <width>153</width>
                   <height>31</height>
                  </rect>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
                 </property>
                 <property name="font">
                  <font>
@@ -7376,6 +7439,7 @@ padding: 10px;</string>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
+<<<<<<< HEAD
  <tabstops>
   <tabstop>txt_AdName</tabstop>
   <tabstop>txt_AdSocialID</tabstop>
@@ -7523,5 +7587,10 @@ padding: 10px;</string>
   <tabstop>button_back_5</tabstop>
  </tabstops>
  <resources/>
+=======
+ <resources>
+  <include location="resourses.qrc"/>
+ </resources>
+>>>>>>> 74d531e641216dd2099040cdaacfed7e42c07c69
  <connections/>
 </ui>
