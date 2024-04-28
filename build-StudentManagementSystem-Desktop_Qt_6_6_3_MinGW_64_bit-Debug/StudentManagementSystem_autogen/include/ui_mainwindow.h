@@ -103,11 +103,11 @@ public:
     QSpacerItem *horizontalSpacer_3;
     QLabel *lb_select_sem;
     QComboBox *sem_select;
-    QPushButton *button_ok;
     QTableWidget *tableWidget;
     QHBoxLayout *horizontalLayout_3;
-    QPushButton *button_back_5;
+    QPushButton *button_ok;
     QPushButton *button_viewScore;
+    QPushButton *button_back_5;
     QWidget *StuChangePassword;
     QGridLayout *gridLayout_5;
     QLabel *lb_confirmPass;
@@ -173,12 +173,12 @@ public:
     QPushButton *button_currentDate;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout_10;
-    QPushButton *button_setEndDate;
-    QPushButton *button_confirm_3;
-    QLineEdit *txt_endDate;
     QPushButton *button_back_6;
-    QLineEdit *txt_startDate;
     QPushButton *button_setStartDate;
+    QLineEdit *txt_endDate;
+    QLineEdit *txt_startDate;
+    QPushButton *button_confirm_3;
+    QPushButton *button_setEndDate;
     QLabel *lb_latestSED;
     QWidget *AdClassManagement;
     QLabel *lb_classManage;
@@ -348,7 +348,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1247, 727);
+        MainWindow->resize(1252, 726);
         MainWindow->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "        border-image: url(:/background/button.png);\n"
 "        color: white;\n"
@@ -1102,14 +1102,6 @@ public:
 
         horizontalLayout_2->addWidget(sem_select);
 
-        button_ok = new QPushButton(StuCourse);
-        button_ok->setObjectName("button_ok");
-        button_ok->setMinimumSize(QSize(70, 28));
-        button_ok->setMaximumSize(QSize(100, 28));
-        button_ok->setStyleSheet(QString::fromUtf8("font-size: 16px;"));
-
-        horizontalLayout_2->addWidget(button_ok);
-
 
         verticalLayout_5->addLayout(horizontalLayout_2);
 
@@ -1244,14 +1236,14 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName("horizontalLayout_3");
-        button_back_5 = new QPushButton(StuCourse);
-        button_back_5->setObjectName("button_back_5");
-        button_back_5->setMinimumSize(QSize(200, 50));
-        button_back_5->setMaximumSize(QSize(200, 50));
-        button_back_5->setFont(font6);
-        button_back_5->setStyleSheet(QString::fromUtf8(""));
+        button_ok = new QPushButton(StuCourse);
+        button_ok->setObjectName("button_ok");
+        button_ok->setMinimumSize(QSize(200, 50));
+        button_ok->setMaximumSize(QSize(200, 50));
+        button_ok->setFont(font6);
+        button_ok->setStyleSheet(QString::fromUtf8(""));
 
-        horizontalLayout_3->addWidget(button_back_5);
+        horizontalLayout_3->addWidget(button_ok);
 
         button_viewScore = new QPushButton(StuCourse);
         button_viewScore->setObjectName("button_viewScore");
@@ -1260,6 +1252,15 @@ public:
         button_viewScore->setFont(font6);
 
         horizontalLayout_3->addWidget(button_viewScore);
+
+        button_back_5 = new QPushButton(StuCourse);
+        button_back_5->setObjectName("button_back_5");
+        button_back_5->setMinimumSize(QSize(200, 50));
+        button_back_5->setMaximumSize(QSize(200, 50));
+        button_back_5->setFont(font6);
+        button_back_5->setStyleSheet(QString::fromUtf8(""));
+
+        horizontalLayout_3->addWidget(button_back_5);
 
 
         verticalLayout_5->addLayout(horizontalLayout_3);
@@ -1946,23 +1947,23 @@ public:
         gridLayout_10 = new QGridLayout(gridLayoutWidget);
         gridLayout_10->setObjectName("gridLayout_10");
         gridLayout_10->setContentsMargins(0, 0, 0, 0);
-        button_setEndDate = new QPushButton(gridLayoutWidget);
-        button_setEndDate->setObjectName("button_setEndDate");
-        sizePolicy6.setHeightForWidth(button_setEndDate->sizePolicy().hasHeightForWidth());
-        button_setEndDate->setSizePolicy(sizePolicy6);
-        button_setEndDate->setMinimumSize(QSize(150, 50));
+        button_back_6 = new QPushButton(gridLayoutWidget);
+        button_back_6->setObjectName("button_back_6");
+        sizePolicy6.setHeightForWidth(button_back_6->sizePolicy().hasHeightForWidth());
+        button_back_6->setSizePolicy(sizePolicy6);
+        button_back_6->setMinimumSize(QSize(200, 65));
+        button_back_6->setMaximumSize(QSize(200, 65));
+        button_back_6->setStyleSheet(QString::fromUtf8("margin: 5px;"));
 
-        gridLayout_10->addWidget(button_setEndDate, 2, 1, 1, 1);
+        gridLayout_10->addWidget(button_back_6, 3, 1, 1, 1);
 
-        button_confirm_3 = new QPushButton(gridLayoutWidget);
-        button_confirm_3->setObjectName("button_confirm_3");
-        sizePolicy6.setHeightForWidth(button_confirm_3->sizePolicy().hasHeightForWidth());
-        button_confirm_3->setSizePolicy(sizePolicy6);
-        button_confirm_3->setMinimumSize(QSize(200, 65));
-        button_confirm_3->setMaximumSize(QSize(200, 65));
-        button_confirm_3->setStyleSheet(QString::fromUtf8("margin: 5px;"));
+        button_setStartDate = new QPushButton(gridLayoutWidget);
+        button_setStartDate->setObjectName("button_setStartDate");
+        sizePolicy6.setHeightForWidth(button_setStartDate->sizePolicy().hasHeightForWidth());
+        button_setStartDate->setSizePolicy(sizePolicy6);
+        button_setStartDate->setMinimumSize(QSize(150, 50));
 
-        gridLayout_10->addWidget(button_confirm_3, 3, 0, 1, 1);
+        gridLayout_10->addWidget(button_setStartDate, 0, 1, 1, 1);
 
         txt_endDate = new QLineEdit(gridLayoutWidget);
         txt_endDate->setObjectName("txt_endDate");
@@ -1982,16 +1983,6 @@ public:
 
         gridLayout_10->addWidget(txt_endDate, 2, 0, 1, 1);
 
-        button_back_6 = new QPushButton(gridLayoutWidget);
-        button_back_6->setObjectName("button_back_6");
-        sizePolicy6.setHeightForWidth(button_back_6->sizePolicy().hasHeightForWidth());
-        button_back_6->setSizePolicy(sizePolicy6);
-        button_back_6->setMinimumSize(QSize(200, 65));
-        button_back_6->setMaximumSize(QSize(200, 65));
-        button_back_6->setStyleSheet(QString::fromUtf8("margin: 5px;"));
-
-        gridLayout_10->addWidget(button_back_6, 3, 1, 1, 1);
-
         txt_startDate = new QLineEdit(gridLayoutWidget);
         txt_startDate->setObjectName("txt_startDate");
         sizePolicy7.setHeightForWidth(txt_startDate->sizePolicy().hasHeightForWidth());
@@ -2007,13 +1998,23 @@ public:
 
         gridLayout_10->addWidget(txt_startDate, 0, 0, 1, 1);
 
-        button_setStartDate = new QPushButton(gridLayoutWidget);
-        button_setStartDate->setObjectName("button_setStartDate");
-        sizePolicy6.setHeightForWidth(button_setStartDate->sizePolicy().hasHeightForWidth());
-        button_setStartDate->setSizePolicy(sizePolicy6);
-        button_setStartDate->setMinimumSize(QSize(150, 50));
+        button_confirm_3 = new QPushButton(gridLayoutWidget);
+        button_confirm_3->setObjectName("button_confirm_3");
+        sizePolicy6.setHeightForWidth(button_confirm_3->sizePolicy().hasHeightForWidth());
+        button_confirm_3->setSizePolicy(sizePolicy6);
+        button_confirm_3->setMinimumSize(QSize(200, 65));
+        button_confirm_3->setMaximumSize(QSize(200, 65));
+        button_confirm_3->setStyleSheet(QString::fromUtf8("margin: 5px;"));
 
-        gridLayout_10->addWidget(button_setStartDate, 0, 1, 1, 1);
+        gridLayout_10->addWidget(button_confirm_3, 3, 0, 1, 1);
+
+        button_setEndDate = new QPushButton(gridLayoutWidget);
+        button_setEndDate->setObjectName("button_setEndDate");
+        sizePolicy6.setHeightForWidth(button_setEndDate->sizePolicy().hasHeightForWidth());
+        button_setEndDate->setSizePolicy(sizePolicy6);
+        button_setEndDate->setMinimumSize(QSize(150, 50));
+
+        gridLayout_10->addWidget(button_setEndDate, 2, 1, 1, 1);
 
         lb_latestSED = new QLabel(AdCreateSemester);
         lb_latestSED->setObjectName("lb_latestSED");
@@ -2036,7 +2037,7 @@ public:
         AdClassManagement->setObjectName("AdClassManagement");
         lb_classManage = new QLabel(AdClassManagement);
         lb_classManage->setObjectName("lb_classManage");
-        lb_classManage->setGeometry(QRect(120, 30, 621, 111));
+        lb_classManage->setGeometry(QRect(160, 30, 621, 111));
         lb_classManage->setFont(font9);
         lb_classManage->setStyleSheet(QString::fromUtf8("color: #7FFFD4;\n"
 ""));
@@ -3268,7 +3269,7 @@ public:
 "padding: 10px"));
         label = new QLabel(page_2);
         label->setObjectName("label");
-        label->setGeometry(QRect(0, 0, 187, 47));
+        label->setGeometry(QRect(10, 0, 187, 47));
         sizePolicy11.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
         label->setSizePolicy(sizePolicy11);
         label->setFont(font6);
@@ -3844,22 +3845,26 @@ public:
         txt_midTerm_edit->setObjectName("txt_midTerm_edit");
         txt_midTerm_edit->setGeometry(QRect(280, 290, 91, 53));
         txt_midTerm_edit->setMinimumSize(QSize(0, 53));
-        txt_midTerm_edit->setStyleSheet(QString::fromUtf8("padding-left: 10px;"));
+        txt_midTerm_edit->setStyleSheet(QString::fromUtf8(""));
+        txt_midTerm_edit->setAlignment(Qt::AlignCenter);
         txt_final_edit = new QLineEdit(page_7);
         txt_final_edit->setObjectName("txt_final_edit");
         txt_final_edit->setGeometry(QRect(400, 290, 91, 53));
         txt_final_edit->setMinimumSize(QSize(0, 53));
-        txt_final_edit->setStyleSheet(QString::fromUtf8("padding-left: 10px;"));
+        txt_final_edit->setStyleSheet(QString::fromUtf8(""));
+        txt_final_edit->setAlignment(Qt::AlignCenter);
         txt_other_edit = new QLineEdit(page_7);
         txt_other_edit->setObjectName("txt_other_edit");
         txt_other_edit->setGeometry(QRect(530, 290, 91, 53));
         txt_other_edit->setMinimumSize(QSize(0, 53));
-        txt_other_edit->setStyleSheet(QString::fromUtf8("padding-left: 10px;"));
+        txt_other_edit->setStyleSheet(QString::fromUtf8(""));
+        txt_other_edit->setAlignment(Qt::AlignCenter);
         txt_total_edit = new QLineEdit(page_7);
         txt_total_edit->setObjectName("txt_total_edit");
         txt_total_edit->setGeometry(QRect(660, 290, 91, 53));
         txt_total_edit->setMinimumSize(QSize(0, 53));
-        txt_total_edit->setStyleSheet(QString::fromUtf8("padding-left: 10px;"));
+        txt_total_edit->setStyleSheet(QString::fromUtf8(""));
+        txt_total_edit->setAlignment(Qt::AlignCenter);
         lb_midTerm_edit = new QLabel(page_7);
         lb_midTerm_edit->setObjectName("lb_midTerm_edit");
         lb_midTerm_edit->setGeometry(QRect(270, 350, 111, 31));
@@ -3909,14 +3914,157 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName("statusBar");
         MainWindow->setStatusBar(statusBar);
+        QWidget::setTabOrder(txt_AdName, txt_AdSocialID);
+        QWidget::setTabOrder(txt_AdSocialID, box_addGender);
+        QWidget::setTabOrder(box_addGender, txt_addBirthday);
+        QWidget::setTabOrder(txt_addBirthday, txt_AdBirthday);
+        QWidget::setTabOrder(txt_AdBirthday, txt_courseID);
+        QWidget::setTabOrder(txt_courseID, txt_courseName);
+        QWidget::setTabOrder(txt_courseName, txt_className_2);
+        QWidget::setTabOrder(txt_className_2, txt_teacherName);
+        QWidget::setTabOrder(txt_teacherName, txt_maxStudents);
+        QWidget::setTabOrder(txt_maxStudents, box_numCredits);
+        QWidget::setTabOrder(box_numCredits, box_dayOfWeek);
+        QWidget::setTabOrder(box_dayOfWeek, box_session);
+        QWidget::setTabOrder(box_session, txt_studentID);
+        QWidget::setTabOrder(txt_studentID, txt_studentName);
+        QWidget::setTabOrder(txt_studentName, txt_courseID_edit);
+        QWidget::setTabOrder(txt_courseID_edit, txt_courseName_edit);
+        QWidget::setTabOrder(txt_courseName_edit, txt_className_edit);
+        QWidget::setTabOrder(txt_className_edit, txt_teacherName_edit);
+        QWidget::setTabOrder(txt_teacherName_edit, txt_maxStudents_edit);
+        QWidget::setTabOrder(txt_maxStudents_edit, box_numCredits_edit);
+        QWidget::setTabOrder(box_numCredits_edit, box_dayOfWeek_edit);
+        QWidget::setTabOrder(box_dayOfWeek_edit, box_session_edit);
+        QWidget::setTabOrder(box_session_edit, txt_studentID_edit);
+        QWidget::setTabOrder(txt_studentID_edit, txt_studentName_edit);
+        QWidget::setTabOrder(txt_studentName_edit, txt_midTerm_edit);
+        QWidget::setTabOrder(txt_midTerm_edit, txt_final_edit);
+        QWidget::setTabOrder(txt_final_edit, txt_other_edit);
+        QWidget::setTabOrder(txt_other_edit, txt_total_edit);
+        QWidget::setTabOrder(txt_total_edit, button_course_manage);
+        QWidget::setTabOrder(button_course_manage, button_back_4);
+        QWidget::setTabOrder(button_back_4, txtCurPass);
+        QWidget::setTabOrder(txtCurPass, txtNewPass);
+        QWidget::setTabOrder(txtNewPass, txtConfirmPass);
+        QWidget::setTabOrder(txtConfirmPass, checkBox_2);
+        QWidget::setTabOrder(checkBox_2, txt_AdID);
+        QWidget::setTabOrder(txt_AdID, button_signin);
+        QWidget::setTabOrder(button_signin, button_exit);
+        QWidget::setTabOrder(button_exit, txtUsername);
+        QWidget::setTabOrder(txtUsername, txtPassword);
+        QWidget::setTabOrder(txtPassword, checkBox);
+        QWidget::setTabOrder(checkBox, txt_addID);
+        QWidget::setTabOrder(txt_addID, txt_addName);
+        QWidget::setTabOrder(txt_addName, txt_addSocialID);
+        QWidget::setTabOrder(txt_addSocialID, txt_AdGender);
+        QWidget::setTabOrder(txt_AdGender, txtCurPass_2);
+        QWidget::setTabOrder(txtCurPass_2, txtNewPass_2);
+        QWidget::setTabOrder(txtNewPass_2, txtConfirmPass_2);
+        QWidget::setTabOrder(txtConfirmPass_2, checkBox_3);
+        QWidget::setTabOrder(checkBox_3, button_confirm_2);
+        QWidget::setTabOrder(button_confirm_2, button_back_3);
+        QWidget::setTabOrder(button_back_3, calendarWidget_2);
+        QWidget::setTabOrder(calendarWidget_2, button_currentDate);
+        QWidget::setTabOrder(button_currentDate, button_setEndDate);
+        QWidget::setTabOrder(button_setEndDate, button_confirm_3);
+        QWidget::setTabOrder(button_confirm_3, txt_endDate);
+        QWidget::setTabOrder(txt_endDate, button_back_6);
+        QWidget::setTabOrder(button_back_6, txt_startDate);
+        QWidget::setTabOrder(txt_startDate, button_setStartDate);
+        QWidget::setTabOrder(button_setStartDate, button_scoreOfClass);
+        QWidget::setTabOrder(button_scoreOfClass, button_allClasses);
+        QWidget::setTabOrder(button_allClasses, button_addStudent);
+        QWidget::setTabOrder(button_addStudent, button_createClass);
+        QWidget::setTabOrder(button_createClass, button_back_7);
+        QWidget::setTabOrder(button_back_7, list_classes);
+        QWidget::setTabOrder(list_classes, box_selectSY);
+        QWidget::setTabOrder(box_selectSY, txt_className);
+        QWidget::setTabOrder(txt_className, button_confirm_4);
+        QWidget::setTabOrder(button_confirm_4, button_back_8);
+        QWidget::setTabOrder(button_back_8, box_selectClass);
+        QWidget::setTabOrder(box_selectClass, button_back_9);
+        QWidget::setTabOrder(button_back_9, tableWidget_2);
+        QWidget::setTabOrder(tableWidget_2, button_confirm_5);
+        QWidget::setTabOrder(button_confirm_5, button_AdSignOut);
+        QWidget::setTabOrder(button_AdSignOut, button_class_manage);
+        QWidget::setTabOrder(button_class_manage, button_create_sem);
+        QWidget::setTabOrder(button_create_sem, button_cancel);
+        QWidget::setTabOrder(button_cancel, button_StuMyProfile);
+        QWidget::setTabOrder(button_StuMyProfile, button_openCalendar);
+        QWidget::setTabOrder(button_openCalendar, button_AdChangePassword);
+        QWidget::setTabOrder(button_AdChangePassword, txt_path);
+        QWidget::setTabOrder(txt_path, button_confirm_6);
+        QWidget::setTabOrder(button_confirm_6, button_cancel_2);
+        QWidget::setTabOrder(button_cancel_2, calendarWidget_3);
+        QWidget::setTabOrder(calendarWidget_3, button_selectDate);
+        QWidget::setTabOrder(button_selectDate, button_import);
+        QWidget::setTabOrder(button_import, button_addOne);
+        QWidget::setTabOrder(button_addOne, list_classes_2);
+        QWidget::setTabOrder(list_classes_2, table_student);
+        QWidget::setTabOrder(table_student, button_back_12);
+        QWidget::setTabOrder(button_back_12, box_class);
+        QWidget::setTabOrder(box_class, box_year);
+        QWidget::setTabOrder(box_year, box_semester);
+        QWidget::setTabOrder(box_semester, table_scoreboard);
+        QWidget::setTabOrder(table_scoreboard, button_back_10);
+        QWidget::setTabOrder(button_back_10, button_ok_2);
+        QWidget::setTabOrder(button_ok_2, button_back_11);
+        QWidget::setTabOrder(button_back_11, box_selectSY_2);
+        QWidget::setTabOrder(box_selectSY_2, table_course);
+        QWidget::setTabOrder(table_course, box_selectSem);
+        QWidget::setTabOrder(box_selectSem, button_viewStudent);
+        QWidget::setTabOrder(button_viewStudent, button_removeFilter);
+        QWidget::setTabOrder(button_removeFilter, button_addCourse);
+        QWidget::setTabOrder(button_addCourse, button_removeCourse);
+        QWidget::setTabOrder(button_removeCourse, button_edit);
+        QWidget::setTabOrder(button_edit, table_student_2);
+        QWidget::setTabOrder(table_student_2, button_coursesList);
+        QWidget::setTabOrder(button_coursesList, button_addStudent_2);
+        QWidget::setTabOrder(button_addStudent_2, button_removeStudent);
+        QWidget::setTabOrder(button_removeStudent, button_importScoreBoard);
+        QWidget::setTabOrder(button_importScoreBoard, button_exportTable);
+        QWidget::setTabOrder(button_exportTable, button_edit_2);
+        QWidget::setTabOrder(button_edit_2, button_create_sy);
+        QWidget::setTabOrder(button_create_sy, button_StuHome);
+        QWidget::setTabOrder(button_StuHome, calendarWidget);
+        QWidget::setTabOrder(calendarWidget, button_confirm_7);
+        QWidget::setTabOrder(button_confirm_7, button_back_13);
+        QWidget::setTabOrder(button_back_13, button_currentDay);
+        QWidget::setTabOrder(button_currentDay, button_StuSignOut);
+        QWidget::setTabOrder(button_StuSignOut, button_StuChangePassword);
+        QWidget::setTabOrder(button_StuChangePassword, button_StuMyCourses);
+        QWidget::setTabOrder(button_StuMyCourses, txt_StuGender);
+        QWidget::setTabOrder(txt_StuGender, txt_StuName);
+        QWidget::setTabOrder(txt_StuName, button_back_2);
+        QWidget::setTabOrder(button_back_2, button_confirm_9);
+        QWidget::setTabOrder(button_confirm_9, button_back_15);
+        QWidget::setTabOrder(button_back_15, txt_StuSocialID);
+        QWidget::setTabOrder(txt_StuSocialID, sy_select);
+        QWidget::setTabOrder(sy_select, sem_select);
+        QWidget::setTabOrder(sem_select, txt_StuID);
+        QWidget::setTabOrder(txt_StuID, txt_StuBirthday);
+        QWidget::setTabOrder(txt_StuBirthday, tableWidget);
+        QWidget::setTabOrder(tableWidget, button_confirm_8);
+        QWidget::setTabOrder(button_confirm_8, button_back_14);
+        QWidget::setTabOrder(button_back_14, txt_StuClass);
+        QWidget::setTabOrder(txt_StuClass, button_confirm_10);
+        QWidget::setTabOrder(button_confirm_10, button_back_16);
+        QWidget::setTabOrder(button_back_16, button_viewScore);
+        QWidget::setTabOrder(button_viewScore, button_back);
+        QWidget::setTabOrder(button_back, button_confirm);
+        QWidget::setTabOrder(button_confirm, button_AdMyProfile);
+        QWidget::setTabOrder(button_AdMyProfile, button_AdHome);
+        QWidget::setTabOrder(button_AdHome, button_ok);
+        QWidget::setTabOrder(button_ok, button_back_5);
 
         retranslateUi(MainWindow);
 
         stackedWidget->setCurrentIndex(2);
-        stackedWidget_2->setCurrentIndex(0);
-        stackedWidget_3->setCurrentIndex(9);
-        stackedWidget_4->setCurrentIndex(1);
-        stackedWidget_5->setCurrentIndex(0);
+        stackedWidget_2->setCurrentIndex(3);
+        stackedWidget_3->setCurrentIndex(4);
+        stackedWidget_4->setCurrentIndex(0);
+        stackedWidget_5->setCurrentIndex(2);
         box_numCredits->setCurrentIndex(-1);
         box_dayOfWeek->setCurrentIndex(-1);
         box_session->setCurrentIndex(-1);
@@ -3965,7 +4113,6 @@ public:
         sem_select->setItemText(1, QCoreApplication::translate("MainWindow", "2", nullptr));
         sem_select->setItemText(2, QCoreApplication::translate("MainWindow", "3", nullptr));
 
-        button_ok->setText(QCoreApplication::translate("MainWindow", "OK", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "Course ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
@@ -3982,8 +4129,9 @@ public:
         ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "Day Of Week", nullptr));
         QTableWidgetItem *___qtablewidgetitem7 = tableWidget->horizontalHeaderItem(7);
         ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "Session", nullptr));
-        button_back_5->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
+        button_ok->setText(QCoreApplication::translate("MainWindow", "VIEW INFO", nullptr));
         button_viewScore->setText(QCoreApplication::translate("MainWindow", "VIEW SCORES", nullptr));
+        button_back_5->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         lb_confirmPass->setText(QCoreApplication::translate("MainWindow", "Confirm Password:", nullptr));
         button_back->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         button_confirm->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
@@ -4022,10 +4170,10 @@ public:
         button_back_3->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         lb_createNewSemester->setText(QCoreApplication::translate("MainWindow", "Create New Semester", nullptr));
         button_currentDate->setText(QCoreApplication::translate("MainWindow", "CURRENT DAY", nullptr));
-        button_setEndDate->setText(QCoreApplication::translate("MainWindow", "Set End Date", nullptr));
-        button_confirm_3->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
         button_back_6->setText(QCoreApplication::translate("MainWindow", "BACK", nullptr));
         button_setStartDate->setText(QCoreApplication::translate("MainWindow", "Set Start Date", nullptr));
+        button_confirm_3->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
+        button_setEndDate->setText(QCoreApplication::translate("MainWindow", "Set End Date", nullptr));
         lb_latestSED->setText(QCoreApplication::translate("MainWindow", "Latest Semester End Date:", nullptr));
         lb_classManage->setText(QCoreApplication::translate("MainWindow", "CLASS MANAGEMENT", nullptr));
         button_scoreOfClass->setText(QCoreApplication::translate("MainWindow", "VIEW SCOREBOARD OF CLASS", nullptr));
@@ -4068,7 +4216,7 @@ public:
         box_addGender->setItemText(0, QCoreApplication::translate("MainWindow", "Male", nullptr));
         box_addGender->setItemText(1, QCoreApplication::translate("MainWindow", "Female", nullptr));
 
-        button_cancel->setText(QCoreApplication::translate("MainWindow", "CANCEL", nullptr));
+        button_cancel->setText(QCoreApplication::translate("MainWindow", "CLEAR", nullptr));
         lb_addSocialID->setText(QCoreApplication::translate("MainWindow", "Social ID", nullptr));
         button_openCalendar->setText(QString());
         txt_addBirthday->setText(QString());

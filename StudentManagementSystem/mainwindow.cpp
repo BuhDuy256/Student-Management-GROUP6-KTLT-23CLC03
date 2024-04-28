@@ -51,6 +51,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->sy_select->setFont(minecraftFont);
 
 
+
     minecraftFont.setPointSize(14);
     ui->button_signin->setFont(minecraftFont);
     ui->button_exit->setFont(minecraftFont);
@@ -122,13 +123,13 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_confirm_10->setFont(minecraftFont);
     ui->button_edit->setFont(minecraftFont);
     ui->button_edit_2->setFont(minecraftFont);
+    ui->button_ok->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(16);
     ui->slogan_1->setFont(minecraftFont);
     ui->slogan_2->setFont(minecraftFont);
     ui->slogan_3->setFont(minecraftFont);
-    ui->button_ok->setFont(minecraftFont);
     ui->box_selectSY->setFont(minecraftFont);
     ui->lb_allClassesIn->setFont(minecraftFont);
     ui->lb_addStuID->setFont(minecraftFont);
@@ -514,6 +515,9 @@ void MainWindow::on_button_StuSignOut_clicked()
     // ui->txtUsername->setText(QString::fromStdString(""));
     ui->txtPassword->setText(QString::fromStdString(""));
     ui->stackedWidget->setCurrentIndex(0);
+    ui->txtCurPass->setText("");
+    ui->txtNewPass->setText("");
+    ui->txtConfirmPass->setText("");
 }
 
 
@@ -522,6 +526,9 @@ void MainWindow::on_button_AdSignOut_clicked()
     // ui->txtUsername->setText(QString::fromStdString(""));
     ui->txtPassword->setText(QString::fromStdString(""));
     ui->stackedWidget->setCurrentIndex(0);
+    ui->txtCurPass_2->setText("");
+    ui->txtNewPass_2->setText("");
+    ui->txtConfirmPass_2->setText("");
 }
 
 
@@ -691,7 +698,7 @@ void MainWindow::on_button_confirm_clicked()
         return;
     }
 
-    QMessageBox::information(nullptr, "Success", "Password Changed!", QMessageBox::Ok);
+    MessageBox_information("Notification", "Password Changed Successfully!");
     ui->txtCurPass->setText("");
     ui->txtNewPass->setText("");
     ui->txtConfirmPass->setText("");
@@ -762,17 +769,17 @@ void MainWindow::on_button_confirm_2_clicked()
 
     if (!verifyPassword) {
         // std::cout << "Your old password is incorrect!" << std::endl;
-        QMessageBox::critical(nullptr, "Fail", "Current Password Is Incorrect!");
+        MessageBox("Fail", "Current Password Is Not Correct!");
         return;
     }
 
     if (newPassword != confirmPassword) {
         // std::cout << "Your new passwords do not match. Please try again!" << std::endl;
-        QMessageBox::critical(nullptr, "Fail", "New Password Not Matched!");
+        MessageBox("Fail", "New Password Not Match!");
         return;
     }
 
-    QMessageBox::information(nullptr, "Success", "Password Changed!", QMessageBox::Ok);
+    MessageBox_information("Notification", "Password Changed Successfully!");
     ui->txtCurPass_2->setText("");
     ui->txtNewPass_2->setText("");
     ui->txtConfirmPass_2->setText("");
@@ -1119,6 +1126,7 @@ void MainWindow::on_button_back_8_clicked()
 
 void MainWindow::on_button_addStudent_clicked()
 {
+    ui->box_selectClass->clear();
     Node<SchoolYear>* syCurr = latestSYear;
     while (syCurr)
     {
@@ -1210,17 +1218,19 @@ void MainWindow::on_box_selectClass_currentTextChanged(const QString& arg1)
 void MainWindow::on_button_confirm_5_clicked()
 {
     std::string className = ui->box_selectClass->currentText().toStdString();
-    Node<Class>* claCurr = latestSYear->data.classes;
+    Class* claCurr = &latestSYear->data.classes->data;
     Node<SchoolYear>* tempYear = latestSYear;
     while (tempYear)
     {
-        while (claCurr)
+        Node<Class>* tempClass = tempYear->data.classes;
+        while (tempClass)
         {
-            if (claCurr->data.className == className)
+            if (tempClass->data.className == className)
             {
+                claCurr = &tempClass->data;
                 break;
             }
-            claCurr = claCurr->next;
+            tempClass = tempClass->next;
         }
         tempYear = tempYear->next;
     }
@@ -1276,14 +1286,14 @@ void MainWindow::on_button_confirm_5_clicked()
     newStudent.gender = newStudentGender;
     newStudent.birthday = newStudentBirthday;
     newStudent.socialID = newStudentSocialID;
-    newStudent.mainClass = claCurr->data.className;
-    if (!claCurr->data.students)
+    newStudent.mainClass = claCurr->className;
+    if (!claCurr->students)
     {
-        claCurr->data.students = new Node<Student>(newStudent);
+        claCurr->students = new Node<Student>(newStudent);
     }
     else
     {
-        Node<Student>* stuCurr = claCurr->data.students;
+        Node<Student>* stuCurr = claCurr->students;
         while (stuCurr->next)
             stuCurr = stuCurr->next;
         stuCurr->next = new Node<Student>(newStudent);
@@ -1295,6 +1305,7 @@ void MainWindow::on_button_confirm_5_clicked()
     ui->txt_addSocialID->setText("");
 
     QMessageBox::information(nullptr, "Notification", "A New Student Added Successfully!");
+    MainWindow::on_box_selectClass_currentTextChanged(ui->box_selectClass->currentText());
 }
 
 
@@ -1397,6 +1408,7 @@ void MainWindow::on_button_back_7_clicked()
 
 void MainWindow::on_button_allClasses_clicked()
 {
+    ui->list_classes->clear();
     Node<SchoolYear>* syCurr = latestSYear;
     while (syCurr)
     {
@@ -1661,7 +1673,7 @@ void MainWindow::on_button_ok_2_clicked()
 
                             // columnCount++;
                             if (check->data.score[i].final != (-1) * 1.0) ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::number(check->data.score[i].final)));
-                            else ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::fromStdString("")));
+                            else ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(""));
                             score = true;
                             break;
                         }
@@ -1670,16 +1682,16 @@ void MainWindow::on_button_ok_2_clicked()
                 if (score) break;
                 check = check->next;
             }
-            if (check == nullptr) ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::fromStdString("")));
+            if (check == nullptr) ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(""));
             tmp2 = tmp2->next;
         }
         // columnCount++;
-        if (numofactivecourses == 0 || gpa == 0) ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::fromStdString("")));
+        if (numofactivecourses == 0 || gpa == 0) ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(""));
         else ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::number(gpa / numofactivecourses, 'f', 2)));
         double prevtotal = 0, prevnumofacticour = 0;
         // columnCount++;
         previous(prevtotal, prevnumofacticour, StuScore, ChosenClass, StudentUniqueCourses);
-        if (prevnumofacticour == 0 || numofactivecourses == 0) ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::fromStdString("")));
+        if (prevnumofacticour == 0 && numofactivecourses == 0) ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(""));
         else ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::number((prevtotal + gpa) / (prevnumofacticour + numofactivecourses), 'f', 2)));
 
         StuScore = StuScore->next;

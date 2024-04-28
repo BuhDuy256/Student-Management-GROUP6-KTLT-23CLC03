@@ -34,11 +34,14 @@ void importAllClassesCSV() {
                     syCurr->data.classes = new Node<Class>(newClass);
                 }
                 else {
-                    Node<Class>* claCurr = syCurr->data.classes;
-                    while (claCurr->next) {
-                        claCurr = claCurr->next;
-                    }
-                    claCurr->next = new Node<Class>(newClass);
+                    Node<Class>*& claCurr = syCurr->data.classes;
+                    Node<Class>* tmp = new Node<Class>(newClass);
+                    tmp->next = claCurr;
+                    claCurr = tmp;
+                    // while (claCurr->next) {
+                    //     claCurr = claCurr->next;
+                    // }
+                    // claCurr->next = new Node<Class>(newClass);
                 }
                 break;
             }
