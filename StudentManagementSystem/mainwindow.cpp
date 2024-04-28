@@ -522,6 +522,10 @@ void MainWindow::on_button_AdSignOut_clicked()
     // ui->txtUsername->setText(QString::fromStdString(""));
     ui->txtPassword->setText(QString::fromStdString(""));
     ui->stackedWidget->setCurrentIndex(0);
+    ui->txtCurPass_2->setText("");
+    ui->txtNewPass_2->setText("");
+    ui->txtConfirmPass_2->setText("");
+
 }
 
 
@@ -610,13 +614,16 @@ void MainWindow::on_button_StuMyCourses_clicked()
 {
     init_sy_select();
     show_tableWidget_list();
-
     ui->stackedWidget_2->setCurrentIndex(2);
 }
 
 
 void MainWindow::on_button_StuChangePassword_clicked()
 {
+    ui->txtCurPass->setText("");
+    ui->txtNewPass->setText("");
+    ui->txtConfirmPass->setText("");
+    ui->checkBox_2->setChecked(false);
     ui->stackedWidget_2->setCurrentIndex(3);
 }
 
@@ -736,6 +743,10 @@ void MainWindow::on_button_AdMyProfile_clicked()
 
 void MainWindow::on_button_AdChangePassword_clicked()
 {
+    ui->txtCurPass_2->setText("");
+    ui->txtNewPass_2->setText("");
+    ui->txtConfirmPass_2->setText("");
+    ui->checkBox_3->setChecked(false);
     ui->stackedWidget_3->setCurrentIndex(2);
 }
 
@@ -801,6 +812,7 @@ void MainWindow::on_checkBox_3_stateChanged(int arg1)
 void MainWindow::on_button_back_3_clicked()
 {
     ui->stackedWidget_3->setCurrentIndex(0);
+
 }
 
 
