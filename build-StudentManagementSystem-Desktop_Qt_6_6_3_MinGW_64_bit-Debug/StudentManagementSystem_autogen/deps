@@ -37,6 +37,7 @@ StudentManagementSystem_autogen/timestamp: \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QMap \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QMargins \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QMetaType \
+	D:/Qt/6.6.3/mingw_64/include/QtCore/QMimeData \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QMutex \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QObject \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QPointF \
@@ -305,6 +306,8 @@ StudentManagementSystem_autogen/timestamp: \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/qxptype_traits.h \
 	D:/Qt/6.6.3/mingw_64/include/QtGui/QAction \
 	D:/Qt/6.6.3/mingw_64/include/QtGui/QActionGroup \
+	D:/Qt/6.6.3/mingw_64/include/QtGui/QDragEnterEvent \
+	D:/Qt/6.6.3/mingw_64/include/QtGui/QDropEvent \
 	D:/Qt/6.6.3/mingw_64/include/QtGui/QFileSystemModel \
 	D:/Qt/6.6.3/mingw_64/include/QtGui/QFont \
 	D:/Qt/6.6.3/mingw_64/include/QtGui/QFontDatabase \
@@ -435,6 +438,7 @@ StudentManagementSystem_autogen/timestamp: \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QCalendarWidget \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QCommonStyle \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QLayout \
+	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QLineEdit \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QListWidgetItem \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QMainWindow \
 	D:/Qt/6.6.3/mingw_64/include/QtWidgets/QMessageBox \

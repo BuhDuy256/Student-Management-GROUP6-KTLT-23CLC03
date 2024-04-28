@@ -7,6 +7,19 @@ MainWindow::MainWindow(QWidget* parent)
 {
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget_2->setCurrentIndex(0);
+    ui->stackedWidget_3->setCurrentIndex(0);
+    ui->stackedWidget_4->setCurrentIndex(0);
+    ui->stackedWidget_5->setCurrentIndex(0);
+
+    FileDropFilter* filter = new FileDropFilter;
+    filter->lineEdit = ui->txt_path;
+    ui->txt_path->installEventFilter(filter);
+    filter->lineEdit = ui->txt_pathScoreBoard;
+    ui->txt_pathScoreBoard->installEventFilter(filter);
+
+
+
     ui->lb_latestSY->setText(QString::fromStdString("Latest School Year: " + latestSYear->data.year));
     ui->lb_latestSem->setText(QString::fromStdString("Latest Semester: " + std::to_string(lastSemNumber)));
 
@@ -1379,8 +1392,8 @@ void MainWindow::importCSVStudentsOfAClass_2(Node<Class>* claCurr, std::string f
                 stuCurr->next = new Node<Student>(newStu);
             }
         }
-        QMessageBox::information(nullptr, "Notification", "Import CSV Successfully!");
-
+        MessageBox_information("Notification", "Imported CSV Successfully!");
+        MainWindow::on_box_selectClass_currentTextChanged(ui->box_selectClass->currentText());
     }
     else {
         MessageBox("Error", "You Can Only Import CSV When The Class Has Had No Student Yet");
@@ -2515,5 +2528,24 @@ void MainWindow::on_button_exportTable_clicked()
     file.close();
     MessageBox_information("Notification", "Successfully Exported!\n"
         "Check Your Desktop Screen (Press F5 If You Do Not See).");
+}
+
+
+void MainWindow::on_button_importScoreBoard_clicked()
+{
+    ui->stackedWidget_5->setCurrentIndex(6);
+}
+
+
+void MainWindow::on_button_back_17_clicked()
+{
+    ui->stackedWidget_5->setCurrentIndex(1);
+    ui->txt_pathScoreBoard->setText("");
+}
+
+
+void MainWindow::on_button_confirm_11_clicked()
+{
+    // import scoreboard
 }
 

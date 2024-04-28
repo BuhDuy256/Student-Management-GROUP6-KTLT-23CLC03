@@ -13,6 +13,10 @@
 #include <QCalendarWidget>
 #include <QDate>
 #include <QStandardPaths>
+#include <QLineEdit>
+#include <QDragEnterEvent>
+#include <QDropEvent>
+#include <QMimeData>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -225,6 +229,12 @@ private slots:
 
     void on_button_exportTable_clicked();
 
+    void on_button_importScoreBoard_clicked();
+
+    void on_button_back_17_clicked();
+
+    void on_button_confirm_11_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
@@ -255,4 +265,40 @@ protected:
         }
     }
 };
+
+
+class FileDropFilter : public QObject {
+public:
+    FileDropFilter(QObject* parent = nullptr) : QObject(parent) {}
+
+protected:
+    bool eventFilter(QObject* watched, QEvent* event) override {
+        if (watched == lineEdit && event->type() == QEvent::DragEnter) {
+            QDragEnterEvent* dragEvent = static_cast<QDragEnterEvent*>(event);
+            if (dragEvent->mimeData()->hasUrls()) {
+                dragEvent->acceptProposedAction();
+                return true;
+            }
+        } else if (watched == lineEdit && event->type() == QEvent::Drop) {
+            QDropEvent* dropEvent = static_cast<QDropEvent*>(event);
+            const QMimeData* mimeData = dropEvent->mimeData();
+            if (mimeData->hasUrls()) {
+                QList<QUrl> urlList = mimeData->urls();
+                for (const QUrl &url : urlList) {
+                    if (url.isLocalFile()) {
+                        QString filePath = url.toLocalFile();
+                        lineEdit->setText(filePath);
+                        // Process the file path as needed
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+public:
+    QLineEdit* lineEdit;
+};
+
+
 #endif // MAINWINDOW_H
