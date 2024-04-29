@@ -142,6 +142,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_import_2->setFont(minecraftFont);
     ui->button_confirm_12->setFont(minecraftFont);
     ui->button_clear_2->setFont(minecraftFont);
+    ui->button_ok->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(16);
