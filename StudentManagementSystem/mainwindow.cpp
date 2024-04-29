@@ -133,7 +133,13 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_edit->setFont(minecraftFont);
     ui->button_edit_2->setFont(minecraftFont);
     ui->button_import->setFont(minecraftFont);
-
+    ui->button_confirm_11->setFont(minecraftFont);
+    ui->button_back_17->setFont(minecraftFont);
+    ui->button_clear->setFont(minecraftFont);
+    ui->button_addOne_2->setFont(minecraftFont);
+    ui->button_import_2->setFont(minecraftFont);
+    ui->button_confirm_12->setFont(minecraftFont);
+    ui->button_clear_2->setFont(minecraftFont);
 
     minecraftFont.setPointSize(16);
     ui->slogan_1->setFont(minecraftFont);
@@ -218,6 +224,9 @@ MainWindow::MainWindow(QWidget* parent)
     ui->txt_other_edit->setFont(minecraftFont);
     ui->txt_total_edit->setFont(minecraftFont);
 
+    ui->txt_pathScoreBoard->setFont(minecraftFont);
+    ui->txt_path_2->setFont(minecraftFont);
+
     minecraftFont.setBold(1);  // Bold Region
     ui->name->setFont(minecraftFont);
     ui->name_2->setFont(minecraftFont);
@@ -264,6 +273,8 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_final_edit->setFont(minecraftFont);
     ui->lb_total_edit->setFont(minecraftFont);
     ui->lb_other_edit->setFont(minecraftFont);
+
+    ui->lb_enterPath_2->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
 
@@ -284,6 +295,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->label_4->setFont(minecraftFont);
     ui->label_5->setFont(minecraftFont);
     ui->lb_courseData_edit->setFont(minecraftFont);
+    ui->lb_importScoreBoard->setFont(minecraftFont);
     minecraftFont.setBold(0); //End Bold Region
 
 
@@ -303,6 +315,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_classManage->setFont(minecraftFont);
     ui->lb_courseView->setFont(minecraftFont);
     ui->lb_createNewSemester->setFont(minecraftFont);
+
     minecraftFont.setBold(0); //End Bold Region
 
 
@@ -1917,8 +1930,8 @@ void MainWindow::on_button_viewStudent_clicked()
 
     ui->lb_scoreBoard->setText(QString::fromStdString(ID + " - " + courseName + " - " + className));
     ui->lb_courseData_edit->setText(QString::fromStdString(ID + " - " + courseName + " - " + className));
-    adjustLabelFontSizeToFit(ui->lb_scoreBoard);
-    adjustLabelFontSizeToFit(ui->lb_courseData_edit);
+    // adjustLabelFontSizeToFit(ui->lb_scoreBoard);
+    // adjustLabelFontSizeToFit(ui->lb_courseData_edit);
 
     Node<SchoolYear>* tempYear = latestSYear;
     while (tempYear)
