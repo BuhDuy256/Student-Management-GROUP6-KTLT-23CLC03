@@ -310,15 +310,16 @@ public:
     QGridLayout *gridLayout_22;
     QLabel *lb_studentID;
     QPushButton *button_confirm_9;
-    QPushButton *button_clear;
     QLabel *lb_studentName;
-    QSpacerItem *horizontalSpacer_5;
     QLineEdit *txt_studentName;
     QLineEdit *txt_studentID;
+    QPushButton *button_clear;
     QWidget *page_10;
+    QGridLayout *gridLayout_30;
     QLabel *lb_enterPath_2;
     QLineEdit *txt_path_2;
     QPushButton *button_confirm_12;
+    QSpacerItem *horizontalSpacer_4;
     QPushButton *button_clear_2;
     QSpacerItem *horizontalSpacer_6;
     QPushButton *button_back_15;
@@ -376,7 +377,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1233, 709);
+        MainWindow->resize(1207, 719);
         QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -3452,6 +3453,9 @@ public:
         page_4->setObjectName("page_4");
         gridLayout_19 = new QGridLayout(page_4);
         gridLayout_19->setObjectName("gridLayout_19");
+        gridLayout_19->setHorizontalSpacing(7);
+        gridLayout_19->setVerticalSpacing(21);
+        gridLayout_19->setContentsMargins(-1, -1, -1, 11);
         table_student_2 = new QTableWidget(page_4);
         if (table_student_2->columnCount() < 6)
             table_student_2->setColumnCount(6);
@@ -3473,7 +3477,6 @@ public:
         sizePolicy13.setVerticalStretch(0);
         sizePolicy13.setHeightForWidth(table_student_2->sizePolicy().hasHeightForWidth());
         table_student_2->setSizePolicy(sizePolicy13);
-        table_student_2->setMinimumSize(QSize(0, 400));
         table_student_2->setStyleSheet(QString::fromUtf8("QTableWidget::item {\n"
 "	background-color: rgba(118, 118, 118,200);\n"
 "	color: #F5F0F0;\n"
@@ -3900,14 +3903,6 @@ public:
 
         gridLayout_22->addWidget(button_confirm_9, 2, 0, 1, 1);
 
-        button_clear = new QPushButton(page_9);
-        button_clear->setObjectName("button_clear");
-        sizePolicy10.setHeightForWidth(button_clear->sizePolicy().hasHeightForWidth());
-        button_clear->setSizePolicy(sizePolicy10);
-        button_clear->setMinimumSize(QSize(0, 40));
-
-        gridLayout_22->addWidget(button_clear, 2, 2, 1, 1);
-
         lb_studentName = new QLabel(page_9);
         lb_studentName->setObjectName("lb_studentName");
         lb_studentName->setFont(font4);
@@ -3915,10 +3910,6 @@ public:
         lb_studentName->setAlignment(Qt::AlignCenter);
 
         gridLayout_22->addWidget(lb_studentName, 1, 0, 1, 1);
-
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-
-        gridLayout_22->addItem(horizontalSpacer_5, 2, 1, 1, 1);
 
         txt_studentName = new QLineEdit(page_9);
         txt_studentName->setObjectName("txt_studentName");
@@ -3934,33 +3925,62 @@ public:
 
         gridLayout_22->addWidget(txt_studentID, 0, 1, 1, 2);
 
+        button_clear = new QPushButton(page_9);
+        button_clear->setObjectName("button_clear");
+        sizePolicy10.setHeightForWidth(button_clear->sizePolicy().hasHeightForWidth());
+        button_clear->setSizePolicy(sizePolicy10);
+        button_clear->setMinimumSize(QSize(0, 40));
+
+        gridLayout_22->addWidget(button_clear, 2, 2, 1, 1);
+
         gridLayout_22->setColumnStretch(0, 1);
-        gridLayout_22->setColumnStretch(1, 2);
+        gridLayout_22->setColumnStretch(1, 1);
         gridLayout_22->setColumnStretch(2, 1);
         stackedWidget_6->addWidget(page_9);
         page_10 = new QWidget();
         page_10->setObjectName("page_10");
+        gridLayout_30 = new QGridLayout(page_10);
+        gridLayout_30->setObjectName("gridLayout_30");
+        gridLayout_30->setVerticalSpacing(0);
+        gridLayout_30->setContentsMargins(-1, 35, 11, 35);
         lb_enterPath_2 = new QLabel(page_10);
         lb_enterPath_2->setObjectName("lb_enterPath_2");
-        lb_enterPath_2->setGeometry(QRect(100, 40, 445, 31));
         lb_enterPath_2->setMaximumSize(QSize(16777215, 45));
         lb_enterPath_2->setFont(font5);
         lb_enterPath_2->setStyleSheet(QString::fromUtf8("color:white;"));
+
+        gridLayout_30->addWidget(lb_enterPath_2, 0, 0, 1, 1);
+
         txt_path_2 = new QLineEdit(page_10);
         txt_path_2->setObjectName("txt_path_2");
-        txt_path_2->setGeometry(QRect(100, 90, 521, 61));
         txt_path_2->setMinimumSize(QSize(0, 45));
         txt_path_2->setFont(font6);
         txt_path_2->setStyleSheet(QString::fromUtf8("color: #000000;\n"
 "background-color: rgba(255,255,255,200);\n"
 "padding: 10px;"));
         txt_path_2->setDragEnabled(true);
+
+        gridLayout_30->addWidget(txt_path_2, 1, 0, 1, 3);
+
         button_confirm_12 = new QPushButton(page_10);
         button_confirm_12->setObjectName("button_confirm_12");
-        button_confirm_12->setGeometry(QRect(30, 190, 201, 61));
+        button_confirm_12->setMinimumSize(QSize(0, 40));
+
+        gridLayout_30->addWidget(button_confirm_12, 2, 0, 1, 1);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        gridLayout_30->addItem(horizontalSpacer_4, 2, 1, 1, 1);
+
         button_clear_2 = new QPushButton(page_10);
         button_clear_2->setObjectName("button_clear_2");
-        button_clear_2->setGeometry(QRect(470, 190, 201, 61));
+        button_clear_2->setMinimumSize(QSize(0, 40));
+
+        gridLayout_30->addWidget(button_clear_2, 2, 2, 1, 1);
+
+        gridLayout_30->setColumnStretch(0, 1);
+        gridLayout_30->setColumnStretch(1, 1);
+        gridLayout_30->setColumnStretch(2, 1);
         stackedWidget_6->addWidget(page_10);
 
         gridLayout_23->addWidget(stackedWidget_6, 3, 1, 1, 2);
@@ -4422,13 +4442,13 @@ public:
 
         stackedWidget->setCurrentIndex(2);
         stackedWidget_2->setCurrentIndex(2);
-        stackedWidget_3->setCurrentIndex(9);
+        stackedWidget_3->setCurrentIndex(6);
         stackedWidget_4->setCurrentIndex(1);
-        stackedWidget_5->setCurrentIndex(6);
+        stackedWidget_5->setCurrentIndex(1);
         box_numCredits->setCurrentIndex(-1);
         box_dayOfWeek->setCurrentIndex(-1);
         box_session->setCurrentIndex(-1);
-        stackedWidget_6->setCurrentIndex(0);
+        stackedWidget_6->setCurrentIndex(1);
         box_numCredits_edit->setCurrentIndex(-1);
         box_session_edit->setCurrentIndex(-1);
         box_dayOfWeek_edit->setCurrentIndex(-1);
@@ -4688,8 +4708,8 @@ public:
         button_import_2->setText(QCoreApplication::translate("MainWindow", "IMPORT", nullptr));
         lb_studentID->setText(QCoreApplication::translate("MainWindow", "Student ID", nullptr));
         button_confirm_9->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
-        button_clear->setText(QCoreApplication::translate("MainWindow", "CLEAR", nullptr));
         lb_studentName->setText(QCoreApplication::translate("MainWindow", "Student Name", nullptr));
+        button_clear->setText(QCoreApplication::translate("MainWindow", "CLEAR", nullptr));
         lb_enterPath_2->setText(QCoreApplication::translate("MainWindow", "Enter CSV File:", nullptr));
         txt_path_2->setPlaceholderText(QCoreApplication::translate("MainWindow", "DROP CSV FILE HERE", nullptr));
         button_confirm_12->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1233</width>
-    <height>709</height>
+    <width>1207</width>
+    <height>719</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -2273,7 +2273,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>9</number>
+           <number>6</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <layout class="QGridLayout" name="gridLayout_27">
@@ -5166,7 +5166,7 @@ QScrollBar::sub-line:vertical {
 }</string>
               </property>
               <property name="currentIndex">
-               <number>6</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="page_2">
                <layout class="QGridLayout" name="gridLayout_20">
@@ -5514,6 +5514,15 @@ QScrollBar::sub-line:vertical {
               </widget>
               <widget class="QWidget" name="page_4">
                <layout class="QGridLayout" name="gridLayout_19" columnstretch="1,1,1,1,1,1">
+                <property name="bottomMargin">
+                 <number>11</number>
+                </property>
+                <property name="horizontalSpacing">
+                 <number>7</number>
+                </property>
+                <property name="verticalSpacing">
+                 <number>21</number>
+                </property>
                 <item row="1" column="0" colspan="6">
                  <widget class="QTableWidget" name="table_student_2">
                   <property name="sizePolicy">
@@ -5521,12 +5530,6 @@ QScrollBar::sub-line:vertical {
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>400</height>
-                   </size>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">QTableWidget::item {
@@ -6346,10 +6349,10 @@ padding: 10px;</string>
                 <item row="3" column="1" colspan="2">
                  <widget class="QStackedWidget" name="stackedWidget_6">
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>1</number>
                   </property>
                   <widget class="QWidget" name="page_9">
-                   <layout class="QGridLayout" name="gridLayout_22" rowstretch="0,0,0" columnstretch="1,2,1">
+                   <layout class="QGridLayout" name="gridLayout_22" rowstretch="0,0,0" columnstretch="1,1,1">
                     <property name="bottomMargin">
                      <number>0</number>
                     </property>
@@ -6390,25 +6393,6 @@ padding: 10px;</string>
                       </property>
                      </widget>
                     </item>
-                    <item row="2" column="2">
-                     <widget class="QPushButton" name="button_clear">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string>CLEAR</string>
-                      </property>
-                     </widget>
-                    </item>
                     <item row="1" column="0">
                      <widget class="QLabel" name="lb_studentName">
                       <property name="font">
@@ -6426,19 +6410,6 @@ padding: 10px;</string>
                        <set>Qt::AlignCenter</set>
                       </property>
                      </widget>
-                    </item>
-                    <item row="2" column="1">
-                     <spacer name="horizontalSpacer_5">
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
                     </item>
                     <item row="1" column="1" colspan="2">
                      <widget class="QLineEdit" name="txt_studentName">
@@ -6466,94 +6437,128 @@ padding: 10px;</string>
                       </property>
                      </widget>
                     </item>
+                    <item row="2" column="2">
+                     <widget class="QPushButton" name="button_clear">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>CLEAR</string>
+                      </property>
+                     </widget>
+                    </item>
                    </layout>
                   </widget>
                   <widget class="QWidget" name="page_10">
-                   <widget class="QLabel" name="lb_enterPath_2">
-                    <property name="geometry">
-                     <rect>
-                      <x>100</x>
-                      <y>40</y>
-                      <width>445</width>
-                      <height>31</height>
-                     </rect>
+                   <layout class="QGridLayout" name="gridLayout_30" columnstretch="1,1,1">
+                    <property name="topMargin">
+                     <number>35</number>
                     </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>45</height>
-                     </size>
+                    <property name="rightMargin">
+                     <number>11</number>
                     </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>16</pointsize>
-                     </font>
+                    <property name="bottomMargin">
+                     <number>35</number>
                     </property>
-                    <property name="styleSheet">
-                     <string notr="true">color:white;</string>
+                    <property name="verticalSpacing">
+                     <number>0</number>
                     </property>
-                    <property name="text">
-                     <string>Enter CSV File:</string>
-                    </property>
-                   </widget>
-                   <widget class="QLineEdit" name="txt_path_2">
-                    <property name="geometry">
-                     <rect>
-                      <x>100</x>
-                      <y>90</y>
-                      <width>521</width>
-                      <height>61</height>
-                     </rect>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>45</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>12</pointsize>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: #000000;
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="lb_enterPath_2">
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>45</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>16</pointsize>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color:white;</string>
+                      </property>
+                      <property name="text">
+                       <string>Enter CSV File:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0" colspan="3">
+                     <widget class="QLineEdit" name="txt_path_2">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>45</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: #000000;
 background-color: rgba(255,255,255,200);
 padding: 10px;</string>
-                    </property>
-                    <property name="dragEnabled">
-                     <bool>true</bool>
-                    </property>
-                    <property name="placeholderText">
-                     <string>DROP CSV FILE HERE</string>
-                    </property>
-                   </widget>
-                   <widget class="QPushButton" name="button_confirm_12">
-                    <property name="geometry">
-                     <rect>
-                      <x>30</x>
-                      <y>190</y>
-                      <width>201</width>
-                      <height>61</height>
-                     </rect>
-                    </property>
-                    <property name="text">
-                     <string>CONFIRM</string>
-                    </property>
-                   </widget>
-                   <widget class="QPushButton" name="button_clear_2">
-                    <property name="geometry">
-                     <rect>
-                      <x>470</x>
-                      <y>190</y>
-                      <width>201</width>
-                      <height>61</height>
-                     </rect>
-                    </property>
-                    <property name="text">
-                     <string>CLEAR</string>
-                    </property>
-                   </widget>
+                      </property>
+                      <property name="dragEnabled">
+                       <bool>true</bool>
+                      </property>
+                      <property name="placeholderText">
+                       <string>DROP CSV FILE HERE</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QPushButton" name="button_confirm_12">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>CONFIRM</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="1">
+                     <spacer name="horizontalSpacer_4">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item row="2" column="2">
+                     <widget class="QPushButton" name="button_clear_2">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>CLEAR</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
                  </widget>
                 </item>

@@ -1389,6 +1389,18 @@ void MainWindow::importCSVStudentsOfAClass_2(Node<Class>* claCurr, std::string f
     }
     QTextStream inF(&file);
 
+    //overwrite list student
+    if (claCurr->data.students)
+    {
+        Node<Student>* curStu = claCurr->data.students;
+        while (curStu)
+        {
+            Node<Student>* temp = curStu;
+            curStu = curStu->next;
+            delete temp;
+        }
+    }
+    claCurr->data.students = nullptr;
     if (!claCurr->data.students)
     {
         // Pass the header
@@ -2186,6 +2198,7 @@ void MainWindow::on_button_removeStudent_clicked()
     int ROW = ui->table_course->currentRow();
     std::string courseID = ui->table_course->item(ROW, 0)->text().toStdString();
     std::string className = ui->table_course->item(ROW, 2)->text().toStdString();
+    ui->table_course->item(ROW, 5)->setText(QString::number(ui->table_course->item(ROW, 5)->text().toInt() - 1));
     // int courseSize = ui->table_course->item(ROW, 5)->text().toInt();
 
     int row = ui->table_student_2->currentRow();
