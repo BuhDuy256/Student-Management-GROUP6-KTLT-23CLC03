@@ -1073,7 +1073,7 @@ void MainWindow::on_button_confirm_3_clicked()
     latestSem = currSem = latestSYear->data.semesters[lastSemNumber];
     lastSemNumber++;
     currSemNumber = lastSemNumber;
-    QMessageBox::information(nullptr, "Notification", "Semester Created Successfully!");
+    MessageBox_information("Notification", "Semester Created Successfully!");
     ui->lb_latestSY->setText(QString::fromStdString("Latest School Year: " + latestSYear->data.year));
     ui->lb_latestSem->setText(QString::fromStdString("Latest Semester: " + std::to_string(lastSemNumber)));
     ui->lb_latestSED->setText(QString::fromStdString("Latest Semester End Date: " + latestSem.endDate));
@@ -1163,7 +1163,7 @@ void MainWindow::on_button_confirm_4_clicked()
     Node<Class>* claHead = new Node<Class>(newClass, currSYear->data.classes);
     currSYear->data.classes = claHead;
 
-    QMessageBox::information(nullptr, "Notification", "A New Class Created Successfully!");
+    MessageBox_information("Notification", "A New Class Created Successfully!");
     MainWindow::on_box_selectSY_currentTextChanged("0");
 }
 
@@ -1358,7 +1358,7 @@ void MainWindow::on_button_confirm_5_clicked()
     ui->txt_addBirthday->setText("");
     ui->txt_addSocialID->setText("");
 
-    QMessageBox::information(nullptr, "Notification", "A New Student Added Successfully!");
+    MessageBox_information("Notification", "A New Student Added Successfully!");
     MainWindow::on_box_selectClass_currentTextChanged(ui->box_selectClass->currentText());
 }
 
