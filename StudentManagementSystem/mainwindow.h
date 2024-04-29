@@ -165,7 +165,7 @@ private slots:
 
     void on_box_year_currentTextChanged(const QString &arg1);
 
-    void on_button_ok_2_clicked();
+    void button_ok_2_clicked();
 
     Node<Class>* ChooseClass_2(std::string className);
 
@@ -250,6 +250,8 @@ private slots:
     void on_button_clear_2_clicked();
 
     void on_button_confirm_12_clicked();
+
+    void on_button_clear_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -1619,7 +1619,7 @@ void MainWindow::on_box_semester_currentTextChanged(const QString& arg1)
     int semester = ui->box_semester->currentText().toInt();
     currSem = currSYear->data.semesters[semester - 1];
 
-    MainWindow::on_button_ok_2_clicked();
+    MainWindow::button_ok_2_clicked();
 }
 
 Node<Class>* MainWindow::ChooseClass_2(std::string className) {  //copyallfunc
@@ -1640,7 +1640,7 @@ Node<Class>* MainWindow::ChooseClass_2(std::string className) {  //copyallfunc
     return nullptr;
 }
 
-void MainWindow::on_button_ok_2_clicked()
+void MainWindow::button_ok_2_clicked()
 {
     if (ui->box_class->currentText() == "" || ui->box_year->currentText() == "" || ui->box_semester->currentText() == "") return;
 
@@ -2756,5 +2756,12 @@ void MainWindow::on_button_confirm_12_clicked()
     }
 
     file.close();
+}
+
+
+void MainWindow::on_button_clear_clicked()
+{
+    ui->txt_studentID->setText("");
+    ui->txt_studentName->setText("");
 }
 
