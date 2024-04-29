@@ -1904,6 +1904,7 @@ void MainWindow::on_box_selectSem_currentTextChanged(const QString& arg1)
 
 void MainWindow::on_button_viewStudent_clicked()
 {
+    ui->table_student_2->setRowCount(0);
     int selectRow = ui->table_student_2->currentRow();
     if (ui->table_course->selectedItems().isEmpty())
     {
@@ -2310,6 +2311,7 @@ void MainWindow::on_button_confirm_9_clicked()
             couCurr->data.score[couCurr->data.courseSize] = studentScore;
             couCurr->data.courseSize++;
             MessageBox_information("Notification", "Student Added Successfully!");
+            MainWindow::on_button_viewStudent_clicked();
         }
         else {
             MessageBox_information("Notification", "Student Has Been Already In The Course!");
@@ -2629,10 +2631,10 @@ void MainWindow::on_button_confirm_11_clicked()
         }
 
         if (couCurr->score[n].studentID != tokens.at(0).trimmed().toStdString()) {rightClass = false; break;}
-        couCurr->score[n].total = tokens.at(2).trimmed().toDouble();
+        couCurr->score[n].midTerm = tokens.at(2).trimmed().toDouble();
         couCurr->score[n].final = tokens.at(3).trimmed().toDouble();
-        couCurr->score[n].midTerm = tokens.at(4).trimmed().toDouble();
-        couCurr->score[n].other = tokens.at(5).trimmed().toDouble();
+        couCurr->score[n].other = tokens.at(4).trimmed().toDouble();
+        couCurr->score[n].total = tokens.at(5).trimmed().toDouble();
 
         n++;
     }

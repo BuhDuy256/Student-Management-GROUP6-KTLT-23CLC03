@@ -4424,7 +4424,7 @@ public:
         stackedWidget_2->setCurrentIndex(2);
         stackedWidget_3->setCurrentIndex(9);
         stackedWidget_4->setCurrentIndex(1);
-        stackedWidget_5->setCurrentIndex(0);
+        stackedWidget_5->setCurrentIndex(6);
         box_numCredits->setCurrentIndex(-1);
         box_dayOfWeek->setCurrentIndex(-1);
         box_session->setCurrentIndex(-1);
