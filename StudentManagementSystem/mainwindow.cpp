@@ -151,7 +151,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_addBirthday->setFont(minecraftFont);
     ui->lb_addName->setFont(minecraftFont);
     ui->lb_addSocialID->setFont(minecraftFont);
-    ui->lb_selectClass->setFont(minecraftFont);
     ui->box_selectClass->setFont(minecraftFont);
     ui->lb_enterPath->setFont(minecraftFont);
     ui->box_year->setFont(minecraftFont);
