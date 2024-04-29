@@ -58,7 +58,10 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_currentDay->setFont(minecraftFont);
     ui->sem_select->setFont(minecraftFont);
     ui->sy_select->setFont(minecraftFont);
-
+    ui->box_session_edit->setFont(minecraftFont);
+    ui->box_session->setFont(minecraftFont);
+    ui->box_numCredits_edit->setFont(minecraftFont);
+    ui->box_dayOfWeek_edit->setFont(minecraftFont);
 
 
     minecraftFont.setPointSize(14);
@@ -139,6 +142,8 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_import_2->setFont(minecraftFont);
     ui->button_confirm_12->setFont(minecraftFont);
     ui->button_clear_2->setFont(minecraftFont);
+    ui->button_ok->setFont(minecraftFont);
+
 
     minecraftFont.setPointSize(16);
     ui->slogan_1->setFont(minecraftFont);
@@ -158,16 +163,14 @@ MainWindow::MainWindow(QWidget* parent)
     ui->box_class->setFont(minecraftFont);
     ui->box_selectSY_2->setFont(minecraftFont);
     ui->box_selectSem->setFont(minecraftFont);
-
-    ui->box_session->setFont(minecraftFont);
     ui->box_numCredits->setFont(minecraftFont);
     ui->box_dayOfWeek->setFont(minecraftFont);
     ui->tableWidget_2->setFont(minecraftFont);
-
-    ui->box_session_edit->setFont(minecraftFont);
-    ui->box_numCredits_edit->setFont(minecraftFont);
-    ui->box_dayOfWeek_edit->setFont(minecraftFont);
-
+    ui->txt_addBirthday->setFont(minecraftFont);
+    ui->lb_numCredits_edit->setFont(minecraftFont);
+    ui->lb_session_2_edit->setFont(minecraftFont);
+    ui->lb_numCredits->setFont(minecraftFont);
+    ui->lb_session->setFont(minecraftFont);
 
     minecraftFont.setPointSize(18);
     ui->txtPassword->setFont(minecraftFont);
@@ -191,7 +194,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->txt_AdSocialID->setFont(minecraftFont);
     ui->txt_className->setFont(minecraftFont);
 
-    ui->txt_addBirthday->setFont(minecraftFont);
     ui->txt_addID->setFont(minecraftFont);
     ui->txt_addName->setFont(minecraftFont);
     ui->txt_addSocialID->setFont(minecraftFont);
@@ -250,7 +252,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_className->setFont(minecraftFont);
     ui->lb_teacherName->setFont(minecraftFont);
     ui->lb_maxStudents->setFont(minecraftFont);
-    ui->lb_numCredits->setFont(minecraftFont);
     ui->lb_session->setFont(minecraftFont);
     ui->lb_studentID->setFont(minecraftFont);
     ui->lb_studentName->setFont(minecraftFont);
@@ -260,8 +261,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->lb_className_edit->setFont(minecraftFont);
     ui->lb_teacherName_edit->setFont(minecraftFont);
     ui->lb_maxStudents_edit->setFont(minecraftFont);
-    ui->lb_numCredits_edit->setFont(minecraftFont);
-    ui->lb_session_2_edit->setFont(minecraftFont);
+
 
     ui->lb_studentID_edit->setFont(minecraftFont);
     ui->lb_studentName_edit->setFont(minecraftFont);
