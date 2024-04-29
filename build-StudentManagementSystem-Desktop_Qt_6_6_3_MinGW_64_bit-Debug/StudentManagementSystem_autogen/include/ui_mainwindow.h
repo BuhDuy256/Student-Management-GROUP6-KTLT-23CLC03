@@ -4442,7 +4442,7 @@ public:
 
         stackedWidget->setCurrentIndex(2);
         stackedWidget_2->setCurrentIndex(2);
-        stackedWidget_3->setCurrentIndex(8);
+        stackedWidget_3->setCurrentIndex(3);
         stackedWidget_4->setCurrentIndex(1);
         stackedWidget_5->setCurrentIndex(3);
         box_numCredits->setCurrentIndex(-1);

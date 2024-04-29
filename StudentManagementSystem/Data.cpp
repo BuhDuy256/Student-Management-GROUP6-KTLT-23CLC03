@@ -133,7 +133,7 @@ void importAllCoursesCSV() {
                 if (newCourse.couSem > 0 && newCourse.couSem <= 3) {
                     found = true;
                     if (!syCurr->data.semesters[newCourse.couSem - 1].isCreated) {
-                        std::cout << "Error: Semester not created for year " << newCourse.couSY << " and semester " << newCourse.couSem << std::endl;
+                        // std::cout << "Error: Semester not created for year " << newCourse.couSY << " and semester " << newCourse.couSem << std::endl;
                         break;
                     }
                     Node<Course>* couHead = syCurr->data.semesters[newCourse.couSem - 1].Courses;
@@ -151,57 +151,62 @@ void importAllCoursesCSV() {
                     }
                 }
                 else {
-                    std::cout << "Error: Invalid semester number for year " << newCourse.couSY << ": " << newCourse.couSem << std::endl;
+                    // std::cout << "Error: Invalid semester number for year " << newCourse.couSY << ": " << newCourse.couSem << std::endl;
                     break;
                 }
             }
             syCurr = syCurr->next;
         }
         if (!found) {
-            std::cout << "Error: Year not found: " << newCourse.couSY << std::endl;
+            // std::cout << "Error: Year not found: " << newCourse.couSY << std::endl;
         }
     }
     file.close();
 }
 
 void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr) {
-    std::string fileName = "../CSV Files/List of Courses/" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
-    std::ifstream inF(fileName);
-    if (!inF.is_open()) {
-        std::cout << "Couldn't import " << fileName << std::endl;
+    QString fileName = ":/prefix/CSV Files/List of Courses/" + QString::fromStdString(couCurr->data.ID) + "_" + QString::fromStdString(couCurr->data.className) + ".csv";
+    QFile file(fileName);
+
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "Couldn't import" << fileName;
         return;
     }
-    std::string header;
-    std::getline(inF, header);
-    std::string line;
+
+    QTextStream in(&file);
+
+    QString header = in.readLine(); // Read the header line
+    QString line;
     int n = 0;
-    while (std::getline(inF, line)) {
+
+    while (!in.atEnd()) {
+        line = in.readLine();
+
         // Check if the line is empty or contains only whitespace
-        if (line.empty() || std::all_of(line.begin(), line.end(), [](unsigned char c) { return std::isspace(c); })) {
+        if (line.trimmed().isEmpty()) {
             break; // Stop reading if the line is empty
         }
-        std::stringstream ss(line);
-        std::string token;
-        std::getline(ss, token, ',');
-        couCurr->data.score[n].studentID = token;
-        std::getline(ss, token, ',');
-        couCurr->data.score[n].studentName = token;
-        std::getline(ss, token, ',');
-        if (!token.empty())
-            couCurr->data.score[n].midTerm = std::stod(token);
-        std::getline(ss, token, ',');
-        if (!token.empty())
-            couCurr->data.score[n].final = std::stod(token);
-        std::getline(ss, token, ',');
-        if (!token.empty())
-            couCurr->data.score[n].other = std::stod(token);
-        std::getline(ss, token, ',');
-        if (!token.empty())
-            couCurr->data.score[n].total = std::stod(token);
+
+        QStringList tokens = line.split(',');
+
+        // Assuming that tokens.size() is at least 3 (for student ID, name, and at least one score)
+        couCurr->data.score[n].studentID = tokens.at(0).toStdString();
+        couCurr->data.score[n].studentName = tokens.at(1).toStdString();
+
+        if (tokens.size() > 2 && !tokens.at(2).isEmpty())
+            couCurr->data.score[n].midTerm = tokens.at(2).toDouble();
+        if (tokens.size() > 3 && !tokens.at(3).isEmpty())
+            couCurr->data.score[n].final = tokens.at(3).toDouble();
+        if (tokens.size() > 4 && !tokens.at(4).isEmpty())
+            couCurr->data.score[n].other = tokens.at(4).toDouble();
+        if (tokens.size() > 5 && !tokens.at(5).isEmpty())
+            couCurr->data.score[n].total = tokens.at(5).toDouble();
+
         n++;
     }
+
     couCurr->data.courseSize = n;
-    inF.close();
+    file.close();
 }
 
 void importAllStudentsInAllCoursesCSV() {

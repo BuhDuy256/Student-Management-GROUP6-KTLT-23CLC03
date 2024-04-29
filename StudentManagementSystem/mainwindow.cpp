@@ -1031,6 +1031,11 @@ void MainWindow::on_button_back_6_clicked()
 
 void MainWindow::on_button_confirm_3_clicked()
 {
+    if (ui->txt_startDate->text() == "" || ui->txt_endDate->text() == "")
+    {
+        MessageBox("Error", "Please Input Date!");
+        return;
+    }
     if (lastSemNumber >= 3)
     {
         MessageBox("Error", "Current School Year Is Full Of Semesters!\n Let's Create A New School Year!");

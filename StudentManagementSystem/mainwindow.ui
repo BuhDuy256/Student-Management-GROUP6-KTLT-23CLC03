@@ -2273,7 +2273,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>8</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <layout class="QGridLayout" name="gridLayout_27">
