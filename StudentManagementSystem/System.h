@@ -22,6 +22,7 @@
 #include <QTextStream>
 #include <QIcon>
 #include <QListWidgetItem>
+#include <QDir>
 #include <iostream>
 #include <string>
 #include <fstream>

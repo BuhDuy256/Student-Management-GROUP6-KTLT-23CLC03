@@ -401,3 +401,22 @@ bool checkMatchStudentIDAndName(std::string studentID, std::string studentName) 
     }
     return false;
 }
+
+void copyResourceFileToWritableLocation(const QString& resourceFilePath, const QString& destinationFilePath) {
+    QFile resourceFile(resourceFilePath);
+    if (!resourceFile.open(QIODevice::ReadOnly)) {
+        qDebug() << "Failed to open resource file:" << resourceFile.errorString();
+        return;
+    }
+
+    QFile destinationFile(destinationFilePath);
+    if (!destinationFile.open(QIODevice::WriteOnly)) {
+        qDebug() << "Failed to open destination file:" << destinationFile.errorString();
+        return;
+    }
+
+    destinationFile.write(resourceFile.readAll());
+
+    resourceFile.close();
+    destinationFile.close();
+}

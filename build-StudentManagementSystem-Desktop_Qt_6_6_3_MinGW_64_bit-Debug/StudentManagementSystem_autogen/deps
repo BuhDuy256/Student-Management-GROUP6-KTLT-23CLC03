@@ -31,6 +31,8 @@ StudentManagementSystem_autogen/timestamp: \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QCoreApplication \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QDate \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QDeadlineTimer \
+	D:/Qt/6.6.3/mingw_64/include/QtCore/QDebug \
+	D:/Qt/6.6.3/mingw_64/include/QtCore/QDir \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QEvent \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QFile \
 	D:/Qt/6.6.3/mingw_64/include/QtCore/QHash \

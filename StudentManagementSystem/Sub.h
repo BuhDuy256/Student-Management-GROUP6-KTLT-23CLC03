@@ -1,6 +1,9 @@
 #pragma once
 
 #include"System.h"
+#include <QFile>
+#include <QDir>
+#include <QDebug>
 
 void importData();
 void saveData();
@@ -31,3 +34,4 @@ int daysInMonth(int month, int year);
 int daysBetweenDates(const std::string& date1, const std::string& date2);
 char getYesNo(std::string prompt);
 bool checkMatchStudentIDAndName(std::string studentID, std::string studentName);
+void copyResourceFileToWritableLocation(const QString& resourceFilePath, const QString& destinationFilePath);

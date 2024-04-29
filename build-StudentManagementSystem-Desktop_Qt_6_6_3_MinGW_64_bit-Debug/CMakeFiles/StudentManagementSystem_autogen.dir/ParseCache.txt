@@ -29,6 +29,8 @@ D:/Coding/GROUP6_23CLC03/StudentManagementSystem/mainwindow.h
  mdp:D:/Qt/6.6.3/mingw_64/include/QtCore/QCoreApplication
  mdp:D:/Qt/6.6.3/mingw_64/include/QtCore/QDate
  mdp:D:/Qt/6.6.3/mingw_64/include/QtCore/QDeadlineTimer
+ mdp:D:/Qt/6.6.3/mingw_64/include/QtCore/QDebug
+ mdp:D:/Qt/6.6.3/mingw_64/include/QtCore/QDir
  mdp:D:/Qt/6.6.3/mingw_64/include/QtCore/QEvent
  mdp:D:/Qt/6.6.3/mingw_64/include/QtCore/QFile
  mdp:D:/Qt/6.6.3/mingw_64/include/QtCore/QHash

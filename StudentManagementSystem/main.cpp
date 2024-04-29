@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 
     w.showMaximized();
 
+    QObject::connect(&a, &QApplication::aboutToQuit, &saveData);
 
     return a.exec();
 }

@@ -26,25 +26,36 @@ void Semester::viewCoursesList(int& no) {
 
 void saveAllSemestersData() {
     Node<SchoolYear>* syCurr = latestSYear;
-    std::ofstream outF("../CSV Files/AllSemesters.csv", std::ofstream::out | std::ofstream::trunc);
-    if (outF.is_open()) {
-        outF << "Semester,School Year,Start Date,End Date\n";
+    QString directoryPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Student Management System";
+    QString filePath = directoryPath + "/AllSemesters.csv";
+
+    // Check if the directory exists, create it if necessary
+    QDir directory(directoryPath);
+    if (!directory.exists()) {
+        if (!directory.mkpath(".")) {
+            qDebug() << "Failed to create directory:" << directoryPath;
+            return;
+        }
+    }
+    QFile outFile(filePath);
+    if (outFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream outStream(&outFile);
+        outStream << "Semester,School Year,Start Date,End Date\n";
         while (syCurr) {
             for (int i = 0; i < 3; i++) {
                 if (syCurr->data.semesters[i].isCreated) {
-                    outF << i + 1 << ","
-                         << syCurr->data.year << ","
-                         << syCurr->data.semesters[i].startDate << ","
-                         << syCurr->data.semesters[i].endDate << "\n";
+                    outStream << i + 1 << ","
+                              << QString::fromStdString(syCurr->data.year) << ","
+                              << QString::fromStdString(syCurr->data.semesters[i].startDate) << ","
+                              << QString::fromStdString(syCurr->data.semesters[i].endDate) << "\n";
                 }
             }
             syCurr = syCurr->next;
         }
+    } else {
+        qDebug() << "Couldn't open AllSemesters.csv to save Data.";
     }
-    else {
-        std::cout << "Could't open AllSemesters.csv to save Data." << std::endl;
-    }
-    outF.close();
+    outFile.close();
 }
 
 void createANewSchoolYear()

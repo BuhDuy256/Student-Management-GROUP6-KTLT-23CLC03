@@ -1,12 +1,9 @@
 #include"Data.h"
 
 void importAllClassesCSV() {
-    // std::ifstream inF("../CSV Files/AllClasses.csv");
-    // if (!inF.is_open()) {
-    //     std::cout << "Could't import AllClasses.csv!";
-    //     return;
-    // }
-    QFile file(":/prefix/CSV Files/AllClasses.csv");
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Student Management System/AllClasses.csv";
+    if (!QFile::exists(path)) path = ":/prefix/CSV Files/AllClasses.csv";
+    QFile file(path);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Failed to open file:" << file.errorString();
         return;
@@ -56,22 +53,33 @@ void importAllClassesCSV() {
 
 void saveAllClassesData() {
     Node<SchoolYear>* syCurr = latestSYear;
-    std::ofstream outF("../CSV Files/AllClasses.csv", std::ofstream::out | std::ofstream::trunc);
-    if (outF.is_open()) {
-        outF << "Class Name,School Year\n";
+    QString directoryPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Student Management System";
+    QString filePath = directoryPath + "/AllClasses.csv";
+
+    // Check if the directory exists, create it if necessary
+    QDir directory(directoryPath);
+    if (!directory.exists()) {
+        if (!directory.mkpath(".")) {
+            qDebug() << "Failed to create directory:" << directoryPath;
+            return;
+        }
+    }
+    QFile outFile(filePath);
+    if (outFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream outStream(&outFile);
+        outStream << "Class Name,School Year\n";
         while (syCurr) {
             Node<Class>* claCurr = syCurr->data.classes;
             while (claCurr) {
-                outF << claCurr->data.className << "," << claCurr->data.schoolYear << "\n";
+                outStream << QString::fromStdString(claCurr->data.className) << "," << QString::fromStdString(claCurr->data.schoolYear) << "\n";
                 claCurr = claCurr->next;
             }
             syCurr = syCurr->next;
         }
+    } else {
+        qDebug() << "Couldn't open AllClasses.csv to save Data.";
     }
-    else {
-        std::cout << "Could't open AllClasses.csv to save Data." << std::endl;
-    }
-    outF.close();
+    outFile.close();
 }
 
 void deleteAllClassesData() {
@@ -88,12 +96,9 @@ void deleteAllClassesData() {
 }
 
 void importAllCoursesCSV() {
-    // std::ifstream inF("../CSV Files/AllCourses.csv");
-    // if (!inF.is_open()) {
-    //     std::cout << "Couldn't import AllCourses.csv!" << std::endl;
-    //     return;
-    // }
-    QFile file(":/prefix/CSV Files/AllCourses.csv");
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Student Management System/AllCourses.csv";
+    if (!QFile::exists(path)) path = ":/prefix/CSV Files/AllCourses.csv";
+    QFile file(path);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Failed to open file:" << file.errorString();
         return;
@@ -165,11 +170,11 @@ void importAllCoursesCSV() {
 }
 
 void importContainingStudentsEnrolledInCourse(Node<Course>* couCurr) {
-    QString fileName = ":/prefix/CSV Files/List of Courses/" + QString::fromStdString(couCurr->data.ID) + "_" + QString::fromStdString(couCurr->data.className) + ".csv";
-    QFile file(fileName);
-
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Student Management System/List of Courses/" + QString::fromStdString(couCurr->data.ID) + "_" + QString::fromStdString(couCurr->data.className) + ".csv";
+    if (!QFile::exists(path)) path = ":/prefix/CSV Files/List of Courses/" + QString::fromStdString(couCurr->data.ID) + "_" + QString::fromStdString(couCurr->data.className) + ".csv";
+    QFile file(path);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "Couldn't import" << fileName;
+        qDebug() << "Failed to open file:" << file.errorString();
         return;
     }
 
@@ -227,64 +232,85 @@ void importAllStudentsInAllCoursesCSV() {
 
 void saveAllCoursesData() {
     Node<SchoolYear>* syCurr = latestSYear;
-    std::ofstream outF("../CSV Files/AllCourses.csv", std::ofstream::out | std::ofstream::trunc);
-    if (outF.is_open()) {
-        outF << "Course ID,Course Name,Class Name,Teacher Name,Number Of Credits,Maximum Number Of Students,Day Of Week,Session,School Year,Semester\n";
+    QString directoryPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Student Management System";
+    QString filePath = directoryPath + "/AllCourses.csv";
+
+    // Check if the directory exists, create it if necessary
+    QDir directory(directoryPath);
+    if (!directory.exists()) {
+        if (!directory.mkpath(".")) {
+            qDebug() << "Failed to create directory:" << directoryPath;
+            return;
+        }
+    }
+    QFile outFile(filePath);
+    if (outFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream outStream(&outFile);
+        outStream << "Course ID,Course Name,Class Name,Teacher Name,Number Of Credits,Maximum Number Of Students,Day Of Week,Session,School Year,Semester\n";
         while (syCurr) {
             for (int i = 0; i < 3; i++) {
                 if (syCurr->data.semesters[i].isCreated) {
                     Node<Course>* couCurr = syCurr->data.semesters[i].Courses;
                     while (couCurr) {
-                        outF << couCurr->data.ID << ","
-                             << couCurr->data.Name << ","
-                             << couCurr->data.className << ","
-                             << couCurr->data.teacherName << ","
-                             << couCurr->data.nCredits << ","
-                             << couCurr->data.maxStudents << ","
-                             << couCurr->data.dayOfWeek << ","
-                             << couCurr->data.session << ","
-                             << syCurr->data.year << "," // couSY
-                             << i + 1 << "\n"; // couSem
+                        outStream << QString::fromStdString(couCurr->data.ID) << ","
+                                  << QString::fromStdString(couCurr->data.Name) << ","
+                                  << QString::fromStdString(couCurr->data.className) << ","
+                                  << QString::fromStdString(couCurr->data.teacherName) << ","
+                                  << QString::number(couCurr->data.nCredits) << ","
+                                  << QString::number(couCurr->data.maxStudents) << ","
+                                  << QString::fromStdString(couCurr->data.dayOfWeek) << ","
+                                  << QString::fromStdString(couCurr->data.session) << ","
+                                  << QString::fromStdString(syCurr->data.year) << "," // couSY
+                                  << i + 1 << "\n"; // couSem
                         couCurr = couCurr->next;
                     }
                 }
             }
             syCurr = syCurr->next;
         }
+    } else {
+        qDebug() << "Couldn't open AllCourses.csv to save Data.";
     }
-    else {
-        std::cout << "Could't open AllCourses.csv to save Data." << std::endl;
-    }
-    outF.close();
+    outFile.close();
 }
 
 void saveScoreboardOfACourse(Node<Course>* couCurr) {
-    std::string fileName = "../CSV Files/List of Courses/" + couCurr->data.ID + "_" + couCurr->data.className + ".csv";
-    std::ofstream outF(fileName, std::ofstream::out | std::ofstream::trunc);
-    if (outF.is_open()) {
-        outF << "Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark\n";
-        StudentScore* scoreArr = couCurr->data.score;
-        for (int i = 0; i < couCurr->data.courseSize; i++) {
-            outF << scoreArr[i].studentID << ","
-                 << scoreArr[i].studentName << ",";
-            if (scoreArr[i].midTerm > 0)
-                outF << scoreArr[i].midTerm;
-            outF << ",";
-            if (scoreArr[i].final > 0)
-                outF << scoreArr[i].final;
-            outF << ",";
-            if (scoreArr[i].other > 0)
-                outF << scoreArr[i].other;
-            outF << ",";
-            if (scoreArr[i].total > 0)
-                outF << scoreArr[i].total;
-            outF << "\n";
+    QString directoryPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Student Management System/List of Courses";
+    QString filePath = directoryPath + "/" + QString::fromStdString(couCurr->data.ID) + "_" + QString::fromStdString(couCurr->data.className) + ".csv";
+
+    // Check if the directory exists, create it if necessary
+    QDir directory(directoryPath);
+    if (!directory.exists()) {
+        if (!directory.mkpath(".")) {
+            qDebug() << "Failed to create directory:" << directoryPath;
+            return;
         }
     }
-    else {
-        std::cout << "Could't open " << fileName << " to save Data." << std::endl;
+    QFile outFile(filePath);
+    if (outFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream outStream(&outFile);
+        outStream << "Student ID,Student Name,Midterm Mark,Final Mark,Other Mark,Total Mark\n";
+        StudentScore* scoreArr = couCurr->data.score;
+        for (int i = 0; i < couCurr->data.courseSize; i++) {
+            outStream << QString::fromStdString(scoreArr[i].studentID) << ","
+                      << QString::fromStdString(scoreArr[i].studentName) << ",";
+            if (scoreArr[i].midTerm > 0)
+                outStream << QString::number(scoreArr[i].midTerm);
+            outStream << ",";
+            if (scoreArr[i].final > 0)
+                outStream << QString::number(scoreArr[i].final);
+            outStream << ",";
+            if (scoreArr[i].other > 0)
+                outStream << QString::number(scoreArr[i].other);
+            outStream << ",";
+            if (scoreArr[i].total > 0)
+                outStream << QString::number(scoreArr[i].total);
+            outStream << "\n";
+        }
+    } else {
+        qDebug() << "Couldn't open " << filePath << " to save Data.";
     }
-    outF.close();
+    outFile.close();
 }
 
 void saveAllScoreboardsData() {
@@ -338,12 +364,9 @@ void deleteAllCourseData() {
 }
 
 void importAllSchoolYearsCSV() {
-    // std::ifstream inF("../CSV Files/AllSchoolYears.csv");
-    // if (!inF.is_open()) {
-    //     std::cout << "Can't import AllSchoolYear.csv!";
-    //     return;
-    // }
-    QFile file(":/prefix/CSV Files/AllSchoolYears.csv");
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Student Management System/AllSchoolYears.csv";
+    if (!QFile::exists(path)) path = ":/prefix/CSV Files/AllSchoolYears.csv";
+    QFile file(path);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Failed to open file:" << file.errorString();
         return;
@@ -383,18 +406,29 @@ void reverseSchoolYearsList(Node<SchoolYear>*& syHead) {
 void saveAllSchoolYearsData() {
     reverseSchoolYearsList(latestSYear);
     Node<SchoolYear>* syCurr = latestSYear;
-    std::ofstream outF("../CSV Files/AllSchoolYears.csv", std::ofstream::out | std::ofstream::trunc);
-    if (outF.is_open()) {
-        outF << "School Year\n";
-        while (syCurr) {
-            outF << syCurr->data.year << "\n";
-            syCurr = syCurr->next;
+    QString directoryPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Student Management System";
+    QString filePath = directoryPath + "/AllSchoolYears.csv";
+
+    // Check if the directory exists, create it if necessary
+    QDir directory(directoryPath);
+    if (!directory.exists()) {
+        if (!directory.mkpath(".")) {
+            qDebug() << "Failed to create directory:" << directoryPath;
+            return;
         }
     }
-    else {
-        std::cout << "Could't open AllSchoolYears.csv to save Data." << std::endl;
+    QFile outFile(filePath);
+    if (outFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream outStream(&outFile);
+        outStream << "School Year\n";
+        while (syCurr) {
+            outStream << QString::fromStdString(syCurr->data.year) << "\n";
+            syCurr = syCurr->next;
+        }
+    } else {
+        qDebug() << "Failed to open file:" << outFile.errorString();
     }
-    outF.close();
+    outFile.close();
 }
 
 void deleteAllSchoolYearsData() {
@@ -406,12 +440,9 @@ void deleteAllSchoolYearsData() {
 }
 
 void importAllSemestersCSV() {
-    // std::ifstream inF("../CSV Files/AllSemesters.csv");
-    // if (!inF.is_open()) {
-    //     std::cout << "Can't import AllSemesters.csv!" << std::endl;
-    //     return;
-    // }
-    QFile file(":/prefix/CSV Files/AllSemesters.csv");
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Student Management System/AllSemesters.csv";
+    if (!QFile::exists(path)) path = ":/prefix/CSV Files/AllSemesters.csv";
+    QFile file(path);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Failed to open file:" << file.errorString();
         return;
@@ -449,12 +480,9 @@ void importAllSemestersCSV() {
 }
 
 void importAllStudentsCSV() {
-    // std::ifstream inF("../CSV Files/AllStudents.csv");
-    // if (!inF.is_open()) {
-    //     std::cout << "Could't import AllStudents.csv!";
-    //     return;
-    // }
-    QFile file(":/prefix/CSV Files/AllStudents.csv");
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Student Management System/AllStudents.csv";
+    if (!QFile::exists(path)) path = ":/prefix/CSV Files/AllStudents.csv";
+    QFile file(path);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Failed to open file:" << file.errorString();
         return;
@@ -509,32 +537,43 @@ void importAllStudentsCSV() {
 
 void saveAllStudentsData() {
     Node<SchoolYear>* syCurr = latestSYear;
-    std::ofstream outF("../CSV Files/AllStudents.csv", std::ofstream::out | std::ofstream::trunc);
-    if (outF.is_open()) {
-        outF << "Student ID,Student Name,Gender,Birthday,Social ID,Main Class,Password\n";
+    QString directoryPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Student Management System";
+    QString filePath = directoryPath + "/AllStudents.csv";
+
+    // Check if the directory exists, create it if necessary
+    QDir directory(directoryPath);
+    if (!directory.exists()) {
+        if (!directory.mkpath(".")) {
+            qDebug() << "Failed to create directory:" << directoryPath;
+            return;
+        }
+    }
+    QFile outFile(filePath);
+    if (outFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream outStream(&outFile);
+        outStream << "Student ID,Student Name,Gender,Birthday,Social ID,Main Class,Password\n";
         while (syCurr) {
             Node<Class>* claCurr = syCurr->data.classes;
             while (claCurr) {
                 Node<Student>* stuCurr = claCurr->data.students;
                 while (stuCurr) {
-                    outF << stuCurr->data.ID << ","
-                         << stuCurr->data.name << ","
-                         << stuCurr->data.gender << ","
-                         << stuCurr->data.birthday << ","
-                         << stuCurr->data.socialID << ","
-                         << stuCurr->data.mainClass << ","
-                         << stuCurr->data.password << "\n";
+                    outStream << QString::fromStdString(stuCurr->data.ID) << ","
+                              << QString::fromStdString(stuCurr->data.name) << ","
+                              << QString::fromStdString(stuCurr->data.gender) << ","
+                              << QString::fromStdString(stuCurr->data.birthday) << ","
+                              << QString::fromStdString(stuCurr->data.socialID) << ","
+                              << QString::fromStdString(stuCurr->data.mainClass) << ","
+                              << QString::fromStdString(stuCurr->data.password) << "\n";
                     stuCurr = stuCurr->next;
                 }
                 claCurr = claCurr->next;
             }
             syCurr = syCurr->next;
         }
+    } else {
+        qDebug() << "Couldn't open AllStudents.csv to save Data.";
     }
-    else {
-        std::cout << "Could't open AllStudents.csv to save Data." << std::endl;
-    }
-    outF.close();
+    outFile.close();
 }
 
 void deleteAllStudentsData() {

@@ -1,12 +1,9 @@
 #include"Staff.h"
 
 void importAllStaffsCSV() {
-    // std::ifstream inF("../CSV Files/AllStaffs.csv");
-    // if (!inF.is_open()) {
-    //     std::cout << "Couldn't import AllStaffs.csv!";
-    //     return;
-    // }
-    QFile file(":/prefix/CSV Files/AllStaffs.csv");
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Student Management System/AllStaffs.csv";
+    if (!QFile::exists(path)) path = ":/prefix/CSV Files/AllStaffs.csv";
+    QFile file(path);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Failed to open file:" << file.errorString();
         return;
@@ -48,25 +45,38 @@ void importAllStaffsCSV() {
 }
 
 void saveAllStaffsData() {
-    Node<Staff>* staCurr = listStaff;
-    std::ofstream outF("../CSV Files/AllStaffs.csv", std::ofstream::out | std::ofstream::trunc);
-    if (outF.is_open()) {
-        outF << "Staff ID,Staff Name,Gender,Birthday,Social ID,Passowrd\n";
-        while (staCurr) {
-            outF << staCurr->data.ID << ","
-                 << staCurr->data.name << ","
-                 << staCurr->data.gender << ","
-                 << staCurr->data.birthday << ","
-                 << staCurr->data.socialID << ","
-                 << staCurr->data.password << "\n";
-            staCurr = staCurr->next;
+    QString directoryPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Student Management System";
+    QString filePath = directoryPath + "/AllStaffs.csv";
+
+    // Check if the directory exists, create it if necessary
+    QDir directory(directoryPath);
+    if (!directory.exists()) {
+        if (!directory.mkpath(".")) {
+            qDebug() << "Failed to create directory:" << directoryPath;
+            return;
         }
     }
-    else {
-        std::cout << "Couldn't open AllStaffs.csv to save Data" << std::endl;
+
+    Node<Staff>* staCurr = listStaff;
+    QFile outFile(filePath);
+    if (outFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream outStream(&outFile);
+        outStream << "Staff ID,Staff Name,Gender,Birthday,Social ID,Password\n";
+        while (staCurr) {
+            outStream << QString::fromStdString(staCurr->data.ID) << ","
+                      << QString::fromStdString(staCurr->data.name) << ","
+                      << QString::fromStdString(staCurr->data.gender) << ","
+                      << QString::fromStdString(staCurr->data.birthday) << ","
+                      << QString::fromStdString(staCurr->data.socialID) << ","
+                      << QString::fromStdString(staCurr->data.password) << "\n";
+            staCurr = staCurr->next;
+        }
+    } else {
+        qDebug() << "Couldn't open AllStaffs.csv to save Data " << outFile.errorString();
     }
-    outF.close();
+    outFile.close();
 }
+
 
 void deleteAllStaffData() {
     Node<Staff>* staCurr = listStaff;

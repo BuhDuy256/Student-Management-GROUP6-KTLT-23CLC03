@@ -115,7 +115,7 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "on_button_scoreOfClass_clicked",
     "on_box_class_currentTextChanged",
     "on_box_year_currentTextChanged",
-    "on_button_ok_2_clicked",
+    "button_ok_2_clicked",
     "ChooseClass_2",
     "className",
     "on_box_semester_currentTextChanged",
@@ -240,7 +240,7 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata72[31];
     char stringdata73[32];
     char stringdata74[31];
-    char stringdata75[23];
+    char stringdata75[20];
     char stringdata76[14];
     char stringdata77[10];
     char stringdata78[35];
@@ -366,52 +366,52 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(1781, 30),  // "on_button_scoreOfClass_clicked"
         QT_MOC_LITERAL(1812, 31),  // "on_box_class_currentTextChanged"
         QT_MOC_LITERAL(1844, 30),  // "on_box_year_currentTextChanged"
-        QT_MOC_LITERAL(1875, 22),  // "on_button_ok_2_clicked"
-        QT_MOC_LITERAL(1898, 13),  // "ChooseClass_2"
-        QT_MOC_LITERAL(1912, 9),  // "className"
-        QT_MOC_LITERAL(1922, 34),  // "on_box_semester_currentTextCh..."
-        QT_MOC_LITERAL(1957, 32),  // "on_sem_select_currentTextChanged"
-        QT_MOC_LITERAL(1990, 30),  // "on_button_removeFilter_clicked"
-        QT_MOC_LITERAL(2021, 31),  // "on_button_course_manage_clicked"
-        QT_MOC_LITERAL(2053, 19),  // "button_ok_3_clicked"
-        QT_MOC_LITERAL(2073, 36),  // "on_box_selectSY_2_currentText..."
-        QT_MOC_LITERAL(2110, 35),  // "on_box_selectSem_currentTextC..."
-        QT_MOC_LITERAL(2146, 29),  // "on_button_viewStudent_clicked"
-        QT_MOC_LITERAL(2176, 29),  // "on_button_coursesList_clicked"
-        QT_MOC_LITERAL(2206, 27),  // "on_txt_className_textEdited"
-        QT_MOC_LITERAL(2234, 25),  // "on_button_back_10_clicked"
-        QT_MOC_LITERAL(2260, 25),  // "on_button_back_11_clicked"
-        QT_MOC_LITERAL(2286, 30),  // "on_button_removeCourse_clicked"
-        QT_MOC_LITERAL(2317, 27),  // "on_button_addCourse_clicked"
-        QT_MOC_LITERAL(2345, 27),  // "on_button_confirm_7_clicked"
-        QT_MOC_LITERAL(2373, 25),  // "on_button_back_13_clicked"
-        QT_MOC_LITERAL(2399, 29),  // "on_txt_className_2_textEdited"
-        QT_MOC_LITERAL(2429, 26),  // "on_txt_courseID_textEdited"
-        QT_MOC_LITERAL(2456, 31),  // "on_button_removeStudent_clicked"
-        QT_MOC_LITERAL(2488, 30),  // "on_button_addStudent_2_clicked"
-        QT_MOC_LITERAL(2519, 25),  // "on_button_back_15_clicked"
-        QT_MOC_LITERAL(2545, 27),  // "on_button_confirm_9_clicked"
-        QT_MOC_LITERAL(2573, 22),  // "on_button_edit_clicked"
-        QT_MOC_LITERAL(2596, 25),  // "on_button_back_14_clicked"
-        QT_MOC_LITERAL(2622, 27),  // "on_button_confirm_8_clicked"
-        QT_MOC_LITERAL(2650, 27),  // "on_table_course_cellClicked"
-        QT_MOC_LITERAL(2678, 3),  // "row"
-        QT_MOC_LITERAL(2682, 6),  // "column"
-        QT_MOC_LITERAL(2689, 24),  // "on_button_edit_2_clicked"
-        QT_MOC_LITERAL(2714, 25),  // "on_button_back_16_clicked"
-        QT_MOC_LITERAL(2740, 30),  // "on_table_student_2_cellClicked"
-        QT_MOC_LITERAL(2771, 28),  // "on_button_confirm_10_clicked"
-        QT_MOC_LITERAL(2800, 29),  // "on_button_exportTable_clicked"
-        QT_MOC_LITERAL(2830, 34),  // "on_button_importScoreBoard_cl..."
-        QT_MOC_LITERAL(2865, 25),  // "on_button_back_17_clicked"
-        QT_MOC_LITERAL(2891, 28),  // "on_button_confirm_11_clicked"
-        QT_MOC_LITERAL(2920, 33),  // "on_stackedWidget_4_currentCha..."
-        QT_MOC_LITERAL(2954, 26),  // "on_button_addOne_2_clicked"
-        QT_MOC_LITERAL(2981, 26),  // "on_button_import_2_clicked"
-        QT_MOC_LITERAL(3008, 33),  // "on_stackedWidget_6_currentCha..."
-        QT_MOC_LITERAL(3042, 25),  // "on_button_clear_2_clicked"
-        QT_MOC_LITERAL(3068, 28),  // "on_button_confirm_12_clicked"
-        QT_MOC_LITERAL(3097, 23)   // "on_button_clear_clicked"
+        QT_MOC_LITERAL(1875, 19),  // "button_ok_2_clicked"
+        QT_MOC_LITERAL(1895, 13),  // "ChooseClass_2"
+        QT_MOC_LITERAL(1909, 9),  // "className"
+        QT_MOC_LITERAL(1919, 34),  // "on_box_semester_currentTextCh..."
+        QT_MOC_LITERAL(1954, 32),  // "on_sem_select_currentTextChanged"
+        QT_MOC_LITERAL(1987, 30),  // "on_button_removeFilter_clicked"
+        QT_MOC_LITERAL(2018, 31),  // "on_button_course_manage_clicked"
+        QT_MOC_LITERAL(2050, 19),  // "button_ok_3_clicked"
+        QT_MOC_LITERAL(2070, 36),  // "on_box_selectSY_2_currentText..."
+        QT_MOC_LITERAL(2107, 35),  // "on_box_selectSem_currentTextC..."
+        QT_MOC_LITERAL(2143, 29),  // "on_button_viewStudent_clicked"
+        QT_MOC_LITERAL(2173, 29),  // "on_button_coursesList_clicked"
+        QT_MOC_LITERAL(2203, 27),  // "on_txt_className_textEdited"
+        QT_MOC_LITERAL(2231, 25),  // "on_button_back_10_clicked"
+        QT_MOC_LITERAL(2257, 25),  // "on_button_back_11_clicked"
+        QT_MOC_LITERAL(2283, 30),  // "on_button_removeCourse_clicked"
+        QT_MOC_LITERAL(2314, 27),  // "on_button_addCourse_clicked"
+        QT_MOC_LITERAL(2342, 27),  // "on_button_confirm_7_clicked"
+        QT_MOC_LITERAL(2370, 25),  // "on_button_back_13_clicked"
+        QT_MOC_LITERAL(2396, 29),  // "on_txt_className_2_textEdited"
+        QT_MOC_LITERAL(2426, 26),  // "on_txt_courseID_textEdited"
+        QT_MOC_LITERAL(2453, 31),  // "on_button_removeStudent_clicked"
+        QT_MOC_LITERAL(2485, 30),  // "on_button_addStudent_2_clicked"
+        QT_MOC_LITERAL(2516, 25),  // "on_button_back_15_clicked"
+        QT_MOC_LITERAL(2542, 27),  // "on_button_confirm_9_clicked"
+        QT_MOC_LITERAL(2570, 22),  // "on_button_edit_clicked"
+        QT_MOC_LITERAL(2593, 25),  // "on_button_back_14_clicked"
+        QT_MOC_LITERAL(2619, 27),  // "on_button_confirm_8_clicked"
+        QT_MOC_LITERAL(2647, 27),  // "on_table_course_cellClicked"
+        QT_MOC_LITERAL(2675, 3),  // "row"
+        QT_MOC_LITERAL(2679, 6),  // "column"
+        QT_MOC_LITERAL(2686, 24),  // "on_button_edit_2_clicked"
+        QT_MOC_LITERAL(2711, 25),  // "on_button_back_16_clicked"
+        QT_MOC_LITERAL(2737, 30),  // "on_table_student_2_cellClicked"
+        QT_MOC_LITERAL(2768, 28),  // "on_button_confirm_10_clicked"
+        QT_MOC_LITERAL(2797, 29),  // "on_button_exportTable_clicked"
+        QT_MOC_LITERAL(2827, 34),  // "on_button_importScoreBoard_cl..."
+        QT_MOC_LITERAL(2862, 25),  // "on_button_back_17_clicked"
+        QT_MOC_LITERAL(2888, 28),  // "on_button_confirm_11_clicked"
+        QT_MOC_LITERAL(2917, 33),  // "on_stackedWidget_4_currentCha..."
+        QT_MOC_LITERAL(2951, 26),  // "on_button_addOne_2_clicked"
+        QT_MOC_LITERAL(2978, 26),  // "on_button_import_2_clicked"
+        QT_MOC_LITERAL(3005, 33),  // "on_stackedWidget_6_currentCha..."
+        QT_MOC_LITERAL(3039, 25),  // "on_button_clear_2_clicked"
+        QT_MOC_LITERAL(3065, 28),  // "on_button_confirm_12_clicked"
+        QT_MOC_LITERAL(3094, 23)   // "on_button_clear_clicked"
     },
     "MainWindow",
     "resizeTable",
@@ -488,7 +488,7 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "on_button_scoreOfClass_clicked",
     "on_box_class_currentTextChanged",
     "on_box_year_currentTextChanged",
-    "on_button_ok_2_clicked",
+    "button_ok_2_clicked",
     "ChooseClass_2",
     "className",
     "on_box_semester_currentTextChanged",
@@ -926,7 +926,7 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'on_box_year_currentTextChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
-        // method 'on_button_ok_2_clicked'
+        // method 'button_ok_2_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'ChooseClass_2'
         QtPrivate::TypeAndForceComplete<Node<Class> *, std::false_type>,
@@ -1100,6 +1100,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 61: _t->on_button_scoreOfClass_clicked(); break;
         case 62: _t->on_box_class_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 63: _t->on_box_year_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 64: _t->button_ok_2_clicked(); break;
         case 65: { Node<Class>* _r = _t->ChooseClass_2((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1])));
             if (_a[0]) *reinterpret_cast< Node<Class>**>(_a[0]) = std::move(_r); }  break;
         case 66: _t->on_box_semester_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
