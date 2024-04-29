@@ -21,6 +21,10 @@
         <file>File.png</file>
         <file>button_hover.png</file>
         <file>addNewStudent.png</file>
+        <file>Edit.png</file>
+        <file>export</file>
+        <file>import.png</file>
+        <file>RemoveStudent.png</file>
     </qresource>
     <qresource prefix="/prefix">
         <file>CSV Files/AllClasses.csv</file>
