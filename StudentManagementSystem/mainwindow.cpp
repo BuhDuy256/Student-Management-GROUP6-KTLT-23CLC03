@@ -966,15 +966,7 @@ void MainWindow::on_button_create_sy_clicked()
     }
     else
     {
-        // QMessageBox msgBox;
-
         std::string nextSY = getNextSchoolYear(latestSYear->data.year);
-        // msgBox.setText(QString::fromStdString("The Next School Year Will Be " + nextSY + ", Do You Want To Continue?"));
-        // msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
-
-        // msgBox.setDefaultButton(QMessageBox::Cancel);
-        // msgBox.setWindowTitle("Confirmation");
-        // msgBox.setIcon(QMessageBox::Information);
 
         int ret = MessageBox_ok_cancel("Confirmation", "The Next School Year Will Be " + nextSY + ", Do You Want To Continue?");
         if (ret == QMessageBox::Ok)
