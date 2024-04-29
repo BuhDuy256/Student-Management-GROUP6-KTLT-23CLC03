@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1207</width>
-    <height>719</height>
+    <width>1242</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -82,7 +82,7 @@ color: black;
 }</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_2" rowstretch="2,7,2" columnstretch="2,5,2">
@@ -725,7 +725,7 @@ background-color: rgba(0, 0, 0, 96);
 </string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="StuHome">
            <layout class="QGridLayout" name="gridLayout_9" columnstretch="3,4">
@@ -2279,7 +2279,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>9</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <layout class="QGridLayout" name="gridLayout_27">
@@ -2332,7 +2332,7 @@ font-size: 16px;</string>
               <property name="minimumSize">
                <size>
                 <width>0</width>
-                <height>60</height>
+                <height>100</height>
                </size>
               </property>
               <property name="text">
@@ -2345,7 +2345,7 @@ font-size: 16px;</string>
               <property name="minimumSize">
                <size>
                 <width>0</width>
-                <height>60</height>
+                <height>100</height>
                </size>
               </property>
               <property name="text">
@@ -2358,7 +2358,7 @@ font-size: 16px;</string>
               <property name="minimumSize">
                <size>
                 <width>0</width>
-                <height>60</height>
+                <height>100</height>
                </size>
               </property>
               <property name="text">
@@ -2371,7 +2371,7 @@ font-size: 16px;</string>
               <property name="minimumSize">
                <size>
                 <width>0</width>
-                <height>60</height>
+                <height>100</height>
                </size>
               </property>
               <property name="text">
@@ -3333,7 +3333,7 @@ padding: 10px;</string>
            </layout>
           </widget>
           <widget class="QWidget" name="AdClassManagement">
-           <layout class="QGridLayout" name="gridLayout_28" columnstretch="2,3,3,2">
+           <layout class="QGridLayout" name="gridLayout_28" columnstretch="1,2,2,1">
             <property name="leftMargin">
              <number>60</number>
             </property>
@@ -5190,7 +5190,7 @@ QScrollBar::sub-line:vertical {
 }</string>
               </property>
               <property name="currentIndex">
-               <number>6</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="page_2">
                <layout class="QGridLayout" name="gridLayout_20">
@@ -5537,9 +5537,12 @@ QComboBox::hover {
                </layout>
               </widget>
               <widget class="QWidget" name="page_4">
-               <layout class="QGridLayout" name="gridLayout_19" columnstretch="1,0,0,0,0,0">
+               <layout class="QGridLayout" name="gridLayout_19" columnstretch="1,1,1,1,1,1">
+                <property name="topMargin">
+                 <number>20</number>
+                </property>
                 <property name="bottomMargin">
-                 <number>11</number>
+                 <number>30</number>
                 </property>
                 <property name="horizontalSpacing">
                  <number>7</number>
@@ -5654,6 +5657,12 @@ QComboBox::hover {
                 </item>
                 <item row="3" column="4" colspan="2">
                  <widget class="QPushButton" name="button_importScoreBoard">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="minimumSize">
                    <size>
                     <width>170</width>
@@ -5677,6 +5686,12 @@ QComboBox::hover {
                 </item>
                 <item row="4" column="4" colspan="2">
                  <widget class="QPushButton" name="button_exportTable">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
@@ -5701,7 +5716,7 @@ QComboBox::hover {
                 <item row="2" column="0" rowspan="5" colspan="4">
                  <widget class="QTableWidget" name="table_student_2">
                   <property name="sizePolicy">
-                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
@@ -5710,12 +5725,6 @@ QComboBox::hover {
                    <size>
                     <width>620</width>
                     <height>0</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>620</width>
-                    <height>16777215</height>
                    </size>
                   </property>
                   <property name="styleSheet">
@@ -5852,11 +5861,17 @@ QScrollBar::sub-line:vertical {
                   </column>
                  </widget>
                 </item>
-                <item row="6" column="4" colspan="2">
+                <item row="6" column="4" colspan="2" alignment="Qt::AlignHCenter">
                  <widget class="QPushButton" name="button_coursesList">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="minimumSize">
                    <size>
-                    <width>0</width>
+                    <width>165</width>
                     <height>40</height>
                    </size>
                   </property>
@@ -7667,7 +7682,6 @@ padding: 10px;</string>
     </item>
    </layout>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <resources>
   <include location="resourses.qrc"/>
