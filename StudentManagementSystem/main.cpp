@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     w.setWindowTitle("Student Management System");
     w.setWindowIcon(QIcon(":/background/Minecraft_thegame_6961.ico"));
 
-    w.show();
+    w.showMaximized();
 
     return a.exec();
 }

@@ -94,7 +94,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->button_cancel->setFont(minecraftFont);
     ui->button_addOne->setFont(minecraftFont);
     ui->button_back_10->setFont(minecraftFont);
-    ui->button_ok_2->setFont(minecraftFont);
     ui->button_back_9->setFont(minecraftFont);
     ui->button_allClasses->setFont(minecraftFont);
     ui->button_createClass->setFont(minecraftFont);
@@ -158,8 +157,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->box_year->setFont(minecraftFont);
     ui->box_semester->setFont(minecraftFont);
     ui->box_class->setFont(minecraftFont);
-    ui->label->setFont(minecraftFont);
-    ui->label_2->setFont(minecraftFont);
     ui->box_selectSY_2->setFont(minecraftFont);
     ui->box_selectSem->setFont(minecraftFont);
 
