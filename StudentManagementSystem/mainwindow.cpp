@@ -1623,7 +1623,7 @@ void MainWindow::on_box_semester_currentTextChanged(const QString& arg1)
 
     int semester = ui->box_semester->currentText().toInt();
     currSem = currSYear->data.semesters[semester - 1];
-
+    currSemNumber = semester;
     MainWindow::button_ok_2_clicked();
 }
 
@@ -1763,7 +1763,7 @@ void MainWindow::button_ok_2_clicked()
         double prevtotal = 0, prevnumofacticour = 0;
         // columnCount++;
         previous(prevtotal, prevnumofacticour, StuScore, ChosenClass, StudentUniqueCourses);
-        if (prevnumofacticour == 0 && numofactivecourses == 0) ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(""));
+        if (numofactivecourses == 0 && gpa == 0 && prevtotal == 0 && prevnumofacticour == 0) ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(""));
         else ui->table_scoreboard->setItem(no - 1, ++columnCount, new QTableWidgetItem(QString::number((prevtotal + gpa) / (prevnumofacticour + numofactivecourses), 'f', 2)));
 
         StuScore = StuScore->next;
