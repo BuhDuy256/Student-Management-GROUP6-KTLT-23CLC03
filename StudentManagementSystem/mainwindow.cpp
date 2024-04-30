@@ -2330,6 +2330,8 @@ void MainWindow::on_button_confirm_9_clicked()
             couCurr->data.courseSize++;
             MessageBox_information("Notification", "Student Added Successfully!");
             MainWindow::on_button_viewStudent_clicked();
+            ui->txt_studentName->setText("");
+            ui->txt_studentID->setText("");
         }
         else {
             MessageBox_information("Notification", "Student Has Been Already In The Course!");
