@@ -300,8 +300,13 @@ bool ends_with(const std::string& str, const std::string& suffix) {
 }
 
 std::string getNextSchoolYear(const std::string& currentYear) {
-    int startYear = std::stoi(currentYear.substr(0, 4));
-    int endYear = std::stoi(currentYear.substr(5, 4));
+    std::istringstream ssStart(currentYear.substr(0, 4));
+    int startYear;
+    ssStart >> startYear;
+
+    std::istringstream ssEnd(currentYear.substr(5, 4));
+    int endYear;
+    ssEnd >> endYear;
 
     return std::to_string(startYear + 1) + "-" + std::to_string(endYear + 1);
 }
@@ -337,9 +342,19 @@ int dateToInt(std::string date) {
     //     throw std::invalid_argument("Invalid date format");
     // }
 
-    int Y = std::stoi(date.substr(6, 4));
-    int M = std::stoi(date.substr(3, 2));
-    int D = std::stoi(date.substr(0, 2));
+    std::istringstream ss(date.substr(6, 4));
+    int Y;
+    ss >> Y;
+
+    ss.clear();
+    ss.str(date.substr(3, 2));
+    int M;
+    ss >> M;
+
+    ss.clear();
+    ss.str(date.substr(0, 2));
+    int D;
+    ss >> D;
 
     int dateRes = 0;
     for (int y = 1971; y < Y; ++y) dateRes += isLeapYear(y) ? 366 : 365;
