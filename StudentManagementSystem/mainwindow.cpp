@@ -1431,6 +1431,33 @@ void MainWindow::importCSVStudentsOfAClass_2(Node<Class>* claCurr, std::string f
             std::getline(ss, newStu.birthday, ',');
             std::getline(ss, newStu.socialID, ',');
             newStu.mainClass = claCurr->data.className;
+            Node<SchoolYear>* checkExist = latestSYear;
+            while (checkExist)
+            {
+                Node<Class>* ClassesInSY = checkExist->data.classes;
+                while (ClassesInSY)
+                {
+                    Node<Student>* StuInClass = ClassesInSY->data.students;
+                    while (StuInClass)
+                    {
+                        if (StuInClass->data.ID == newStu.ID || StuInClass->data.socialID == newStu.socialID)
+                        {
+                            MessageBox("Error", "A Student in CSV File already studies in class" + ClassesInSY->data.className);
+                            Node<Student>* stuCurr = claCurr->data.students;
+                            while (stuCurr) {
+                                Node<Student>* deleStu = stuCurr;
+                                stuCurr = stuCurr->next;
+                                delete deleStu;
+                            }
+                            file.close();
+                            return;
+                        }
+                        StuInClass = StuInClass->next;
+                    }
+                    ClassesInSY = ClassesInSY->next;
+                }
+                checkExist = checkExist->next;
+            }
             if (!claCurr->data.students) {
                 claCurr->data.students = new Node<Student>(newStu);
             }
