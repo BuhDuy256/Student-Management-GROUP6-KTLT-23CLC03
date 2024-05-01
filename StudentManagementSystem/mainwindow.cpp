@@ -468,9 +468,9 @@ void adjustLabelFontSizeToFit(QLabel* label) {
     label->setFont(font);
 }
 
-void clearAllLineEdits(QWidget *parent) {
-    QList<QLineEdit *> lineEdits = parent->findChildren<QLineEdit *>();
-    for (QLineEdit *lineEdit : lineEdits) {
+void clearAllLineEdits(QWidget* parent) {
+    QList<QLineEdit*> lineEdits = parent->findChildren<QLineEdit*>();
+    for (QLineEdit* lineEdit : lineEdits) {
         lineEdit->clear();
     }
 }
@@ -1423,6 +1423,17 @@ void MainWindow::importCSVStudentsOfAClass_2(Node<Class>* claCurr, std::string f
             std::stringstream ss(line);
             std::string NO; std::getline(ss, NO, ','); // don't use
             std::getline(ss, newStu.ID, ',');
+            if (newStu.ID.substr(0, 2) != claCurr->data.className && isValidStudentID(newStu.ID)) {
+                MessageBox("Error", "A Student has an invalid ID");
+                Node<Student>* stuCurr = claCurr->data.students;
+                while (stuCurr) {
+                    Node<Student>* deleStu = stuCurr;
+                    stuCurr = stuCurr->next;
+                    delete deleStu;
+                }
+                file.close();
+                return;
+            }
             std::string firstName, lastName;
             std::getline(ss, firstName, ',');
             std::getline(ss, lastName, ',');
@@ -1442,7 +1453,7 @@ void MainWindow::importCSVStudentsOfAClass_2(Node<Class>* claCurr, std::string f
                     {
                         if (StuInClass->data.ID == newStu.ID || StuInClass->data.socialID == newStu.socialID)
                         {
-                            MessageBox("Error", "A Student in CSV File already studies in class" + ClassesInSY->data.className);
+                            MessageBox("Error", "A Student in CSV File already studies in class " + ClassesInSY->data.className);
                             Node<Student>* stuCurr = claCurr->data.students;
                             while (stuCurr) {
                                 Node<Student>* deleStu = stuCurr;
@@ -2681,7 +2692,7 @@ void MainWindow::on_button_confirm_11_clicked()
             break;
         }
 
-        if (couCurr->score[n].studentID != tokens.at(0).trimmed().toStdString()) {rightClass = false; break;}
+        if (couCurr->score[n].studentID != tokens.at(0).trimmed().toStdString()) { rightClass = false; break; }
         couCurr->score[n].midTerm = tokens.at(2).trimmed().toDouble();
         couCurr->score[n].final = tokens.at(3).trimmed().toDouble();
         couCurr->score[n].other = tokens.at(4).trimmed().toDouble();
@@ -2694,10 +2705,11 @@ void MainWindow::on_button_confirm_11_clicked()
         delete[] couCurr->score;
         couCurr->score = nullptr;
         MessageBox("Fail", "Import Failed. Imported Students Has Just Been Removed!\n"
-                           "If You Want To Import More Students, Resize The Course And Try Again.");
-    } else if (!rightClass) {
+            "If You Want To Import More Students, Resize The Course And Try Again.");
+    }
+    else if (!rightClass) {
         MessageBox("Fail", "Import Canceled!\n"
-                           "Make Sure The Order Of Students In The Score File And In The Course Is The Same!");
+            "Make Sure The Order Of Students In The Score File And In The Course Is The Same!");
     }
     else {
         couCurr->courseSize = n;
@@ -2786,8 +2798,9 @@ void MainWindow::on_button_confirm_12_clicked()
         delete[] couCurr->score;
         couCurr->score = nullptr;
         MessageBox("Fail", "Import Failed. Imported Students Has Just Been Removed!\n"
-                           "If You Want To Import More Students, Resize The Course And Try Again.");
-    } else {
+            "If You Want To Import More Students, Resize The Course And Try Again.");
+    }
+    else {
         couCurr->courseSize = n;
         MessageBox_information("Notification", "Imported Successfully!");
         MainWindow::on_button_viewStudent_clicked();
