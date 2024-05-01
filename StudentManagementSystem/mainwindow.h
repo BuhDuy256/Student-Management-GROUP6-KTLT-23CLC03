@@ -255,6 +255,8 @@ private slots:
 
     void on_button_confirm_9_clicked(bool checked);
 
+    void on_button_import_clicked(bool checked);
+
 private:
     Ui::MainWindow *ui;
 };
