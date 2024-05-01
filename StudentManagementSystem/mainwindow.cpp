@@ -1423,7 +1423,7 @@ void MainWindow::importCSVStudentsOfAClass_2(Node<Class>* claCurr, std::string f
             std::stringstream ss(line);
             std::string NO; std::getline(ss, NO, ','); // don't use
             std::getline(ss, newStu.ID, ',');
-            if (newStu.ID.substr(0, 2) != claCurr->data.className && isValidStudentID(newStu.ID)) {
+            if (newStu.ID.substr(0, 2) != claCurr->data.className && !isValidStudentID(newStu.ID)) {
                 MessageBox("Error", "A Student has an invalid ID");
                 Node<Student>* stuCurr = claCurr->data.students;
                 while (stuCurr) {
