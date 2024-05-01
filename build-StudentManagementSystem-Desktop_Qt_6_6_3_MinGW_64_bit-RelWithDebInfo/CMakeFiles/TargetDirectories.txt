@@ -1,0 +1,9 @@
+C:/Users/Duy/Documents/GitHub/GROUP6_23CLC03_UI/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-RelWithDebInfo/CMakeFiles/StudentManagementSystem.dir
+C:/Users/Duy/Documents/GitHub/GROUP6_23CLC03_UI/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-RelWithDebInfo/CMakeFiles/edit_cache.dir
+C:/Users/Duy/Documents/GitHub/GROUP6_23CLC03_UI/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-RelWithDebInfo/CMakeFiles/rebuild_cache.dir
+C:/Users/Duy/Documents/GitHub/GROUP6_23CLC03_UI/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-RelWithDebInfo/CMakeFiles/list_install_components.dir
+C:/Users/Duy/Documents/GitHub/GROUP6_23CLC03_UI/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-RelWithDebInfo/CMakeFiles/install.dir
+C:/Users/Duy/Documents/GitHub/GROUP6_23CLC03_UI/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-RelWithDebInfo/CMakeFiles/install/local.dir
+C:/Users/Duy/Documents/GitHub/GROUP6_23CLC03_UI/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-RelWithDebInfo/CMakeFiles/install/strip.dir
+C:/Users/Duy/Documents/GitHub/GROUP6_23CLC03_UI/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-RelWithDebInfo/CMakeFiles/StudentManagementSystem_autogen_timestamp_deps.dir
+C:/Users/Duy/Documents/GitHub/GROUP6_23CLC03_UI/build-StudentManagementSystem-Desktop_Qt_6_6_3_MinGW_64_bit-RelWithDebInfo/CMakeFiles/StudentManagementSystem_autogen.dir
