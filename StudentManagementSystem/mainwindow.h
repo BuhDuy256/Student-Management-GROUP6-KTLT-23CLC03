@@ -1,7 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "system.h"
+#include "System.h"
 #include <QApplication>
 #include <QtWidgets>
 #include <QFontDatabase>
@@ -252,6 +252,8 @@ private slots:
     void on_button_confirm_12_clicked();
 
     void on_button_clear_clicked();
+
+    void on_button_confirm_9_clicked(bool checked);
 
 private:
     Ui::MainWindow *ui;

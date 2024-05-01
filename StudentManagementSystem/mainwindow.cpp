@@ -2331,6 +2331,7 @@ void MainWindow::on_button_confirm_9_clicked()
             couCurr->data.score[couCurr->data.courseSize] = studentScore;
             couCurr->data.courseSize++;
             MessageBox_information("Notification", "Student Added Successfully!");
+            ui->table_course->item(row, 5)->setText(QString::number(ui->table_course->item(row, 5)->text().toInt() + 1));
             MainWindow::on_button_viewStudent_clicked();
             ui->txt_studentName->setText("");
             ui->txt_studentID->setText("");
@@ -2342,8 +2343,6 @@ void MainWindow::on_button_confirm_9_clicked()
     else {
         MessageBox("Error", "Student ID and Student Name Do Not Match!");
     }
-
-    ui->table_course->item(row, 5)->setText(QString::number(ui->table_course->item(row, 5)->text().toInt() + 1));
     MainWindow::on_button_viewStudent_clicked();
 }
 
@@ -2775,5 +2774,11 @@ void MainWindow::on_button_clear_clicked()
 {
     ui->txt_studentID->setText("");
     ui->txt_studentName->setText("");
+}
+
+
+void MainWindow::on_button_confirm_9_clicked(bool checked)
+{
+
 }
 
