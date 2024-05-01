@@ -962,7 +962,7 @@ void MainWindow::on_button_create_sy_clicked()
 {
     if (lastSemNumber < 3)
     {
-        MessageBox("Error!", "Unable To Create New School Year, Semester Is Not Latest!");
+        MessageBox("Error!", "Unable To Create New School Year, The Latest Semester Is Not Semester 3!");
     }
     else
     {
