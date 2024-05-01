@@ -1316,7 +1316,7 @@ void MainWindow::on_button_confirm_5_clicked()
             {
                 if (StuInClass->data.ID == newStudentID || StuInClass->data.socialID == newStudentSocialID)
                 {
-                    MessageBox("Error", "Student already studies in class" + ClassesInSY->data.className);
+                    MessageBox("Error", "Student already studies in class " + ClassesInSY->data.className + " or Social ID of a student already exist");
                     return;
                 }
                 StuInClass = StuInClass->next;
@@ -2818,6 +2818,12 @@ void MainWindow::on_button_clear_clicked()
 
 
 void MainWindow::on_button_confirm_9_clicked(bool checked)
+{
+
+}
+
+
+void MainWindow::on_button_import_clicked(bool checked)
 {
 
 }
