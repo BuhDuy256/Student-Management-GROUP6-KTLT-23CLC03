@@ -4473,11 +4473,11 @@ public:
         stackedWidget_2->setCurrentIndex(3);
         stackedWidget_3->setCurrentIndex(9);
         stackedWidget_4->setCurrentIndex(0);
-        stackedWidget_5->setCurrentIndex(1);
+        stackedWidget_5->setCurrentIndex(3);
         box_numCredits->setCurrentIndex(-1);
         box_dayOfWeek->setCurrentIndex(-1);
         box_session->setCurrentIndex(-1);
-        stackedWidget_6->setCurrentIndex(1);
+        stackedWidget_6->setCurrentIndex(0);
         box_dayOfWeek_edit->setCurrentIndex(-1);
         box_session_edit->setCurrentIndex(-1);
         box_numCredits_edit->setCurrentIndex(-1);
@@ -4585,7 +4585,7 @@ public:
         button_setStartDate->setText(QCoreApplication::translate("MainWindow", "Set Start Date", nullptr));
         button_confirm_3->setText(QCoreApplication::translate("MainWindow", "CONFIRM", nullptr));
         button_setEndDate->setText(QCoreApplication::translate("MainWindow", "Set End Date", nullptr));
-        button_createClass->setText(QCoreApplication::translate("MainWindow", "CREATED NEW CLASS", nullptr));
+        button_createClass->setText(QCoreApplication::translate("MainWindow", "CREATE NEW CLASS", nullptr));
         button_addStudent->setText(QCoreApplication::translate("MainWindow", "ADD STUDENTS TO CLASS", nullptr));
         button_allClasses->setText(QCoreApplication::translate("MainWindow", "ALL CLASSES", nullptr));
         button_scoreOfClass->setText(QCoreApplication::translate("MainWindow", "VIEW SCOREBOARD OF CLASS", nullptr));

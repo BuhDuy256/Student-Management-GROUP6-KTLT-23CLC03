@@ -1480,7 +1480,7 @@ void MainWindow::on_button_back_7_clicked()
 
 void MainWindow::on_button_allClasses_clicked()
 {
-    ui->list_classes->clear();
+    ui->list_classes_2->clear();
     Node<SchoolYear>* syCurr = latestSYear;
     while (syCurr)
     {
@@ -2273,6 +2273,8 @@ void MainWindow::on_button_confirm_9_clicked()
 {
     std::string studentID = ui->txt_studentID->text().toStdString();
     std::string studentName = ui->txt_studentName->text().toStdString();
+    formalize(studentName);
+    ui->txt_studentName->setText(QString::fromStdString(studentName));
 
     int row = ui->table_course->currentRow();
     std::string courseID = ui->table_course->item(row, 0)->text().toStdString();
@@ -2340,6 +2342,9 @@ void MainWindow::on_button_confirm_9_clicked()
     else {
         MessageBox("Error", "Student ID and Student Name Do Not Match!");
     }
+
+    ui->table_course->item(row, 5)->setText(QString::number(ui->table_course->item(row, 5)->text().toInt() + 1));
+    MainWindow::on_button_viewStudent_clicked();
 }
 
 
