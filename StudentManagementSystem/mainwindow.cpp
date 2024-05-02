@@ -1687,7 +1687,7 @@ void MainWindow::button_ok_2_clicked()
 {
     if (ui->box_class->currentIndex() == -1 || ui->box_year->currentIndex() == -1 || ui->box_semester->currentIndex() == -1)
     {
-        ui->table_scoreboard->clear();
+        ui->table_scoreboard->clearContents();
         return;
     }
 
@@ -1894,6 +1894,13 @@ void MainWindow::on_button_course_manage_clicked()
 
 void MainWindow::button_ok_3_clicked()
 {
+    if (ui->box_selectSem->currentIndex() == -1)
+    {
+        ui->table_course->clearContents();
+        ui->table_course->setRowCount(0);
+        // ui->table_course->setColumnCount(0);
+        return;
+    }
     int selectedRow = ui->table_course->currentRow();
     std::string year = ui->box_selectSY_2->currentText().toStdString();
     int sem = ui->box_selectSem->currentText().toInt();
