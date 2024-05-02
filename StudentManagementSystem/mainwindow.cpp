@@ -1642,10 +1642,10 @@ void MainWindow::on_box_year_currentTextChanged(const QString& arg1)
                     ui->box_semester->setCurrentIndex(no - 1);
                 }
             }
-            if (no == 0)
-            {
-                ui->box_semester->addItem("No Semester");
-                ui->box_semester->setDisabled(1);
+            if (no == 0) {
+                ui->table_scoreboard->clear();
+                ui->table_scoreboard->setRowCount(0);
+                ui->table_scoreboard->setColumnCount(0);
             }
             else ui->box_semester->setDisabled(0);
             break;
@@ -1685,7 +1685,11 @@ Node<Class>* MainWindow::ChooseClass_2(std::string className) {  //copyallfunc
 
 void MainWindow::button_ok_2_clicked()
 {
-    if (ui->box_class->currentText() == "" || ui->box_year->currentText() == "" || ui->box_semester->currentText() == "") return;
+    if (ui->box_class->currentIndex() == -1 || ui->box_year->currentIndex() == -1 || ui->box_semester->currentIndex() == -1)
+    {
+        ui->table_scoreboard->clear();
+        return;
+    }
 
     std::string className = ui->box_class->currentText().toStdString();
 

@@ -2279,7 +2279,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>6</number>
+           <number>8</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <layout class="QGridLayout" name="gridLayout_27">
