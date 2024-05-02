@@ -2122,7 +2122,7 @@ void MainWindow::on_button_addCourse_clicked()
 void MainWindow::on_button_confirm_7_clicked()
 {
     Course newCourse;
-    
+
     //get info
     newCourse.couSY = ui->box_selectSY_2->currentText().toStdString();
     newCourse.couSem = ui->box_selectSem->currentText().toInt();

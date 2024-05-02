@@ -266,7 +266,7 @@ int getUser(std::string userID, std::string userPassword) {
 
 void findCurrSem() {
     Node<SchoolYear>* syCurr = latestSYear;
-    if (!latestSYear->data.semesters[0].isCreated) {
+    if (!latestSYear->data.semesters[0].isCreated && !latestSYear->data.semesters[1].isCreated && !latestSYear->data.semesters[2].isCreated) {
         lastSemNumber = currSemNumber = 0;
         // return;
     }
