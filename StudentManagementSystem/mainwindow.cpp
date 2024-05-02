@@ -2123,6 +2123,8 @@ void MainWindow::on_button_confirm_7_clicked()
 {
     Course newCourse;
 
+    //check_empty_box_and_no_semester_here
+    
     //get info
     newCourse.couSY = ui->box_selectSY_2->currentText().toStdString();
     newCourse.couSem = ui->box_selectSem->currentText().toInt();
