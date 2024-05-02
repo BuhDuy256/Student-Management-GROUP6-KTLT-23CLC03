@@ -266,12 +266,19 @@ int getUser(std::string userID, std::string userPassword) {
 
 void findCurrSem() {
     Node<SchoolYear>* syCurr = latestSYear;
+    if (!latestSYear->data.semesters[0].isCreated) {
+        lastSemNumber = currSemNumber = 0;
+        // return;
+    }
     bool found = false;
     while (syCurr && !found) {
         for (int i = 2; i >= 0; i--) {
             if (syCurr->data.semesters[i].isCreated) {
                 found = true;
                 latestSem = currSem = syCurr->data.semesters[i];
+                if (lastSemNumber == 0) {
+                    break;
+                }
                 lastSemNumber = currSemNumber = i + 1;
                 break;
             }

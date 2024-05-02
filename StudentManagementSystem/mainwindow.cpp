@@ -2122,8 +2122,6 @@ void MainWindow::on_button_addCourse_clicked()
 void MainWindow::on_button_confirm_7_clicked()
 {
     Course newCourse;
-
-    //check_empty_box_and_no_semester_here
     
     //get info
     newCourse.couSY = ui->box_selectSY_2->currentText().toStdString();
@@ -2143,6 +2141,11 @@ void MainWindow::on_button_confirm_7_clicked()
     std::string year = ui->box_selectSY_2->currentText().toStdString();
     currSemNumber = ui->box_selectSem->currentText().toInt();
 
+    if (currSemNumber == 0) {
+        MessageBox("Error", "Please create new Semester to Add Course!");
+        return;
+    }
+
     currSYear = latestSYear;
     while (currSYear)
     {
@@ -2160,16 +2163,34 @@ void MainWindow::on_button_confirm_7_clicked()
         MessageBox("Error", "Invalid Course ID!");
         return;
     }
+
+    if (newCourse.ID.empty()) {
+        MessageBox("Error", "Course ID can't be empty!");
+        return;
+    }
+
     if (!isValidCouOrStuName(newCourse.Name)) {
         MessageBox("Error", "Invalid Course Name!");
         return;
     }
+
+    if (newCourse.Name.empty()) {
+        MessageBox("Error", "Course Name can't be empty!");
+        return;
+    }
+
     formalize(newCourse.Name);
 
     if (!isValidClassName_smaller(newCourse.className, year)) {
         MessageBox("Error", "Invalid Class Name!");
         return;
     }
+
+    if (newCourse.className.empty()) {
+        MessageBox("Error", "Class Name can't be empty!");
+        return;
+    }
+
     if (!notExistclassNameOfCourse(newCourse.ID, newCourse.className, year)) {
         MessageBox("Error", "Class Name Has Already Existed!");
         return;
@@ -2179,6 +2200,12 @@ void MainWindow::on_button_confirm_7_clicked()
         MessageBox("Error", "Invalid Teacher Name");
         return;
     }
+
+    if (newCourse.teacherName.empty()) {
+        MessageBox("Error", "Teacher Name can't be empty!");
+        return;
+    }
+
     formalize(newCourse.teacherName);
 
     if (ui->box_numCredits->currentIndex() == -1) {
