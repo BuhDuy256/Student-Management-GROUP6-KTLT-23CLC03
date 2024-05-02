@@ -1333,9 +1333,9 @@ void MainWindow::on_button_confirm_5_clicked()
     }
     formalize(newStudentName);
 
-    if (newStudentSocialID.length() != 8)
+    if (newStudentSocialID.length() != 12)
     {
-        MessageBox("Error", "Social ID Must Be A 8-Digit Number!");
+        MessageBox("Error", "Social ID Must Be A 12-Digit Number!");
         return;
     }
 
