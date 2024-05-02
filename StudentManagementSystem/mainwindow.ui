@@ -2279,7 +2279,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>8</number>
+           <number>9</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <layout class="QGridLayout" name="gridLayout_27">
@@ -5190,7 +5190,7 @@ QScrollBar::sub-line:vertical {
 }</string>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="page_2">
                <layout class="QGridLayout" name="gridLayout_20">
@@ -5991,7 +5991,7 @@ QScrollBar::sub-line:vertical {
                    <string notr="true">color: white;</string>
                   </property>
                   <property name="text">
-                   <string>Tearcher Name</string>
+                   <string>Teacher Name</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
