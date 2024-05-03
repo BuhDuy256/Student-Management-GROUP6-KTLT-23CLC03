@@ -499,7 +499,10 @@ void MainWindow::on_button_signin_clicked()
         std::string firstName;
         while (getline(name, firstName, ' '));
         ui->name_2->setText(QString::fromStdString("Hi, " + firstName));
-
+        if (currStaff->data.gender == "Male")
+            ui->avatar_2->setStyleSheet("#avatar_2 {border-image: url(:/background/avatar_male_staff)}");
+        else
+            ui->avatar_2->setStyleSheet("#avatar_2 {border-image: url(:/background/avatar_female_staff)}");
         ui->stackedWidget->setCurrentIndex(2);
     }
     else if (id == 2)
@@ -507,6 +510,10 @@ void MainWindow::on_button_signin_clicked()
         std::stringstream name(currStudent->data.name);
         std::string firstName;
         while (getline(name, firstName, ' '));
+        if (currStudent->data.gender == "Male")
+            ui->avatar->setStyleSheet("#avatar {border-image: url(:/background/avatar_male_student)}");
+        else
+            ui->avatar->setStyleSheet("#avatar {border-image: url(:/background/avatar_female_student)}");
         ui->name->setText(QString::fromStdString("Hi, " + firstName));
 
         ui->stackedWidget->setCurrentIndex(1);

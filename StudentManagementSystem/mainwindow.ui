@@ -74,12 +74,13 @@ color: black;
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="styleSheet">
        <string notr="true">#page{
-        border-image: url(:/background/Minecraft HD world.jpg);
+        border-image: url(:/background/background.jpg)
 }
 
 #student_homepage{
-        border-image: url(:/background/Lovely Minecraft Hd Wallpaper 1920x1080.jpg);
-}</string>
+        border-image: url(:/background/background_1.jpg);
+}
+</string>
       </property>
       <property name="currentIndex">
        <number>2</number>
@@ -1967,8 +1968,8 @@ padding-left: 10px;</string>
       </widget>
       <widget class="QWidget" name="admin_homepage">
        <property name="styleSheet">
-        <string notr="true">#admin_homepage{
-        border-image: url(:/background/Lovely Minecraft Hd Wallpaper 1920x1080.jpg);
+        <string notr="true">#admin_homepage {
+        border-image: url(:/background/background_1.jpg)
 }</string>
        </property>
        <layout class="QGridLayout" name="gridLayout_4" columnstretch="5,19">
@@ -2062,7 +2063,7 @@ font-size: 16px;</string>
              </property>
              <property name="styleSheet">
               <string notr="true">#avatar_2{
-        border-image: url(:/background/OIP.jpg)
+        border-image: url(:/background/avatar_female)
 }</string>
              </property>
              <property name="text">
@@ -2279,7 +2280,7 @@ font-size: 16px;</string>
 </string>
           </property>
           <property name="currentIndex">
-           <number>9</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="AdHome">
            <layout class="QGridLayout" name="gridLayout_27">
@@ -5190,7 +5191,7 @@ QScrollBar::sub-line:vertical {
 }</string>
               </property>
               <property name="currentIndex">
-               <number>2</number>
+               <number>4</number>
               </property>
               <widget class="QWidget" name="page_2">
                <layout class="QGridLayout" name="gridLayout_20">
